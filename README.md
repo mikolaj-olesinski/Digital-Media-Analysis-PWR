@@ -8,7 +8,6 @@ Pytanie: czy da się oszacować widoczność (wyświetlenia) postu z liczby obse
 - `notebooks/01_eda.ipynb` (+ `.html`) — wstępna eksploracja danych
 - `src/m1_figures.py` — wykres i liczby do karty M1
 - `pitchdeck/claude/` — prezentacja (pptx, pdf, skrypt budujący)
-- `logs/` — logi sesji agentów AI
 
 ## Dane
 Surowy plik `reach_samples_students.csv` (12 500 wzmianek od Brand24) **nie jest** w repozytorium: zawiera dane osobowe autorów i dane zleceniodawcy.
