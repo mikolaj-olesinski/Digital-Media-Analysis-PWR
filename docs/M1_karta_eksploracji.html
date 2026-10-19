@@ -1,0 +1,79 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><title>M1 Karta eksploracji danych</title>
+<style>
+@page{size:A4;margin:14mm 15mm}
+body{font-family:Calibri,"Segoe UI",Arial,sans-serif;font-size:9.6pt;line-height:1.36;color:#1d1b26;margin:0}
+h1{font-size:17pt;margin:0 0 2px;color:#3f2a6b}
+.sub{color:#666;font-size:9pt;margin-bottom:8px}
+h2{font-size:11.2pt;color:#3f2a6b;border-bottom:1.5px solid #3f2a6b;margin:11px 0 4px;padding-bottom:1px}
+p{margin:3px 0}ul{margin:3px 0 3px 16px;padding:0}li{margin:1.5px 0}
+table{border-collapse:collapse;width:100%;font-size:8.8pt;margin:4px 0}
+th,td{border:1px solid #cfcad9;padding:2px 5px;text-align:left;vertical-align:top}
+th{background:#ece8f5}
+.box{background:#f6f3fb;border-left:4px solid #3f2a6b;padding:4px 8px;margin:4px 0}
+.neg{background:#fdf0ec;border-left:4px solid #e4572e;padding:4px 8px;margin:4px 0}
+img{width:100%}.cap{font-size:8.3pt;color:#555}
+.pb{page-break-before:always}
+</style></head><body>
+<h1>Karta eksploracji danych (M1): estymacja widoczności postów</h1>
+<div class="sub">AMC, PWr · zleceniodawca: Brand24 · zespół i repozytorium: sekcja 7 · stan na 19.10.2026</div>
+
+<h2>1. Pytanie badawcze i hipotezy</h2>
+<div class="box"><b>Pytanie.</b> Na platformach, gdzie znamy liczbę wyświetleń (TikTok, YouTube, X), czy da się oszacować liczbę wyświetleń pojedynczego posta z liczby obserwujących i reakcji (polubienia, komentarze, udostępnienia) dokładniej niż prostą regułą „stała × obserwujący”, i z jaką niepewnością? Co z tego wynika dla Facebooka i Instagrama, gdzie wyświetleń nie ma?</div>
+<p><b>Założenia (jawne).</b> (Z1) Miarą odniesienia jest <code>view_count</code> (wyświetlenia), a nie zasięg w sensie unikalnych odbiorców, którego nie obserwujemy nigdzie. (Z2) Pole <code>b24_estimated_reach</code> <u>nie jest prawdą bazową</u>: na TikToku i YouTube jest równe <code>view_count</code> z konstrukcji (100% i 99% wierszy), a na X, Facebooku i Instagramie jest wyliczane regułą z obserwujących lub reakcji (odtworzoną w sekcji 3). Zgodność z nim nic nie mówi o rzeczywistej widoczności.</p>
+<table><tr><th>Hipoteza</th><th>Co ją obali</th></tr>
+<tr><td><b>H1.</b> Model log(wyświetlenia) ~ log(obserwujący) + log(reakcje) ma mniejszy błąd niż stała × obserwujący na TikToku, YouTube i X.</td><td>Błąd modelu (MAE w log10, walidacja czasowa) nie jest mniejszy niż baseline, a przedziały bootstrapu się pokrywają. Wstępnie: nie obalona (sekcja 3).</td></tr>
+<tr><td><b>H2.</b> Faktyczna reguła Brand24 na X odbiega od wyświetleń bardziej niż model z H1.</td><td>MAE reguły Brand24 ≤ MAE modelu na zbiorze testowym. Wstępnie: nie obalona (1,08 vs 0,47).</td></tr>
+<tr><td><b>H3.</b> Relacja wyświetlenia ~ obserwujący + reakcje przenosi się między platformami.</td><td>Model uczony na TikToku i YouTube ma na X (jedyny „obcy” test z prawdą bazową) błąd nie lepszy niż baseline. Dla FB i IG hipotezy <u>nie da się</u> zweryfikować.</td></tr></table>
+
+<h2>2. Źródła danych i zakres próby</h2>
+<ul>
+<li><b>Dane:</b> <code>reach_samples_students.csv</code> od Brand24, 12 500 publicznych wzmianek (po 2 500 z X, Instagrama, YouTube, Facebooka i TikToka), 19 kolumn, 348 marek, język głównie angielski (85%), kraj pusty w 53%. Daty 2025-01 do 2026-10, lecz ok. 85% wierszy z kwietnia–sierpnia 2026.</li>
+<li><b>Zmienne:</b> odniesienie <code>view_count</code>; predyktory <code>author_followers</code>, <code>likes</code>, <code>comments</code>, <code>shares</code>, platforma, język, czas; kontekst <code>b24_estimated_reach</code>, <code>sentiment</code>. Pola osobowe (<code>author_name</code>, <code>author_url</code>, <code>url</code>) nie są używane i nie trafią do raportów (RODO).</li>
+<li><b>Dane zewnętrzne (przegląd):</b> nie znaleziono publicznego zbioru z prawdziwymi wyświetleniami Facebooka ani Instagrama. Dla YouTube'a jest YouNiverse (ICWSM 2021, ok. 72 mln filmów z wyświetleniami i subskrybentami), dla TikToka dane konkursu INFORMS 2024; oba wymagają weryfikacji pól i licencji. Meta Content Library i TikTok Research API są dostępne tylko po wniosku instytucjonalnym. W M1 nie uzupełniamy próby danymi zewnętrznymi.</li></ul>
+
+<h2>3. Wyniki wstępnej eksploracji</h2>
+<img src="../figures/m1_dane_i_blad.png"><div class="cap">Rys. 1. A: odsetek wzmianek z wyświetleniami. B: średni błąd bezwzględny oszacowania log10(wyświetlenia), 5-krotna walidacja krzyżowa (losowa, wstępna). Skrypt: <code>src/m1_figures.py</code>, liczby: <code>data/processed/m1_numbers.json</code>.</div>
+<table><tr><th>platforma</th><th>wyświetlenia</th><th>obserwujący</th><th>reach = views</th><th>reach = 0</th><th>ρ Spearmana: views~obserwujący / views~reakcje</th></tr>
+<tr><td>TikTok</td><td>100%</td><td>100%</td><td>100%</td><td>0%</td><td>0,43 / 0,87</td></tr>
+<tr><td>YouTube</td><td>99%</td><td>100%</td><td>99%</td><td>2%</td><td>0,56 / 0,65</td></tr>
+<tr><td>X</td><td>75%</td><td>100%</td><td>1%</td><td>11%</td><td>0,41 / 0,54</td></tr>
+<tr><td>Facebook</td><td><b>0%</b></td><td>73%</td><td>–</td><td>9%</td><td>brak views</td></tr>
+<tr><td>Instagram</td><td><b>0%</b></td><td><b>8%</b></td><td>–</td><td><b>43%</b></td><td>brak views</td></tr></table>
+<ul>
+<li><b>Rozkłady są silnie prawoskośne</b> (mediana reach 366, średnia 15 652, maksimum ok. 16 mln), więc analizujemy w skali log, medianami i kwantylami.</li>
+<li><b>Reguły Brand24 odtworzone z danych</b> (zleceniodawca nie podał stałej): TikTok, YouTube: reach = views. X: 0,1 × obserwujący, gdy brak reakcji, w przeciwnym razie ok. 700 × reakcje (87% wierszy dokładnie). Facebook: max(współczynnik schodkowy × obserwujący, 100 × reakcje), współczynniki 10% / 6% / 5% / 4% / 2% wraz z rozmiarem konta (72% dokładnie, 95% w granicach 2%). Instagram: 20 × (polubienia + komentarze), 98% dokładnie. Wniosek: reach na X, FB i IG jest deterministyczną funkcją tych samych zmiennych, których użyłby nasz model.</li>
+<li><b>Wstępny test wykonalności</b> (log10, walidacja losowa, n = 2 439 / 2 428 / 1 746 dla TikTok / YouTube / X): stała × obserwujący 0,92 / 0,86 / 0,88; model z reakcjami 0,29 / 0,50 / 0,47. Na X faktyczna reguła Brand24 ma 1,08 (n = 1 639), czyli typowo myli się o ponad rząd wielkości. To jedyne miejsce, gdzie regułę Brand24 da się zestawić z wyświetleniami.</li></ul>
+
+<h2>4. Plan pomiaru zjawiska</h2>
+<ul>
+<li><b>Miara:</b> <code>view_count</code> jako przybliżenie widoczności (Z1). Błąd: MAE i mediana błędu względnego w log10. Niepewność: przedziały predykcji 80% i 90% z regresji kwantylowej kalibrowanej na zbiorze hold-out (alternatywnie conformal) oraz bootstrap dla błędów. Raportujemy <u>pokrycie przedziałów</u> osobno dla każdej platformy.</li>
+<li><b>Walidacja:</b> podział czasowy (uczenie do marca 2026, test od kwietnia 2026), bo próba jest nierówna w czasie i nie jest wymienialna; losowa CV tylko jako porównanie. Podział według marek, by uniknąć wycieku.</li>
+<li><b>Modele:</b> baseline 1: stała × obserwujący (mediana ilorazu z treningu); baseline 2: odtworzona reguła Brand24; model: regresja log-log ze splajnem po log(obserwujący) i reakcjami, a jako górna granica gradient boosting.</li>
+<li><b>Test przenoszenia (H3):</b> uczenie na TikToku i YouTube, test na X (platforma z wyświetleniami, nieużytymi w uczeniu). Dla FB i IG nie ma prawdy bazowej, więc pokazujemy jedynie <u>rozrzut przewidywań modelu względem reguły Brand24</u>, opisany jako porównanie dwóch szacunków, nie błąd.</li>
+<li><b>Analizy odporności:</b> rola <code>metrics_updated_at</code> (wiek metryk), usunięcie skrajnego 1% obserwacji, osobno posty z zerowymi reakcjami, posty z X bez <code>view_count</code> (25%, braki nielosowe).</li>
+<li><b>Warunek „efektu nie ma”:</b> jeśli błąd modelu nie jest istotnie mniejszy od baseline'u na zbiorze czasowym albo przedziały nie mają deklarowanego pokrycia, piszemy to wprost.</li></ul>
+
+<h2>5. Ograniczenia danych i możliwe źródła błędu</h2>
+<div class="neg"><b>Najważniejsze, wprost:</b> na Facebooku i Instagramie nie mamy żadnej prawdy bazowej, a <code>b24_estimated_reach</code> to tam reguła Brand24. Odtworzenie jej nie jest estymacją widoczności. Wnioski o FB i IG będą więc założeniem o przenoszeniu z innych platform, a nie wynikiem zweryfikowanym.</div>
+<ul>
+<li><b>Konstrukt:</b> wyświetlenia ≠ zasięg unikalnych użytkowników (jedna osoba może wyświetlić wielokrotnie), a klienta interesuje zasięg.</li>
+<li><b>Okrężność:</b> na TikToku i YouTube reach = views z definicji, więc porównanie z <code>b24_estimated_reach</code> jest tam puste. Reakcje są częściowo skutkiem wyświetleń, co jest dopuszczalne dla estymacji, ale nie dla wniosków o wpływie.</li>
+<li><b>Próba:</b> wzmianki o markach wybrane przez Brand24 (nie losowe posty), skok liczebności od kwietnia 2026, 85% angielski, ok. 50% braków kraju. Wnioski dotyczą tej populacji wzmianek.</li>
+<li><b>Braki:</b> Instagram: obserwujący tylko w 8%, brak <code>shares</code>, 43% zer; X: 25% bez views; braki zależą od platformy. Nie imputujemy po cichu, raportujemy per platforma.</li>
+<li><b>Migawka w czasie:</b> metryki mają datę <code>metrics_updated_at</code>, a młodsze posty mają mniej wyświetleń, niż będą miały docelowo.</li>
+<li><b>Prawo i etyka:</b> dane publiczne, zgodnie z RODO bez nazw autorów w wynikach. Reguły Brand24 są odtworzone z danych i wymagają potwierdzenia przez zleceniodawcę.</li></ul>
+
+<h2>6. Wykonalność do zajęć 5 i stan wiedzy</h2>
+<ul>
+<li><b>Gotowe:</b> notebook EDA (<code>notebooks/01_eda.ipynb</code>), wstępny test (Rys. 1), odtworzone reguły. <b>Do zajęć 3:</b> codebook (wzmianka organiczna, reklama, spam) i ręczna próbka złota ok. 100 wzmianek z kappą dwóch koderów. <b>Do zajęć 4:</b> pełny pipeline z podziałem czasowym, przedziałami i testem przenoszenia. <b>Do zajęć 5:</b> preprint ≤8 stron i lista własnych słabych punktów na red teaming. Dane są małe (12 500 wierszy), obliczenia trwają sekundy.</li>
+<li><b>Ryzyko:</b> wynik może okazać się częściowo negatywny (brak walidacji FB i IG). Mieści się to w kryterium oceny kursu.</li>
+<li><b>Literatura (część sprawdzona tylko po streszczeniach, do weryfikacji przed preprintem):</b> liczba obserwujących słabo przewiduje faktyczny wpływ (Cha i in., ICWSM 2010); logarytmy późniejszych wyświetleń są w przybliżeniu liniowe względem wczesnych (Szabo i Huberman, CACM 2010); engagement względem obserwujących nie jest stały, ma kształt odwróconego U (Wies, Bleier, Edeling, J. Marketing 2023), co uzasadnia schodkowe i nieliniowe stałe; cechy statyczne słabo przewidują dalszy wzrost kaskad (Cheng i in., WWW 2014); ważność przedziałów conformal wymaga wymienialności próbki (Lunde 2023), stąd podział czasowy. Dostęp badawczy do prawdziwego zasięgu istnieje tylko wewnątrz platform lub przez wnioski (Meta Content Library, DSA art. 40). Nie znaleźliśmy recenzowanej pracy o estymacji wyświetleń z samych obserwujących i reakcji na wielu platformach.</li></ul>
+
+<h2>7. Zespół i repozytorium</h2>
+<table><tr><th>Rola</th><th>Osoba</th><th>Zakres</th></tr>
+<tr><td>Lead badawczy</td><td>[uzupełnić]</td><td>pytanie, hipotezy, spójność wniosku</td></tr>
+<tr><td>Inżynier danych</td><td>[uzupełnić]</td><td>dane, RODO, data statement</td></tr>
+<tr><td>Inżynier pipeline'u</td><td>[uzupełnić]</td><td>codebook, próbka złota, walidacja</td></tr>
+<tr><td>Inżynier analityk</td><td>[uzupełnić]</td><td>odporność, wizualizacje, niepewność</td></tr></table>
+<p>Repozytorium: [wstawić link]. Użycie AI (przegląd literatury i danych, kod wykresów, szkic karty) ujawniamy; logi sesji w <code>logs/</code>.</p>
+</body></html>

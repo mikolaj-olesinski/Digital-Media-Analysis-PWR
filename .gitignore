@@ -1,0 +1,5 @@
+reach_samples_students.csv
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+node_modules/

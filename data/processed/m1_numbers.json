@@ -1,0 +1,32 @@
+{
+ "tiktok": {
+  "n": 2439,
+  "mae_const": 0.92,
+  "mae_gbm": 0.29,
+  "rho_foll": 0.43,
+  "rho_eng": 0.87
+ },
+ "youtube": {
+  "n": 2428,
+  "mae_const": 0.86,
+  "mae_gbm": 0.5,
+  "rho_foll": 0.56,
+  "rho_eng": 0.65
+ },
+ "twitter": {
+  "n": 1746,
+  "mae_const": 0.88,
+  "mae_gbm": 0.47,
+  "rho_foll": 0.41,
+  "rho_eng": 0.54,
+  "mae_b24_rule": 1.08,
+  "n_b24": 1639
+ },
+ "coverage": {
+  "tiktok": 100.0,
+  "youtube": 98.9,
+  "twitter": 74.6,
+  "facebook": 0.0,
+  "instagram": 0.0
+ }
+}
