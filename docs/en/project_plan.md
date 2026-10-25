@@ -5,13 +5,13 @@ Status after M1: question, hypotheses H1–H3, reconstructed Brand24 rules and a
 Key caveat: on Facebook and Instagram there is no ground truth and `b24_estimated_reach` is Brand24's own rule. We therefore (1) learn views ~ engagement on TikTok, YouTube and X, (2) measure how much that relation differs between platforms, and (3) use that difference as the uncertainty of transferring to FB/IG. An honest negative result is acceptable.
 
 ## Session 3: codebook, gold standard, instrument validation
-- [ ] Codebook for mention type: organic / ad / spam / bot (definitions, examples, edge cases)
-- [ ] Stratified random gold sample (about 100–150 mentions, per platform), labelled by two people
-- [ ] Inter-coder agreement (Cohen's kappa) and a revised codebook
-- [ ] AI instrument (LLM) classifies mention type and sentiment; compare with gold (kappa, confusion matrix)
+- [x] Codebook for mention type: organic / promo / spam / unclear and sentiment (`docs/en/codebook.md`)
+- [x] Manual spot check of the AI labels by a team member (informal, not scored; no human-AI kappa)
+- [x] Agreement between three AI coders (kappa 0.77-0.79 type, 0.71-0.73 sentiment); human-AI agreement not quantified
+- [x] AI instrument labels all 12,500 mentions (3 Haiku coders + Sonnet adjudication); no human gold sample
 - [ ] Check Brand24's `sentiment` field (42% missing) against the gold sample
-- [ ] Data statement and a GDPR note
-- [ ] Shared validation module `src/validation.py`: temporal + brand split, MAE in log10, intervals, coverage, bootstrap
+- [x] Data statement and GDPR note (`docs/en/data_statement.md`)
+- [x] Shared validation module `src/validation.py`: brand-grouped and temporal split, MAE in log10, bootstrap CI, conformal intervals with coverage
 - [ ] Ask Brand24 to confirm the reconstructed rules
 
 ## Session 4: first result on the full data
@@ -26,7 +26,7 @@ Model ladder, all evaluated with the same validation, per platform:
 
 Transfer and FB/IG:
 - [ ] Ratio views / engagement per platform (TikTok, YouTube, X) and its stability
-- [ ] Leave-one-platform-out: train on two platforms with truth, test on the third
+- [x] Leave-one-platform-out (`notebooks/models/02_transfer_and_intervals.ipynb`): TikTok and YouTube transfer well, X biased, cross-platform intervals under-cover
 - [ ] Engagement model on FB and IG (likes, comments, shares from followers, text, brand, time) as a separate analysis
 - [ ] Shared model with platform as a feature / domain adaptation
 - [ ] Results table: what improves on the baseline (bootstrap CI) and what does not
