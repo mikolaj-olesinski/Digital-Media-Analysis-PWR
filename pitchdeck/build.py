@@ -1,4 +1,4 @@
-"""Builds pitchdeck_<lang>.pptx (7 slides, speaker notes, Morph transitions, entrance animations).
+"""Builds <lang>/pitchdeck.pptx (7 slides, speaker notes, Morph transitions, entrance animations).
 Run: python pitchdeck/build.py [pl|en]"""
 import re
 import sys
@@ -501,7 +501,7 @@ notes(s, "Dlaczego nam się uda? Dwa powody. Pierwszy to wykonalność: mamy leg
          "niepewności. A metody konformalne, opisane przez Angelopoulosa i Batesa, dają przedziały z "
          "gwarancją. Dziękuję.")
 
-out = HERE / f"pitchdeck_{LANG}.pptx"
+out = HERE / LANG / "pitchdeck.pptx"
 prs.save(out)
 tot_w = sum(w for w, _ in NOTES)
 tot_s = sum(t for _, t in NOTES)

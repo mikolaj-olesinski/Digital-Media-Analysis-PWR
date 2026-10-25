@@ -1,4 +1,4 @@
-"""Figure 1 and numbers for the M1 card (docs/m1_exploration_card_*). Run: python src/m1_figures.py [pl|en]"""
+"""Figure 1 and numbers for the M1 card (docs/<lang>/m1_exploration_card.*). Run: python src/m1_figures.py [pl|en]"""
 import json, sys, warnings
 from pathlib import Path
 import numpy as np, pandas as pd
