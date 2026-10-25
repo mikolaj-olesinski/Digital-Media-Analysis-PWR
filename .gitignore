@@ -1,6 +1,7 @@
-reach_samples_students.csv
+data/raw/
 __pycache__/
 .ipynb_checkpoints/
 *.pyc
 node_modules/
 logs/
+prompts/

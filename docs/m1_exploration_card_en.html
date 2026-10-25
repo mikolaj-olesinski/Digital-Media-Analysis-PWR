@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>M1 Data exploration card</title>
+<style>
+@page{size:A4;margin:14mm 15mm}
+body{font-family:Calibri,"Segoe UI",Arial,sans-serif;font-size:9.6pt;line-height:1.36;color:#1d1b26;margin:0}
+h1{font-size:17pt;margin:0 0 2px;color:#3f2a6b}
+.sub{color:#666;font-size:9pt;margin-bottom:8px}
+h2{font-size:11.2pt;color:#3f2a6b;border-bottom:1.5px solid #3f2a6b;margin:11px 0 4px;padding-bottom:1px}
+p{margin:3px 0}ul{margin:3px 0 3px 16px;padding:0}li{margin:1.5px 0}
+table{border-collapse:collapse;width:100%;font-size:8.8pt;margin:4px 0}
+th,td{border:1px solid #cfcad9;padding:2px 5px;text-align:left;vertical-align:top}
+th{background:#ece8f5}
+.box{background:#f6f3fb;border-left:4px solid #3f2a6b;padding:4px 8px;margin:4px 0}
+.neg{background:#fdf0ec;border-left:4px solid #e4572e;padding:4px 8px;margin:4px 0}
+img{width:100%}.cap{font-size:8.3pt;color:#555}
+.pb{page-break-before:always}
+</style></head><body>
+<h1>Data exploration card (M1): estimating the visibility of social media posts</h1>
+<div class="sub">AMC, Wrocław University of Science and Technology · client: Brand24 · team and repository: section 7 · as of 19 Oct 2026</div>
+
+<h2>1. Research question and hypotheses</h2>
+<div class="box"><b>Question.</b> On platforms where the number of views is known (TikTok, YouTube, X), can the views of a single post be estimated from the number of followers and reactions (likes, comments, shares) more accurately than by the simple rule "constant × followers", and with what uncertainty? What follows for Facebook and Instagram, where views are not available?</div>
+<p><b>Explicit assumptions.</b> (A1) The reference measure is <code>view_count</code> (views), not reach in the sense of unique audience members, which we do not observe anywhere. (A2) The <code>b24_estimated_reach</code> field is <u>not ground truth</u>: on TikTok and YouTube it equals <code>view_count</code> by construction (100% and 99% of rows), while on X, Facebook and Instagram it is computed by a rule from followers or reactions (reconstructed in section 3). Agreement with it says nothing about real visibility.</p>
+<table><tr><th>Hypothesis</th><th>What would refute it</th></tr>
+<tr><td><b>H1.</b> The model log(views) ~ log(followers) + log(reactions) has a lower error than constant × followers on TikTok, YouTube and X.</td><td>The model error (MAE in log10, temporal validation) is not lower than the baseline, and the bootstrap intervals overlap. Preliminary: not refuted (section 3).</td></tr>
+<tr><td><b>H2.</b> The actual Brand24 rule on X deviates from views more than the model from H1.</td><td>MAE of the Brand24 rule ≤ MAE of the model on the test set. Preliminary: not refuted (1.08 vs 0.47).</td></tr>
+<tr><td><b>H3.</b> The relation views ~ followers + reactions transfers between platforms.</td><td>A model trained on TikTok and YouTube has an error on X (the only "foreign" test with ground truth) no better than the baseline. For FB and IG the hypothesis <u>cannot</u> be verified.</td></tr></table>
+
+<h2>2. Data sources and sample scope</h2>
+<ul>
+<li><b>Data:</b> <code>data/raw/reach_samples_students.csv</code> from Brand24, 12,500 public mentions (2,500 each from X, Instagram, YouTube, Facebook and TikTok), 19 columns, 348 brands, mostly English (85%), country empty in 53%. Dates 2025-01 to 2026-10, but about 85% of rows come from April–August 2026.</li>
+<li><b>Variables:</b> reference <code>view_count</code>; predictors <code>author_followers</code>, <code>likes</code>, <code>comments</code>, <code>shares</code>, platform, language, time; context <code>b24_estimated_reach</code>, <code>sentiment</code>. Personal fields (<code>author_name</code>, <code>author_url</code>, <code>url</code>) are not used and will not appear in reports (GDPR).</li>
+<li><b>External data (review):</b> we found no public dataset with real Facebook or Instagram views. For YouTube there is YouNiverse (ICWSM 2021, about 72 million videos with views and subscribers), for TikTok the INFORMS 2024 competition data; both require checking of fields and licences. Meta Content Library and the TikTok Research API are available only through an institutional application. In M1 we do not supplement the sample with external data.</li></ul>
+
+<h2>3. Preliminary exploration results</h2>
+<img src="../figures/m1_data_and_error_en.png"><div class="cap">Fig. 1. A: share of mentions with views. B: mean absolute error of the log10(views) estimate, 5-fold cross-validation (random, preliminary). Script: <code>src/m1_figures.py en</code>, numbers: <code>data/processed/m1_numbers.json</code>.</div>
+<img src="../figures/m1_distributions_en.png"><div class="cap">Fig. 2. A: distribution of log10(views) for TikTok, YouTube and X, and of log10(Brand24 reach) for FB and IG (dashed lines, these are not views). B: share of total views contributed by the most popular posts. Script: <code>src/m1_figures2.py en</code>.</div>
+<table><tr><th>platform</th><th>views</th><th>followers</th><th>reach = views</th><th>reach = 0</th><th>Spearman ρ: views~followers / views~reactions</th></tr>
+<tr><td>TikTok</td><td>100%</td><td>100%</td><td>100%</td><td>0%</td><td>0.43 / 0.87</td></tr>
+<tr><td>YouTube</td><td>99%</td><td>100%</td><td>99%</td><td>2%</td><td>0.56 / 0.65</td></tr>
+<tr><td>X</td><td>75%</td><td>100%</td><td>1%</td><td>11%</td><td>0.41 / 0.54</td></tr>
+<tr><td>Facebook</td><td><b>0%</b></td><td>73%</td><td>–</td><td>9%</td><td>no views</td></tr>
+<tr><td>Instagram</td><td><b>0%</b></td><td><b>8%</b></td><td>–</td><td><b>43%</b></td><td>no views</td></tr></table>
+<ul>
+<li><b>The distributions are strongly right-skewed</b> (median reach 366, mean 15,652, maximum about 16 million), so we analyse on a log scale, with medians and quantiles. Fig. 2B: the top 1% of posts give 62% (TikTok), 72% (YouTube) and 60% (X) of all views, and the top 10% give 89–95%. The mean is therefore misleading, and we measure error in log10.</li>
+<li><b>Brand24 rules reconstructed from the data</b> (the client did not provide the constant): TikTok, YouTube: reach = views. X: 0.1 × followers when there are no reactions, otherwise about 700 × reactions (87% of rows exactly). Facebook: max(stepwise coefficient × followers, 100 × reactions), with coefficients of 10% / 6% / 5% / 4% / 2% as account size grows (72% exactly, 95% within 2%). Instagram: 20 × (likes + comments), 98% exactly. Conclusion: reach on X, FB and IG is a deterministic function of the same variables our model would use.</li>
+<li><b>Preliminary feasibility test</b> (log10, random validation, n = 2,439 / 2,428 / 1,746 for TikTok / YouTube / X): constant × followers 0.92 / 0.86 / 0.88; model with reactions 0.29 / 0.50 / 0.47. On X the actual Brand24 rule gives 1.08 (n = 1,639), i.e. it is typically off by more than an order of magnitude. This is the only place where the Brand24 rule can be compared with views.</li></ul>
+
+<h2>4. Measurement plan</h2>
+<ul>
+<li><b>Measure:</b> <code>view_count</code> as a proxy for visibility (A1). Error: MAE and median relative error in log10. Uncertainty: 80% and 90% prediction intervals from quantile regression calibrated on a hold-out set (alternatively conformal) and bootstrap for errors. We report the <u>coverage of the intervals</u> separately for each platform.</li>
+<li><b>Validation:</b> temporal split (train until March 2026, test from April 2026), because the sample is uneven in time and not exchangeable; random CV only as a comparison. Split by brand to avoid leakage.</li>
+<li><b>Models:</b> baseline 1: constant × followers (median ratio from training); baseline 2: the reconstructed Brand24 rule; model: log-log regression with a spline on log(followers) and reactions, with gradient boosting as an upper bound.</li>
+<li><b>Transfer test (H3):</b> train on TikTok and YouTube, test on X (a platform with views not used in training). For FB and IG there is no ground truth, so we only show the <u>spread of model predictions relative to the Brand24 rule</u>, described as a comparison of two estimates, not an error.</li>
+<li><b>Additional features to test</b> (each separately and together, as an ablation): age of the post at the time metrics were taken (<code>metrics_updated_at</code> − <code>created_at</code>), hour and weekday of publication, content language, content length, sentiment, country, brand. Preliminary (same gradient boosting, error in log10): metrics age and content length lower the error on YouTube from 0.50 to 0.46–0.48 and on X from 0.47 to 0.46; on TikTok, and for hour, weekday, language and sentiment, the change is of the order of 0.00–0.01, i.e. practically none. Any feature with higher accuracy must hold up on the temporal set.</li>
+<li><b>Attempts to obtain other data:</b> (a) check the fields and licence of YouNiverse (YouTube) and the INFORMS 2024 data (TikTok) as an independent validation set for the model views ~ followers + reactions; (b) ask Brand24 to confirm the rules and for any FB/IG posts with real views (e.g. client accounts that shared their statistics); (c) assess an application for Meta Content Library access through the university (unrealistic at the scale of the course).</li>
+<li><b>Robustness analyses:</b> the role of <code>metrics_updated_at</code> (metrics age), removing the extreme 1% of observations, posts with zero reactions separately, X posts without <code>view_count</code> (25%, missingness not random).</li>
+<li><b>The "no effect" condition:</b> if the model error is not significantly lower than the baseline on the temporal set, or the intervals do not have the stated coverage, we say so plainly.</li></ul>
+
+<h2>5. Data limitations and possible sources of error</h2>
+<div class="neg"><b>Most important, stated plainly:</b> on Facebook and Instagram we have no ground truth at all, and <code>b24_estimated_reach</code> there is Brand24's rule. Reconstructing it is not an estimate of visibility. Conclusions about FB and IG will therefore be an assumption about transfer from other platforms, not a verified result.</div>
+<ul>
+<li><b>Construct:</b> views ≠ reach of unique users (one person can view repeatedly), and the client cares about reach.</li>
+<li><b>Circularity:</b> on TikTok and YouTube reach = views by definition, so comparison with <code>b24_estimated_reach</code> is empty there. Reactions are partly a consequence of views, which is acceptable for estimation but not for conclusions about influence.</li>
+<li><b>Sample:</b> brand mentions selected by Brand24 (not random posts), a jump in volume from April 2026, 85% English, about 50% of country missing. Conclusions concern this population of mentions.</li>
+<li><b>Missing data:</b> Instagram: followers only in 8%, no <code>shares</code>, 43% zeros; X: 25% without views; missingness depends on the platform. We do not impute silently, we report per platform.</li>
+<li><b>Snapshot in time:</b> metrics carry a <code>metrics_updated_at</code> date, and younger posts have fewer views than they will eventually have.</li>
+<li><b>Law and ethics:</b> public data, no author names in results, in line with GDPR. The Brand24 rules are reconstructed from the data and need to be confirmed by the client.</li></ul>
+
+<h2>6. Feasibility by session 5 and state of knowledge</h2>
+<ul>
+<li><b>Done:</b> EDA notebook (<code>notebooks/01_eda.ipynb</code>), preliminary test (Fig. 1), reconstructed rules. <b>By session 3:</b> codebook (organic mention, ad, spam) and a hand-labelled gold sample of about 100 mentions with the kappa of two coders. <b>By session 4:</b> full pipeline with temporal split, intervals and the transfer test. <b>By session 5:</b> preprint ≤8 pages and a list of our own weak points for red teaming. The data are small (12,500 rows), computations take seconds.</li>
+<li><b>Risk:</b> the result may turn out partly negative (no validation for FB and IG). This falls within the course's grading criteria.</li>
+<li><b>Literature (partly checked from abstracts only, to be verified before the preprint):</b> follower count is a poor predictor of actual influence (Cha et al., ICWSM 2010); logarithms of later views are approximately linear in early ones (Szabo and Huberman, CACM 2010); engagement relative to followers is not constant but inverted-U shaped (Wies, Bleier, Edeling, J. Marketing 2023), which justifies stepwise and nonlinear constants; static features poorly predict further cascade growth (Cheng et al., WWW 2014); the validity of conformal intervals requires exchangeability of the sample (Lunde 2023), hence the temporal split. Research access to true reach exists only inside platforms or through applications (Meta Content Library, DSA art. 40). We found no peer-reviewed work on estimating views from followers and reactions alone across multiple platforms.</li></ul>
+
+<h2>7. Team and repository</h2>
+<table><tr><th>Role</th><th>Person</th><th>Scope</th></tr>
+<tr><td>Research lead</td><td>[to fill in]</td><td>question, hypotheses, consistency of the conclusion</td></tr>
+<tr><td>Data engineer</td><td>[to fill in]</td><td>data, GDPR, data statement</td></tr>
+<tr><td>Pipeline engineer</td><td>[to fill in]</td><td>codebook, gold sample, validation</td></tr>
+<tr><td>Analyst engineer</td><td>[to fill in]</td><td>robustness, visualisations, uncertainty</td></tr></table>
+<p>Repository: [insert link]. We disclose the use of AI (literature and data review, figure code, card draft); session logs are kept locally and will be made available on request.</p>
+</body></html>

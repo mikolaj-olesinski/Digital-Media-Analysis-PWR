@@ -1,17 +1,22 @@
-# Digital Media Analysis PWR: estymacja widoczności postów społecznościowych
+# Digital Media Analysis PWR: estimating the visibility of social media posts
 
-Projekt na kurs AMC (Politechnika Wrocławska), zleceniodawca: Brand24.
-Pytanie: czy da się oszacować widoczność (wyświetlenia) postu z liczby obserwujących i reakcji lepiej niż stałą × obserwujący i z jaką niepewnością.
+*Polski: [README.pl.md](README.pl.md)*
 
-## Zawartość
-- `docs/M1_karta_eksploracji.pdf` — karta eksploracji danych (M1)
-- `notebooks/01_eda.ipynb` (+ `.html`) — wstępna eksploracja danych
-- `src/m1_figures.py` — wykres i liczby do karty M1
-- `pitchdeck/claude/` — prezentacja (pptx, pdf, skrypt budujący)
+Project for the AMC course (Wrocław University of Science and Technology), client: Brand24.
+Question: can the visibility (views) of a post be estimated from the number of followers and reactions better than by the constant × followers rule, and with what uncertainty?
 
-## Dane
-Surowy plik `reach_samples_students.csv` (12 500 wzmianek od Brand24) **nie jest** w repozytorium: zawiera dane osobowe autorów i dane zleceniodawcy.
-Aby odtworzyć wyniki, umieść go w katalogu głównym repo i uruchom `python src/m1_figures.py`.
+## Contents
+- `docs/m1_exploration_card_en.pdf` (+ `.html`): M1 data exploration card ([Polish version](docs/m1_exploration_card_pl.pdf))
+- `docs/course_rules_pl.pdf`: course rules, grading and schedule (in Polish)
+- `notebooks/01_eda.ipynb` (+ `.html`): preliminary data exploration
+- `src/m1_figures.py`, `src/m1_figures2.py`: figures and numbers for the M1 card (`python src/m1_figures.py en|pl`)
+- `figures/`: generated figures, `*_en.png` and `*_pl.png`
+- `pitchdeck/`: presentation in English and Polish (pptx, pdf, build script `build.py`)
+- `AGENTS.md` ([Polish](AGENTS.pl.md)): instructions for AI agents working in the repository
 
-## Zespół
-Do uzupełnienia.
+## Data
+The raw file `data/raw/reach_samples_students.csv` (12,500 mentions from Brand24) is **not** in the repository: it contains personal data of authors and the client's data.
+To reproduce the results, place it in `data/raw/` and run `python src/m1_figures.py en`. Dependencies: `pip install -r requirements.txt`.
+
+## Team
+To be filled in.

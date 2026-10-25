@@ -27,13 +27,13 @@ img{width:100%}.cap{font-size:8.3pt;color:#555}
 
 <h2>2. Źródła danych i zakres próby</h2>
 <ul>
-<li><b>Dane:</b> <code>reach_samples_students.csv</code> od Brand24, 12 500 publicznych wzmianek (po 2 500 z X, Instagrama, YouTube, Facebooka i TikToka), 19 kolumn, 348 marek, język głównie angielski (85%), kraj pusty w 53%. Daty 2025-01 do 2026-10, lecz ok. 85% wierszy z kwietnia–sierpnia 2026.</li>
+<li><b>Dane:</b> <code>data/raw/reach_samples_students.csv</code> od Brand24, 12 500 publicznych wzmianek (po 2 500 z X, Instagrama, YouTube, Facebooka i TikToka), 19 kolumn, 348 marek, język głównie angielski (85%), kraj pusty w 53%. Daty 2025-01 do 2026-10, lecz ok. 85% wierszy z kwietnia–sierpnia 2026.</li>
 <li><b>Zmienne:</b> odniesienie <code>view_count</code>; predyktory <code>author_followers</code>, <code>likes</code>, <code>comments</code>, <code>shares</code>, platforma, język, czas; kontekst <code>b24_estimated_reach</code>, <code>sentiment</code>. Pola osobowe (<code>author_name</code>, <code>author_url</code>, <code>url</code>) nie są używane i nie trafią do raportów (RODO).</li>
 <li><b>Dane zewnętrzne (przegląd):</b> nie znaleziono publicznego zbioru z prawdziwymi wyświetleniami Facebooka ani Instagrama. Dla YouTube'a jest YouNiverse (ICWSM 2021, ok. 72 mln filmów z wyświetleniami i subskrybentami), dla TikToka dane konkursu INFORMS 2024; oba wymagają weryfikacji pól i licencji. Meta Content Library i TikTok Research API są dostępne tylko po wniosku instytucjonalnym. W M1 nie uzupełniamy próby danymi zewnętrznymi.</li></ul>
 
 <h2>3. Wyniki wstępnej eksploracji</h2>
-<img src="../figures/m1_dane_i_blad.png"><div class="cap">Rys. 1. A: odsetek wzmianek z wyświetleniami. B: średni błąd bezwzględny oszacowania log10(wyświetlenia), 5-krotna walidacja krzyżowa (losowa, wstępna). Skrypt: <code>src/m1_figures.py</code>, liczby: <code>data/processed/m1_numbers.json</code>.</div>
-<img src="../figures/m1_rozklady.png"><div class="cap">Rys. 2. A: rozkład log10(wyświetleń) dla TikToka, YouTube'a i X oraz log10(reach Brand24) dla FB i IG (linie przerywane, to nie są wyświetlenia). B: jaki odsetek łącznych wyświetleń dają najpopularniejsze posty. Skrypt: <code>src/m1_figures2.py</code>.</div>
+<img src="../figures/m1_data_and_error_pl.png"><div class="cap">Rys. 1. A: odsetek wzmianek z wyświetleniami. B: średni błąd bezwzględny oszacowania log10(wyświetlenia), 5-krotna walidacja krzyżowa (losowa, wstępna). Skrypt: <code>src/m1_figures.py pl</code>, liczby: <code>data/processed/m1_numbers.json</code>.</div>
+<img src="../figures/m1_distributions_pl.png"><div class="cap">Rys. 2. A: rozkład log10(wyświetleń) dla TikToka, YouTube'a i X oraz log10(reach Brand24) dla FB i IG (linie przerywane, to nie są wyświetlenia). B: jaki odsetek łącznych wyświetleń dają najpopularniejsze posty. Skrypt: <code>src/m1_figures2.py pl</code>.</div>
 <table><tr><th>platforma</th><th>wyświetlenia</th><th>obserwujący</th><th>reach = views</th><th>reach = 0</th><th>ρ Spearmana: views~obserwujący / views~reakcje</th></tr>
 <tr><td>TikTok</td><td>100%</td><td>100%</td><td>100%</td><td>0%</td><td>0,43 / 0,87</td></tr>
 <tr><td>YouTube</td><td>99%</td><td>100%</td><td>99%</td><td>2%</td><td>0,56 / 0,65</td></tr>

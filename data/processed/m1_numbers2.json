@@ -29,33 +29,33 @@
   "top1_share": 80.3,
   "top10_share": 97.1
  },
- "dodatkowe_cechy_mae": {
+ "extra_features_mae": {
   "tiktok": {
-   "podstawowe": 0.286,
-   "+ wiek metryk": 0.286,
-   "+ godzina, dzie\u0144": 0.284,
-   "+ j\u0119zyk": 0.285,
-   "+ d\u0142ugo\u015b\u0107 tre\u015bci": 0.288,
-   "+ sentyment": 0.285,
-   "wszystkie": 0.286
+   "base": 0.286,
+   "+ metrics age": 0.286,
+   "+ hour, weekday": 0.284,
+   "+ language": 0.285,
+   "+ content length": 0.288,
+   "+ sentiment": 0.285,
+   "all": 0.286
   },
   "youtube": {
-   "podstawowe": 0.502,
-   "+ wiek metryk": 0.463,
-   "+ godzina, dzie\u0144": 0.5,
-   "+ j\u0119zyk": 0.503,
-   "+ d\u0142ugo\u015b\u0107 tre\u015bci": 0.476,
-   "+ sentyment": 0.501,
-   "wszystkie": 0.461
+   "base": 0.502,
+   "+ metrics age": 0.463,
+   "+ hour, weekday": 0.5,
+   "+ language": 0.503,
+   "+ content length": 0.476,
+   "+ sentiment": 0.501,
+   "all": 0.461
   },
   "twitter": {
-   "podstawowe": 0.47,
-   "+ wiek metryk": 0.457,
-   "+ godzina, dzie\u0144": 0.469,
-   "+ j\u0119zyk": 0.47,
-   "+ d\u0142ugo\u015b\u0107 tre\u015bci": 0.467,
-   "+ sentyment": 0.466,
-   "wszystkie": 0.455
+   "base": 0.47,
+   "+ metrics age": 0.457,
+   "+ hour, weekday": 0.469,
+   "+ language": 0.47,
+   "+ content length": 0.467,
+   "+ sentiment": 0.466,
+   "all": 0.455
   }
  }
 }

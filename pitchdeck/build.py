@@ -1,6 +1,7 @@
-"""Buduje pitchdeck.pptx (7 slajdow, notatki prelegenta, przejscia Morph, animacje wejscia).
-Uruchom: python build.py"""
+"""Builds pitchdeck_<lang>.pptx (7 slides, speaker notes, Morph transitions, entrance animations).
+Run: python pitchdeck/build.py [pl|en]"""
 import re
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -13,7 +14,11 @@ from pptx.oxml.ns import qn
 from pptx.util import Inches, Pt
 
 HERE = Path(__file__).parent
-CSV = HERE.parents[1] / "reach_samples_students.csv"
+CSV = HERE.parent / "data" / "raw" / "reach_samples_students.csv"
+LANG = sys.argv[1] if len(sys.argv) > 1 else "en"
+if LANG == "en":
+    sys.path.insert(0, str(HERE))
+    from strings_en import EN, NOTES_EN
 
 FONT = "Calibri"
 BG, PLUM, CORAL, SUN, BLUE, MINT = "FFF8EF", "2D1E5F", "E8475A", "FFC247", "3B5BDB", "1FB59A"
@@ -30,19 +35,24 @@ def lighten(h, f):
     return "".join(f"{round(v + (255 - v) * f):02X}" for v in c)
 
 
-# ---- liczby z CSV (nic nie wpisujemy z pamieci) ----
+# ---- numbers from the CSV (nothing typed from memory) ----
 df = pd.read_csv(CSV, usecols=["platform", "view_count"])
 N_ROWS = len(df)
 PER_PLATFORM = int(df.platform.value_counts().min())
 VIEWS_PCT = {p: round(g.view_count.notna().mean() * 100) for p, g in df.groupby("platform")}
-fmt = lambda n: f"{n:,}".replace(",", " ")
+fmt = (lambda n: f"{n:,}") if LANG == "en" else (lambda n: f"{n:,}".replace(",", " "))
+
+
+def tr(t):
+    """On-slide text in the chosen language (Polish is the source language)."""
+    return EN.get(t, t) if LANG == "en" else t
 
 prs = Presentation()
 prs.slide_width, prs.slide_height = Inches(13.333), Inches(7.5)
 BLANK = prs.slide_layouts[6]
 
 
-# ---- prymitywy ----
+# ---- primitives ----
 def shape(slide, kind, x, y, w, h, fill=None, line=None, line_w=1.0, adj=None, rot=0, alpha=None):
     s = slide.shapes.add_shape(kind, Inches(x), Inches(y), Inches(w), Inches(h))
     if fill:
@@ -72,7 +82,7 @@ def text(slide, x, y, w, h, t, size=20, bold=False, color=INK, align=PP_ALIGN.LE
     tf.word_wrap = True
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
     tf.vertical_anchor = anchor
-    for i, line in enumerate(t.split("\n")):
+    for i, line in enumerate(tr(t).split("\n")):
         p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
         p.alignment = align
         r = p.add_run()
@@ -90,13 +100,13 @@ def label(s, t, size=20, bold=False, color=WHITE):
     p = tf.paragraphs[0]
     p.alignment = PP_ALIGN.CENTER
     r = p.add_run()
-    r.text = t
+    r.text = tr(t)
     r.font.name, r.font.size, r.font.bold = FONT, Pt(size), bold
     r.font.color.rgb = rgb(color)
 
 
 def shadow(s, blur=16, dist=5, alpha=16, color=PLUM):
-    """Miekki cien pod ksztaltem (wartosci w pt / %)."""
+    """Soft shadow under a shape (values in pt / %)."""
     eff = s._element.spPr.find(qn("a:effectLst"))
     eff.append(parse_xml(
         '<a:outerShdw xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" '
@@ -115,7 +125,7 @@ def grad(fill_owner, c1, c2, angle=0):
 
 
 class Group:
-    """Grupa ksztaltow animowana jako calosc; helpery przyjmuja ja zamiast slajdu."""
+    """A group of shapes animated as one; the helpers accept it in place of a slide."""
     def __init__(self, slide):
         self.g = slide.shapes.add_group_shape()
         self.shapes = self.g.shapes
@@ -136,8 +146,8 @@ def eye(s, cx, cy, w, ring=PLUM, bg=WHITE, pupil=CORAL):
     shape(s, MSO_SHAPE.OVAL, cx - d2 * 0.2, cy - d2 * 1.1, d2 * 0.55, d2 * 0.55, fill=WHITE)
 
 
-# ---- tlo „plywajace” miedzy slajdami (Morph laczy ksztalty o nazwach !!...) ----
-# (x, y, srednica, przezroczystosc w % krycia) dla kola koralowego, zoltego i niebieskiego
+# ---- "floating" background between slides (Morph links shapes named !!...) ----
+# (x, y, diameter, opacity in %) for the coral, yellow and blue circles
 BLOBS = {
     1: [(9.7, 0.4, 3.2, 100), (11.5, 4.4, 1.5, 100), (8.4, 4.8, 1.0, 100)],
     2: [(11.4, -1.5, 3.2, 14), (12.5, 6.6, 1.5, 40), (-0.5, 6.9, 1.0, 22)],
@@ -161,7 +171,7 @@ def new_slide(title=None, dark=False, accent=CORAL):
     for name, col, (x, y, d, a) in zip(("!!b1", "!!b2", "!!b3"), (CORAL, SUN, BLUE), BLOBS[n]):
         b = shape(s, MSO_SHAPE.OVAL, x, y, d, d, fill=col, alpha=None if a == 100 else a)
         b.name = name
-    # pasek postepu (Morph go wydluza)
+    # progress bar (Morph lengthens it)
     p = shape(s, MSO_SHAPE.RECTANGLE, 0, 7.38, 13.333 * n / N_SLIDES, 0.12, fill=SUN if dark else CORAL)
     p.name = "!!progress"
     if title:
@@ -171,7 +181,7 @@ def new_slide(title=None, dark=False, accent=CORAL):
     return s
 
 
-# ---- przejscia i animacje (surowy XML, python-pptx nie ma API) ----
+# ---- transitions and animations (raw XML, python-pptx has no API) ----
 P_NS = 'xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"'
 
 
@@ -189,7 +199,7 @@ def transition(slide, morph=True):
 
 
 def animate(slide, steps, dur=500, gap=120):
-    """Kazdy krok (lista ksztaltow/grup) wplywa od dolu z wygaszeniem, sam, po poprzednim."""
+    """Each step (a list of shapes/groups) flies in from below with a fade, on its own, after the previous one."""
     nid = iter(range(3, 100000))
 
     def effect(spid, node):
@@ -235,6 +245,8 @@ def finish(slide, steps, morph=True):
 
 
 def notes(s, body):
+    if LANG == "en":
+        body = NOTES_EN[len(prs.slides)].format(**VIEWS_PCT)
     words = len(re.findall(r"\w+", body))
     sec = max(5, round(words / 2.4 / 5) * 5)
     s.notes_slide.notes_text_frame.text = f"{body} (~{sec} s)"
@@ -243,7 +255,7 @@ def notes(s, body):
 
 NOTES = []
 
-# ============ 1. Tytul ============
+# ============ 1. Title ============
 s = new_slide(dark=True)
 for sx, sy, sd, sc in [(8.1, 1.2, 0.35, SUN), (12.6, 3.3, 0.28, WHITE), (7.6, 3.9, 0.22, WHITE),
                        (10.2, 6.3, 0.3, SUN)]:
@@ -305,7 +317,7 @@ notes(s, "Zacznijmy od problemu. Platformy społecznościowe bardzo często nie 
          "czy zobaczyło go dziesięć osób, czy dziesięć tysięcy, a dla marki to ogromna różnica. "
          "Dlatego musi tę widoczność szacować. I tu pojawia się nasza hipoteza.")
 
-# ============ 3. Hipoteza (zamiast problemu) ============
+# ============ 3. Hypothesis (instead of the problem) ============
 s = new_slide("Nasza hipoteza", accent=CORAL)
 hyp = Group(s)
 hc = shape(hyp, MSO_SHAPE.ROUNDED_RECTANGLE, 0.7, 1.6, 11.95, 1.55, fill=PLUM, adj=0.12)
@@ -345,7 +357,7 @@ notes(s, "Zamiast problemu stawiamy hipotezę. Brzmi tak: widoczność posta da 
          "Hipoteza jest falsyfikowalna: jeśli na postach, dla których znamy prawdziwe wyświetlenia, nasz "
          "model nie będzie lepszy od reguły Brand24, uznajemy ją za obaloną. Taki wynik też jest wartościowy.")
 
-# ============ 4. Koncepcja (technologia) ============
+# ============ 4. Concept (technology) ============
 s = new_slide("Jak to ugryziemy: koncepcja", accent=MINT)
 plan5 = [("1", "Eksploracja", "Braki, rozkłady, dziwne przypadki", PLUM, WHITE),
          ("2", "Estymacja", "Model z obserwujących i zaangażowania", BLUE, WHITE),
@@ -369,7 +381,7 @@ grad(st, PLUM, "4B3591", angle=0)
 shadow(st, blur=18, dist=6, alpha=30)
 text(strip, 1.05, 5.1, 3.6, 0.4, "NA CZYM PRACUJEMY", size=18, bold=True, color=SUN)
 text(strip, 1.05, 5.5, 3.6, 0.7, fmt(N_ROWS), size=40, bold=True, color=WHITE, anchor=MSO_ANCHOR.MIDDLE)
-text(strip, 1.05, 6.2, 3.6, 0.45, f"wzmianek, po {fmt(PER_PLATFORM)} z 5 platform", size=18, color="C9C2E0")
+text(strip, 1.05, 6.2, 3.6, 0.45, f"mentions, {fmt(PER_PLATFORM)} from each of 5 platforms" if LANG == "en" else f"wzmianek, po {fmt(PER_PLATFORM)} z 5 platform", size=18, color="C9C2E0")
 shape(strip, MSO_SHAPE.RECTANGLE, 4.55, 5.2, 0.02, 1.4, fill="6A58A8")
 text(strip, 4.85, 5.1, 7.6, 0.4, "WZMIANKI Z ZNANYMI WYŚWIETLENIAMI", size=18, bold=True, color=SUN)
 NAMES = {"tiktok": "TikTok", "youtube": "YouTube", "twitter": "X (Twitter)", "facebook": "Facebook",
@@ -394,7 +406,7 @@ notes(s, "Jak chcemy to ugryźć od strony technologii? Cztery kroki. Najpierw e
          f"{VIEWS_PCT['youtube']}, Twitter {VIEWS_PCT['twitter']}, a Facebook i Instagram zero. "
          "To nasz punkt odniesienia.")
 
-# ============ 5. Klient: spoleczenstwo ============
+# ============ 5. Client: society ============
 s = new_slide("Kto na tym skorzysta?", accent=BLUE)
 apps = [
     ("Firmy i marki", "Wiedzą, ile osób naprawdę zobaczyło wzmiankę", MSO_SHAPE.DONUT, CORAL, WHITE),
@@ -426,7 +438,7 @@ notes(s, "Naszym klientem jest społeczeństwo, więc kto na tym zyska? Po pierw
          "zaszła fałszywa informacja. Po czwarte badacze mediów, którzy dostają miarę razem z niepewnością. "
          "I wreszcie każdy z nas: mniej napompowanych liczb w raportach i w mediach.")
 
-# ============ 6. Impact (zamiast TAM) ============
+# ============ 6. Impact (instead of TAM) ============
 s = new_slide("Impact: komu to coś da?", accent=SUN)
 funnel = [
     ("5,24 mld", "kont w mediach społecznościowych:\nich posty mogą być mierzone uczciwiej", "DataReportal / Kepios, 2025",
@@ -456,12 +468,12 @@ notes(s, "Zamiast wielkości rynku szacujemy impact, i traktujemy to jako zabaw�
          "bezpośrednio jakieś dwanaście tysięcy ludzi dostaje lepsze liczby. To nie jest pomiar, tylko "
          "oszacowanie, ale pokazuje skalę.")
 
-# ============ 7. Moat: wykonalnosc + ekspertyza ============
+# ============ 7. Moat: feasibility + expertise ============
 s = new_slide("Dlaczego nam się uda?", accent=MINT)
 feas = Group(s)
 card(feas, 0.7, 1.6, 5.85, 5.25, line=MINT, line_w=2.5)
 text(feas, 1.05, 1.8, 5.2, 0.45, "WYKONALNOŚĆ", size=22, bold=True, color=MINT)
-for k, t in enumerate(["Legalne dane od zleceniodawcy: Brand24", f"{fmt(N_ROWS)} publicznych wzmianek, 5 platform",
+for k, t in enumerate(["Legalne dane od zleceniodawcy: Brand24", f"{fmt(N_ROWS)} public mentions, 5 platforms" if LANG == "en" else f"{fmt(N_ROWS)} publicznych wzmianek, 5 platform",
                        "Prawda bazowa: TikTok i YouTube", "Bez danych osobowych autorów (RODO)",
                        "Wstępny test w eksploracji: obiecujący"]):
     y = 2.45 + k * 0.85
@@ -489,8 +501,8 @@ notes(s, "Dlaczego nam się uda? Dwa powody. Pierwszy to wykonalność: mamy leg
          "niepewności. A metody konformalne, opisane przez Angelopoulosa i Batesa, dają przedziały z "
          "gwarancją. Dziękuję.")
 
-out = HERE / "pitchdeck.pptx"
+out = HERE / f"pitchdeck_{LANG}.pptx"
 prs.save(out)
 tot_w = sum(w for w, _ in NOTES)
 tot_s = sum(t for _, t in NOTES)
-print(f"zapisano {out}; slajdow={len(prs.slides)}; slow w notatkach={tot_w}; czas={tot_s}s")
+print(f"saved {out}; slides={len(prs.slides)}; words in notes={tot_w}; time={tot_s}s")

@@ -1,5 +1,6 @@
-"""Rys. 2 do karty M1 (rozkłady prawoskośne) + test dodatkowych cech. Uruchom: python src/m1_figures2.py"""
-import json, warnings
+"""Figure 2 for the M1 card (right-skewed distributions) + extra-feature test. Run: python src/m1_figures2.py [pl|en]"""
+import json, sys, warnings
+from pathlib import Path
 import numpy as np, pandas as pd
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -7,9 +8,22 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import KFold
 warnings.filterwarnings("ignore")
 
-d = pd.read_csv("reach_samples_students.csv", parse_dates=["created_at", "metrics_updated_at"])
+ROOT = Path(__file__).resolve().parents[1]
+lang = sys.argv[1] if len(sys.argv) > 1 else "en"
+T = {
+    "pl": dict(xlab_a="log10(wyświetlenia lub reach Brand24)", ylab_a="gęstość",
+               title_a="A. Rozkład w skali log: zakres 7 rzędów wielkości", xlab_b="% najpopularniejszych postów",
+               ylab_b="% łącznych wyświetleń", title_b="B. Koncentracja: mało postów, dużo wyświetleń",
+               fb="Facebook (reach Brand24)", ig="Instagram (reach Brand24)"),
+    "en": dict(xlab_a="log10(views or Brand24 reach)", ylab_a="density",
+               title_a="A. Log-scale distribution: 7 orders of magnitude", xlab_b="% of most popular posts",
+               ylab_b="% of total views", title_b="B. Concentration: few posts, most views",
+               fb="Facebook (Brand24 reach)", ig="Instagram (Brand24 reach)"),
+}[lang]
+
+d = pd.read_csv(ROOT / "data" / "raw" / "reach_samples_students.csv", parse_dates=["created_at", "metrics_updated_at"])
 d["eng"] = d[["likes", "comments", "shares"]].fillna(0).sum(axis=1)
-names = {"tiktok": "TikTok", "youtube": "YouTube", "twitter": "X", "facebook": "Facebook (reach Brand24)", "instagram": "Instagram (reach Brand24)"}
+names = {"tiktok": "TikTok", "youtube": "YouTube", "twitter": "X", "facebook": T["fb"], "instagram": T["ig"]}
 col = {"tiktok": "#3f2a6b", "youtube": "#2a9d8f", "twitter": "#e4572e", "facebook": "#9a9aa8", "instagram": "#c9a227"}
 plt.rcParams.update({"font.size": 10, "axes.spines.top": False, "axes.spines.right": False})
 fig, ax = plt.subplots(1, 2, figsize=(10, 3.4))
@@ -24,13 +38,13 @@ for p in names:
     out[p] = dict(median=float(np.median(s)), mean=float(s.mean()), top1_share=round(float(c[max(int(.01 * k) - 1, 0)]) * 100, 1), top10_share=round(float(c[int(.1 * k) - 1]) * 100, 1))
     sh = np.arange(1, k + 1) / k
     ax[1].plot(sh * 100, c * 100, color=col[p], lw=1.8, ls="--" if p in ("facebook", "instagram") else "-")
-ax[0].set_xlabel("log10(wyświetlenia lub reach Brand24)"); ax[0].set_ylabel("gęstość"); ax[0].legend(frameon=False, fontsize=7.5)
-ax[0].set_title("A. Rozkład w skali log: zakres 7 rzędów wielkości", loc="left", fontweight="bold", fontsize=10)
-ax[1].set_xlim(0, 100); ax[1].set_xlabel("% najpopularniejszych postów"); ax[1].set_ylabel("% łącznych wyświetleń")
-ax[1].set_title("B. Koncentracja: garstka postów daje większość", loc="left", fontweight="bold", fontsize=10)
-plt.tight_layout(); plt.savefig("figures/m1_rozklady.png", dpi=200)
+ax[0].set_xlabel(T["xlab_a"]); ax[0].set_ylabel(T["ylab_a"]); ax[0].legend(frameon=False, fontsize=7.5)
+ax[0].set_title(T["title_a"], loc="left", fontweight="bold", fontsize=10)
+ax[1].set_xlim(0, 100); ax[1].set_xlabel(T["xlab_b"]); ax[1].set_ylabel(T["ylab_b"])
+ax[1].set_title(T["title_b"], loc="left", fontweight="bold", fontsize=10)
+plt.tight_layout(); plt.savefig(ROOT / "figures" / f"m1_distributions_{lang}.png", dpi=200)
 
-# dodatkowe cechy: czy poprawiają model (log10 views, 5-fold CV)
+# extra features: do they improve the model (log10 views, 5-fold CV)
 ext = {}
 for p in ["tiktok", "youtube", "twitter"]:
     g = d[(d.platform == p) & (d.view_count > 0) & (d.author_followers > 0)].copy()
@@ -40,15 +54,15 @@ for p in ["tiktok", "youtube", "twitter"]:
     g["sent"] = g.sentiment.map({"positive": 1, "neutral": 0, "negative": -1}).fillna(0)
     y = np.log10(g.view_count.values)
     base = [np.log10(g.author_followers), np.log10(g.eng + 1), np.log10(g.likes.fillna(0) + 1), np.log10(g.comments.fillna(0) + 1)]
-    sets = {"podstawowe": base, "+ wiek metryk": base + [g.age_d], "+ godzina, dzień": base + [g.hour, g.dow],
-            "+ język": base + [g.en], "+ długość treści": base + [g.len], "+ sentyment": base + [g.sent],
-            "wszystkie": base + [g.age_d, g.hour, g.dow, g.en, g.len, g.sent]}
+    sets = {"base": base, "+ metrics age": base + [g.age_d], "+ hour, weekday": base + [g.hour, g.dow],
+            "+ language": base + [g.en], "+ content length": base + [g.len], "+ sentiment": base + [g.sent],
+            "all": base + [g.age_d, g.hour, g.dow, g.en, g.len, g.sent]}
     ext[p] = {}
     for k, cols in sets.items():
         X = np.c_[tuple(np.asarray(c, float) for c in cols)]; e = []
         for tr, te in KFold(5, shuffle=True, random_state=0).split(X):
             m = GradientBoostingRegressor(random_state=0).fit(X[tr], y[tr]); e.append(np.abs(y[te] - m.predict(X[te])).mean())
         ext[p][k] = round(float(np.mean(e)), 3)
-out["dodatkowe_cechy_mae"] = ext
-json.dump(out, open("data/processed/m1_numbers2.json", "w"), indent=1)
+out["extra_features_mae"] = ext
+json.dump(out, open(ROOT / "data" / "processed" / "m1_numbers2.json", "w"), indent=1)
 print(json.dumps(out, indent=1))
