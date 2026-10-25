@@ -9,7 +9,7 @@ Question: can the visibility (views) of a post be estimated from the number of f
 - `notebooks/01_eda.ipynb` (+ `.html`): preliminary data exploration
 - `src/m1_figures.py`, `src/m1_figures2.py`: figures and numbers for the M1 card (`python src/m1_figures.py en|pl`)
 - `figures/`: generated figures, `*_en.png` and `*_pl.png`
-- `pitchdeck/en/`, `pitchdeck/pl/`: presentation in English and Polish (pptx, pdf); build script `pitchdeck/build.py en|pl`
+- `pitchdeck/`: presentation in English and Polish (`pitchdeck_en.*`, `pitchdeck_pl.*`); build script `build.py en|pl`
 
 ## Data
 The raw file `data/raw/reach_samples_students.csv` (12,500 mentions from Brand24) is **not** in the repository: it contains personal data of authors and the client's data.

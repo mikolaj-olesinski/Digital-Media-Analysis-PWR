@@ -1,7 +1,7 @@
 # Pitch deck: notatki
 
 ## Co zrobiono
-- 7 slajdów 16:9, po polsku, wygenerowanych skryptem `build.py` (python-pptx): `pitchdeck.pptx` + `pitchdeck.pdf` w tym folderze (wersja angielska: `../en/`, teksty w `strings_en.py`).
+- 7 slajdów 16:9, po polsku, wygenerowanych skryptem `build.py` (python-pptx): `pitchdeck_pl.pptx` + `pitchdeck_pl.pdf` (wersja angielska: `pitchdeck_en.*`, teksty w `strings_en.py`).
 - Układ wg szablonu prowadzącego (mail z 7.10, „5 slide rule” w wersji badawczej):
   1 tytuł + hak · 2 kontekst: platformy ukrywają zasięg · 3 **hipoteza** (+ kiedy obalona) ·
   4 **koncepcja technologiczna** (4 kroki + pasek danych) · 5 **klient = społeczeństwo** (5 grup) ·
@@ -14,7 +14,7 @@
   miękkie cienie, gradienty na kolorowych elementach, gradientowe tło slajdu tytułowego.
   Morph wymaga PowerPointa 2019/365; starsze wersje pokażą zwykłe przenikanie. PDF pokazuje stan końcowy slajdów.
 - Notatki prelegenta na każdym slajdzie z szacowanym czasem.
-- Slajdy wersji polskiej wyrenderowane do PNG przez PowerPoint (`render/`) i obejrzane po każdej zmianie.
+- Slajdy wersji polskiej wyrenderowane do PNG przez PowerPoint (`render/pl/`) i obejrzane po każdej zmianie.
 
 ## Czas wystąpienia (szacunek z liczby słów, ~145 słów/min)
 | slajd | czas |
