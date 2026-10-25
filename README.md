@@ -4,9 +4,10 @@ Project for the AMC course (Wrocław University of Science and Technology), clie
 Question: can the visibility (views) of a post be estimated from the number of followers and reactions better than by the constant × followers rule, and with what uncertainty?
 
 ## Contents
-- `docs/en/m1_exploration_card.pdf` (+ `.html`): M1 data exploration card ([Polish version](docs/pl/m1_exploration_card.pdf))
+- `docs/en/m1_exploration_card.pdf`: M1 data exploration card ([Polish version](docs/pl/m1_exploration_card.pdf))
 - `docs/pl/course_rules.pdf`: course rules, grading and schedule (in Polish)
-- `notebooks/01_eda.ipynb` (+ `.html`): preliminary data exploration
+- `notebooks/models/`: `01_first_models` (model ladder, feature importance), `02_transfer_and_intervals` (intervals, transfer to Facebook and Instagram)
+- `notebooks/eda/`: `01_overview` (all platforms), `02_platforms` (one platform at a time, with totals), `03_labels` (mention labels and coder agreement)
 - `src/m1_figures.py`, `src/m1_figures2.py`: figures and numbers for the M1 card (`python src/m1_figures.py en|pl`)
 - `figures/`: generated figures, `*_en.png` and `*_pl.png`
 - `pitchdeck/`: presentation in English and Polish (`pitchdeck_en.*`, `pitchdeck_pl.*`); build script `build.py en|pl`
