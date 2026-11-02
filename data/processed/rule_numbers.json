@@ -1,0 +1,354 @@
+{
+ "per_reaction": [
+  {
+   "platform": "facebook",
+   "bin": "1-10",
+   "n": 956,
+   "mode": 100.0,
+   "median": 273.6
+  },
+  {
+   "platform": "facebook",
+   "bin": "11-100",
+   "n": 577,
+   "mode": 100.0,
+   "median": 100.0
+  },
+  {
+   "platform": "facebook",
+   "bin": ">100",
+   "n": 302,
+   "mode": 100.0,
+   "median": 100.0
+  },
+  {
+   "platform": "instagram",
+   "bin": "1-10",
+   "n": 963,
+   "mode": 20.0,
+   "median": 20.0
+  },
+  {
+   "platform": "instagram",
+   "bin": "11-100",
+   "n": 376,
+   "mode": 20.0,
+   "median": 20.0
+  },
+  {
+   "platform": "instagram",
+   "bin": ">100",
+   "n": 76,
+   "mode": 20.0,
+   "median": 45.0
+  },
+  {
+   "platform": "tiktok",
+   "bin": "1-10",
+   "n": 547,
+   "mode": 40.0,
+   "median": 48.3
+  },
+  {
+   "platform": "tiktok",
+   "bin": "11-100",
+   "n": 1101,
+   "mode": 10.0,
+   "median": 18.8
+  },
+  {
+   "platform": "tiktok",
+   "bin": ">100",
+   "n": 759,
+   "mode": 10.0,
+   "median": 15.7
+  },
+  {
+   "platform": "twitter",
+   "bin": "1-10",
+   "n": 782,
+   "mode": 700.0,
+   "median": 700.0
+  },
+  {
+   "platform": "twitter",
+   "bin": "11-100",
+   "n": 114,
+   "mode": 300.0,
+   "median": 300.0
+  },
+  {
+   "platform": "twitter",
+   "bin": ">100",
+   "n": 21,
+   "mode": 300.0,
+   "median": 300.0
+  },
+  {
+   "platform": "youtube",
+   "bin": "1-10",
+   "n": 636,
+   "mode": 10.0,
+   "median": 23.0
+  },
+  {
+   "platform": "youtube",
+   "bin": "11-100",
+   "n": 611,
+   "mode": 10.0,
+   "median": 18.5
+  },
+  {
+   "platform": "youtube",
+   "bin": ">100",
+   "n": 531,
+   "mode": 10.0,
+   "median": 18.2
+  }
+ ],
+ "per_follower": [
+  {
+   "platform": "facebook",
+   "bin": "<10k",
+   "n": 214,
+   "mode": 0.1,
+   "median": 0.1
+  },
+  {
+   "platform": "facebook",
+   "bin": "10k-50k",
+   "n": 98,
+   "mode": 0.06,
+   "median": 0.06
+  },
+  {
+   "platform": "facebook",
+   "bin": "50k-100k",
+   "n": 32,
+   "mode": 0.05,
+   "median": 0.05
+  },
+  {
+   "platform": "facebook",
+   "bin": "100k-1M",
+   "n": 87,
+   "mode": 0.04,
+   "median": 0.04
+  },
+  {
+   "platform": "facebook",
+   "bin": ">1M",
+   "n": 12,
+   "mode": 0.02,
+   "median": 0.02
+  },
+  {
+   "platform": "tiktok",
+   "bin": "<10k",
+   "n": 66,
+   "mode": 0.0,
+   "median": 0.722
+  },
+  {
+   "platform": "tiktok",
+   "bin": "10k-50k",
+   "n": 8,
+   "mode": 0.0,
+   "median": 0.001
+  },
+  {
+   "platform": "twitter",
+   "bin": "<10k",
+   "n": 1220,
+   "mode": 0.1,
+   "median": 0.099
+  },
+  {
+   "platform": "twitter",
+   "bin": "10k-50k",
+   "n": 58,
+   "mode": 0.09,
+   "median": 0.09
+  },
+  {
+   "platform": "twitter",
+   "bin": "50k-100k",
+   "n": 8,
+   "mode": 0.07,
+   "median": 0.07
+  },
+  {
+   "platform": "twitter",
+   "bin": "100k-1M",
+   "n": 17,
+   "mode": 0.05,
+   "median": 0.05
+  },
+  {
+   "platform": "twitter",
+   "bin": ">1M",
+   "n": 1,
+   "mode": 0.02,
+   "median": 0.02
+  },
+  {
+   "platform": "youtube",
+   "bin": "<10k",
+   "n": 283,
+   "mode": 0.0,
+   "median": 0.04
+  },
+  {
+   "platform": "youtube",
+   "bin": "10k-50k",
+   "n": 173,
+   "mode": 0.0,
+   "median": 0.006
+  },
+  {
+   "platform": "youtube",
+   "bin": "50k-100k",
+   "n": 64,
+   "mode": 0.0,
+   "median": 0.006
+  },
+  {
+   "platform": "youtube",
+   "bin": "100k-1M",
+   "n": 123,
+   "mode": 0.0,
+   "median": 0.003
+  },
+  {
+   "platform": "youtube",
+   "bin": ">1M",
+   "n": 29,
+   "mode": 0.0,
+   "median": 0.002
+  }
+ ],
+ "fit": [
+  {
+   "platform": "X (Twitter)",
+   "rows": 2500,
+   "followers part wins": 0.5712,
+   "matched by the rule": 0.9772,
+   "with reactions": 0.3668
+  },
+  {
+   "platform": "Facebook",
+   "rows": 2500,
+   "followers part wins": 0.5548,
+   "matched by the rule": 0.9576,
+   "with reactions": 0.734
+  },
+  {
+   "platform": "Instagram",
+   "rows": 2500,
+   "followers part wins": 0.0,
+   "matched by the rule": 0.9832,
+   "with reactions": 0.566
+  }
+ ],
+ "real_vs_rule": [
+  {
+   "platform": "TikTok",
+   "posts": 2407,
+   "reach per reaction": 21.31578947368421,
+   "views per reaction": 21.31578947368421,
+   "low": 11.90976933514247,
+   "high": 42.225
+  },
+  {
+   "platform": "YouTube",
+   "posts": 1778,
+   "reach per reaction": 19.841907666076466,
+   "views per reaction": 19.841907666076466,
+   "low": 10.0,
+   "high": 43.958791208791204
+  },
+  {
+   "platform": "X (Twitter)",
+   "posts": 917,
+   "reach per reaction": 700.0,
+   "views per reaction": 27.0,
+   "low": 11.6,
+   "high": 75.875
+  },
+  {
+   "platform": "Facebook",
+   "posts": 1835,
+   "reach per reaction": 108.0,
+   "views per reaction": NaN,
+   "low": NaN,
+   "high": NaN
+  },
+  {
+   "platform": "Instagram",
+   "posts": 1415,
+   "reach per reaction": 20.0,
+   "views per reaction": NaN,
+   "low": NaN,
+   "high": NaN
+  }
+ ],
+ "corrected": [
+  {
+   "platform": "TikTok",
+   "k per reaction": 21.285714285714285,
+   "c per follower": 0.43288590604026844,
+   "corrected rule MAE": 0.5338347482322793,
+   "low": 0.5091088844516817,
+   "high": 0.5577668269988751,
+   "Brand24 MAE (same rows)": NaN,
+   "corrected rule MAE (same rows)": NaN,
+   "gain": NaN,
+   "gain low": NaN,
+   "gain high": NaN
+  },
+  {
+   "platform": "YouTube",
+   "k per reaction": 19.76448959845186,
+   "c per follower": 0.00927118725463124,
+   "corrected rule MAE": 0.603963605776346,
+   "low": 0.5757245413924786,
+   "high": 0.6335348125581363,
+   "Brand24 MAE (same rows)": NaN,
+   "corrected rule MAE (same rows)": NaN,
+   "gain": NaN,
+   "gain low": NaN,
+   "gain high": NaN
+  },
+  {
+   "platform": "X (Twitter)",
+   "k per reaction": 27.0,
+   "c per follower": 0.056418499538466435,
+   "corrected rule MAE": 0.719858348029017,
+   "low": 0.6797577233829176,
+   "high": 0.7614936615654694,
+   "Brand24 MAE (same rows)": 1.0828435556783087,
+   "corrected rule MAE (same rows)": 0.6758884441793643,
+   "gain": 0.4069551114989444,
+   "gain low": 0.36993463130708654,
+   "gain high": 0.44645882704634476
+  }
+ ],
+ "x_split": [
+  {
+   "posts": "with reactions",
+   "n": 830,
+   "MAE": 1.3563029803343973,
+   "low": 1.309643049496397,
+   "high": 1.4037098923919324,
+   "bias": -1.349464278964823
+  },
+  {
+   "posts": "without reactions",
+   "n": 809,
+   "MAE": 0.8022856787134712,
+   "low": 0.7591591408697507,
+   "high": 0.8490530309804603,
+   "bias": -0.3203807957486587
+  }
+ ]
+}
