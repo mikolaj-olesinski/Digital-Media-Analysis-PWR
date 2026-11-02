@@ -157,7 +157,7 @@ slide(T("Nasze etykiety AI niemal nie zmieniają wyświetleń przy tych samych r
 def architecture():
     s = prs.slides.add_slide(prs.slide_layouts[6]); s.background.fill.solid(); s.background.fill.fore_color.rgb = rgb(BG)
     bar = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(.22), prs.slide_height); bar.fill.solid(); bar.fill.fore_color.rgb = rgb(PLUM); bar.line.fill.background()
-    tb(s, .6, .3, 12, .4, T("6 · ARCHITEKTURA I PRACA Z NARZĘDZIAMI AI", "6 · ARCHITECTURE AND HOW WE USE AI TOOLS"), 14, True, CORAL)
+    tb(s, .6, .3, 12, .4, T("7 · ARCHITEKTURA I PRACA Z NARZĘDZIAMI AI", "7 · ARCHITECTURE AND HOW WE USE AI TOOLS"), 14, True, CORAL)
     tb(s, .6, .65, 12.1, 1.0, T("Od surowego CSV do wyniku: każdy krok to skrypt lub notebook, a AI koduje wzmianki i pomaga w kodzie, ale nie pisze tekstu pracy", "From raw CSV to result: every step is a script or notebook; AI codes mentions and helps with code but does not write the paper"), 28, True, PLUM)
     steps = [(T("Dane surowe", "Raw data"), T("CSV, 12 500 wzmianek, tylko do odczytu", "CSV, 12,500 mentions, read-only")), (T("Kodowanie AI", "AI coding"), T("3× Haiku + Sonnet dla niezgodnych; codebook", "3x Haiku + Sonnet on disputes; codebook")),
              (T("Etykiety", "Labels"), T("typ i sentyment, kappa, źródło decyzji", "type and sentiment, kappa, decision source")), (T("Cechy", "Features"), T("followersi, reakcje, braki, tekst, etykiety, graf", "followers, engagement, missingness, text, labels, graph")),
@@ -174,6 +174,19 @@ def architecture():
                                (T("Granica:", "Limit:"), T("etykiety AI nie były oceniane względem punktowanego ludzkiego wzorca; to nasze główne ograniczenie.", "AI labels were not scored against a human gold standard; this is our main limitation."))], 16)
     s.notes_slide.notes_text_frame.text = T("5–10 minut o architekturze i narzędziach AI na zajęcia.", "5-10 minutes on architecture and AI tools for class.")
 
+
+E = json.load(open(ROOT / "data" / "processed" / "extra_numbers.json"))
+def gain(plat, grp, key="gain vs base"): return next(r[key] for r in E["gains"] if r["platform"] == plat and r["model"] == grp)
+def loss(plat, grp): return next(r["loss"] for r in E["ablation"] if r["platform"] == plat and r["removed group"] == grp)
+def tgt(plat, name, key="R2"): return next(r[key] for r in E["targets"] if r["platform"] == plat and r["target"] == name)
+bgx = next(r for r in E["brand_graph"] if r["platform"] == "X (Twitter)")
+slide(T("Tekst daje drobny, ale realny zysk na YouTube i X; reakcje są niezbędne, a followersi i graf marek pomagają tylko miejscami", "Text adds a small but real gain on YouTube and X; engagement is essential, while followers and a brand graph help only in places"),
+      T("6 · DODATKOWE KOLUMNY I ABLACJA", "6 · EXTRA COLUMNS AND ABLATION"), fd / f"ablation_{LANG}.png",
+      [(T("Tekst (statystyki i tematy TF-IDF):", "Text (statistics and TF-IDF topics):"), T(f"poprawia błąd o {n(gain('YouTube', '+ TF-IDF SVD (30)'), 3)} na YouTube i {n(gain('X (Twitter)', '+ TF-IDF SVD (30)'), 3)} na X; na TikToku nic. Zysk jest mały, ale przedział ufności nie obejmuje zera.", f"improves the error by {n(gain('YouTube', '+ TF-IDF SVD (30)'), 3)} on YouTube and {n(gain('X (Twitter)', '+ TF-IDF SVD (30)'), 3)} on X; nothing on TikTok. Small, but the CI excludes zero.")),
+       (T("Ablacja:", "Ablation:"), T(f"po usunięciu reakcji błąd rośnie o {n(loss('TikTok', 'engagement'))} (TikTok) i {n(loss('YouTube', 'engagement'))} (YouTube). Sentyment VADER, kalendarz i wielkość marki nic nie wnoszą.", f"removing engagement raises the error by {n(loss('TikTok', 'engagement'))} (TikTok) and {n(loss('YouTube', 'engagement'))} (YouTube). VADER sentiment, calendar and brand size add nothing.")),
+       (T("Odwrotnie:", "The other way round:"), T(f"lajki, komentarze i udostępnienia da się przewidzieć (R² {n(tgt('TikTok', 'likes'))} lajki na TikToku), a followersów prawie nie (R² {n(tgt('TikTok', 'followers'))}). Graf marek poprawia tylko X o {n(bgx['gain'], 3)}.", f"likes, comments and shares are predictable (R² {n(tgt('TikTok', 'likes'))} for TikTok likes), followers hardly (R² {n(tgt('TikTok', 'followers'))}). The brand graph helps only X, by {n(bgx['gain'], 3)}."))],
+      T("Słupki = wzrost błędu po usunięciu grupy z pełnego modelu (oś symlog), 95% przedział z bootstrapu po markach. Reakcje wyjaśniają większość, reszta to poprawki rzędu 0,01.", "Bars = error increase when a group is removed from the full model (symlog axis), 95% brand-cluster bootstrap CI. Engagement explains most; the rest are corrections around 0.01."),
+      T("Przedziały sparowane na tych samych foldach. Cechy tekstu i kalendarza nie używają wyświetleń.", "Intervals are paired on the same folds. Text and calendar features use no views."))
 
 architecture()
 out = HERE / f"results_{LANG}.pptx"; prs.save(out); print("saved", out)
