@@ -42,7 +42,7 @@ def calendar(raw):
 
 
 def ratios(f):
-    L, C, S, F = (10 ** f.log_likes - 1), (10 ** f.log_comments - 1), (10 ** f.log_shares - 1), 10 ** f.log_followers
+    L, C, S, F = np.expm1(f.log_likes), np.expm1(f.log_comments), np.expm1(f.log_shares), 10 ** f.log_followers   # log_likes etc. are log1p, log_followers is log10
     return pd.DataFrame({"likes_per_follower": np.log10(L / F + 1e-6), "comments_per_like": C / (L + 1), "shares_per_like": S / (L + 1), "interactions": np.log10(L + C + S + 1)})
 
 
