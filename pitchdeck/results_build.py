@@ -105,4 +105,75 @@ slide(T(f"Na Facebooku i Instagramie da się tylko oszacować wyświetlenia, z n
        (T("Uwaga:", "Caution:"), T(f"przedziały z innych platform pokrywają tylko {R['cross_platform_coverage']['YouTube'] * 100:.0f}% przypadków przy celu 90%, więc są zbyt optymistyczne.", f"intervals built from other platforms cover only {R['cross_platform_coverage']['YouTube'] * 100:.0f}% of cases against a 90% target, so they are optimistic."))],
       T("Etykiety (typ, sentyment) tworzy instrument AI: kappa 0,77–0,79 i 0,71–0,73 między trzema modelami. To spójność, nie trafność.", "Labels (type, sentiment) come from an AI instrument: kappa 0.77-0.79 and 0.71-0.73 between three models. Consistency, not accuracy."),
       T("Uczciwy wniosek: oszacowanie z szerokim przedziałem, nie wynik do zacytowania jako prawda o Facebooku.", "Honest conclusion: an estimate with a wide interval, not a number to quote as the truth about Facebook."))
+
+Z = json.load(open(ROOT / "data" / "processed" / "zoo_numbers.json")); ZS = Z["summary"]; PS = ["tiktok", "youtube", "twitter"]
+TYPECOL = ["#4c9f70", "#e0a030", "#b5403a"]; TYPES = ["organic", "promo", "spam"]; TYPE_LAB = T(["organiczne", "promocyjne", "spam"], ["organic", "promo", "spam"])
+
+
+def fig4(path):
+    fig, ax = plt.subplots(figsize=(7.2, 4.4)); w = .26; steps = [("median", T("mediana", "median"), "#c9c4d6"), ("zoo_best", T("najlepszy z 7 modeli", "best of 7 models"), "#7a6bb0"), ("graph_best", T("+ cechy grafowe", "+ graph features"), "#2D1E5F")]
+    for k, (key, lab, c) in enumerate(steps):
+        v = [ZS[p][key] for p in PS]; ax.bar(np.arange(3) + (k - 1) * w, v, w, color=c, label=lab)
+        for i, x in enumerate(v): ax.text(i + (k - 1) * w, x + .01, n(x), ha="center", fontsize=10)
+    ax.set_xticks(range(3)); ax.set_xticklabels([NAMES[p] for p in PS]); ax.set_xlabel(T("platforma (znane wyświetlenia)", "platform (views known)")); ax.set_ylabel(T("MAE, log10 wyświetleń", "MAE, log10 views"))
+    ax.set_title(T("Więcej modeli i grafy nie pomagają", "More models and graphs do not help"), loc="left"); ax.legend(loc="upper center", bbox_to_anchor=(.5, -.25), frameon=False, fontsize=11, ncol=3)
+    plt.tight_layout(); fig.savefig(path, dpi=200, bbox_inches="tight"); plt.close(fig)
+
+
+def fig5(path):
+    fig, ax = plt.subplots(figsize=(7.2, 4.4)); w = .26; lab = Z["labels"]
+    for k, t in enumerate(TYPES):
+        r = [next(x for x in lab if x["type"] == t and x["platform"] == {"tiktok": "TikTok", "youtube": "YouTube", "twitter": "X (Twitter)"}[p]) for p in PS]
+        v = np.array([x["resid"] for x in r]); lo = v - np.array([x["resid lo"] for x in r]); hi = np.array([x["resid hi"] for x in r]) - v
+        ax.bar(np.arange(3) + (k - 1) * w, v, w, color=TYPECOL[k], label=TYPE_LAB[k], yerr=[lo, hi], ecolor="black", capsize=2)
+    ax.axhline(0, color="grey", lw=1); ax.set_xticks(range(3)); ax.set_xticklabels([NAMES[p] for p in PS]); ax.set_xlabel(T("platforma", "platform"))
+    ax.set_ylabel(T("log10(wyświetlenia) minus predykcja\n(+ = więcej niż wynika z reakcji)", "log10(views) minus prediction\n(+ = more than engagement implies)"))
+    ax.set_title(T("Typ wzmianki (nasza etykieta) a wyświetlenia", "Mention type (our label) vs views"), loc="left")
+    ax.legend(loc="upper center", bbox_to_anchor=(.5, -.25), frameon=False, fontsize=11, ncol=3, title=T("nasza etykieta typu", "our type label")); plt.tight_layout(); fig.savefig(path, dpi=200, bbox_inches="tight"); plt.close(fig)
+
+
+def stratum(var, name, plat):
+    return next(r["MAE"] for r in Z["strata"] if r["stratifier"] == var and r["stratum"] == name and r["platform"] == plat)
+
+
+p4, p5 = fd / f"results_4_{LANG}.png", fd / f"results_5_{LANG}.png"; fig4(p4); fig5(p5)
+sy = "YouTube"; sx = "X (Twitter)"
+slide(T("Sześć rodzin modeli, grafy autorów i tekstów oraz podział na grupy nie pobiły samych lajków i komentarzy", "Six model families, author and text graphs and splitting into groups did not beat likes and comments alone"),
+      T("4 · CO JESZCZE SPRAWDZILIŚMY", "4 · WHAT ELSE WE TRIED"), p4,
+      [(T("Modele:", "Models:"), T(f"ridge, kNN, lasy losowe, boosting i blend mieszczą się w swoich przedziałach (TikTok {n(ZS['tiktok']['zoo_best'])}, YouTube {n(ZS['youtube']['zoo_best'])}, X {n(ZS['twitter']['zoo_best'])}).", f"ridge, kNN, forests, boosting and a blend sit within each other's CI (TikTok {n(ZS['tiktok']['zoo_best'])}, YouTube {n(ZS['youtube']['zoo_best'])}, X {n(ZS['twitter']['zoo_best'])}).")),
+       (T("Grafy:", "Graphs:"), T(f"średnia autora, sąsiedzi z grafu podobieństwa tekstu i wygładzanie po sąsiadach dają co najwyżej {n(ZS['youtube']['engagement_only'] - ZS['youtube']['graph_best'], 3)} na YouTube, w granicach błędu.", f"author mean, text-similarity neighbours and neighbour smoothing give at most {n(ZS['youtube']['engagement_only'] - ZS['youtube']['graph_best'], 3)} on YouTube, within noise.")),
+       (T("Gdzie błąd jest największy:", "Where the error is largest:"), T(f"posty z najmniejszą liczbą reakcji (YouTube {n(stratum('engagement tier', 'Q1 lowest', sy))} wobec {n(stratum('engagement tier', 'Q4 highest', sy))} w górnym kwartylu) i spam na X ({n(stratum('our type label', 'spam', sx))} wobec {n(stratum('our type label', 'organic', sx))}).", f"posts with the fewest reactions (YouTube {n(stratum('engagement tier', 'Q1 lowest', sy))} vs {n(stratum('engagement tier', 'Q4 highest', sy))} in the top quartile) and spam on X ({n(stratum('our type label', 'spam', sx))} vs {n(stratum('our type label', 'organic', sx))})."))],
+      T("Ta sama walidacja co wcześniej (5 grup marek, MAE na log10). Cechy zależne od wyświetleń liczone tylko z części treningowej. Osobny model na przedział followersów wypadł gorzej niż jeden wspólny.", "Same validation as before (5 brand groups, MAE on log10). Features that use views are computed from the training fold only. One model per follower tier was worse than one pooled model."),
+      T("Wynik negatywny, ale mocny: sygnał jest w reakcjach, nie w sposobie uczenia.", "A negative but strong result: the signal is in engagement, not in the learner."))
+slide(T("Nasze etykiety AI niemal nie zmieniają wyświetleń przy tych samych reakcjach: promocyjne na TikToku mają o około 20% więcej", "Our AI labels barely change views at equal engagement: promo on TikTok gets about 20% more"),
+      T("5 · NASZE ETYKIETY A WYŚWIETLENIA", "5 · OUR LABELS VS VIEWS"), p5,
+      [(T("Co mierzymy:", "What we measure:"), T("różnicę między faktycznymi wyświetleniami a tym, co przewidują lajki i komentarze, osobno dla organicznych, promocyjnych i spamu.", "the gap between actual views and what likes and comments predict, for organic, promo and spam separately.")),
+       (T("TikTok:", "TikTok:"), T("promocyjne +0,08 log10 (około +20%), przedział ufności nad zerem; reszta w granicach błędu.", "promo +0.08 log10 (about +20%), CI above zero; the rest within noise.")),
+       (T("Wniosek:", "Takeaway:"), T("etykiety typu nie poprawiają oszacowania wyświetleń; przy tych samych reakcjach spam i reklama nie wyróżniają się wyraźnie od zwykłych postów.", "the type labels do not improve the views estimate; at equal engagement, promo and spam posts do not stand out clearly from ordinary ones."))],
+      T("Etykiety tworzą trzy modele Haiku, a 4 668 niezgodnych wzmianek rozstrzyga Sonnet. Zgodność trzech modeli 79%, kappa typu 0,77–0,79. To zgodność maszyn, nie sprawdzenie względem ludzkiego wzorca.", "Labels come from three Haiku coders, with Sonnet adjudicating 4,668 disputed mentions. All three agree on 79%, type kappa 0.77-0.79. This is machine-machine agreement, not a check against a human gold standard."),
+      T("Przedziały to bootstrap po markach. Etykiety są kodowane maszynowo, więc efekt traktujemy ostrożnie.", "Intervals are brand-cluster bootstrap. Labels are machine-coded, so the effect is treated with caution."))
+
+
+def architecture():
+    s = prs.slides.add_slide(prs.slide_layouts[6]); s.background.fill.solid(); s.background.fill.fore_color.rgb = rgb(BG)
+    bar = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(.22), prs.slide_height); bar.fill.solid(); bar.fill.fore_color.rgb = rgb(PLUM); bar.line.fill.background()
+    tb(s, .6, .3, 12, .4, T("6 · ARCHITEKTURA I PRACA Z NARZĘDZIAMI AI", "6 · ARCHITECTURE AND HOW WE USE AI TOOLS"), 14, True, CORAL)
+    tb(s, .6, .65, 12.1, 1.0, T("Od surowego CSV do wyniku: każdy krok to skrypt lub notebook, a AI koduje wzmianki i pomaga w kodzie, ale nie pisze tekstu pracy", "From raw CSV to result: every step is a script or notebook; AI codes mentions and helps with code but does not write the paper"), 28, True, PLUM)
+    steps = [(T("Dane surowe", "Raw data"), T("CSV, 12 500 wzmianek, tylko do odczytu", "CSV, 12,500 mentions, read-only")), (T("Kodowanie AI", "AI coding"), T("3× Haiku + Sonnet dla niezgodnych; codebook", "3x Haiku + Sonnet on disputes; codebook")),
+             (T("Etykiety", "Labels"), T("typ i sentyment, kappa, źródło decyzji", "type and sentiment, kappa, decision source")), (T("Cechy", "Features"), T("followersi, reakcje, braki, tekst, etykiety, graf", "followers, engagement, missingness, text, labels, graph")),
+             (T("Walidacja i modele", "Validation and models"), T("CV po markach, bootstrap, przedziały, transfer", "brand-grouped CV, bootstrap, intervals, transfer")), (T("Wyniki", "Results"), T("notebooki, rysunki, slajdy z liczb w JSON", "notebooks, figures, slides built from JSON numbers"))]
+    bw, gap, x0, y0 = 1.85, .2, .6, 2.1
+    for i, (h, b) in enumerate(steps):
+        x = x0 + i * (bw + gap); box = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y0), Inches(bw), Inches(1.9)); box.fill.solid(); box.fill.fore_color.rgb = rgb(SOFT if i % 2 == 0 else "FFFFFF"); box.line.color.rgb = rgb(PLUM)
+        tb(s, x + .05, y0 + .1, bw - .1, .5, h, 15, True, PLUM); tb(s, x + .05, y0 + .65, bw - .1, 1.2, b, 12, False, INK)
+        if i < len(steps) - 1:
+            a = s.shapes.add_shape(MSO_SHAPE.RIGHT_ARROW, Inches(x + bw + .01), Inches(y0 + .8), Inches(.18), Inches(.3)); a.fill.solid(); a.fill.fore_color.rgb = rgb(CORAL); a.line.fill.background()
+    bullets(s, .6, 4.3, 6.0, [(T("Gdzie używamy AI:", "Where we use AI:"), T("kodowanie wzmianek (instrument), pomoc przy kodzie i notebookach, sprawdzanie błędów.", "coding mentions (the instrument), help with code and notebooks, bug checks.")),
+                              (T("Czego AI nie robi:", "What AI does not do:"), T("nie pisze tekstu preprintu ani plakatu, nie rusza surowych danych.", "does not write the preprint or poster text, never touches raw data."))], 16)
+    bullets(s, 6.9, 4.3, 5.9, [(T("Kontrola:", "Control:"), T("log każdej sesji w repozytorium, małe commity, stałe ziarna, kod od surowych danych do rysunku.", "a log of every session in the repo, small commits, fixed seeds, code from raw data to figure.")),
+                               (T("Granica:", "Limit:"), T("etykiety AI nie były oceniane względem punktowanego ludzkiego wzorca; to nasze główne ograniczenie.", "AI labels were not scored against a human gold standard; this is our main limitation."))], 16)
+    s.notes_slide.notes_text_frame.text = T("5–10 minut o architekturze i narzędziach AI na zajęcia.", "5-10 minutes on architecture and AI tools for class.")
+
+
+architecture()
 out = HERE / f"results_{LANG}.pptx"; prs.save(out); print("saved", out)

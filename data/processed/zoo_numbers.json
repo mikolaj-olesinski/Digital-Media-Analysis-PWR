@@ -1,0 +1,582 @@
+{
+ "summary": {
+  "tiktok": {
+   "median": 0.663,
+   "zoo_best": 0.27732604137660466,
+   "zoo_best_model": "extra trees",
+   "graph_best": 0.28954427798356364,
+   "graph_best_variant": "+ author target mean",
+   "engagement_only": 0.29127662815551214,
+   "n_models": 7
+  },
+  "youtube": {
+   "median": 0.944,
+   "zoo_best": 0.4511317296302083,
+   "zoo_best_model": "gradient boosting, median loss",
+   "graph_best": 0.45950656947037316,
+   "graph_best_variant": "+ author target mean",
+   "engagement_only": 0.468777740164711,
+   "n_models": 7
+  },
+  "twitter": {
+   "median": 0.667,
+   "zoo_best": 0.48117544568909326,
+   "zoo_best_model": "extra trees",
+   "graph_best": 0.48987008969238377,
+   "graph_best_variant": "+ label-free smoothing over text graph",
+   "engagement_only": 0.4963569691534192,
+   "n_models": 7
+  }
+ },
+ "labels": [
+  {
+   "platform": "TikTok",
+   "type": "organic",
+   "n": 1179,
+   "median": 2.893206753059848,
+   "median lo": 2.8567288903828825,
+   "median hi": 2.932980821923198,
+   "resid": -0.038321813110371895,
+   "resid lo": -0.06055849448873844,
+   "resid hi": -0.016728837740323396
+  },
+  {
+   "platform": "TikTok",
+   "type": "promo",
+   "n": 844,
+   "median": 2.8582237165834465,
+   "median lo": 2.7955323035132498,
+   "median hi": 2.9360359285089497,
+   "resid": 0.0774228729325405,
+   "resid lo": 0.044847272234285425,
+   "resid hi": 0.1084526673432078
+  },
+  {
+   "platform": "TikTok",
+   "type": "spam",
+   "n": 331,
+   "median": 2.780317312140151,
+   "median lo": 2.6334684555795866,
+   "median hi": 2.858671702054344,
+   "resid": -0.026688144043551076,
+   "resid lo": -0.08889386936555607,
+   "resid hi": 0.022509899060109806
+  },
+  {
+   "platform": "YouTube",
+   "type": "organic",
+   "n": 734,
+   "median": 2.604709246966427,
+   "median lo": 2.484299839346786,
+   "median hi": 2.69284691927723,
+   "resid": -0.01860476573580092,
+   "resid lo": -0.06250501894503946,
+   "resid hi": 0.02918840688173214
+  },
+  {
+   "platform": "YouTube",
+   "type": "promo",
+   "n": 1037,
+   "median": 2.7831886910752575,
+   "median lo": 2.658964842664435,
+   "median hi": 2.9206710382587078,
+   "resid": 0.03947754708582578,
+   "resid lo": -0.0130632890858816,
+   "resid hi": 0.08861709336520679
+  },
+  {
+   "platform": "YouTube",
+   "type": "spam",
+   "n": 370,
+   "median": 2.5887797923686415,
+   "median lo": 2.4082399653118496,
+   "median hi": 2.8305929566486707,
+   "resid": 0.007722000251959414,
+   "resid lo": -0.08011347327285605,
+   "resid hi": 0.09833426202020545
+  },
+  {
+   "platform": "X (Twitter)",
+   "type": "organic",
+   "n": 1242,
+   "median": 1.414973347970818,
+   "median lo": 1.3424226808222062,
+   "median hi": 1.462397997898956,
+   "resid": -0.018197367163052484,
+   "resid lo": -0.055941272142614774,
+   "resid hi": 0.021272450249354997
+  },
+  {
+   "platform": "X (Twitter)",
+   "type": "promo",
+   "n": 334,
+   "median": 1.6811469689821155,
+   "median lo": 1.462397997898956,
+   "median hi": 1.826155229075894,
+   "resid": 0.029006092657645758,
+   "resid lo": -0.04034393337662037,
+   "resid hi": 0.10652865113782567
+  },
+  {
+   "platform": "X (Twitter)",
+   "type": "spam",
+   "n": 212,
+   "median": 1.4621396430309408,
+   "median lo": 1.1611096473669598,
+   "median hi": 1.6857186587020503,
+   "resid": 0.08656341514697356,
+   "resid lo": -0.031823360089299466,
+   "resid hi": 0.2035666380398867
+  }
+ ],
+ "strata": [
+  {
+   "stratifier": "our type label",
+   "stratum": "organic",
+   "mentions": 1179,
+   "MAE": 0.25059241349016337,
+   "bias": 0.038321813110371895,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "promo",
+   "mentions": 844,
+   "MAE": 0.30049838939152473,
+   "bias": -0.0774228729325405,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "spam",
+   "mentions": 331,
+   "MAE": 0.31482346711463,
+   "bias": 0.026688144043551076,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "unclear",
+   "mentions": 137,
+   "MAE": 0.2833634670608818,
+   "bias": 0.08371462731722369,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "our sentiment",
+   "stratum": "negative",
+   "mentions": 108,
+   "MAE": 0.25818187489468253,
+   "bias": -0.0272476076923909,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "our sentiment",
+   "stratum": "neutral",
+   "mentions": 1306,
+   "MAE": 0.29238650377107556,
+   "bias": -0.004757302133552794,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "our sentiment",
+   "stratum": "positive",
+   "mentions": 1077,
+   "MAE": 0.2621690272423235,
+   "bias": 0.008630427799570553,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q1 smallest",
+   "mentions": 610,
+   "MAE": 0.27325102248102257,
+   "bias": -0.0009331268597109293,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q2",
+   "mentions": 610,
+   "MAE": 0.26076703823591396,
+   "bias": 0.01126282172076521,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q3",
+   "mentions": 609,
+   "MAE": 0.26416346100442506,
+   "bias": 0.01581477430890636,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q4 largest",
+   "mentions": 610,
+   "MAE": 0.3127624230940582,
+   "bias": -0.022000404588306047,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "no followers",
+   "mentions": 52,
+   "MAE": 0.28240030533136873,
+   "bias": -0.04563215572232841,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q1 lowest",
+   "mentions": 623,
+   "MAE": 0.3164189084417574,
+   "bias": -0.003633619091050365,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q2",
+   "mentions": 623,
+   "MAE": 0.2470109495561017,
+   "bias": 0.0012822686561008414,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q3",
+   "mentions": 622,
+   "MAE": 0.26445255565628706,
+   "bias": 0.019078492947266008,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q4 highest",
+   "mentions": 623,
+   "MAE": 0.28345131236397436,
+   "bias": -0.016473095937859682,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "language",
+   "stratum": "english",
+   "mentions": 2343,
+   "MAE": 0.2760046938540872,
+   "bias": 0.000866808917222997,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "language",
+   "stratum": "other",
+   "mentions": 148,
+   "MAE": 0.3068747368480162,
+   "bias": -0.012782032230501119,
+   "platform": "TikTok"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "organic",
+   "mentions": 734,
+   "MAE": 0.4357132971880493,
+   "bias": 0.01860476573580092,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "promo",
+   "mentions": 1037,
+   "MAE": 0.482974030285346,
+   "bias": -0.03947754708582578,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "spam",
+   "mentions": 370,
+   "MAE": 0.4983163667247988,
+   "bias": -0.007722000251959414,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "unclear",
+   "mentions": 300,
+   "MAE": 0.45076137568091457,
+   "bias": 0.11753535741187875,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "our sentiment",
+   "stratum": "negative",
+   "mentions": 31,
+   "MAE": 0.43218872695209837,
+   "bias": 0.03271419829486012,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "our sentiment",
+   "stratum": "neutral",
+   "mentions": 1989,
+   "MAE": 0.46051643004576126,
+   "bias": 0.03114523158464865,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "our sentiment",
+   "stratum": "positive",
+   "mentions": 421,
+   "MAE": 0.500945529781111,
+   "bias": -0.13738920882800862,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q1 smallest",
+   "mentions": 607,
+   "MAE": 0.5340970871872588,
+   "bias": -0.00012113159805946377,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q2",
+   "mentions": 607,
+   "MAE": 0.46819346478135837,
+   "bias": 0.01425899890257399,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q3",
+   "mentions": 607,
+   "MAE": 0.4418209171783378,
+   "bias": 0.015439050621863258,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q4 largest",
+   "mentions": 607,
+   "MAE": 0.42562650520337003,
+   "bias": -0.02030938212039225,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "no followers",
+   "mentions": 13,
+   "MAE": 0.410165192594976,
+   "bias": -0.038788106293694675,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q1 lowest",
+   "mentions": 555,
+   "MAE": 0.7150920456831221,
+   "bias": -0.07164300512450611,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q2",
+   "mentions": 555,
+   "MAE": 0.4514943443919946,
+   "bias": 0.08283132405092819,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q3",
+   "mentions": 554,
+   "MAE": 0.39145498076210267,
+   "bias": -0.002306042629506642,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q4 highest",
+   "mentions": 555,
+   "MAE": 0.2961895552756742,
+   "bias": 0.012582578686772818,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "missing likes/comments",
+   "mentions": 222,
+   "MAE": 0.5025062564076038,
+   "bias": -0.03060428696469053,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "language",
+   "stratum": "english",
+   "mentions": 2367,
+   "MAE": 0.4637858860594999,
+   "bias": 0.005676666481590865,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "language",
+   "stratum": "other",
+   "mentions": 74,
+   "MAE": 0.5740798058317,
+   "bias": -0.1123719014798701,
+   "platform": "YouTube"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "organic",
+   "mentions": 1242,
+   "MAE": 0.46967273584867436,
+   "bias": 0.018197367163052484,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "promo",
+   "mentions": 334,
+   "MAE": 0.4830101654976009,
+   "bias": -0.029006092657645758,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "spam",
+   "mentions": 212,
+   "MAE": 0.5611760643375149,
+   "bias": -0.08656341514697356,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "our type label",
+   "stratum": "unclear",
+   "mentions": 15,
+   "MAE": 0.44938681706370126,
+   "bias": 0.2514271888006257,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "our sentiment",
+   "stratum": "negative",
+   "mentions": 413,
+   "MAE": 0.4799745950647598,
+   "bias": 0.02432482231440078,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "our sentiment",
+   "stratum": "neutral",
+   "mentions": 1083,
+   "MAE": 0.4821332885308431,
+   "bias": -0.019232184158404428,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "our sentiment",
+   "stratum": "positive",
+   "mentions": 307,
+   "MAE": 0.48856417542381764,
+   "bias": 0.029691735235872836,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q1 smallest",
+   "mentions": 437,
+   "MAE": 0.5272100911553198,
+   "bias": -0.024726175198463613,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q2",
+   "mentions": 436,
+   "MAE": 0.4849558078292682,
+   "bias": 0.0007547843019214559,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q3",
+   "mentions": 436,
+   "MAE": 0.436456064524074,
+   "bias": 0.022164701603442694,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "Q4 largest",
+   "mentions": 437,
+   "MAE": 0.4850071721141932,
+   "bias": -0.016628043671364022,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "followers tier",
+   "stratum": "no followers",
+   "mentions": 57,
+   "MAE": 0.46130773159520044,
+   "bias": 0.11249046808919995,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q1 lowest",
+   "mentions": 176,
+   "MAE": 0.4740325577150692,
+   "bias": 0.018790587660578485,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q2",
+   "mentions": 176,
+   "MAE": 0.45269223727368035,
+   "bias": -0.008812628376931836,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q3",
+   "mentions": 176,
+   "MAE": 0.4617776150713897,
+   "bias": -0.0076516749702392195,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "Q4 highest",
+   "mentions": 176,
+   "MAE": 0.3869770825703366,
+   "bias": -0.0024754769921425442,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "engagement tier",
+   "stratum": "missing likes/comments",
+   "mentions": 1099,
+   "MAE": 0.5076293634147381,
+   "bias": -0.0014928873510774603,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "language",
+   "stratum": "english",
+   "mentions": 1775,
+   "MAE": 0.4833846370879927,
+   "bias": -0.001734726810005317,
+   "platform": "X (Twitter)"
+  },
+  {
+   "stratifier": "language",
+   "stratum": "other",
+   "mentions": 28,
+   "MAE": 0.4414760808776363,
+   "bias": 0.050435677766711554,
+   "platform": "X (Twitter)"
+  }
+ ]
+}
