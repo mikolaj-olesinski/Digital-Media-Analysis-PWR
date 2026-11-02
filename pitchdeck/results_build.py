@@ -157,7 +157,7 @@ slide(T("Nasze etykiety AI niemal nie zmieniają wyświetleń przy tych samych r
 def architecture():
     s = prs.slides.add_slide(prs.slide_layouts[6]); s.background.fill.solid(); s.background.fill.fore_color.rgb = rgb(BG)
     bar = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(.22), prs.slide_height); bar.fill.solid(); bar.fill.fore_color.rgb = rgb(PLUM); bar.line.fill.background()
-    tb(s, .6, .3, 12, .4, T("7 · ARCHITEKTURA I PRACA Z NARZĘDZIAMI AI", "7 · ARCHITECTURE AND HOW WE USE AI TOOLS"), 14, True, CORAL)
+    tb(s, .6, .3, 12, .4, T("9 · ARCHITEKTURA I PRACA Z NARZĘDZIAMI AI", "9 · ARCHITECTURE AND HOW WE USE AI TOOLS"), 14, True, CORAL)
     tb(s, .6, .65, 12.1, 1.0, T("Od surowego CSV do wyniku: każdy krok to skrypt lub notebook, a AI koduje wzmianki i pomaga w kodzie, ale nie pisze tekstu pracy", "From raw CSV to result: every step is a script or notebook; AI codes mentions and helps with code but does not write the paper"), 28, True, PLUM)
     steps = [(T("Dane surowe", "Raw data"), T("CSV, 12 500 wzmianek, tylko do odczytu", "CSV, 12,500 mentions, read-only")), (T("Kodowanie AI", "AI coding"), T("3× Haiku + Sonnet dla niezgodnych; codebook", "3x Haiku + Sonnet on disputes; codebook")),
              (T("Etykiety", "Labels"), T("typ i sentyment, kappa, źródło decyzji", "type and sentiment, kappa, decision source")), (T("Cechy", "Features"), T("followersi, reakcje, braki, tekst, etykiety, graf", "followers, engagement, missingness, text, labels, graph")),
@@ -187,6 +187,40 @@ slide(T("Tekst daje drobny, ale realny zysk na YouTube i X; reakcje są niezbęd
        (T("Odwrotnie:", "The other way round:"), T(f"lajki, komentarze i udostępnienia da się przewidzieć (R² {n(tgt('TikTok', 'likes'))} lajki na TikToku), a followersów prawie nie (R² {n(tgt('TikTok', 'followers'))}). Graf marek poprawia tylko X o {n(bgx['gain'], 3)}.", f"likes, comments and shares are predictable (R² {n(tgt('TikTok', 'likes'))} for TikTok likes), followers hardly (R² {n(tgt('TikTok', 'followers'))}). The brand graph helps only X, by {n(bgx['gain'], 3)}."))],
       T("Słupki = wzrost błędu po usunięciu grupy z pełnego modelu (oś symlog), 95% przedział z bootstrapu po markach. Reakcje wyjaśniają większość, reszta to poprawki rzędu 0,01.", "Bars = error increase when a group is removed from the full model (symlog axis), 95% brand-cluster bootstrap CI. Engagement explains most; the rest are corrections around 0.01."),
       T("Przedziały sparowane na tych samych foldach. Cechy tekstu i kalendarza nie używają wyświetleń.", "Intervals are paired on the same folds. Text and calendar features use no views."))
+
+GL = json.load(open(ROOT / "data" / "processed" / "graphlab_numbers.json"))
+def glg(plat, name): return next(r["gain vs base"] for r in GL["variants"] if r["platform"] == plat and r["model"] == name)
+def gld(plat, key): return next(r[key] for r in GL["duplicates"] if r["platform"] == plat)
+def glh(plat, key): return next(r[key] for r in GL["homophily"] if r["platform"] == plat)
+def glt(plat, model): return next(r["macro F1"] for r in GL["type_prediction"] if r["platform"] == plat and r["model"] == model)
+pc = lambda x: f"{100 * x:.0f}%"
+slide(T("Dziesięć pomysłów grafowych i kodowań cech nie poprawia oszacowania wyświetleń, a propagacja etykiet je pogarsza", "Ten graph and encoding ideas do not improve the views estimate, and label propagation makes it worse"),
+      T("7 · LABORATORIUM GRAFOWE", "7 · GRAPH LAB"), fd / f"graphlab_gains_{LANG}.png",
+      [(T("Co sprawdziliśmy:", "What we tried:"), T("społeczności (Louvain), PageRank, embedding spektralny, graf autor–marka, hashtagi, czas, near-duplikaty i kodowania kategorii.", "communities (Louvain), PageRank, spectral embedding, author-brand graph, hashtags, time, near-duplicates and category encodings.")),
+       (T("Wynik:", "Result:"), T(f"największe zyski to ok. {n(glg('TikTok', '+ category encodings (language, country, hour, weekday, month)'), 3)} (kodowania kategorii, TikTok) i {n(glg('YouTube', '+ spectral'), 3)} (spektralny, YouTube), czyli w praktyce zero.", f"the biggest gains are about {n(glg('TikTok', '+ category encodings (language, country, hour, weekday, month)'), 3)} (category encodings, TikTok) and {n(glg('YouTube', '+ spectral'), 3)} (spectral, YouTube), practically zero.")),
+       (T("Propagacja etykiet:", "Label propagation:"), T(f"pogarsza wynik na wszystkich platformach (X {n(glg('X (Twitter)', '+ label propagation (2 hops)'), 3)}), bo na treningu widzi własne wyniki odbite przez pętle grafu.", f"hurts on all platforms (X {n(glg('X (Twitter)', '+ label propagation (2 hops)'), 3)}) because on the training fold it sees its own results reflected through graph loops."))],
+      T("Zysk sparowany względem followersi + reakcji, CV po markach, 95% bootstrap. Cechy zależne od wyświetleń liczone tylko z części treningowej.", "Paired gain over followers + engagement, brand-grouped CV, 95% bootstrap. Features using views are computed from the training fold only."),
+      T("Wynik negatywny, ale po szerokim przeszukaniu: w danych nie ma ukrytej struktury, którą graf by wyciągnął.", "A negative result after a wide search: there is no hidden structure in the data that a graph would extract."))
+
+
+def wide_slide(title, kicker, pic, cols, foot, notes):
+    s = prs.slides.add_slide(prs.slide_layouts[6]); s.background.fill.solid(); s.background.fill.fore_color.rgb = rgb(BG)
+    bar = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(.22), prs.slide_height); bar.fill.solid(); bar.fill.fore_color.rgb = rgb(PLUM); bar.line.fill.background()
+    tb(s, .6, .3, 12, .4, kicker, 14, True, CORAL); tb(s, .6, .65, 12.1, 1.0, title, 28, True, PLUM)
+    s.shapes.add_picture(str(pic), Inches(1.9), Inches(1.75), height=Inches(3.45))
+    for i, (h, b) in enumerate(cols):
+        x = .6 + i * 4.1; tb(s, x, 5.3, 3.9, .35, h, 14, True, PLUM); tb(s, x, 5.65, 3.9, 1.0, b, 13, False, INK)
+    box = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(.6), Inches(6.72), Inches(12.1), Inches(.5)); box.fill.solid(); box.fill.fore_color.rgb = rgb(SOFT); box.line.fill.background()
+    tb(s, .75, 6.75, 11.8, .45, foot, 12, False, GRAY, MSO_ANCHOR.MIDDLE); s.notes_slide.notes_text_frame.text = notes
+
+
+wide_slide(T("Graf nie poprawia oszacowania, ale pokazuje kampanie copy-paste: promocje i spam tworzą ciasne skupiska prawie identycznych postów", "The graph does not improve the estimate, but it exposes copy-paste campaigns: promo and spam form tight clusters of near-identical posts"),
+      T("8 · CO GRAF POKAZUJE O WZMIANKACH", "8 · WHAT THE GRAPH SHOWS ABOUT MENTIONS"), fd / f"graphlab_map_{LANG}.png",
+      [(T("Kopie:", "Copies:"), T(f"od {pc(gld('TikTok', 'share with near-duplicate'))} do {pc(gld('YouTube', 'share with near-duplicate'))} wzmianek ma niemal identyczną kopię; spamu jest wśród nich {pc(gld('X (Twitter)', 'spam share, duplicates'))} vs {pc(gld('X (Twitter)', 'spam share, others'))} na X.", f"{pc(gld('TikTok', 'share with near-duplicate'))} to {pc(gld('YouTube', 'share with near-duplicate'))} of mentions have a near-identical copy; spam is {pc(gld('X (Twitter)', 'spam share, duplicates'))} among them vs {pc(gld('X (Twitter)', 'spam share, others'))} on X.")),
+       (T("Wyświetlenia kopii:", "Views of copies:"), T(f"pary kopii mają skorelowane wyświetlenia ({n(gld('TikTok', 'corr of log views, duplicate pairs'))}–{n(gld('YouTube', 'corr of log views, duplicate pairs'))}) wobec ok. 0 dla losowych par.", f"copy pairs have correlated views ({n(gld('TikTok', 'corr of log views, duplicate pairs'))} to {n(gld('YouTube', 'corr of log views, duplicate pairs'))}) against about 0 for random pairs.")),
+       (T("Etykiety i typ:", "Labels and type:"), T(f"krawędzie łączą ten sam typ częściej niż z przypadku ({pc(glh('X (Twitter)', 'same-type edges'))} vs {pc(glh('X (Twitter)', 'expected by chance'))} na X), ale głos sąsiadów nie poprawia przewidywania typu (F1 {n(glt('X (Twitter)', 'text only'))} z samego tekstu).", f"edges link the same type more often than by chance ({pc(glh('X (Twitter)', 'same-type edges'))} vs {pc(glh('X (Twitter)', 'expected by chance'))} on X), but a neighbour vote does not improve type prediction (F1 {n(glt('X (Twitter)', 'text only'))} from text alone)."))],
+      T("Mapa t-SNE z 30 tematów TF-IDF, kolor = nasza etykieta typu. Duplikaty: cosinus > 0,8. Społeczności to głównie branże (auta, banki, fast food, linie lotnicze).", "t-SNE map of 30 TF-IDF topics, colour = our type label. Duplicates: cosine > 0.8. Communities are mostly industries (cars, banks, fast food, airlines)."),
+      T("Zbyt mało wzmianek ma kopię w innej marce, by to poprawiło estymację w CV po markach.", "Too few mentions have a copy in another brand for this to improve the estimate in brand-grouped CV."))
 
 architecture()
 out = HERE / f"results_{LANG}.pptx"; prs.save(out); print("saved", out)
