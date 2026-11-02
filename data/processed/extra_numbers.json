@@ -1,0 +1,617 @@
+{
+ "gains": [
+  {
+   "platform": "TikTok",
+   "model": "base: followers + engagement",
+   "MAE": 0.27732604137660466,
+   "CI low": 0.26710060173900907,
+   "CI high": 0.28772038854187915,
+   "gain vs base": 0.0,
+   "gain low": 0.0,
+   "gain high": 0.0
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ text stats",
+   "MAE": 0.275195026094193,
+   "CI low": 0.2654708290395573,
+   "CI high": 0.28555363225797936,
+   "gain vs base": 0.0021310152824115807,
+   "gain low": -9.542746223510007e-05,
+   "gain high": 0.004347801746385314
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ VADER sentiment",
+   "MAE": 0.2789042231835225,
+   "CI low": 0.2692941419450442,
+   "CI high": 0.29031693831151345,
+   "gain vs base": -0.0015781818069178458,
+   "gain low": -0.0035864753011579384,
+   "gain high": 0.00028060933749629477
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ TF-IDF SVD (30)",
+   "MAE": 0.27566559919899175,
+   "CI low": 0.2656072866694285,
+   "CI high": 0.2855074409829068,
+   "gain vs base": 0.001660442177612911,
+   "gain low": -0.0008640287423131247,
+   "gain high": 0.004106941700327109
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ calendar",
+   "MAE": 0.2763506470462778,
+   "CI low": 0.26668058667007205,
+   "CI high": 0.28683118038200567,
+   "gain vs base": 0.0009753943303268256,
+   "gain low": -0.0018106455516700307,
+   "gain high": 0.003713991015915889
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ engagement ratios",
+   "MAE": 0.28112585106035926,
+   "CI low": 0.27100464468022434,
+   "CI high": 0.2918704408866355,
+   "gain vs base": -0.003799809683754581,
+   "gain low": -0.0053296591399130296,
+   "gain high": -0.002451790069811562
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ brand size",
+   "MAE": 0.27742658072316595,
+   "CI low": 0.2671513799424508,
+   "CI high": 0.28848411452939127,
+   "gain vs base": -0.00010053934656128104,
+   "gain low": -0.0011980632172789553,
+   "gain high": 0.0011066253162790318
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ all groups",
+   "MAE": 0.27596473055529647,
+   "CI low": 0.2667742312930844,
+   "CI high": 0.2862753308550628,
+   "gain vs base": 0.0013613108213081694,
+   "gain low": -0.002041664405717786,
+   "gain high": 0.004624586195856896
+  },
+  {
+   "platform": "YouTube",
+   "model": "base: followers + engagement",
+   "MAE": 0.45494304807430386,
+   "CI low": 0.435470136925082,
+   "CI high": 0.4782182313235924,
+   "gain vs base": 0.0,
+   "gain low": 0.0,
+   "gain high": 0.0
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ text stats",
+   "MAE": 0.4437628199903384,
+   "CI low": 0.423792564138858,
+   "CI high": 0.4670199407003873,
+   "gain vs base": 0.011180228083965205,
+   "gain low": 0.005296493859628139,
+   "gain high": 0.01684010700782989
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ VADER sentiment",
+   "MAE": 0.45732060063286445,
+   "CI low": 0.4349564330606453,
+   "CI high": 0.48122810673802,
+   "gain vs base": -0.0023775525585607374,
+   "gain low": -0.006988602735799866,
+   "gain high": 0.0018284426224984846
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ TF-IDF SVD (30)",
+   "MAE": 0.44120268984032357,
+   "CI low": 0.4202722121990493,
+   "CI high": 0.46573539020440824,
+   "gain vs base": 0.013740358233980196,
+   "gain low": 0.006837264303821759,
+   "gain high": 0.02042786135252897
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ calendar",
+   "MAE": 0.4565242400383263,
+   "CI low": 0.4358451083336001,
+   "CI high": 0.47891142573297524,
+   "gain vs base": -0.0015811919640225686,
+   "gain low": -0.007567605366226844,
+   "gain high": 0.004127315390049074
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ engagement ratios",
+   "MAE": 0.4553667865635447,
+   "CI low": 0.4354014395130365,
+   "CI high": 0.4783121578507384,
+   "gain vs base": -0.0004237384892409203,
+   "gain low": -0.0018258067005659181,
+   "gain high": 0.001055604630327089
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ brand size",
+   "MAE": 0.456718526983916,
+   "CI low": 0.43538598615332047,
+   "CI high": 0.48098741490774155,
+   "gain vs base": -0.0017754789096122833,
+   "gain low": -0.0044442767147579425,
+   "gain high": 0.0012451601423866194
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ all groups",
+   "MAE": 0.43848595533841594,
+   "CI low": 0.41808161451761344,
+   "CI high": 0.46224409919121295,
+   "gain vs base": 0.016457092735887857,
+   "gain low": 0.009232436680957145,
+   "gain high": 0.023637583826042672
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "base: followers + engagement",
+   "MAE": 0.4811754456890932,
+   "CI low": 0.46240176602486643,
+   "CI high": 0.5034033704508725,
+   "gain vs base": 0.0,
+   "gain low": 0.0,
+   "gain high": 0.0
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ text stats",
+   "MAE": 0.46783131861298166,
+   "CI low": 0.4497391623679305,
+   "CI high": 0.48779109859372755,
+   "gain vs base": 0.013344127076111658,
+   "gain low": 0.007139098691081538,
+   "gain high": 0.020066167832747273
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ VADER sentiment",
+   "MAE": 0.4833697905178343,
+   "CI low": 0.46415911020321743,
+   "CI high": 0.5047119368378427,
+   "gain vs base": -0.002194344828741038,
+   "gain low": -0.00784343046060278,
+   "gain high": 0.002698277768332633
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ TF-IDF SVD (30)",
+   "MAE": 0.46474207788945365,
+   "CI low": 0.4466411976819697,
+   "CI high": 0.4856171737905399,
+   "gain vs base": 0.016433367799639578,
+   "gain low": 0.010070529468970281,
+   "gain high": 0.02302316768170368
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ calendar",
+   "MAE": 0.4743507912067444,
+   "CI low": 0.45522483669674224,
+   "CI high": 0.49554521143023056,
+   "gain vs base": 0.006824654482348953,
+   "gain low": 0.0009092460346018775,
+   "gain high": 0.012722994625249607
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ engagement ratios",
+   "MAE": 0.4834424301794879,
+   "CI low": 0.4639851538436864,
+   "CI high": 0.5046033814741911,
+   "gain vs base": -0.0022669844903946447,
+   "gain low": -0.004650563101251348,
+   "gain high": 3.9509425150097674e-05
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ brand size",
+   "MAE": 0.4836734873855431,
+   "CI low": 0.46417914527916676,
+   "CI high": 0.5050106506180656,
+   "gain vs base": -0.0024980416964499037,
+   "gain low": -0.005559852794633871,
+   "gain high": 0.0005970127215427118
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ all groups",
+   "MAE": 0.4596888511706506,
+   "CI low": 0.440243028640308,
+   "CI high": 0.4814899483368366,
+   "gain vs base": 0.021486594518442613,
+   "gain low": 0.015182447321914143,
+   "gain high": 0.02817827849665756
+  }
+ ],
+ "targets": [
+  {
+   "platform": "TikTok",
+   "target": "likes",
+   "n": 2491,
+   "median baseline MAE": 1.6660972112391017,
+   "model MAE": 0.8625608415645899,
+   "CI low": 0.8356483548173553,
+   "CI high": 0.8879100757140314,
+   "R2": 0.7596429504884311
+  },
+  {
+   "platform": "TikTok",
+   "target": "comments",
+   "n": 2491,
+   "median baseline MAE": 1.084323795842352,
+   "model MAE": 0.6375755199812048,
+   "CI low": 0.6163809995486702,
+   "CI high": 0.6566701756714641,
+   "R2": 0.6785954725740571
+  },
+  {
+   "platform": "TikTok",
+   "target": "shares",
+   "n": 2491,
+   "median baseline MAE": 1.2329860492382194,
+   "model MAE": 0.6801289386374862,
+   "CI low": 0.653974000467542,
+   "CI high": 0.7068758652408305,
+   "R2": 0.7509632733827396
+  },
+  {
+   "platform": "TikTok",
+   "target": "followers",
+   "n": 2439,
+   "median baseline MAE": 0.9648223664765189,
+   "model MAE": 0.8644748191788676,
+   "CI low": 0.8362327560745212,
+   "CI high": 0.8948714183580734,
+   "R2": 0.21773954549793673
+  },
+  {
+   "platform": "YouTube",
+   "target": "likes",
+   "n": 2335,
+   "median baseline MAE": 1.974532388964074,
+   "model MAE": 0.9249769040517809,
+   "CI low": 0.8782604471184049,
+   "CI high": 0.9660505499659316,
+   "R2": 0.7170557673870938
+  },
+  {
+   "platform": "YouTube",
+   "target": "comments",
+   "n": 2226,
+   "median baseline MAE": 1.2851056526677402,
+   "model MAE": 0.5998822818401696,
+   "CI low": 0.565313811713764,
+   "CI high": 0.6307799231906995,
+   "R2": 0.7337095683805769
+  },
+  {
+   "platform": "YouTube",
+   "target": "shares",
+   "n": 1451,
+   "median baseline MAE": 0.0,
+   "model MAE": 0.0,
+   "CI low": 0.0,
+   "CI high": 0.0,
+   "R2": NaN
+  },
+  {
+   "platform": "YouTube",
+   "target": "followers",
+   "n": 2428,
+   "median baseline MAE": 0.8855346607922531,
+   "model MAE": 0.6536609773439673,
+   "CI low": 0.6207682790979042,
+   "CI high": 0.6894169901447775,
+   "R2": 0.43528109870038445
+  },
+  {
+   "platform": "X (Twitter)",
+   "target": "likes",
+   "n": 1803,
+   "median baseline MAE": 0.551365492417794,
+   "model MAE": 0.4551680264715085,
+   "CI low": 0.43276386189523297,
+   "CI high": 0.47439146650700725,
+   "R2": 0.5909111853139355
+  },
+  {
+   "platform": "X (Twitter)",
+   "target": "comments",
+   "n": 704,
+   "median baseline MAE": 0.49113745866074887,
+   "model MAE": 0.32997228378094506,
+   "CI low": 0.29738319027179394,
+   "CI high": 0.3611636494957244,
+   "R2": 0.48954154089933677
+  },
+  {
+   "platform": "X (Twitter)",
+   "target": "shares",
+   "n": 1803,
+   "median baseline MAE": 0.14740986406254425,
+   "model MAE": 0.13990903293680915,
+   "CI low": 0.12771097968684136,
+   "CI high": 0.1540575601047411,
+   "R2": 0.6221243572621165
+  },
+  {
+   "platform": "X (Twitter)",
+   "target": "followers",
+   "n": 1746,
+   "median baseline MAE": 0.9466329883503614,
+   "model MAE": 0.8622806388867893,
+   "CI low": 0.8227877812205711,
+   "CI high": 0.9066337410843961,
+   "R2": 0.15005447828467677
+  }
+ ],
+ "brand_graph": [
+  {
+   "platform": "TikTok",
+   "base MAE": 0.27732604137660466,
+   "with brand-graph MAE": 0.2780214048683032,
+   "gain": -0.000695363491698479,
+   "gain low": -0.002751872006151223,
+   "gain high": 0.001180769350192078
+  },
+  {
+   "platform": "YouTube",
+   "base MAE": 0.45494304807430364,
+   "with brand-graph MAE": 0.46007204251846356,
+   "gain": -0.005128994444159798,
+   "gain low": -0.010399705663256001,
+   "gain high": -5.6854501924990064e-05
+  },
+  {
+   "platform": "X (Twitter)",
+   "base MAE": 0.4811754456890933,
+   "with brand-graph MAE": 0.4705989566710137,
+   "gain": 0.010576489018079574,
+   "gain low": 0.003128802926014713,
+   "gain high": 0.0180085504178915
+  }
+ ],
+ "ablation": [
+  {
+   "platform": "TikTok",
+   "removed group": "followers",
+   "MAE without": 0.2753206526516821,
+   "loss": 0.00236083016852052,
+   "loss low": 0.0007555002147943122,
+   "loss high": 0.004029497480664828,
+   "MAE full": 0.2729598224831616
+  },
+  {
+   "platform": "TikTok",
+   "removed group": "engagement",
+   "MAE without": 0.5891743882791131,
+   "loss": 0.31621456579595153,
+   "loss low": 0.2932171402245932,
+   "loss high": 0.3384093251698608,
+   "MAE full": 0.2729598224831616
+  },
+  {
+   "platform": "TikTok",
+   "removed group": "missing flags",
+   "MAE without": 0.2730556042227159,
+   "loss": 9.578173955431755e-05,
+   "loss low": -0.000771540254602058,
+   "loss high": 0.0010091606296532484,
+   "MAE full": 0.2729598224831616
+  },
+  {
+   "platform": "TikTok",
+   "removed group": "text stats",
+   "MAE without": 0.27503122205223,
+   "loss": 0.0020713995690683773,
+   "loss low": 0.0008367798058512644,
+   "loss high": 0.0034067403373644143,
+   "MAE full": 0.2729598224831616
+  },
+  {
+   "platform": "TikTok",
+   "removed group": "VADER sentiment",
+   "MAE without": 0.27292848602743164,
+   "loss": -3.133645572998146e-05,
+   "loss low": -0.0011636524754279737,
+   "loss high": 0.001144719251730416,
+   "MAE full": 0.2729598224831616
+  },
+  {
+   "platform": "TikTok",
+   "removed group": "TF-IDF SVD (30)",
+   "MAE without": 0.27395836707726506,
+   "loss": 0.0009985445941034453,
+   "loss low": -0.0009555935146032527,
+   "loss high": 0.003027205115366566,
+   "MAE full": 0.2729598224831616
+  },
+  {
+   "platform": "TikTok",
+   "removed group": "calendar",
+   "MAE without": 0.27305457509011055,
+   "loss": 9.475260694899576e-05,
+   "loss low": -0.0015678078235711998,
+   "loss high": 0.001910755736095034,
+   "MAE full": 0.2729598224831616
+  },
+  {
+   "platform": "TikTok",
+   "removed group": "brand size",
+   "MAE without": 0.273823536732191,
+   "loss": 0.0008637142490293891,
+   "loss low": -1.1084386159929462e-05,
+   "loss high": 0.0017326015030705733,
+   "MAE full": 0.2729598224831616
+  },
+  {
+   "platform": "YouTube",
+   "removed group": "followers",
+   "MAE without": 0.4595294719761496,
+   "loss": 0.02113982566254111,
+   "loss low": 0.011444692557468394,
+   "loss high": 0.031029596349251568,
+   "MAE full": 0.43838964631360844
+  },
+  {
+   "platform": "YouTube",
+   "removed group": "engagement",
+   "MAE without": 0.668025590844453,
+   "loss": 0.2296359445308447,
+   "loss low": 0.20577050793104668,
+   "loss high": 0.25067362599555837,
+   "MAE full": 0.43838964631360844
+  },
+  {
+   "platform": "YouTube",
+   "removed group": "missing flags",
+   "MAE without": 0.44439932737452975,
+   "loss": 0.0060096810609213975,
+   "loss low": -0.0018901173778843258,
+   "loss high": 0.013389436293550118,
+   "MAE full": 0.43838964631360844
+  },
+  {
+   "platform": "YouTube",
+   "removed group": "text stats",
+   "MAE without": 0.44171510475430986,
+   "loss": 0.0033254584407014748,
+   "loss low": 0.0005976443981591335,
+   "loss high": 0.005984476843479264,
+   "MAE full": 0.43838964631360844
+  },
+  {
+   "platform": "YouTube",
+   "removed group": "VADER sentiment",
+   "MAE without": 0.4367066881859635,
+   "loss": -0.0016829581276449975,
+   "loss low": -0.003523764727714981,
+   "loss high": 1.5323477705324325e-05,
+   "MAE full": 0.43838964631360844
+  },
+  {
+   "platform": "YouTube",
+   "removed group": "TF-IDF SVD (30)",
+   "MAE without": 0.4474310179950988,
+   "loss": 0.009041371681490435,
+   "loss low": 0.0045090341059677444,
+   "loss high": 0.013352479636305713,
+   "MAE full": 0.43838964631360844
+  },
+  {
+   "platform": "YouTube",
+   "removed group": "calendar",
+   "MAE without": 0.4395597448050631,
+   "loss": 0.0011700984914546258,
+   "loss low": -0.0010545221817037773,
+   "loss high": 0.003342879204221158,
+   "MAE full": 0.43838964631360844
+  },
+  {
+   "platform": "YouTube",
+   "removed group": "brand size",
+   "MAE without": 0.4396823588094126,
+   "loss": 0.0012927124958042337,
+   "loss low": -0.0006508051131257877,
+   "loss high": 0.0030274497812390073,
+   "MAE full": 0.43838964631360844
+  },
+  {
+   "platform": "X (Twitter)",
+   "removed group": "followers",
+   "MAE without": 0.4975360328205012,
+   "loss": 0.037452944365704864,
+   "loss low": 0.027997916236992073,
+   "loss high": 0.047445891446793634,
+   "MAE full": 0.46008308845479634
+  },
+  {
+   "platform": "X (Twitter)",
+   "removed group": "engagement",
+   "MAE without": 0.5402209790810109,
+   "loss": 0.08013789062621443,
+   "loss low": 0.06482648729745698,
+   "loss high": 0.09773649111135752,
+   "MAE full": 0.46008308845479634
+  },
+  {
+   "platform": "X (Twitter)",
+   "removed group": "missing flags",
+   "MAE without": 0.45845188568209666,
+   "loss": -0.0016312027726997568,
+   "loss low": -0.003346467410737705,
+   "loss high": 0.0002557721463138991,
+   "MAE full": 0.46008308845479634
+  },
+  {
+   "platform": "X (Twitter)",
+   "removed group": "text stats",
+   "MAE without": 0.4633274842067623,
+   "loss": 0.003244395751965887,
+   "loss low": 0.00031601671053807756,
+   "loss high": 0.006388477259786821,
+   "MAE full": 0.46008308845479634
+  },
+  {
+   "platform": "X (Twitter)",
+   "removed group": "VADER sentiment",
+   "MAE without": 0.4591009775435187,
+   "loss": -0.0009821109112776675,
+   "loss low": -0.003010915143966673,
+   "loss high": 0.0010697865420840216,
+   "MAE full": 0.46008308845479634
+  },
+  {
+   "platform": "X (Twitter)",
+   "removed group": "TF-IDF SVD (30)",
+   "MAE without": 0.46938368681510645,
+   "loss": 0.009300598360310068,
+   "loss low": 0.003682381502158858,
+   "loss high": 0.014632033192809233,
+   "MAE full": 0.46008308845479634
+  },
+  {
+   "platform": "X (Twitter)",
+   "removed group": "calendar",
+   "MAE without": 0.45892371833098256,
+   "loss": -0.0011593701238138063,
+   "loss low": -0.0034538621628712376,
+   "loss high": 0.00131644032909376,
+   "MAE full": 0.46008308845479634
+  },
+  {
+   "platform": "X (Twitter)",
+   "removed group": "brand size",
+   "MAE without": 0.4586264703880728,
+   "loss": -0.0014566180667236158,
+   "loss low": -0.0031716785710632894,
+   "loss high": 0.0004324735424993577,
+   "MAE full": 0.46008308845479634
+  }
+ ],
+ "x_all": {
+  "base": 0.48117544568909326,
+  "all": 0.45719536959476215,
+  "gain": 0.023980076094331094,
+  "low": 0.016906157159284833,
+  "high": 0.030933236799430074
+ }
+}
