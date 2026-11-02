@@ -1,0 +1,41 @@
+[
+ {
+  "platform": "TikTok",
+  "posts": 2491,
+  "zero share": 0.03613006824568447,
+  "all posts, trained on all": 0.2773590701161697,
+  "zero posts only": 0.5338466169887046,
+  "kept posts, trained on all": 0.2677447930572242,
+  "kept posts, trained on kept": 0.26889672753231375,
+  "training gain": -0.0011519344750895698,
+  "low": -0.0019119936855766513,
+  "high": -0.00039511554840695936,
+  "zero posts if trained on kept": 0.554288037881363
+ },
+ {
+  "platform": "YouTube",
+  "posts": 2441,
+  "zero share": 0.2724293322408849,
+  "all posts, trained on all": 0.4550134638965752,
+  "zero posts only": 0.6552831780205414,
+  "kept posts, trained on all": 0.3800250855787613,
+  "kept posts, trained on kept": 0.37953530487255954,
+  "training gain": 0.0004897807062016827,
+  "low": -0.002820941462348878,
+  "high": 0.0037508514919006755,
+  "zero posts if trained on kept": 0.8381453433457744
+ },
+ {
+  "platform": "X (Twitter)",
+  "posts": 1803,
+  "zero share": 0.5496394897393233,
+  "all posts, trained on all": 0.4814985640321803,
+  "zero posts only": 0.5102008025379172,
+  "kept posts, trained on all": 0.4464691079248092,
+  "kept posts, trained on kept": 0.4446849022390891,
+  "training gain": 0.0017842056857201253,
+  "low": -0.000520560990228041,
+  "high": 0.004193351712701462,
+  "zero posts if trained on kept": 0.545820736046728
+ }
+]
