@@ -39,6 +39,9 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E32 | 2026-11-02 | Strata MAE | Domyślny CatBoost, RMSE na MAE | +0,011 / +0,007 / +0,022 | zysk | `13_stacked_models` |
 | E33 | 2026-11-02 | Błąd według poziomu reakcji | CatBoost MAE; ridge poza platformą | YouTube ×4,6 do ×1,8; X ×3,1 do ×2,5; TikTok stały po pierwszej reakcji | wniosek | `14_reaction_tiers`, `tiers_numbers.json` |
 | E34 | 2026-11-02 | Przedział na poziom reakcji | Konforemne w grupach | Jedna szerokość obejmuje 67–87% przy zerze reakcji; na poziom ok. 90%, oprócz TikToka przy zerze | zysk | `14_reaction_tiers` |
+| E35 | 2026-11-03 | Fałszywe dopasowanie widoczne w grafie tekstu | Graf TF-IDF 10-NN na TikToku, Louvain; Cricket Wireless wobec sześciu marek sieci komórkowych | Wszystkie 20 wzmianek Cricket Wireless w jednej grupie z postami o krykiecie (Aon); 4 krawędzie do 28 postów sieci komórkowych | wniosek | `pitchdeck/class_build.py`, `src/slide_graph.py`, `cricket_graph_numbers.json` |
+| E36 | 2026-11-03 | Branże marek | Agent Haiku, wiedza ogólna, 348 marek | 20 branż; 83 nazwy z innym znaczeniem; 2 o niskiej pewności | instrument, niesprawdzony | `data/processed/brand_industry.csv` |
+| E37 | 2026-11-03 | Marka z dala od swojej branży w grafie tekstu | Odsetek sąsiadów innych marek z tej samej branży wobec losowego, 5 platform | Najniżej m.in. Frontier (X, AI), Gap (YouTube, AI), Guardian Life (Minecraft), Wrangler (Jeep); część to inny język; Cricket Wireless nie wypada nisko (lift 1,4 na TikToku); AUC wobec flagi nazwy 0,62 (0,55–0,69) | wniosek, do sprawdzenia ręcznie | `15_brand_mismatch`, `mismatch_numbers.json` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.

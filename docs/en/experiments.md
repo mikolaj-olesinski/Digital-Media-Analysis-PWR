@@ -39,6 +39,9 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E32 | 2026-11-02 | MAE loss | Default CatBoost, RMSE to MAE | +0.011 / +0.007 / +0.022 | gain | `13_stacked_models` |
 | E33 | 2026-11-02 | Error by reaction tier | CatBoost MAE; ridge out of platform | YouTube ×4.6 to ×1.8; X ×3.1 to ×2.5; TikTok flat after the first reaction | finding | `14_reaction_tiers`, `tiers_numbers.json` |
 | E34 | 2026-11-02 | Interval per reaction tier | Mondrian conformal | One width covers 67-87% at zero reactions; per tier about 90%, except TikTok at zero | gain | `14_reaction_tiers` |
+| E35 | 2026-11-03 | False match seen in the text graph | TikTok TF-IDF 10-NN graph, Louvain; Cricket Wireless against six mobile-network brands | All 20 Cricket Wireless mentions in one group with cricket posts (Aon); 4 edges to the 28 mobile-network posts | finding | `pitchdeck/class_build.py`, `src/slide_graph.py`, `cricket_graph_numbers.json` |
+| E36 | 2026-11-03 | Brand industry labels | Haiku agent, general knowledge, 348 brands | 20 industries; 83 names flagged as having another meaning; 2 low confidence | instrument, unchecked | `data/processed/brand_industry.csv` |
+| E37 | 2026-11-03 | Brand away from its industry in the text graph | Share of other-brand neighbours from the same industry vs chance, 5 platforms | Lowest include Frontier (X, AI), Gap (YouTube, AI), Guardian Life (Minecraft), Wrangler (Jeep); some are other languages; Cricket Wireless not low (lift 1.4 on TikTok); AUC vs name flag 0.62 (0.55-0.69) | finding, needs hand check | `15_brand_mismatch`, `mismatch_numbers.json` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

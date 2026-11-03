@@ -1,0 +1,261 @@
+{
+ "pairs": 424,
+ "flag_auc": {
+  "AUC": 0.6150320943424391,
+  "low": 0.5466483057172712,
+  "high": 0.6886376225733921,
+  "brand-platform pairs": 424,
+  "flagged": 105
+ },
+ "lowest": [
+  {
+   "platform": "TikTok",
+   "brand": "AAA",
+   "industry": "other",
+   "mentions": 14,
+   "observed": 0.0,
+   "expected": 0.006438631790744466,
+   "lift": 0.0,
+   "words": "aaa, aa, fyp, gu, fortunate, tourist, parati, ilovemygf",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "X (Twitter)",
+   "brand": "Frontier",
+   "industry": "airlines",
+   "mentions": 10,
+   "observed": 0.0,
+   "expected": 0.021686746987951807,
+   "lift": 0.0,
+   "words": "frontier, ai, models, source, solana, open, anthropic, ga",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "X (Twitter)",
+   "brand": "Decathlon",
+   "industry": "sportswear",
+   "mentions": 14,
+   "observed": 0.0,
+   "expected": 0.01609657947686117,
+   "lift": 0.0,
+   "words": "decathlon, pour, le, leroymerlinfr, losclive, hac_foot, en, je",
+   "ambiguous_name": "no"
+  },
+  {
+   "platform": "YouTube",
+   "brand": "Gap",
+   "industry": "fashion and apparel",
+   "mentions": 10,
+   "observed": 0.0,
+   "expected": 0.03172690763052209,
+   "lift": 0.0,
+   "words": "gap, agent, real, market, agents, ________________________________________________________________, ops, autonomous",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "X (Twitter)",
+   "brand": "Avanza",
+   "industry": "other",
+   "mentions": 10,
+   "observed": 0.0,
+   "expected": 0.002008032128514056,
+   "lift": 0.0,
+   "words": "avanza, p\u00e5, och, att, har, f\u00f6r, jag, med",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "TikTok",
+   "brand": "Authentic Brands Group",
+   "industry": "fashion and apparel",
+   "mentions": 10,
+   "observed": 0.007692307692307693,
+   "expected": 0.02610441767068273,
+   "lift": 0.2946745562130178,
+   "words": "reebok, designed, icecream, questions, ad, shaqdieseloneal, ish, coach",
+   "ambiguous_name": "no"
+  },
+  {
+   "platform": "YouTube",
+   "brand": "Sling TV",
+   "industry": "media and entertainment",
+   "mentions": 10,
+   "observed": 0.015384615384615385,
+   "expected": 0.05220883534136546,
+   "lift": 0.2946745562130178,
+   "words": "chardikla, chardiklatimetvlive, dish, tv, chardiklatimetvchannel, gurbani, punjabi, platforms",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "TikTok",
+   "brand": "Enterprise",
+   "industry": "travel and hospitality",
+   "mentions": 10,
+   "observed": 0.027894327894327896,
+   "expected": 0.08674698795180723,
+   "lift": 0.3215596132262799,
+   "words": "enterprise, high, ai, station, global, drone, infrastructure, overseas",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "TikTok",
+   "brand": "Kontoor Brands",
+   "industry": "fashion and apparel",
+   "mentions": 15,
+   "observed": 0.008333333333333333,
+   "expected": 0.02414486921529175,
+   "lift": 0.3451388888888889,
+   "words": "wrangler, jeep, rubicon, ariat, westernfashion, amzn, lee, explore",
+   "ambiguous_name": "no"
+  },
+  {
+   "platform": "Facebook",
+   "brand": "Motorola",
+   "industry": "tech and software",
+   "mentions": 116,
+   "observed": 0.1348812944718117,
+   "expected": 0.33447098976109213,
+   "lift": 0.4032675436759269,
+   "words": "motorola, na, telefon, si\u0119, moto, pl, lenovo, nie",
+   "ambiguous_name": "no"
+  },
+  {
+   "platform": "TikTok",
+   "brand": "Peacock",
+   "industry": "media and entertainment",
+   "mentions": 12,
+   "observed": 0.011904761904761904,
+   "expected": 0.026961770623742453,
+   "lift": 0.44154228855721395,
+   "words": "peacock, wapow, tvclips, streaming, goodluckcharlie, update, georgelopez, naturelover",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "TikTok",
+   "brand": "Cracker Barrel",
+   "industry": "food and restaurants",
+   "mentions": 10,
+   "observed": 0.06761904761904762,
+   "expected": 0.14859437751004015,
+   "lift": 0.4550579150579151,
+   "words": "cracker, barrel, crackerbarrel, pepper, yes, positivity, gymtok, fall",
+   "ambiguous_name": "no"
+  },
+  {
+   "platform": "X (Twitter)",
+   "brand": "ShopRite",
+   "industry": "retail and e-commerce",
+   "mentions": 10,
+   "observed": 0.08888888888888888,
+   "expected": 0.17951807228915662,
+   "lift": 0.4951528709917971,
+   "words": "shoprite, south, mtn, bank, dstv, bantu, businesses, african",
+   "ambiguous_name": "no"
+  },
+  {
+   "platform": "YouTube",
+   "brand": "Guardian Life",
+   "industry": "finance and insurance",
+   "mentions": 27,
+   "observed": 0.06224413446635669,
+   "expected": 0.1196926809543065,
+   "lift": 0.5200329207273652,
+   "words": "guardian, minecraft, ancient, trick, pubgmobile, cancel, defeat, lady",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "TikTok",
+   "brand": "Bosch",
+   "industry": "industrial and b2b services",
+   "mentions": 10,
+   "observed": 0.00909090909090909,
+   "expected": 0.01646586345381526,
+   "lift": 0.5521064301552107,
+   "words": "bosch, bike, user86005605568087, 45kmh, min, tuning, smart, gotta",
+   "ambiguous_name": "no"
+  },
+  {
+   "platform": "YouTube",
+   "brand": "Ram",
+   "industry": "automotive",
+   "mentions": 15,
+   "observed": 0.047008547008547015,
+   "expected": 0.08450704225352114,
+   "lift": 0.5562678062678063,
+   "words": "ram, katha, tint, monitor, rtx, processor, kannada, amzn",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "TikTok",
+   "brand": "Sonic Drive-In",
+   "industry": "food and restaurants",
+   "mentions": 10,
+   "observed": 0.08373015873015872,
+   "expected": 0.14859437751004015,
+   "lift": 0.5634813384813385,
+   "words": "sonic, summer, babymonster, osaka, warm, pretty, princess, needed",
+   "ambiguous_name": "yes"
+  },
+  {
+   "platform": "YouTube",
+   "brand": "Hertz",
+   "industry": "travel and hospitality",
+   "mentions": 10,
+   "observed": 0.037606837606837605,
+   "expected": 0.06305220883534136,
+   "lift": 0.5964396537644945,
+   "words": "hertz, unrilis, audio, looseclubnaples, yuuta, heavyweights, vocals, raw",
+   "ambiguous_name": "no"
+  },
+  {
+   "platform": "X (Twitter)",
+   "brand": "MailerLite",
+   "industry": "tech and software",
+   "mentions": 15,
+   "observed": 0.0485978835978836,
+   "expected": 0.07887323943661974,
+   "lift": 0.6161517384731668,
+   "words": "mailerlite, preview, emails, io, 1084560, newsletter, earth, sign",
+   "ambiguous_name": "no"
+  },
+  {
+   "platform": "TikTok",
+   "brand": "Gap",
+   "industry": "fashion and apparel",
+   "mentions": 10,
+   "observed": 0.016783216783216783,
+   "expected": 0.02610441767068273,
+   "lift": 0.6429263044647661,
+   "words": "gap, landing, education, students, study, sorted, songs, moved",
+   "ambiguous_name": "yes"
+  }
+ ],
+ "cricket_wireless": [
+  {
+   "platform": "YouTube",
+   "brand": "Cricket Wireless",
+   "industry": "telecom",
+   "mentions": 20,
+   "observed": 0.0621877212114255,
+   "expected": 0.0592741935483871,
+   "lift": 1.0491533918662261
+  },
+  {
+   "platform": "TikTok",
+   "brand": "Cricket Wireless",
+   "industry": "telecom",
+   "mentions": 20,
+   "observed": 0.036145833333333335,
+   "expected": 0.025806451612903226,
+   "lift": 1.4006510416666667
+  },
+  {
+   "platform": "X (Twitter)",
+   "brand": "Cricket Wireless",
+   "industry": "telecom",
+   "mentions": 10,
+   "observed": 0.12607142857142856,
+   "expected": 0.061847389558232935,
+   "lift": 2.0384276437847864
+  }
+ ]
+}
