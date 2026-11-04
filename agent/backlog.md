@@ -22,3 +22,9 @@ client), `done`, `dropped`. Plan letters (A-H) refer to `docs/en/project_plan.md
 | B14 | P0 | blocked | Own FB/IG sample with public view counts (plan A) | data statement updated, sample collected | Needs GDPR/terms decision and people |
 | B15 | P1 | blocked | False brand match detector (plan D) | 100-200 hand labels, detector, share of reach | Needs hand labelling by people |
 | B16 | P1 | blocked | Ask Brand24: YouTube zeros, rule confirmation, history timezone | answers recorded in `agent/questions_for_brand24.md` | People send the questions |
+| B17 | P1 | open | Tabular foundation models: TabPFN v2 (Apache-2.0 regressor weights, attribution needed) and TabICL (BSD) vs and averaged with the final model | register row, card; image with CPU torch | Scratch pilot 2026-11-04 (not registered): YouTube +0.014 (CI 0.007-0.020), TikTok +0.005, X +0.002; 20-40 s per platform. Do not use TabPFN 2.5+ weights (non-commercial). Check whether the YouTube gain sits in zero-reaction posts (E27) |
+| B18 | P1 | open | Offset target: predict log10(views) - log10(likes+1), add back | register row; error per fifth of true views | Aims at tail compression (E18); trees cannot extrapolate |
+| B19 | P1 | open | Leakage audit: group folds by brand + author + duplicate cluster | register row | Authors across brands: 1% / 9% / 3.5% of posts; 14% of YouTube duplicate groups span brands |
+| B20 | P2 | open | Noise ceiling from main vs current re-checks of the same post | register row | Tells how far 0.45 on YouTube is from the floor |
+| B21 | P2 | open | Pooled 3-platform model with platform feature and monotone constraints | register row; in-platform and leave-platform-out | E14 is a warning |
+| B22 | P2 | open | YouTube views per like fell from 1.57 to 1.13 (log10, May-Aug): explained by younger checks? | register row | From E46 |
