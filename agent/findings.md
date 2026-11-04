@@ -21,6 +21,7 @@ add a contradicting line below it.
 - Tabular foundation models are a small gain on the same features: TabPFN v2 +0.005 / +0.010 / +0.002 over the final CatBoost; a plain mean of CatBoost + TabPFN + TabICL +0.004 / +0.010 / +0.003 with the tightest CIs. Only YouTube reaches 0.01. TabPFN 2.5+ weights are non-commercial; v2 needs the attribution "Built with PriorLabs-TabPFN". **likely** (E47)
 - Ranking for alerts: the regression estimate finds viral posts (top 10% of views) as well as a dedicated classifier: AUC 0.98 / 0.94 / 0.89, 83% / 71% / 63% of the 10% top-scored are viral, against 36-44% for followers. **likely** (E48)
 - Without reactions, text (local embeddings or TF-IDF) is worth +0.05 on YouTube, +0.01-0.02 on TikTok and X over followers alone; next to reactions it adds +0.011 on X only. **likely** (E50)
+- A plain MLP on the final-model inputs + 16 embedding components equals CatBoost alone, and their mean gains +0.008 / +0.016 / +0.016 (CIs above zero): the largest simple ensemble gain so far. **likely** (E65)
 - Likes carry most of the signal: removing them costs +0.09 / +0.13 / +0.05. **solid** (E17)
 - MAE loss instead of RMSE: +0.011 / +0.007 / +0.022. **likely** (E32)
 - Error falls with reactions on YouTube (×4.6 at zero to ×1.8 above 1,000) and X (×3.1 to ×2.5); TikTok is flat once a post has any reaction. **solid** (E33)
@@ -54,6 +55,7 @@ add a contradicting line below it.
 | Idea | Result | IDs |
 |---|---|---|
 | Our AI type and sentiment labels as features | at most +0.005 | E04, E17, E26 |
+| GraphSAGE on the text graph | worse than the same MLP without the graph (-0.006 to -0.011) | E65 |
 | Graph features (author, text kNN, Louvain, PageRank, spectral, hashtags, brand graph) | at most about +0.007-0.009 | E03, E06, E07, E29 |
 | Label propagation on the text graph | worse (X -0.021) | E07 |
 | Separate models per follower tier or community | worse than one model | E03, E31 |

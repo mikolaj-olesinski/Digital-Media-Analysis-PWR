@@ -18,7 +18,7 @@ client), `done`, `dropped`. Plan letters (A-H) refer to `docs/en/project_plan.md
 | B10 | P2 | done | Separate model for posts without reactions: text, author, community (plan F) | register row | Done 2026-11-04 as E64 |
 | B11 | P2 | done | Sentence embeddings (multilingual, local model) as text features | register row | Done 2026-11-04 as E50 (X +0.011 with reactions; YouTube +0.051 without) |
 | B12 | P2 | done | Temporal validation (train on earlier months, test on later) for the final models | register row | Done 2026-11-04 as E46 (expanding window close to brand CV; worse only in the first month) |
-| B13 | P3 | open | Full GNN (GraphSAGE) on the text graph | register row | Low prior: E07, E29 found ≤ 0.009 |
+| B13 | P3 | done | Full GNN (GraphSAGE) on the text graph | register row | Done 2026-11-04 as E65 (graph hurts; CatBoost + MLP mean +0.016) |
 | B14 | P0 | blocked | Own FB/IG sample with public view counts (plan A) | data statement updated, sample collected | Needs GDPR/terms decision and people |
 | B15 | P1 | blocked | False brand match detector (plan D) | 100-200 hand labels, detector, share of reach | Needs hand labelling by people |
 | B16 | P1 | blocked | Ask Brand24: YouTube zeros, rule confirmation, history timezone | answers recorded in `agent/questions_for_brand24.md` | People send the questions |

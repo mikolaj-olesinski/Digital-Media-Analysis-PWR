@@ -67,3 +67,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E62 | finding | Why YouTube views per like fell in Jul-Aug | [E62](E62.md) |
 | E63 | finding | Copy-paste campaigns | [E63](E63.md) |
 | E64 | small | Separate model for posts without likes and comments | [E64](E64.md) |
+| E65 | finding | GraphSAGE on the text-similarity graph | [E65](E65.md) |

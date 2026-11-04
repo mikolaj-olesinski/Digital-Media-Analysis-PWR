@@ -772,5 +772,17 @@
   "paths": [
    "notebooks/models/27_more_models.ipynb"
   ]
+ },
+ {
+  "id": "E65",
+  "date": "2026-11-04",
+  "question": "GraphSAGE on the text-similarity graph",
+  "setup": "10-NN e5 graph per platform, 2-layer GraphSAGE vs same MLP without graph vs CatBoost; means with CatBoost; ENG + embedding PCA 16",
+  "result": "GraphSAGE vs MLP -0.006 / -0.011 / -0.006: the graph hurts. Control: mean CatBoost + MLP +0.008 / +0.016 / +0.016 (CIs above 0), same as with GraphSAGE: an ensemble effect, not a graph effect",
+  "type": "finding",
+  "where": "`28_gnn`",
+  "paths": [
+   "notebooks/models/28_gnn.ipynb"
+  ]
  }
 ]
