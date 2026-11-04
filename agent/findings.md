@@ -19,6 +19,8 @@ add a contradicting line below it.
 - Constant × followers is a poor base: 0.92 / 0.86 / 0.88. **solid** (E01)
 - A default boosting model with followers + reactions gets 0.29 / 0.53 / 0.49; tuned families converge at about 0.27 / 0.45 / 0.47 (CatBoost on YouTube and X, SVR on TikTok); ridge on YouTube is worse (0.55). **solid** (E01, E10, E11)
 - Tabular foundation models are a small gain on the same features: TabPFN v2 +0.005 / +0.010 / +0.002 over the final CatBoost; a plain mean of CatBoost + TabPFN + TabICL +0.004 / +0.010 / +0.003 with the tightest CIs. Only YouTube reaches 0.01. TabPFN 2.5+ weights are non-commercial; v2 needs the attribution "Built with PriorLabs-TabPFN". **likely** (E47)
+- Ranking for alerts: the regression estimate finds viral posts (top 10% of views) as well as a dedicated classifier: AUC 0.98 / 0.94 / 0.89, 83% / 71% / 63% of the 10% top-scored are viral, against 36-44% for followers. **likely** (E48)
+- Without reactions, text (local embeddings or TF-IDF) is worth +0.05 on YouTube, +0.01-0.02 on TikTok and X over followers alone; next to reactions it adds +0.011 on X only. **likely** (E50)
 - Likes carry most of the signal: removing them costs +0.09 / +0.13 / +0.05. **solid** (E17)
 - MAE loss instead of RMSE: +0.011 / +0.007 / +0.022. **likely** (E32)
 - Error falls with reactions on YouTube (×4.6 at zero to ×1.8 above 1,000) and X (×3.1 to ×2.5); TikTok is flat once a post has any reaction. **solid** (E33)
@@ -50,10 +52,13 @@ add a contradicting line below it.
 | Dropping spam or zero-reaction posts from training | at most 0.002 | E20, E28 |
 | Author history (smoothed mean of the author's training posts) at posting time | ±0.004, CI includes zero | E43 |
 | Tuning across many families beyond CatBoost defaults | small (≤ 0.02) | E11, E12 |
+| Context from other posts of the author, hashtags, brand (likes and followers, no views) next to reactions | ≤ +0.003; brand context worse on YouTube (-0.014) | E49 |
+| Offset target log(views/likes) against the compression of extremes | +0.001 / +0.007 / +0.000; bias narrows 0.01-0.03 | E51 |
 | Training on the previous month only (recency) instead of all past months | worse by 0.013-0.032 | E46 |
 | Replacing views and reactions by the newer `current_*` check as training data | not better, worse on X | E45 |
 
 ## Data quality notes
+- On X, posts from 2025 almost never have a view count (12 of 170) and missing counts go with a late check; missing/zero views are predictable (AUC 0.91-0.95), so they look like a collection artefact. On TikTok and YouTube the Brand24 reach column equals the view count. (E48)
 - Duplicates or near-duplicates are 6-14% of posts; on X 38% of them are spam against 9% overall. (E08)
 - False brand matches exist (Cricket Wireless: 0 of 20 mentions about the company); frequency across the data is unknown. (E22, E35, E37)
 - About 21% of YouTube mentions are transcripts starting with a time stamp. (E23)

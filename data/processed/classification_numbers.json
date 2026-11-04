@@ -1,0 +1,356 @@
+{
+ "viral": [
+  {
+   "platform": "tiktok",
+   "score": "followers",
+   "posts": 2491,
+   "viral": 252,
+   "ROC AUC": 0.7525902649283622,
+   "AUC low": 0.7217144258722186,
+   "AUC high": 0.7848453560329952,
+   "avg precision": 0.3186288734843497,
+   "AP low": 0.2613490200991074,
+   "AP high": 0.38435762380533633,
+   "precision top 10%": 0.357429718875502,
+   "P@10 low": 0.2943489089184061,
+   "P@10 high": 0.4155717689100655
+  },
+  {
+   "platform": "tiktok",
+   "score": "regression (final model)",
+   "posts": 2491,
+   "viral": 252,
+   "ROC AUC": 0.9828579935770646,
+   "AUC low": 0.9758681898703089,
+   "AUC high": 0.9879043531107584,
+   "avg precision": 0.9037951977483498,
+   "AP low": 0.8709599717683382,
+   "AP high": 0.9286528741144443,
+   "precision top 10%": 0.8273092369477911,
+   "P@10 low": 0.725318945002644,
+   "P@10 high": 0.8902279981760145
+  },
+  {
+   "platform": "tiktok",
+   "score": "classifier (CatBoost)",
+   "posts": 2491,
+   "viral": 252,
+   "ROC AUC": 0.977321224753114,
+   "AUC low": 0.9683736159316181,
+   "AUC high": 0.9840960059346646,
+   "avg precision": 0.8874966352214323,
+   "AP low": 0.8503478642572538,
+   "AP high": 0.9151843027961334,
+   "precision top 10%": 0.7991967871485943,
+   "P@10 low": 0.7088313061872025,
+   "P@10 high": 0.8812884255546645
+  },
+  {
+   "platform": "youtube",
+   "score": "followers",
+   "posts": 2441,
+   "viral": 247,
+   "ROC AUC": 0.8355000202982739,
+   "AUC low": 0.80017332284356,
+   "AUC high": 0.8626413541456464,
+   "avg precision": 0.42702817084042305,
+   "AP low": 0.33801824626013993,
+   "AP high": 0.5082166346006616,
+   "precision top 10%": 0.4385245901639344,
+   "P@10 low": 0.3612638052208835,
+   "P@10 high": 0.5119071428571428
+  },
+  {
+   "platform": "youtube",
+   "score": "regression (final model)",
+   "posts": 2441,
+   "viral": 247,
+   "ROC AUC": 0.9348803693547733,
+   "AUC low": 0.9081614716501307,
+   "AUC high": 0.954117615689486,
+   "avg precision": 0.7944108952447478,
+   "AP low": 0.7368401321789997,
+   "AP high": 0.8402416333927691,
+   "precision top 10%": 0.7131147540983607,
+   "P@10 low": 0.6096301169590643,
+   "P@10 high": 0.8031832568313254
+  },
+  {
+   "platform": "youtube",
+   "score": "classifier (CatBoost)",
+   "posts": 2441,
+   "viral": 247,
+   "ROC AUC": 0.9247672157042208,
+   "AUC low": 0.8991957055738067,
+   "AUC high": 0.9442758165479886,
+   "avg precision": 0.7863842668389144,
+   "AP low": 0.7284435413837257,
+   "AP high": 0.8297315568382553,
+   "precision top 10%": 0.7131147540983607,
+   "P@10 low": 0.6128931451612903,
+   "P@10 high": 0.7896985407066052
+  },
+  {
+   "platform": "twitter",
+   "score": "followers",
+   "posts": 1803,
+   "viral": 183,
+   "ROC AUC": 0.7742579100047224,
+   "AUC low": 0.7362689134717232,
+   "AUC high": 0.8116460111189151,
+   "avg precision": 0.297822394108716,
+   "AP low": 0.24530252664067828,
+   "AP high": 0.3798595713588161,
+   "precision top 10%": 0.42777777777777776,
+   "P@10 low": 0.3387085506706408,
+   "P@10 high": 0.5138615876708346
+  },
+  {
+   "platform": "twitter",
+   "score": "Brand24 reach",
+   "posts": 1803,
+   "viral": 183,
+   "ROC AUC": 0.8987232678944883,
+   "AUC low": 0.8640838528616738,
+   "AUC high": 0.9242992045900262,
+   "avg precision": 0.655629895318818,
+   "AP low": 0.5800965239998754,
+   "AP high": 0.7307355273720325,
+   "precision top 10%": 0.6222222222222222,
+   "P@10 low": 0.5282699296262114,
+   "P@10 high": 0.7151842320005021
+  },
+  {
+   "platform": "twitter",
+   "score": "regression (final model)",
+   "posts": 1803,
+   "viral": 183,
+   "ROC AUC": 0.8938726978344465,
+   "AUC low": 0.8593185715365409,
+   "AUC high": 0.9208038670490614,
+   "avg precision": 0.6802655987739354,
+   "AP low": 0.6190275638857126,
+   "AP high": 0.7439526536166676,
+   "precision top 10%": 0.6333333333333333,
+   "P@10 low": 0.5396994617224881,
+   "P@10 high": 0.7135923423423423
+  },
+  {
+   "platform": "twitter",
+   "score": "classifier (CatBoost)",
+   "posts": 1803,
+   "viral": 183,
+   "ROC AUC": 0.8962878634554409,
+   "AUC low": 0.8609001219065798,
+   "AUC high": 0.9247786312528119,
+   "avg precision": 0.6555663599050768,
+   "AP low": 0.5878398546381127,
+   "AP high": 0.7236942308193496,
+   "precision top 10%": 0.6277777777777778,
+   "P@10 low": 0.5443926553672316,
+   "P@10 high": 0.702524131274131
+  }
+ ],
+ "no_views_profile": [
+  {
+   "platform": "tiktok",
+   "views": "present",
+   "posts": 2491,
+   "post_year": 2026.4166666666667,
+   "age_days": 35.76133101851852,
+   "log_followers": 3.185825359612962,
+   "log_likes": 3.4965075614664802,
+   "log_comments": 1.0986122886681098,
+   "na_likes": 0.0,
+   "na_comments": 0.0,
+   "text_len": 2.214843848047698
+  },
+  {
+   "platform": "tiktok",
+   "views": "zero",
+   "posts": 9,
+   "post_year": 2026.3333333333333,
+   "age_days": 33.79414351851852,
+   "log_followers": 1.968482948553935,
+   "log_likes": 0.0,
+   "log_comments": 0.0,
+   "na_likes": 0.0,
+   "na_comments": 0.0,
+   "text_len": 2.8744818176994666
+  },
+  {
+   "platform": "twitter",
+   "views": "missing",
+   "posts": 634,
+   "post_year": 2026.25,
+   "age_days": 65.92788773148148,
+   "log_followers": 2.455605446568777,
+   "log_likes": 0.0,
+   "log_comments": 0.6931471805599453,
+   "na_likes": 0.0,
+   "na_comments": 1.0,
+   "text_len": 2.278753600952829
+  },
+  {
+   "platform": "twitter",
+   "views": "present",
+   "posts": 1803,
+   "post_year": 2026.4166666666667,
+   "age_days": 21.026203703703704,
+   "log_followers": 2.7222207080944623,
+   "log_likes": 0.0,
+   "log_comments": 0.6931471805599453,
+   "na_likes": 0.0,
+   "na_comments": 1.0,
+   "text_len": 2.3560258571931225
+  },
+  {
+   "platform": "twitter",
+   "views": "zero",
+   "posts": 63,
+   "post_year": 2025.0833333333333,
+   "age_days": 139.46039351851852,
+   "log_followers": 2.0681858617461617,
+   "log_likes": 0.0,
+   "log_comments": 0.0,
+   "na_likes": 0.0,
+   "na_comments": 0.0,
+   "text_len": 2.330413773349191
+  },
+  {
+   "platform": "youtube",
+   "views": "missing",
+   "posts": 27,
+   "post_year": 2026.5833333333333,
+   "age_days": 1.2930555555555556,
+   "log_followers": 1.8750612633917,
+   "log_likes": 0.0,
+   "log_comments": 0.0,
+   "na_likes": 1.0,
+   "na_comments": 1.0,
+   "text_len": 2.751279103983342
+  },
+  {
+   "platform": "youtube",
+   "views": "present",
+   "posts": 2441,
+   "post_year": 2026.4166666666667,
+   "age_days": 25.20863425925926,
+   "log_followers": 4.4638904246736875,
+   "log_likes": 2.0794415416798357,
+   "log_comments": 0.6931471805599453,
+   "na_likes": 0.0,
+   "na_comments": 0.0,
+   "text_len": 2.8870543780509568
+  },
+  {
+   "platform": "youtube",
+   "views": "zero",
+   "posts": 32,
+   "post_year": 2026.5,
+   "age_days": 5.222540509259259,
+   "log_followers": 4.093421685162235,
+   "log_likes": 0.0,
+   "log_comments": 0.0,
+   "na_likes": 0.0,
+   "na_comments": 0.0,
+   "text_len": 2.210390309774283
+  }
+ ],
+ "no_views_auc": [
+  {
+   "platform": "tiktok",
+   "posts": 2500,
+   "no views": 9,
+   "ROC AUC": NaN,
+   "AUC low": NaN,
+   "AUC high": NaN,
+   "top features": NaN
+  },
+  {
+   "platform": "youtube",
+   "posts": 2500,
+   "no views": 59,
+   "ROC AUC": 0.9490900506183212,
+   "AUC low": 0.933116332960967,
+   "AUC high": 0.9694118793031911,
+   "top features": "log_likes 31, age_days 19, log_followers 15"
+  },
+  {
+   "platform": "twitter",
+   "posts": 2500,
+   "no views": 697,
+   "ROC AUC": 0.9099189856535934,
+   "AUC low": 0.8874136987416916,
+   "AUC high": 0.9296827552999413,
+   "top features": "age_days 33, log_likes 17, post_year 15"
+  }
+ ],
+ "by_year": [
+  {
+   "platform": "tiktok",
+   "year": 2025,
+   "missing": 0,
+   "present": 180,
+   "zero": 2
+  },
+  {
+   "platform": "tiktok",
+   "year": 2026,
+   "missing": 0,
+   "present": 2311,
+   "zero": 7
+  },
+  {
+   "platform": "twitter",
+   "year": 2025,
+   "missing": 113,
+   "present": 12,
+   "zero": 45
+  },
+  {
+   "platform": "twitter",
+   "year": 2026,
+   "missing": 521,
+   "present": 1791,
+   "zero": 18
+  },
+  {
+   "platform": "youtube",
+   "year": 2025,
+   "missing": 9,
+   "present": 167,
+   "zero": 4
+  },
+  {
+   "platform": "youtube",
+   "year": 2026,
+   "missing": 18,
+   "present": 2274,
+   "zero": 28
+  }
+ ],
+ "zero_view_predictions": [
+  {
+   "platform": "tiktok",
+   "zero-view posts": 9,
+   "median predicted views": 87.20796573183497,
+   "share predicted < 10 views": 0.0,
+   "share with 0 likes and comments": 1.0
+  },
+  {
+   "platform": "youtube",
+   "zero-view posts": 32,
+   "median predicted views": 9.067713903351615,
+   "share predicted < 10 views": 0.5625,
+   "share with 0 likes and comments": 1.0
+  },
+  {
+   "platform": "twitter",
+   "zero-view posts": 63,
+   "median predicted views": 14.829348333349616,
+   "share predicted < 10 views": 0.3333333333333333,
+   "share with 0 likes and comments": 0.6190476190476191
+  }
+ ]
+}

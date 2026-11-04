@@ -594,5 +594,53 @@
   "paths": [
    "notebooks/models/19_tabular_foundation.ipynb"
   ]
+ },
+ {
+  "id": "E48",
+  "date": "2026-11-04",
+  "question": "Classification: viral top 10%, and posts without a view count",
+  "setup": "Top 10% of views per platform on held-out brands: followers, Brand24 reach (X only; equals views on TikTok/YouTube), final regression, CatBoost classifier. Missing/zero views (9 / 59 / 697 posts) vs present: classifier on date, age at check, reactions",
+  "result": "Regression ranks viral posts as well as a classifier: AUC 0.983 / 0.935 / 0.894, precision in top 10% 83% / 71% / 63% vs followers 36% / 44% / 43%. On X, 2025 posts almost never have views (12 of 170); missing/zero is predictable (AUC 0.95 YouTube, 0.91 X): a collection artefact. Zero-view posts get 9-15 predicted views on YouTube and X",
+  "type": "finding",
+  "where": "`20_classification`",
+  "paths": [
+   "notebooks/models/20_classification.ipynb"
+  ]
+ },
+ {
+  "id": "E49",
+  "date": "2026-11-04",
+  "question": "Context from other posts of the same author, hashtag and brand (no view counts used)",
+  "setup": "Leave-self-out features from all 12,500 mentions: author, hashtags, brand on platform and other platforms, text copies; added to the final model, and to a followers-only model",
+  "result": "Next to reactions nothing ≥ 0.01; brand context worse on YouTube (-0.014, CI -0.019 to -0.008); author +0.003 (CI incl. 0). Without reactions all context +0.007 / +0.054 / +0.009",
+  "type": "none",
+  "where": "`21_context_text`",
+  "paths": [
+   "notebooks/models/21_context_text.ipynb"
+  ]
+ },
+ {
+  "id": "E50",
+  "date": "2026-11-04",
+  "question": "Text: local sentence embeddings (multilingual-e5-small) and TF-IDF",
+  "setup": "PCA 16 of embeddings and TF-IDF SVD 16, unsupervised; added to the final model and to followers only",
+  "result": "With reactions: embeddings +0.003 / -0.009 / +0.011 (X CI 0.002-0.020); TF-IDF about 0. Without reactions: embeddings +0.009 / +0.051 / +0.018, TF-IDF +0.005 / +0.051 / +0.010",
+  "type": "small",
+  "where": "`21_context_text`",
+  "paths": [
+   "notebooks/models/21_context_text.ipynb"
+  ]
+ },
+ {
+  "id": "E51",
+  "date": "2026-11-04",
+  "question": "Offset target: learn views per like",
+  "setup": "CatBoost on log10(views) - log10(likes+1), offset added back; same features and folds",
+  "result": "+0.001 / +0.007 (0.003-0.010) / +0.000; bias of extreme fifths narrows only 0.01-0.03. Compression is regression to the mean, not tree extrapolation",
+  "type": "small",
+  "where": "`21_context_text`",
+  "paths": [
+   "notebooks/models/21_context_text.ipynb"
+  ]
  }
 ]

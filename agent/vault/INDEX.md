@@ -52,3 +52,7 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E45 | worse | Are the newer checks more predictable? | [E45](E45.md) |
 | E46 | finding | Rolling window: does the final model hold up when trained only on earlier months? | [E46](E46.md) |
 | E47 | small | Do tabular foundation models (TabPFN v2, TabICL) beat or add to the final model? | [E47](E47.md) |
+| E48 | finding | Classification: viral top 10%, and posts without a view count | [E48](E48.md) |
+| E49 | none | Context from other posts of the same author, hashtag and brand (no view counts used) | [E49](E49.md) |
+| E50 | small | Text: local sentence embeddings (multilingual-e5-small) and TF-IDF | [E50](E50.md) |
+| E51 | small | Offset target: learn views per like | [E51](E51.md) |
