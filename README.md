@@ -6,7 +6,7 @@ Question: can the visibility (views) of a post be estimated from the number of f
 ## Contents
 - `docs/en/m1_exploration_card.pdf`: M1 data exploration card ([Polish version](docs/pl/m1_exploration_card.pdf))
 - `docs/pl/course_rules.pdf`: course rules, grading and schedule (in Polish)
-- `notebooks/models/`: `01_first_models` (model ladder, feature importance), `02_transfer_and_intervals` (intervals, transfer to Facebook and Instagram), `03_zoo_strata_graph`, `04_extra_features`, `05_graph_lab`, `06_engagement_transfer`, `07_tuning` (nested search over ten families), `08_transfer_matrix` (out of platform), `09_ablation_labels_bias`, `10_brand24_rule`, `11_promo_flag`, `12_graph_more`, `13_stacked_models`, `14_reaction_tiers`. Map of all analyses: `docs/en/analysis_overview.md`
+- `notebooks/models/`: `01_first_models` (model ladder, feature importance), `02_transfer_and_intervals` (intervals, transfer to Facebook and Instagram), `03_zoo_strata_graph`, `04_extra_features`, `05_graph_lab`, `06_engagement_transfer`, `07_tuning` (nested search over ten families), `08_transfer_matrix` (out of platform), `09_ablation_labels_bias`, `10_brand24_rule`, `11_promo_flag`, `12_graph_more`, `13_stacked_models`, `14_reaction_tiers`, `15_brand_mismatch`, `16_history_forecast` (growth between checks, forecast from the first check, estimate at posting time). Map of all analyses: `docs/en/analysis_overview.md`
 - `notebooks/eda/`: `01_overview` (all platforms), `02_platforms` (one platform at a time, with totals), `03_labels` (mention labels and coder agreement)
 - `src/m1_figures.py`, `src/m1_figures2.py`: figures and numbers for the M1 card (`python src/m1_figures.py en|pl`)
 - `figures/`: generated figures, `*_en.png` and `*_pl.png`
@@ -14,7 +14,8 @@ Question: can the visibility (views) of a post be estimated from the number of f
 
 ## Data
 The raw file `data/raw/reach_samples_students.csv` (12,500 mentions from Brand24) is **not** in the repository: it contains personal data of authors and the client's data.
-To reproduce the results, place it in `data/raw/` and run `python src/m1_figures.py en`. Dependencies: `pip install -r requirements.txt`.
+The second file `data/raw/reach_samples_students_with_history.csv` (same mentions plus earlier checks of views and reactions) is also not in the repository; notebook 16 needs it.
+To reproduce the results, place them in `data/raw/` and run `python src/m1_figures.py en`. Dependencies: `pip install -r requirements.txt`.
 
 ## Team
 To be filled in.
