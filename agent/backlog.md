@@ -7,7 +7,7 @@ client), `done`, `dropped`. Plan letters (A-H) refer to `docs/en/project_plan.md
 | ID | Pri | Status | Item | Done when | Notes |
 |---|---|---|---|---|---|
 | B01 | P0 | done | Remove personal data from `notebooks/eda/02_platforms.ipynb` outputs (author names, about 66 post URLs; repo is public) | `agent_tools.py check` passes on it; user decided on git history | Done 2026-11-04: `eda_utils.preview` drops author and URL columns and links in text; notebook re-run. User chose not to rewrite git history, so older commits still contain the data |
-| B02 | P1 | open | Polish twin for `figures/zoo_summary_en.png` | check passes | Built by `extra_models.summary_figure`; add a `lang` argument |
+| B02 | P1 | done | Polish twin for `figures/zoo_summary_en.png` | check passes | Done 2026-11-04: `extra_models.summary_figure_pl` from stored numbers |
 | B03 | P1 | done | Quantile models (10/50/90%) and tail weighting for the extremes (plan G) | register row; error per fifth of true views and per reaction tier, plus absolute views | Done 2026-11-04 as E57 |
 | B04 | P1 | done | Abstention curve: error against share of posts kept, from the conformal width (plan C) | figure + register row | Done 2026-11-04 as E58 |
 | B05 | P1 | done | Forecast horizon curve: error of the E40 model by gap and by age of the first check | register row, figure | Done 2026-11-04 as E59 |
