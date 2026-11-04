@@ -18,6 +18,7 @@ add a contradicting line below it.
 ## Estimating views from reactions (now-cast)
 - Constant × followers is a poor base: 0.92 / 0.86 / 0.88. **solid** (E01)
 - A default boosting model with followers + reactions gets 0.29 / 0.53 / 0.49; tuned families converge at about 0.27 / 0.45 / 0.47 (CatBoost on YouTube and X, SVR on TikTok); ridge on YouTube is worse (0.55). **solid** (E01, E10, E11)
+- Tabular foundation models are a small gain on the same features: TabPFN v2 +0.005 / +0.010 / +0.002 over the final CatBoost; a plain mean of CatBoost + TabPFN + TabICL +0.004 / +0.010 / +0.003 with the tightest CIs. Only YouTube reaches 0.01. TabPFN 2.5+ weights are non-commercial; v2 needs the attribution "Built with PriorLabs-TabPFN". **likely** (E47)
 - Likes carry most of the signal: removing them costs +0.09 / +0.13 / +0.05. **solid** (E17)
 - MAE loss instead of RMSE: +0.011 / +0.007 / +0.022. **likely** (E32)
 - Error falls with reactions on YouTube (×4.6 at zero to ×1.8 above 1,000) and X (×3.1 to ×2.5); TikTok is flat once a post has any reaction. **solid** (E33)

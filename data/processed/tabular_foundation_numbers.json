@@ -1,0 +1,743 @@
+{
+ "models": [
+  {
+   "platform": "tiktok",
+   "model": "CatBoost (final model)",
+   "posts": 2491,
+   "MAE": 0.2728189145813341,
+   "CI low": 0.26198817641846855,
+   "CI high": 0.2844396661619719,
+   "bias": -0.02011371838577372
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabPFN v2",
+   "posts": 2491,
+   "MAE": 0.2677397161313029,
+   "CI low": 0.25776620700033703,
+   "CI high": 0.2788899279635719,
+   "bias": -0.012307879568108932
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabICL",
+   "posts": 2491,
+   "MAE": 0.27160691946469445,
+   "CI low": 0.26046792790271156,
+   "CI high": 0.281930243446186,
+   "bias": -0.0015007941878291452
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + TabPFN",
+   "posts": 2491,
+   "MAE": 0.269011087445532,
+   "CI low": 0.25863975016975793,
+   "CI high": 0.28034725845600206,
+   "bias": -0.01621079897694133
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + TabICL",
+   "posts": 2491,
+   "MAE": 0.27013367643714925,
+   "CI low": 0.2596326040173201,
+   "CI high": 0.28111720480381397,
+   "bias": -0.010807256286801436
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean of all three",
+   "posts": 2491,
+   "MAE": 0.2688954485533268,
+   "CI low": 0.2585498547280381,
+   "CI high": 0.27976316537503754,
+   "bias": -0.011307464047237266
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost (final model)",
+   "posts": 2441,
+   "MAE": 0.45336084163808293,
+   "CI low": 0.4314171040940476,
+   "CI high": 0.4767493479670999,
+   "bias": -0.04132541660577694
+  },
+  {
+   "platform": "youtube",
+   "model": "TabPFN v2",
+   "posts": 2441,
+   "MAE": 0.4428953137499202,
+   "CI low": 0.4204840934530108,
+   "CI high": 0.467087548434924,
+   "bias": -0.04130457175155914
+  },
+  {
+   "platform": "youtube",
+   "model": "TabICL",
+   "posts": 2441,
+   "MAE": 0.4453207704779634,
+   "CI low": 0.4239796021490764,
+   "CI high": 0.46764272500264564,
+   "bias": 0.014787999729200915
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + TabPFN",
+   "posts": 2441,
+   "MAE": 0.44455599664253886,
+   "CI low": 0.4229630025698703,
+   "CI high": 0.4694332507099527,
+   "bias": -0.04131499417866804
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + TabICL",
+   "posts": 2441,
+   "MAE": 0.445776322822177,
+   "CI low": 0.42440334130248836,
+   "CI high": 0.4686625186844286,
+   "bias": -0.013268708438288014
+  },
+  {
+   "platform": "youtube",
+   "model": "mean of all three",
+   "posts": 2441,
+   "MAE": 0.44300129510365105,
+   "CI low": 0.4213751886884028,
+   "CI high": 0.4670794576145074,
+   "bias": -0.02261399620937839
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost (final model)",
+   "posts": 1803,
+   "MAE": 0.46660480272713606,
+   "CI low": 0.44591306063530306,
+   "CI high": 0.48957540749462475,
+   "bias": -0.041180238902545234
+  },
+  {
+   "platform": "twitter",
+   "model": "TabPFN v2",
+   "posts": 1803,
+   "MAE": 0.46451881245630156,
+   "CI low": 0.44499350322785014,
+   "CI high": 0.4878143136502036,
+   "bias": -0.04251367584109424
+  },
+  {
+   "platform": "twitter",
+   "model": "TabICL",
+   "posts": 1803,
+   "MAE": 0.4660643344060575,
+   "CI low": 0.4463445070384802,
+   "CI high": 0.4888422655772309,
+   "bias": -0.005621440336842127
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + TabPFN",
+   "posts": 1803,
+   "MAE": 0.4640907197928844,
+   "CI low": 0.4434537647915414,
+   "CI high": 0.4874493473804828,
+   "bias": -0.04184695737181973
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + TabICL",
+   "posts": 1803,
+   "MAE": 0.4648245293962668,
+   "CI low": 0.4441167796339414,
+   "CI high": 0.48837613266213,
+   "bias": -0.02340083961969367
+  },
+  {
+   "platform": "twitter",
+   "model": "mean of all three",
+   "posts": 1803,
+   "MAE": 0.46402299059019825,
+   "CI low": 0.4436011089391906,
+   "CI high": 0.4876705242445226,
+   "bias": -0.029771785026827195
+  }
+ ],
+ "gains": [
+  {
+   "platform": "tiktok",
+   "model": "TabPFN v2",
+   "subset": "all posts",
+   "posts": 2491,
+   "gain": 0.005079198450031193,
+   "CI low": 0.002781479108124864,
+   "CI high": 0.007563659172504871
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabICL",
+   "subset": "all posts",
+   "posts": 2491,
+   "gain": 0.001211995116639571,
+   "CI low": -0.002275286537930819,
+   "CI high": 0.005440464169345386
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + TabPFN",
+   "subset": "all posts",
+   "posts": 2491,
+   "gain": 0.003807827135802064,
+   "CI low": 0.00244718250615491,
+   "CI high": 0.005148903429077713
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + TabICL",
+   "subset": "all posts",
+   "posts": 2491,
+   "gain": 0.0026852381441848185,
+   "CI low": 0.0008521620682844986,
+   "CI high": 0.004769527564726382
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean of all three",
+   "subset": "all posts",
+   "posts": 2491,
+   "gain": 0.003923466028007187,
+   "CI low": 0.002057935940240355,
+   "CI high": 0.006179982293934491
+  },
+  {
+   "platform": "youtube",
+   "model": "TabPFN v2",
+   "subset": "all posts",
+   "posts": 2441,
+   "gain": 0.010465527888162789,
+   "CI low": 0.004056881382348011,
+   "CI high": 0.017062428164699203
+  },
+  {
+   "platform": "youtube",
+   "model": "TabICL",
+   "subset": "all posts",
+   "posts": 2441,
+   "gain": 0.008040071160119488,
+   "CI low": 0.0021120998370914744,
+   "CI high": 0.013937098262036205
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + TabPFN",
+   "subset": "all posts",
+   "posts": 2441,
+   "gain": 0.008804844995544125,
+   "CI low": 0.005663130255733245,
+   "CI high": 0.012064058363143376
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + TabICL",
+   "subset": "all posts",
+   "posts": 2441,
+   "gain": 0.0075845188159059185,
+   "CI low": 0.004439723676314045,
+   "CI high": 0.010832415797182231
+  },
+  {
+   "platform": "youtube",
+   "model": "mean of all three",
+   "subset": "all posts",
+   "posts": 2441,
+   "gain": 0.01035954653443185,
+   "CI low": 0.006249704136735902,
+   "CI high": 0.014242863057048074
+  },
+  {
+   "platform": "twitter",
+   "model": "TabPFN v2",
+   "subset": "all posts",
+   "posts": 1803,
+   "gain": 0.0020859902708344684,
+   "CI low": -0.0025368400217088702,
+   "CI high": 0.007093417653557467
+  },
+  {
+   "platform": "twitter",
+   "model": "TabICL",
+   "subset": "all posts",
+   "posts": 1803,
+   "gain": 0.000540468321078488,
+   "CI low": -0.0040276470829872365,
+   "CI high": 0.005259859843262198
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + TabPFN",
+   "subset": "all posts",
+   "posts": 1803,
+   "gain": 0.0025140829342516257,
+   "CI low": 1.811298514455658e-06,
+   "CI high": 0.005101917281424381
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + TabICL",
+   "subset": "all posts",
+   "posts": 1803,
+   "gain": 0.0017802733308692716,
+   "CI low": -0.0006197305311248459,
+   "CI high": 0.004203289149137533
+  },
+  {
+   "platform": "twitter",
+   "model": "mean of all three",
+   "subset": "all posts",
+   "posts": 1803,
+   "gain": 0.0025818121369377456,
+   "CI low": -0.0004540419944242313,
+   "CI high": 0.005550355241923292
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabPFN v2",
+   "subset": "zero likes and comments",
+   "posts": 90,
+   "gain": 0.007392644045293925,
+   "CI low": -0.011447571713820513,
+   "CI high": 0.024814962435062076
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabICL",
+   "subset": "zero likes and comments",
+   "posts": 90,
+   "gain": -0.018697831070866512,
+   "CI low": -0.08119835412023431,
+   "CI high": 0.03597242887452342
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + TabPFN",
+   "subset": "zero likes and comments",
+   "posts": 90,
+   "gain": 0.005201178466928825,
+   "CI low": -0.0038483706502960707,
+   "CI high": 0.013719793617858494
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + TabICL",
+   "subset": "zero likes and comments",
+   "posts": 90,
+   "gain": 0.0020405173759174733,
+   "CI low": -0.02900925147757171,
+   "CI high": 0.03065754914961394
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean of all three",
+   "subset": "zero likes and comments",
+   "posts": 90,
+   "gain": 0.004884216422246668,
+   "CI low": -0.023306714380613668,
+   "CI high": 0.029657131928686267
+  },
+  {
+   "platform": "youtube",
+   "model": "TabPFN v2",
+   "subset": "zero likes and comments",
+   "posts": 665,
+   "gain": 0.012429937733603156,
+   "CI low": -0.0030198335252750886,
+   "CI high": 0.028157268568931717
+  },
+  {
+   "platform": "youtube",
+   "model": "TabICL",
+   "subset": "zero likes and comments",
+   "posts": 665,
+   "gain": 0.014044402652465605,
+   "CI low": 0.004052928153572721,
+   "CI high": 0.024591679387412513
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + TabPFN",
+   "subset": "zero likes and comments",
+   "posts": 665,
+   "gain": 0.011624703077498312,
+   "CI low": 0.0036123501306117556,
+   "CI high": 0.020129613114666045
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + TabICL",
+   "subset": "zero likes and comments",
+   "posts": 665,
+   "gain": 0.009492906916166537,
+   "CI low": 0.004195571369859936,
+   "CI high": 0.015439506637822504
+  },
+  {
+   "platform": "youtube",
+   "model": "mean of all three",
+   "subset": "zero likes and comments",
+   "posts": 665,
+   "gain": 0.01393612195610796,
+   "CI low": 0.005809385041834418,
+   "CI high": 0.022169222973872266
+  },
+  {
+   "platform": "twitter",
+   "model": "TabPFN v2",
+   "subset": "zero likes and comments",
+   "posts": 991,
+   "gain": -0.001075933713148983,
+   "CI low": -0.006388564952978827,
+   "CI high": 0.0034710296451060632
+  },
+  {
+   "platform": "twitter",
+   "model": "TabICL",
+   "subset": "zero likes and comments",
+   "posts": 991,
+   "gain": -0.0012501448521975724,
+   "CI low": -0.004818284059810171,
+   "CI high": 0.0021221832454881287
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + TabPFN",
+   "subset": "zero likes and comments",
+   "posts": 991,
+   "gain": 0.0004636008332345415,
+   "CI low": -0.002509646489265859,
+   "CI high": 0.003012810079682768
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + TabICL",
+   "subset": "zero likes and comments",
+   "posts": 991,
+   "gain": -0.0002638992907354296,
+   "CI low": -0.00206368217023237,
+   "CI high": 0.001470457558293842
+  },
+  {
+   "platform": "twitter",
+   "model": "mean of all three",
+   "subset": "zero likes and comments",
+   "posts": 991,
+   "gain": 0.00040269700888786975,
+   "CI low": -0.002273668348349252,
+   "CI high": 0.0026448281173149374
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabPFN v2",
+   "subset": "with reactions",
+   "posts": 2401,
+   "gain": 0.004992480372741044,
+   "CI low": 0.002695615710771937,
+   "CI high": 0.007432013082968172
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabICL",
+   "subset": "with reactions",
+   "posts": 2401,
+   "gain": 0.0019583026372041474,
+   "CI low": -0.0010497788435826604,
+   "CI high": 0.004828240272199692
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + TabPFN",
+   "subset": "with reactions",
+   "posts": 2401,
+   "gain": 0.00375559822293184,
+   "CI low": 0.0025067196564424925,
+   "CI high": 0.005171755643802058
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + TabICL",
+   "subset": "with reactions",
+   "posts": 2401,
+   "gain": 0.002709405103428492,
+   "CI low": 0.0010704078050045905,
+   "CI high": 0.00420467866854428
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean of all three",
+   "subset": "with reactions",
+   "posts": 2401,
+   "gain": 0.003887452893695837,
+   "CI low": 0.0021225048152454856,
+   "CI high": 0.005686699123454575
+  },
+  {
+   "platform": "youtube",
+   "model": "TabPFN v2",
+   "subset": "with reactions",
+   "posts": 1776,
+   "gain": 0.009729980282747335,
+   "CI low": 0.0020646953067615095,
+   "CI high": 0.01733246821472211
+  },
+  {
+   "platform": "youtube",
+   "model": "TabICL",
+   "subset": "with reactions",
+   "posts": 1776,
+   "gain": 0.005791827667771421,
+   "CI low": -0.0019598003519722853,
+   "CI high": 0.01344250973288148
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + TabPFN",
+   "subset": "with reactions",
+   "posts": 1776,
+   "gain": 0.0077489859727403335,
+   "CI low": 0.0038939631098817962,
+   "CI high": 0.01174100791346159
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + TabICL",
+   "subset": "with reactions",
+   "posts": 1776,
+   "gain": 0.0068699478211574315,
+   "CI low": 0.002636325769377651,
+   "CI high": 0.010784357157086392
+  },
+  {
+   "platform": "youtube",
+   "model": "mean of all three",
+   "subset": "with reactions",
+   "posts": 1776,
+   "gain": 0.009020344588815513,
+   "CI low": 0.0036752032212798045,
+   "CI high": 0.014320211960245337
+  },
+  {
+   "platform": "twitter",
+   "model": "TabPFN v2",
+   "subset": "with reactions",
+   "posts": 812,
+   "gain": 0.005944939369513778,
+   "CI low": -0.0016992008909906297,
+   "CI high": 0.015077519163989552
+  },
+  {
+   "platform": "twitter",
+   "model": "TabICL",
+   "subset": "with reactions",
+   "posts": 812,
+   "gain": 0.0027258102603846153,
+   "CI low": -0.006506105635304283,
+   "CI high": 0.012041450421286933
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + TabPFN",
+   "subset": "with reactions",
+   "posts": 812,
+   "gain": 0.005016580178226909,
+   "CI low": 0.001147964222653362,
+   "CI high": 0.009747598079212617
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + TabICL",
+   "subset": "with reactions",
+   "posts": 812,
+   "gain": 0.0042750702126553046,
+   "CI low": -0.00020632700132788116,
+   "CI high": 0.008932022237583687
+  },
+  {
+   "platform": "twitter",
+   "model": "mean of all three",
+   "subset": "with reactions",
+   "posts": 812,
+   "gain": 0.005241298703313888,
+   "CI low": 0.00013718282156847128,
+   "CI high": 0.011274932128487767
+  }
+ ],
+ "by_tier": [
+  {
+   "platform": "tiktok",
+   "tier": "0",
+   "posts": 84,
+   "gain": 0.004098807930565386,
+   "CI low": -0.025118884508259477,
+   "CI high": 0.030036279869112986
+  },
+  {
+   "platform": "tiktok",
+   "tier": "1-10",
+   "posts": 526,
+   "gain": 0.00042476049644512957,
+   "CI low": -0.00221170992232988,
+   "CI high": 0.0035257418863168734
+  },
+  {
+   "platform": "tiktok",
+   "tier": "11-100",
+   "posts": 1120,
+   "gain": 0.0006827221409424307,
+   "CI low": -0.0009489516866615927,
+   "CI high": 0.0024761419944850406
+  },
+  {
+   "platform": "tiktok",
+   "tier": "101-1000",
+   "posts": 532,
+   "gain": 0.004785501045533555,
+   "CI low": 0.0017833106479789097,
+   "CI high": 0.0072319219018082736
+  },
+  {
+   "platform": "tiktok",
+   "tier": ">1000",
+   "posts": 229,
+   "gain": 0.025742771329209175,
+   "CI low": 0.011924811536850427,
+   "CI high": 0.039564017578058774
+  },
+  {
+   "platform": "youtube",
+   "tier": "0",
+   "posts": 665,
+   "gain": 0.01393612195610796,
+   "CI low": 0.005809385041834418,
+   "CI high": 0.022169222973872266
+  },
+  {
+   "platform": "youtube",
+   "tier": "1-10",
+   "posts": 613,
+   "gain": 0.016043949026778036,
+   "CI low": 0.005649560284376545,
+   "CI high": 0.026470273072874504
+  },
+  {
+   "platform": "youtube",
+   "tier": "11-100",
+   "posts": 631,
+   "gain": 0.0039012383345817473,
+   "CI low": -0.0011916305237167437,
+   "CI high": 0.009131728082104202
+  },
+  {
+   "platform": "youtube",
+   "tier": "101-1000",
+   "posts": 394,
+   "gain": 0.005639273131608411,
+   "CI low": -0.0006396947873126253,
+   "CI high": 0.011651601909499503
+  },
+  {
+   "platform": "youtube",
+   "tier": ">1000",
+   "posts": 138,
+   "gain": 0.01088142198077261,
+   "CI low": -0.010780289326833666,
+   "CI high": 0.030384031376589862
+  },
+  {
+   "platform": "twitter",
+   "tier": "0",
+   "posts": 973,
+   "gain": 0.0006450856406348287,
+   "CI low": -0.002014358284831507,
+   "CI high": 0.002934418867442986
+  },
+  {
+   "platform": "twitter",
+   "tier": "1-10",
+   "posts": 697,
+   "gain": 0.003327367876483824,
+   "CI low": -0.0017919999520428988,
+   "CI high": 0.008428872096710375
+  },
+  {
+   "platform": "twitter",
+   "tier": "11-100",
+   "posts": 113,
+   "gain": 0.015254839557575142,
+   "CI low": -0.004100306864370756,
+   "CI high": 0.031294526602498526
+  },
+  {
+   "platform": "twitter",
+   "tier": "101-1000",
+   "posts": 19,
+   "gain": -0.0196942973668639,
+   "CI low": -0.0785172542663595,
+   "CI high": 0.044417697055264486
+  }
+ ],
+ "seconds": [
+  {
+   "platform": "tiktok",
+   "model": "CatBoost (final model)",
+   "seconds": 1.9564611911773682,
+   "seeds": 3
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabPFN v2",
+   "seconds": 198.24915599822998,
+   "seeds": 3
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabICL",
+   "seconds": 166.42975282669067,
+   "seeds": 3
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost (final model)",
+   "seconds": 1.3732922077178955,
+   "seeds": 3
+  },
+  {
+   "platform": "youtube",
+   "model": "TabPFN v2",
+   "seconds": 162.89196920394897,
+   "seeds": 3
+  },
+  {
+   "platform": "youtube",
+   "model": "TabICL",
+   "seconds": 182.80611324310303,
+   "seeds": 3
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost (final model)",
+   "seconds": 1.3419053554534912,
+   "seeds": 3
+  },
+  {
+   "platform": "twitter",
+   "model": "TabPFN v2",
+   "seconds": 95.07823514938354,
+   "seeds": 3
+  },
+  {
+   "platform": "twitter",
+   "model": "TabICL",
+   "seconds": 119.1167368888855,
+   "seeds": 3
+  }
+ ]
+}

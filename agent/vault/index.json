@@ -582,5 +582,17 @@
   "paths": [
    "notebooks/models/18_rolling_window.ipynb"
   ]
+ },
+ {
+  "id": "E47",
+  "date": "2026-11-04",
+  "question": "Do tabular foundation models (TabPFN v2, TabICL) beat or add to the final model?",
+  "setup": "TabPFN v2 regressor (median output) and TabICL v2, 8 estimators, seeds 0/1/2, same ENG features and brand folds as the final CatBoost (2,491 / 2,441 / 1,803 posts); plain means; CPU, 2-4 min per model and platform",
+  "result": "TabPFN vs CatBoost +0.005 (0.003-0.008) / +0.010 (0.004-0.017) / +0.002 (-0.003-0.007); mean of all three +0.004 (0.002-0.006) / +0.010 (0.006-0.014) / +0.003 (-0.000-0.006). YouTube gain is not only zero-reaction posts (+0.009 with reactions); TikTok gain sits in posts with > 1,000 reactions (+0.026). Small",
+  "type": "small",
+  "where": "`19_tabular_foundation`",
+  "paths": [
+   "notebooks/models/19_tabular_foundation.ipynb"
+  ]
  }
 ]

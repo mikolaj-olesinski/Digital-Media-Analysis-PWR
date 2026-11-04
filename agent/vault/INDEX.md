@@ -51,3 +51,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E44 | small | Does the age of the view check help the final model? | [E44](E44.md) |
 | E45 | worse | Are the newer checks more predictable? | [E45](E45.md) |
 | E46 | finding | Rolling window: does the final model hold up when trained only on earlier months? | [E46](E46.md) |
+| E47 | small | Do tabular foundation models (TabPFN v2, TabICL) beat or add to the final model? | [E47](E47.md) |
