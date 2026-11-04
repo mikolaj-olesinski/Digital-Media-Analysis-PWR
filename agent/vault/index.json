@@ -545,5 +545,30 @@
   "paths": [
    "notebooks/models/16_history_forecast.ipynb"
   ]
+ },
+ {
+  "id": "E44",
+  "date": "2026-11-04",
+  "question": "Does the age of the view check help the final model?",
+  "setup": "Final CatBoost (MAE loss, followers + reactions + flags) + log10 hours from posting to the check; error by age of the check",
+  "result": "Gain +0.000 (-0.002-0.003) / +0.003 (-0.001-0.008) / +0.012 (0.005-0.019). Checks younger than a day: bias +0.23 → +0.07 on TikTok, +0.10 → -0.01 on YouTube; MAE 0.385 → 0.341 / 0.414 → 0.391 / 0.458 → 0.410",
+  "type": "small",
+  "where": "`17_check_age`, `check_age_numbers.json`",
+  "paths": [
+   "notebooks/models/17_check_age.ipynb",
+   "data/processed/check_age_numbers.json"
+  ]
+ },
+ {
+  "id": "E45",
+  "date": "2026-11-04",
+  "question": "Are the newer checks more predictable?",
+  "setup": "Views, reactions and age replaced by the latest check (`current_*`) for 348 / 503 / 342 posts; same model, folds and posts",
+  "result": "On the refreshed posts -0.010 (-0.017 to -0.002) / +0.006 (-0.011-0.020) / -0.046 (-0.066 to -0.027): not better, worse on X, where views grew in 10% of these posts while reactions changed in 1%",
+  "type": "worse",
+  "where": "`17_check_age`",
+  "paths": [
+   "notebooks/models/17_check_age.ipynb"
+  ]
  }
 ]

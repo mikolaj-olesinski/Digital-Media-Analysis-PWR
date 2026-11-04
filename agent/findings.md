@@ -11,6 +11,8 @@ add a contradicting line below it.
 - Brand24's reach column is a rule: max(k × reactions, c(followers) × followers), k = 700 on X, 100 FB, 20 IG; reproduces 96-98% of rows. Reconstructed by us, not confirmed by Brand24. **likely** (E24)
 - Real views per reaction are about 21 / 20 / 27; the rule assumes 700 on X. **likely** (E24)
 - Views are checked at very different post ages (median 858 h / 600 h / 534 h for the main check), and keep growing between checks. **solid** (E38, E39)
+- Knowing the age of the check helps little overall (+0.000 / +0.003 / +0.012, only X clear of zero) but removes the over-estimate of checks younger than a day on TikTok and YouTube. **likely** (E44)
+- The newer checks in the history file do not make the main model better; on X worse (-0.046), because views are re-measured while reactions mostly are not. Train on the original columns. **likely** (E45)
 
 ## Estimating views from reactions (now-cast)
 - Constant × followers is a poor base: 0.92 / 0.86 / 0.88. **solid** (E01)
@@ -46,6 +48,7 @@ add a contradicting line below it.
 | Dropping spam or zero-reaction posts from training | at most 0.002 | E20, E28 |
 | Author history (smoothed mean of the author's training posts) at posting time | ±0.004, CI includes zero | E43 |
 | Tuning across many families beyond CatBoost defaults | small (≤ 0.02) | E11, E12 |
+| Replacing views and reactions by the newer `current_*` check as training data | not better, worse on X | E45 |
 
 ## Data quality notes
 - Duplicates or near-duplicates are 6-14% of posts; on X 38% of them are spam against 9% overall. (E08)

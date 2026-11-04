@@ -11,7 +11,7 @@ client), `done`, `dropped`. Plan letters (A-H) refer to `docs/en/project_plan.md
 | B03 | P1 | open | Quantile models (10/50/90%) and tail weighting for the extremes (plan G) | register row; error per fifth of true views and per reaction tier, plus absolute views | Report the trade-off with overall MAE |
 | B04 | P1 | open | Abstention curve: error against share of posts kept, from the conformal width (plan C) | figure + register row | Method: Sokol et al. 2024 (`docs/en/literature_notes.md`) |
 | B05 | P1 | open | Forecast horizon curve: error of the E40 model by gap and by age of the first check | register row, figure | Data: `history.pairs`; extend to all (earlier, later) pairs, not only first-last |
-| B06 | P1 | open | Use the history file to normalise the now-cast target to a fixed age (e.g. views at 7 days) and re-test E01-style models | register row | Only posts with ≥2 checks; say the subset is one month |
+| B06 | P1 | done | Use the history file to normalise the now-cast target to a fixed age (e.g. views at 7 days) and re-test E01-style models | register row | Done 2026-11-04 as E44 (age column: small, X only) and E45 (newer checks: not better) |
 | B07 | P1 | open | Early-reaction forecast without views (FB/IG setting): predict later likes/comments from early ones on TikTok/X | register row | Likes also have history; this one transfers to FB/IG |
 | B08 | P2 | open | Virality classification: will a post reach the top 10% of its platform? (plan F) | precision/recall on held-out brands | |
 | B09 | P2 | open | Copy-paste campaigns: do near-duplicate posts inflate a brand's estimated reach? (plan F) | register row | E08 gives the duplicate groups |
