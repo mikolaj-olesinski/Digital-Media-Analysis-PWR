@@ -28,4 +28,4 @@ client), `done`, `dropped`. Plan letters (A-H) refer to `docs/en/project_plan.md
 | B20 | P2 | open | Noise ceiling from main vs current re-checks of the same post | register row | Tells how far 0.45 on YouTube is from the floor |
 | B21 | P2 | open | Pooled 3-platform model with platform feature and monotone constraints | register row; in-platform and leave-platform-out | E14 is a warning |
 | B22 | P2 | open | YouTube views per like fell from 1.57 to 1.13 (log10, May-Aug): explained by younger checks? | register row | From E46 |
-| B23 | P2 | open | Posting-time model (E43) with e5 embeddings and author/hashtag context instead of TF-IDF | register row | E49/E50: +0.05 on YouTube without reactions |
+| B23 | P2 | done | Posting-time model (E43) with e5 embeddings and author/hashtag context instead of TF-IDF | register row | Done 2026-11-04 as E52 (YouTube +0.020 from context) |

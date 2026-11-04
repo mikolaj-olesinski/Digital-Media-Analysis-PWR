@@ -642,5 +642,17 @@
   "paths": [
    "notebooks/models/21_context_text.ipynb"
   ]
+ },
+ {
+  "id": "E52",
+  "date": "2026-11-04",
+  "question": "Posting-time estimate with sentence embeddings and context from other posts",
+  "setup": "E43 posting-time columns + e5 embeddings (PCA 16), TF-IDF replaced by embeddings, + E49 context without own likes, + both; same folds",
+  "result": "Context +0.004 / +0.020 (0.011-0.027) / +0.008; embeddings ≤ +0.009; both +0.008 / +0.017 / +0.010. Best posting-time MAE 0.566 / 0.664 / 0.540. Context uses later posts too: upper bound",
+  "type": "small",
+  "where": "`22_posting_time_text`",
+  "paths": [
+   "notebooks/models/22_posting_time_text.ipynb"
+  ]
  }
 ]

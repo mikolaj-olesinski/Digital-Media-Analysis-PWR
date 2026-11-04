@@ -39,7 +39,7 @@ add a contradicting line below it.
 - Views grow like age^b with b ≈ 0.35 / 0.58 / 1.17 between the first and last check; X is observed only in its first day (7 h → 14 h, median ×2.4). **tentative** (E39)
 - From one early check, CatBoost forecasts the later check with 0.165 / 0.188 / 0.269 (×1.5 / ×1.5 / ×1.9); better than persistence and than a power law in age (gains +0.03 / +0.05 / +0.08, CI above zero). 90% interval ×2.4 / ×3.8 / ×4.1. **tentative** (E40, E42)
 - Without the early view count the forecast is much worse (0.37 / 0.44 / 0.54): early views are worth 0.20-0.28. This is the FB/IG situation. **tentative** (E41)
-- At posting time (no reactions) CatBoost on followers, text, labels, calendar and horizon gets 0.575 / 0.684 / 0.550 (×3.8 / ×4.8 / ×3.5), interval ×20 / ×27 / ×14. Reactions remain the main signal. **likely** (E43)
+- At posting time (no reactions) CatBoost on followers, text, labels, calendar and horizon gets 0.575 / 0.684 / 0.550 (×3.8 / ×4.8 / ×3.5), interval ×20 / ×27 / ×14. Reactions remain the main signal. **likely** (E43). Context from other posts of the author, hashtags and brand improves it to 0.566 / 0.664 / 0.540 (YouTube +0.020; upper bound, uses later posts). **likely** (E52)
 
 ## Dead ends: tried, do not repeat without a new reason
 | Idea | Result | IDs |

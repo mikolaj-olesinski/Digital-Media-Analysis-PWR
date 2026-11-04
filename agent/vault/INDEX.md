@@ -56,3 +56,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E49 | none | Context from other posts of the same author, hashtag and brand (no view counts used) | [E49](E49.md) |
 | E50 | small | Text: local sentence embeddings (multilingual-e5-small) and TF-IDF | [E50](E50.md) |
 | E51 | small | Offset target: learn views per like | [E51](E51.md) |
+| E52 | small | Posting-time estimate with sentence embeddings and context from other posts | [E52](E52.md) |
