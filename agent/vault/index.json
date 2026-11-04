@@ -570,5 +570,17 @@
   "paths": [
    "notebooks/models/17_check_age.ipynb"
   ]
+ },
+ {
+  "id": "E46",
+  "date": "2026-11-04",
+  "question": "Rolling window: does the final model hold up when trained only on earlier months?",
+  "setup": "Final model trained on all months before M, tested on M = 2026-05 … 08 (1,949 / 2,000 / 1,685 posts); against brand CV on the same posts; also without the test month's brands, and previous month only",
+  "result": "Expanding window vs brand CV -0.001 (-0.004-0.002) / -0.011 (-0.018 to -0.004) / -0.026 (-0.036 to -0.017); most of the gap is May (X 0.552 vs 0.480), from June on within 0.02. Unseen brands cost ≤ 0.005 more; previous month only is worse (-0.013 / -0.023 / -0.032). No drift in error; YouTube views per like fell in Jul-Aug without raising the error",
+  "type": "finding",
+  "where": "`18_rolling_window`",
+  "paths": [
+   "notebooks/models/18_rolling_window.ipynb"
+  ]
  }
 ]

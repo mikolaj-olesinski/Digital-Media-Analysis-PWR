@@ -17,7 +17,7 @@ client), `done`, `dropped`. Plan letters (A-H) refer to `docs/en/project_plan.md
 | B09 | P2 | open | Copy-paste campaigns: do near-duplicate posts inflate a brand's estimated reach? (plan F) | register row | E08 gives the duplicate groups |
 | B10 | P2 | open | Separate model for posts without reactions: text, author, community (plan F) | register row | Compare with E43 posting-time model on the zero-reaction subset |
 | B11 | P2 | open | Sentence embeddings (multilingual, local model) as text features | register row | Must run locally on homelab3; no external API |
-| B12 | P2 | open | Temporal validation (train on earlier months, test on later) for the final models | register row | `validation.temporal_split` exists, unused so far |
+| B12 | P2 | done | Temporal validation (train on earlier months, test on later) for the final models | register row | Done 2026-11-04 as E46 (expanding window close to brand CV; worse only in the first month) |
 | B13 | P3 | open | Full GNN (GraphSAGE) on the text graph | register row | Low prior: E07, E29 found ≤ 0.009 |
 | B14 | P0 | blocked | Own FB/IG sample with public view counts (plan A) | data statement updated, sample collected | Needs GDPR/terms decision and people |
 | B15 | P1 | blocked | False brand match detector (plan D) | 100-200 hand labels, detector, share of reach | Needs hand labelling by people |

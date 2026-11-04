@@ -12,6 +12,7 @@ add a contradicting line below it.
 - Real views per reaction are about 21 / 20 / 27; the rule assumes 700 on X. **likely** (E24)
 - Views are checked at very different post ages (median 858 h / 600 h / 534 h for the main check), and keep growing between checks. **solid** (E38, E39)
 - Knowing the age of the check helps little overall (+0.000 / +0.003 / +0.012, only X clear of zero) but removes the over-estimate of checks younger than a day on TikTok and YouTube. **likely** (E44)
+- Trained only on earlier months (expanding window, test months 2026-05 … 08) the final model is close to brand CV: -0.001 / -0.011 / -0.026, the gap mostly in May when little history exists; brand CV is not optimistic beyond that. Recent data alone (previous month) is worse than all past data. No drift in error over these four months. **likely** (E46)
 - The newer checks in the history file do not make the main model better; on X worse (-0.046), because views are re-measured while reactions mostly are not. Train on the original columns. **likely** (E45)
 
 ## Estimating views from reactions (now-cast)
@@ -48,6 +49,7 @@ add a contradicting line below it.
 | Dropping spam or zero-reaction posts from training | at most 0.002 | E20, E28 |
 | Author history (smoothed mean of the author's training posts) at posting time | ±0.004, CI includes zero | E43 |
 | Tuning across many families beyond CatBoost defaults | small (≤ 0.02) | E11, E12 |
+| Training on the previous month only (recency) instead of all past months | worse by 0.013-0.032 | E46 |
 | Replacing views and reactions by the newer `current_*` check as training data | not better, worse on X | E45 |
 
 ## Data quality notes
