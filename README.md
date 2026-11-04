@@ -12,6 +12,9 @@ Question: can the visibility (views) of a post be estimated from the number of f
 - `figures/`: generated figures, `*_en.png` and `*_pl.png`
 - `pitchdeck/`: presentation in English and Polish (`pitchdeck_en.*`, `pitchdeck_pl.*`); build script `build.py en|pl`
 
+## For AI agents
+`CLAUDE.md` and `agent/README.md`: work loop, runbook, current findings, backlog, decisions and one card per experiment in `agent/vault/`. Guardrails: `python src/agent_tools.py check`.
+
 ## Data
 The raw file `data/raw/reach_samples_students.csv` (12,500 mentions from Brand24) is **not** in the repository: it contains personal data of authors and the client's data.
 The second file `data/raw/reach_samples_students_with_history.csv` (same mentions plus earlier checks of views and reactions) is also not in the repository; notebook 16 needs it.

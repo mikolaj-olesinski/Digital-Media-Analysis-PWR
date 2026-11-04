@@ -1,0 +1,4 @@
+# Failures of `src/agent_tools.py check` that are already in the backlog. One substring per line, then the backlog ID.
+# Remove the line when the backlog item is done. Never add a line to silence a failure you caused.
+notebooks/eda/02_platforms.ipynb   # B01
+zoo_summary_en.png                 # B02
