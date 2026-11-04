@@ -1,0 +1,433 @@
+{
+ "data": [
+  {
+   "platform": "tiktok",
+   "posts": 2491,
+   "median_age_h": 858.2719444444444,
+   "refreshed": 348,
+   "views_grew": 133
+  },
+  {
+   "platform": "twitter",
+   "posts": 1803,
+   "median_age_h": 504.62888888888887,
+   "refreshed": 342,
+   "views_grew": 33
+  },
+  {
+   "platform": "youtube",
+   "posts": 2441,
+   "median_age_h": 605.0072222222223,
+   "refreshed": 503,
+   "views_grew": 201
+  },
+  {
+   "platform": "TOTAL",
+   "posts": 6735,
+   "median_age_h": 679.2897222222222,
+   "refreshed": 1193,
+   "views_grew": 367
+  }
+ ],
+ "models": [
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "posts": 2491,
+   "MAE": 0.27320826409670573,
+   "CI low": 0.2630100447037697,
+   "CI high": 0.2850344142269184,
+   "bias": -0.019827385610592774
+  },
+  {
+   "platform": "tiktok",
+   "model": "final model + check age",
+   "posts": 2491,
+   "MAE": 0.27289666927450684,
+   "CI low": 0.2624626402503952,
+   "CI high": 0.2848920065205209,
+   "bias": -0.019960567483052433
+  },
+  {
+   "platform": "tiktok",
+   "model": "final model + check age, refreshed data",
+   "posts": 2491,
+   "MAE": 0.2743536007355274,
+   "CI low": 0.26381963700695815,
+   "CI high": 0.2867492431376444,
+   "bias": -0.019341178367646976
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "posts": 2441,
+   "MAE": 0.45566381424531344,
+   "CI low": 0.4338608409710372,
+   "CI high": 0.47998070194971004,
+   "bias": -0.03947747034891239
+  },
+  {
+   "platform": "youtube",
+   "model": "final model + check age",
+   "posts": 2441,
+   "MAE": 0.4522373257442465,
+   "CI low": 0.43158745457011466,
+   "CI high": 0.4736382726023945,
+   "bias": -0.03798157227447405
+  },
+  {
+   "platform": "youtube",
+   "model": "final model + check age, refreshed data",
+   "posts": 2441,
+   "MAE": 0.4539607612615876,
+   "CI low": 0.43362545224510224,
+   "CI high": 0.47602409758635367,
+   "bias": -0.03120609047663487
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "posts": 1803,
+   "MAE": 0.4664935387737166,
+   "CI low": 0.44590739419947656,
+   "CI high": 0.48941888359655045,
+   "bias": -0.03933904364434193
+  },
+  {
+   "platform": "twitter",
+   "model": "final model + check age",
+   "posts": 1803,
+   "MAE": 0.4542176102536712,
+   "CI low": 0.4352993961948061,
+   "CI high": 0.47424295000788674,
+   "bias": -0.04105895090281481
+  },
+  {
+   "platform": "twitter",
+   "model": "final model + check age, refreshed data",
+   "posts": 1803,
+   "MAE": 0.46528315916542407,
+   "CI low": 0.44643071340103574,
+   "CI high": 0.4856097862344463,
+   "bias": -0.03888686784183771
+  }
+ ],
+ "gains": [
+  {
+   "platform": "tiktok",
+   "comparison": "final model -> final model + check age",
+   "subset": "all posts",
+   "gain": 0.00031159482219888845,
+   "CI low": -0.0018308354833077266,
+   "CI high": 0.002747207431465383
+  },
+  {
+   "platform": "tiktok",
+   "comparison": "final model + check age -> final model + check age, refreshed data",
+   "subset": "all posts",
+   "gain": -0.0014569314610204736,
+   "CI low": -0.002938071218203728,
+   "CI high": -0.00012141380671284997
+  },
+  {
+   "platform": "youtube",
+   "comparison": "final model -> final model + check age",
+   "subset": "all posts",
+   "gain": 0.003426488501066867,
+   "CI low": -0.0007366461731185857,
+   "CI high": 0.007730965688578664
+  },
+  {
+   "platform": "youtube",
+   "comparison": "final model + check age -> final model + check age, refreshed data",
+   "subset": "all posts",
+   "gain": -0.0017234355173410783,
+   "CI low": -0.0053316318489847235,
+   "CI high": 0.0020010708600068506
+  },
+  {
+   "platform": "twitter",
+   "comparison": "final model -> final model + check age",
+   "subset": "all posts",
+   "gain": 0.012275928520045415,
+   "CI low": 0.0052855174668365755,
+   "CI high": 0.01893498949796491
+  },
+  {
+   "platform": "twitter",
+   "comparison": "final model + check age -> final model + check age, refreshed data",
+   "subset": "all posts",
+   "gain": -0.011065548911752852,
+   "CI low": -0.01549233923648175,
+   "CI high": -0.006558276741341485
+  },
+  {
+   "platform": "tiktok",
+   "comparison": "final model -> final model + check age",
+   "subset": "refreshed posts",
+   "gain": -0.0011794767753040226,
+   "CI low": -0.008517960488378358,
+   "CI high": 0.006179436875669689
+  },
+  {
+   "platform": "tiktok",
+   "comparison": "final model + check age -> final model + check age, refreshed data",
+   "subset": "refreshed posts",
+   "gain": -0.009690903417084723,
+   "CI low": -0.017089730807034475,
+   "CI high": -0.002239457008296153
+  },
+  {
+   "platform": "youtube",
+   "comparison": "final model -> final model + check age",
+   "subset": "refreshed posts",
+   "gain": 0.02175927083212443,
+   "CI low": 0.009582386329244156,
+   "CI high": 0.03293970886008787
+  },
+  {
+   "platform": "youtube",
+   "comparison": "final model + check age -> final model + check age, refreshed data",
+   "subset": "refreshed posts",
+   "gain": 0.005574635881474695,
+   "CI low": -0.011072132325374491,
+   "CI high": 0.019639569803870053
+  },
+  {
+   "platform": "twitter",
+   "comparison": "final model -> final model + check age",
+   "subset": "refreshed posts",
+   "gain": 0.03981442115190257,
+   "CI low": 0.01843317326886502,
+   "CI high": 0.0620228369956432
+  },
+  {
+   "platform": "twitter",
+   "comparison": "final model + check age -> final model + check age, refreshed data",
+   "subset": "refreshed posts",
+   "gain": -0.04640810249182231,
+   "CI low": -0.06622237584835786,
+   "CI high": -0.027351757454787667
+  }
+ ],
+ "by_age": [
+  {
+   "platform": "tiktok",
+   "age": "<1 d",
+   "posts": 53.0,
+   "MAE": 0.3846181541500971,
+   "bias": 0.22631089070167248,
+   "MAE +age": 0.3407709267156807,
+   "bias +age": 0.06878340018380151
+  },
+  {
+   "platform": "tiktok",
+   "age": "1-7 d",
+   "posts": 113.0,
+   "MAE": 0.30846818026859063,
+   "bias": 0.1014851037938366,
+   "MAE +age": 0.31241319910088516,
+   "bias +age": 0.019205888082970846
+  },
+  {
+   "platform": "tiktok",
+   "age": "7-30 d",
+   "posts": 969.0,
+   "MAE": 0.2620713599322232,
+   "bias": -0.030735195066979522,
+   "MAE +age": 0.2620163929722499,
+   "bias +age": -0.035930105170545255
+  },
+  {
+   "platform": "tiktok",
+   "age": "30-90 d",
+   "posts": 1086.0,
+   "MAE": 0.2766934173580674,
+   "bias": -0.023229463056468044,
+   "MAE +age": 0.2786632965995685,
+   "bias +age": -0.011439086402455417
+  },
+  {
+   "platform": "tiktok",
+   "age": ">90 d",
+   "posts": 270.0,
+   "MAE": 0.26253303814593565,
+   "bias": -0.06608411330611601,
+   "MAE +age": 0.2588882505600887,
+   "bias +age": -0.03073496081509579
+  },
+  {
+   "platform": "twitter",
+   "age": "<1 d",
+   "posts": 531.0,
+   "MAE": 0.4575356900131282,
+   "bias": -0.015550984846811262,
+   "MAE +age": 0.4102499255937846,
+   "bias +age": -0.08090971823362036
+  },
+  {
+   "platform": "twitter",
+   "age": "1-7 d",
+   "posts": 138.0,
+   "MAE": 0.5347097179040504,
+   "bias": -0.1297640468599396,
+   "MAE +age": 0.5264685516139268,
+   "bias +age": -0.0196664739808065
+  },
+  {
+   "platform": "twitter",
+   "age": "7-30 d",
+   "posts": 371.0,
+   "MAE": 0.45788868099369834,
+   "bias": -0.10328877828420731,
+   "MAE +age": 0.45784894984027813,
+   "bias +age": -0.025919786150690342
+  },
+  {
+   "platform": "twitter",
+   "age": "30-90 d",
+   "posts": 732.0,
+   "MAE": 0.46399092937193925,
+   "bias": -0.00035810217343136623,
+   "MAE +age": 0.4678438143931341,
+   "bias +age": -0.01770512447893313
+  },
+  {
+   "platform": "twitter",
+   "age": ">90 d",
+   "posts": 31.0,
+   "MAE": 0.47833538685030297,
+   "bias": -0.1993876366460451,
+   "MAE +age": 0.5204951015429108,
+   "bias +age": -0.18631815825439466
+  },
+  {
+   "platform": "youtube",
+   "age": "<1 d",
+   "posts": 384.0,
+   "MAE": 0.4142927774003482,
+   "bias": 0.10222884280374138,
+   "MAE +age": 0.39087696185403825,
+   "bias +age": -0.009233806536820653
+  },
+  {
+   "platform": "youtube",
+   "age": "1-7 d",
+   "posts": 280.0,
+   "MAE": 0.4952551236474039,
+   "bias": -0.0508882914807919,
+   "MAE +age": 0.4810362921318167,
+   "bias +age": -0.10110370635895106
+  },
+  {
+   "platform": "youtube",
+   "age": "7-30 d",
+   "posts": 652.0,
+   "MAE": 0.47395629015557406,
+   "bias": -0.08957780979087898,
+   "MAE +age": 0.47653504560738047,
+   "bias +age": -0.04827564639967613
+  },
+  {
+   "platform": "youtube",
+   "age": "30-90 d",
+   "posts": 804.0,
+   "MAE": 0.44598528953585387,
+   "bias": -0.016313540035308105,
+   "MAE +age": 0.44881403068848297,
+   "bias +age": 0.006017476533639928
+  },
+  {
+   "platform": "youtube",
+   "age": ">90 d",
+   "posts": 321.0,
+   "MAE": 0.45770665252816933,
+   "bias": -0.15529857000520025,
+   "MAE +age": 0.45974164044639865,
+   "bias +age": -0.10660600657882675
+  }
+ ],
+ "refreshed_subset": [
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "posts": 348,
+   "MAE": 0.2856028587221529,
+   "CI low": 0.25566691887934895,
+   "CI high": 0.3148757750533825,
+   "bias": -0.011181029621479047
+  },
+  {
+   "platform": "tiktok",
+   "model": "final model + check age",
+   "posts": 348,
+   "MAE": 0.2867823354974569,
+   "CI low": 0.25409318980154005,
+   "CI high": 0.3162193001171856,
+   "bias": -0.043645551931481466
+  },
+  {
+   "platform": "tiktok",
+   "model": "final model + check age, refreshed data",
+   "posts": 348,
+   "MAE": 0.2964732389145417,
+   "CI low": 0.26366308617535744,
+   "CI high": 0.32614277136308767,
+   "bias": -0.0491838130977912
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "posts": 503,
+   "MAE": 0.45678968981173024,
+   "CI low": 0.4186296620034272,
+   "CI high": 0.49913432985157424,
+   "bias": -0.016951825257760556
+  },
+  {
+   "platform": "youtube",
+   "model": "final model + check age",
+   "posts": 503,
+   "MAE": 0.4350304189796058,
+   "CI low": 0.39960830425569843,
+   "CI high": 0.4753925721900205,
+   "bias": -0.02885219474703543
+  },
+  {
+   "platform": "youtube",
+   "model": "final model + check age, refreshed data",
+   "posts": 503,
+   "MAE": 0.4294557830981311,
+   "CI low": 0.39549129280482226,
+   "CI high": 0.4690057299267972,
+   "bias": -0.0783495052931819
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "posts": 342,
+   "MAE": 0.456474109748177,
+   "CI low": 0.4145703909252425,
+   "CI high": 0.49806206098165534,
+   "bias": -0.05877295600247265
+  },
+  {
+   "platform": "twitter",
+   "model": "final model + check age",
+   "posts": 342,
+   "MAE": 0.4166596885962745,
+   "CI low": 0.3772630310978598,
+   "CI high": 0.4572274072767461,
+   "bias": -0.07452330876645022
+  },
+  {
+   "platform": "twitter",
+   "model": "final model + check age, refreshed data",
+   "posts": 342,
+   "MAE": 0.4630677910880967,
+   "CI low": 0.4212930645046544,
+   "CI high": 0.5049393072109036,
+   "bias": -0.06658122577505862
+  }
+ ]
+}

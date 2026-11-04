@@ -1,5 +1,6 @@
 """Reusable EDA blocks for notebooks/eda/02_platforms.ipynb: one overview of all platforms and one identical report per platform.
 Every platform table/figure also shows the total over all platforms for comparison."""
+import re
 from pathlib import Path
 import numpy as np, pandas as pd, matplotlib.pyplot as plt, matplotlib.dates as mdates
 from IPython.display import display, Markdown
@@ -73,12 +74,21 @@ def _months(ax, color_by=None):
     plt.setp(ax.get_xticklabels(), rotation=45, ha="right")
 
 
+PERSONAL = ["author_name", "author_url", "url"]
+_URL = re.compile(r"https?://\S+|www\.\S+")
+
+
+def preview(rows):
+    """Rows for display without personal data: author and URL columns dropped, links in text replaced, text cut to 80 characters."""
+    clip = lambda s: s.fillna("").str.replace(_URL, "[link]", regex=True).str.slice(0, 80)
+    return rows.drop(columns=[c for c in PERSONAL if c in rows.columns]).assign(content=lambda x: clip(x.content), title=lambda x: clip(x.title)).T
+
+
 def overview(df):
     """Section 0: all platforms together."""
     display(Markdown("# All platforms (total)"))
-    display(Markdown("### 0.1 · First rows (all columns)"))
-    display(df.sample(3, random_state=0).assign(content=lambda x: x.content.fillna("").str.slice(0, 80),
-                                                   title=lambda x: x.title.fillna("").str.slice(0, 80)).T)
+    display(Markdown("### 0.1 · First rows (all columns except author and URL)"))
+    display(preview(df.sample(3, random_state=0)))
 
     display(Markdown("### 0.2 · Missing values and zeros"))
     mz = pd.concat({NAMES[p]: missing_zeros(df[df.platform == p])["missing %"] for p in PLATFORMS} | {"TOTAL": missing_zeros(df)["missing %"]}, axis=1).T
@@ -118,8 +128,8 @@ def platform_report(df, p):
     g, c = df[df.platform == p], PCOL[p]; N = NAMES[p]
     display(Markdown(f"# {N}\n{len(g):,} mentions · {g.brand.nunique()} brands · {g.created_at.min():%Y-%m} → {g.created_at.max():%Y-%m}"))
 
-    display(Markdown(f"### {N} · 1. First rows (all columns)"))
-    display(g.head(3).assign(content=lambda x: x.content.fillna("").str.slice(0, 80), title=lambda x: x.title.fillna("").str.slice(0, 80)).T)
+    display(Markdown(f"### {N} · 1. First rows (all columns except author and URL)"))
+    display(preview(g.head(3)))
 
     display(Markdown(f"### {N} · 2. Missing values and zeros (with total over all platforms)"))
     a, t = missing_zeros(g), missing_zeros(df)

@@ -1,0 +1,670 @@
+{
+ "drift": [
+  {
+   "platform": "tiktok",
+   "month": "2026-04",
+   "posts": 310,
+   "median_log_views": 2.9633152542733985,
+   "median_views_per_like": 1.3710086292771178
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-05",
+   "posts": 540,
+   "median_log_views": 2.8254261177678233,
+   "median_views_per_like": 1.3973498076681055
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-06",
+   "posts": 500,
+   "median_log_views": 2.856725109938747,
+   "median_views_per_like": 1.3911711516202532
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-07",
+   "posts": 521,
+   "median_log_views": 2.815577748324267,
+   "median_views_per_like": 1.3715374544766918
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-08",
+   "posts": 388,
+   "median_log_views": 2.8276652790046706,
+   "median_views_per_like": 1.3354103556513537
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-04",
+   "posts": 73,
+   "median_log_views": 1.2787536009528289,
+   "median_views_per_like": 1.2304489213782739
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-05",
+   "posts": 441,
+   "median_log_views": 1.3222192947339193,
+   "median_views_per_like": 1.146128035678238
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-06",
+   "posts": 374,
+   "median_log_views": 1.5118319590988967,
+   "median_views_per_like": 1.3424226808222062
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-07",
+   "posts": 480,
+   "median_log_views": 1.5185139398778875,
+   "median_views_per_like": 1.3010299956639813
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-08",
+   "posts": 390,
+   "median_log_views": 1.4313637641589874,
+   "median_views_per_like": 1.2304489213782739
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-04",
+   "posts": 236,
+   "median_log_views": 2.940979765418893,
+   "median_views_per_like": 1.5566868458726744
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-05",
+   "posts": 425,
+   "median_log_views": 2.9278834103307068,
+   "median_views_per_like": 1.568201724066995
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-06",
+   "posts": 435,
+   "median_log_views": 2.780317312140151,
+   "median_views_per_like": 1.5403406949069245
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-07",
+   "posts": 554,
+   "median_log_views": 2.631943434631725,
+   "median_views_per_like": 1.3010299956639813
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-08",
+   "posts": 586,
+   "median_log_views": 2.214811551291343,
+   "median_views_per_like": 1.1260217674865536
+  }
+ ],
+ "by_month": [
+  {
+   "platform": "tiktok",
+   "month": "2026-05",
+   "model": "brand CV",
+   "posts": 540.0,
+   "MAE": 0.2715049185281772,
+   "bias": -0.02401026777918624
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-05",
+   "model": "expanding",
+   "posts": 540.0,
+   "MAE": 0.280369731719716,
+   "bias": -0.020471358547284144
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-05",
+   "model": "expanding, new brands",
+   "posts": 540.0,
+   "MAE": 0.28023066232539584,
+   "bias": -0.005021775647068403
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-05",
+   "model": "sliding (previous month)",
+   "posts": 540.0,
+   "MAE": 0.2960109895299255,
+   "bias": -0.005812674660317658
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-06",
+   "model": "brand CV",
+   "posts": 500.0,
+   "MAE": 0.27859635421243356,
+   "bias": -0.025035384318580753
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-06",
+   "model": "expanding",
+   "posts": 500.0,
+   "MAE": 0.2742814100556242,
+   "bias": -0.014202469882411925
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-06",
+   "model": "expanding, new brands",
+   "posts": 500.0,
+   "MAE": 0.28069084936060257,
+   "bias": -0.026001146692322757
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-06",
+   "model": "sliding (previous month)",
+   "posts": 500.0,
+   "MAE": 0.2790205952311862,
+   "bias": -0.011145118841303812
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-07",
+   "model": "brand CV",
+   "posts": 521.0,
+   "MAE": 0.26542534294137016,
+   "bias": -0.004445688819384403
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-07",
+   "model": "expanding",
+   "posts": 521.0,
+   "MAE": 0.26596908484874454,
+   "bias": 0.007639921311067327
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-07",
+   "model": "expanding, new brands",
+   "posts": 521.0,
+   "MAE": 0.26553984675428466,
+   "bias": -0.001963200206859319
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-07",
+   "model": "sliding (previous month)",
+   "posts": 521.0,
+   "MAE": 0.27510251702376415,
+   "bias": 0.003562835027795882
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-08",
+   "model": "brand CV",
+   "posts": 388.0,
+   "MAE": 0.272201214592418,
+   "bias": -0.008946239972728292
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-08",
+   "model": "expanding",
+   "posts": 388.0,
+   "MAE": 0.2703359785197985,
+   "bias": -0.009264748206967302
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-08",
+   "model": "expanding, new brands",
+   "posts": 388.0,
+   "MAE": 0.26990869956002417,
+   "bias": -0.01570673724179091
+  },
+  {
+   "platform": "tiktok",
+   "month": "2026-08",
+   "model": "sliding (previous month)",
+   "posts": 388.0,
+   "MAE": 0.28921833328141505,
+   "bias": -0.029172441262027466
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-05",
+   "model": "brand CV",
+   "posts": 425.0,
+   "MAE": 0.45886463259407534,
+   "bias": -0.036956285327824405
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-05",
+   "model": "expanding",
+   "posts": 425.0,
+   "MAE": 0.48541913340983606,
+   "bias": 0.02680607270940144
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-05",
+   "model": "expanding, new brands",
+   "posts": 425.0,
+   "MAE": 0.4919855222701777,
+   "bias": -0.058695128999615216
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-05",
+   "model": "sliding (previous month)",
+   "posts": 425.0,
+   "MAE": 0.49040331863694014,
+   "bias": 0.013034460311889007
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-06",
+   "model": "brand CV",
+   "posts": 435.0,
+   "MAE": 0.4641433308442253,
+   "bias": -0.03805667875622252
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-06",
+   "model": "expanding",
+   "posts": 435.0,
+   "MAE": 0.46841897039401065,
+   "bias": 0.01994181252426009
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-06",
+   "model": "expanding, new brands",
+   "posts": 435.0,
+   "MAE": 0.4717379058657422,
+   "bias": 0.0001879707234166686
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-06",
+   "model": "sliding (previous month)",
+   "posts": 435.0,
+   "MAE": 0.49047969803865227,
+   "bias": 0.009949570188012135
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-07",
+   "model": "brand CV",
+   "posts": 554.0,
+   "MAE": 0.44162388122548224,
+   "bias": -0.037978489438145344
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-07",
+   "model": "expanding",
+   "posts": 554.0,
+   "MAE": 0.4580727940675342,
+   "bias": 0.03323436722966362
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-07",
+   "model": "expanding, new brands",
+   "posts": 554.0,
+   "MAE": 0.45987405041614643,
+   "bias": 0.04595925387811589
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-07",
+   "model": "sliding (previous month)",
+   "posts": 554.0,
+   "MAE": 0.47715633787635814,
+   "bias": -0.13102912156385715
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-08",
+   "model": "brand CV",
+   "posts": 586.0,
+   "MAE": 0.42654859901308323,
+   "bias": 0.005967399945233862
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-08",
+   "model": "expanding",
+   "posts": 586.0,
+   "MAE": 0.427420914291727,
+   "bias": 0.01534649901568773
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-08",
+   "model": "expanding, new brands",
+   "posts": 586.0,
+   "MAE": 0.4328259067971927,
+   "bias": 0.04618992965252305
+  },
+  {
+   "platform": "youtube",
+   "month": "2026-08",
+   "model": "sliding (previous month)",
+   "posts": 586.0,
+   "MAE": 0.4297997867722213,
+   "bias": -0.0198692412962828
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-05",
+   "model": "brand CV",
+   "posts": 441.0,
+   "MAE": 0.4803803755704616,
+   "bias": 0.03132902109297729
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-05",
+   "model": "expanding",
+   "posts": 441.0,
+   "MAE": 0.5519100533278356,
+   "bias": -0.014079871529368496
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-05",
+   "model": "expanding, new brands",
+   "posts": 441.0,
+   "MAE": 0.5332569870604104,
+   "bias": 0.002308523987237447
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-05",
+   "model": "sliding (previous month)",
+   "posts": 441.0,
+   "MAE": 0.5514540097565006,
+   "bias": 0.0433627095274294
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-06",
+   "model": "brand CV",
+   "posts": 374.0,
+   "MAE": 0.4454882143419288,
+   "bias": -0.06694689041088377
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-06",
+   "model": "expanding",
+   "posts": 374.0,
+   "MAE": 0.4649571135921301,
+   "bias": -0.13671514480204683
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-06",
+   "model": "expanding, new brands",
+   "posts": 374.0,
+   "MAE": 0.45280611670394855,
+   "bias": -0.0984539632308391
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-06",
+   "model": "sliding (previous month)",
+   "posts": 374.0,
+   "MAE": 0.4819866274277142,
+   "bias": -0.1476493628384561
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-07",
+   "model": "brand CV",
+   "posts": 480.0,
+   "MAE": 0.45866301474247656,
+   "bias": -0.0936917728012212
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-07",
+   "model": "expanding",
+   "posts": 480.0,
+   "MAE": 0.46640628727029,
+   "bias": -0.08053726235681342
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-07",
+   "model": "expanding, new brands",
+   "posts": 480.0,
+   "MAE": 0.47030289151769733,
+   "bias": -0.11627194115149928
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-07",
+   "model": "sliding (previous month)",
+   "posts": 480.0,
+   "MAE": 0.4726487337348722,
+   "bias": -0.026762660620206404
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-08",
+   "model": "brand CV",
+   "posts": 390.0,
+   "MAE": 0.4717869947653227,
+   "bias": -0.05538421971475941
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-08",
+   "model": "expanding",
+   "posts": 390.0,
+   "MAE": 0.47557789986554266,
+   "bias": -0.014679607060342192
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-08",
+   "model": "expanding, new brands",
+   "posts": 390.0,
+   "MAE": 0.48330530995534876,
+   "bias": -0.014375239989898841
+  },
+  {
+   "platform": "twitter",
+   "month": "2026-08",
+   "model": "sliding (previous month)",
+   "posts": 390.0,
+   "MAE": 0.47602043161877855,
+   "bias": -0.012995745971712274
+  }
+ ],
+ "overall": [
+  {
+   "platform": "tiktok",
+   "model": "brand CV",
+   "posts": 1949,
+   "MAE": 0.27183761315841176,
+   "CI low": 0.2601573618191834,
+   "CI high": 0.2843654593390439,
+   "bias": -0.016044423675920367
+  },
+  {
+   "platform": "tiktok",
+   "model": "expanding",
+   "posts": 1949,
+   "MAE": 0.2729608070950931,
+   "CI low": 0.26128146205506264,
+   "CI high": 0.28642746617101245,
+   "bias": -0.009117543282697095
+  },
+  {
+   "platform": "tiktok",
+   "model": "expanding, new brands",
+   "posts": 1949,
+   "MAE": 0.2743667613772636,
+   "CI low": 0.26257350316327754,
+   "CI high": 0.28802620071075447,
+   "bias": -0.011713377913374498
+  },
+  {
+   "platform": "tiktok",
+   "model": "sliding (previous month)",
+   "posts": 1949,
+   "MAE": 0.28471080381956027,
+   "CI low": 0.2732079442343139,
+   "CI high": 0.2977776099147766,
+   "bias": -0.009324819855006897
+  },
+  {
+   "platform": "youtube",
+   "model": "brand CV",
+   "posts": 2000,
+   "MAE": 0.445768463495152,
+   "CI low": 0.42235491835830097,
+   "CI high": 0.4724752788714405,
+   "bias": -0.024902131652053818
+  },
+  {
+   "platform": "youtube",
+   "model": "expanding",
+   "posts": 2000,
+   "MAE": 0.45715318375447045,
+   "CI low": 0.43158276875596063,
+   "CI high": 0.4846415169204367,
+   "bias": 0.023736078608987705
+  },
+  {
+   "platform": "youtube",
+   "model": "expanding, new brands",
+   "posts": 2000,
+   "MAE": 0.4613530206650618,
+   "CI low": 0.43526782251708557,
+   "CI high": 0.4874957748364119,
+   "bias": 0.013832531432352248
+  },
+  {
+   "platform": "youtube",
+   "model": "sliding (previous month)",
+   "posts": 2000,
+   "MAE": 0.4689936826497687,
+   "CI low": 0.44185411609718056,
+   "CI high": 0.49862806901261514,
+   "bias": -0.03718290004083024
+  },
+  {
+   "platform": "twitter",
+   "model": "brand CV",
+   "posts": 1685,
+   "MAE": 0.46446024500018973,
+   "CI low": 0.4476458323281471,
+   "CI high": 0.48361786698131576,
+   "bias": -0.046168507623151264
+  },
+  {
+   "platform": "twitter",
+   "model": "expanding",
+   "posts": 1685,
+   "MAE": 0.4905855743847673,
+   "CI low": 0.47145137675101234,
+   "CI high": 0.5100935760283888,
+   "bias": -0.060370101000131106
+  },
+  {
+   "platform": "twitter",
+   "model": "expanding, new brands",
+   "posts": 1685,
+   "MAE": 0.48590520934836706,
+   "CI low": 0.46525539250888287,
+   "CI high": 0.5060232515181811,
+   "bias": -0.057697684580855974
+  },
+  {
+   "platform": "twitter",
+   "model": "sliding (previous month)",
+   "posts": 1685,
+   "MAE": 0.496126752216406,
+   "CI low": 0.4778987701519337,
+   "CI high": 0.5152993869012762,
+   "bias": -0.032054792181989956
+  }
+ ],
+ "gains": [
+  {
+   "platform": "tiktok",
+   "comparison": "brand CV -> expanding",
+   "gain": -0.0011231939366813596,
+   "CI low": -0.00407842528303651,
+   "CI high": 0.0021861231693277093
+  },
+  {
+   "platform": "tiktok",
+   "comparison": "brand CV -> expanding, new brands",
+   "gain": -0.0025291482188518556,
+   "CI low": -0.0054929197200619395,
+   "CI high": 0.00048083450861453577
+  },
+  {
+   "platform": "tiktok",
+   "comparison": "brand CV -> sliding (previous month)",
+   "gain": -0.012873190661148556,
+   "CI low": -0.018903815344516753,
+   "CI high": -0.006944692133507381
+  },
+  {
+   "platform": "youtube",
+   "comparison": "brand CV -> expanding",
+   "gain": -0.011384720259318462,
+   "CI low": -0.01820505146846612,
+   "CI high": -0.004462318100910648
+  },
+  {
+   "platform": "youtube",
+   "comparison": "brand CV -> expanding, new brands",
+   "gain": -0.01558455716990971,
+   "CI low": -0.022884373128540136,
+   "CI high": -0.007363200264331757
+  },
+  {
+   "platform": "youtube",
+   "comparison": "brand CV -> sliding (previous month)",
+   "gain": -0.023225219154616675,
+   "CI low": -0.03240620524766436,
+   "CI high": -0.014601660887861497
+  },
+  {
+   "platform": "twitter",
+   "comparison": "brand CV -> expanding",
+   "gain": -0.02612532938457765,
+   "CI low": -0.03593771506545985,
+   "CI high": -0.01736843315177963
+  },
+  {
+   "platform": "twitter",
+   "comparison": "brand CV -> expanding, new brands",
+   "gain": -0.02144496434817737,
+   "CI low": -0.030197833006574748,
+   "CI high": -0.013573047472477338
+  },
+  {
+   "platform": "twitter",
+   "comparison": "brand CV -> sliding (previous month)",
+   "gain": -0.031666507216216326,
+   "CI low": -0.041836771957990834,
+   "CI high": -0.021867968692928858
+  }
+ ]
+}
