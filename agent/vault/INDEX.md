@@ -57,3 +57,7 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E50 | small | Text: local sentence embeddings (multilingual-e5-small) and TF-IDF | [E50](E50.md) |
 | E51 | small | Offset target: learn views per like | [E51](E51.md) |
 | E52 | small | Posting-time estimate with sentence embeddings and context from other posts | [E52](E52.md) |
+| E55 | finding | Leakage audit: folds that also separate authors and copied texts | [E55](E55.md) |
+| E56 |  | Noise ceiling: posts with almost the same inputs | [E56](E56.md) |
+| E57 | small | Quantile models and tail weighting | [E57](E57.md) |
+| E58 | finding | Abstention: error on the posts kept | [E58](E58.md) |

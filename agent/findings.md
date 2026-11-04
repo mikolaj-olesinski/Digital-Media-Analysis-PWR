@@ -28,6 +28,10 @@ add a contradicting line below it.
 - Systematic error: the lowest fifth of true views is overestimated (0.23 / 0.51 / 0.67), the top fifth underestimated (0.20 / 0.42 / 0.56). Partly an artefact of splitting by the true value. **solid** (E18)
 - YouTube posts with zero likes and comments are 23% of posts and 35% of error; possibly missing data rather than true zeros. Unconfirmed. **tentative** (E27)
 
+- Validation: folds that also separate authors and copied texts change MAE by ≤ 0.002 on TikTok and YouTube and -0.011 on X; seeing the brand in training helps ≤ 0.009. **likely** (E55)
+- Posts with practically the same followers and reactions differ ×2.8 / ×6.0 / ×4.6 in views; the best possible MAE on them is at least 0.22 / 0.39 / 0.33 (final model 0.33 / 0.58 / 0.47 there). Most remaining error is in the data. **likely** (E56)
+- Quantile 10-90% intervals under-cover on held-out brands (73-74%, top fifth 44-54%). Abstaining on the uncertain half cuts MAE by 27% on YouTube, ≤ 10% elsewhere. **likely** (E57, E58)
+
 ## Transfer to other platforms
 - Ridge on likes + comments transfers best: 0.31 / 0.61 / 0.65 when the platform is left out; the rank order holds but the level shifts (+0.03 / +0.21 / -0.40). **solid** (E02, E13)
 - 25-50 posts with true views from the target platform remove most of the shift on X (0.65 → about 0.55). Not checkable on FB/IG. **likely** (E15)
@@ -54,6 +58,7 @@ add a contradicting line below it.
 | Tuning across many families beyond CatBoost defaults | small (≤ 0.02) | E11, E12 |
 | Context from other posts of the author, hashtags, brand (likes and followers, no views) next to reactions | ≤ +0.003; brand context worse on YouTube (-0.014) | E49 |
 | Offset target log(views/likes) against the compression of extremes | +0.001 / +0.007 / +0.000; bias narrows 0.01-0.03 | E51 |
+| Tail weighting (×2 on outer fifths) against compression of extremes | ≤ 0.002, bias unchanged | E57 |
 | Training on the previous month only (recency) instead of all past months | worse by 0.013-0.032 | E46 |
 | Replacing views and reactions by the newer `current_*` check as training data | not better, worse on X | E45 |
 

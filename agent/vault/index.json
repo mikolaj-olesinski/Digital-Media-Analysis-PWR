@@ -654,5 +654,51 @@
   "paths": [
    "notebooks/models/22_posting_time_text.ipynb"
   ]
+ },
+ {
+  "id": "E55",
+  "date": "2026-11-04",
+  "question": "Leakage audit: folds that also separate authors and copied texts",
+  "setup": "Final model on brand folds, brand ∪ author ∪ identical-text components, and random folds",
+  "result": "Strict folds +0.002 / -0.001 / -0.011 (X CI -0.020 to -0.003); random folds +0.003 / +0.009 / -0.002. Headline holds; X slightly optimistic (0.47 → 0.48); seen brands help little",
+  "type": "finding",
+  "where": "`25_limits`",
+  "paths": [
+   "notebooks/models/25_limits.ipynb"
+  ]
+ },
+ {
+  "id": "E56",
+  "date": "2026-11-04",
+  "question": "Noise ceiling: posts with almost the same inputs",
+  "setup": "Pairs of different-brand posts with all four log inputs within 0.05; best MAE ≥ ½ mean \\",
+  "result": "Δ\\",
+  "type": "",
+  "where": "Lower bound 0.223 / 0.388 / 0.333 vs final model 0.325 / 0.578 / 0.471 on the same posts; near-identical posts differ ×2.8 / ×6.0 / ×4.6 in views",
+  "paths": []
+ },
+ {
+  "id": "E57",
+  "date": "2026-11-04",
+  "question": "Quantile models and tail weighting",
+  "setup": "CatBoost MultiQuantile 10/50/90%; final model with weight 2 on the outer fifths",
+  "result": "10-90% covers 73-74% (top fifth 44-54%); median ×5.4 / ×14.1 / ×28.9; q50 +0.007 on YouTube; tail weighting ≤ 0.002, extremes unchanged",
+  "type": "small",
+  "where": "`25_limits`",
+  "paths": [
+   "notebooks/models/25_limits.ipynb"
+  ]
+ },
+ {
+  "id": "E58",
+  "date": "2026-11-04",
+  "question": "Abstention: error on the posts kept",
+  "setup": "Final model errors ranked by quantile width, tier width, random, oracle",
+  "result": "Keeping the 50% narrowest: -10% / -27% / -6% MAE (0.246 / 0.334 / 0.439); quantile width slightly better than tier width",
+  "type": "finding",
+  "where": "`25_limits`",
+  "paths": [
+   "notebooks/models/25_limits.ipynb"
+  ]
  }
 ]
