@@ -45,6 +45,11 @@ add a contradicting line below it.
 - Without the early view count the forecast is much worse (0.37 / 0.44 / 0.54): early views are worth 0.20-0.28. This is the FB/IG situation. **tentative** (E41)
 - At posting time (no reactions) CatBoost on followers, text, labels, calendar and horizon gets 0.575 / 0.684 / 0.550 (×3.8 / ×4.8 / ×3.5), interval ×20 / ×27 / ×14. Reactions remain the main signal. **likely** (E43). Context from other posts of the author, hashtags and brand improves it to 0.566 / 0.664 / 0.540 (YouTube +0.020; upper bound, uses later posts). **likely** (E52)
 
+- Forecast error grows with the gap on TikTok (0.10 at < 12 h to 0.18 at 7-30 d); a first check in the first 12 hours is 2-4× harder. Training on all intermediate pairs does not help. **tentative** (E59)
+- Without views (FB/IG case): forecasting later reactions and passing them through the now-cast model beats forecasting views directly from reactions (+0.034 TikTok, +0.033 X, X CI includes zero). **tentative** (E60)
+- The main check came ever sooner after posting (Apr-May 78-100 days, Aug < 1 day on YouTube and X); YouTube views per like fell with it. **likely** (E62)
+- Copied texts (1-6% of posts) get more views per like and are underestimated (YouTube -0.26); for 6 YouTube and 7 X brands they make up > 50% of estimated reach. **likely** (E63)
+
 ## Dead ends: tried, do not repeat without a new reason
 | Idea | Result | IDs |
 |---|---|---|
@@ -59,6 +64,9 @@ add a contradicting line below it.
 | Context from other posts of the author, hashtags, brand (likes and followers, no views) next to reactions | ≤ +0.003; brand context worse on YouTube (-0.014) | E49 |
 | Offset target log(views/likes) against the compression of extremes | +0.001 / +0.007 / +0.000; bias narrows 0.01-0.03 | E51 |
 | Tail weighting (×2 on outer fifths) against compression of extremes | ≤ 0.002, bias unchanged | E57 |
+| One pooled model for three platforms; monotone constraints | pooled -0.001 to -0.012, monotone up to -0.026; LOPO CatBoost worse than ridge | E61 |
+| A separate model for zero-reaction posts | no gain (YouTube -0.010, X +0.011 CI incl. 0) | E64 |
+| Training on every intermediate pair of history checks | TikTok -0.020 | E59 |
 | Training on the previous month only (recency) instead of all past months | worse by 0.013-0.032 | E46 |
 | Replacing views and reactions by the newer `current_*` check as training data | not better, worse on X | E45 |
 

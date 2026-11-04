@@ -10,12 +10,12 @@ client), `done`, `dropped`. Plan letters (A-H) refer to `docs/en/project_plan.md
 | B02 | P1 | open | Polish twin for `figures/zoo_summary_en.png` | check passes | Built by `extra_models.summary_figure`; add a `lang` argument |
 | B03 | P1 | done | Quantile models (10/50/90%) and tail weighting for the extremes (plan G) | register row; error per fifth of true views and per reaction tier, plus absolute views | Done 2026-11-04 as E57 |
 | B04 | P1 | done | Abstention curve: error against share of posts kept, from the conformal width (plan C) | figure + register row | Done 2026-11-04 as E58 |
-| B05 | P1 | open | Forecast horizon curve: error of the E40 model by gap and by age of the first check | register row, figure | Data: `history.pairs`; extend to all (earlier, later) pairs, not only first-last |
+| B05 | P1 | done | Forecast horizon curve: error of the E40 model by gap and by age of the first check | register row, figure | Done 2026-11-04 as E59 |
 | B06 | P1 | done | Use the history file to normalise the now-cast target to a fixed age (e.g. views at 7 days) and re-test E01-style models | register row | Done 2026-11-04 as E44 (age column: small, X only) and E45 (newer checks: not better) |
-| B07 | P1 | open | Early-reaction forecast without views (FB/IG setting): predict later likes/comments from early ones on TikTok/X | register row | Likes also have history; this one transfers to FB/IG |
+| B07 | P1 | done | Early-reaction forecast without views (FB/IG setting): predict later likes/comments from early ones on TikTok/X | register row | Done 2026-11-04 as E60 |
 | B08 | P2 | done | Virality classification: will a post reach the top 10% of its platform? (plan F) | precision/recall on held-out brands | Done 2026-11-04 as E48 |
-| B09 | P2 | open | Copy-paste campaigns: do near-duplicate posts inflate a brand's estimated reach? (plan F) | register row | E08 gives the duplicate groups |
-| B10 | P2 | open | Separate model for posts without reactions: text, author, community (plan F) | register row | Compare with E43 posting-time model on the zero-reaction subset |
+| B09 | P2 | done | Copy-paste campaigns: do near-duplicate posts inflate a brand's estimated reach? (plan F) | register row | Done 2026-11-04 as E63 |
+| B10 | P2 | done | Separate model for posts without reactions: text, author, community (plan F) | register row | Done 2026-11-04 as E64 |
 | B11 | P2 | done | Sentence embeddings (multilingual, local model) as text features | register row | Done 2026-11-04 as E50 (X +0.011 with reactions; YouTube +0.051 without) |
 | B12 | P2 | done | Temporal validation (train on earlier months, test on later) for the final models | register row | Done 2026-11-04 as E46 (expanding window close to brand CV; worse only in the first month) |
 | B13 | P3 | open | Full GNN (GraphSAGE) on the text graph | register row | Low prior: E07, E29 found ≤ 0.009 |
@@ -26,6 +26,6 @@ client), `done`, `dropped`. Plan letters (A-H) refer to `docs/en/project_plan.md
 | B18 | P1 | done | Offset target: predict log10(views) - log10(likes+1), add back | register row; error per fifth of true views | Done 2026-11-04 as E51 (small, YouTube +0.007; extremes barely move) |
 | B19 | P1 | done | Leakage audit: group folds by brand + author + duplicate cluster | register row | Done 2026-11-04 as E55 |
 | B20 | P2 | done | Noise ceiling from main vs current re-checks of the same post | register row | Done 2026-11-04 as E56 |
-| B21 | P2 | open | Pooled 3-platform model with platform feature and monotone constraints | register row; in-platform and leave-platform-out | E14 is a warning |
-| B22 | P2 | open | YouTube views per like fell from 1.57 to 1.13 (log10, May-Aug): explained by younger checks? | register row | From E46 |
+| B21 | P2 | done | Pooled 3-platform model with platform feature and monotone constraints | register row; in-platform and leave-platform-out | Done 2026-11-04 as E61 |
+| B22 | P2 | done | YouTube views per like fell from 1.57 to 1.13 (log10, May-Aug): explained by younger checks? | register row | Done 2026-11-04 as E62 |
 | B23 | P2 | done | Posting-time model (E43) with e5 embeddings and author/hashtag context instead of TF-IDF | register row | Done 2026-11-04 as E52 (YouTube +0.020 from context) |

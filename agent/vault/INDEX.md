@@ -61,3 +61,9 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E56 |  | Noise ceiling: posts with almost the same inputs | [E56](E56.md) |
 | E57 | small | Quantile models and tail weighting | [E57](E57.md) |
 | E58 | finding | Abstention: error on the posts kept | [E58](E58.md) |
+| E59 | finding | Forecast horizon curve; training on every pair of checks | [E59](E59.md) |
+| E60 | gain | Early-reaction forecast without views (FB/IG setting) | [E60](E60.md) |
+| E61 | worse | One pooled model for three platforms, monotone constraints | [E61](E61.md) |
+| E62 | finding | Why YouTube views per like fell in Jul-Aug | [E62](E62.md) |
+| E63 | finding | Copy-paste campaigns | [E63](E63.md) |
+| E64 | small | Separate model for posts without likes and comments | [E64](E64.md) |

@@ -700,5 +700,77 @@
   "paths": [
    "notebooks/models/25_limits.ipynb"
   ]
+ },
+ {
+  "id": "E59",
+  "date": "2026-11-04",
+  "question": "Forecast horizon curve; training on every pair of checks",
+  "setup": "E40 CatBoost on growth, first-last pairs vs all 3,218 pairs; error by gap and by age of the first check",
+  "result": "All pairs -0.020 / 0.000 / +0.008 (worse on TikTok). TikTok error grows with the gap (0.10 < 12 h → 0.18 at 7-30 d); a first check < 12 h is 2-4× harder (0.23 / 0.43 / 0.28)",
+  "type": "finding",
+  "where": "`26_history_more`",
+  "paths": [
+   "notebooks/models/26_history_more.ipynb"
+  ]
+ },
+ {
+  "id": "E60",
+  "date": "2026-11-04",
+  "question": "Early-reaction forecast without views (FB/IG setting)",
+  "setup": "TikTok / X: later likes from early likes; chain forecast reactions → now-cast model; vs E41",
+  "result": "Likes +0.068 over persistence on TikTok, none on X. Chain beats E41: +0.034 (0.012-0.058) TikTok, +0.033 (-0.010-0.077) X; upper bound with true later reactions +0.076 / +0.110",
+  "type": "gain",
+  "where": "`26_history_more`",
+  "paths": [
+   "notebooks/models/26_history_more.ipynb"
+  ]
+ },
+ {
+  "id": "E61",
+  "date": "2026-11-04",
+  "question": "One pooled model for three platforms, monotone constraints",
+  "setup": "Joint brand folds; per platform vs pooled (platform category), ± monotone on followers and reactions; LOPO CatBoost vs ridge",
+  "result": "Pooled -0.001 / -0.012 / -0.004; monotone -0.004 / -0.026 / -0.011; LOPO CatBoost 0.41 / 0.63 / 0.71 vs ridge 0.31 / 0.61 / 0.65",
+  "type": "worse",
+  "where": "`27_more_models`",
+  "paths": [
+   "notebooks/models/27_more_models.ipynb"
+  ]
+ },
+ {
+  "id": "E62",
+  "date": "2026-11-04",
+  "question": "Why YouTube views per like fell in Jul-Aug",
+  "setup": "Median age at check, views per like and monthly bias, ± age column",
+  "result": "Age at check fell from 78-100 days (Apr-May) to 0.6-8 days (Aug) on all platforms; YouTube views per like fell 1.57 → 1.13, TikTok/X flat; age column does not remove the monthly bias",
+  "type": "finding",
+  "where": "`27_more_models`",
+  "paths": [
+   "notebooks/models/27_more_models.ipynb"
+  ]
+ },
+ {
+  "id": "E63",
+  "date": "2026-11-04",
+  "question": "Copy-paste campaigns",
+  "setup": "Same normalised text elsewhere in the data; views per like, reach share, model error",
+  "result": "Copies 1-6% of posts; more views per like (1.62 vs 1.38 TikTok); model 2× worse on them and underestimates YouTube copies by 0.26; 6 YouTube and 7 X brands get > 50% of reach from copies",
+  "type": "finding",
+  "where": "`27_more_models`",
+  "paths": [
+   "notebooks/models/27_more_models.ipynb"
+  ]
+ },
+ {
+  "id": "E64",
+  "date": "2026-11-04",
+  "question": "Separate model for posts without likes and comments",
+  "setup": "YouTube 665 / X 991 such posts; final model vs all-post model + text and context vs zero-only model",
+  "result": "All-post + text and context +0.030 (0.016-0.045) on X, -0.005 on YouTube; zero-only model no gain",
+  "type": "small",
+  "where": "`27_more_models`",
+  "paths": [
+   "notebooks/models/27_more_models.ipynb"
+  ]
  }
 ]
