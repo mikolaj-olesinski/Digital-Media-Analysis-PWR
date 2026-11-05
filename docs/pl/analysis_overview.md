@@ -46,6 +46,7 @@ Wewnętrzna mapa tego, co, jak i gdzie sprawdziliśmy. To nie jest tekst preprin
 | `32_fbig_more` | FB / IG przed ręcznym sprawdzeniem (struktura, szacunki zapisane z góry, ocena), atlas nadwyżek (E81–E83) | `fbig_more_numbers.json`, `fbig_preregistered.csv` |
 | `33_context_more` | Kraj, czas lokalny, święta, branża jako kolumny; gdzie reklamy mają nadwyżkę; popularność marki na Wikipedii (E84–E86) | `context_more_numbers.json`, `brand_wikipedia.csv` |
 | `34_platform_map` | Przeliczanie skali reakcji między platformami przed modelem z innej platformy (E87) | `platform_map_numbers.json` |
+| `35_platform_adapt` | Dopasowanie modelu z innej platformy do struktury reakcji platformy docelowej (E88) | `platform_adapt_numbers.json`, `fbig_preregistered_v2.csv` |
 
 ## Kolumny
 Zestaw podstawowy: followersi, lajki, komentarze, udostępnienia (w logarytmie) i znacznik braku dla każdej z nich. Dodane i sprawdzone osobno: statystyki tekstu, 30 tematów TF-IDF SVD, VADER, kalendarz, wskaźniki, wielkość marki, nasze etykiety typu i sentymentu, sentyment Brand24, cechy grafowe.

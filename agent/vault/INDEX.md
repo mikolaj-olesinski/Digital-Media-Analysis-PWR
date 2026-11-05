@@ -92,3 +92,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E85 | finding | Where promo over-performs | [E85](E85.md) |
 | E86 | none | Brand popularity on Wikipedia | [E86](E86.md) |
 | E87 | finding | Mapping reaction scales between platforms | [E87](E87.md) |
+| E88 | small | Adapting the out-of-platform model to the target's reaction structure | [E88](E88.md) |

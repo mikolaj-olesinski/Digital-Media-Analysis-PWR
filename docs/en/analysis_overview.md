@@ -46,6 +46,7 @@ Internal map of what was tested, how and where. Not preprint text. Numbers come 
 | `32_fbig_more` | FB / IG before the hand check (structure, pre-registered estimates, scoring), residual atlas (E81-E83) | `fbig_more_numbers.json`, `fbig_preregistered.csv` |
 | `33_context_more` | Country, local time, holidays, industry as columns; where promo over-performs; brand popularity on Wikipedia (E84-E86) | `context_more_numbers.json`, `brand_wikipedia.csv` |
 | `34_platform_map` | Mapping reaction scales between platforms before the out-of-platform model (E87) | `platform_map_numbers.json` |
+| `35_platform_adapt` | Adapting the out-of-platform model to the target's reaction structure (E88) | `platform_adapt_numbers.json`, `fbig_preregistered_v2.csv` |
 
 ## Columns
 Base set: followers, likes, comments, shares (logged), and a missing flag for each. Added and tested separately: text statistics, 30 TF-IDF SVD topics, VADER, calendar, ratios, brand size, our type and sentiment labels, Brand24 sentiment, graph features.

@@ -85,3 +85,71 @@ def with_shift(P, ns=(10, 25, 50), n_draw=300):
             r = [np.abs(e[i[n:]] - np.median(e[i[:n]])).mean() for i in (rng.permutation(len(e)) for _ in range(n_draw))]
             rows.append({"platform": p, "model": k, "n": n, "MAE": float(np.mean(r)), "bias (true - pred)": np.nan})
     return pd.DataFrame(rows)
+
+
+# ---------- E88: adapting the model to the target's reaction structure (still no target views) ----------
+from catboost import CatBoostClassifier
+
+
+def _struct(X):
+    """Inputs + scale-free structure columns (comments per like, shares per like, likes per follower)."""
+    Z = X[COLS].copy(); Z["cpl"] = X.log_comments - X.log_likes; Z["spl"] = X.log_shares - X.log_likes; Z["lpf"] = X.log_likes - X.log_followers * np.log(10)
+    return Z.fillna(-1)
+
+
+def _clf():
+    return CatBoostClassifier(iterations=200, depth=4, verbose=0, random_seed=SEED, allow_writing_files=False, thread_count=4)
+
+
+def adapt(f, meta, clip=(0.05, 20)):
+    """Leave one platform out. Variants (ridge on likes + comments and CatBoost on all inputs where it applies):
+    importance weights  source posts weighted by p(target | x) / p(source | x) from a classifier on inputs and structure;
+    source mixture      one model per source platform, mixed per target post by p(source k | x) among the two sources;
+    views per like      target y - log10(likes + 1), added back after prediction; views per reaction likewise;
+    raw + structure     raw inputs plus structure columns and within-platform percentiles."""
+    M = meta.reset_index(drop=True); plat = M.platform.values; y = M.y.values; X0 = f[COLS].reset_index(drop=True)
+    Z = _struct(X0); R = mapped(X0, plat, "none", "ratios").fillna(-1); ZR = pd.concat([Z, R.filter(like="pct_")], axis=1)
+    ll = np.log10(np.expm1(X0.log_likes.fillna(0).values) + 1)
+    lr = np.log10(np.expm1(X0.log_likes.fillna(0)) + np.expm1(X0.log_comments.fillna(0)) + np.expm1(X0.log_shares.fillna(0)) + 1).values
+    C2 = ["log_likes", "log_comments"]; out = []
+    for t in PLATS:
+        te_all = plat == t; srcs = [p for p in PLATS if p != t]
+        fid = np.full(len(M), -1)
+        for k, (_, te) in enumerate(GroupKFold(5).split(np.zeros(te_all.sum()), y[te_all], M.brand.values[te_all])): fid[np.where(te_all)[0][te]] = k
+        # domain classifiers use inputs only (no views), fitted once per target
+        c = _clf().fit(Z, te_all.astype(int)); pt = c.predict_proba(Z)[:, 1]
+        w = np.clip(pt / (1 - pt) * ((~te_all).sum() / te_all.sum()), *clip)
+        s = ~te_all; cs = _clf().fit(Z[s], (plat[s] == srcs[0]).astype(int)); p0 = cs.predict_proba(Z)[:, 1]
+        names = ["ridge, raw", "CatBoost, raw", "ridge, importance weights", "CatBoost, importance weights", "ridge, source mixture", "CatBoost, source mixture",
+                 "ridge, views per like", "CatBoost, views per like", "CatBoost, views per reaction", "CatBoost, raw + structure"]
+        P = {k: np.full(len(M), np.nan) for k in names}
+        for k in range(5):
+            te = fid == k; tr = (~te_all) & ~M.brand.isin(set(M.brand[te])).values
+            P["ridge, raw"][te] = rt.LOPO().fit(X0.loc[tr, C2].fillna(-1), y[tr]).predict(X0.loc[te, C2].fillna(-1))
+            P["CatBoost, raw"][te] = cb().fit(Z.loc[tr, COLS], y[tr]).predict(Z.loc[te, COLS])
+            P["ridge, importance weights"][te] = rt.LOPO().fit(X0.loc[tr, C2].fillna(-1), y[tr], ridge__sample_weight=w[tr]).predict(X0.loc[te, C2].fillna(-1))
+            P["CatBoost, importance weights"][te] = cb().fit(Z.loc[tr, COLS], y[tr], sample_weight=w[tr]).predict(Z.loc[te, COLS])
+            mr, mc = [], []
+            for sp in srcs:
+                a = tr & (plat == sp)
+                mr.append(rt.LOPO().fit(X0.loc[a, C2].fillna(-1), y[a]).predict(X0.loc[te, C2].fillna(-1))); mc.append(cb().fit(Z.loc[a, COLS], y[a]).predict(Z.loc[te, COLS]))
+            P["ridge, source mixture"][te] = p0[te] * mr[0] + (1 - p0[te]) * mr[1]; P["CatBoost, source mixture"][te] = p0[te] * mc[0] + (1 - p0[te]) * mc[1]
+            P["ridge, views per like"][te] = ll[te] + rt.LOPO().fit(X0.loc[tr, C2].fillna(-1), y[tr] - ll[tr]).predict(X0.loc[te, C2].fillna(-1))
+            P["CatBoost, views per like"][te] = ll[te] + cb().fit(Z[tr], y[tr] - ll[tr]).predict(Z[te])
+            P["CatBoost, views per reaction"][te] = lr[te] + cb().fit(Z[tr], y[tr] - lr[tr]).predict(Z[te])
+            P["CatBoost, raw + structure"][te] = cb().fit(ZR[tr], y[tr]).predict(ZR[te])
+        for name, v in P.items():
+            out.append(pd.DataFrame({"platform": t, "model": name, "brand": M.brand.values[te_all], "y": y[te_all], "pred": v[te_all]}))
+        out[-1].attrs = {}
+    return pd.concat(out, ignore_index=True)
+
+
+def weight_summary(f, meta):
+    """Effective sample size share of the importance weights and the mixture weight per target."""
+    M = meta.reset_index(drop=True); plat = M.platform.values; Z = _struct(f[COLS].reset_index(drop=True)); rows = []
+    for t in PLATS:
+        te = plat == t; pt = _clf().fit(Z, te.astype(int)).predict_proba(Z)[:, 1]; w = np.clip(pt / (1 - pt) * ((~te).sum() / te.sum()), .05, 20)[~te]
+        srcs = [p for p in PLATS if p != t]; s = ~te; p0 = _clf().fit(Z[s], (plat[s] == srcs[0]).astype(int)).predict_proba(Z[te])[:, 1]
+        rows.append({"target": t, "effective sample share": float(w.sum() ** 2 / (w ** 2).sum() / len(w)),
+                     **{f"weight share from {p}": float(w[plat[~te] == p].sum() / w.sum()) for p in srcs}, f"mean mixture weight of {srcs[0]}": float(p0.mean())})
+    return pd.DataFrame(rows)

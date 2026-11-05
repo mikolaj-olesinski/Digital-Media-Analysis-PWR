@@ -199,3 +199,23 @@ def plot_atlas(A, path=None, lang="en", top=14):
     ax[1].set_xlabel(t[1]); fig.suptitle(t[0], y=1.02); fig.tight_layout()
     if path: fig.savefig(path, dpi=200, bbox_inches="tight")
     return fig
+
+
+def preregister_v2(root, f, meta):
+    """E88 adaptations for the hand-check sample, fixed before any view is seen: ridge on likes + comments with importance
+    weights (classifier: this platform's posts vs TikTok / YouTube / X posts on inputs and reaction structure), and ridge on
+    views per like. Weights are fitted on all of the target platform's posts in the Brand24 file (inputs only)."""
+    import platform_map as pm
+    s = pd.read_csv(Path(root) / "data" / "manual" / "fbig_sample.csv", dtype={"mention_id": str})
+    raw = eu.load(root).astype({"mention_id": str}); out = s[["mention_id", "platform"]].copy(); C2 = ["log_likes", "log_comments"]
+    Xs = f[pm.COLS].reset_index(drop=True); ys = meta.y.values
+    for p in TGT:
+        t = raw[raw.platform == p]; Xt = feats(t.reset_index(drop=True))[pm.COLS]
+        Z = pm._struct(pd.concat([Xs, Xt], ignore_index=True)); lab = np.r_[np.zeros(len(Xs)), np.ones(len(Xt))]
+        pt = pm._clf().fit(Z, lab).predict_proba(Z[: len(Xs)])[:, 1]; w = np.clip(pt / (1 - pt) * (len(Xs) / len(Xt)), .05, 20)
+        k = (out.platform == p).values; Xk = feats(raw.set_index("mention_id").loc[out.mention_id[k]].reset_index())[C2].fillna(-1)
+        out.loc[k, "ridge likes+comments, importance weights"] = rt.LOPO().fit(Xs[C2].fillna(-1), ys, ridge__sample_weight=w).predict(Xk)
+        ll_s = np.log10(np.expm1(Xs.log_likes.fillna(0).values) + 1); ll_k = np.log10(np.expm1(Xk.log_likes.clip(lower=0).values) + 1)
+        out.loc[k, "ridge likes+comments, views per like"] = ll_k + rt.LOPO().fit(Xs[C2].fillna(-1), ys - ll_s).predict(Xk)
+        out.loc[k, "effective sample share of weights"] = float(w.sum() ** 2 / (w ** 2).sum() / len(w))
+    return out

@@ -1074,5 +1074,18 @@
   "paths": [
    "notebooks/models/34_platform_map.ipynb"
   ]
+ },
+ {
+  "id": "E88",
+  "date": "2026-11-05",
+  "question": "Adapting the out-of-platform model to the target's reaction structure",
+  "setup": "Importance weights, per-source mixture, views per like, raw + structure; no target views",
+  "result": "Only X gains: weighted ridge +0.023, CatBoost +0.032; TikTok worse (-0.07 to -0.17); YouTube ±0.04; FB / IG estimates pre-registered",
+  "type": "small",
+  "where": "`35_platform_adapt`, `fbig_preregistered_v2.csv`",
+  "paths": [
+   "notebooks/models/35_platform_adapt.ipynb",
+   "data/processed/fbig_preregistered_v2.csv"
+  ]
  }
 ]
