@@ -44,6 +44,8 @@ Internal map of what was tested, how and where. Not preprint text. Numbers come 
 | `30_author_more` | Author history in depth, variance components, brand totals, anomalies, views per like (E70-E75) | `author_more_numbers.json` |
 | `31_author_next` | Where the error sits, history curve, author level without views, live forecast with history, brand-total intervals (E76-E80) | `author_next_numbers.json` |
 | `32_fbig_more` | FB / IG before the hand check (structure, pre-registered estimates, scoring), residual atlas (E81-E83) | `fbig_more_numbers.json`, `fbig_preregistered.csv` |
+| `33_context_more` | Country, local time, holidays, industry as columns; where promo over-performs; brand popularity on Wikipedia (E84-E86) | `context_more_numbers.json`, `brand_wikipedia.csv` |
+| `34_platform_map` | Mapping reaction scales between platforms before the out-of-platform model (E87) | `platform_map_numbers.json` |
 
 ## Columns
 Base set: followers, likes, comments, shares (logged), and a missing flag for each. Added and tested separately: text statistics, 30 TF-IDF SVD topics, VADER, calendar, ratios, brand size, our type and sentiment labels, Brand24 sentiment, graph features.

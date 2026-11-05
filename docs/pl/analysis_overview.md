@@ -44,6 +44,8 @@ Wewnętrzna mapa tego, co, jak i gdzie sprawdziliśmy. To nie jest tekst preprin
 | `30_author_more` | Historia autora dokładniej, rozkład wariancji, sumy dla marek, anomalie, wyświetlenia na lajk (E70–E75) | `author_more_numbers.json` |
 | `31_author_next` | Gdzie zostaje błąd, krzywa historii, poziom autora bez wyświetleń, szacunek na żywo z historią, przedziały sum marek (E76–E80) | `author_next_numbers.json` |
 | `32_fbig_more` | FB / IG przed ręcznym sprawdzeniem (struktura, szacunki zapisane z góry, ocena), atlas nadwyżek (E81–E83) | `fbig_more_numbers.json`, `fbig_preregistered.csv` |
+| `33_context_more` | Kraj, czas lokalny, święta, branża jako kolumny; gdzie reklamy mają nadwyżkę; popularność marki na Wikipedii (E84–E86) | `context_more_numbers.json`, `brand_wikipedia.csv` |
+| `34_platform_map` | Przeliczanie skali reakcji między platformami przed modelem z innej platformy (E87) | `platform_map_numbers.json` |
 
 ## Kolumny
 Zestaw podstawowy: followersi, lajki, komentarze, udostępnienia (w logarytmie) i znacznik braku dla każdej z nich. Dodane i sprawdzone osobno: statystyki tekstu, 30 tematów TF-IDF SVD, VADER, kalendarz, wskaźniki, wielkość marki, nasze etykiety typu i sentymentu, sentyment Brand24, cechy grafowe.
