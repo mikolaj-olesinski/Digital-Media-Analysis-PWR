@@ -808,5 +808,53 @@
   "paths": [
    "notebooks/models/28_gnn.ipynb"
   ]
+ },
+ {
+  "id": "E66",
+  "date": "2026-11-05",
+  "question": "Account type from the author name",
+  "setup": "Official brand account / brand in the name / news-media / other, built locally from author vs brand name; follower tiers; label as a feature",
+  "result": "Official accounts ≤ 5% of posts, fewer views per follower (TikTok 0.06 vs 0.60) but underestimated by 0.36 / 0.52 (TikTok / YouTube); as a feature ±0.001",
+  "type": "small",
+  "where": "`29_accounts_clusters`",
+  "paths": [
+   "notebooks/models/29_accounts_clusters.ipynb"
+  ]
+ },
+ {
+  "id": "E67",
+  "date": "2026-11-05",
+  "question": "Topic clusters of all posts",
+  "setup": "k-means (16) on e5 embeddings of 12,500 posts, class-based TF-IDF words; final-model bias per cluster",
+  "result": "Clusters = industries, events, hiring, complaints, languages; NMI with brand 0.30; bias within ±0.1 except luxury resale -0.24",
+  "type": "small",
+  "where": "`29_accounts_clusters`",
+  "paths": [
+   "notebooks/models/29_accounts_clusters.ipynb"
+  ]
+ },
+ {
+  "id": "E68",
+  "date": "2026-11-05",
+  "question": "Author over-performance persists",
+  "setup": "Views above the final model's prediction, first vs later posts of an author; correction from the author's earlier posts",
+  "result": "Spearman 0.68 / 0.69 / 0.70 (0.66-0.70 without repeats); top vs bottom third ×4-9; correction gains +0.116 / +0.157 / +0.098 MAE on posts with an earlier post (3-16% of posts), all CIs above zero",
+  "type": "small",
+  "where": "`29_accounts_clusters`",
+  "paths": [
+   "notebooks/models/29_accounts_clusters.ipynb"
+  ]
+ },
+ {
+  "id": "E69",
+  "date": "2026-11-05",
+  "question": "Brand communities and cold start",
+  "setup": "Brand graph from shared authors + text similarity, Louvain; similar brands' over-performance vs a brand's own",
+  "result": "9 industry communities, modularity 0.50; cold start rho 0.27 / 0.02 / 0.12, only TikTok CI above zero",
+  "type": "small",
+  "where": "`29_accounts_clusters`",
+  "paths": [
+   "notebooks/models/29_accounts_clusters.ipynb"
+  ]
  }
 ]

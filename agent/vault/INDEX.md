@@ -70,3 +70,7 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E63 | finding | Copy-paste campaigns | [E63](E63.md) |
 | E64 | small | Separate model for posts without likes and comments | [E64](E64.md) |
 | E65 | finding | GraphSAGE on the text-similarity graph | [E65](E65.md) |
+| E66 | small | Account type from the author name | [E66](E66.md) |
+| E67 | small | Topic clusters of all posts | [E67](E67.md) |
+| E68 | small | Author over-performance persists | [E68](E68.md) |
+| E69 | small | Brand communities and cold start | [E69](E69.md) |

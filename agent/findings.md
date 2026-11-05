@@ -24,6 +24,8 @@ add a contradicting line below it.
 - A plain MLP on the final-model inputs + 16 embedding components equals CatBoost alone, and their mean gains +0.008 / +0.016 / +0.016 (CIs above zero): the largest simple ensemble gain so far. **likely** (E65)
 - A fine-tuned transformer (e5-small) reading the row as text matches CatBoost on YouTube; its mean with CatBoost gains +0.019 there; text as a half-weighted correction to CatBoost gains +0.007 / +0.012 / +0.008. Not more than CatBoost + MLP (E65). **likely** (E53)
 - Stacking all model families (CatBoost variants, TabPFN, TabICL, MLP, fine-tuned text) beats the final model by +0.011 / +0.028 / +0.026 and the best single member by 0.008-0.018, CIs above zero; the plain mean of all members gives most of it. Best accuracy reported; final model stays single CatBoost. **likely** (E54)
+- Authors have a stable level of views beyond what reactions predict: Spearman 0.68-0.70 between an author's first and later posts (robust to repeats); correcting with the author's earlier posts gains +0.10-0.16 MAE on posts that have one. Largest gain found; needs author view history. **likely** (E68)
+- Official brand accounts (≤ 5% of posts) get few views per follower but are underestimated by ×2-3; topic clusters and brand communities (industries) are readable but carry little bias beyond reactions; similar brands do not predict a new brand. **likely** (E66, E67, E69)
 - Likes carry most of the signal: removing them costs +0.09 / +0.13 / +0.05. **solid** (E17)
 - MAE loss instead of RMSE: +0.011 / +0.007 / +0.022. **likely** (E32)
 - Error falls with reactions on YouTube (×4.6 at zero to ×1.8 above 1,000) and X (×3.1 to ×2.5); TikTok is flat once a post has any reaction. **solid** (E33)

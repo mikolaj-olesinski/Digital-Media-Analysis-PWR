@@ -1,0 +1,954 @@
+{
+ "kind_share": [
+  {
+   "platform": "facebook",
+   "official brand account": 0.05,
+   "brand in the name (branch, dealer, fan)": 0.0288,
+   "news / media": 0.0324,
+   "other": 0.8888
+  },
+  {
+   "platform": "instagram",
+   "official brand account": 0.0044,
+   "brand in the name (branch, dealer, fan)": 0.0068,
+   "news / media": 0.0036,
+   "other": 0.9852
+  },
+  {
+   "platform": "tiktok",
+   "official brand account": 0.0028,
+   "brand in the name (branch, dealer, fan)": 0.038,
+   "news / media": 0.012,
+   "other": 0.9472
+  },
+  {
+   "platform": "twitter",
+   "official brand account": 0.002,
+   "brand in the name (branch, dealer, fan)": 0.0044,
+   "news / media": 0.016,
+   "other": 0.9776
+  },
+  {
+   "platform": "youtube",
+   "official brand account": 0.0116,
+   "brand in the name (branch, dealer, fan)": 0.0256,
+   "news / media": 0.0696,
+   "other": 0.8932
+  }
+ ],
+ "kind": [
+  {
+   "platform": "tiktok",
+   "kind": "brand in the name (branch, dealer, fan)",
+   "posts": 95.0,
+   "median_views": 828.9999999999997,
+   "median_views_per_follower": 2.202531692313099,
+   "bias": -0.09180336351955269,
+   "MAE": 0.3466337258450169
+  },
+  {
+   "platform": "tiktok",
+   "kind": "news / media",
+   "posts": 30.0,
+   "median_views": 687.2510458340532,
+   "median_views_per_follower": 0.22910863509749319,
+   "bias": -0.028207717211432337,
+   "MAE": 0.22599401036459624
+  },
+  {
+   "platform": "tiktok",
+   "kind": "official brand account",
+   "posts": 7.0,
+   "median_views": 3819.000000000001,
+   "median_views_per_follower": 0.06272984780834406,
+   "bias": -0.36292474388806245,
+   "MAE": 0.3885591816148154
+  },
+  {
+   "platform": "tiktok",
+   "kind": "other",
+   "posts": 2359.0,
+   "median_views": 721.9999999999998,
+   "median_views_per_follower": 0.6003963011889034,
+   "bias": -0.015804151461665823,
+   "MAE": 0.2705094732205917
+  },
+  {
+   "platform": "twitter",
+   "kind": "brand in the name (branch, dealer, fan)",
+   "posts": 6.0,
+   "median_views": 43.71498598878879,
+   "median_views_per_follower": 0.1189710610932476,
+   "bias": -0.21723369456453812,
+   "MAE": 0.4147517714133831
+  },
+  {
+   "platform": "twitter",
+   "kind": "news / media",
+   "posts": 31.0,
+   "median_views": 74.00000000000001,
+   "median_views_per_follower": 0.023177144731581816,
+   "bias": -0.27370490335486186,
+   "MAE": 0.4257892236316749
+  },
+  {
+   "platform": "twitter",
+   "kind": "official brand account",
+   "posts": 4.0,
+   "median_views": 20.63976744055029,
+   "median_views_per_follower": 0.0032238422816274082,
+   "bias": 0.7424146944180432,
+   "MAE": 0.9652841740229443
+  },
+  {
+   "platform": "twitter",
+   "kind": "other",
+   "posts": 1762.0,
+   "median_views": 27.000000000000004,
+   "median_views_per_follower": 0.06475949515110037,
+   "bias": -0.0363846199188608,
+   "MAE": 0.46625353981376677
+  },
+  {
+   "platform": "youtube",
+   "kind": "brand in the name (branch, dealer, fan)",
+   "posts": 64.0,
+   "median_views": 773.3446838247478,
+   "median_views_per_follower": 0.01774227902023429,
+   "bias": -0.20421395612999232,
+   "MAE": 0.5682932782199359
+  },
+  {
+   "platform": "youtube",
+   "kind": "news / media",
+   "posts": 170.0,
+   "median_views": 376.99602119916347,
+   "median_views_per_follower": 0.0031530343007915565,
+   "bias": -0.06405445666728894,
+   "MAE": 0.484018671769426
+  },
+  {
+   "platform": "youtube",
+   "kind": "official brand account",
+   "posts": 29.0,
+   "median_views": 433.0000000000001,
+   "median_views_per_follower": 0.010111223458038426,
+   "bias": -0.5157595528186845,
+   "MAE": 0.7741151704791905
+  },
+  {
+   "platform": "youtube",
+   "kind": "other",
+   "posts": 2178.0,
+   "median_views": 428.4973745543843,
+   "median_views_per_follower": 0.019504643962848293,
+   "bias": -0.026376734281081116,
+   "MAE": 0.445900866217647
+  }
+ ],
+ "tier": [
+  {
+   "platform": "tiktok",
+   "tier": "100k-1M",
+   "posts": 138.0,
+   "median_views": 9787.822178605415,
+   "median_views_per_follower": 0.04632212053086375,
+   "bias": -0.05834474460596044,
+   "MAE": 0.2907466833017965
+  },
+  {
+   "platform": "tiktok",
+   "tier": "10k-100k",
+   "posts": 443.0,
+   "median_views": 2161.0,
+   "median_views_per_follower": 0.088874382169169,
+   "bias": -0.04290239828977125,
+   "MAE": 0.32784513193204384
+  },
+  {
+   "platform": "tiktok",
+   "tier": "1k-10k",
+   "posts": 812.0,
+   "median_views": 689.9999999999999,
+   "median_views_per_follower": 0.28086405230877076,
+   "bias": -0.030560619816513115,
+   "MAE": 0.25530005597191535
+  },
+  {
+   "platform": "tiktok",
+   "tier": "< 1k",
+   "posts": 1063.0,
+   "median_views": 428.00000000000017,
+   "median_views_per_follower": 3.712809397772006,
+   "bias": 0.004654554925805406,
+   "MAE": 0.26212239780377633
+  },
+  {
+   "platform": "tiktok",
+   "tier": "> 1M",
+   "posts": 28.0,
+   "median_views": 42193.46257419505,
+   "median_views_per_follower": 0.017142761253739862,
+   "bias": -0.09437251910481229,
+   "MAE": 0.2645888571492314
+  },
+  {
+   "platform": "tiktok",
+   "tier": "followers unknown",
+   "posts": 7.0,
+   "median_views": 294.0,
+   "median_views_per_follower": NaN,
+   "bias": 0.02531165454526493,
+   "MAE": 0.26501540122324313
+  },
+  {
+   "platform": "twitter",
+   "tier": "100k-1M",
+   "posts": 42.0,
+   "median_views": 863.608707691163,
+   "median_views_per_follower": 0.003265192612447635,
+   "bias": -0.15565557380204417,
+   "MAE": 0.6738148141815278
+  },
+  {
+   "platform": "twitter",
+   "tier": "10k-100k",
+   "posts": 127.0,
+   "median_views": 238.99999999999991,
+   "median_views_per_follower": 0.010039471426119799,
+   "bias": -0.04284440439047031,
+   "MAE": 0.4612803237895832
+  },
+  {
+   "platform": "twitter",
+   "tier": "1k-10k",
+   "posts": 491.0,
+   "median_views": 48.99999999999999,
+   "median_views_per_follower": 0.01828049128820337,
+   "bias": -0.006035917234718689,
+   "MAE": 0.40762330029888943
+  },
+  {
+   "platform": "twitter",
+   "tier": "< 1k",
+   "posts": 1106.0,
+   "median_views": 17.0,
+   "median_views_per_follower": 0.1818181818181818,
+   "bias": -0.049879007383192495,
+   "MAE": 0.4804476538466271
+  },
+  {
+   "platform": "twitter",
+   "tier": "> 1M",
+   "posts": 37.0,
+   "median_views": 12.999999999999998,
+   "median_views_per_follower": 1.4645784931830626e-06,
+   "bias": -0.022154181227436186,
+   "MAE": 0.6131589592158245
+  },
+  {
+   "platform": "youtube",
+   "tier": "100k-1M",
+   "posts": 599.0,
+   "median_views": 2268.0,
+   "median_views_per_follower": 0.0087684887459807,
+   "bias": -0.04507348476586515,
+   "MAE": 0.40679555354714164
+  },
+  {
+   "platform": "youtube",
+   "tier": "10k-100k",
+   "posts": 921.0,
+   "median_views": 411.00000000000006,
+   "median_views_per_follower": 0.01403575989782886,
+   "bias": -0.023901547441937277,
+   "MAE": 0.43150095328934074
+  },
+  {
+   "platform": "youtube",
+   "tier": "1k-10k",
+   "posts": 519.0,
+   "median_views": 111.00000000000004,
+   "median_views_per_follower": 0.029705882352941193,
+   "bias": -0.030222555458721007,
+   "MAE": 0.5106959679751597
+  },
+  {
+   "platform": "youtube",
+   "tier": "< 1k",
+   "posts": 245.0,
+   "median_views": 26.0,
+   "median_views_per_follower": 0.28787878787878807,
+   "bias": -0.07492429814581612,
+   "MAE": 0.5384176839770172
+  },
+  {
+   "platform": "youtube",
+   "tier": "> 1M",
+   "posts": 154.0,
+   "median_views": 13238.713797042376,
+   "median_views_per_follower": 0.0029024797214760073,
+   "bias": -0.09140220435531693,
+   "MAE": 0.47703363518512976
+  },
+  {
+   "platform": "youtube",
+   "tier": "followers unknown",
+   "posts": 3.0,
+   "median_views": 6.0,
+   "median_views_per_follower": NaN,
+   "bias": 0.2552454155340919,
+   "MAE": 0.2552454155340919
+  }
+ ],
+ "kind_models": [
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "posts": 2491,
+   "MAE": 0.27320826409670573,
+   "CI low": 0.2630100447037697,
+   "CI high": 0.2850344142269184,
+   "bias": -0.019827385610592774
+  },
+  {
+   "platform": "tiktok",
+   "model": "final model + account kind",
+   "posts": 2491,
+   "MAE": 0.27226778910439836,
+   "CI low": 0.26132338023237,
+   "CI high": 0.2847711677477463,
+   "bias": -0.01932466872975866
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "posts": 2441,
+   "MAE": 0.45566381424531344,
+   "CI low": 0.4338608409710372,
+   "CI high": 0.47998070194971004,
+   "bias": -0.03947747034891239
+  },
+  {
+   "platform": "youtube",
+   "model": "final model + account kind",
+   "posts": 2441,
+   "MAE": 0.45609732692110916,
+   "CI low": 0.4350734303475906,
+   "CI high": 0.4789927360808714,
+   "bias": -0.03970952543512788
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "posts": 1803,
+   "MAE": 0.4664935387737166,
+   "CI low": 0.44590739419947656,
+   "CI high": 0.48941888359655045,
+   "bias": -0.03933904364434193
+  },
+  {
+   "platform": "twitter",
+   "model": "final model + account kind",
+   "posts": 1803,
+   "MAE": 0.4676246298319103,
+   "CI low": 0.44779771012554254,
+   "CI high": 0.48991478129569455,
+   "bias": -0.04005044623716794
+  }
+ ],
+ "kind_gain": [
+  {
+   "platform": "tiktok",
+   "gain": 0.0009404749923074073,
+   "CI low": -0.0008954578725033877,
+   "CI high": 0.0030492585863883285
+  },
+  {
+   "platform": "youtube",
+   "gain": -0.0004335126757957119,
+   "CI low": -0.003792179703340001,
+   "CI high": 0.00328318487269212
+  },
+  {
+   "platform": "twitter",
+   "gain": -0.0011310910581937151,
+   "CI low": -0.0032953197442977212,
+   "CI high": 0.0013972281969249097
+  }
+ ],
+ "clusters": [
+  {
+   "cluster": 0,
+   "posts": 1040,
+   "brands": 195,
+   "promo": 0.6653846153846154,
+   "spam": 0.24134615384615385,
+   "main platform": "YouTube 29%",
+   "posts with views": 591,
+   "median views": 430.0000000000001,
+   "bias (pred - true)": -0.01053377247062924,
+   "words": "m\u1ec1m, ph\u1ea7n, b\u1ea1n, nissan, lyft, dental"
+  },
+  {
+   "cluster": 1,
+   "posts": 691,
+   "brands": 161,
+   "promo": 0.3979739507959479,
+   "spam": 0.2793053545586107,
+   "main platform": "YouTube 42%",
+   "posts with views": 564,
+   "median views": 285.3068523537422,
+   "bias (pred - true)": -0.0894065088612846,
+   "words": "radar, hang, iphone, intel, asus, cpu"
+  },
+  {
+   "cluster": 2,
+   "posts": 1148,
+   "brands": 225,
+   "promo": 0.41986062717770034,
+   "spam": 0.06968641114982578,
+   "main platform": "TikTok 56%",
+   "posts with views": 823,
+   "median views": 608.0000000000002,
+   "bias (pred - true)": -0.012385653889506736,
+   "words": "village, animation, che, skincare, shorts, mollie"
+  },
+  {
+   "cluster": 3,
+   "posts": 901,
+   "brands": 68,
+   "promo": 0.8379578246392897,
+   "spam": 0.12874583795782463,
+   "main platform": "Instagram 47%",
+   "posts with views": 133,
+   "median views": 178.00000000000003,
+   "bias (pred - true)": 0.04804576197944803,
+   "words": "hiring, hogy, campus, batch, egy, hashtags"
+  },
+  {
+   "cluster": 4,
+   "posts": 271,
+   "brands": 4,
+   "promo": 0.16605166051660517,
+   "spam": 0.03690036900369004,
+   "main platform": "Instagram 94%",
+   "posts with views": 5,
+   "median views": 176.00000000000006,
+   "bias (pred - true)": -0.4581193876667363,
+   "words": "jag, och, att, det, f\u00f6r, har"
+  },
+  {
+   "cluster": 5,
+   "posts": 565,
+   "brands": 28,
+   "promo": 0.7646017699115044,
+   "spam": 0.1592920353982301,
+   "main platform": "Instagram 46%",
+   "posts with views": 39,
+   "median views": 301.00000000000017,
+   "bias (pred - true)": -0.09474178855177748,
+   "words": "\u0e41\u0e25\u0e30, der, une, les, auf, broker"
+  },
+  {
+   "cluster": 6,
+   "posts": 1048,
+   "brands": 255,
+   "promo": 0.09255725190839695,
+   "spam": 0.04770992366412214,
+   "main platform": "X (Twitter) 48%",
+   "posts with views": 834,
+   "median views": 113.99561395071308,
+   "bias (pred - true)": 0.020748548774058573,
+   "words": "cbs, panera, caesars, costco, doctor, coors"
+  },
+  {
+   "cluster": 7,
+   "posts": 280,
+   "brands": 2,
+   "promo": 0.8214285714285714,
+   "spam": 0.017857142857142856,
+   "main platform": "Instagram 49%",
+   "posts with views": 13,
+   "median views": 832.9999999999999,
+   "bias (pred - true)": -0.4065424284631532,
+   "words": "telefon, moto, smartfon, telefonu, pami\u0119\u0107, razr"
+  },
+  {
+   "cluster": 8,
+   "posts": 540,
+   "brands": 205,
+   "promo": 0.06666666666666667,
+   "spam": 0.05,
+   "main platform": "X (Twitter) 77%",
+   "posts with views": 389,
+   "median views": 38.99999999999999,
+   "bias (pred - true)": 0.053005572298077244,
+   "words": "ace, johns, hardware, papa, pringles, subaru"
+  },
+  {
+   "cluster": 9,
+   "posts": 1184,
+   "brands": 226,
+   "promo": 0.15962837837837837,
+   "spam": 0.27449324324324326,
+   "main platform": "TikTok 54%",
+   "posts with views": 775,
+   "median views": 753.0,
+   "bias (pred - true)": -0.03498497768108703,
+   "words": "sri, gill, thenorthface, fyp\u30b7, foryoupage, vivo"
+  },
+  {
+   "cluster": 10,
+   "posts": 900,
+   "brands": 155,
+   "promo": 0.7188888888888889,
+   "spam": 0.10555555555555556,
+   "main platform": "Facebook 37%",
+   "posts with views": 377,
+   "median views": 106.00000000000004,
+   "bias (pred - true)": -0.026640058013020707,
+   "words": "jobs, conference, batch, campus, hiring, agents"
+  },
+  {
+   "cluster": 11,
+   "posts": 1074,
+   "brands": 248,
+   "promo": 0.5027932960893855,
+   "spam": 0.1564245810055866,
+   "main platform": "YouTube 68%",
+   "posts with views": 948,
+   "median views": 585.4827068325761,
+   "bias (pred - true)": -0.0399529645492687,
+   "words": "olympics, boxing, flights, madrid, rugby, christmas"
+  },
+  {
+   "cluster": 12,
+   "posts": 831,
+   "brands": 39,
+   "promo": 0.7725631768953068,
+   "spam": 0.16365824308062576,
+   "main platform": "Instagram 48%",
+   "posts with views": 97,
+   "median views": 595.0000000000003,
+   "bias (pred - true)": -0.24410155924967283,
+   "words": "kondisi, delvaux, jacket, yeezy, supreme, celinebag"
+  },
+  {
+   "cluster": 13,
+   "posts": 902,
+   "brands": 262,
+   "promo": 0.12416851441241686,
+   "spam": 0.06208425720620843,
+   "main platform": "X (Twitter) 69%",
+   "posts with views": 651,
+   "median views": 45.00000000000001,
+   "bias (pred - true)": -0.05087896067732415,
+   "words": "truth, usps, postal, xfinity, hate, airlines"
+  },
+  {
+   "cluster": 14,
+   "posts": 816,
+   "brands": 169,
+   "promo": 0.6360294117647058,
+   "spam": 0.05392156862745098,
+   "main platform": "Facebook 33%",
+   "posts with views": 482,
+   "median views": 323.99845678644834,
+   "bias (pred - true)": -0.09616187883803665,
+   "words": "supercross, yamaha, olympics, mlb, supercrosslive, nba"
+  },
+  {
+   "cluster": 15,
+   "posts": 309,
+   "brands": 18,
+   "promo": 0.8446601941747572,
+   "spam": 0.022653721682847898,
+   "main platform": "Facebook 66%",
+   "posts with views": 14,
+   "median views": 820.7996101363603,
+   "bias (pred - true)": -0.33567927555866933,
+   "words": "sprawd\u017a, przez, nie, si\u0119, dla, jak"
+  }
+ ],
+ "cluster_nmi": {
+  "brand": 0.2988067459293165,
+  "platform": 0.20208757716208386,
+  "type": 0.13033649059113403
+ },
+ "cluster_bias_by_platform": [
+  {
+   "cluster": 0,
+   "tiktok": -0.051,
+   "twitter": 0.288,
+   "youtube": -0.02
+  },
+  {
+   "cluster": 1,
+   "tiktok": -0.152,
+   "twitter": -0.168,
+   "youtube": -0.015
+  },
+  {
+   "cluster": 2,
+   "tiktok": -0.001,
+   "twitter": 0.12,
+   "youtube": -0.147
+  },
+  {
+   "cluster": 3,
+   "tiktok": 0.059,
+   "twitter": NaN,
+   "youtube": -0.015
+  },
+  {
+   "cluster": 6,
+   "tiktok": 0.036,
+   "twitter": 0.004,
+   "youtube": 0.034
+  },
+  {
+   "cluster": 8,
+   "tiktok": 0.116,
+   "twitter": 0.042,
+   "youtube": NaN
+  },
+  {
+   "cluster": 9,
+   "tiktok": -0.008,
+   "twitter": -0.104,
+   "youtube": -0.194
+  },
+  {
+   "cluster": 10,
+   "tiktok": 0.093,
+   "twitter": -0.099,
+   "youtube": 0.018
+  },
+  {
+   "cluster": 11,
+   "tiktok": -0.022,
+   "twitter": -0.1,
+   "youtube": -0.039
+  },
+  {
+   "cluster": 12,
+   "tiktok": -0.205,
+   "twitter": NaN,
+   "youtube": NaN
+  },
+  {
+   "cluster": 13,
+   "tiktok": -0.08,
+   "twitter": -0.049,
+   "youtube": -0.032
+  },
+  {
+   "cluster": 14,
+   "tiktok": -0.018,
+   "twitter": -0.21,
+   "youtube": -0.091
+  }
+ ],
+ "authors": [
+  {
+   "platform": "tiktok",
+   "authors": 61,
+   "later posts": 80,
+   "rho over-performance": 0.6767318878900052,
+   "rho low": 0.48496033640097974,
+   "rho high": 0.8204422389519189,
+   "top third - bottom third (log10)": 0.6102544790173497,
+   "diff low": 0.37468351146492856,
+   "diff high": 0.9053571088963682,
+   "top vs bottom (\u00d7)": 4.07619056135809,
+   "rho views per follower": 0.8225062517365936,
+   "vpf low": 0.6770341672071152,
+   "vpf high": 0.9156146068138897
+  },
+  {
+   "platform": "youtube",
+   "authors": 255,
+   "later posts": 400,
+   "rho over-performance": 0.6909441581750811,
+   "rho low": 0.6068282774785736,
+   "rho high": 0.7629399183839697,
+   "top third - bottom third (log10)": 0.8575288706724151,
+   "diff low": 0.6813571318484405,
+   "diff high": 1.0411107333299585,
+   "top vs bottom (\u00d7)": 7.203256348635744,
+   "rho views per follower": 0.8010501100046319,
+   "vpf low": 0.7319714965288472,
+   "vpf high": 0.8530383312929068
+  },
+  {
+   "platform": "twitter",
+   "authors": 83,
+   "later posts": 145,
+   "rho over-performance": 0.7039586919104991,
+   "rho low": 0.5592978527722342,
+   "rho high": 0.8138535530990575,
+   "top third - bottom third (log10)": 0.9381247926326058,
+   "diff low": 0.6391905022319173,
+   "diff high": 1.1995714622900597,
+   "top vs bottom (\u00d7)": 8.672110292816233,
+   "rho views per follower": 0.9035629079202194,
+   "vpf low": 0.8490104477721824,
+   "vpf high": 0.9397147790764449
+  }
+ ],
+ "author_robustness": [
+  {
+   "platform": "tiktok",
+   "later posts used": "all later posts",
+   "authors": 61,
+   "rho": 0.6767318878900052,
+   "low": 0.48496033640097974,
+   "high": 0.8204422389519189
+  },
+  {
+   "platform": "tiktok",
+   "later posts used": "later posts with new text and URL",
+   "authors": 47,
+   "rho": 0.699468085106383,
+   "low": 0.4838751995135175,
+   "high": 0.8403717484145371
+  },
+  {
+   "platform": "tiktok",
+   "later posts used": "later posts about another brand",
+   "authors": 9,
+   "rho": NaN,
+   "low": NaN,
+   "high": NaN
+  },
+  {
+   "platform": "youtube",
+   "later posts used": "all later posts",
+   "authors": 255,
+   "rho": 0.6909441581750811,
+   "low": 0.6030938777435023,
+   "high": 0.763258748174766
+  },
+  {
+   "platform": "youtube",
+   "later posts used": "later posts with new text and URL",
+   "authors": 235,
+   "rho": 0.6695784441547152,
+   "low": 0.5614802221263309,
+   "high": 0.7502812103775165
+  },
+  {
+   "platform": "youtube",
+   "later posts used": "later posts about another brand",
+   "authors": 74,
+   "rho": 0.40952239911144017,
+   "low": 0.1867092536481603,
+   "high": 0.6122421240890037
+  },
+  {
+   "platform": "twitter",
+   "later posts used": "all later posts",
+   "authors": 83,
+   "rho": 0.7039586919104991,
+   "low": 0.5486522698551113,
+   "high": 0.8204565891992635
+  },
+  {
+   "platform": "twitter",
+   "later posts used": "later posts with new text and URL",
+   "authors": 62,
+   "rho": 0.659640905542545,
+   "low": 0.4912088325584842,
+   "high": 0.7923758882496924
+  },
+  {
+   "platform": "twitter",
+   "later posts used": "later posts about another brand",
+   "authors": 13,
+   "rho": NaN,
+   "low": NaN,
+   "high": NaN
+  }
+ ],
+ "author_history_gain": [
+  {
+   "platform": "tiktok",
+   "earlier posts": "earlier posts of the author (all)",
+   "posts": 80,
+   "MAE final": 0.3564807320813044,
+   "gain": 0.12356094217525534,
+   "CI low": 0.06459395752106036,
+   "CI high": 0.18800861425118987
+  },
+  {
+   "platform": "tiktok",
+   "earlier posts": "earlier posts of the author (no repeats)",
+   "posts": 63,
+   "MAE final": 0.3734681888977019,
+   "gain": 0.11567066741235162,
+   "CI low": 0.05057257093482903,
+   "CI high": 0.1877992684875588
+  },
+  {
+   "platform": "youtube",
+   "earlier posts": "earlier posts of the author (all)",
+   "posts": 400,
+   "MAE final": 0.4964190920968333,
+   "gain": 0.16491818944252748,
+   "CI low": 0.11138329799558934,
+   "CI high": 0.22174782477468966
+  },
+  {
+   "platform": "youtube",
+   "earlier posts": "earlier posts of the author (no repeats)",
+   "posts": 379,
+   "MAE final": 0.495494531097362,
+   "gain": 0.15738805669442027,
+   "CI low": 0.10574741037774776,
+   "CI high": 0.21638976796494516
+  },
+  {
+   "platform": "twitter",
+   "earlier posts": "earlier posts of the author (all)",
+   "posts": 145,
+   "MAE final": 0.5365868815040132,
+   "gain": 0.14017879299014366,
+   "CI low": 0.0735106105434465,
+   "CI high": 0.20870735771906548
+  },
+  {
+   "platform": "twitter",
+   "earlier posts": "earlier posts of the author (no repeats)",
+   "posts": 112,
+   "MAE final": 0.5275259735663804,
+   "gain": 0.09803984634571848,
+   "CI low": 0.02729752354217666,
+   "CI high": 0.16142037691385389
+  }
+ ],
+ "communities": [
+  {
+   "community": 0,
+   "brands": 68,
+   "posts": 3594,
+   "example brands": "AIG, Ace Hardware, Adidas, Amazon, Amazon Shipping, Authentic Brands Group",
+   "words": "sprawd\u017a, przez, telefon, yamaha, moto, fridge",
+   "posts with views": 1339,
+   "median views": 382.00000000000017,
+   "bias (pred - true)": -0.03278760871838409
+  },
+  {
+   "community": 1,
+   "brands": 61,
+   "posts": 1155,
+   "example brands": "AB InBev, Ahold Delhaize, Albertsons Companies, Aldi, Applebee's, Arby's",
+   "words": "promo, kfc, chipotle, pizza, papa, johns",
+   "posts with views": 1002,
+   "median views": 310.9983922788026,
+   "bias (pred - true)": 0.0033551839391403643
+  },
+  {
+   "community": 2,
+   "brands": 55,
+   "posts": 1373,
+   "example brands": "AAA, AMD, Acer, Amazon Prime Video, Apple, Asus",
+   "words": "hang, village, animation, wwe, coca, cola",
+   "posts with views": 1265,
+   "median views": 417.99999999999983,
+   "bias (pred - true)": -0.05844971031858345
+  },
+  {
+   "community": 3,
+   "brands": 39,
+   "posts": 832,
+   "example brands": "Aetna, Airbnb, Alamo, Allegiant, American, American Eagle Outfitters",
+   "words": "subway, boeing, postal, eagle, usps, airlines",
+   "posts with views": 767,
+   "median views": 332.9999999999999,
+   "bias (pred - true)": -0.03435076924546235
+  },
+  {
+   "community": 4,
+   "brands": 39,
+   "posts": 1493,
+   "example brands": "Alaska, Aon, Apple TV+, Burger King, Burlington, Centene",
+   "words": "lyft, uber, tel, gig, doordash, beat",
+   "posts with views": 879,
+   "median views": 203.00000000000003,
+   "bias (pred - true)": -0.01586697357303063
+  },
+  {
+   "community": 5,
+   "brands": 30,
+   "posts": 2887,
+   "example brands": "Accenture, Acronis, Adobe, Anydesk, Autodesk, Avanza",
+   "words": "olympics, boxing, madrid, rugby, flights, christmas",
+   "posts with views": 398,
+   "median views": 192.4993506482554,
+   "bias (pred - true)": -0.009312547704472577
+  },
+  {
+   "community": 6,
+   "brands": 25,
+   "posts": 638,
+   "example brands": "Acura, Advance Auto Parts, Audi, AutoZone, BMW, Buick",
+   "words": "radar, nissan, jeep, rear, chevrolet, chrysler",
+   "posts with views": 594,
+   "median views": 401.99999999999983,
+   "bias (pred - true)": -0.03690376140314436
+  },
+  {
+   "community": 7,
+   "brands": 16,
+   "posts": 215,
+   "example brands": "AT&T, AT&T Internet, Boost Mobile, Breezeline, CenturyLink, Consumer Cellular",
+   "words": "iphone, mint, xfinity, starlink, air, satellite",
+   "posts with views": 199,
+   "median views": 188.00000000000009,
+   "bias (pred - true)": -0.11697576419376608
+  },
+  {
+   "community": 8,
+   "brands": 15,
+   "posts": 313,
+   "example brands": "BMO, Bank of America, Barclays, Capital One, Citizens Bank, Fifth Third Bank",
+   "words": "bmo, truist, residents, citizens, banking, fargo",
+   "posts with views": 292,
+   "median views": 253.00000000000003,
+   "bias (pred - true)": -0.04453323949367705
+  }
+ ],
+ "community_graph": {
+  "edges": 2029,
+  "edges with shared authors": 539,
+  "communities": 9,
+  "modularity": 0.5027031451525458
+ },
+ "cold_start": [
+  {
+   "platform": "tiktok",
+   "brands (>= 5 posts)": 238,
+   "rho with similar brands": 0.26994354061827613,
+   "low": 0.13762271710647384,
+   "high": 0.389463157768579,
+   "sd of brand over-performance": 0.16064979289915643
+  },
+  {
+   "platform": "youtube",
+   "brands (>= 5 posts)": 213,
+   "rho with similar brands": 0.015659751068272717,
+   "low": -0.12308284384005193,
+   "high": 0.14215150020203002,
+   "sd of brand over-performance": 0.3063080564820799
+  },
+  {
+   "platform": "twitter",
+   "brands (>= 5 posts)": 189,
+   "rho with similar brands": 0.12392266997904257,
+   "low": -0.029524564578207596,
+   "high": 0.25809490903384097,
+   "sd of brand over-performance": 0.2823120075637996
+  }
+ ]
+}
