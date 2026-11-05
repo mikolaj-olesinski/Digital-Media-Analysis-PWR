@@ -1426,7 +1426,103 @@
    "gain": 0.046536431417357936
   }
  ],
- "wiki_vs_brand": [],
- "wiki_models": [],
- "wiki_gain": []
+ "wiki_vs_brand": [
+  {
+   "platform": "tiktok",
+   "brands": 200,
+   "Spearman wiki vs brand over-performance": 0.15097663764846192,
+   "Spearman wiki vs brand mean log views": 0.17843709475524014
+  },
+  {
+   "platform": "youtube",
+   "brands": 178,
+   "Spearman wiki vs brand over-performance": -0.07116817928173204,
+   "Spearman wiki vs brand mean log views": 0.11540984234440743
+  },
+  {
+   "platform": "twitter",
+   "brands": 157,
+   "Spearman wiki vs brand over-performance": 0.08200727182526465,
+   "Spearman wiki vs brand mean log views": 0.05331534758245355
+  }
+ ],
+ "wiki_models": [
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "posts": 2491,
+   "MAE": 0.27320826409670573,
+   "CI low": 0.2630100447037697,
+   "CI high": 0.2850344142269184,
+   "bias": -0.019827385610592774
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ Wikipedia pageviews",
+   "posts": 2491,
+   "MAE": 0.27320386742102565,
+   "CI low": 0.26304375430032106,
+   "CI high": 0.2842121182472154,
+   "bias": -0.019934127870105123
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "posts": 2441,
+   "MAE": 0.45566381424531344,
+   "CI low": 0.4338608409710372,
+   "CI high": 0.47998070194971004,
+   "bias": -0.03947747034891239
+  },
+  {
+   "platform": "youtube",
+   "model": "+ Wikipedia pageviews",
+   "posts": 2441,
+   "MAE": 0.46528394534160133,
+   "CI low": 0.4442509007324532,
+   "CI high": 0.4896422266270574,
+   "bias": -0.04007123342102982
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "posts": 1803,
+   "MAE": 0.4664935387737166,
+   "CI low": 0.44590739419947656,
+   "CI high": 0.48941888359655045,
+   "bias": -0.03933904364434193
+  },
+  {
+   "platform": "twitter",
+   "model": "+ Wikipedia pageviews",
+   "posts": 1803,
+   "MAE": 0.4764980702496302,
+   "CI low": 0.4550731138259765,
+   "CI high": 0.4988197424297675,
+   "bias": -0.03566038677006555
+  }
+ ],
+ "wiki_gain": [
+  {
+   "platform": "tiktok",
+   "model": "+ Wikipedia pageviews",
+   "gain": 4.39667568011461e-06,
+   "CI low": -0.002532559671155619,
+   "CI high": 0.0026327724585873892
+  },
+  {
+   "platform": "youtube",
+   "model": "+ Wikipedia pageviews",
+   "gain": -0.009620131096287869,
+   "CI low": -0.014448567461689514,
+   "CI high": -0.005141567119150896
+  },
+  {
+   "platform": "twitter",
+   "model": "+ Wikipedia pageviews",
+   "gain": -0.010004531475913585,
+   "CI low": -0.01688139542148723,
+   "CI high": -0.004471220203508685
+  }
+ ]
 }

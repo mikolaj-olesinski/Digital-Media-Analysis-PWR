@@ -90,4 +90,5 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E83 | finding | Residual atlas | [E83](E83.md) |
 | E84 | none | Country, local time, holidays, industry as columns | [E84](E84.md) |
 | E85 | finding | Where promo over-performs | [E85](E85.md) |
+| E86 | none | Brand popularity on Wikipedia | [E86](E86.md) |
 | E87 | finding | Mapping reaction scales between platforms | [E87](E87.md) |

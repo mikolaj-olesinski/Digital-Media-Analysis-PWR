@@ -1051,6 +1051,19 @@
   ]
  },
  {
+  "id": "E86",
+  "date": "2026-11-05",
+  "question": "Brand popularity on Wikipedia",
+  "setup": "Monthly English Wikipedia pageviews of the brand (293 hand-checked brands, only brand names sent) as columns",
+  "result": "Spearman with brand mean views 0.05-0.18; columns 0.000 / -0.010 / -0.010 (YouTube, X CIs below zero)",
+  "type": "none",
+  "where": "`33_context_more`, `brand_wikipedia.csv`",
+  "paths": [
+   "notebooks/models/33_context_more.ipynb",
+   "data/processed/brand_wikipedia.csv"
+  ]
+ },
+ {
   "id": "E87",
   "date": "2026-11-05",
   "question": "Mapping reaction scales between platforms",

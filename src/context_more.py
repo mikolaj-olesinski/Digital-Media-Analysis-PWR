@@ -86,12 +86,18 @@ def label_gain_by(P, key, name):
 
 
 # ---------- E86 ----------
+# hand review of the matched articles (2026-11-05): wrong article for the brand
+WIKI_BAD = {"AAA", "Alamo", "Alaska", "American", "Burlington", "CenturyLink", "Citibank", "Delta", "Huntington Bank", "Lincoln Financial", "Mollie",
+            "National", "Spectrum", "Starlink", "Taco Bell", "The Home Depot", "Travelers", "U.S. Bank", "United", "X", "Gap", "VF", "Kinetic by Windstream",
+            "Budget", "Truist", "Aon", "Paramount+"}
+
+
 def wiki_columns(root, raw, meta):
     """log10 monthly pageviews of the brand's article in the post's month, and the brand's median over 2024-01..2026-10.
     Brands without a matched article (name check failed) get -1."""
     path = Path(root) / "data" / "processed" / "brand_wikipedia.csv"
     if not path.exists(): return None
-    w = pd.read_csv(path); w = w[w.name_match.astype(str) == "True"].dropna(subset=["views"])
+    w = pd.read_csv(path); w = w[(w.name_match.astype(str) == "True") & ~w.brand.isin(WIKI_BAD)].dropna(subset=["views"])
     med = np.log10(w.groupby("brand").views.median() + 1); mon = np.log10(w.set_index(["brand", "month"]).views + 1)
     key = list(zip(meta.brand, raw.created_at.dt.strftime("%Y-%m")))
     out = pd.DataFrame({"wiki_month": [mon.get(k, np.nan) for k in key], "wiki_median": meta.brand.map(med).values}, index=meta.index)
@@ -102,7 +108,7 @@ def wiki_columns(root, raw, meta):
 def wiki_vs_brand(d, W, min_posts=5):
     rows = []
     for p in PLATS:
-        z = d[d.platform == p].assign(w=W.wiki_median.reindex(d.index).values)
+        z = d[d.platform == p]; z = z.assign(w=W.wiki_median.reindex(z.index).values)
         g = z[z.w >= 0].groupby("brand").agg(n=("r", "size"), r=("r", "mean"), y=("y", "mean"), w=("w", "first")); g = g[g.n >= min_posts]
         rows.append({"platform": p, "brands": len(g), "Spearman wiki vs brand over-performance": spearmanr(g.w, g.r)[0], "Spearman wiki vs brand mean log views": spearmanr(g.w, g.y)[0]})
     return pd.DataFrame(rows)
