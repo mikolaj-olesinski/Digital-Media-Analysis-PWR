@@ -42,6 +42,7 @@ Internal map of what was tested, how and where. Not preprint text. Numbers come 
 | `28_gnn` | GraphSAGE on the text graph (E65) | `gnn_numbers.json` |
 | `29_accounts_clusters` | Account types, topic clusters, author history, brand communities (E66-E69) | `accounts_clusters_numbers.json` |
 | `30_author_more` | Author history in depth, variance components, brand totals, anomalies, views per like (E70-E75) | `author_more_numbers.json` |
+| `31_author_next` | Where the error sits, history curve, author level without views, live forecast with history, brand-total intervals (E76-E80) | `author_next_numbers.json` |
 
 ## Columns
 Base set: followers, likes, comments, shares (logged), and a missing flag for each. Added and tested separately: text statistics, 30 TF-IDF SVD topics, VADER, calendar, ratios, brand size, our type and sentiment labels, Brand24 sentiment, graph features.
@@ -81,6 +82,7 @@ Reach = max(k × reactions, c(followers) × followers). k is 700 on X (300 above
 - **Groups:** official brand accounts are ≤ 5% of posts and underestimated ×2-3 (E66); topic clusters and 9 industry communities of brands are readable but carry little bias beyond reactions (E67, E69).
 - **Author level (E70-E72):** two thirds of the remaining error on TikTok and YouTube is shared by posts of the same author (brand ≤ 0.08); account traits do not predict it, the author's past views do: +0.10-0.15 with reactions, +0.14-0.17 at posting time.
 - **Client view (E73, E75):** brand totals within ×1.7 / ×2.0 / ×2.1, Brand24 reach ×10 too high on X; views per like 11-64 on TikTok, 17-113 on YouTube, 25-279 on X depending on tier.
+- **Remaining error and intervals (E76-E80):** the error is spread over all posts (zero-reaction posts worst), not a few authors; one earlier post of the author gives most of the history gain; the author's level cannot be read from reactions on other posts; an 80% interval for a brand total is ×2.2 / ×3.0 / ×3.3 and calibrated.
 - **Anomalies (E74):** posts ×10 above the prediction are more often promo, copies, brand accounts, repeat authors; the author's history flags them 6-15× better than chance.
 - **Did not help:** pooled or monotone models (E61), all pairs of checks (E59), account type as a feature (E66), similar brands for a new brand (E69).
 

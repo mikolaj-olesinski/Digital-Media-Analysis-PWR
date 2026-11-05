@@ -80,3 +80,8 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E73 | small | Brand totals | [E73](E73.md) |
 | E74 | small | Anomalies ×10 above or below the prediction | [E74](E74.md) |
 | E75 | small | Views per like implied by the final model | [E75](E75.md) |
+| E76 | small | Where the remaining error sits | [E76](E76.md) |
+| E77 | small | How many earlier author posts are needed | [E77](E77.md) |
+| E78 | none | Author level without views | [E78](E78.md) |
+| E79 | none | Live forecast plus author history | [E79](E79.md) |
+| E80 | small | Intervals for brand totals | [E80](E80.md) |

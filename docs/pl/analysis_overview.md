@@ -42,6 +42,7 @@ Wewnętrzna mapa tego, co, jak i gdzie sprawdziliśmy. To nie jest tekst preprin
 | `28_gnn` | GraphSAGE na grafie tekstu (E65) | `gnn_numbers.json` |
 | `29_accounts_clusters` | Typy kont, klastry tematów, historia autora, społeczności marek (E66–E69) | `accounts_clusters_numbers.json` |
 | `30_author_more` | Historia autora dokładniej, rozkład wariancji, sumy dla marek, anomalie, wyświetlenia na lajk (E70–E75) | `author_more_numbers.json` |
+| `31_author_next` | Gdzie zostaje błąd, krzywa historii, poziom autora bez wyświetleń, szacunek na żywo z historią, przedziały sum marek (E76–E80) | `author_next_numbers.json` |
 
 ## Kolumny
 Zestaw podstawowy: followersi, lajki, komentarze, udostępnienia (w logarytmie) i znacznik braku dla każdej z nich. Dodane i sprawdzone osobno: statystyki tekstu, 30 tematów TF-IDF SVD, VADER, kalendarz, wskaźniki, wielkość marki, nasze etykiety typu i sentymentu, sentyment Brand24, cechy grafowe.
@@ -81,6 +82,7 @@ Zasięg = max(k × reakcje, c(followersi) × followersi). k wynosi 700 na X (300
 - **Grupy:** oficjalne konta marek to ≤ 5% postów i są zaniżane ×2–3 (E66); klastry tematów i 9 społeczności marek (branże) są czytelne, ale poza reakcjami niosą mały błąd systematyczny (E67, E69).
 - **Poziom autora (E70–E72):** dwie trzecie pozostałego błędu na TikToku i YouTube to wspólny poziom postów jednego autora (marka ≤ 0,08); cechy konta go nie przewidują, przewidują go dawne wyświetlenia autora: +0,10–0,15 z reakcjami, +0,14–0,17 w chwili publikacji.
 - **Widok klienta (E73, E75):** sumy marek z dokładnością ×1,7 / ×2,0 / ×2,1, zasięg Brand24 na X ×10 za duży; wyświetlenia na lajk 11–64 na TikToku, 17–113 na YouTube, 25–279 na X zależnie od progu.
+- **Pozostały błąd i przedziały (E76–E80):** błąd jest rozłożony na wszystkie posty (najgorsze bez reakcji), a nie na kilku autorów; jeden wcześniejszy post autora daje większość zysku z historii; poziomu autora nie widać z reakcji na innych postach; przedział 80% dla sumy marki to ×2,2 / ×3,0 / ×3,3 i jest skalibrowany.
 - **Anomalie (E74):** posty ×10 ponad prognozę to częściej reklamy, kopie, konta marek, powracający autorzy; historia autora wskazuje je 6–15× lepiej niż losowo.
 - **Nie pomogło:** model wspólny i monotoniczny (E61), wszystkie pary sprawdzeń (E59), typ konta jako cecha (E66), podobne marki dla nowej marki (E69).
 

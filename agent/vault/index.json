@@ -928,5 +928,65 @@
   "paths": [
    "notebooks/models/30_author_more.ipynb"
   ]
+ },
+ {
+  "id": "E76",
+  "date": "2026-11-05",
+  "question": "Where the remaining error sits",
+  "setup": "Share of error by reply, link, zero reactions, author activity, follower tier; traits as columns",
+  "result": "Error spread over all posts; 10 most active X authors 5% of error; zero-reaction posts worst; traits +0.001 / +0.006 / +0.011 (YouTube, X CIs above zero)",
+  "type": "small",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
+ },
+ {
+  "id": "E77",
+  "date": "2026-11-05",
+  "question": "How many earlier author posts are needed",
+  "setup": "Shrunk sum of the last k earlier posts, k = 1-10",
+  "result": "k = 1: +0.10 / +0.14 / +0.07 (X CI crosses zero); YouTube k = 2-3 about +0.17; too few posts for k ≥ 5",
+  "type": "small",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
+ },
+ {
+  "id": "E78",
+  "date": "2026-11-05",
+  "question": "Author level without views",
+  "setup": "Reactions on the author's other posts in the sample as columns",
+  "result": "No gain: -0.002 / 0.000 / 0.000; on posts with other posts -0.047 / +0.016 / -0.002",
+  "type": "none",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
+ },
+ {
+  "id": "E79",
+  "date": "2026-11-05",
+  "question": "Live forecast plus author history",
+  "setup": "E40 forecast + shrunk author residuals",
+  "result": "Only 31 YouTube pairs; +0.005 (CI crosses zero); inconclusive",
+  "type": "none",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
+ },
+ {
+  "id": "E80",
+  "date": "2026-11-05",
+  "question": "Intervals for brand totals",
+  "setup": "Brand-level quantiles vs summed independent post errors",
+  "result": "Brand-level 80% interval calibrated (0.79-0.80), ×2.2 / ×3.0 / ×3.3; independent errors not calibrated",
+  "type": "small",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
  }
 ]

@@ -1,0 +1,1083 @@
+{
+ "error_breakdown": [
+  {
+   "platform": "tiktok",
+   "trait": "reply",
+   "group": "not a reply",
+   "posts": 2426,
+   "share of posts": 0.9739060618225612,
+   "share of error": 0.9701917491883544,
+   "MAE": 0.2721662940886281,
+   "bias": -0.0225272100969595
+  },
+  {
+   "platform": "tiktok",
+   "trait": "reply",
+   "group": "reply (starts with @)",
+   "posts": 65,
+   "share of posts": 0.02609393817743878,
+   "share of error": 0.02980825081164566,
+   "MAE": 0.31209779085972683,
+   "bias": 0.08093837137287904
+  },
+  {
+   "platform": "tiktok",
+   "trait": "link",
+   "group": "has a link",
+   "posts": 83,
+   "share of posts": 0.03331995182657567,
+   "share of error": 0.03603831159906911,
+   "MAE": 0.2954975626676867,
+   "bias": 0.048587138198775574
+  },
+  {
+   "platform": "tiktok",
+   "trait": "link",
+   "group": "no link",
+   "posts": 2408,
+   "share of posts": 0.9666800481734243,
+   "share of error": 0.9639616884009309,
+   "MAE": 0.2724399867788522,
+   "bias": -0.022185527419636614
+  },
+  {
+   "platform": "tiktok",
+   "trait": "zero",
+   "group": "0 reactions",
+   "posts": 90,
+   "share of posts": 0.03613006824568447,
+   "share of error": 0.06723687238877854,
+   "MAE": 0.50843162165419,
+   "bias": 0.2879380868917671
+  },
+  {
+   "platform": "tiktok",
+   "trait": "zero",
+   "group": "some reactions",
+   "posts": 2401,
+   "share of posts": 0.9638699317543156,
+   "share of error": 0.9327631276112216,
+   "MAE": 0.2643910620224977,
+   "bias": -0.03136378399677036
+  },
+  {
+   "platform": "tiktok",
+   "trait": "activity",
+   "group": "author: 1 post",
+   "posts": 2349,
+   "share of posts": 0.9429947812123645,
+   "share of error": 0.9265971509706042,
+   "MAE": 0.26845747630560973,
+   "bias": -0.02229418820230132
+  },
+  {
+   "platform": "tiktok",
+   "trait": "activity",
+   "group": "author: 2-4",
+   "posts": 142,
+   "share of posts": 0.05700521878763549,
+   "share of error": 0.07340284902939577,
+   "MAE": 0.35179700016209003,
+   "bias": 0.020979088248022568
+  },
+  {
+   "platform": "tiktok",
+   "trait": "tier",
+   "group": "100k-1M",
+   "posts": 138,
+   "share of posts": 0.055399437976716176,
+   "share of error": 0.05895576732193011,
+   "MAE": 0.2907466833017965,
+   "bias": -0.05834474460596044
+  },
+  {
+   "platform": "tiktok",
+   "trait": "tier",
+   "group": "10k-100k",
+   "posts": 443,
+   "share of posts": 0.17784022480931352,
+   "share of error": 0.21340515506806276,
+   "MAE": 0.32784513193204384,
+   "bias": -0.04290239828977125
+  },
+  {
+   "platform": "tiktok",
+   "trait": "tier",
+   "group": "1k-10k",
+   "posts": 812,
+   "share of posts": 0.32597350461661984,
+   "share of error": 0.304606649616306,
+   "MAE": 0.25530005597191535,
+   "bias": -0.030560619816513115
+  },
+  {
+   "platform": "tiktok",
+   "trait": "tier",
+   "group": "< 1k",
+   "posts": 1063,
+   "share of posts": 0.4267362505018065,
+   "share of error": 0.40942073835560533,
+   "MAE": 0.26212239780377633,
+   "bias": 0.004654554925805406
+  },
+  {
+   "platform": "tiktok",
+   "trait": "tier",
+   "group": "> 1M",
+   "posts": 28,
+   "share of posts": 0.011240465676435166,
+   "share of error": 0.010885841894227694,
+   "MAE": 0.2645888571492314,
+   "bias": -0.09437251910481229
+  },
+  {
+   "platform": "tiktok",
+   "trait": "tier",
+   "group": "followers unknown",
+   "posts": 7,
+   "share of posts": 0.0028101164191087916,
+   "share of error": 0.002725847743868152,
+   "MAE": 0.26501540122324313,
+   "bias": 0.02531165454526493
+  },
+  {
+   "platform": "youtube",
+   "trait": "reply",
+   "group": "not a reply",
+   "posts": 2429,
+   "share of posts": 0.9950839819746006,
+   "share of error": 0.9939953953321956,
+   "MAE": 0.4551653341666467,
+   "bias": -0.03942167585573656
+  },
+  {
+   "platform": "youtube",
+   "trait": "reply",
+   "group": "reply (starts with @)",
+   "posts": 12,
+   "share of posts": 0.004916018025399427,
+   "share of error": 0.006004604667804468,
+   "MAE": 0.5565644901687866,
+   "bias": -0.05077120567591923
+  },
+  {
+   "platform": "youtube",
+   "trait": "link",
+   "group": "has a link",
+   "posts": 1231,
+   "share of posts": 0.5043015157722245,
+   "share of error": 0.478097533995944,
+   "MAE": 0.43198709325368423,
+   "bias": -0.038571768068703556
+  },
+  {
+   "platform": "youtube",
+   "trait": "link",
+   "group": "no link",
+   "posts": 1210,
+   "share of posts": 0.4956984842277755,
+   "share of error": 0.521902466004056,
+   "MAE": 0.4797514535351445,
+   "bias": -0.040398891429025675
+  },
+  {
+   "platform": "youtube",
+   "trait": "zero",
+   "group": "0 reactions",
+   "posts": 665,
+   "share of posts": 0.2724293322408849,
+   "share of error": 0.39601784505143806,
+   "MAE": 0.6623772862526827,
+   "bias": -0.016590959633162133
+  },
+  {
+   "platform": "youtube",
+   "trait": "zero",
+   "group": "some reactions",
+   "posts": 1776,
+   "share of posts": 0.7275706677591152,
+   "share of error": 0.6039821549485619,
+   "MAE": 0.3782626549632748,
+   "bias": -0.048047025318492295
+  },
+  {
+   "platform": "youtube",
+   "trait": "activity",
+   "group": "author: 1 post",
+   "posts": 1779,
+   "share of posts": 0.7287996722654649,
+   "share of error": 0.7103809429255376,
+   "MAE": 0.4441479632042521,
+   "bias": -0.042182470738578524
+  },
+  {
+   "platform": "youtube",
+   "trait": "activity",
+   "group": "author: 2-4",
+   "posts": 545,
+   "share of posts": 0.22326915198689062,
+   "share of error": 0.22528903547272577,
+   "MAE": 0.4597861383787468,
+   "bias": -0.059628796599457884
+  },
+  {
+   "platform": "youtube",
+   "trait": "activity",
+   "group": "author: 5-19",
+   "posts": 117,
+   "share of posts": 0.04793117574764441,
+   "share of error": 0.06433002160173676,
+   "MAE": 0.6115615266327233,
+   "bias": 0.09551969631573148
+  },
+  {
+   "platform": "youtube",
+   "trait": "tier",
+   "group": "100k-1M",
+   "posts": 599,
+   "share of posts": 0.24539123310118804,
+   "share of error": 0.2190739299111245,
+   "MAE": 0.40679555354714164,
+   "bias": -0.04507348476586515
+  },
+  {
+   "platform": "youtube",
+   "trait": "tier",
+   "group": "10k-100k",
+   "posts": 921,
+   "share of posts": 0.377304383449406,
+   "share of error": 0.35729675266909816,
+   "MAE": 0.43150095328934074,
+   "bias": -0.023901547441937277
+  },
+  {
+   "platform": "youtube",
+   "trait": "tier",
+   "group": "1k-10k",
+   "posts": 519,
+   "share of posts": 0.2126177795985252,
+   "share of error": 0.23829639169534908,
+   "MAE": 0.5106959679751597,
+   "bias": -0.030222555458721007
+  },
+  {
+   "platform": "youtube",
+   "trait": "tier",
+   "group": "< 1k",
+   "posts": 245,
+   "share of posts": 0.10036870135190495,
+   "share of error": 0.11859682958405862,
+   "MAE": 0.5384176839770172,
+   "bias": -0.07492429814581612
+  },
+  {
+   "platform": "youtube",
+   "trait": "tier",
+   "group": "> 1M",
+   "posts": 154,
+   "share of posts": 0.06308889799262597,
+   "share of error": 0.06604765489024289,
+   "MAE": 0.47703363518512976,
+   "bias": -0.09140220435531693
+  },
+  {
+   "platform": "youtube",
+   "trait": "tier",
+   "group": "followers unknown",
+   "posts": 3,
+   "share of posts": 0.0012290045063498567,
+   "share of error": 0.0006884412501266927,
+   "MAE": 0.2552454155340919,
+   "bias": 0.2552454155340919
+  },
+  {
+   "platform": "twitter",
+   "trait": "reply",
+   "group": "not a reply",
+   "posts": 1024,
+   "share of posts": 0.5679423183582918,
+   "share of error": 0.5388828717205332,
+   "MAE": 0.4426248400367755,
+   "bias": -0.05446295916907644
+  },
+  {
+   "platform": "twitter",
+   "trait": "reply",
+   "group": "reply (starts with @)",
+   "posts": 779,
+   "share of posts": 0.43205768164170827,
+   "share of error": 0.4611171282794668,
+   "MAE": 0.4978690811442271,
+   "bias": -0.019458569321712745
+  },
+  {
+   "platform": "twitter",
+   "trait": "link",
+   "group": "has a link",
+   "posts": 704,
+   "share of posts": 0.39046034387132555,
+   "share of error": 0.37949294264241823,
+   "MAE": 0.45339048774503077,
+   "bias": -0.014512093182958584
+  },
+  {
+   "platform": "twitter",
+   "trait": "link",
+   "group": "no link",
+   "posts": 1099,
+   "share of posts": 0.6095396561286744,
+   "share of error": 0.6205070573575818,
+   "MAE": 0.4748871219622469,
+   "bias": -0.05524274985436366
+  },
+  {
+   "platform": "twitter",
+   "trait": "zero",
+   "group": "0 reactions",
+   "posts": 991,
+   "share of posts": 0.5496394897393233,
+   "share of error": 0.5805574861308725,
+   "MAE": 0.4927344581722249,
+   "bias": -0.015404680029859084
+  },
+  {
+   "platform": "twitter",
+   "trait": "zero",
+   "group": "some reactions",
+   "posts": 812,
+   "share of posts": 0.45036051026067664,
+   "share of error": 0.41944251386912734,
+   "MAE": 0.4344679832023844,
+   "bias": -0.06854957854822431
+  },
+  {
+   "platform": "twitter",
+   "trait": "activity",
+   "group": "author: 1 post",
+   "posts": 1558,
+   "share of posts": 0.8641153632834165,
+   "share of error": 0.8529689262421736,
+   "MAE": 0.46047612364487295,
+   "bias": -0.029949576504593525
+  },
+  {
+   "platform": "twitter",
+   "trait": "activity",
+   "group": "author: 2-4",
+   "posts": 197,
+   "share of posts": 0.10926234054353855,
+   "share of error": 0.1177830313930776,
+   "MAE": 0.5028724705028462,
+   "bias": -0.1398783789475175
+  },
+  {
+   "platform": "twitter",
+   "trait": "activity",
+   "group": "author: 20+",
+   "posts": 33,
+   "share of posts": 0.018302828618968387,
+   "share of error": 0.0230933069477194,
+   "MAE": 0.588590906045236,
+   "bias": 0.07405081472962362
+  },
+  {
+   "platform": "twitter",
+   "trait": "activity",
+   "group": "author: 5-19",
+   "posts": 15,
+   "share of posts": 0.008319467554076539,
+   "share of error": 0.006154735417029511,
+   "MAE": 0.345111545449704,
+   "bias": 0.05636721799943829
+  },
+  {
+   "platform": "twitter",
+   "trait": "tier",
+   "group": "100k-1M",
+   "posts": 42,
+   "share of posts": 0.02329450915141431,
+   "share of error": 0.03364716561042001,
+   "MAE": 0.6738148141815278,
+   "bias": -0.15565557380204417
+  },
+  {
+   "platform": "twitter",
+   "trait": "tier",
+   "group": "10k-100k",
+   "posts": 127,
+   "share of posts": 0.0704381586245147,
+   "share of error": 0.06965098959970596,
+   "MAE": 0.4612803237895832,
+   "bias": -0.04284440439047031
+  },
+  {
+   "platform": "twitter",
+   "trait": "tier",
+   "group": "1k-10k",
+   "posts": 491,
+   "share of posts": 0.2723239046034387,
+   "share of error": 0.23795735528628495,
+   "MAE": 0.40762330029888943,
+   "bias": -0.006035917234718689
+  },
+  {
+   "platform": "twitter",
+   "trait": "tier",
+   "group": "< 1k",
+   "posts": 1106,
+   "share of posts": 0.6134220743205768,
+   "share of error": 0.6317712292431381,
+   "MAE": 0.4804476538466271,
+   "bias": -0.049879007383192495
+  },
+  {
+   "platform": "twitter",
+   "trait": "tier",
+   "group": "> 1M",
+   "posts": 37,
+   "share of posts": 0.020521353300055462,
+   "share of error": 0.02697326026045097,
+   "MAE": 0.6131589592158245,
+   "bias": -0.022154181227436186
+  }
+ ],
+ "top_authors": [
+  {
+   "platform": "tiktok",
+   "top authors": 1,
+   "posts": 4,
+   "share of posts": 0.0016057808109193096,
+   "share of error": 0.00260846738157522,
+   "MAE": 0.44380580489378885
+  },
+  {
+   "platform": "tiktok",
+   "top authors": 5,
+   "posts": 19,
+   "share of posts": 0.0076274588518667205,
+   "share of error": 0.008052337548156211,
+   "MAE": 0.28842701169263857
+  },
+  {
+   "platform": "tiktok",
+   "top authors": 10,
+   "posts": 34,
+   "share of posts": 0.01364913689281413,
+   "share of error": 0.0194028059442825,
+   "MAE": 0.3883767136538494
+  },
+  {
+   "platform": "youtube",
+   "top authors": 1,
+   "posts": 12,
+   "share of posts": 0.004916018025399427,
+   "share of error": 0.005271908342764605,
+   "MAE": 0.48865115046453256
+  },
+  {
+   "platform": "youtube",
+   "top authors": 5,
+   "posts": 50,
+   "share of posts": 0.020483408439164276,
+   "share of error": 0.021829404898900468,
+   "MAE": 0.4856061884661687
+  },
+  {
+   "platform": "youtube",
+   "top authors": 10,
+   "posts": 80,
+   "share of posts": 0.03277345350266284,
+   "share of error": 0.03709821860989791,
+   "MAE": 0.5157929356489415
+  },
+  {
+   "platform": "twitter",
+   "top authors": 1,
+   "posts": 33,
+   "share of posts": 0.018302828618968387,
+   "share of error": 0.0230933069477194,
+   "MAE": 0.588590906045236
+  },
+  {
+   "platform": "twitter",
+   "top authors": 5,
+   "posts": 52,
+   "share of posts": 0.028840820854132,
+   "share of error": 0.0317458659333074,
+   "MAE": 0.5134819641772725
+  },
+  {
+   "platform": "twitter",
+   "top authors": 10,
+   "posts": 71,
+   "share of posts": 0.03937881308929562,
+   "share of error": 0.04752648933266573,
+   "MAE": 0.5630134190182904
+  }
+ ],
+ "traits_models": [
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "posts": 2491,
+   "MAE": 0.27320826409670573,
+   "CI low": 0.2630100447037697,
+   "CI high": 0.2850344142269184,
+   "bias": -0.019827385610592774
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ post and author traits",
+   "posts": 2491,
+   "MAE": 0.27239467274072665,
+   "CI low": 0.26139211093242676,
+   "CI high": 0.28407788644093085,
+   "bias": -0.022008671106329848
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "posts": 2441,
+   "MAE": 0.45566381424531344,
+   "CI low": 0.4338608409710372,
+   "CI high": 0.47998070194971004,
+   "bias": -0.03947747034891239
+  },
+  {
+   "platform": "youtube",
+   "model": "+ post and author traits",
+   "posts": 2441,
+   "MAE": 0.449480318851815,
+   "CI low": 0.4292807728843675,
+   "CI high": 0.4727182458023358,
+   "bias": -0.04127587181881086
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "posts": 1803,
+   "MAE": 0.4664935387737166,
+   "CI low": 0.44590739419947656,
+   "CI high": 0.48941888359655045,
+   "bias": -0.03933904364434193
+  },
+  {
+   "platform": "twitter",
+   "model": "+ post and author traits",
+   "posts": 1803,
+   "MAE": 0.455056064324182,
+   "CI low": 0.4357497071539513,
+   "CI high": 0.47545217400882517,
+   "bias": -0.03568657932236209
+  }
+ ],
+ "traits_gain": [
+  {
+   "platform": "tiktok",
+   "model": "+ post and author traits",
+   "gain": 0.000813591355979072,
+   "CI low": -0.001866394473488663,
+   "CI high": 0.003351371321275747
+  },
+  {
+   "platform": "youtube",
+   "model": "+ post and author traits",
+   "gain": 0.006183495393498421,
+   "CI low": 0.0009102121404903945,
+   "CI high": 0.011594154321073196
+  },
+  {
+   "platform": "twitter",
+   "model": "+ post and author traits",
+   "gain": 0.011437474449534586,
+   "CI low": 0.003985537538096412,
+   "CI high": 0.017751542739505494
+  }
+ ],
+ "history_curve": [
+  {
+   "platform": "tiktok",
+   "view": "posts with >= k earlier",
+   "k": 1,
+   "posts": 63,
+   "MAE final": 0.3734681888977019,
+   "gain": 0.10391139711850256,
+   "CI low": 0.033886285393789836,
+   "CI high": 0.17442644009977368
+  },
+  {
+   "platform": "twitter",
+   "view": "posts with >= k earlier",
+   "k": 1,
+   "posts": 112,
+   "MAE final": 0.5275259735663804,
+   "gain": 0.0653390786594218,
+   "CI low": -0.006664958590402752,
+   "CI high": 0.1243428578692711
+  },
+  {
+   "platform": "twitter",
+   "view": "posts with >= k earlier",
+   "k": 2,
+   "posts": 49,
+   "MAE final": 0.5357039802344266,
+   "gain": -0.0008483398395814696,
+   "CI low": -0.07935199856667077,
+   "CI high": 0.062406080627821714
+  },
+  {
+   "platform": "twitter",
+   "view": "posts with >= k earlier",
+   "k": 3,
+   "posts": 35,
+   "MAE final": 0.5641394539347386,
+   "gain": -0.011435632017079714,
+   "CI low": -0.08054725349705807,
+   "CI high": 0.0671004193997904
+  },
+  {
+   "platform": "youtube",
+   "view": "posts with >= k earlier",
+   "k": 1,
+   "posts": 379,
+   "MAE final": 0.495494531097362,
+   "gain": 0.13781156106707848,
+   "CI low": 0.08852419161451788,
+   "CI high": 0.19481265725137992
+  },
+  {
+   "platform": "youtube",
+   "view": "posts with >= k earlier",
+   "k": 2,
+   "posts": 140,
+   "MAE final": 0.5104706735700978,
+   "gain": 0.17000785205428823,
+   "CI low": 0.0743925122814229,
+   "CI high": 0.29138848687629726
+  },
+  {
+   "platform": "youtube",
+   "view": "posts with >= k earlier",
+   "k": 3,
+   "posts": 75,
+   "MAE final": 0.5296623218812438,
+   "gain": 0.16294123576085623,
+   "CI low": 0.028109663383428376,
+   "CI high": 0.3160304234303155
+  }
+ ],
+ "proxy_models": [
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "posts": 2491,
+   "MAE": 0.27320826409670573,
+   "CI low": 0.2630100447037697,
+   "CI high": 0.2850344142269184,
+   "bias": -0.019827385610592774
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ author proxy (other posts, no views)",
+   "posts": 2491,
+   "MAE": 0.2753622936708702,
+   "CI low": 0.26411241955001313,
+   "CI high": 0.28770570328861805,
+   "bias": -0.02140040694819927
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "posts": 2441,
+   "MAE": 0.45566381424531344,
+   "CI low": 0.4338608409710372,
+   "CI high": 0.47998070194971004,
+   "bias": -0.03947747034891239
+  },
+  {
+   "platform": "youtube",
+   "model": "+ author proxy (other posts, no views)",
+   "posts": 2441,
+   "MAE": 0.45533292696582,
+   "CI low": 0.43199151368705097,
+   "CI high": 0.481676808379664,
+   "bias": -0.043681612070314485
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "posts": 1803,
+   "MAE": 0.4664935387737166,
+   "CI low": 0.44590739419947656,
+   "CI high": 0.48941888359655045,
+   "bias": -0.03933904364434193
+  },
+  {
+   "platform": "twitter",
+   "model": "+ author proxy (other posts, no views)",
+   "posts": 1803,
+   "MAE": 0.4667187437403634,
+   "CI low": 0.4446256476620853,
+   "CI high": 0.4898430447882347,
+   "bias": -0.038386605141543614
+  }
+ ],
+ "proxy_gain": [
+  {
+   "platform": "tiktok",
+   "model": "+ author proxy (other posts, no views)",
+   "gain": -0.00215402957416441,
+   "CI low": -0.005179882124549077,
+   "CI high": 0.0007224120669201704
+  },
+  {
+   "platform": "youtube",
+   "model": "+ author proxy (other posts, no views)",
+   "gain": 0.00033088727949333514,
+   "CI low": -0.0051521960270765246,
+   "CI high": 0.005896785917145698
+  },
+  {
+   "platform": "twitter",
+   "model": "+ author proxy (other posts, no views)",
+   "gain": -0.00022520496664679856,
+   "CI low": -0.006143096737039241,
+   "CI high": 0.004651157424388836
+  }
+ ],
+ "proxy_gain_with_other_posts": [
+  {
+   "platform": "tiktok",
+   "model": "+ author proxy (other posts, no views)",
+   "gain": -0.04721274828287334,
+   "CI low": -0.08598437147303262,
+   "CI high": -0.006648981733971698,
+   "posts": 142
+  },
+  {
+   "platform": "youtube",
+   "model": "+ author proxy (other posts, no views)",
+   "gain": 0.01597210241236266,
+   "CI low": -0.0002253926775821821,
+   "CI high": 0.03444460023308215,
+   "posts": 662
+  },
+  {
+   "platform": "twitter",
+   "model": "+ author proxy (other posts, no views)",
+   "gain": -0.002494766637753728,
+   "CI low": -0.03582286452665624,
+   "CI high": 0.02969511988063873,
+   "posts": 245
+  }
+ ],
+ "live_models": [
+  {
+   "platform": "youtube",
+   "model": "live forecast (E40)",
+   "posts": 31,
+   "MAE": 0.10285635502448201,
+   "CI low": 0.05664297216216157,
+   "CI high": 0.159230308245889,
+   "bias": 0.015606764201307145
+  },
+  {
+   "platform": "youtube",
+   "model": "+ author history (forecast residuals)",
+   "posts": 31,
+   "MAE": 0.09792719672497592,
+   "CI low": 0.05203118241257632,
+   "CI high": 0.1597070836460018,
+   "bias": 0.0008876426921519956
+  },
+  {
+   "platform": "youtube",
+   "model": "+ author history (now-cast residuals)",
+   "posts": 31,
+   "MAE": 0.1623614973649469,
+   "CI low": 0.10506049428577682,
+   "CI high": 0.23034046292075674,
+   "bias": 0.00560790872683193
+  }
+ ],
+ "live_gains": [
+  {
+   "platform": "tiktok",
+   "model": "+ author history (forecast residuals)",
+   "gain": NaN,
+   "CI low": NaN,
+   "CI high": NaN
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ author history (now-cast residuals)",
+   "gain": NaN,
+   "CI low": NaN,
+   "CI high": NaN
+  },
+  {
+   "platform": "youtube",
+   "model": "+ author history (forecast residuals)",
+   "gain": 0.004929158299506083,
+   "CI low": -0.03631074082839702,
+   "CI high": 0.04127222375923008
+  },
+  {
+   "platform": "youtube",
+   "model": "+ author history (now-cast residuals)",
+   "gain": -0.05950514234046492,
+   "CI low": -0.10136917743994632,
+   "CI high": -0.018522671471384818
+  },
+  {
+   "platform": "twitter",
+   "model": "+ author history (forecast residuals)",
+   "gain": NaN,
+   "CI low": NaN,
+   "CI high": NaN
+  },
+  {
+   "platform": "twitter",
+   "model": "+ author history (now-cast residuals)",
+   "gain": NaN,
+   "CI low": NaN,
+   "CI high": NaN
+  }
+ ],
+ "brand_intervals": [
+  {
+   "platform": "tiktok",
+   "method": "A: brand-level quantiles",
+   "nominal": 0.8,
+   "brands": 238,
+   "coverage": 0.7899159663865546,
+   "median half-width (\u00d7)": 2.1913322584263883,
+   "size": NaN
+  },
+  {
+   "platform": "tiktok",
+   "method": "A: by brand size",
+   "nominal": 0.8,
+   "brands": 238,
+   "coverage": 0.7773109243697479,
+   "median half-width (\u00d7)": 2.222560139112124,
+   "size": NaN
+  },
+  {
+   "platform": "tiktok",
+   "method": "B: independent post residuals",
+   "nominal": 0.8,
+   "brands": 238,
+   "coverage": 0.7521008403361344,
+   "median half-width (\u00d7)": 2.0152137026852786,
+   "size": NaN
+  },
+  {
+   "platform": "tiktok",
+   "method": "A: brand-level quantiles",
+   "nominal": 0.9,
+   "brands": 238,
+   "coverage": 0.8823529411764706,
+   "median half-width (\u00d7)": 2.8930087849473494,
+   "size": NaN
+  },
+  {
+   "platform": "tiktok",
+   "method": "A: by brand size",
+   "nominal": 0.9,
+   "brands": 238,
+   "coverage": 0.8781512605042017,
+   "median half-width (\u00d7)": 2.9643519243915404,
+   "size": NaN
+  },
+  {
+   "platform": "tiktok",
+   "method": "B: independent post residuals",
+   "nominal": 0.9,
+   "brands": 238,
+   "coverage": 0.8613445378151261,
+   "median half-width (\u00d7)": 2.6272973199510794,
+   "size": NaN
+  },
+  {
+   "platform": "tiktok",
+   "method": "spread of brand log ratio by size",
+   "nominal": NaN,
+   "brands": 127,
+   "coverage": NaN,
+   "median half-width (\u00d7)": 2.9049150097456002,
+   "size": "10-29"
+  },
+  {
+   "platform": "tiktok",
+   "method": "spread of brand log ratio by size",
+   "nominal": NaN,
+   "brands": 4,
+   "coverage": NaN,
+   "median half-width (\u00d7)": 1.535973672891067,
+   "size": "30+"
+  },
+  {
+   "platform": "tiktok",
+   "method": "spread of brand log ratio by size",
+   "nominal": NaN,
+   "brands": 107,
+   "coverage": NaN,
+   "median half-width (\u00d7)": 2.738099228548523,
+   "size": "5-9"
+  },
+  {
+   "platform": "youtube",
+   "method": "A: brand-level quantiles",
+   "nominal": 0.8,
+   "brands": 213,
+   "coverage": 0.7981220657276995,
+   "median half-width (\u00d7)": 2.9968095971517124,
+   "size": NaN
+  },
+  {
+   "platform": "youtube",
+   "method": "A: by brand size",
+   "nominal": 0.8,
+   "brands": 213,
+   "coverage": 0.8075117370892019,
+   "median half-width (\u00d7)": 2.82241699609513,
+   "size": NaN
+  },
+  {
+   "platform": "youtube",
+   "method": "B: independent post residuals",
+   "nominal": 0.8,
+   "brands": 213,
+   "coverage": 0.8544600938967136,
+   "median half-width (\u00d7)": 3.630706710462973,
+   "size": NaN
+  },
+  {
+   "platform": "youtube",
+   "method": "A: brand-level quantiles",
+   "nominal": 0.9,
+   "brands": 213,
+   "coverage": 0.8967136150234741,
+   "median half-width (\u00d7)": 4.80870806647136,
+   "size": NaN
+  },
+  {
+   "platform": "youtube",
+   "method": "A: by brand size",
+   "nominal": 0.9,
+   "brands": 213,
+   "coverage": 0.8732394366197183,
+   "median half-width (\u00d7)": 4.63550494748227,
+   "size": NaN
+  },
+  {
+   "platform": "youtube",
+   "method": "B: independent post residuals",
+   "nominal": 0.9,
+   "brands": 213,
+   "coverage": 0.9295774647887324,
+   "median half-width (\u00d7)": 6.0380620383284525,
+   "size": NaN
+  },
+  {
+   "platform": "youtube",
+   "method": "spread of brand log ratio by size",
+   "nominal": NaN,
+   "brands": 115,
+   "coverage": NaN,
+   "median half-width (\u00d7)": 4.291652064360707,
+   "size": "10-29"
+  },
+  {
+   "platform": "youtube",
+   "method": "spread of brand log ratio by size",
+   "nominal": NaN,
+   "brands": 3,
+   "coverage": NaN,
+   "median half-width (\u00d7)": 1.22395066145311,
+   "size": "30+"
+  },
+  {
+   "platform": "youtube",
+   "method": "spread of brand log ratio by size",
+   "nominal": NaN,
+   "brands": 95,
+   "coverage": NaN,
+   "median half-width (\u00d7)": 5.077057812938633,
+   "size": "5-9"
+  },
+  {
+   "platform": "twitter",
+   "method": "A: brand-level quantiles",
+   "nominal": 0.8,
+   "brands": 189,
+   "coverage": 0.798941798941799,
+   "median half-width (\u00d7)": 3.3078002445914962,
+   "size": NaN
+  },
+  {
+   "platform": "twitter",
+   "method": "A: by brand size",
+   "nominal": 0.8,
+   "brands": 189,
+   "coverage": 0.7724867724867724,
+   "median half-width (\u00d7)": 2.957470750371246,
+   "size": NaN
+  },
+  {
+   "platform": "twitter",
+   "method": "B: independent post residuals",
+   "nominal": 0.8,
+   "brands": 189,
+   "coverage": 0.7513227513227513,
+   "median half-width (\u00d7)": 3.1017108075434514,
+   "size": NaN
+  },
+  {
+   "platform": "twitter",
+   "method": "A: brand-level quantiles",
+   "nominal": 0.9,
+   "brands": 189,
+   "coverage": 0.8941798941798942,
+   "median half-width (\u00d7)": 4.20389581716681,
+   "size": NaN
+  },
+  {
+   "platform": "twitter",
+   "method": "A: by brand size",
+   "nominal": 0.9,
+   "brands": 189,
+   "coverage": 0.8783068783068783,
+   "median half-width (\u00d7)": 4.1271799660325525,
+   "size": NaN
+  },
+  {
+   "platform": "twitter",
+   "method": "B: independent post residuals",
+   "nominal": 0.9,
+   "brands": 189,
+   "coverage": 0.8835978835978836,
+   "median half-width (\u00d7)": 4.340374254542721,
+   "size": NaN
+  },
+  {
+   "platform": "twitter",
+   "method": "spread of brand log ratio by size",
+   "nominal": NaN,
+   "brands": 60,
+   "coverage": NaN,
+   "median half-width (\u00d7)": 3.368190240280313,
+   "size": "10-29"
+  },
+  {
+   "platform": "twitter",
+   "method": "spread of brand log ratio by size",
+   "nominal": NaN,
+   "brands": 129,
+   "coverage": NaN,
+   "median half-width (\u00d7)": 4.3399964944606575,
+   "size": "5-9"
+  }
+ ]
+}
