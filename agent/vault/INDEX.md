@@ -57,6 +57,8 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E50 | small | Text: local sentence embeddings (multilingual-e5-small) and TF-IDF | [E50](E50.md) |
 | E51 | small | Offset target: learn views per like | [E51](E51.md) |
 | E52 | small | Posting-time estimate with sentence embeddings and context from other posts | [E52](E52.md) |
+| E53 | small | Fine-tuned transformer: the row as text, and text as a correction | [E53](E53.md) |
+| E54 | small | Stack of every model family on the same folds | [E54](E54.md) |
 | E55 | finding | Leakage audit: folds that also separate authors and copied texts | [E55](E55.md) |
 | E56 |  | Noise ceiling: posts with almost the same inputs | [E56](E56.md) |
 | E57 | small | Quantile models and tail weighting | [E57](E57.md) |
@@ -68,3 +70,7 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E63 | finding | Copy-paste campaigns | [E63](E63.md) |
 | E64 | small | Separate model for posts without likes and comments | [E64](E64.md) |
 | E65 | finding | GraphSAGE on the text-similarity graph | [E65](E65.md) |
+| E66 | small | Account type from the author name | [E66](E66.md) |
+| E67 | small | Topic clusters of all posts | [E67](E67.md) |
+| E68 | small | Author over-performance persists | [E68](E68.md) |
+| E69 | small | Brand communities and cold start | [E69](E69.md) |
