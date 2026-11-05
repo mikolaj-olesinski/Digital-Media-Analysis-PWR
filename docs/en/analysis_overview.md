@@ -26,6 +26,21 @@ Internal map of what was tested, how and where. Not preprint text. Numbers come 
 | `12_graph_more` | Second round of graphs: fixed aggregation, cross-platform neighbours, community shrinkage | `graph_more_numbers.json` |
 | `13_stacked_models` | Two-stage models: classify then regress, residual stacking, hurdle | `stacked_numbers.json` |
 | `14_reaction_tiers` | Error of final models and intervals by reaction tier | `tiers_numbers.json` |
+| `15_brand_mismatch` | Brands away from their industry in the text graph (false matches) | `mismatch_numbers.json` |
+| `16_history_forecast` | Second Brand24 file: growth between checks, forecast from the first check, estimate at posting time (E38-E43) | `history_numbers.json` |
+| `17_check_age` | Age of the view check as a column; newer checks (E44-E45) | `check_age_numbers.json` |
+| `18_rolling_window` | Train on earlier months, test on the next (E46) | `rolling_window_numbers.json` |
+| `19_tabular_foundation` | TabPFN v2 and TabICL against CatBoost (E47) | `tabular_foundation_numbers.json` |
+| `20_classification` | Viral top 10%; posts with missing or zero views (E48) | `classification_numbers.json` |
+| `21_context_text` | Context from other posts of the author, hashtags, brand; text embeddings; offset target (E49-E51) | `context_text_numbers.json` |
+| `22_posting_time_text` | Estimate at posting time with text and context (E52) | `posting_time_text_numbers.json` |
+| `23_finetune_text` | Fine-tuned e5-small: row as text, text as a correction (E53) | `finetune_text_numbers.json` |
+| `24_stack_all` | Stack of all model families on the same folds (E54) | `stack_all_numbers.json` |
+| `25_limits` | Leakage audit, noise floor, quantile intervals, abstention (E55-E58) | `limits_numbers.json` |
+| `26_history_more` | Forecast horizon, all pairs of checks, early reactions without views (E59-E60) | `history_more_numbers.json` |
+| `27_more_models` | Pooled and monotone models, YouTube drift, copied posts, zero-reaction posts (E61-E64) | `more_models_numbers.json` |
+| `28_gnn` | GraphSAGE on the text graph (E65) | `gnn_numbers.json` |
+| `29_accounts_clusters` | Account types, topic clusters, author history, brand communities (E66-E69) | `accounts_clusters_numbers.json` |
 
 ## Columns
 Base set: followers, likes, comments, shares (logged), and a missing flag for each. Added and tested separately: text statistics, 30 TF-IDF SVD topics, VADER, calendar, ratios, brand size, our type and sentiment labels, Brand24 sentiment, graph features.
@@ -54,12 +69,23 @@ Reach = max(k × reactions, c(followers) × followers). k is 700 on X (300 above
 - Second graph round: cross-platform neighbours gain +0.009 on YouTube, the only all-posts CI above zero. The level shift does not shrink.
 - Error falls with reactions on YouTube and X. An interval per reaction tier restores about 90% coverage where calibration data suffice.
 
+## Later results (notebooks 15-29)
+- **Author history is the largest gain found (E68).** An author's over-performance (views above the final model's prediction) persists: Spearman 0.68 / 0.69 / 0.70 between first and later posts, robust to repeated posts. A correction from the author's earlier posts gains +0.12 / +0.16 / +0.10 MAE on posts that have one (3-16% of the sample).
+- **Stacking all families (E54):** 0.260 / 0.425 / 0.441, +0.011 / +0.028 / +0.026 over the final model; most of it comes from a plain mean of diverse members. TabPFN v2 alone +0.005 / +0.010 / +0.002 (E47); CatBoost + MLP mean +0.008 / +0.016 / +0.016 (E65, GraphSAGE itself worse).
+- **Text:** frozen embeddings help only without reactions (YouTube +0.051, E50); a fine-tuned transformer as a half correction gains +0.007 / +0.012 / +0.008 (E53). Context from other posts adds ≤ 0.003 next to reactions (E49).
+- **History file:** forecast from the first check 0.165 / 0.188 / 0.269 (E40); without the early view count 0.368 / 0.444 / 0.544 (E41); chaining forecast reactions into the now-cast beats that by +0.034 on TikTok (E60). At posting time 0.566 / 0.664 / 0.540 (E43, E52).
+- **Time and validation:** training on earlier months is close to brand CV (E46); stricter folds (brand ∪ author ∪ text) cost ≤ 0.011 (E55). The YouTube drift comes from younger check ages (E62); the age of the check helps on X (+0.012, E44).
+- **Limits:** noise floor about 0.22 / 0.39 / 0.33 (E56); 10-90% quantile interval covers 73% (E57); scoring only the most certain half cuts YouTube MAE by 27% (E58).
+- **Other tasks:** viral top 10% found with precision 83 / 71 / 63% (E48); missing views are predictable (AUC 0.91-0.95), X 2025 posts almost never have views (E48). Copied posts are underestimated (YouTube -0.26, E63).
+- **Groups:** official brand accounts are ≤ 5% of posts and underestimated ×2-3 (E66); topic clusters and 9 industry communities of brands are readable but carry little bias beyond reactions (E67, E69).
+- **Did not help:** pooled or monotone models (E61), all pairs of checks (E59), account type as a feature (E66), similar brands for a new brand (E69).
+
 ## Corrections made on 2026-11-02
 - `extra_features.ratios` inverted log1p columns with base 10. Fixed, notebook 04 re-run. Main results unchanged.
 - "Families are equal" now holds only after tuning and not for ridge on YouTube.
 - "X reach = 0.1 × followers" holds only for posts without reactions.
 
 ## Open
-Human gold standard for the labels; whether reach equals views; a Facebook or Instagram sample with real views (Brand24 has none, so we would collect it ourselves); false brand matches across the whole dataset; sentence embeddings; full GNN.
+Human gold standard for the labels; whether reach equals views; a Facebook or Instagram sample with real views (312 Reels and videos to check by hand: `docs/en/fbig_manual_check.md`, B14); false brand matches across the whole dataset; author view history from Brand24 (question Q8, E68). Sentence embeddings and a GNN are now tested (E50, E53, E65).
 
 Planned next steps: "Ideas to stand out" in `docs/en/project_plan.md`.

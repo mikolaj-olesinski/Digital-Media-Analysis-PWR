@@ -26,6 +26,21 @@ Wewnętrzna mapa tego, co, jak i gdzie sprawdziliśmy. To nie jest tekst preprin
 | `12_graph_more` | Druga runda grafów: stałe agregacje, sąsiedzi z innych platform, korekta na społeczność | `graph_more_numbers.json` |
 | `13_stacked_models` | Modele dwuetapowe: klasyfikacja i regresja, poprawianie błędu, osobna ścieżka dla zera | `stacked_numbers.json` |
 | `14_reaction_tiers` | Błąd modeli końcowych i przedziały według liczby reakcji | `tiers_numbers.json` |
+| `15_brand_mismatch` | Marki daleko od swojej branży w grafie tekstu (fałszywe dopasowania) | `mismatch_numbers.json` |
+| `16_history_forecast` | Drugi plik Brand24: wzrost między sprawdzeniami, prognoza z pierwszego sprawdzenia, ocena w chwili publikacji (E38–E43) | `history_numbers.json` |
+| `17_check_age` | Wiek sprawdzenia wyświetleń jako kolumna; nowsze sprawdzenia (E44–E45) | `check_age_numbers.json` |
+| `18_rolling_window` | Uczenie na wcześniejszych miesiącach, test na następnym (E46) | `rolling_window_numbers.json` |
+| `19_tabular_foundation` | TabPFN v2 i TabICL kontra CatBoost (E47) | `tabular_foundation_numbers.json` |
+| `20_classification` | Viral (top 10%); posty bez wyświetleń lub z zerem (E48) | `classification_numbers.json` |
+| `21_context_text` | Kontekst z innych postów autora, hashtagów, marki; embeddingi tekstu; cel z przesunięciem (E49–E51) | `context_text_numbers.json` |
+| `22_posting_time_text` | Ocena w chwili publikacji z tekstem i kontekstem (E52) | `posting_time_text_numbers.json` |
+| `23_finetune_text` | Dostrojony e5-small: wiersz jako tekst, tekst jako poprawka (E53) | `finetune_text_numbers.json` |
+| `24_stack_all` | Stack wszystkich rodzin modeli na tych samych foldach (E54) | `stack_all_numbers.json` |
+| `25_limits` | Audyt wycieków, granica szumu, przedziały kwantylowe, odrzucanie niepewnych (E55–E58) | `limits_numbers.json` |
+| `26_history_more` | Horyzont prognozy, wszystkie pary sprawdzeń, wczesne reakcje bez wyświetleń (E59–E60) | `history_more_numbers.json` |
+| `27_more_models` | Model wspólny i monotoniczny, dryf YouTube, skopiowane posty, posty bez reakcji (E61–E64) | `more_models_numbers.json` |
+| `28_gnn` | GraphSAGE na grafie tekstu (E65) | `gnn_numbers.json` |
+| `29_accounts_clusters` | Typy kont, klastry tematów, historia autora, społeczności marek (E66–E69) | `accounts_clusters_numbers.json` |
 
 ## Kolumny
 Zestaw podstawowy: followersi, lajki, komentarze, udostępnienia (w logarytmie) i znacznik braku dla każdej z nich. Dodane i sprawdzone osobno: statystyki tekstu, 30 tematów TF-IDF SVD, VADER, kalendarz, wskaźniki, wielkość marki, nasze etykiety typu i sentymentu, sentyment Brand24, cechy grafowe.
@@ -54,12 +69,23 @@ Zasięg = max(k × reakcje, c(followersi) × followersi). k wynosi 700 na X (300
 - Druga runda grafów: sąsiedzi z innych platform dają +0,009 na YouTube, jedyny przedział nad zerem na wszystkich postach. Przesunięcie poziomu nie maleje.
 - Błąd spada z liczbą reakcji na YouTube i X. Przedział na poziom reakcji przywraca ok. 90% pokrycia tam, gdzie jest dość danych.
 
+## Późniejsze wyniki (notebooki 15–29)
+- **Historia autora to największy znaleziony zysk (E68).** Nadwyżka autora (wyświetlenia ponad prognozę modelu końcowego) się utrzymuje: Spearman 0,68 / 0,69 / 0,70 między pierwszym a kolejnymi postami, także bez powtórzonych postów. Poprawka z wcześniejszych postów autora daje +0,12 / +0,16 / +0,10 MAE na postach, które je mają (3–16% próbki).
+- **Stack wszystkich rodzin (E54):** 0,260 / 0,425 / 0,441, czyli +0,011 / +0,028 / +0,026 względem modelu końcowego; większość daje zwykła średnia różnych modeli. Sam TabPFN v2 +0,005 / +0,010 / +0,002 (E47); średnia CatBoost + MLP +0,008 / +0,016 / +0,016 (E65, sam GraphSAGE gorszy).
+- **Tekst:** zamrożone embeddingi pomagają tylko bez reakcji (YouTube +0,051, E50); dostrojony transformer jako połowa poprawki daje +0,007 / +0,012 / +0,008 (E53). Kontekst z innych postów dodaje ≤ 0,003 przy reakcjach (E49).
+- **Plik z historią:** prognoza z pierwszego sprawdzenia 0,165 / 0,188 / 0,269 (E40); bez wczesnych wyświetleń 0,368 / 0,444 / 0,544 (E41); łańcuch prognozowane reakcje → model bieżący bije to o +0,034 na TikToku (E60). W chwili publikacji 0,566 / 0,664 / 0,540 (E43, E52).
+- **Czas i walidacja:** uczenie na wcześniejszych miesiącach daje wynik bliski CV po markach (E46); ostrzejsze foldy (marka ∪ autor ∪ tekst) kosztują ≤ 0,011 (E55). Dryf na YouTube bierze się z młodszego wieku sprawdzeń (E62); wiek sprawdzenia pomaga na X (+0,012, E44).
+- **Granice:** granica szumu ok. 0,22 / 0,39 / 0,33 (E56); przedział kwantylowy 10–90% pokrywa 73% (E57); ocenianie tylko pewniejszej połowy postów obniża MAE na YouTube o 27% (E58).
+- **Inne zadania:** viral (top 10%) z precyzją 83 / 71 / 63% (E48); brak wyświetleń da się przewidzieć (AUC 0,91–0,95), posty z X z 2025 prawie nigdy nie mają wyświetleń (E48). Skopiowane posty są zaniżane (YouTube −0,26, E63).
+- **Grupy:** oficjalne konta marek to ≤ 5% postów i są zaniżane ×2–3 (E66); klastry tematów i 9 społeczności marek (branże) są czytelne, ale poza reakcjami niosą mały błąd systematyczny (E67, E69).
+- **Nie pomogło:** model wspólny i monotoniczny (E61), wszystkie pary sprawdzeń (E59), typ konta jako cecha (E66), podobne marki dla nowej marki (E69).
+
 ## Poprawki z 2026-11-02
 - `extra_features.ratios` odwracało kolumny log1p podstawą 10. Naprawione, notebook 04 przeliczony. Główne wyniki bez zmian.
 - „Rodziny są równe” jest prawdą dopiero po strojeniu i nie dla ridge na YouTube.
 - „Zasięg na X = 0,1 × followersi” dotyczy tylko postów bez reakcji.
 
 ## Otwarte
-Ludzki gold standard dla etykiet; czy zasięg to to samo co wyświetlenia; próbka z FB lub IG z prawdziwymi wyświetleniami (Brand24 jej nie ma, więc trzeba by zebrać ją samemu); fałszywe dopasowania marek w całych danych; embeddingi zdaniowe; pełny GNN.
+Ludzki gold standard dla etykiet; czy zasięg to to samo co wyświetlenia; próbka z FB lub IG z prawdziwymi wyświetleniami (312 Reelsów i filmów do ręcznego sprawdzenia: `docs/pl/fbig_reczne_sprawdzenie.md`, B14); fałszywe dopasowania marek w całych danych; historia wyświetleń autorów od Brand24 (pytanie Q8, E68). Embeddingi zdaniowe i GNN są już sprawdzone (E50, E53, E65).
 
 Planowane kolejne kroki: „Ideas to stand out” w `docs/en/project_plan.md`.
