@@ -58,6 +58,7 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E51 | small | Offset target: learn views per like | [E51](E51.md) |
 | E52 | small | Posting-time estimate with sentence embeddings and context from other posts | [E52](E52.md) |
 | E53 | small | Fine-tuned transformer: the row as text, and text as a correction | [E53](E53.md) |
+| E54 | small | Stack of every model family on the same folds | [E54](E54.md) |
 | E55 | finding | Leakage audit: folds that also separate authors and copied texts | [E55](E55.md) |
 | E56 |  | Noise ceiling: posts with almost the same inputs | [E56](E56.md) |
 | E57 | small | Quantile models and tail weighting | [E57](E57.md) |

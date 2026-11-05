@@ -668,6 +668,18 @@
   ]
  },
  {
+  "id": "E54",
+  "date": "2026-11-05",
+  "question": "Stack of every model family on the same folds",
+  "setup": "8 members (CatBoost variants, TabPFN v2, TabICL, MLP, fine-tuned text) out of fold on joint brand folds; convex MAE weights fitted by nested brand CV",
+  "result": "Stack 0.260 / 0.425 / 0.441: +0.011 / +0.028 / +0.026 over the final model, +0.008 / +0.018 / +0.012 over the best single member, all CIs above zero; plain mean of all gives most of it",
+  "type": "small",
+  "where": "`24_stack_all`",
+  "paths": [
+   "notebooks/models/24_stack_all.ipynb"
+  ]
+ },
+ {
   "id": "E55",
   "date": "2026-11-04",
   "question": "Leakage audit: folds that also separate authors and copied texts",

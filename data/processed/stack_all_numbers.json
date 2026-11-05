@@ -1,0 +1,987 @@
+{
+ "models": [
+  {
+   "platform": "twitter",
+   "model": "CatBoost (final model)",
+   "posts": 1803,
+   "MAE": 0.46653342212530347,
+   "CI low": 0.4456795885233234,
+   "CI high": 0.48847661626202443,
+   "bias": -0.0365350484421503
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost (final model)",
+   "posts": 2441,
+   "MAE": 0.4530425808762341,
+   "CI low": 0.43067876983121006,
+   "CI high": 0.47690901092367094,
+   "bias": -0.03636846599830696
+  },
+  {
+   "platform": "tiktok",
+   "model": "CatBoost (final model)",
+   "posts": 2491,
+   "MAE": 0.2706885855616326,
+   "CI low": 0.2603727310561609,
+   "CI high": 0.28243212046184996,
+   "bias": -0.020761206431801595
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost + age of check",
+   "posts": 1803,
+   "MAE": 0.4522159025071612,
+   "CI low": 0.43204623245993135,
+   "CI high": 0.47197251813255603,
+   "bias": -0.03781308358525858
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost + age of check",
+   "posts": 2441,
+   "MAE": 0.4493853086482533,
+   "CI low": 0.427977130194378,
+   "CI high": 0.47078123370479963,
+   "bias": -0.03364784145827276
+  },
+  {
+   "platform": "tiktok",
+   "model": "CatBoost + age of check",
+   "posts": 2491,
+   "MAE": 0.271929929176552,
+   "CI low": 0.2620580121076017,
+   "CI high": 0.2834536952628201,
+   "bias": -0.019591158128638476
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost + embeddings",
+   "posts": 1803,
+   "MAE": 0.4579157560423886,
+   "CI low": 0.43691242118144846,
+   "CI high": 0.47671961732403195,
+   "bias": -0.038330871056398916
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost + embeddings",
+   "posts": 2441,
+   "MAE": 0.4607477407329437,
+   "CI low": 0.43929020465183494,
+   "CI high": 0.4865134301766162,
+   "bias": -0.05046287194751367
+  },
+  {
+   "platform": "tiktok",
+   "model": "CatBoost + embeddings",
+   "posts": 2491,
+   "MAE": 0.2692510664951071,
+   "CI low": 0.25917537858255896,
+   "CI high": 0.2800028942122626,
+   "bias": -0.01927775345864029
+  },
+  {
+   "platform": "twitter",
+   "model": "TabPFN v2",
+   "posts": 1803,
+   "MAE": 0.46550246720685595,
+   "CI low": 0.4452497653261812,
+   "CI high": 0.4886959652923839,
+   "bias": -0.041428163273887535
+  },
+  {
+   "platform": "youtube",
+   "model": "TabPFN v2",
+   "posts": 2441,
+   "MAE": 0.44281573707446675,
+   "CI low": 0.42046513451385575,
+   "CI high": 0.46744452979525236,
+   "bias": -0.041001858409573766
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabPFN v2",
+   "posts": 2491,
+   "MAE": 0.2680686931361138,
+   "CI low": 0.2577828206303235,
+   "CI high": 0.279730426066391,
+   "bias": -0.012908365839842112
+  },
+  {
+   "platform": "twitter",
+   "model": "TabICL",
+   "posts": 1803,
+   "MAE": 0.465760959801175,
+   "CI low": 0.44507664478905484,
+   "CI high": 0.4878807890947454,
+   "bias": -0.0032300982418128157
+  },
+  {
+   "platform": "youtube",
+   "model": "TabICL",
+   "posts": 2441,
+   "MAE": 0.4446517022755656,
+   "CI low": 0.423414044577867,
+   "CI high": 0.46707488490084703,
+   "bias": 0.014940900009047069
+  },
+  {
+   "platform": "tiktok",
+   "model": "TabICL",
+   "posts": 2491,
+   "MAE": 0.271821916966052,
+   "CI low": 0.26064804771451716,
+   "CI high": 0.2826458733858204,
+   "bias": -0.0022924257839618983
+  },
+  {
+   "platform": "twitter",
+   "model": "MLP (ENG + embeddings)",
+   "posts": 1803,
+   "MAE": 0.465369187584704,
+   "CI low": 0.44583495337659756,
+   "CI high": 0.48635862481927644,
+   "bias": -0.01773149150469698
+  },
+  {
+   "platform": "youtube",
+   "model": "MLP (ENG + embeddings)",
+   "posts": 2441,
+   "MAE": 0.4619966242829971,
+   "CI low": 0.440537026187057,
+   "CI high": 0.4861353825513954,
+   "bias": -0.031171189871937195
+  },
+  {
+   "platform": "tiktok",
+   "model": "MLP (ENG + embeddings)",
+   "posts": 2491,
+   "MAE": 0.2802424005697617,
+   "CI low": 0.2691267124877416,
+   "CI high": 0.2920740903917435,
+   "bias": -0.01105349517300998
+  },
+  {
+   "platform": "twitter",
+   "model": "fine-tuned row as text",
+   "posts": 1803,
+   "MAE": 0.48972854813064487,
+   "CI low": 0.4658366505147034,
+   "CI high": 0.5147556024459063,
+   "bias": -0.17025878980152878
+  },
+  {
+   "platform": "youtube",
+   "model": "fine-tuned row as text",
+   "posts": 2441,
+   "MAE": 0.45449183964615586,
+   "CI low": 0.4330601784038029,
+   "CI high": 0.4786791723721682,
+   "bias": -0.017945281797503987
+  },
+  {
+   "platform": "tiktok",
+   "model": "fine-tuned row as text",
+   "posts": 2491,
+   "MAE": 0.28894115900337397,
+   "CI low": 0.278589934889359,
+   "CI high": 0.2989308596736503,
+   "bias": 0.005742473095718327
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost + fine-tuned text correction",
+   "posts": 1803,
+   "MAE": 0.46386432982836256,
+   "CI low": 0.44747015401792994,
+   "CI high": 0.4840102598466401,
+   "bias": -0.027760003543206128
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost + fine-tuned text correction",
+   "posts": 2441,
+   "MAE": 0.4441634223939927,
+   "CI low": 0.4239107480272798,
+   "CI high": 0.4685038757655473,
+   "bias": -0.03485138449023968
+  },
+  {
+   "platform": "tiktok",
+   "model": "CatBoost + fine-tuned text correction",
+   "posts": 2491,
+   "MAE": 0.2752948911029125,
+   "CI low": 0.2637782396140304,
+   "CI high": 0.28611248851813836,
+   "bias": -0.00018292459227648475
+  },
+  {
+   "platform": "twitter",
+   "model": "mean of all members",
+   "posts": 1803,
+   "MAE": 0.44728716268667407,
+   "CI low": 0.42764335138025555,
+   "CI high": 0.46849097904793385,
+   "bias": -0.046635943681117495
+  },
+  {
+   "platform": "youtube",
+   "model": "mean of all members",
+   "posts": 2441,
+   "MAE": 0.42953494080591054,
+   "CI low": 0.40910521455247095,
+   "CI high": 0.4527945168067789,
+   "bias": -0.028813499245537624
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean of all members",
+   "posts": 2491,
+   "MAE": 0.2620146228931105,
+   "CI low": 0.2518034099199273,
+   "CI high": 0.2733686851572791,
+   "bias": -0.010040607039056569
+  },
+  {
+   "platform": "twitter",
+   "model": "mean of the best three",
+   "posts": 1803,
+   "MAE": 0.44599390662675364,
+   "CI low": 0.427085277831892,
+   "CI high": 0.465224375939275,
+   "bias": -0.03463465272828788
+  },
+  {
+   "platform": "youtube",
+   "model": "mean of the best three",
+   "posts": 2441,
+   "MAE": 0.4321885413419482,
+   "CI low": 0.41157197850596955,
+   "CI high": 0.45421584079429034,
+   "bias": -0.02030411429692213
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean of the best three",
+   "posts": 2491,
+   "MAE": 0.2661813715764462,
+   "CI low": 0.2560176447931862,
+   "CI high": 0.27766359928084827,
+   "bias": -0.017649108576761337
+  },
+  {
+   "platform": "twitter",
+   "model": "stack (nested weights)",
+   "posts": 1803,
+   "MAE": 0.4405044157175861,
+   "CI low": 0.42320264712665234,
+   "CI high": 0.46195140784124417,
+   "bias": -0.031872608902305706
+  },
+  {
+   "platform": "youtube",
+   "model": "stack (nested weights)",
+   "posts": 2441,
+   "MAE": 0.42466015654364,
+   "CI low": 0.4044318162109981,
+   "CI high": 0.446891248484979,
+   "bias": -0.024263219112667628
+  },
+  {
+   "platform": "tiktok",
+   "model": "stack (nested weights)",
+   "posts": 2491,
+   "MAE": 0.2598474306797447,
+   "CI low": 0.2493717880352514,
+   "CI high": 0.2718057265201594,
+   "bias": -0.007844317434331618
+  }
+ ],
+ "weights": [
+  {
+   "platform": "tiktok",
+   "fold": 0,
+   "CatBoost (final model)": 1.0459622002965601e-32,
+   "CatBoost + age of check": 1.0459622002965601e-32,
+   "CatBoost + embeddings": 0.052089827240413424,
+   "TabPFN v2": 0.43509195722702465,
+   "TabICL": 1.0913282361066277e-48,
+   "MLP (ENG + embeddings)": 0.07780409831989947,
+   "fine-tuned row as text": 0.08884804289482352,
+   "CatBoost + fine-tuned text correction": 0.34616607431783913
+  },
+  {
+   "platform": "tiktok",
+   "fold": 1,
+   "CatBoost (final model)": 8.65586975006576e-33,
+   "CatBoost + age of check": 0.006798745482331337,
+   "CatBoost + embeddings": 8.65586975006576e-33,
+   "TabPFN v2": 0.4752049529820764,
+   "TabICL": 8.244523277757504e-17,
+   "MLP (ENG + embeddings)": 0.08702173235100122,
+   "fine-tuned row as text": 0.07523214461728137,
+   "CatBoost + fine-tuned text correction": 0.35574242456730965
+  },
+  {
+   "platform": "tiktok",
+   "fold": 2,
+   "CatBoost (final model)": 9.088027594417022e-33,
+   "CatBoost + age of check": 9.088027594417022e-33,
+   "CatBoost + embeddings": 0.01684264982693931,
+   "TabPFN v2": 0.38776768948632917,
+   "TabICL": 0.018032467156990185,
+   "MLP (ENG + embeddings)": 0.18931332885169289,
+   "fine-tuned row as text": 0.009595004427260193,
+   "CatBoost + fine-tuned text correction": 0.3784488602507882
+  },
+  {
+   "platform": "tiktok",
+   "fold": 3,
+   "CatBoost (final model)": 8.714142984019273e-33,
+   "CatBoost + age of check": 3.2751776325711706e-34,
+   "CatBoost + embeddings": 8.714142984019273e-33,
+   "TabPFN v2": 0.41626706984494405,
+   "TabICL": 0.07457461559133595,
+   "MLP (ENG + embeddings)": 0.0846307238137754,
+   "fine-tuned row as text": 0.01771053412582082,
+   "CatBoost + fine-tuned text correction": 0.4068170566241238
+  },
+  {
+   "platform": "tiktok",
+   "fold": 4,
+   "CatBoost (final model)": 9.63424832327509e-33,
+   "CatBoost + age of check": 6.98126771155338e-17,
+   "CatBoost + embeddings": 0.11074496306554349,
+   "TabPFN v2": 0.3936031079363602,
+   "TabICL": 2.3699303349090873e-21,
+   "MLP (ENG + embeddings)": 0.07112678726851826,
+   "fine-tuned row as text": 0.023540806687647273,
+   "CatBoost + fine-tuned text correction": 0.4009843350419307
+  },
+  {
+   "platform": "youtube",
+   "fold": 0,
+   "CatBoost (final model)": 1.010799691285774e-32,
+   "CatBoost + age of check": 1.010799691285774e-32,
+   "CatBoost + embeddings": 1.010799691285774e-32,
+   "TabPFN v2": 0.20580179313545913,
+   "TabICL": 0.01227938322467207,
+   "MLP (ENG + embeddings)": 0.18277615521818308,
+   "fine-tuned row as text": 0.3446683729364975,
+   "CatBoost + fine-tuned text correction": 0.2544742954851882
+  },
+  {
+   "platform": "youtube",
+   "fold": 1,
+   "CatBoost (final model)": 8.803829283983384e-33,
+   "CatBoost + age of check": 8.803829283983384e-33,
+   "CatBoost + embeddings": 8.803829283983384e-33,
+   "TabPFN v2": 0.09092483962452276,
+   "TabICL": 0.1297039225543492,
+   "MLP (ENG + embeddings)": 0.24068416357849212,
+   "fine-tuned row as text": 0.3405364550512382,
+   "CatBoost + fine-tuned text correction": 0.19815061919139765
+  },
+  {
+   "platform": "youtube",
+   "fold": 2,
+   "CatBoost (final model)": 1.0607912775111442e-32,
+   "CatBoost + age of check": 1.0607912775111442e-32,
+   "CatBoost + embeddings": 1.0607912775111442e-32,
+   "TabPFN v2": 1.0607912775111442e-32,
+   "TabICL": 0.13442328534377443,
+   "MLP (ENG + embeddings)": 0.2088436487298325,
+   "fine-tuned row as text": 0.3178797260611186,
+   "CatBoost + fine-tuned text correction": 0.33885333986527433
+  },
+  {
+   "platform": "youtube",
+   "fold": 3,
+   "CatBoost (final model)": 9.371470268757532e-33,
+   "CatBoost + age of check": 9.371470268757532e-33,
+   "CatBoost + embeddings": 9.371470268757532e-33,
+   "TabPFN v2": 9.371470268757532e-33,
+   "TabICL": 0.14278902373901803,
+   "MLP (ENG + embeddings)": 0.280622692272865,
+   "fine-tuned row as text": 0.3176026801387765,
+   "CatBoost + fine-tuned text correction": 0.25898560384934055
+  },
+  {
+   "platform": "youtube",
+   "fold": 4,
+   "CatBoost (final model)": 8.949444310380118e-33,
+   "CatBoost + age of check": 8.949444310380118e-33,
+   "CatBoost + embeddings": 8.949444310380118e-33,
+   "TabPFN v2": 0.12333786192080957,
+   "TabICL": 0.10215150590797825,
+   "MLP (ENG + embeddings)": 0.23728968603456208,
+   "fine-tuned row as text": 0.26310202285867434,
+   "CatBoost + fine-tuned text correction": 0.2741189232779757
+  },
+  {
+   "platform": "twitter",
+   "fold": 0,
+   "CatBoost (final model)": 2.2395787746244597e-33,
+   "CatBoost + age of check": 0.4538950063572373,
+   "CatBoost + embeddings": 2.3051505423934954e-38,
+   "TabPFN v2": 2.2395787746244597e-33,
+   "TabICL": 2.2395787746244597e-33,
+   "MLP (ENG + embeddings)": 0.42497249775967655,
+   "fine-tuned row as text": 2.2395787746244597e-33,
+   "CatBoost + fine-tuned text correction": 0.12113249588308618
+  },
+  {
+   "platform": "twitter",
+   "fold": 1,
+   "CatBoost (final model)": 3.090150992768779e-33,
+   "CatBoost + age of check": 0.43661618682186565,
+   "CatBoost + embeddings": 3.9883788202779435e-55,
+   "TabPFN v2": 3.090150992768779e-33,
+   "TabICL": 3.090150992768779e-33,
+   "MLP (ENG + embeddings)": 0.3387331414117558,
+   "fine-tuned row as text": 0.045552531968445345,
+   "CatBoost + fine-tuned text correction": 0.1790981397979331
+  },
+  {
+   "platform": "twitter",
+   "fold": 2,
+   "CatBoost (final model)": 2.0602841611430323e-33,
+   "CatBoost + age of check": 0.5989878021474463,
+   "CatBoost + embeddings": 2.148139054369808e-33,
+   "TabPFN v2": 2.0602841611430323e-33,
+   "TabICL": 2.0602841611430323e-33,
+   "MLP (ENG + embeddings)": 0.31601455235327663,
+   "fine-tuned row as text": 2.0602841611430323e-33,
+   "CatBoost + fine-tuned text correction": 0.08499764549927709
+  },
+  {
+   "platform": "twitter",
+   "fold": 3,
+   "CatBoost (final model)": 3.2149758265312084e-33,
+   "CatBoost + age of check": 0.5660840292125909,
+   "CatBoost + embeddings": 3.6230999792918266e-17,
+   "TabPFN v2": 3.2149758265312084e-33,
+   "TabICL": 3.2149758265312084e-33,
+   "MLP (ENG + embeddings)": 0.33628384761509544,
+   "fine-tuned row as text": 0.06344193722750849,
+   "CatBoost + fine-tuned text correction": 0.03419018594480511
+  },
+  {
+   "platform": "twitter",
+   "fold": 4,
+   "CatBoost (final model)": 3.5429511877334456e-33,
+   "CatBoost + age of check": 0.4789345978346153,
+   "CatBoost + embeddings": 1.7866491826944387e-28,
+   "TabPFN v2": 3.5429511877334456e-33,
+   "TabICL": 3.5429511877334456e-33,
+   "MLP (ENG + embeddings)": 0.33748055477429356,
+   "fine-tuned row as text": 0.01350686526534737,
+   "CatBoost + fine-tuned text correction": 0.17007798212574382
+  }
+ ],
+ "gains": [
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "CatBoost + age of check",
+   "gain": -0.0012413436149194476,
+   "CI low": -0.0034937794358146828,
+   "CI high": 0.0012930694026687193
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "CatBoost + embeddings",
+   "gain": 0.001437519066525477,
+   "CI low": -0.0018116180058681776,
+   "CI high": 0.0048125443714049825
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "TabPFN v2",
+   "gain": 0.0026198924255188033,
+   "CI low": 0.00044425539940508725,
+   "CI high": 0.005313654057834768
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "TabICL",
+   "gain": -0.001133331404419414,
+   "CI low": -0.00514916642750415,
+   "CI high": 0.0030472969401186024
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "MLP (ENG + embeddings)",
+   "gain": -0.009553815008129116,
+   "CI low": -0.014973844379783168,
+   "CI high": -0.003750793627431785
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "fine-tuned row as text",
+   "gain": -0.018252573441741388,
+   "CI low": -0.024758775385553697,
+   "CI high": -0.012431667175662745
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "CatBoost + fine-tuned text correction",
+   "gain": -0.004606305541279913,
+   "CI low": -0.010617693929298063,
+   "CI high": 0.001558790992165105
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "mean of all members",
+   "gain": 0.008673962668522061,
+   "CI low": 0.006691359625967927,
+   "CI high": 0.010960761416584775
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "mean of the best three",
+   "gain": 0.004507213985186386,
+   "CI low": 0.0033040415954692518,
+   "CI high": 0.0059922929673294455
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "stack (nested weights)",
+   "gain": 0.010841154881887909,
+   "CI low": 0.0075622188563813355,
+   "CI high": 0.014272894641617883
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "CatBoost (final model)",
+   "gain": -0.0026198924255188033,
+   "CI low": -0.005313654057834769,
+   "CI high": -0.0004442553994050883
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "CatBoost + age of check",
+   "gain": -0.0038612360404382505,
+   "CI low": -0.0071079291742871436,
+   "CI high": -0.0009656180024601854
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "CatBoost + embeddings",
+   "gain": -0.0011823733589933262,
+   "CI low": -0.00575858941880729,
+   "CI high": 0.002778619713480372
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "TabICL",
+   "gain": -0.003753223829938218,
+   "CI low": -0.0060943769240627815,
+   "CI high": -0.0014575505843168863
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "MLP (ENG + embeddings)",
+   "gain": -0.01217370743364792,
+   "CI low": -0.017989449039256342,
+   "CI high": -0.006432401832782116
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "fine-tuned row as text",
+   "gain": -0.02087246586726019,
+   "CI low": -0.02795042897761905,
+   "CI high": -0.014985790081634002
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "CatBoost + fine-tuned text correction",
+   "gain": -0.007226197966798715,
+   "CI low": -0.013546800680421514,
+   "CI high": -0.0010806141900259597
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "mean of all members",
+   "gain": 0.006054070243003257,
+   "CI low": 0.003626677735533294,
+   "CI high": 0.008353792164882249
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "mean of the best three",
+   "gain": 0.0018873215596675835,
+   "CI low": -0.00016332344240850728,
+   "CI high": 0.0036961887054114736
+  },
+  {
+   "platform": "tiktok",
+   "base": "TabPFN v2",
+   "model": "stack (nested weights)",
+   "gain": 0.008221262456369107,
+   "CI low": 0.0049982514839031385,
+   "CI high": 0.01121437063278521
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "CatBoost + age of check",
+   "gain": 0.0036572722279808153,
+   "CI low": -0.0011094169716339476,
+   "CI high": 0.009074887353119194
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "CatBoost + embeddings",
+   "gain": -0.007705159856709548,
+   "CI low": -0.01585480450703701,
+   "CI high": 0.0005437844398717095
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "TabPFN v2",
+   "gain": 0.01022684380176732,
+   "CI low": 0.0035749470441033826,
+   "CI high": 0.01584721044376905
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "TabICL",
+   "gain": 0.008390878600668557,
+   "CI low": 0.002471093227105269,
+   "CI high": 0.014652988398517957
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "MLP (ENG + embeddings)",
+   "gain": -0.008954043406762889,
+   "CI low": -0.020905670909257046,
+   "CI high": 0.002868260948875663
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "fine-tuned row as text",
+   "gain": -0.0014492587699217682,
+   "CI low": -0.01540588582386876,
+   "CI high": 0.013349241124380412
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "CatBoost + fine-tuned text correction",
+   "gain": 0.008879158482241386,
+   "CI low": 0.0014853282583959532,
+   "CI high": 0.016719009433257704
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "mean of all members",
+   "gain": 0.02350764007032348,
+   "CI low": 0.019309351840248935,
+   "CI high": 0.02765715292649559
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "mean of the best three",
+   "gain": 0.02085403953428597,
+   "CI low": 0.0158674361760989,
+   "CI high": 0.025372099168142082
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "stack (nested weights)",
+   "gain": 0.02838242433259419,
+   "CI low": 0.020667335447630962,
+   "CI high": 0.036215990664208865
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "CatBoost (final model)",
+   "gain": -0.01022684380176732,
+   "CI low": -0.01584721044376905,
+   "CI high": -0.0035749470441033826
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "CatBoost + age of check",
+   "gain": -0.006569571573786508,
+   "CI low": -0.013375348603541788,
+   "CI high": 0.0007043432507967554
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "CatBoost + embeddings",
+   "gain": -0.01793200365847687,
+   "CI low": -0.02854225899149342,
+   "CI high": -0.007010493106440146
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "TabICL",
+   "gain": -0.0018359652010987632,
+   "CI low": -0.006551896214972496,
+   "CI high": 0.0030226875837120145
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "MLP (ENG + embeddings)",
+   "gain": -0.01918088720853021,
+   "CI low": -0.03226690336835587,
+   "CI high": -0.007348229847335536
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "fine-tuned row as text",
+   "gain": -0.011676102571689087,
+   "CI low": -0.02470531830148273,
+   "CI high": 0.001607028404280555
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "CatBoost + fine-tuned text correction",
+   "gain": -0.001347685319525936,
+   "CI low": -0.009998068416763714,
+   "CI high": 0.007608640908384278
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "mean of all members",
+   "gain": 0.01328079626855616,
+   "CI low": 0.007534858886512472,
+   "CI high": 0.01855197871032717
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "mean of the best three",
+   "gain": 0.010627195732518649,
+   "CI low": 0.006626986157952688,
+   "CI high": 0.015046786534256963
+  },
+  {
+   "platform": "youtube",
+   "base": "TabPFN v2",
+   "model": "stack (nested weights)",
+   "gain": 0.018155580530826866,
+   "CI low": 0.010978352186310207,
+   "CI high": 0.02564142079565141
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "CatBoost + age of check",
+   "gain": 0.014317519618142255,
+   "CI low": 0.007581970092643369,
+   "CI high": 0.020637441741169965
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "CatBoost + embeddings",
+   "gain": 0.008617666082914865,
+   "CI low": -0.0016920776462292831,
+   "CI high": 0.017293235237480203
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "TabPFN v2",
+   "gain": 0.001030954918447399,
+   "CI low": -0.0044230978416801466,
+   "CI high": 0.007127550643026104
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "TabICL",
+   "gain": 0.0007724623241284694,
+   "CI low": -0.004220723541832754,
+   "CI high": 0.005858799789686089
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "MLP (ENG + embeddings)",
+   "gain": 0.0011642345405994065,
+   "CI low": -0.014245365653184074,
+   "CI high": 0.014660881240677682
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "fine-tuned row as text",
+   "gain": -0.02319512600534141,
+   "CI low": -0.035675174671933756,
+   "CI high": -0.009814017624278599
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "CatBoost + fine-tuned text correction",
+   "gain": 0.0026690922969408227,
+   "CI low": -0.007424308717729374,
+   "CI high": 0.012459288290215404
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "mean of all members",
+   "gain": 0.019246259438629437,
+   "CI low": 0.014408956016028455,
+   "CI high": 0.023703750259720997
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "mean of the best three",
+   "gain": 0.020539515498549762,
+   "CI low": 0.014525309588056826,
+   "CI high": 0.026177808166100713
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "stack (nested weights)",
+   "gain": 0.026029006407717326,
+   "CI low": 0.018866652690633465,
+   "CI high": 0.032087704196424705
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "CatBoost (final model)",
+   "gain": -0.014317519618142255,
+   "CI low": -0.020637441741169965,
+   "CI high": -0.007581970092643369
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "CatBoost + embeddings",
+   "gain": -0.00569985353522739,
+   "CI low": -0.017534374415723766,
+   "CI high": 0.004921256286896347
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "TabPFN v2",
+   "gain": -0.013286564699694855,
+   "CI low": -0.020920066037224176,
+   "CI high": -0.005366598539342872
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "TabICL",
+   "gain": -0.013545057294013787,
+   "CI low": -0.020684040796358254,
+   "CI high": -0.0062011822244424945
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "MLP (ENG + embeddings)",
+   "gain": -0.013153285077542848,
+   "CI low": -0.029811744076531456,
+   "CI high": 0.0019094323903191485
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "fine-tuned row as text",
+   "gain": -0.037512645623483665,
+   "CI low": -0.052678837238161885,
+   "CI high": -0.022053262967236344
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "CatBoost + fine-tuned text correction",
+   "gain": -0.011648427321201435,
+   "CI low": -0.023937242478825473,
+   "CI high": -0.001551827957260329
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "mean of all members",
+   "gain": 0.004928739820487182,
+   "CI low": -0.002310004574417746,
+   "CI high": 0.012376476247318054
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "mean of the best three",
+   "gain": 0.00622199588040751,
+   "CI low": -0.0007948440405842077,
+   "CI high": 0.012926357083398846
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost + age of check",
+   "model": "stack (nested weights)",
+   "gain": 0.011711486789575072,
+   "CI low": 0.004629523929307564,
+   "CI high": 0.018148151488728254
+  }
+ ],
+ "best_single": {
+  "tiktok": "TabPFN v2",
+  "youtube": "TabPFN v2",
+  "twitter": "CatBoost + age of check"
+ },
+ "best_three": {
+  "tiktok": [
+   "TabPFN v2",
+   "CatBoost + embeddings",
+   "CatBoost (final model)"
+  ],
+  "youtube": [
+   "TabPFN v2",
+   "CatBoost + fine-tuned text correction",
+   "TabICL"
+  ],
+  "twitter": [
+   "CatBoost + age of check",
+   "CatBoost + embeddings",
+   "CatBoost + fine-tuned text correction"
+  ]
+ }
+}

@@ -23,6 +23,7 @@ add a contradicting line below it.
 - Without reactions, text (local embeddings or TF-IDF) is worth +0.05 on YouTube, +0.01-0.02 on TikTok and X over followers alone; next to reactions it adds +0.011 on X only. **likely** (E50)
 - A plain MLP on the final-model inputs + 16 embedding components equals CatBoost alone, and their mean gains +0.008 / +0.016 / +0.016 (CIs above zero): the largest simple ensemble gain so far. **likely** (E65)
 - A fine-tuned transformer (e5-small) reading the row as text matches CatBoost on YouTube; its mean with CatBoost gains +0.019 there; text as a half-weighted correction to CatBoost gains +0.007 / +0.012 / +0.008. Not more than CatBoost + MLP (E65). **likely** (E53)
+- Stacking all model families (CatBoost variants, TabPFN, TabICL, MLP, fine-tuned text) beats the final model by +0.011 / +0.028 / +0.026 and the best single member by 0.008-0.018, CIs above zero; the plain mean of all members gives most of it. Best accuracy reported; final model stays single CatBoost. **likely** (E54)
 - Likes carry most of the signal: removing them costs +0.09 / +0.13 / +0.05. **solid** (E17)
 - MAE loss instead of RMSE: +0.011 / +0.007 / +0.022. **likely** (E32)
 - Error falls with reactions on YouTube (×4.6 at zero to ×1.8 above 1,000) and X (×3.1 to ×2.5); TikTok is flat once a post has any reaction. **solid** (E33)
