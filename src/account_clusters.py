@@ -258,3 +258,40 @@ def author_history_gain(raw, meta, pred, grid=np.linspace(0, 1, 11)):
             out.append(pd.DataFrame({"platform": p, "posts": name, "model": "final model", "brand": s.brand.values, "y": s.y.values, "pred": s.pred.values}))
             out.append(pd.DataFrame({"platform": p, "posts": name, "model": "final model + author history", "brand": s.brand.values, "y": s.y.values, "pred": fit}))
     return pd.concat(out, ignore_index=True)
+
+
+def author_points(raw, meta, pred):
+    """Per author: over-performance of the first post and mean of the later posts that are not repeats (for the figure)."""
+    d = _author_frame(raw, meta, pred); rows = []
+    for p in PLATS:
+        for _, z in d[d.platform == p].sort_values("t").groupby("author"):
+            if len(z) < 2: continue
+            a = z.iloc[0]; rest = z.iloc[1:]; rest = rest[(rest.text != a.text) & (rest.url != a.url) & (rest.y != a.y)]
+            if len(rest): rows.append({"platform": p, "first": a.r, "later": rest.r.mean(), "n": len(rest)})
+    return pd.DataFrame(rows)
+
+
+def plot_authors(Pts, G, path=None, lang="en"):
+    """Three scatters (first vs later over-performance) and the MAE gain of the author-history correction."""
+    import matplotlib.pyplot as plt
+    pl = lang == "pl"
+    fig, ax = plt.subplots(1, 4, figsize=(17, 4.2), gridspec_kw={"width_ratios": [1, 1, 1, 1.1]})
+    for x, p in zip(ax, PLATS):
+        q = Pts[Pts.platform == p]; rho = spearmanr(q["first"], q.later)[0]
+        x.scatter(q["first"], q.later, s=10 + 6 * q.n.clip(upper=8), alpha=.5, color=eu.PCOL[p], edgecolor="none")
+        b = np.polyfit(q["first"], q.later, 1); xs = np.linspace(q["first"].min(), q["first"].max(), 2); x.plot(xs, np.polyval(b, xs), color="black", lw=1)
+        x.axhline(0, color="grey", lw=.6); x.axvline(0, color="grey", lw=.6); lim = max(1.5, np.abs(q[["first", "later"]].values).max() * 1.05)
+        x.set_xlim(-lim, lim); x.set_ylim(-lim, lim); x.set_aspect("equal")
+        x.set_title(f"{eu.NAMES[p]}: rho = {rho:.2f}, {len(q)} " + ("autorów" if pl else "authors"), fontweight="bold")
+        x.set_xlabel("nadwyżka pierwszego posta (log10)" if pl else "first post over-performance (log10)")
+    ax[0].set_ylabel("średnia nadwyżka kolejnych postów" if pl else "mean over-performance of later posts")
+    g = G[G["earlier posts"].str.contains("no repeats")].set_index("platform").loc[PLATS]; x = ax[3]; i = np.arange(3)
+    x.bar(i, g.gain, color=[eu.PCOL[p] for p in PLATS], yerr=[g.gain - g["CI low"], g["CI high"] - g.gain], capsize=4)
+    for j, (v, n, m) in enumerate(zip(g.gain, g.posts, g["MAE final"])): x.text(j, g["CI high"].iloc[j] + .005, f"+{v:.2f}\n{m:.2f}→{m - v:.2f}\n{n} " + ("postów" if pl else "posts"), ha="center", va="bottom", fontsize=8.5)
+    x.set_xticks(i); x.set_xticklabels([eu.NAMES[p] for p in PLATS]); x.set_ylim(0, .3)
+    x.set_ylabel("spadek MAE (log10)" if pl else "fall in MAE (log10)"); x.set_title("poprawka z historii autora" if pl else "correction from the author's history", fontweight="bold")
+    fig.suptitle("Autor, którego post przebił prognozę, przebija ją też w kolejnych postach; jego historia obniża błąd o 0,10–0,16" if pl else
+                 "Authors who beat the prediction keep beating it; their history cuts the error by 0.10-0.16", fontweight="bold")
+    plt.tight_layout()
+    if path: fig.savefig(path, dpi=170, bbox_inches="tight")
+    plt.show()
