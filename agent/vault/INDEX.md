@@ -93,3 +93,7 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E86 | none | Brand popularity on Wikipedia | [E86](E86.md) |
 | E87 | finding | Mapping reaction scales between platforms | [E87](E87.md) |
 | E88 | small | Adapting the out-of-platform model to the target's reaction structure | [E88](E88.md) |
+| E89 | small | Few-shot recalibration with k target posts | [E89](E89.md) |
+| E90 | none | Anchor regression, group DRO, stabilised weights | [E90](E90.md) |
+| E91 | none | Input subset by source-to-source transfer | [E91](E91.md) |
+| E92 | none | Brand effect carried over from other platforms | [E92](E92.md) |

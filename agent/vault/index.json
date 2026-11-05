@@ -1087,5 +1087,53 @@
    "notebooks/models/35_platform_adapt.ipynb",
    "data/processed/fbig_preregistered_v2.csv"
   ]
+ },
+ {
+  "id": "E89",
+  "date": "2026-11-05",
+  "question": "Few-shot recalibration with k target posts",
+  "setup": "Median / shrunk (EB) shift, slope shrunk to 1, biased ridge; few-shot conformal",
+  "result": "k = 5: EB shift 0.315 / 0.626 / 0.588 vs median 0.347 / 0.679 / 0.621; from k = 25 slope or biased ridge best on X (0.525-0.550); conformal covers 0.87-0.92 from k = 10",
+  "type": "small",
+  "where": "`36_transfer_lit`",
+  "paths": [
+   "notebooks/models/36_transfer_lit.ipynb"
+  ]
+ },
+ {
+  "id": "E90",
+  "date": "2026-11-05",
+  "question": "Anchor regression, group DRO, stabilised weights",
+  "setup": "No target labels",
+  "result": "None beats ridge everywhere (±0.01); group DRO 0.721 on YouTube; flattened weights lose the X gain",
+  "type": "none",
+  "where": "`36_transfer_lit`",
+  "paths": [
+   "notebooks/models/36_transfer_lit.ipynb"
+  ]
+ },
+ {
+  "id": "E91",
+  "date": "2026-11-05",
+  "question": "Input subset by source-to-source transfer",
+  "setup": "63 subsets, choose on the two sources",
+  "result": "Fails on TikTok (0.497 vs 0.312); likes + comments stays the safe choice",
+  "type": "none",
+  "where": "`36_transfer_lit`",
+  "paths": [
+   "notebooks/models/36_transfer_lit.ipynb"
+  ]
+ },
+ {
+  "id": "E92",
+  "date": "2026-11-05",
+  "question": "Brand effect carried over from other platforms",
+  "setup": "Shrunk brand residual from source platforms",
+  "result": "Hurts: -0.065 to -0.007",
+  "type": "none",
+  "where": "`36_transfer_lit`",
+  "paths": [
+   "notebooks/models/36_transfer_lit.ipynb"
+  ]
  }
 ]
