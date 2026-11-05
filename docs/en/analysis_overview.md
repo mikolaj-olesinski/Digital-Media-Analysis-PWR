@@ -41,6 +41,7 @@ Internal map of what was tested, how and where. Not preprint text. Numbers come 
 | `27_more_models` | Pooled and monotone models, YouTube drift, copied posts, zero-reaction posts (E61-E64) | `more_models_numbers.json` |
 | `28_gnn` | GraphSAGE on the text graph (E65) | `gnn_numbers.json` |
 | `29_accounts_clusters` | Account types, topic clusters, author history, brand communities (E66-E69) | `accounts_clusters_numbers.json` |
+| `30_author_more` | Author history in depth, variance components, brand totals, anomalies, views per like (E70-E75) | `author_more_numbers.json` |
 
 ## Columns
 Base set: followers, likes, comments, shares (logged), and a missing flag for each. Added and tested separately: text statistics, 30 TF-IDF SVD topics, VADER, calendar, ratios, brand size, our type and sentiment labels, Brand24 sentiment, graph features.
@@ -69,7 +70,7 @@ Reach = max(k × reactions, c(followers) × followers). k is 700 on X (300 above
 - Second graph round: cross-platform neighbours gain +0.009 on YouTube, the only all-posts CI above zero. The level shift does not shrink.
 - Error falls with reactions on YouTube and X. An interval per reaction tier restores about 90% coverage where calibration data suffice.
 
-## Later results (notebooks 15-29)
+## Later results (notebooks 15-30)
 - **Author history is the largest gain found (E68).** An author's over-performance (views above the final model's prediction) persists: Spearman 0.68 / 0.69 / 0.70 between first and later posts, robust to repeated posts. A correction from the author's earlier posts gains +0.12 / +0.16 / +0.10 MAE on posts that have one (3-16% of the sample).
 - **Stacking all families (E54):** 0.260 / 0.425 / 0.441, +0.011 / +0.028 / +0.026 over the final model; most of it comes from a plain mean of diverse members. TabPFN v2 alone +0.005 / +0.010 / +0.002 (E47); CatBoost + MLP mean +0.008 / +0.016 / +0.016 (E65, GraphSAGE itself worse).
 - **Text:** frozen embeddings help only without reactions (YouTube +0.051, E50); a fine-tuned transformer as a half correction gains +0.007 / +0.012 / +0.008 (E53). Context from other posts adds ≤ 0.003 next to reactions (E49).
@@ -78,6 +79,9 @@ Reach = max(k × reactions, c(followers) × followers). k is 700 on X (300 above
 - **Limits:** noise floor about 0.22 / 0.39 / 0.33 (E56); 10-90% quantile interval covers 73% (E57); scoring only the most certain half cuts YouTube MAE by 27% (E58).
 - **Other tasks:** viral top 10% found with precision 83 / 71 / 63% (E48); missing views are predictable (AUC 0.91-0.95), X 2025 posts almost never have views (E48). Copied posts are underestimated (YouTube -0.26, E63).
 - **Groups:** official brand accounts are ≤ 5% of posts and underestimated ×2-3 (E66); topic clusters and 9 industry communities of brands are readable but carry little bias beyond reactions (E67, E69).
+- **Author level (E70-E72):** two thirds of the remaining error on TikTok and YouTube is shared by posts of the same author (brand ≤ 0.08); account traits do not predict it, the author's past views do: +0.10-0.15 with reactions, +0.14-0.17 at posting time.
+- **Client view (E73, E75):** brand totals within ×1.7 / ×2.0 / ×2.1, Brand24 reach ×10 too high on X; views per like 11-64 on TikTok, 17-113 on YouTube, 25-279 on X depending on tier.
+- **Anomalies (E74):** posts ×10 above the prediction are more often promo, copies, brand accounts, repeat authors; the author's history flags them 6-15× better than chance.
 - **Did not help:** pooled or monotone models (E61), all pairs of checks (E59), account type as a feature (E66), similar brands for a new brand (E69).
 
 ## Corrections made on 2026-11-02

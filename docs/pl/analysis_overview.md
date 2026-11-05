@@ -41,6 +41,7 @@ Wewnętrzna mapa tego, co, jak i gdzie sprawdziliśmy. To nie jest tekst preprin
 | `27_more_models` | Model wspólny i monotoniczny, dryf YouTube, skopiowane posty, posty bez reakcji (E61–E64) | `more_models_numbers.json` |
 | `28_gnn` | GraphSAGE na grafie tekstu (E65) | `gnn_numbers.json` |
 | `29_accounts_clusters` | Typy kont, klastry tematów, historia autora, społeczności marek (E66–E69) | `accounts_clusters_numbers.json` |
+| `30_author_more` | Historia autora dokładniej, rozkład wariancji, sumy dla marek, anomalie, wyświetlenia na lajk (E70–E75) | `author_more_numbers.json` |
 
 ## Kolumny
 Zestaw podstawowy: followersi, lajki, komentarze, udostępnienia (w logarytmie) i znacznik braku dla każdej z nich. Dodane i sprawdzone osobno: statystyki tekstu, 30 tematów TF-IDF SVD, VADER, kalendarz, wskaźniki, wielkość marki, nasze etykiety typu i sentymentu, sentyment Brand24, cechy grafowe.
@@ -69,7 +70,7 @@ Zasięg = max(k × reakcje, c(followersi) × followersi). k wynosi 700 na X (300
 - Druga runda grafów: sąsiedzi z innych platform dają +0,009 na YouTube, jedyny przedział nad zerem na wszystkich postach. Przesunięcie poziomu nie maleje.
 - Błąd spada z liczbą reakcji na YouTube i X. Przedział na poziom reakcji przywraca ok. 90% pokrycia tam, gdzie jest dość danych.
 
-## Późniejsze wyniki (notebooki 15–29)
+## Późniejsze wyniki (notebooki 15–30)
 - **Historia autora to największy znaleziony zysk (E68).** Nadwyżka autora (wyświetlenia ponad prognozę modelu końcowego) się utrzymuje: Spearman 0,68 / 0,69 / 0,70 między pierwszym a kolejnymi postami, także bez powtórzonych postów. Poprawka z wcześniejszych postów autora daje +0,12 / +0,16 / +0,10 MAE na postach, które je mają (3–16% próbki).
 - **Stack wszystkich rodzin (E54):** 0,260 / 0,425 / 0,441, czyli +0,011 / +0,028 / +0,026 względem modelu końcowego; większość daje zwykła średnia różnych modeli. Sam TabPFN v2 +0,005 / +0,010 / +0,002 (E47); średnia CatBoost + MLP +0,008 / +0,016 / +0,016 (E65, sam GraphSAGE gorszy).
 - **Tekst:** zamrożone embeddingi pomagają tylko bez reakcji (YouTube +0,051, E50); dostrojony transformer jako połowa poprawki daje +0,007 / +0,012 / +0,008 (E53). Kontekst z innych postów dodaje ≤ 0,003 przy reakcjach (E49).
@@ -78,6 +79,9 @@ Zasięg = max(k × reakcje, c(followersi) × followersi). k wynosi 700 na X (300
 - **Granice:** granica szumu ok. 0,22 / 0,39 / 0,33 (E56); przedział kwantylowy 10–90% pokrywa 73% (E57); ocenianie tylko pewniejszej połowy postów obniża MAE na YouTube o 27% (E58).
 - **Inne zadania:** viral (top 10%) z precyzją 83 / 71 / 63% (E48); brak wyświetleń da się przewidzieć (AUC 0,91–0,95), posty z X z 2025 prawie nigdy nie mają wyświetleń (E48). Skopiowane posty są zaniżane (YouTube −0,26, E63).
 - **Grupy:** oficjalne konta marek to ≤ 5% postów i są zaniżane ×2–3 (E66); klastry tematów i 9 społeczności marek (branże) są czytelne, ale poza reakcjami niosą mały błąd systematyczny (E67, E69).
+- **Poziom autora (E70–E72):** dwie trzecie pozostałego błędu na TikToku i YouTube to wspólny poziom postów jednego autora (marka ≤ 0,08); cechy konta go nie przewidują, przewidują go dawne wyświetlenia autora: +0,10–0,15 z reakcjami, +0,14–0,17 w chwili publikacji.
+- **Widok klienta (E73, E75):** sumy marek z dokładnością ×1,7 / ×2,0 / ×2,1, zasięg Brand24 na X ×10 za duży; wyświetlenia na lajk 11–64 na TikToku, 17–113 na YouTube, 25–279 na X zależnie od progu.
+- **Anomalie (E74):** posty ×10 ponad prognozę to częściej reklamy, kopie, konta marek, powracający autorzy; historia autora wskazuje je 6–15× lepiej niż losowo.
 - **Nie pomogło:** model wspólny i monotoniczny (E61), wszystkie pary sprawdzeń (E59), typ konta jako cecha (E66), podobne marki dla nowej marki (E69).
 
 ## Poprawki z 2026-11-02

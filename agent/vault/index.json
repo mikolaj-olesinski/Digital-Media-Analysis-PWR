@@ -856,5 +856,77 @@
   "paths": [
    "notebooks/models/29_accounts_clusters.ipynb"
   ]
+ },
+ {
+  "id": "E70",
+  "date": "2026-11-05",
+  "question": "Author history in depth, and at posting time",
+  "setup": "Corrections from the author's earlier posts (mean, last post, shrunk sum); same on the posting-time model",
+  "result": "Shrunk sum best: +0.116 / +0.149 / +0.102 with reactions, +0.169 / +0.141 / +0.148 at posting time, all CIs above zero; one earlier post gives most of it",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E71",
+  "date": "2026-11-05",
+  "question": "Can the author's level be predicted without history?",
+  "setup": "CatBoost on account traits (followers, kind, language, zero-reaction share) → author's mean over-performance",
+  "result": "Spearman -0.05 / -0.03 / -0.12 against split-half 0.70 / 0.71 / 0.68: hidden, only history reveals it",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E72",
+  "date": "2026-11-05",
+  "question": "Variance components of the error",
+  "setup": "Pairwise intraclass correlation of the final model's error: same author, same brand (other authors)",
+  "result": "Author 0.74 / 0.63 / 0.12 (X dominated by prolific authors), brand 0.06 / 0.03 / 0.08",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E73",
+  "date": "2026-11-05",
+  "question": "Brand totals",
+  "setup": "Error of a brand's summed views (≥ 5 posts), calibrated on other folds; Brand24 reach on X",
+  "result": "Total MAE 0.227 / 0.311 / 0.317 vs per post 0.273 / 0.456 / 0.466; Spearman 0.93 / 0.86 / 0.82; Brand24 reach on X 1.017 (×10 too high)",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E74",
+  "date": "2026-11-05",
+  "question": "Anomalies ×10 above or below the prediction",
+  "setup": "Traits of posts with error ≥ 1 in log10; flag from the author's history",
+  "result": "×10 above (1-6%): more promo (TikTok), copies, brand accounts, repeat authors; ×10 below: zero reactions, spam; history raises P(×10 above) 6-15×",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E75",
+  "date": "2026-11-05",
+  "question": "Views per like implied by the final model",
+  "setup": "Median 10^prediction / likes and elasticity by follower × like tier",
+  "result": "TikTok 50 → 11 as likes grow; YouTube 17-47 (more for > 1M); X 25-112 vs Brand24's 700; doubling reactions ×1.3-2.3 views",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
  }
 ]

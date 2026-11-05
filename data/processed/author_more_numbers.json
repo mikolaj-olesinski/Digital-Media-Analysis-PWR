@@ -1,0 +1,1377 @@
+{
+ "history_models": [
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "posts": 63,
+   "MAE": 0.3734681888977019,
+   "CI low": 0.2793617320183596,
+   "CI high": 0.48236115831005194,
+   "bias": 0.03540028861644965
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ a \u00d7 mean of earlier",
+   "posts": 63,
+   "MAE": 0.26219420564657514,
+   "CI low": 0.2033085156372184,
+   "CI high": 0.337008819031328,
+   "bias": 0.0430751385435253
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ a \u00d7 last earlier post",
+   "posts": 63,
+   "MAE": 0.2727797038945728,
+   "CI low": 0.2127268260782986,
+   "CI high": 0.3535301714566524,
+   "bias": 0.0413416972592832
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ sum / (n + k), shrunk by count",
+   "posts": 63,
+   "MAE": 0.2578713459796843,
+   "CI low": 0.20005881161225145,
+   "CI high": 0.3338553072751691,
+   "bias": 0.037881746619167114
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "posts": 379,
+   "MAE": 0.495494531097362,
+   "CI low": 0.43959218866187405,
+   "CI high": 0.575166561786076,
+   "bias": -0.025801551396013322
+  },
+  {
+   "platform": "youtube",
+   "model": "+ a \u00d7 mean of earlier",
+   "posts": 379,
+   "MAE": 0.3469716355831987,
+   "CI low": 0.3028030486847932,
+   "CI high": 0.39240783738274637,
+   "bias": -0.000288332791670269
+  },
+  {
+   "platform": "youtube",
+   "model": "+ a \u00d7 last earlier post",
+   "posts": 379,
+   "MAE": 0.351500727071206,
+   "CI low": 0.3093561349850867,
+   "CI high": 0.3941147559541097,
+   "bias": 0.017332056206561208
+  },
+  {
+   "platform": "youtube",
+   "model": "+ sum / (n + k), shrunk by count",
+   "posts": 379,
+   "MAE": 0.34657162718309537,
+   "CI low": 0.3023261706113002,
+   "CI high": 0.3933155972935924,
+   "bias": -0.003923333434444799
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "posts": 112,
+   "MAE": 0.5275259735663804,
+   "CI low": 0.43672325495860526,
+   "CI high": 0.6173012659876879,
+   "bias": -0.10048560537895823
+  },
+  {
+   "platform": "twitter",
+   "model": "+ a \u00d7 mean of earlier",
+   "posts": 112,
+   "MAE": 0.42845061855237443,
+   "CI low": 0.3594201981641677,
+   "CI high": 0.49703691643516157,
+   "bias": -0.04939994247668612
+  },
+  {
+   "platform": "twitter",
+   "model": "+ a \u00d7 last earlier post",
+   "posts": 112,
+   "MAE": 0.4607500350698023,
+   "CI low": 0.38876107435530816,
+   "CI high": 0.5265611129798665,
+   "bias": -0.06367905272988217
+  },
+  {
+   "platform": "twitter",
+   "model": "+ sum / (n + k), shrunk by count",
+   "posts": 112,
+   "MAE": 0.4255702082534141,
+   "CI low": 0.35478158306000684,
+   "CI high": 0.49541069312153463,
+   "bias": -0.050579028829606625
+  }
+ ],
+ "history_gains": [
+  {
+   "platform": "tiktok",
+   "model": "+ a \u00d7 mean of earlier",
+   "gain": 0.11127398325112672,
+   "CI low": 0.0456505704999441,
+   "CI high": 0.18709864356631228
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ a \u00d7 last earlier post",
+   "gain": 0.10068848500312909,
+   "CI low": 0.03112247079725377,
+   "CI high": 0.16930034640658725
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ sum / (n + k), shrunk by count",
+   "gain": 0.1155968429180175,
+   "CI low": 0.048802340207423196,
+   "CI high": 0.19449697311221625
+  },
+  {
+   "platform": "youtube",
+   "model": "+ a \u00d7 mean of earlier",
+   "gain": 0.1485228955141633,
+   "CI low": 0.09547547614256702,
+   "CI high": 0.20585316376120663
+  },
+  {
+   "platform": "youtube",
+   "model": "+ a \u00d7 last earlier post",
+   "gain": 0.14399380402615602,
+   "CI low": 0.09445292233325811,
+   "CI high": 0.20209961800122594
+  },
+  {
+   "platform": "youtube",
+   "model": "+ sum / (n + k), shrunk by count",
+   "gain": 0.14892290391426663,
+   "CI low": 0.09730272260051467,
+   "CI high": 0.21055405790901596
+  },
+  {
+   "platform": "twitter",
+   "model": "+ a \u00d7 mean of earlier",
+   "gain": 0.09907535501400609,
+   "CI low": 0.027819217866257476,
+   "CI high": 0.16192874829833015
+  },
+  {
+   "platform": "twitter",
+   "model": "+ a \u00d7 last earlier post",
+   "gain": 0.06677593849657817,
+   "CI low": -0.004288690938798899,
+   "CI high": 0.12426007912077233
+  },
+  {
+   "platform": "twitter",
+   "model": "+ sum / (n + k), shrunk by count",
+   "gain": 0.10195576531296642,
+   "CI low": 0.03259543241944792,
+   "CI high": 0.16446352534792563
+  }
+ ],
+ "history_by_count": {
+  "columns": [
+   [
+    "MAE",
+    "+ sum / (n + k), shrunk by count"
+   ],
+   [
+    "MAE",
+    "final model"
+   ],
+   [
+    "posts",
+    "+ sum / (n + k), shrunk by count"
+   ],
+   [
+    "posts",
+    "final model"
+   ]
+  ],
+  "index": [
+   [
+    "tiktok",
+    "1"
+   ],
+   [
+    "tiktok",
+    "2"
+   ],
+   [
+    "tiktok",
+    "3+"
+   ],
+   [
+    "twitter",
+    "1"
+   ],
+   [
+    "twitter",
+    "2"
+   ],
+   [
+    "twitter",
+    "3+"
+   ],
+   [
+    "youtube",
+    "1"
+   ],
+   [
+    "youtube",
+    "2"
+   ],
+   [
+    "youtube",
+    "3+"
+   ]
+  ],
+  "data": [
+   [
+    0.268,
+    0.394,
+    50.0,
+    50.0
+   ],
+   [
+    0.214,
+    0.315,
+    11.0,
+    11.0
+   ],
+   [
+    0.258,
+    0.179,
+    2.0,
+    2.0
+   ],
+   [
+    0.373,
+    0.521,
+    63.0,
+    63.0
+   ],
+   [
+    0.407,
+    0.465,
+    14.0,
+    14.0
+   ],
+   [
+    0.527,
+    0.564,
+    35.0,
+    35.0
+   ],
+   [
+    0.353,
+    0.487,
+    239.0,
+    239.0
+   ],
+   [
+    0.307,
+    0.488,
+    65.0,
+    65.0
+   ],
+   [
+    0.361,
+    0.53,
+    75.0,
+    75.0
+   ]
+  ]
+ },
+ "posting_time_models": [
+  {
+   "platform": "tiktok",
+   "model": "posting-time model",
+   "posts": 63,
+   "MAE": 0.6547359169411723,
+   "CI low": 0.5485910732193932,
+   "CI high": 0.7752271601973858,
+   "bias": 0.23098449206239982
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ a \u00d7 mean of earlier",
+   "posts": 63,
+   "MAE": 0.49268976788404567,
+   "CI low": 0.34556476646054823,
+   "CI high": 0.6418509478512818,
+   "bias": 0.0713758908183371
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ a \u00d7 last earlier post",
+   "posts": 63,
+   "MAE": 0.5520885810264646,
+   "CI low": 0.40993789260086394,
+   "CI high": 0.6974160581523823,
+   "bias": 0.11884587100770615
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ sum / (n + k), shrunk by count",
+   "posts": 63,
+   "MAE": 0.48602877293500746,
+   "CI low": 0.3424663992276226,
+   "CI high": 0.6304745755419553,
+   "bias": 0.06584527093808229
+  },
+  {
+   "platform": "youtube",
+   "model": "posting-time model",
+   "posts": 379,
+   "MAE": 0.6318966246997737,
+   "CI low": 0.5671608235020758,
+   "CI high": 0.7094016369085226,
+   "bias": 0.09032228174830176
+  },
+  {
+   "platform": "youtube",
+   "model": "+ a \u00d7 mean of earlier",
+   "posts": 379,
+   "MAE": 0.5042244587591103,
+   "CI low": 0.456017600221566,
+   "CI high": 0.558720805314741,
+   "bias": 0.029842112305319832
+  },
+  {
+   "platform": "youtube",
+   "model": "+ a \u00d7 last earlier post",
+   "posts": 379,
+   "MAE": 0.5128223599389832,
+   "CI low": 0.46706539939556874,
+   "CI high": 0.5638982159610035,
+   "bias": 0.05418778302762941
+  },
+  {
+   "platform": "youtube",
+   "model": "+ sum / (n + k), shrunk by count",
+   "posts": 379,
+   "MAE": 0.4912664858659943,
+   "CI low": 0.4466412982955393,
+   "CI high": 0.5431449372429559,
+   "bias": 0.01920218701773179
+  },
+  {
+   "platform": "twitter",
+   "model": "posting-time model",
+   "posts": 112,
+   "MAE": 0.5815428750734378,
+   "CI low": 0.4961134618033851,
+   "CI high": 0.6545619846473615,
+   "bias": 0.04306555222004667
+  },
+  {
+   "platform": "twitter",
+   "model": "+ a \u00d7 mean of earlier",
+   "posts": 112,
+   "MAE": 0.43353528859779555,
+   "CI low": 0.3510260096454875,
+   "CI high": 0.5090934043517265,
+   "bias": 0.017640822991503387
+  },
+  {
+   "platform": "twitter",
+   "model": "+ a \u00d7 last earlier post",
+   "posts": 112,
+   "MAE": 0.4226586032048764,
+   "CI low": 0.3474965599079115,
+   "CI high": 0.49426449238319453,
+   "bias": -0.007059110957977986
+  },
+  {
+   "platform": "twitter",
+   "model": "+ sum / (n + k), shrunk by count",
+   "posts": 112,
+   "MAE": 0.43340660669979864,
+   "CI low": 0.3520794499080895,
+   "CI high": 0.507971538364242,
+   "bias": 0.009299510676271569
+  }
+ ],
+ "posting_time_gains": [
+  {
+   "platform": "tiktok",
+   "model": "+ a \u00d7 mean of earlier",
+   "gain": 0.1620461490571264,
+   "CI low": 0.034473633071603796,
+   "CI high": 0.299509332871746
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ sum / (n + k), shrunk by count",
+   "gain": 0.16870714400616463,
+   "CI low": 0.0450424467320583,
+   "CI high": 0.3049933883223821
+  },
+  {
+   "platform": "youtube",
+   "model": "+ a \u00d7 mean of earlier",
+   "gain": 0.12767216594066338,
+   "CI low": 0.060927253366510586,
+   "CI high": 0.19346582844262095
+  },
+  {
+   "platform": "youtube",
+   "model": "+ sum / (n + k), shrunk by count",
+   "gain": 0.1406301388337792,
+   "CI low": 0.0709501697944075,
+   "CI high": 0.21368151714081265
+  },
+  {
+   "platform": "twitter",
+   "model": "+ a \u00d7 mean of earlier",
+   "gain": 0.14800758647564227,
+   "CI low": 0.08964847017690794,
+   "CI high": 0.20447339338473142
+  },
+  {
+   "platform": "twitter",
+   "model": "+ sum / (n + k), shrunk by count",
+   "gain": 0.1481362683736392,
+   "CI low": 0.09013028171996829,
+   "CI high": 0.2039185873753282
+  }
+ ],
+ "author_level": [
+  {
+   "platform": "tiktok",
+   "authors": 61,
+   "Spearman (features)": -0.05264479964499794,
+   "R\u00b2 (features)": -0.2822941821897511,
+   "split-half Spearman (history)": 0.6970914859862505,
+   "sd of author level": 0.4381383587897682
+  },
+  {
+   "platform": "youtube",
+   "authors": 255,
+   "Spearman (features)": -0.028251421111241567,
+   "R\u00b2 (features)": -0.21404849020492867,
+   "split-half Spearman (history)": 0.7053858846688282,
+   "sd of author level": 0.5922601865829644
+  },
+  {
+   "platform": "twitter",
+   "authors": 83,
+   "Spearman (features)": -0.11560481314621995,
+   "R\u00b2 (features)": -0.4053446917810759,
+   "split-half Spearman (history)": 0.6778262877293144,
+   "sd of author level": 0.5556112156957068
+  }
+ ],
+ "variance": [
+  {
+   "platform": "tiktok",
+   "quantity": "r",
+   "same-author pairs": 103,
+   "share shared by an author": 0.7404837026096529,
+   "author low": 0.6105350465434801,
+   "author high": 0.858305083535365,
+   "same-brand other-author pairs": 15162,
+   "share shared by a brand": 0.05482524806357331,
+   "brand low": 0.02049506283595412,
+   "brand high": 0.0956406936602537
+  },
+  {
+   "platform": "youtube",
+   "quantity": "r",
+   "same-author pairs": 757,
+   "share shared by an author": 0.6310895127917822,
+   "author low": 0.5639928490964011,
+   "author high": 0.756452317754384,
+   "same-brand other-author pairs": 14177,
+   "share shared by a brand": 0.028113882399998624,
+   "brand low": -0.0048880311165514995,
+   "brand high": 0.056455220692649764
+  },
+  {
+   "platform": "twitter",
+   "quantity": "r",
+   "same-author pairs": 686,
+   "share shared by an author": 0.1185635991403151,
+   "author low": 0.08416763630179351,
+   "author high": 0.4424714331301591,
+   "same-brand other-author pairs": 7792,
+   "share shared by a brand": 0.07456045304314023,
+   "brand low": 0.035644247499245614,
+   "brand high": 0.10582698461776079
+  },
+  {
+   "platform": "tiktok",
+   "quantity": "y",
+   "same-author pairs": 103,
+   "share shared by an author": 0.7673060259080688,
+   "author low": 0.6567421379457618,
+   "author high": 0.8758732366394041,
+   "same-brand other-author pairs": 15162,
+   "share shared by a brand": 0.05925226330055066,
+   "brand low": 0.025652968982166447,
+   "brand high": 0.10223529138859729
+  },
+  {
+   "platform": "youtube",
+   "quantity": "y",
+   "same-author pairs": 757,
+   "share shared by an author": 0.798711954951001,
+   "author low": 0.7459457637784365,
+   "author high": 0.8605222446220253,
+   "same-brand other-author pairs": 14177,
+   "share shared by a brand": 0.08605424322548919,
+   "brand low": 0.05164707450462361,
+   "brand high": 0.12501647845925984
+  },
+  {
+   "platform": "twitter",
+   "quantity": "y",
+   "same-author pairs": 686,
+   "share shared by an author": 0.46385020831285917,
+   "author low": 0.4286405080906623,
+   "author high": 0.7705625954275527,
+   "same-brand other-author pairs": 7792,
+   "share shared by a brand": 0.0743657159466087,
+   "brand low": 0.026005023548597024,
+   "brand high": 0.11016723422000639
+  }
+ ],
+ "brand_totals": [
+  {
+   "platform": "tiktok",
+   "unit": "brand",
+   "units": 238,
+   "median posts": 10.0,
+   "per-post MAE": 0.27320826409670573,
+   "MAE of total (calibrated)": 0.2267758976143927,
+   "bias of total (calibrated)": -0.020898279689716494,
+   "MAE of total (sum of medians)": 0.2322682782119965,
+   "bias of total (sum of medians)": -0.09922054545676313,
+   "share within \u00d72": 0.726890756302521,
+   "Spearman of totals": 0.9330285792617986,
+   "MAE total low": 0.20374935531128552,
+   "MAE total high": 0.24989520458793843,
+   "Brand24 reach: MAE of total": NaN,
+   "Brand24 reach: bias of total": NaN,
+   "Brand24 reach: Spearman": NaN
+  },
+  {
+   "platform": "tiktok",
+   "unit": "brand-month",
+   "units": 392,
+   "median posts": 5.0,
+   "per-post MAE": 0.27320826409670573,
+   "MAE of total (calibrated)": 0.22951807215614106,
+   "bias of total (calibrated)": -0.0194512107594286,
+   "MAE of total (sum of medians)": 0.23363600198626064,
+   "bias of total (sum of medians)": -0.09739071707089741,
+   "share within \u00d72": 0.7168367346938775,
+   "Spearman of totals": 0.9203933813817593,
+   "MAE total low": 0.21152146357937546,
+   "MAE total high": 0.25002879258446187,
+   "Brand24 reach: MAE of total": NaN,
+   "Brand24 reach: bias of total": NaN,
+   "Brand24 reach: Spearman": NaN
+  },
+  {
+   "platform": "youtube",
+   "unit": "brand",
+   "units": 213,
+   "median posts": 10.0,
+   "per-post MAE": 0.45566381424531344,
+   "MAE of total (calibrated)": 0.31072773446573565,
+   "bias of total (calibrated)": -0.08320532395903936,
+   "MAE of total (sum of medians)": 0.33805772435407777,
+   "bias of total (sum of medians)": -0.24193028571587996,
+   "share within \u00d72": 0.6525821596244131,
+   "Spearman of totals": 0.8550023470039066,
+   "MAE total low": 0.26664366469518613,
+   "MAE total high": 0.3628156506345848,
+   "Brand24 reach: MAE of total": NaN,
+   "Brand24 reach: bias of total": NaN,
+   "Brand24 reach: Spearman": NaN
+  },
+  {
+   "platform": "youtube",
+   "unit": "brand-month",
+   "units": 324,
+   "median posts": 5.0,
+   "per-post MAE": 0.45566381424531344,
+   "MAE of total (calibrated)": 0.30504967830403384,
+   "bias of total (calibrated)": -0.049849550133808776,
+   "MAE of total (sum of medians)": 0.3318631963642018,
+   "bias of total (sum of medians)": -0.20865678818041236,
+   "share within \u00d72": 0.6327160493827161,
+   "Spearman of totals": 0.8665661136249374,
+   "MAE total low": 0.27195610770280054,
+   "MAE total high": 0.33380611981591707,
+   "Brand24 reach: MAE of total": NaN,
+   "Brand24 reach: bias of total": NaN,
+   "Brand24 reach: Spearman": NaN
+  },
+  {
+   "platform": "twitter",
+   "unit": "brand",
+   "units": 189,
+   "median posts": 8.0,
+   "per-post MAE": 0.4664935387737166,
+   "MAE of total (calibrated)": 0.31725786629827013,
+   "bias of total (calibrated)": -0.027837061833495016,
+   "MAE of total (sum of medians)": 0.36434328917477243,
+   "bias of total (sum of medians)": -0.24563409023880156,
+   "share within \u00d72": 0.5555555555555556,
+   "Spearman of totals": 0.8145002641801513,
+   "MAE total low": 0.28285387187377126,
+   "MAE total high": 0.35550370475669607,
+   "Brand24 reach: MAE of total": 1.0169700067397314,
+   "Brand24 reach: bias of total": 0.9977711269137959,
+   "Brand24 reach: Spearman": 0.8173406998617472
+  },
+  {
+   "platform": "twitter",
+   "unit": "brand-month",
+   "units": 232,
+   "median posts": 5.0,
+   "per-post MAE": 0.4664935387737166,
+   "MAE of total (calibrated)": 0.3453422522745157,
+   "bias of total (calibrated)": -0.03863429837601419,
+   "MAE of total (sum of medians)": 0.3862560563526943,
+   "bias of total (sum of medians)": -0.2566685804153002,
+   "share within \u00d72": 0.4956896551724138,
+   "Spearman of totals": 0.7430563730785802,
+   "MAE total low": 0.30894366859945166,
+   "MAE total high": 0.38088748073420275,
+   "Brand24 reach: MAE of total": 1.0164107644691303,
+   "Brand24 reach: bias of total": 0.9658286923344046,
+   "Brand24 reach: Spearman": 0.7461805381206428
+  }
+ ],
+ "anomalies": [
+  {
+   "platform": "tiktok",
+   "group": "rest",
+   "posts": 2430,
+   "share of posts": 0.9755118426334806,
+   "promo": 0.33497942386831275,
+   "spam": 0.1308641975308642,
+   "organic": 0.47901234567901235,
+   "zero reactions": 0.030864197530864196,
+   "copied text": 0.0102880658436214,
+   "brand or brand-named account": 0.040740740740740744,
+   "news / media": 0.012345679012345678,
+   "median followers": 1530.4959980346248,
+   "median likes": 33.0,
+   "median true views": 724.9993103444997,
+   "author with >= 2 posts": 0.0551440329218107
+  },
+  {
+   "platform": "tiktok",
+   "group": "\u00d710 above",
+   "posts": 32,
+   "share of posts": 0.012846246487354477,
+   "promo": 0.59375,
+   "spam": 0.125,
+   "organic": 0.28125,
+   "zero reactions": 0.03125,
+   "copied text": 0.09375,
+   "brand or brand-named account": 0.09375,
+   "news / media": 0.0,
+   "median followers": 12909.389141241343,
+   "median likes": 31.0,
+   "median true views": 13840.25129829657,
+   "author with >= 2 posts": 0.15625
+  },
+  {
+   "platform": "tiktok",
+   "group": "\u00d710 below",
+   "posts": 29,
+   "share of posts": 0.011641910879164994,
+   "promo": 0.3793103448275862,
+   "spam": 0.3103448275862069,
+   "organic": 0.20689655172413793,
+   "zero reactions": 0.4827586206896552,
+   "copied text": 0.034482758620689655,
+   "brand or brand-named account": 0.0,
+   "news / media": 0.0,
+   "median followers": 374.0000000000001,
+   "median likes": 1.0,
+   "median true views": 5.000000000000001,
+   "author with >= 2 posts": 0.06896551724137931
+  },
+  {
+   "platform": "youtube",
+   "group": "rest",
+   "posts": 2218,
+   "share of posts": 0.9086439983613274,
+   "promo": 0.4224526600541028,
+   "spam": 0.14562669071235348,
+   "organic": 0.306131650135257,
+   "zero reactions": 0.23895401262398558,
+   "copied text": 0.009467989179440937,
+   "brand or brand-named account": 0.034715960324616775,
+   "news / media": 0.06943192064923355,
+   "median followers": 29800.000000000004,
+   "median likes": 10.0,
+   "median true views": 409.99999999999994,
+   "author with >= 2 posts": 0.26690712353471596
+  },
+  {
+   "platform": "youtube",
+   "group": "\u00d710 above",
+   "posts": 139,
+   "share of posts": 0.05694387546087669,
+   "promo": 0.45323741007194246,
+   "spam": 0.22302158273381295,
+   "organic": 0.2589928057553957,
+   "zero reactions": 0.4748201438848921,
+   "copied text": 0.050359712230215826,
+   "brand or brand-named account": 0.09352517985611511,
+   "news / media": 0.05755395683453238,
+   "median followers": 26699.999999999985,
+   "median likes": 0.0,
+   "median true views": 7306.000000000003,
+   "author with >= 2 posts": 0.2517985611510791
+  },
+  {
+   "platform": "youtube",
+   "group": "\u00d710 below",
+   "posts": 84,
+   "share of posts": 0.03441212617779599,
+   "promo": 0.44047619047619047,
+   "spam": 0.19047619047619047,
+   "organic": 0.2261904761904762,
+   "zero reactions": 0.8214285714285714,
+   "copied text": 0.05952380952380952,
+   "brand or brand-named account": 0.03571428571428571,
+   "news / media": 0.09523809523809523,
+   "median followers": 18499.999999999996,
+   "median likes": 0.0,
+   "median true views": 6.4807406984078595,
+   "author with >= 2 posts": 0.3333333333333333
+  },
+  {
+   "platform": "twitter",
+   "group": "rest",
+   "posts": 1624,
+   "share of posts": 0.9007210205213533,
+   "promo": 0.18903940886699508,
+   "spam": 0.11145320197044335,
+   "organic": 0.6908866995073891,
+   "zero reactions": 0.5406403940886699,
+   "copied text": 0.03263546798029557,
+   "brand or brand-named account": 0.004310344827586207,
+   "news / media": 0.0166256157635468,
+   "median followers": 542.9917126439409,
+   "median likes": 0.0,
+   "median true views": 26.0,
+   "author with >= 2 posts": 0.11945812807881774
+  },
+  {
+   "platform": "twitter",
+   "group": "\u00d710 above",
+   "posts": 109,
+   "share of posts": 0.06045479755962285,
+   "promo": 0.14678899082568808,
+   "spam": 0.2018348623853211,
+   "organic": 0.6422018348623854,
+   "zero reactions": 0.6146788990825688,
+   "copied text": 0.08256880733944955,
+   "brand or brand-named account": 0.009174311926605505,
+   "news / media": 0.03669724770642202,
+   "median followers": 246.3168690934505,
+   "median likes": 0.0,
+   "median true views": 375.0,
+   "author with >= 2 posts": 0.22935779816513763
+  },
+  {
+   "platform": "twitter",
+   "group": "\u00d710 below",
+   "posts": 70,
+   "share of posts": 0.03882418191902385,
+   "promo": 0.15714285714285714,
+   "spam": 0.12857142857142856,
+   "organic": 0.7142857142857143,
+   "zero reactions": 0.6571428571428571,
+   "copied text": 0.05714285714285714,
+   "brand or brand-named account": 0.02857142857142857,
+   "news / media": 0.0,
+   "median followers": 757.0363267373629,
+   "median likes": 0.0,
+   "median true views": 1.0,
+   "author with >= 2 posts": 0.12857142857142856
+  }
+ ],
+ "anomaly_persistence": [
+  {
+   "platform": "tiktok",
+   "posts": 63,
+   "earlier mean >= 0.5": 8,
+   "P(\u00d710 above | high history)": 0.125,
+   "P(\u00d710 above | other)": 0.01818181818181818,
+   "P(\u00d710 above), all posts": 0.012846246487354477
+  },
+  {
+   "platform": "youtube",
+   "posts": 379,
+   "earlier mean >= 0.5": 78,
+   "P(\u00d710 above | high history)": 0.19230769230769232,
+   "P(\u00d710 above | other)": 0.013289036544850499,
+   "P(\u00d710 above), all posts": 0.05694387546087669
+  },
+  {
+   "platform": "twitter",
+   "posts": 112,
+   "earlier mean >= 0.5": 19,
+   "P(\u00d710 above | high history)": 0.3157894736842105,
+   "P(\u00d710 above | other)": 0.053763440860215055,
+   "P(\u00d710 above), all posts": 0.06045479755962285
+  }
+ ],
+ "views_per_like": [
+  {
+   "platform": "tiktok",
+   "followers": "100k-1M",
+   "likes": "10-99",
+   "posts": 32,
+   "median predicted views": 1477.5563803223986,
+   "median true views": 1620.9999999999995,
+   "predicted views per like": 34.23173461776633,
+   "true views per like": 36.52401372212694,
+   "elasticity (doubling reactions)": 0.6210345075972519
+  },
+  {
+   "platform": "tiktok",
+   "followers": "100k-1M",
+   "likes": "100-999",
+   "posts": 51,
+   "median predicted views": 8062.138521348066,
+   "median true views": 8678.000000000004,
+   "predicted views per like": 25.474310009091084,
+   "true views per like": 28.721739130434774,
+   "elasticity (doubling reactions)": 0.5759682932489172
+  },
+  {
+   "platform": "tiktok",
+   "followers": "100k-1M",
+   "likes": "1000+",
+   "posts": 48,
+   "median predicted views": 79280.43818217545,
+   "median true views": 84417.00000000006,
+   "predicted views per like": 15.913234471586897,
+   "true views per like": 16.666065090894996,
+   "elasticity (doubling reactions)": 0.5238279484311559
+  },
+  {
+   "platform": "tiktok",
+   "followers": "10k-100k",
+   "likes": "1-9",
+   "posts": 54,
+   "median predicted views": 314.37003102754,
+   "median true views": 355.5,
+   "predicted views per like": 63.69967283986692,
+   "true views per like": 65.37500000000001,
+   "elasticity (doubling reactions)": 0.358534146737552
+  },
+  {
+   "platform": "tiktok",
+   "followers": "10k-100k",
+   "likes": "10-99",
+   "posts": 182,
+   "median predicted views": 867.2296469172625,
+   "median true views": 950.5000000000001,
+   "predicted views per like": 26.42220722833775,
+   "true views per like": 24.870833333333323,
+   "elasticity (doubling reactions)": 0.5969579715316697
+  },
+  {
+   "platform": "tiktok",
+   "followers": "10k-100k",
+   "likes": "100-999",
+   "posts": 138,
+   "median predicted views": 5803.143793829924,
+   "median true views": 5873.500000000001,
+   "predicted views per like": 22.498978984348078,
+   "true views per like": 19.811002934115763,
+   "elasticity (doubling reactions)": 0.7003098531762139
+  },
+  {
+   "platform": "tiktok",
+   "followers": "10k-100k",
+   "likes": "1000+",
+   "posts": 61,
+   "median predicted views": 53716.23715020591,
+   "median true views": 59623.00000000004,
+   "predicted views per like": 14.862636865495034,
+   "true views per like": 16.463768115942017,
+   "elasticity (doubling reactions)": 0.5739725912371495
+  },
+  {
+   "platform": "tiktok",
+   "followers": "1k-10k",
+   "likes": "1-9",
+   "posts": 168,
+   "median predicted views": 223.25561615884095,
+   "median true views": 225.0000000000001,
+   "predicted views per like": 53.27069218615341,
+   "true views per like": 52.46527777777777,
+   "elasticity (doubling reactions)": 0.4001398270839206
+  },
+  {
+   "platform": "tiktok",
+   "followers": "1k-10k",
+   "likes": "10-99",
+   "posts": 422,
+   "median predicted views": 592.3428071145264,
+   "median true views": 626.0000000000001,
+   "predicted views per like": 19.879947397879334,
+   "true views per like": 20.469899665551843,
+   "elasticity (doubling reactions)": 0.5802918025484692
+  },
+  {
+   "platform": "tiktok",
+   "followers": "1k-10k",
+   "likes": "100-999",
+   "posts": 154,
+   "median predicted views": 3689.509236424474,
+   "median true views": 4291.499999999999,
+   "predicted views per like": 18.44267903681266,
+   "true views per like": 20.492212420255196,
+   "elasticity (doubling reactions)": 0.7126613610887557
+  },
+  {
+   "platform": "tiktok",
+   "followers": "1k-10k",
+   "likes": "1000+",
+   "posts": 57,
+   "median predicted views": 52655.61434993736,
+   "median true views": 63023.00000000006,
+   "predicted views per like": 12.191571102970983,
+   "true views per like": 13.43394699575158,
+   "elasticity (doubling reactions)": 0.5284013193604022
+  },
+  {
+   "platform": "tiktok",
+   "followers": "< 1k",
+   "likes": "0",
+   "posts": 73,
+   "median predicted views": 92.11078930367019,
+   "median true views": 81.0,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  },
+  {
+   "platform": "tiktok",
+   "followers": "< 1k",
+   "likes": "1-9",
+   "posts": 350,
+   "median predicted views": 182.9480315665464,
+   "median true views": 186.00000000000009,
+   "predicted views per like": 50.258468747795376,
+   "true views per like": 53.875000000000014,
+   "elasticity (doubling reactions)": 0.4343867204108185
+  },
+  {
+   "platform": "tiktok",
+   "followers": "< 1k",
+   "likes": "10-99",
+   "posts": 483,
+   "median predicted views": 548.8819484701871,
+   "median true views": 613.0,
+   "predicted views per like": 19.932044625884128,
+   "true views per like": 20.500000000000004,
+   "elasticity (doubling reactions)": 0.5578647304357207
+  },
+  {
+   "platform": "tiktok",
+   "followers": "< 1k",
+   "likes": "100-999",
+   "posts": 128,
+   "median predicted views": 2594.972367197054,
+   "median true views": 2545.5,
+   "predicted views per like": 14.22538873447655,
+   "true views per like": 13.107962237263985,
+   "elasticity (doubling reactions)": 0.6797779417849351
+  },
+  {
+   "platform": "tiktok",
+   "followers": "< 1k",
+   "likes": "1000+",
+   "posts": 36,
+   "median predicted views": 65795.71310495723,
+   "median true views": 83803.00000000006,
+   "predicted views per like": 11.44972139365575,
+   "true views per like": 8.96175547044631,
+   "elasticity (doubling reactions)": 0.5903786545177738
+  },
+  {
+   "platform": "tiktok",
+   "followers": "> 1M",
+   "likes": "1000+",
+   "posts": 17,
+   "median predicted views": 68179.09079793627,
+   "median true views": 64480.99999999996,
+   "predicted views per like": 11.683081270110721,
+   "true views per like": 13.46899962845998,
+   "elasticity (doubling reactions)": 0.4656400365584369
+  },
+  {
+   "platform": "youtube",
+   "followers": "100k-1M",
+   "likes": "0",
+   "posts": 131,
+   "median predicted views": 831.2459767554253,
+   "median true views": 829.9999999999997,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  },
+  {
+   "platform": "youtube",
+   "followers": "100k-1M",
+   "likes": "1-9",
+   "posts": 70,
+   "median predicted views": 232.0015148651069,
+   "median true views": 145.00000000000003,
+   "predicted views per like": 47.050763816035115,
+   "true views per like": 37.05555555555554,
+   "elasticity (doubling reactions)": 0.6108926498188849
+  },
+  {
+   "platform": "youtube",
+   "followers": "100k-1M",
+   "likes": "10-99",
+   "posts": 150,
+   "median predicted views": 804.5980579989468,
+   "median true views": 933.9999999999998,
+   "predicted views per like": 29.42891217930034,
+   "true views per like": 32.1606334841629,
+   "elasticity (doubling reactions)": 0.7722256766879149
+  },
+  {
+   "platform": "youtube",
+   "followers": "100k-1M",
+   "likes": "100-999",
+   "posts": 178,
+   "median predicted views": 6355.420212777869,
+   "median true views": 7065.999999999997,
+   "predicted views per like": 22.51700732390892,
+   "true views per like": 22.11424180327868,
+   "elasticity (doubling reactions)": 0.9162620876482459
+  },
+  {
+   "platform": "youtube",
+   "followers": "100k-1M",
+   "likes": "1000+",
+   "posts": 70,
+   "median predicted views": 42675.409525101815,
+   "median true views": 44161.500000000015,
+   "predicted views per like": 20.225317828785833,
+   "true views per like": 22.709134192544493,
+   "elasticity (doubling reactions)": 0.6477260153167926
+  },
+  {
+   "platform": "youtube",
+   "followers": "10k-100k",
+   "likes": "0",
+   "posts": 255,
+   "median predicted views": 374.27962656645434,
+   "median true views": 187.00000000000003,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  },
+  {
+   "platform": "youtube",
+   "followers": "10k-100k",
+   "likes": "1-9",
+   "posts": 215,
+   "median predicted views": 72.6647483089766,
+   "median true views": 76.0,
+   "predicted views per like": 16.978370933579882,
+   "true views per like": 24.75,
+   "elasticity (doubling reactions)": 0.6728234838974494
+  },
+  {
+   "platform": "youtube",
+   "followers": "10k-100k",
+   "likes": "10-99",
+   "posts": 301,
+   "median predicted views": 600.9488697482822,
+   "median true views": 547.0000000000001,
+   "predicted views per like": 18.804304032218823,
+   "true views per like": 17.94117647058824,
+   "elasticity (doubling reactions)": 0.8527159238279476
+  },
+  {
+   "platform": "youtube",
+   "followers": "10k-100k",
+   "likes": "100-999",
+   "posts": 139,
+   "median predicted views": 3539.7896005862517,
+   "median true views": 3226.9999999999995,
+   "predicted views per like": 17.341730058826542,
+   "true views per like": 17.281626506024082,
+   "elasticity (doubling reactions)": 0.9374753171950929
+  },
+  {
+   "platform": "youtube",
+   "followers": "1k-10k",
+   "likes": "0",
+   "posts": 189,
+   "median predicted views": 68.74129729872223,
+   "median true views": 57.00000000000001,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  },
+  {
+   "platform": "youtube",
+   "followers": "1k-10k",
+   "likes": "1-9",
+   "posts": 204,
+   "median predicted views": 73.07238507684107,
+   "median true views": 66.00000000000001,
+   "predicted views per like": 20.205295912068287,
+   "true views per like": 22.0,
+   "elasticity (doubling reactions)": 0.6280833661120199
+  },
+  {
+   "platform": "youtube",
+   "followers": "1k-10k",
+   "likes": "10-99",
+   "posts": 104,
+   "median predicted views": 444.0035714672708,
+   "median true views": 491.0000000000001,
+   "predicted views per like": 16.215196885743566,
+   "true views per like": 17.39583333333333,
+   "elasticity (doubling reactions)": 0.9855543563679634
+  },
+  {
+   "platform": "youtube",
+   "followers": "1k-10k",
+   "likes": "100-999",
+   "posts": 22,
+   "median predicted views": 3262.0585905771213,
+   "median true views": 3569.5,
+   "predicted views per like": 14.454568123148768,
+   "true views per like": 16.449931550302182,
+   "elasticity (doubling reactions)": 1.0772480486502465
+  },
+  {
+   "platform": "youtube",
+   "followers": "< 1k",
+   "likes": "0",
+   "posts": 107,
+   "median predicted views": 8.974300765217988,
+   "median true views": 9.0,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  },
+  {
+   "platform": "youtube",
+   "followers": "< 1k",
+   "likes": "1-9",
+   "posts": 112,
+   "median predicted views": 33.22477957067633,
+   "median true views": 39.49999999999999,
+   "predicted views per like": 17.916630080900372,
+   "true views per like": 24.16666666666667,
+   "elasticity (doubling reactions)": 0.7237087112264344
+  },
+  {
+   "platform": "youtube",
+   "followers": "< 1k",
+   "likes": "10-99",
+   "posts": 26,
+   "median predicted views": 419.0250452718794,
+   "median true views": 794.4999999999998,
+   "predicted views per like": 19.994062725723886,
+   "true views per like": 32.97895408163265,
+   "elasticity (doubling reactions)": 1.1867641914990341
+  },
+  {
+   "platform": "youtube",
+   "followers": "> 1M",
+   "likes": "0",
+   "posts": 29,
+   "median predicted views": 3496.85942173568,
+   "median true views": 5466.000000000003,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  },
+  {
+   "platform": "youtube",
+   "followers": "> 1M",
+   "likes": "1-9",
+   "posts": 22,
+   "median predicted views": 463.14085876877516,
+   "median true views": 283.49999999999994,
+   "predicted views per like": 112.71155695276391,
+   "true views per like": 111.25000000000003,
+   "elasticity (doubling reactions)": 0.42162009633643205
+  },
+  {
+   "platform": "youtube",
+   "followers": "> 1M",
+   "likes": "10-99",
+   "posts": 26,
+   "median predicted views": 1104.5443303137197,
+   "median true views": 883.5000000000002,
+   "predicted views per like": 42.94909225405415,
+   "true views per like": 37.543956043956044,
+   "elasticity (doubling reactions)": 0.7775976836295578
+  },
+  {
+   "platform": "youtube",
+   "followers": "> 1M",
+   "likes": "100-999",
+   "posts": 31,
+   "median predicted views": 20777.960536475526,
+   "median true views": 14616.000000000005,
+   "predicted views per like": 46.454752574902734,
+   "true views per like": 37.91304347826089,
+   "elasticity (doubling reactions)": 0.9255765108959082
+  },
+  {
+   "platform": "youtube",
+   "followers": "> 1M",
+   "likes": "1000+",
+   "posts": 46,
+   "median predicted views": 122854.52657487887,
+   "median true views": 128139.00000000001,
+   "predicted views per like": 31.733713972934176,
+   "true views per like": 26.943774548724896,
+   "elasticity (doubling reactions)": 0.7891187044593909
+  },
+  {
+   "platform": "twitter",
+   "followers": "100k-1M",
+   "likes": "1-9",
+   "posts": 19,
+   "median predicted views": 977.7860830477199,
+   "median true views": 1027.0000000000002,
+   "predicted views per like": 279.1716472723926,
+   "true views per like": 637.4999999999997,
+   "elasticity (doubling reactions)": 0.9422276398882298
+  },
+  {
+   "platform": "twitter",
+   "followers": "10k-100k",
+   "likes": "0",
+   "posts": 47,
+   "median predicted views": 83.29296322221369,
+   "median true views": 109.00000000000004,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  },
+  {
+   "platform": "twitter",
+   "followers": "10k-100k",
+   "likes": "1-9",
+   "posts": 51,
+   "median predicted views": 295.40989353068113,
+   "median true views": 265.0,
+   "predicted views per like": 111.89110746375094,
+   "true views per like": 77.25,
+   "elasticity (doubling reactions)": 0.8294656512064554
+  },
+  {
+   "platform": "twitter",
+   "followers": "10k-100k",
+   "likes": "10-99",
+   "posts": 22,
+   "median predicted views": 1116.1390107897616,
+   "median true views": 1437.5,
+   "predicted views per like": 50.095743740407286,
+   "true views per like": 66.16838235294117,
+   "elasticity (doubling reactions)": 0.8745934108881364
+  },
+  {
+   "platform": "twitter",
+   "followers": "1k-10k",
+   "likes": "0",
+   "posts": 234,
+   "median predicted views": 22.748888800015575,
+   "median true views": 25.000000000000007,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  },
+  {
+   "platform": "twitter",
+   "followers": "1k-10k",
+   "likes": "1-9",
+   "posts": 204,
+   "median predicted views": 53.75140800600043,
+   "median true views": 76.5,
+   "predicted views per like": 32.134167407923485,
+   "true views per like": 37.16666666666666,
+   "elasticity (doubling reactions)": 1.0532352679351895
+  },
+  {
+   "platform": "twitter",
+   "followers": "1k-10k",
+   "likes": "10-99",
+   "posts": 46,
+   "median predicted views": 432.1892776427733,
+   "median true views": 571.0,
+   "predicted views per like": 26.68148005117012,
+   "true views per like": 34.833333333333336,
+   "elasticity (doubling reactions)": 0.9300631276365314
+  },
+  {
+   "platform": "twitter",
+   "followers": "< 1k",
+   "likes": "0",
+   "posts": 795,
+   "median predicted views": 13.045651183804065,
+   "median true views": 11.000000000000002,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  },
+  {
+   "platform": "twitter",
+   "followers": "< 1k",
+   "likes": "1-9",
+   "posts": 290,
+   "median predicted views": 30.58586597576098,
+   "median true views": 40.49999999999999,
+   "predicted views per like": 24.99773733195996,
+   "true views per like": 26.500000000000004,
+   "elasticity (doubling reactions)": 1.1864672482929537
+  },
+  {
+   "platform": "twitter",
+   "followers": "< 1k",
+   "likes": "10-99",
+   "posts": 20,
+   "median predicted views": 538.517654058802,
+   "median true views": 788.5,
+   "predicted views per like": 26.738895308641503,
+   "true views per like": 26.166666666666664,
+   "elasticity (doubling reactions)": 0.772907436219443
+  },
+  {
+   "platform": "twitter",
+   "followers": "> 1M",
+   "likes": "0",
+   "posts": 30,
+   "median predicted views": 20.441425817851158,
+   "median true views": 12.5,
+   "predicted views per like": NaN,
+   "true views per like": NaN,
+   "elasticity (doubling reactions)": 0.0
+  }
+ ]
+}

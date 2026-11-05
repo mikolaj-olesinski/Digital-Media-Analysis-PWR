@@ -74,3 +74,9 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E67 | small | Topic clusters of all posts | [E67](E67.md) |
 | E68 | small | Author over-performance persists | [E68](E68.md) |
 | E69 | small | Brand communities and cold start | [E69](E69.md) |
+| E70 | small | Author history in depth, and at posting time | [E70](E70.md) |
+| E71 | small | Can the author's level be predicted without history? | [E71](E71.md) |
+| E72 | small | Variance components of the error | [E72](E72.md) |
+| E73 | small | Brand totals | [E73](E73.md) |
+| E74 | small | Anomalies ×10 above or below the prediction | [E74](E74.md) |
+| E75 | small | Views per like implied by the final model | [E75](E75.md) |
