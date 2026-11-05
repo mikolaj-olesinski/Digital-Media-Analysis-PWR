@@ -43,6 +43,7 @@ Wewnętrzna mapa tego, co, jak i gdzie sprawdziliśmy. To nie jest tekst preprin
 | `29_accounts_clusters` | Typy kont, klastry tematów, historia autora, społeczności marek (E66–E69) | `accounts_clusters_numbers.json` |
 | `30_author_more` | Historia autora dokładniej, rozkład wariancji, sumy dla marek, anomalie, wyświetlenia na lajk (E70–E75) | `author_more_numbers.json` |
 | `31_author_next` | Gdzie zostaje błąd, krzywa historii, poziom autora bez wyświetleń, szacunek na żywo z historią, przedziały sum marek (E76–E80) | `author_next_numbers.json` |
+| `32_fbig_more` | FB / IG przed ręcznym sprawdzeniem (struktura, szacunki zapisane z góry, ocena), atlas nadwyżek (E81–E83) | `fbig_more_numbers.json`, `fbig_preregistered.csv` |
 
 ## Kolumny
 Zestaw podstawowy: followersi, lajki, komentarze, udostępnienia (w logarytmie) i znacznik braku dla każdej z nich. Dodane i sprawdzone osobno: statystyki tekstu, 30 tematów TF-IDF SVD, VADER, kalendarz, wskaźniki, wielkość marki, nasze etykiety typu i sentymentu, sentyment Brand24, cechy grafowe.
@@ -83,6 +84,7 @@ Zasięg = max(k × reakcje, c(followersi) × followersi). k wynosi 700 na X (300
 - **Poziom autora (E70–E72):** dwie trzecie pozostałego błędu na TikToku i YouTube to wspólny poziom postów jednego autora (marka ≤ 0,08); cechy konta go nie przewidują, przewidują go dawne wyświetlenia autora: +0,10–0,15 z reakcjami, +0,14–0,17 w chwili publikacji.
 - **Widok klienta (E73, E75):** sumy marek z dokładnością ×1,7 / ×2,0 / ×2,1, zasięg Brand24 na X ×10 za duży; wyświetlenia na lajk 11–64 na TikToku, 17–113 na YouTube, 25–279 na X zależnie od progu.
 - **Pozostały błąd i przedziały (E76–E80):** błąd jest rozłożony na wszystkie posty (najgorsze bez reakcji), a nie na kilku autorów; jeden wcześniejszy post autora daje większość zysku z historii; poziomu autora nie widać z reakcji na innych postach; przedział 80% dla sumy marki to ×2,2 / ×3,0 / ×3,3 i jest skalibrowany.
+- **FB / IG przed ręcznym sprawdzeniem (E81–E82):** reakcje na Instagramie najbardziej przypominają X i YouTube, a Facebook nie przypomina żadnej platformy; szacunki dla 312 postów z próbki są zapisane, zanim zobaczymy wyświetlenia (FB ok. 200–250, IG 35–95; zasięg Brand24 ×15–20 wyżej niż nasz na FB). **Atlas (E83):** reklamy, posty spoza USA, wielkie litery na X i popołudnie UTC na YouTube mają więcej wyświetleń przy tych samych reakcjach.
 - **Anomalie (E74):** posty ×10 ponad prognozę to częściej reklamy, kopie, konta marek, powracający autorzy; historia autora wskazuje je 6–15× lepiej niż losowo.
 - **Nie pomogło:** model wspólny i monotoniczny (E61), wszystkie pary sprawdzeń (E59), typ konta jako cecha (E66), podobne marki dla nowej marki (E69).
 

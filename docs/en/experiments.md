@@ -85,6 +85,9 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E78 | 2026-11-05 | Author level without views | Reactions on the author's other posts in the sample as columns | No gain: -0.002 / 0.000 / 0.000; on posts with other posts -0.047 / +0.016 / -0.002 | none | `31_author_next` |
 | E79 | 2026-11-05 | Live forecast plus author history | E40 forecast + shrunk author residuals | Only 31 YouTube pairs; +0.005 (CI crosses zero); inconclusive | none | `31_author_next` |
 | E80 | 2026-11-05 | Intervals for brand totals | Brand-level quantiles vs summed independent post errors | Brand-level 80% interval calibrated (0.79-0.80), ×2.2 / ×3.0 / ×3.3; independent errors not calibrated | small | `31_author_next` |
+| E81 | 2026-11-05 | FB / IG next to platforms with views | Reaction structure; adversarial AUC target vs source | IG closest to X / YouTube (AUC 0.65), not TikTok (0.85); FB far from all (0.81-0.87, with followers 0.89-0.98) | finding | `32_fbig_more` |
+| E82 | 2026-11-05 | Pre-registered FB / IG estimates | Transfer models on the 312 hand-check posts before any view is seen; scoring ready | FB about 200-250 views, IG 35-95; Brand24 reach ×15-20 above ours on FB, below on IG; awaiting hand check | pending | `32_fbig_more`, `fbig_preregistered.csv` |
+| E83 | 2026-11-05 | Residual atlas | Over-performance by country, hour, sentiment, type, text style | Promo +0.10 / +0.06; US -0.12 / -0.09; X capitals +0.17, short text -0.15; YouTube 12-17 UTC +0.10, 18-23 -0.10 | finding | `32_fbig_more` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

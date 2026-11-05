@@ -85,3 +85,6 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E78 | none | Author level without views | [E78](E78.md) |
 | E79 | none | Live forecast plus author history | [E79](E79.md) |
 | E80 | small | Intervals for brand totals | [E80](E80.md) |
+| E81 | finding | FB / IG next to platforms with views | [E81](E81.md) |
+| E82 | pending | Pre-registered FB / IG estimates | [E82](E82.md) |
+| E83 | finding | Residual atlas | [E83](E83.md) |

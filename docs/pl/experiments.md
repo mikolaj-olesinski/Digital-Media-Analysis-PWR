@@ -85,6 +85,9 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E78 | 2026-11-05 | Poziom autora bez wyświetleń | Reakcje na innych postach autora w próbce jako kolumny | Brak zysku: -0,002 / 0,000 / 0,000; na postach z innymi postami -0,047 / +0,016 / -0,002 | brak | `31_author_next` |
 | E79 | 2026-11-05 | Szacunek na żywo z historią autora | Prognoza E40 + ściągnięte reszty autora | Tylko 31 par z YouTube; +0,005 (przedział przez zero); bez rozstrzygnięcia | brak | `31_author_next` |
 | E80 | 2026-11-05 | Przedziały dla sum marek | Kwantyle na poziomie marek vs suma niezależnych błędów postów | Przedział 80% z kwantyli marek skalibrowany (0,79–0,80), ×2,2 / ×3,0 / ×3,3; niezależne błędy nieskalibrowane | mały | `31_author_next` |
+| E81 | 2026-11-05 | FB / IG na tle platform z wyświetleniami | Struktura reakcji; AUC klasyfikatora cel vs źródło | IG najbliżej X / YouTube (AUC 0,65), nie TikToka (0,85); FB daleko od wszystkich (0,81–0,87, z obserwującymi 0,89–0,98) | wniosek | `32_fbig_more` |
+| E82 | 2026-11-05 | Szacunki FB / IG zapisane przed sprawdzeniem | Modele przeniesienia na 312 postach z próbki, zanim zobaczymy wyświetlenia; ocena gotowa | FB ok. 200–250 wyświetleń, IG 35–95; zasięg Brand24 ×15–20 wyżej niż nasz na FB, niżej na IG; czeka na ręczne sprawdzenie | w toku | `32_fbig_more`, `fbig_preregistered.csv` |
+| E83 | 2026-11-05 | Atlas nadwyżek | Nadwyżka wg kraju, godziny, wydźwięku, typu, stylu tekstu | Reklamy +0,10 / +0,06; USA -0,12 / -0,09; X wielkie litery +0,17, krótki tekst -0,15; YouTube 12–17 UTC +0,10, 18–23 -0,10 | wniosek | `32_fbig_more` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.

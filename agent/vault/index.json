@@ -988,5 +988,42 @@
   "paths": [
    "notebooks/models/31_author_next.ipynb"
   ]
+ },
+ {
+  "id": "E81",
+  "date": "2026-11-05",
+  "question": "FB / IG next to platforms with views",
+  "setup": "Reaction structure; adversarial AUC target vs source",
+  "result": "IG closest to X / YouTube (AUC 0.65), not TikTok (0.85); FB far from all (0.81-0.87, with followers 0.89-0.98)",
+  "type": "finding",
+  "where": "`32_fbig_more`",
+  "paths": [
+   "notebooks/models/32_fbig_more.ipynb"
+  ]
+ },
+ {
+  "id": "E82",
+  "date": "2026-11-05",
+  "question": "Pre-registered FB / IG estimates",
+  "setup": "Transfer models on the 312 hand-check posts before any view is seen; scoring ready",
+  "result": "FB about 200-250 views, IG 35-95; Brand24 reach ×15-20 above ours on FB, below on IG; awaiting hand check",
+  "type": "pending",
+  "where": "`32_fbig_more`, `fbig_preregistered.csv`",
+  "paths": [
+   "notebooks/models/32_fbig_more.ipynb",
+   "data/processed/fbig_preregistered.csv"
+  ]
+ },
+ {
+  "id": "E83",
+  "date": "2026-11-05",
+  "question": "Residual atlas",
+  "setup": "Over-performance by country, hour, sentiment, type, text style",
+  "result": "Promo +0.10 / +0.06; US -0.12 / -0.09; X capitals +0.17, short text -0.15; YouTube 12-17 UTC +0.10, 18-23 -0.10",
+  "type": "finding",
+  "where": "`32_fbig_more`",
+  "paths": [
+   "notebooks/models/32_fbig_more.ipynb"
+  ]
  }
 ]
