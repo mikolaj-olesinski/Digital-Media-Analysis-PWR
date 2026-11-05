@@ -656,6 +656,18 @@
   ]
  },
  {
+  "id": "E53",
+  "date": "2026-11-04",
+  "question": "Fine-tuned transformer: the row as text, and text as a correction",
+  "setup": "multilingual-e5-small fine-tuned on CPU (3.4 h), one joint model, joint brand folds; row as text → log views; text → CatBoost residual (inner out-of-fold)",
+  "result": "Row as text alone -0.018 / -0.001 / -0.023; mean with CatBoost +0.019 (0.012-0.027) on YouTube; CatBoost + half correction +0.007 / +0.012 / +0.008, all CIs above zero",
+  "type": "small",
+  "where": "`23_finetune_text`",
+  "paths": [
+   "notebooks/models/23_finetune_text.ipynb"
+  ]
+ },
+ {
   "id": "E55",
   "date": "2026-11-04",
   "question": "Leakage audit: folds that also separate authors and copied texts",
