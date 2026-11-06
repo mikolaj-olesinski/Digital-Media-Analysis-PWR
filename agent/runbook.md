@@ -51,3 +51,13 @@ kubectl -n amc wait --for=condition=complete job/<job> --timeout=1800s
 .venv/bin/python src/agent_tools.py check
 git status --short
 ```
+
+Checklist:
+
+- `vault` and `check` report 0 new failures (and 0 warnings you caused).
+- `python src/agent_tools_selftest.py` passes (where_paths and register parsing).
+- Numbers written by a script, not by hand, and the script is included.
+- Register row in **both** languages; card filled (Result, Decision, Follow-ups); findings updated if a conclusion moved.
+- No `data/raw/`, `logs/`, `AGENTS.md` or fetched personal data in the diff.
+- Commit message in English, small and descriptive; **no AI co-author lines**; no `git push`.
+- Figures in both `_en` and `_pl` versions when a document uses them.
