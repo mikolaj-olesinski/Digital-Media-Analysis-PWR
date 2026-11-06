@@ -37,6 +37,7 @@ The sample was supplied by Brand24 for the course; how mentions were selected is
 - **Terms and personal data.** Only public pages were read, without logging in and without cookies; no author names or
   URLs are published. The fetched files are local and git-ignored (`data/processed/*fetched*.csv`); they carry the mention
   id and the counters, not the post URL. Only aggregates appear in the repository.
+- Public brand data from Wikimedia (E86, E170, E171): monthly and daily English Wikipedia pageviews and Wikidata company facts (employees, revenue, founding year) for 293 brand articles. Only brand names / article titles were sent out (user consent 2026-11-05 and 2026-11-06); no author names, URLs or post texts. Files: `data/processed/brand_wikipedia.csv`, `brand_wiki_daily.csv`, `brand_wikidata.csv`.
 
 ## Removal requests
 

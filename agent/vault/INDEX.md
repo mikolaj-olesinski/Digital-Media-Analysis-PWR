@@ -174,3 +174,22 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E167 | finding | How much do views depend on followers vs reactions per platform? | [E167](E167.md) |
 | E168 | finding | How much of Brand24's reach rule can be recovered? | [E168](E168.md) |
 | E169 | finding | Can brand history substitute for unknown author history? | [E169](E169.md) |
+| E170 | none | Brand news attention on Wikipedia at post time | [E170](E170.md) |
+| E171 | none | Company facts from Wikidata | [E171](E171.md) |
+| E172 | none | Brand momentum, past-only | [E172](E172.md) |
+| E173 | none | Brand buzz in the Brand24 stream | [E173](E173.md) |
+| E174 | none | Platform time | [E174](E174.md) |
+| E175 | small | New text cues | [E175](E175.md) |
+| E176 | finding | Estimator for whatever fields arrive, with calibrated confidence | [E176](E176.md) |
+| E177 | finding | Facebook on Brand24's own likes / comments | [E177](E177.md) |
+| E178 | small | FB result on few brands | [E178](E178.md) |
+| E179 | finding | Check age in the noise ceiling; 30-day target | [E179](E179.md) |
+| E180 | finding | Losses for totals | [E180](E180.md) |
+| E181 | finding | X missing views, inverse-probability weights | [E181](E181.md) |
+| E182 | finding | Error by language and sentiment | [E182](E182.md) |
+| E183 | small | Creator score stability | [E183](E183.md) |
+| E184 | small | Anomalies vs promo / spam | [E184](E184.md) |
+| E185 | finding | Early virality alert from the first check | [E185](E185.md) |
+| E186 | finding | Monthly brand ranking within an industry | [E186](E186.md) |
+| E187 | finding | Negative posts | [E187](E187.md) |
+| E188 | small | Earned media value | [E188](E188.md) |
