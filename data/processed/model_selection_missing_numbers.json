@@ -1,0 +1,32 @@
+{
+ "tiktok": {
+  "no_reactions": {
+   "full": 1.139,
+   "followers_only_model": 0.583
+  },
+  "no_followers": {
+   "full": 0.294,
+   "reactions_only_model": 0.276
+  }
+ },
+ "youtube": {
+  "no_reactions": {
+   "full": 1.462,
+   "followers_only_model": 0.767
+  },
+  "no_followers": {
+   "full": 0.711,
+   "reactions_only_model": 0.494
+  }
+ },
+ "twitter": {
+  "no_reactions": {
+   "full": 0.609,
+   "followers_only_model": 0.575
+  },
+  "no_followers": {
+   "full": 0.733,
+   "reactions_only_model": 0.515
+  }
+ }
+}

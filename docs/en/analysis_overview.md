@@ -2,6 +2,9 @@
 
 Full list of experiments and results: `docs/en/experiments.md`.
 
+**Time scope:** the sections before the November push describe analyses up to 2026-11-04 and are historical; current
+numbers are in `model_card.md`.
+
 Internal map of what was tested, how and where. Not preprint text. Numbers come from `data/processed/*_numbers.json`; every number here can be rebuilt from the notebook named next to it.
 
 ## Shared setup
@@ -97,7 +100,29 @@ Reach = max(k × reactions, c(followers) × followers). k is 700 on X (300 above
 - "Families are equal" now holds only after tuning and not for ridge on YouTube.
 - "X reach = 0.1 × followers" holds only for posts without reactions.
 
+## November 2026 push (E95-E167)
+
+Script-based, no new notebooks; every experiment has a card and `docs/en/repro_map.md` maps it to code and numbers.
+
+- **Facebook measured** (E93/E95/E111/E153/E165): 130 hand + 402 fetched posts; model MAE 0.345 / 0.385 vs 0.93 for the
+  rule; the rule is x4.1 too high and wrong in every follower tier; the model wins in every tier (0.36-0.46).
+- **FB intervals** (E123/E132/E147/E148/E151/E166): CQR 0.925 at width 1.99; pages below 1M cover 0.94, above 1M 0.80-0.86
+  and cannot be calibrated with 70 posts; widening, shift, tier quantiles and a large-page model do not fix it.
+- **In-platform intervals** (E118/E137/E142/E141): CQR 0.889 / 0.902 / 0.899, 50% bands 0.45 / 0.74 / 0.83; the bands
+  hold on future months (0.907 / 0.901 / 0.932).
+- **Model quality** (E114/E119/E133-E136/E139/E141): repeated CV 0.269 ± 0.011 / 0.466 ± 0.030 / 0.463 ± 0.018;
+  isotonic, tier recalibration, seed averaging and recency weights do not help; author target encoding gains 0.10 on
+  seen X authors but only 1-8% of posts have it; log(age) gains X 0.013.
+- **Transfer** (E115/E131): only X needs calibration (25-50 posts, 0.650 -> 0.551); without target data the bands are
+  1.51 / 2.84 / 3.69 wide.
+- **Missing data** (E105/E116/E117/E126/E138/E161/E163/E164): 25% of X views missing and not at random; zeros are not
+  missing; retrain without a systematically missing feature (switch at ~35% reactions / ~20% followers).
+- **Tail and totals** (E96/E109/E112/E157/E158/E159): top 1% = 60-74% of views; brand totals x2 low before calibration
+  and unstable on few posts.
+- **Closed lines** (E100/E113/E121/E122/E127/E128/E140): text, extra columns, graph (including metapath2vec), multi-task,
+  seed averaging, hurdle: no gain; the graph has no residual signal along its edges.
+
 ## Open
-Human gold standard for the labels; whether reach equals views; a Facebook or Instagram sample with real views (312 Reels and videos to check by hand: `docs/en/fbig_manual_check.md`, B14); false brand matches across the whole dataset; author view history from Brand24 (question Q8, E68). Sentence embeddings and a GNN are now tested (E50, E53, E65).
+Human gold standard for the labels; whether reach equals views; Facebook and Instagram views (FB: 130 hand + 402 fetched, done; IG: 0/160 anonymous, blocked on a login or a provider); false brand matches across the whole dataset; author view history from Brand24 (question Q8, E68). Sentence embeddings, GNN and metapath2vec are tested (E50, E53, E65, E127).
 
 Planned next steps: "Ideas to stand out" in `docs/en/project_plan.md`.

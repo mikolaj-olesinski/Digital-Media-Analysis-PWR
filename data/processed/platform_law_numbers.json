@@ -1,0 +1,53 @@
+{
+ "tiktok": {
+  "n": 2491,
+  "follower_elasticity": 0.044,
+  "follower_ci": [
+   0.028,
+   0.063
+  ],
+  "reaction_elasticity": 0.823,
+  "reaction_ci": [
+   0.798,
+   0.842
+  ],
+  "oof_r2": 0.812,
+  "amplification_median": 0.61,
+  "amplification_p90": 24.21,
+  "share_above_followers": 0.434
+ },
+ "youtube": {
+  "n": 2441,
+  "follower_elasticity": 0.303,
+  "follower_ci": [
+   0.272,
+   0.347
+  ],
+  "reaction_elasticity": 0.66,
+  "reaction_ci": [
+   0.615,
+   0.711
+  ],
+  "oof_r2": 0.587,
+  "amplification_median": 0.02,
+  "amplification_p90": 0.29,
+  "share_above_followers": 0.051
+ },
+ "twitter": {
+  "n": 1803,
+  "follower_elasticity": 0.164,
+  "follower_ci": [
+   0.128,
+   0.2
+  ],
+  "reaction_elasticity": 1.06,
+  "reaction_ci": [
+   0.994,
+   1.128
+  ],
+  "oof_r2": 0.47,
+  "amplification_median": 0.06,
+  "amplification_p90": 1.79,
+  "share_above_followers": 0.135
+ }
+}

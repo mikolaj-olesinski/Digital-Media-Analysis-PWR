@@ -1,0 +1,51 @@
+{
+ "platforms": {
+  "tiktok": {
+   "posts": 2491,
+   "share_top_1pct": 0.6230061861679457,
+   "share_top_5pct": 0.8821895454940097,
+   "share_top_10pct": 0.943732733005899,
+   "gini": 0.94846284196812,
+   "median": 729.0,
+   "share_posts_for_80pct": 0.026495383380168606,
+   "hill_alpha_top1pct": 1.0288095884905208
+  },
+  "youtube": {
+   "posts": 2441,
+   "share_top_1pct": 0.7238385474616984,
+   "share_top_5pct": 0.8964815828666419,
+   "share_top_10pct": 0.9507326576614391,
+   "gini": 0.9598774674608398,
+   "median": 433.0,
+   "share_posts_for_80pct": 0.02007374027038099,
+   "hill_alpha_top1pct": 0.9294467298207582
+  },
+  "twitter": {
+   "posts": 1803,
+   "share_top_1pct": 0.6043127516088437,
+   "share_top_5pct": 0.8233960180700135,
+   "share_top_10pct": 0.893723553828925,
+   "gini": 0.9212414749978407,
+   "median": 27.0,
+   "share_posts_for_80pct": 0.04159733777038269,
+   "hill_alpha_top1pct": 1.0020604045139168
+  },
+  "facebook": {
+   "posts": 402,
+   "share_top_1pct": 0.7371740777902974,
+   "share_top_5pct": 0.8806444061531297,
+   "share_top_10pct": 0.9329659952991984,
+   "gini": 0.9539716079615924,
+   "median": 1413.5,
+   "share_posts_for_80pct": 0.02736318407960199,
+   "hill_alpha_top1pct": 0.7265853870662656
+  }
+ },
+ "brands": {
+  "n_brands": 319,
+  "share_top_1pct_median": 0.5384615384615384,
+  "share_top_1pct_p90": 0.8894451032940165,
+  "share_posts_for_80pct_median": 0.15384615384615385,
+  "one_post_over_half_of_reach": 0.5611285266457681
+ }
+}

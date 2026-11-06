@@ -1,0 +1,7 @@
+{
+ "source_big_posts": 191,
+ "target_big_posts": 70,
+ "coverage": 0.796,
+ "width": 1.72,
+ "MAE": 0.474
+}

@@ -1,0 +1,20 @@
+{
+ "tiktok": {
+  "posts": 2491,
+  "single_MAE": 0.273,
+  "ensemble_MAE": 0.272,
+  "mean_abs_change": 0.013
+ },
+ "youtube": {
+  "posts": 2441,
+  "single_MAE": 0.456,
+  "ensemble_MAE": 0.454,
+  "mean_abs_change": 0.022
+ },
+ "twitter": {
+  "posts": 1803,
+  "single_MAE": 0.467,
+  "ensemble_MAE": 0.468,
+  "mean_abs_change": 0.015
+ }
+}

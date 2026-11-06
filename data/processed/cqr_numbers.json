@@ -1,0 +1,44 @@
+{
+ "tiktok": {
+  "raw": {
+   "coverage": 0.752,
+   "median_width": 0.78
+  },
+  "cqr": {
+   "coverage": 0.889,
+   "median_width": 1.14
+  },
+  "split": {
+   "coverage": 0.883,
+   "median_width": 1.16
+  }
+ },
+ "youtube": {
+  "raw": {
+   "coverage": 0.742,
+   "median_width": 1.22
+  },
+  "cqr": {
+   "coverage": 0.902,
+   "median_width": 1.71
+  },
+  "split": {
+   "coverage": 0.893,
+   "median_width": 1.92
+  }
+ },
+ "twitter": {
+  "raw": {
+   "coverage": 0.739,
+   "median_width": 1.47
+  },
+  "cqr": {
+   "coverage": 0.891,
+   "median_width": 2.07
+  },
+  "split": {
+   "coverage": 0.894,
+   "median_width": 2.03
+  }
+ }
+}

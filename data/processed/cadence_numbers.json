@@ -1,0 +1,17 @@
+{
+ "across_brands": {
+  "groups": 640,
+  "spearman": 0.029,
+  "p": 0.4618,
+  "spearman_after_followers_platform": 0.057,
+  "p_res": 0.1529,
+  "cadence_median_per_month": 5.0
+ },
+ "within_brand": {
+  "posts": 5944,
+  "short_gap_share": 0.867,
+  "median_resid_short": -0.043,
+  "median_resid_long": -0.039,
+  "difference": -0.004
+ }
+}

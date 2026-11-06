@@ -1,0 +1,22 @@
+{
+ "features": [
+  "log_followers",
+  "log_likes",
+  "log_comments",
+  "log_shares",
+  "na_likes",
+  "na_comments",
+  "na_shares",
+  "na_followers",
+  "log_age"
+ ],
+ "coverage": {
+  "50%": 0.502,
+  "90%": 0.899
+ },
+ "width": {
+  "50%": 0.83,
+  "90%": 1.99
+ },
+ "MAE": 0.454
+}

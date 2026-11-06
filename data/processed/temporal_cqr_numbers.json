@@ -1,0 +1,65 @@
+{
+ "tiktok": {
+  "windows": [
+   {
+    "month": "2026-06",
+    "n": 500,
+    "coverage": 0.914,
+    "width": 1.22
+   },
+   {
+    "month": "2026-07",
+    "n": 521,
+    "coverage": 0.893,
+    "width": 1.14
+   },
+   {
+    "month": "2026-08",
+    "n": 388,
+    "coverage": 0.915,
+    "width": 1.16
+   }
+  ],
+  "coverage_mean": 0.907
+ },
+ "youtube": {
+  "windows": [
+   {
+    "month": "2026-06",
+    "n": 435,
+    "coverage": 0.91,
+    "width": 1.99
+   },
+   {
+    "month": "2026-07",
+    "n": 554,
+    "coverage": 0.883,
+    "width": 1.8
+   },
+   {
+    "month": "2026-08",
+    "n": 586,
+    "coverage": 0.911,
+    "width": 1.97
+   }
+  ],
+  "coverage_mean": 0.901
+ },
+ "twitter": {
+  "windows": [
+   {
+    "month": "2026-07",
+    "n": 480,
+    "coverage": 0.946,
+    "width": 2.47
+   },
+   {
+    "month": "2026-08",
+    "n": 390,
+    "coverage": 0.918,
+    "width": 2.11
+   }
+  ],
+  "coverage_mean": 0.932
+ }
+}

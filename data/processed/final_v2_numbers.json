@@ -1,0 +1,26 @@
+{
+ "tiktok": {
+  "mae_base": 0.273,
+  "mae_te": 0.273,
+  "cov_base": 0.889,
+  "cov_te": 0.889,
+  "w_base": 1.138,
+  "w_te": 1.138
+ },
+ "youtube": {
+  "mae_base": 0.46,
+  "mae_te": 0.457,
+  "cov_base": 0.902,
+  "cov_te": 0.902,
+  "w_base": 1.706,
+  "w_te": 1.72
+ },
+ "twitter": {
+  "mae_base": 0.47,
+  "mae_te": 0.466,
+  "cov_base": 0.891,
+  "cov_te": 0.897,
+  "w_base": 2.07,
+  "w_te": 2.082
+ }
+}

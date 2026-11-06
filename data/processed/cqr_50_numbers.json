@@ -1,0 +1,32 @@
+{
+ "tiktok": {
+  "50%": {
+   "coverage": 0.495,
+   "median_width": 0.45
+  },
+  "90%": {
+   "coverage": 0.889,
+   "median_width": 1.14
+  }
+ },
+ "youtube": {
+  "50%": {
+   "coverage": 0.483,
+   "median_width": 0.74
+  },
+  "90%": {
+   "coverage": 0.902,
+   "median_width": 1.71
+  }
+ },
+ "twitter": {
+  "50%": {
+   "coverage": 0.5,
+   "median_width": 0.88
+  },
+  "90%": {
+   "coverage": 0.891,
+   "median_width": 2.07
+  }
+ }
+}

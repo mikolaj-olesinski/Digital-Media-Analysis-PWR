@@ -1,0 +1,41 @@
+{
+ "b": {
+  "tiktok": 0.043,
+  "youtube": 0.164,
+  "twitter": 0.037
+ },
+ "lopo": {
+  "tiktok": {
+   "b_target_used": 0.1,
+   "standard": 0.313,
+   "age_normalised": 0.315,
+   "bias_standard": 0.03,
+   "bias_normalised": -0.015,
+   "posts": 2491
+  },
+  "youtube": {
+   "b_target_used": 0.04,
+   "standard": 0.612,
+   "age_normalised": 0.603,
+   "bias_standard": 0.209,
+   "bias_normalised": 0.211,
+   "posts": 2441
+  },
+  "twitter": {
+   "b_target_used": 0.103,
+   "standard": 0.65,
+   "age_normalised": 0.645,
+   "bias_standard": -0.404,
+   "bias_normalised": -0.385,
+   "posts": 1803
+  }
+ },
+ "facebook": {
+  "b_used": 0.1,
+  "standard": 0.385,
+  "age_normalised": 0.38,
+  "bias_standard": 0.14,
+  "bias_normalised": 0.001,
+  "posts": 402
+ }
+}
