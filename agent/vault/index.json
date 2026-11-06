@@ -454,7 +454,7 @@
   "question": "Brand industry labels",
   "setup": "Haiku agent, general knowledge, 348 brands",
   "result": "20 industries; 83 names flagged as having another meaning; 2 low confidence",
-  "type": "instrument, unchecked",
+  "type": "instrument",
   "where": "`data/processed/brand_industry.csv`",
   "paths": [
    "data/processed/brand_industry.csv"
@@ -466,7 +466,7 @@
   "question": "Brand away from its industry in the text graph",
   "setup": "Share of other-brand neighbours from the same industry vs chance, 5 platforms",
   "result": "Lowest include Frontier (X, AI), Gap (YouTube, AI), Guardian Life (Minecraft), Wrangler (Jeep); some are other languages; Cricket Wireless not low (lift 1.4 on TikTok); AUC vs name flag 0.62 (0.55-0.69)",
-  "type": "finding, needs hand check",
+  "type": "finding",
   "where": "`15_brand_mismatch`, `mismatch_numbers.json`",
   "paths": [
    "notebooks/models/15_brand_mismatch.ipynb",
@@ -695,11 +695,13 @@
   "id": "E56",
   "date": "2026-11-04",
   "question": "Noise ceiling: posts with almost the same inputs",
-  "setup": "Pairs of different-brand posts with all four log inputs within 0.05; best MAE ≥ ½ mean \\",
-  "result": "Δ\\",
-  "type": "",
-  "where": "Lower bound 0.223 / 0.388 / 0.333 vs final model 0.325 / 0.578 / 0.471 on the same posts; near-identical posts differ ×2.8 / ×6.0 / ×4.6 in views",
-  "paths": []
+  "setup": "Pairs of different-brand posts with all four log inputs within 0.05; best MAE ≥ ½ mean abs(delta)",
+  "result": "Lower bound 0.223 / 0.388 / 0.333 vs final model 0.325 / 0.578 / 0.471 on the same posts; near-identical posts differ ×2.8 / ×6.0 / ×4.6 in views",
+  "type": "finding",
+  "where": "`25_limits`",
+  "paths": [
+   "notebooks/models/25_limits.ipynb"
+  ]
  },
  {
   "id": "E57",
@@ -1134,6 +1136,928 @@
   "where": "`36_transfer_lit`",
   "paths": [
    "notebooks/models/36_transfer_lit.ipynb"
+  ]
+ },
+ {
+  "id": "E93",
+  "date": "2026-11-05",
+  "question": "How wrong is the transfer to Facebook, measured?",
+  "setup": "Ridge on likes + comments trained on X + YouTube, scored on 130 FB Reels/videos with fetched views",
+  "result": "MAE 0.345 (0.281-0.435), ×2.2; in-platform ceiling 0.355; Brand24 1.145 (×14); X-only 0.504",
+  "type": "finding",
+  "where": "`src/fb_transfer_check.py`",
+  "paths": [
+   "src/fb_transfer_check.py"
+  ]
+ },
+ {
+  "id": "E94",
+  "date": "2026-11-06",
+  "question": "Do followers improve the measured transfer to Facebook?",
+  "setup": "Ridge on likes + comments + log10(followers) and a missing flag, trained on X + YouTube, scored on the 130 FB posts",
+  "result": "Worse: 0.345 -> 0.627 (gain -0.283, CI -0.361 to -0.209); 88 posts with followers 0.360 -> 0.437; followers alone 1.199",
+  "type": "worse",
+  "where": "`src/fb_transfer_check.py --followers`",
+  "paths": []
+ },
+ {
+  "id": "E95",
+  "date": "2026-11-06",
+  "question": "Does the FB transfer hold beyond the hand-check sample?",
+  "setup": "E93 ridge scored on all 402 public FB Reels/videos, by kind and age",
+  "result": "MAE 0.385 (CI 0.312-0.482, x2.4) vs 0.345 on the 130; Reels 0.383, videos 0.390; bias +0.14",
+  "type": "finding",
+  "where": "`src/fb_extend.py`",
+  "paths": [
+   "src/fb_extend.py"
+  ]
+ },
+ {
+  "id": "E96",
+  "date": "2026-11-06",
+  "question": "How concentrated is reach?",
+  "setup": "Share of views in the top 1/5/10%, Gini, Hill tail, brands with >= 5 posts",
+  "result": "Top 1% of posts = 60-74% of views, top 5% = 82-90%, Gini 0.92-0.96; 2-4% of posts give 80%; 56% of brands one post > 50%",
+  "type": "finding",
+  "where": "`src/reach_shape.py`",
+  "paths": [
+   "src/reach_shape.py"
+  ]
+ },
+ {
+  "id": "E97",
+  "date": "2026-11-06",
+  "question": "Which FB posts to hand-check with a budget of k?",
+  "setup": "Random vs reaction-stratified vs extremes vs brand-diverse vs leverage, median-shift calibration",
+  "result": "Reaction stratification = random; extremes best at k=50 (0.321 vs 0.346 on 130, 0.377 vs 0.385 on 402); leverage best at k=5",
+  "type": "small",
+  "where": "`src/active_check.py`",
+  "paths": [
+   "src/active_check.py"
+  ]
+ },
+ {
+  "id": "E98",
+  "date": "2026-11-06",
+  "question": "Intervals for the FB estimate",
+  "setup": "Source-residual width vs split conformal on k FB posts, 402 posts",
+  "result": "Source widths over-cover (80% -> 0.925, 90% -> 0.960); FB conformal k=50: 0.790 / 0.880",
+  "type": "finding",
+  "where": "`src/fb_extend.py`",
+  "paths": [
+   "src/fb_extend.py"
+  ]
+ },
+ {
+  "id": "E99",
+  "date": "2026-11-06",
+  "question": "Where does Brand24's reach rule fail?",
+  "setup": "Error of `b24_estimated_reach` vs measured views, by platform and, on X, by follower/reaction tier and age",
+  "result": "Exact on TikTok/YouTube (MAE 0); X median x9.3, MAE 1.08, 87% off >2x; worst 1-10 reactions x27 and mid accounts x16",
+  "type": "finding",
+  "where": "`src/b24_segments.py`",
+  "paths": [
+   "src/b24_segments.py"
+  ]
+ },
+ {
+  "id": "E100",
+  "date": "2026-11-06",
+  "question": "Does text help the Facebook transfer?",
+  "setup": "e5 embeddings (PCA 16) added to likes + comments, trained on X + YouTube, scored on 130 and 402 FB posts",
+  "result": "Worse: 0.345 -> 0.386 (130) and 0.385 -> 0.436 (402); text alone 1.24 / 1.31",
+  "type": "worse",
+  "where": "`src/fb_text.py`",
+  "paths": [
+   "src/fb_text.py"
+  ]
+ },
+ {
+  "id": "E101",
+  "date": "2026-11-06",
+  "question": "Do views need age normalisation?",
+  "setup": "Views normalised to 30 days with a per-platform growth exponent, predictions converted back; LOPO and FB",
+  "result": "MAE changes <=0.01 (FB 0.385 -> 0.380) but the FB bias drops from +0.14 to 0.00",
+  "type": "small",
+  "where": "`src/age_target.py`",
+  "paths": [
+   "src/age_target.py"
+  ]
+ },
+ {
+  "id": "E102",
+  "date": "2026-11-06",
+  "question": "Brand scorecard: ranking vs level",
+  "setup": "Brand totals (>=5 posts) and top-10% alerts: Brand24 reach vs ridge on likes + comments vs views",
+  "result": "On TikTok/YouTube the reach is the view count (perfect by construction); on X Kendall 0.63 vs 0.58 and alert precision 0.61 vs 0.58, though the level is x9.3 off",
+  "type": "finding",
+  "where": "`src/brand_scorecard.py`",
+  "paths": [
+   "src/brand_scorecard.py"
+  ]
+ },
+ {
+  "id": "E103",
+  "date": "2026-11-06",
+  "question": "Are the same texts posted across platforms?",
+  "setup": "Normalised title + content, texts > 30 chars, count on >= 2 platforms",
+  "result": "1 of 12 065 texts (0.008%); no platform multiplier from repeated content",
+  "type": "none",
+  "where": "`src/xplat_copies.py`",
+  "paths": [
+   "src/xplat_copies.py"
+  ]
+ },
+ {
+  "id": "E104",
+  "date": "2026-11-06",
+  "question": "Viral alert at the top 1%",
+  "setup": "CatBoost classifier on likes + comments vs raw likes vs Brand24 reach, brand CV, precision at k",
+  "result": "Model AUC 0.99/0.84/0.85 but precision 0.56/0.48/0.26; raw likes 0.64/0.64/0.47; the MAE model compresses the tail",
+  "type": "finding",
+  "where": "`src/tail_alert.py`",
+  "paths": [
+   "src/tail_alert.py"
+  ]
+ },
+ {
+  "id": "E105",
+  "date": "2026-11-06",
+  "question": "Is the X view count missing at random?",
+  "setup": "Selection model on reactions, followers, age; IPW reweighting of the observed mean",
+  "result": "Missing 25.4%, mostly 2025 (66.5% vs 22.4%), older checks (66 vs 22 days), smaller accounts; selection AUC 0.837; observed mean reach 435 vs 332 full sample (~1.3x)",
+  "type": "finding",
+  "where": "`src/x_selection.py`",
+  "paths": [
+   "src/x_selection.py"
+  ]
+ },
+ {
+  "id": "E106",
+  "date": "2026-11-06",
+  "question": "Alert budget: recall at k alerts for the top 1%",
+  "setup": "Model, raw likes, Brand24 reach; recall at 10-200 alerts and alerts for 50% recall",
+  "result": "X: 117 alerts (model) vs 22 (likes) vs 25 (Brand24) for 50% recall; TikTok 20/16/13; YouTube 26/17/13 (Brand24 is the view count there)",
+  "type": "finding",
+  "where": "`src/alert_budget.py`",
+  "paths": [
+   "src/alert_budget.py"
+  ]
+ },
+ {
+  "id": "E107",
+  "date": "2026-11-06",
+  "question": "Brand portfolio: what would change on X?",
+  "setup": "Brand totals (>=5 posts), rule vs ridge vs views; ratio, off-2x share, Kendall",
+  "result": "X: rule x11.2, 96% of 189 brands off >2x, median error 1.05; model x0.66, 49% off, 0.30; Kendall 0.63 vs 0.58. TikTok/YouTube: rule exact",
+  "type": "finding",
+  "where": "`src/portfolio_sim.py`",
+  "paths": [
+   "src/portfolio_sim.py"
+  ]
+ },
+ {
+  "id": "E108",
+  "date": "2026-11-06",
+  "question": "Confidence flags from metadata",
+  "setup": "CatBoost on missing flags, age, followers, platform, reach; predict abs(error) > 0.5; flag top 20-50%",
+  "result": "AUC 0.936; 20% flagged carries 45% of the error (MAE 0.484 -> 0.333), 50% carries 78% (0.216)",
+  "type": "finding",
+  "where": "`src/confidence_flags.py`",
+  "paths": [
+   "src/confidence_flags.py"
+  ]
+ },
+ {
+  "id": "E109",
+  "date": "2026-11-06",
+  "question": "Calibrated brand totals with intervals on X",
+  "setup": "One-number calibration fitted out-of-fold, 80% brand interval, 189 brands",
+  "result": "Calibrated: 43% off >2x (rule 96%), median error 0.26 (0.30 uncalibrated), bias +0.05, 80% interval coverage 0.793",
+  "type": "finding",
+  "where": "`src/brand_totals_cal.py`",
+  "paths": [
+   "src/brand_totals_cal.py"
+  ]
+ },
+ {
+  "id": "E110",
+  "date": "2026-11-06",
+  "question": "Does posting cadence reduce reach per post?",
+  "setup": "Cadence vs median views across 640 brand-platform groups; gap since previous post within brand",
+  "result": "No relation: Spearman 0.029 (0.057 after controls); within-brand difference -0.004 log10 (gap <1d vs >7d)",
+  "type": "none",
+  "where": "`src/cadence.py`",
+  "paths": [
+   "src/cadence.py"
+  ]
+ },
+ {
+  "id": "E111",
+  "date": "2026-11-06",
+  "question": "Brand24's FB reach against measured views",
+  "setup": "359 FB Reels/videos with reach > 0; error by follower tier, view quartile, kind",
+  "result": "Rule x4.1 too high, MAE 0.93, 82% off >2x; small posts x34 high, large x2 low; model MAE 0.41",
+  "type": "finding",
+  "where": "`src/b24_fb.py`",
+  "paths": [
+   "src/b24_fb.py"
+  ]
+ },
+ {
+  "id": "E112",
+  "date": "2026-11-06",
+  "question": "How many posts does a brand total need?",
+  "setup": "Bootstrap n posts (5/10/20) of brands with >= 20 measured posts; p90/p10 and share within 2x",
+  "result": "5 posts: x53 spread, 17% within 2x; 10: x21, 37%; 20: x6.4, 66%",
+  "type": "finding",
+  "where": "`src/brand_stability.py`",
+  "paths": [
+   "src/brand_stability.py"
+  ]
+ },
+ {
+  "id": "E113",
+  "date": "2026-11-06",
+  "question": "Multi-task across platforms",
+  "setup": "Shared trunk + per-platform heads vs per-platform MLP vs CatBoost, brand CV",
+  "result": "No gain: TikTok 0.314 (CatBoost 0.315), YouTube 0.538 vs 0.518, X 0.504 vs 0.485",
+  "type": "none",
+  "where": "`src/multitask.py`",
+  "paths": [
+   "src/multitask.py"
+  ]
+ },
+ {
+  "id": "E114",
+  "date": "2026-11-06",
+  "question": "Validation audit and post-hoc recalibration",
+  "setup": "Repeated grouped CV, isotonic and per-reaction-tier shift on the final model",
+  "result": "MAE stable (0.269±0.011 / 0.466±0.030 / 0.463±0.018); isotonic raises it (0.279/0.465/0.476); tier shift neutral",
+  "type": "finding",
+  "where": "`src/validation_audit.py`",
+  "paths": [
+   "src/validation_audit.py"
+  ]
+ },
+ {
+  "id": "E115",
+  "date": "2026-11-06",
+  "question": "Calibration budget for a new platform",
+  "setup": "Leave-one-platform-out ridge, median shift on n target posts, MAE on the rest",
+  "result": "TikTok/YouTube/Facebook: calibration hurts at small n (zero-shot best); X: 25-50 posts cut MAE 0.650 -> 0.551-0.563",
+  "type": "finding",
+  "where": "`src/calibration_curve.py`",
+  "paths": [
+   "src/calibration_curve.py"
+  ]
+ },
+ {
+  "id": "E116",
+  "date": "2026-11-06",
+  "question": "Are YouTube zeros missing?",
+  "setup": "Four treatments of 0 likes/comments (NaN, NaN+flag, 0.5, drop) on the final model",
+  "result": "Best +0.003 (0.456 -> 0.453); dropping is much worse (0.499); zero-reaction error stays 0.66",
+  "type": "small",
+  "where": "`src/youtube_zeros.py`",
+  "paths": [
+   "src/youtube_zeros.py"
+  ]
+ },
+ {
+  "id": "E117",
+  "date": "2026-11-06",
+  "question": "What is a 0/0 post at the first scan worth?",
+  "setup": "First-check history and main check: views of posts with 0 reactions",
+  "result": "37% of first checks are 0/0; 86% still get views, median 5 (X) / 60 (TikTok), 0.4% >1k; at collection X 64% / YouTube 29% zero, YouTube 23% of them >1k",
+  "type": "finding",
+  "where": "`src/early_zeros.py`",
+  "paths": [
+   "src/early_zeros.py"
+  ]
+ },
+ {
+  "id": "E118",
+  "date": "2026-11-06",
+  "question": "Conformalized quantile intervals",
+  "setup": "LightGBM 5/95 quantiles + CQR on held-out brands vs raw quantiles and split conformal",
+  "result": "Raw 5-95 covers 74%; CQR 0.889/0.902/0.891 at widths 1.14/1.71/2.07; split conformal 0.883-0.894",
+  "type": "finding",
+  "where": "`src/cqr_intervals.py`",
+  "paths": [
+   "src/cqr_intervals.py"
+  ]
+ },
+ {
+  "id": "E119",
+  "date": "2026-11-06",
+  "question": "Author target encoding as a feature",
+  "setup": "Shrunk author mean log views, out-of-fold, added to CatBoost",
+  "result": "Overall <=0.003; on posts whose author is seen: X 0.530 -> 0.430, YouTube 0.465 -> 0.446; seen share 2.8% / 8.1% / 1%",
+  "type": "small",
+  "where": "`src/author_te.py`",
+  "paths": [
+   "src/author_te.py"
+  ]
+ },
+ {
+  "id": "E120",
+  "date": "2026-11-06",
+  "question": "Cross-platform author history",
+  "setup": "Author's shrunk mean views on other platforms as a feature",
+  "result": "No overlap: 0-0.1% of posts; no gain (0.273/0.454/0.467)",
+  "type": "none",
+  "where": "`src/cross_author.py`",
+  "paths": [
+   "src/cross_author.py"
+  ]
+ },
+ {
+  "id": "E121",
+  "date": "2026-11-06",
+  "question": "Recency, sequence and text-surface columns",
+  "setup": "14 new columns added to the final model, 5-fold brand CV",
+  "result": "TikTok -0.002, YouTube +0.004 (worse), X -0.001: no usable gain",
+  "type": "none",
+  "where": "`src/new_columns.py`",
+  "paths": [
+   "src/new_columns.py"
+  ]
+ },
+ {
+  "id": "E122",
+  "date": "2026-11-06",
+  "question": "Spectral embeddings of the author-brand graph",
+  "setup": "8-dim SVD embeddings of both node types as features",
+  "result": "Worse: 0.278/0.479/0.485 vs 0.273/0.456/0.467",
+  "type": "worse",
+  "where": "`src/graph_embed.py`",
+  "paths": [
+   "src/graph_embed.py"
+  ]
+ },
+ {
+  "id": "E123",
+  "date": "2026-11-06",
+  "question": "CQR intervals for the FB transfer",
+  "setup": "Source quantile models, band calibrated on 25% of FB brands",
+  "result": "90% coverage 0.925 at width 1.99; split conformal 0.932 at 2.07",
+  "type": "finding",
+  "where": "`src/fb_cqr.py`",
+  "paths": [
+   "src/fb_cqr.py"
+  ]
+ },
+ {
+  "id": "E124",
+  "date": "2026-11-06",
+  "question": "Final estimator v2: author_te + CQR",
+  "setup": "Combined point model (+author_te) and CQR on held-out brands",
+  "result": "MAE 0.273/0.457/0.466; 90% coverage 0.889/0.902/0.897; widths 1.14/1.72/2.08",
+  "type": "small",
+  "where": "`src/final_v2.py`",
+  "paths": [
+   "src/final_v2.py"
+  ]
+ },
+ {
+  "id": "E125",
+  "date": "2026-11-06",
+  "question": "CQR by reaction tier",
+  "setup": "Global vs per-tier conformity quantile, coverage by tier",
+  "result": "Global CQR covers 0.86-0.90 per tier; per-tier adds noise (0.882/0.892/0.890)",
+  "type": "none",
+  "where": "`src/cqr_tiers.py`",
+  "paths": [
+   "src/cqr_tiers.py"
+  ]
+ },
+ {
+  "id": "E126",
+  "date": "2026-11-06",
+  "question": "Range for a 0/0 post",
+  "setup": "Quantiles of views for zero-reaction posts at first check, last check, collection",
+  "result": "First check: X p50 5 p90 49, TikTok p50 60 p90 179; collection: X p50 13 p90 124, YouTube p50 79 p90 3 383",
+  "type": "finding",
+  "where": "`src/early_intervals.py`",
+  "paths": [
+   "src/early_intervals.py"
+  ]
+ },
+ {
+  "id": "E127",
+  "date": "2026-11-06",
+  "question": "Metapath2vec on author-brand-hashtag",
+  "setup": "Metapath walks + skip-gram (48 dims) added to the final model",
+  "result": "Worse: 0.278/0.480/0.480 vs 0.273/0.456/0.467",
+  "type": "worse",
+  "where": "`src/metapath2vec.py`",
+  "paths": [
+   "src/metapath2vec.py"
+  ]
+ },
+ {
+  "id": "E128",
+  "date": "2026-11-06",
+  "question": "Which graph edges carry signal?",
+  "setup": "Mean residual of training posts sharing author/brand/hashtag vs the test residual",
+  "result": "No edge helps: author rho <=0.069 (X -0.015), brand ~0, hashtag ~0; adding the neighbour mean always raises MAE",
+  "type": "finding",
+  "where": "`src/graph_signal.py`",
+  "paths": [
+   "src/graph_signal.py"
+  ]
+ },
+ {
+  "id": "E129",
+  "date": "2026-11-06",
+  "question": "Distributional model vs CQR",
+  "setup": "CatBoost RMSEWithUncertainty, mean +- 1.645 sd",
+  "result": "Slightly worse MAE (0.276/0.459/0.471) and under-covers (0.871/0.884/0.864); CQR stays",
+  "type": "none",
+  "where": "`src/dist_uncertainty.py`",
+  "paths": [
+   "src/dist_uncertainty.py"
+  ]
+ },
+ {
+  "id": "E130",
+  "date": "2026-11-06",
+  "question": "Intervals at posting time",
+  "setup": "Quantile LightGBM on followers/text/labels + CQR",
+  "result": "MAE 0.601/0.757/0.611; 90% width 2.56/2.96/2.42 log10 (x260-900) vs 1.14-2.07 with reactions",
+  "type": "finding",
+  "where": "`src/posting_cqr.py`",
+  "paths": [
+   "src/posting_cqr.py"
+  ]
+ },
+ {
+  "id": "E131",
+  "date": "2026-11-06",
+  "question": "Out-of-platform CQR matrix",
+  "setup": "Train on the other two platforms, CQR calibrated on 25% of target brands",
+  "result": "Coverage 0.905/0.912/0.908; widths 1.51/2.84/3.69 vs 1.14/1.71/2.07 in-platform; MAE 0.351/0.658/0.716",
+  "type": "finding",
+  "where": "`src/transfer_cqr.py`",
+  "paths": [
+   "src/transfer_cqr.py"
+  ]
+ },
+ {
+  "id": "E132",
+  "date": "2026-11-06",
+  "question": "FB CQR by tier",
+  "setup": "Coverage of the FB band by follower tier and views quartile",
+  "result": "Global 0.925; >1M followers 0.857, top views quartile 0.782 (under-cover); small posts over-cover",
+  "type": "finding",
+  "where": "`src/fb_cqr_tiers.py`",
+  "paths": [
+   "src/fb_cqr_tiers.py"
+  ]
+ },
+ {
+  "id": "E133",
+  "date": "2026-11-06",
+  "question": "Recency weighting against drift",
+  "setup": "Train on older 80%, test newest 20%; weights half-life 90/180/365",
+  "result": "No gain: 0.274/0.440/0.464 base vs best 0.272/0.439/0.464",
+  "type": "none",
+  "where": "`src/recency_weights.py`",
+  "paths": [
+   "src/recency_weights.py"
+  ]
+ },
+ {
+  "id": "E134",
+  "date": "2026-11-06",
+  "question": "Seed averaging",
+  "setup": "Five CatBoost seeds averaged per fold",
+  "result": "No gain: 0.272/0.454/0.468 vs 0.273/0.456/0.467",
+  "type": "none",
+  "where": "`src/seed_ensemble.py`",
+  "paths": [
+   "src/seed_ensemble.py"
+  ]
+ },
+ {
+  "id": "E135",
+  "date": "2026-11-06",
+  "question": "Follower-tier recalibration",
+  "setup": "Residual median per follower tier fitted on calibration brands",
+  "result": "Worse: 0.276/0.466/0.481 vs 0.273/0.460/0.470",
+  "type": "worse",
+  "where": "`src/tier_recal.py`",
+  "paths": [
+   "src/tier_recal.py"
+  ]
+ },
+ {
+  "id": "E136",
+  "date": "2026-11-06",
+  "question": "Rolling-origin validation",
+  "setup": "Train before each month, test on the month (last 2-3 months)",
+  "result": "0.270±0.004 / 0.450±0.018 / 0.473±0.005, close to brand CV",
+  "type": "finding",
+  "where": "`src/rolling_origin.py`",
+  "paths": [
+   "src/rolling_origin.py"
+  ]
+ },
+ {
+  "id": "E137",
+  "date": "2026-11-06",
+  "question": "50% likely range",
+  "setup": "CQR widened at the 50th percentile",
+  "result": "Coverage 0.495/0.483/0.500; widths 0.45/0.74/0.88 (x2.8/5.5/7.6) vs 90% 1.14/1.71/2.07",
+  "type": "finding",
+  "where": "`src/cqr_50.py`",
+  "paths": [
+   "src/cqr_50.py"
+  ]
+ },
+ {
+  "id": "E138",
+  "date": "2026-11-06",
+  "question": "Robustness to missing reactions",
+  "setup": "Set likes/comments missing at prediction (10/25/50/100%)",
+  "result": "MAE 0.273->0.350/0.459/0.641/1.005 (TikTok), 0.456->0.505/0.570/0.686/0.929 (YouTube), 0.467->0.484/0.503/0.542/0.607 (X)",
+  "type": "finding",
+  "where": "`src/missing_robust.py`",
+  "paths": [
+   "src/missing_robust.py"
+  ]
+ },
+ {
+  "id": "E139",
+  "date": "2026-11-06",
+  "question": "Target definition: views vs views/day",
+  "setup": "Direct vs rate target, with/without log(age)",
+  "result": "Rate no better (0.276/0.458/0.459); log(age) helps X 0.467 -> 0.454, others neutral",
+  "type": "small",
+  "where": "`src/rate_target.py`",
+  "paths": [
+   "src/rate_target.py"
+  ]
+ },
+ {
+  "id": "E140",
+  "date": "2026-11-06",
+  "question": "Hurdle model for zero views",
+  "setup": "Two-stage classify>0 + regress vs single model",
+  "result": "No difference (zeros 9/32/63; positive sample identical); E31 already found no gain",
+  "type": "none",
+  "where": "`src/hurdle_zeros.py`",
+  "paths": [
+   "src/hurdle_zeros.py"
+  ]
+ },
+ {
+  "id": "E141",
+  "date": "2026-11-06",
+  "question": "Final X model v3 with log(age)",
+  "setup": "X features + log(age), CQR bands",
+  "result": "MAE 0.467 -> 0.454; 90% coverage 0.899, width 1.99 (2.08); 50% 0.83",
+  "type": "small",
+  "where": "`src/final_v3_x.py`",
+  "paths": [
+   "src/final_v3_x.py"
+  ]
+ },
+ {
+  "id": "E142",
+  "date": "2026-11-06",
+  "question": "Temporal CQR",
+  "setup": "Train before each month, CQR on 25% of training brands, test the month",
+  "result": "Coverage 0.907/0.901/0.932 on future months; widths 1.14-2.47",
+  "type": "finding",
+  "where": "`src/temporal_cqr.py`",
+  "paths": [
+   "src/temporal_cqr.py"
+  ]
+ },
+ {
+  "id": "E143",
+  "date": "2026-11-06",
+  "question": "FB transfer with age",
+  "setup": "X+YouTube ridge + log(age) applied to 402 FB posts",
+  "result": "Worse: MAE 0.385 -> 0.475, bias +0.14 -> +0.35",
+  "type": "worse",
+  "where": "`src/fb_age.py`",
+  "paths": [
+   "src/fb_age.py"
+  ]
+ },
+ {
+  "id": "E144",
+  "date": "2026-11-06",
+  "question": "FB tier-specific CQR widths",
+  "setup": "Per-follower-tier conformity quantile on the FB transfer",
+  "result": "Overall 0.908 vs 0.925; >1M unchanged 0.857 (calibration sample <20)",
+  "type": "none",
+  "where": "`src/fb_cqr_tier_fix.py`",
+  "paths": [
+   "src/fb_cqr_tier_fix.py"
+  ]
+ },
+ {
+  "id": "E145",
+  "date": "2026-11-06",
+  "question": "FB tier calibration, pooled splits",
+  "setup": "20 random 75/25 brand splits, per-tier CQR quantile",
+  "result": "Tier does not fix >1M: 0.843 -> 0.832; 10k-1M 0.905 -> 0.891; widen by a fixed factor instead",
+  "type": "none",
+  "where": "`src/fb_cqr_pooled.py`",
+  "paths": [
+   "src/fb_cqr_pooled.py"
+  ]
+ },
+ {
+  "id": "E146",
+  "date": "2026-11-06",
+  "question": "Widening the FB band for >1M",
+  "setup": "q_global x 1.0/1.3/1.5/2.0 for the >1M tier, 20 brand splits",
+  "result": "Coverage 0.843 -> 0.848/0.853/0.859 at widths 1.46-1.82: widening barely helps",
+  "type": "none",
+  "where": "`src/fb_widen.py`",
+  "paths": [
+   "src/fb_widen.py"
+  ]
+ },
+ {
+  "id": "E147",
+  "date": "2026-11-06",
+  "question": "Can the >1M FB tier be calibrated?",
+  "setup": "Calibrated level shift and shift + 1.5x width for >1M",
+  "result": "Raw 0.843, shift 0.780, shift+widen 0.818; median shift +0.32 (under-estimate)",
+  "type": "finding",
+  "where": "`src/fb_bigfix.py`",
+  "paths": [
+   "src/fb_bigfix.py"
+  ]
+ },
+ {
+  "id": "E148",
+  "date": "2026-11-06",
+  "question": "FB band excluding the largest pages",
+  "setup": "CQR coverage for pages below 1M followers",
+  "result": "Coverage 0.940, width 1.99; the global 0.925 hides an over-covering majority and a 0.84 tail",
+  "type": "finding",
+  "where": "`src/fb_tail_followers.py`",
+  "paths": [
+   "src/fb_tail_followers.py"
+  ]
+ },
+ {
+  "id": "E149",
+  "date": "2026-11-06",
+  "question": "Followers as a feature for large FB pages",
+  "setup": "Ridge +log(followers) vs likes+comments, MAE by tier",
+  "result": "No gain: 1.090 vs 1.049 (>1M), 0.590 vs 0.581 (<1M)",
+  "type": "none",
+  "where": "`src/fb_tail_followers.py`",
+  "paths": [
+   "src/fb_tail_followers.py"
+  ]
+ },
+ {
+  "id": "E150",
+  "date": "2026-11-06",
+  "question": "Dedicated model for the largest FB pages",
+  "setup": "Ridge trained on source pages >1M vs all sources, applied to FB >1M",
+  "result": "MAE 0.410 -> 0.368, bias +0.33 -> -0.06",
+  "type": "small",
+  "where": "`src/fb_big_model.py`",
+  "paths": [
+   "src/fb_big_model.py"
+  ]
+ },
+ {
+  "id": "E151",
+  "date": "2026-11-06",
+  "question": "Large-page model for the >1M FB band",
+  "setup": "Quantiles on source pages >1M + followers, CQR on FB >1M",
+  "result": "Coverage 0.796, width 1.72, MAE 0.474; still not calibrated",
+  "type": "none",
+  "where": "`src/fb_big_cqr.py`",
+  "paths": [
+   "src/fb_big_cqr.py"
+  ]
+ },
+ {
+  "id": "E152",
+  "date": "2026-11-06",
+  "question": "Error by brand size and industry",
+  "setup": "OOF residuals per brand (>=10) and industry (>=20)",
+  "result": "Weak size relation; industry spread 0.22-0.30; media/social media hardest, consumer goods/food easiest",
+  "type": "finding",
+  "where": "`src/error_segments.py`",
+  "paths": [
+   "src/error_segments.py"
+  ]
+ },
+ {
+  "id": "E153",
+  "date": "2026-11-06",
+  "question": "Hand-check sample vs full fetched sample",
+  "setup": "130 hand posts (subset) vs 402 fetched; model and rule MAE",
+  "result": "Hand 0.345 / rule 0.947; full 0.385 / 0.932; median views 1 080 vs 1 414",
+  "type": "small",
+  "where": "`src/fb_sample_compare.py`",
+  "paths": [
+   "src/fb_sample_compare.py"
+  ]
+ },
+ {
+  "id": "E154",
+  "date": "2026-11-06",
+  "question": "Hybrid FB model",
+  "setup": "Global <1M + large-page model >1M",
+  "result": "MAE 0.379 vs 0.385; >1M 0.410 -> 0.372",
+  "type": "small",
+  "where": "`src/fb_hybrid.py`",
+  "paths": [
+   "src/fb_hybrid.py"
+  ]
+ },
+ {
+  "id": "E155",
+  "date": "2026-11-06",
+  "question": "Is the hybrid FB gain significant?",
+  "setup": "Paired brand bootstrap of global vs hybrid MAE",
+  "result": "0.385 -> 0.379, diff -0.007, CI -0.035..+0.015 (includes 0)",
+  "type": "none",
+  "where": "`src/fb_hybrid_ci.py`",
+  "paths": [
+   "src/fb_hybrid_ci.py"
+  ]
+ },
+ {
+  "id": "E156",
+  "date": "2026-11-06",
+  "question": "FB error by industry",
+  "setup": "Hybrid FB residuals by industry (>=20 posts)",
+  "result": "Spread 0.263 (beverages) to 0.597 (sportswear); tech 0.408",
+  "type": "finding",
+  "where": "`src/fb_brand_totals.py`",
+  "paths": [
+   "src/fb_brand_totals.py"
+  ]
+ },
+ {
+  "id": "E157",
+  "date": "2026-11-06",
+  "question": "FB brand totals and hybrid ranking",
+  "setup": "19 brands >=5 posts; sum of predictions vs true; ratio, off-2x, Kendall",
+  "result": "Global: ratio -0.31, 53% off >2x, Kendall 0.801; hybrid 0.789, no gain",
+  "type": "finding",
+  "where": "`src/fb_brand_totals.py`",
+  "paths": [
+   "src/fb_brand_totals.py"
+  ]
+ },
+ {
+  "id": "E158",
+  "date": "2026-11-06",
+  "question": "FB brand totals after calibration",
+  "setup": "Leave-one-brand-out factor + 80% brand interval, 19 brands",
+  "result": "Median ratio +0.31 -> -0.01; off-2x 53% -> 47%; 80% coverage 0.737",
+  "type": "small",
+  "where": "`src/fb_brand_cal.py`",
+  "paths": [
+   "src/fb_brand_cal.py"
+  ]
+ },
+ {
+  "id": "E159",
+  "date": "2026-11-06",
+  "question": "FB brand-total interval scaled by n",
+  "setup": "Width x sqrt(18/n_posts), leave-one-brand-out",
+  "result": "Coverage 0.737 -> 0.789 (still below 0.80)",
+  "type": "small",
+  "where": "`src/fb_brand_interval.py`",
+  "paths": [
+   "src/fb_brand_interval.py"
+  ]
+ },
+ {
+  "id": "E160",
+  "date": "2026-11-06",
+  "question": "FB brand interval with >=10 posts",
+  "setup": "Same LOO calibration, brands >=10 posts",
+  "result": "Coverage 0.714 (14 brands) vs 0.737 (19): no improvement",
+  "type": "none",
+  "where": "`src/fb_brand_interval.py`",
+  "paths": [
+   "src/fb_brand_interval.py"
+  ]
+ },
+ {
+  "id": "E161",
+  "date": "2026-11-06",
+  "question": "Robustness to missing followers",
+  "setup": "Followers->missing at prediction (10-100%)",
+  "result": "TikTok 0.273->0.294; YouTube 0.456->0.711; X 0.467->0.733",
+  "type": "finding",
+  "where": "`src/missing_followers.py`",
+  "paths": [
+   "src/missing_followers.py"
+  ]
+ },
+ {
+  "id": "E162",
+  "date": "2026-11-06",
+  "question": "Which signal does the FB transfer use?",
+  "setup": "Ridge with followers only / reactions only / both, on 402 FB posts",
+  "result": "Followers only 1.342; reactions 0.385; both 0.660 (0.343 on >1M, 0.727 below)",
+  "type": "finding",
+  "where": "`src/fb_signal.py`",
+  "paths": [
+   "src/fb_signal.py"
+  ]
+ },
+ {
+  "id": "E163",
+  "date": "2026-11-06",
+  "question": "Which model when data is missing?",
+  "setup": "Full vs followers-only vs reactions-only under a fully missing feature",
+  "result": "Specialised wins everywhere: no reactions 0.583/0.767/0.575 (full 1.139/1.462/0.609); no followers 0.276/0.494/0.515 (full 0.294/0.711/0.733)",
+  "type": "finding",
+  "where": "`src/model_selection_missing.py`",
+  "paths": [
+   "src/model_selection_missing.py"
+  ]
+ },
+ {
+  "id": "E164",
+  "date": "2026-11-06",
+  "question": "Partial missingness crossover",
+  "setup": "0-100% missing reactions/followers, full vs specialised model",
+  "result": "Switch at ~35% missing reactions (TikTok/YouTube), ~70% (X); ~20% missing followers (YouTube/X); TikTok reactions-only equal at 0%",
+  "type": "finding",
+  "where": "`src/partial_missing.py`",
+  "paths": [
+   "src/partial_missing.py"
+  ]
+ },
+ {
+  "id": "E165",
+  "date": "2026-11-06",
+  "question": "FB rule vs model by follower tier",
+  "setup": "MAE of the rule and the reaction model per tier",
+  "result": "Rule 0.958-1.012 in every tier; model 0.364-0.463; model wins everywhere",
+  "type": "finding",
+  "where": "`src/fb_rule_vs_model.py`",
+  "paths": [
+   "src/fb_rule_vs_model.py"
+  ]
+ },
+ {
+  "id": "E166",
+  "date": "2026-11-06",
+  "question": "FB intervals on the 130 hand posts",
+  "setup": "CQR calibrated on 25% of the hand-sample brands, 20 splits",
+  "result": "Coverage 0.898, width 1.59 (402 posts: 0.925 / 1.99)",
+  "type": "small",
+  "where": "`src/fb_cqr_hand.py`",
+  "paths": [
+   "src/fb_cqr_hand.py"
+  ]
+ },
+ {
+  "id": "E167",
+  "date": "2026-11-08",
+  "question": "How much do views depend on followers vs reactions per platform?",
+  "setup": "Per-platform OLS on log10 views with log followers and log reactions; brand-grouped OOF R2; brand bootstrap",
+  "result": "Follower elasticity 0.044/0.303/0.164; reaction elasticity 0.82/0.66/1.06; R2 0.81/0.59/0.47; 43%/5%/14% of posts beat followers",
+  "type": "finding",
+  "where": "`src/platform_law.py`",
+  "paths": [
+   "src/platform_law.py"
+  ]
+ },
+ {
+  "id": "E168",
+  "date": "2026-11-08",
+  "question": "How much of Brand24's reach rule can be recovered?",
+  "setup": "max(k*reactions, c(followers)*followers) fitted per bin; share of rows within 1%",
+  "result": "IG 97%, X 62%, FB 49%; TikTok 1.2%, YouTube 1.0% (reach is views there)",
+  "type": "finding",
+  "where": "`src/rule_law.py`",
+  "paths": [
+   "src/rule_law.py"
+  ]
+ },
+ {
+  "id": "E169",
+  "date": "2026-11-08",
+  "question": "Can brand history substitute for unknown author history?",
+  "setup": "Temporal split (train before 2026-06, test after); base vs + smoothed brand prior; brand bootstrap",
+  "result": "Brand prior hurts: TikTok -0.005, YouTube -0.035, X +0.006 (CI includes 0); known-brand share 52/48/35%",
+  "type": "finding",
+  "where": "`src/brand_prior.py`",
+  "paths": [
+   "src/brand_prior.py"
   ]
  }
 ]

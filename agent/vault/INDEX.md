@@ -40,8 +40,8 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E33 | finding | Error by reaction tier | [E33](E33.md) |
 | E34 | gain | Interval per reaction tier | [E34](E34.md) |
 | E35 | finding | False match seen in the text graph | [E35](E35.md) |
-| E36 | instrument, unchecked | Brand industry labels | [E36](E36.md) |
-| E37 | finding, needs hand check | Brand away from its industry in the text graph | [E37](E37.md) |
+| E36 | instrument | Brand industry labels | [E36](E36.md) |
+| E37 | finding | Brand away from its industry in the text graph | [E37](E37.md) |
 | E38 | finding | What is in the second Brand24 file? | [E38](E38.md) |
 | E39 | finding | How fast do views grow? | [E39](E39.md) |
 | E40 | gain | Forecast later views from the first check | [E40](E40.md) |
@@ -60,7 +60,7 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E53 | small | Fine-tuned transformer: the row as text, and text as a correction | [E53](E53.md) |
 | E54 | small | Stack of every model family on the same folds | [E54](E54.md) |
 | E55 | finding | Leakage audit: folds that also separate authors and copied texts | [E55](E55.md) |
-| E56 |  | Noise ceiling: posts with almost the same inputs | [E56](E56.md) |
+| E56 | finding | Noise ceiling: posts with almost the same inputs | [E56](E56.md) |
 | E57 | small | Quantile models and tail weighting | [E57](E57.md) |
 | E58 | finding | Abstention: error on the posts kept | [E58](E58.md) |
 | E59 | finding | Forecast horizon curve; training on every pair of checks | [E59](E59.md) |
@@ -97,3 +97,80 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E90 | none | Anchor regression, group DRO, stabilised weights | [E90](E90.md) |
 | E91 | none | Input subset by source-to-source transfer | [E91](E91.md) |
 | E92 | none | Brand effect carried over from other platforms | [E92](E92.md) |
+| E93 | finding | How wrong is the transfer to Facebook, measured? | [E93](E93.md) |
+| E94 | worse | Do followers improve the measured transfer to Facebook? | [E94](E94.md) |
+| E95 | finding | Does the FB transfer hold beyond the hand-check sample? | [E95](E95.md) |
+| E96 | finding | How concentrated is reach? | [E96](E96.md) |
+| E97 | small | Which FB posts to hand-check with a budget of k? | [E97](E97.md) |
+| E98 | finding | Intervals for the FB estimate | [E98](E98.md) |
+| E99 | finding | Where does Brand24's reach rule fail? | [E99](E99.md) |
+| E100 | worse | Does text help the Facebook transfer? | [E100](E100.md) |
+| E101 | small | Do views need age normalisation? | [E101](E101.md) |
+| E102 | finding | Brand scorecard: ranking vs level | [E102](E102.md) |
+| E103 | none | Are the same texts posted across platforms? | [E103](E103.md) |
+| E104 | finding | Viral alert at the top 1% | [E104](E104.md) |
+| E105 | finding | Is the X view count missing at random? | [E105](E105.md) |
+| E106 | finding | Alert budget: recall at k alerts for the top 1% | [E106](E106.md) |
+| E107 | finding | Brand portfolio: what would change on X? | [E107](E107.md) |
+| E108 | finding | Confidence flags from metadata | [E108](E108.md) |
+| E109 | finding | Calibrated brand totals with intervals on X | [E109](E109.md) |
+| E110 | none | Does posting cadence reduce reach per post? | [E110](E110.md) |
+| E111 | finding | Brand24's FB reach against measured views | [E111](E111.md) |
+| E112 | finding | How many posts does a brand total need? | [E112](E112.md) |
+| E113 | none | Multi-task across platforms | [E113](E113.md) |
+| E114 | finding | Validation audit and post-hoc recalibration | [E114](E114.md) |
+| E115 | finding | Calibration budget for a new platform | [E115](E115.md) |
+| E116 | small | Are YouTube zeros missing? | [E116](E116.md) |
+| E117 | finding | What is a 0/0 post at the first scan worth? | [E117](E117.md) |
+| E118 | finding | Conformalized quantile intervals | [E118](E118.md) |
+| E119 | small | Author target encoding as a feature | [E119](E119.md) |
+| E120 | none | Cross-platform author history | [E120](E120.md) |
+| E121 | none | Recency, sequence and text-surface columns | [E121](E121.md) |
+| E122 | worse | Spectral embeddings of the author-brand graph | [E122](E122.md) |
+| E123 | finding | CQR intervals for the FB transfer | [E123](E123.md) |
+| E124 | small | Final estimator v2: author_te + CQR | [E124](E124.md) |
+| E125 | none | CQR by reaction tier | [E125](E125.md) |
+| E126 | finding | Range for a 0/0 post | [E126](E126.md) |
+| E127 | worse | Metapath2vec on author-brand-hashtag | [E127](E127.md) |
+| E128 | finding | Which graph edges carry signal? | [E128](E128.md) |
+| E129 | none | Distributional model vs CQR | [E129](E129.md) |
+| E130 | finding | Intervals at posting time | [E130](E130.md) |
+| E131 | finding | Out-of-platform CQR matrix | [E131](E131.md) |
+| E132 | finding | FB CQR by tier | [E132](E132.md) |
+| E133 | none | Recency weighting against drift | [E133](E133.md) |
+| E134 | none | Seed averaging | [E134](E134.md) |
+| E135 | worse | Follower-tier recalibration | [E135](E135.md) |
+| E136 | finding | Rolling-origin validation | [E136](E136.md) |
+| E137 | finding | 50% likely range | [E137](E137.md) |
+| E138 | finding | Robustness to missing reactions | [E138](E138.md) |
+| E139 | small | Target definition: views vs views/day | [E139](E139.md) |
+| E140 | none | Hurdle model for zero views | [E140](E140.md) |
+| E141 | small | Final X model v3 with log(age) | [E141](E141.md) |
+| E142 | finding | Temporal CQR | [E142](E142.md) |
+| E143 | worse | FB transfer with age | [E143](E143.md) |
+| E144 | none | FB tier-specific CQR widths | [E144](E144.md) |
+| E145 | none | FB tier calibration, pooled splits | [E145](E145.md) |
+| E146 | none | Widening the FB band for >1M | [E146](E146.md) |
+| E147 | finding | Can the >1M FB tier be calibrated? | [E147](E147.md) |
+| E148 | finding | FB band excluding the largest pages | [E148](E148.md) |
+| E149 | none | Followers as a feature for large FB pages | [E149](E149.md) |
+| E150 | small | Dedicated model for the largest FB pages | [E150](E150.md) |
+| E151 | none | Large-page model for the >1M FB band | [E151](E151.md) |
+| E152 | finding | Error by brand size and industry | [E152](E152.md) |
+| E153 | small | Hand-check sample vs full fetched sample | [E153](E153.md) |
+| E154 | small | Hybrid FB model | [E154](E154.md) |
+| E155 | none | Is the hybrid FB gain significant? | [E155](E155.md) |
+| E156 | finding | FB error by industry | [E156](E156.md) |
+| E157 | finding | FB brand totals and hybrid ranking | [E157](E157.md) |
+| E158 | small | FB brand totals after calibration | [E158](E158.md) |
+| E159 | small | FB brand-total interval scaled by n | [E159](E159.md) |
+| E160 | none | FB brand interval with >=10 posts | [E160](E160.md) |
+| E161 | finding | Robustness to missing followers | [E161](E161.md) |
+| E162 | finding | Which signal does the FB transfer use? | [E162](E162.md) |
+| E163 | finding | Which model when data is missing? | [E163](E163.md) |
+| E164 | finding | Partial missingness crossover | [E164](E164.md) |
+| E165 | finding | FB rule vs model by follower tier | [E165](E165.md) |
+| E166 | small | FB intervals on the 130 hand posts | [E166](E166.md) |
+| E167 | finding | How much do views depend on followers vs reactions per platform? | [E167](E167.md) |
+| E168 | finding | How much of Brand24's reach rule can be recovered? | [E168](E168.md) |
+| E169 | finding | Can brand history substitute for unknown author history? | [E169](E169.md) |
