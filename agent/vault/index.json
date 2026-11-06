@@ -2083,5 +2083,53 @@
   "paths": [
    "src/external_brand.py"
   ]
+ },
+ {
+  "id": "E172",
+  "date": "2026-11-06",
+  "question": "Brand momentum, past-only",
+  "setup": "Brand's earlier views per reaction (30 days / all past, check before the post) as columns; brand CV + temporal",
+  "result": "Brand CV -0.000 / -0.008 / -0.005; temporal -0.023 / -0.066 / -0.026; E169 stands",
+  "type": "none",
+  "where": "`src/time_momentum.py`",
+  "paths": [
+   "src/time_momentum.py"
+  ]
+ },
+ {
+  "id": "E173",
+  "date": "2026-11-06",
+  "question": "Brand buzz in the Brand24 stream",
+  "setup": "Brand mentions in the 7 days before the post (all platforms) and ratio to its 90-day rate",
+  "result": "-0.002 / -0.002 / -0.008; FB 0.385 -> 0.399",
+  "type": "none",
+  "where": "`src/time_momentum.py`",
+  "paths": [
+   "src/time_momentum.py"
+  ]
+ },
+ {
+  "id": "E174",
+  "date": "2026-11-06",
+  "question": "Platform time",
+  "setup": "Platform's views per reaction over the previous 7 / 30 days and its Wikipedia attention",
+  "result": "-0.001 / -0.010 / -0.007; temporal worse",
+  "type": "none",
+  "where": "`src/time_momentum.py`",
+  "paths": [
+   "src/time_momentum.py"
+  ]
+ },
+ {
+  "id": "E175",
+  "date": "2026-11-06",
+  "question": "New text cues",
+  "setup": "Giveaway, call to action, disclosure, @mentions, URLs, questions, brands named, YouTube title cues",
+  "result": "+0.002 / +0.000 / **+0.009** (X CI +0.002 to +0.016); temporal X +0.001 (CI includes 0)",
+  "type": "small",
+  "where": "`src/time_momentum.py`",
+  "paths": [
+   "src/time_momentum.py"
+  ]
  }
 ]

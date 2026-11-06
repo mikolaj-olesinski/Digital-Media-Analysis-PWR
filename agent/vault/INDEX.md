@@ -176,3 +176,7 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E169 | finding | Can brand history substitute for unknown author history? | [E169](E169.md) |
 | E170 | none | Brand news attention on Wikipedia at post time | [E170](E170.md) |
 | E171 | none | Company facts from Wikidata | [E171](E171.md) |
+| E172 | none | Brand momentum, past-only | [E172](E172.md) |
+| E173 | none | Brand buzz in the Brand24 stream | [E173](E173.md) |
+| E174 | none | Platform time | [E174](E174.md) |
+| E175 | small | New text cues | [E175](E175.md) |

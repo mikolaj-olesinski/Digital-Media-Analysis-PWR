@@ -178,6 +178,10 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E169 | 2026-11-08 | Can brand history substitute for unknown author history? | Temporal split (train before 2026-06, test after); base vs + smoothed brand prior; brand bootstrap | Brand prior hurts: TikTok -0.005, YouTube -0.035, X +0.006 (CI includes 0); known-brand share 52/48/35% | finding | `src/brand_prior.py` |
 | E170 | 2026-11-06 | Brand news attention on Wikipedia at post time | Daily pageviews of 293 brand articles; post day / 7-day mean / peak vs 60-day baseline as columns; final CatBoost + FB transfer | Gain -0.000 / -0.011 / -0.007 (TikTok / YouTube / X); FB 0.385 -> 0.384 | none | `src/external_brand.py` |
 | E171 | 2026-11-06 | Company facts from Wikidata | Employees, revenue (USD), brand age at post as columns; final CatBoost + FB transfer | Gain -0.002 / -0.007 / -0.003; FB 0.385 -> 0.388; external brand data closed | none | `src/external_brand.py` |
+| E172 | 2026-11-06 | Brand momentum, past-only | Brand's earlier views per reaction (30 days / all past, check before the post) as columns; brand CV + temporal | Brand CV -0.000 / -0.008 / -0.005; temporal -0.023 / -0.066 / -0.026; E169 stands | none | `src/time_momentum.py` |
+| E173 | 2026-11-06 | Brand buzz in the Brand24 stream | Brand mentions in the 7 days before the post (all platforms) and ratio to its 90-day rate | -0.002 / -0.002 / -0.008; FB 0.385 -> 0.399 | none | `src/time_momentum.py` |
+| E174 | 2026-11-06 | Platform time | Platform's views per reaction over the previous 7 / 30 days and its Wikipedia attention | -0.001 / -0.010 / -0.007; temporal worse | none | `src/time_momentum.py` |
+| E175 | 2026-11-06 | New text cues | Giveaway, call to action, disclosure, @mentions, URLs, questions, brands named, YouTube title cues | +0.002 / +0.000 / **+0.009** (X CI +0.002 to +0.016); temporal X +0.001 (CI includes 0) | small | `src/time_momentum.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.
