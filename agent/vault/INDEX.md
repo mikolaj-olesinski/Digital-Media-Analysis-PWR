@@ -180,3 +180,5 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E173 | none | Brand buzz in the Brand24 stream | [E173](E173.md) |
 | E174 | none | Platform time | [E174](E174.md) |
 | E175 | small | New text cues | [E175](E175.md) |
+| E176 | finding | Estimator for whatever fields arrive, with calibrated confidence | [E176](E176.md) |
+| E177 | finding | Facebook on Brand24's own likes / comments | [E177](E177.md) |

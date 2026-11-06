@@ -182,6 +182,8 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E173 | 2026-11-06 | Brand buzz in the Brand24 stream | Brand mentions in the 7 days before the post (all platforms) and ratio to its 90-day rate | -0.002 / -0.002 / -0.008; FB 0.385 -> 0.399 | none | `src/time_momentum.py` |
 | E174 | 2026-11-06 | Platform time | Platform's views per reaction over the previous 7 / 30 days and its Wikipedia attention | -0.001 / -0.010 / -0.007; temporal worse | none | `src/time_momentum.py` |
 | E175 | 2026-11-06 | New text cues | Giveaway, call to action, disclosure, @mentions, URLs, questions, brands named, YouTube title cues | +0.002 / +0.000 / **+0.009** (X CI +0.002 to +0.016); temporal X +0.001 (CI includes 0) | small | `src/time_momentum.py` |
+| E176 | 2026-11-06 | Estimator for whatever fields arrive, with calibrated confidence | Four input patterns, each with CatBoost point, CQR 50/90 and P(within x2); router vs full model fed missing reactions | Per-pattern 90% coverage 0.884-0.900; without router 0.46 / 0.56 / 0.83; P(x2) calibrated per pattern, no per-post ranking | finding | `src/fallback_estimator.py` |
+| E177 | 2026-11-06 | Facebook on Brand24's own likes / comments | X + YouTube ridge fed Brand24 counts vs fresh counts (402 posts) | 0.831 (x6.8) vs 0.385; shift on 25 posts 0.681; reach rule 1.119 | finding | `src/fallback_estimator.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

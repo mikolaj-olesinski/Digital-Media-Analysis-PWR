@@ -2131,5 +2131,29 @@
   "paths": [
    "src/time_momentum.py"
   ]
+ },
+ {
+  "id": "E176",
+  "date": "2026-11-06",
+  "question": "Estimator for whatever fields arrive, with calibrated confidence",
+  "setup": "Four input patterns, each with CatBoost point, CQR 50/90 and P(within x2); router vs full model fed missing reactions",
+  "result": "Per-pattern 90% coverage 0.884-0.900; without router 0.46 / 0.56 / 0.83; P(x2) calibrated per pattern, no per-post ranking",
+  "type": "finding",
+  "where": "`src/fallback_estimator.py`",
+  "paths": [
+   "src/fallback_estimator.py"
+  ]
+ },
+ {
+  "id": "E177",
+  "date": "2026-11-06",
+  "question": "Facebook on Brand24's own likes / comments",
+  "setup": "X + YouTube ridge fed Brand24 counts vs fresh counts (402 posts)",
+  "result": "0.831 (x6.8) vs 0.385; shift on 25 posts 0.681; reach rule 1.119",
+  "type": "finding",
+  "where": "`src/fallback_estimator.py`",
+  "paths": [
+   "src/fallback_estimator.py"
+  ]
  }
 ]

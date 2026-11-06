@@ -182,6 +182,8 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E173 | 2026-11-06 | Szum wokół marki w strumieniu Brand24 | Wzmianki marki w 7 dniach przed postem (wszystkie platformy) i stosunek do tempa z 90 dni | -0,002 / -0,002 / -0,008; FB 0,385 -> 0,399 | brak | `src/time_momentum.py` |
 | E174 | 2026-11-06 | Czas platformy | Wyświetlenia na reakcję platformy z poprzednich 7 / 30 dni i uwaga w Wikipedii | -0,001 / -0,010 / -0,007; czasowo gorzej | brak | `src/time_momentum.py` |
 | E175 | 2026-11-06 | Nowe sygnały z tekstu | Konkurs, wezwanie do działania, oznaczenie reklamy, @wzmianki, linki, pytania, nazwy marek, cechy tytułu YouTube | +0,002 / +0,000 / **+0,009** (X CI +0,002 do +0,016); czasowo X +0,001 (CI zawiera 0) | mały | `src/time_momentum.py` |
+| E176 | 2026-11-06 | Estymator dla dowolnych dostępnych pól, ze skalibrowaną pewnością | Cztery wzorce danych, każdy z punktem CatBoost, CQR 50/90 i P(w granicach x2); router vs pełny model z brakiem reakcji | Pokrycie 90% per wzorzec 0,884-0,900; bez routera 0,46 / 0,56 / 0,83; P(x2) skalibrowane per wzorzec, bez rankingu postów | wniosek | `src/fallback_estimator.py` |
+| E177 | 2026-11-06 | Facebook na własnych lajkach / komentarzach Brand24 | Ridge X + YouTube na liczbach Brand24 vs świeżych (402 posty) | 0,831 (x6,8) vs 0,385; korekta na 25 postach 0,681; reguła zasięgu 1,119 | wniosek | `src/fallback_estimator.py` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.
