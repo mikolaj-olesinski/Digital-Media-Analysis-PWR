@@ -9,3 +9,4 @@ data/processed/*_cache.pkl
 catboost_info/
 data/manual/
 data/processed/*fetched*.csv
+.tools/
