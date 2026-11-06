@@ -33,3 +33,24 @@ Szybki przegląd z 2026-11-02 zrobiony agentami AI, a nie przegląd systematyczn
 - Nie znaleźliśmy recenzowanej pracy z liczbą wyświetleń na reakcję ani sprawdzenia szacunków zasięgu na prawdziwych wyświetleniach. To może być luka warta podkreślenia, ale po dokładniejszym wyszukiwaniu.
 - Nie znaleźliśmy porównania ridge i boostingu przy zmianie platformy. Nasz wynik podajemy jako empiryczny.
 - Nie znaleźliśmy publicznego zbioru z prawdziwymi wyświetleniami z FB ani IG, co wspiera zebranie własnej próbki (punkt A planu).
+
+## Przegląd 2026-11-06 (nowa partia, tylko wyszukiwarka)
+
+- *A Data-Driven Study on Instagram Reach Prediction*, IEEE. [Link](https://ieeexplore.ieee.org/abstract/document/11469564) — badanie predykcji zasięgu na Instagramie; przeczytać przed twierdzeniami o IG. Tylko wyszukiwarka.
+- *Predictability of Extreme Events in Social Media*, PLOS ONE. [Link](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111506) — wczesna uwaga powyżej progu zapowiada zdarzenia skrajne; blisko naszego wyniku o ogonie (E96). Tylko wyszukiwarka.
+- *Adapting prediction sets to distribution shifts without labels*, UAI 2025. [Link](https://dl.acm.org/doi/10.5555/3762387.3762475) — zbiory konforemne przy przesunięciu bez etykiet; kandydat do przedziałów FB/IG (E98). Tylko wyszukiwarka.
+- *Wasserstein-Regularized Conformal Prediction under General Distribution Shift*, ICLR 2025. [Link](https://proceedings.iclr.cc/paper_files/paper/2025/hash/283066055b0256ca8e3e0c8c96019357-Abstract-Conference.html) — konforemność przy ogólnym przesunięciu. Tylko wyszukiwarka.
+- CreatorIQ, *Estimate performance with greater accuracy*. [Link](https://www.creatoriq.com/whats-new-in-creatoriq/estimate-performance-with-accuracy) — produkt konkurencji estymujący wyniki; materiał do ramy produktowej Brand24, nie dowód. Tylko wyszukiwarka.
+
+## Przegląd metod grafowych 2026-11-06 (tylko wyszukiwarka)
+
+- Dong, Chawla, Swami, 2017, *metapath2vec*, KDD. [Link](https://www.kdd.org/kdd2017/papers/view/metapath2vec-scalable-representation-learning-for-heterogeneous-networks) — spacery po metapathach (autor-marka-autor) + skip-gram; standard dla grafów heterogenicznych. Podstawa E127.
+- *A Deep Prediction Framework for Multi-Source Information via Heterogeneous GNN*, KDD 2024. [Link](https://dl.acm.org/doi/abs/10.1145/3637528.3671966) — heterogeniczny GNN łączący wiele źródeł; znaczenie typów węzłów i krawędzi. Tylko wyszukiwarka.
+- SW-Metapath2vec, PLOS ONE 2024. [Link](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0315507) — ważone spacery po metapathach. Tylko wyszukiwarka.
+- Przegląd grafów czasowych, arXiv 2208.08606. [Link](http://export.arxiv.org/pdf/2208.08606) — krawędzie z czasem; kandydat na graf osi czasu autora. Tylko wyszukiwarka.
+
+Nasze próby: cechy grafowe (E03/E06/E12/E29) <= +0,009; GraphSAGE na grafie tekstu gorzej (E65); spektralne embeddingi autor-marka gorzej (E122). E127 sprawdza metapath2vec na autor-marka-hashtag.
+
+Wynik testu grafowego (E127): embeddingi metapath2vec na grafie autor-marka-hashtag pogorszyły MAE na wszystkich
+platformach (0,278/0,480/0,480 vs 0,273/0,456/0,467). Powyższe metody zostają odniesieniem dla danych z prawdziwymi
+krawędziami interakcji; nasz graf ma tylko krawędzie wspólnego publikowania, które nie wnoszą sygnału.
