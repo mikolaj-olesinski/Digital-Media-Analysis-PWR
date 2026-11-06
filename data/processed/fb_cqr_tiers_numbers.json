@@ -1,0 +1,54 @@
+{
+ "posts": 402,
+ "coverage90": 0.925,
+ "median_width": 1.97,
+ "by_followers": {
+  "<1k": {
+   "n": 15,
+   "coverage": 0.933,
+   "width": 2.84
+  },
+  "1k-10k": {
+   "n": 35,
+   "coverage": 0.914,
+   "width": 2.45
+  },
+  "10k-100k": {
+   "n": 90,
+   "coverage": 0.967,
+   "width": 2.14
+  },
+  "100k-1M": {
+   "n": 86,
+   "coverage": 0.93,
+   "width": 1.95
+  },
+  ">1M": {
+   "n": 70,
+   "coverage": 0.857,
+   "width": 1.61
+  }
+ },
+ "by_views": {
+  "Q1": {
+   "n": 101,
+   "coverage": 0.97,
+   "width": 2.68
+  },
+  "Q2": {
+   "n": 100,
+   "coverage": 1.0,
+   "width": 2.18
+  },
+  "Q3": {
+   "n": 100,
+   "coverage": 0.95,
+   "width": 1.72
+  },
+  "Q4": {
+   "n": 101,
+   "coverage": 0.782,
+   "width": 1.49
+  }
+ }
+}

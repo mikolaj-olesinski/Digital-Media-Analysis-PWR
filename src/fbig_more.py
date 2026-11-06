@@ -83,7 +83,7 @@ def models():
 
 def preregister(root, f, meta):
     """Estimates for every row of the hand-check sample from the reactions recorded by Brand24 (before the check)."""
-    s = pd.read_csv(Path(root) / "data" / "manual" / "fbig_sample.csv", dtype={"mention_id": str})
+    s = pd.read_csv(eu.require(Path(root) / "data" / "manual" / "fbig_sample.csv"), dtype={"mention_id": str})
     raw = eu.load(root).astype({"mention_id": str}).set_index("mention_id").loc[s.mention_id]
     X = feats(raw.reset_index()); out = s[["mention_id", "platform", "kind", "tier"]].copy()
     out["brand24 reach"] = np.log10(raw.b24_estimated_reach.clip(lower=1).values)
@@ -132,7 +132,7 @@ def evaluate(P, ns=(5, 10, 25, 50), n_draw=300):
 
 def fake_fill(root, P0, path, seed=SEED):
     """Dry run only: a copy of the sample with invented views (ridge estimate + shift + noise), to test the pipeline. Never a result."""
-    s = pd.read_csv(Path(root) / "data" / "manual" / "fbig_sample.csv", dtype={"mention_id": str}).drop(columns="url")
+    s = pd.read_csv(eu.require(Path(root) / "data" / "manual" / "fbig_sample.csv"), dtype={"mention_id": str}).drop(columns="url")
     rng = np.random.default_rng(seed); v = P0["ridge likes+comments, all three"].values + rng.normal(.3, .5, len(s))
     s["views"] = np.round(10 ** v).astype(int).astype(object); s["checked_at"] = "2026-11-06 10:00"; s["views_visible"] = "yes"
     s.loc[rng.random(len(s)) < .1, "views"] = ""; s.to_csv(path, index=False); return path
@@ -206,7 +206,7 @@ def preregister_v2(root, f, meta):
     weights (classifier: this platform's posts vs TikTok / YouTube / X posts on inputs and reaction structure), and ridge on
     views per like. Weights are fitted on all of the target platform's posts in the Brand24 file (inputs only)."""
     import platform_map as pm
-    s = pd.read_csv(Path(root) / "data" / "manual" / "fbig_sample.csv", dtype={"mention_id": str})
+    s = pd.read_csv(eu.require(Path(root) / "data" / "manual" / "fbig_sample.csv"), dtype={"mention_id": str})
     raw = eu.load(root).astype({"mention_id": str}); out = s[["mention_id", "platform"]].copy(); C2 = ["log_likes", "log_comments"]
     Xs = f[pm.COLS].reset_index(drop=True); ys = meta.y.values
     for p in TGT:

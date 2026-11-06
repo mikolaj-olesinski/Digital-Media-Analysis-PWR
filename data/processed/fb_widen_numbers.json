@@ -1,0 +1,22 @@
+{
+ "1.0": {
+  "big_coverage": 0.843,
+  "big_width": 1.46,
+  "all_coverage": 0.893
+ },
+ "1.3": {
+  "big_coverage": 0.848,
+  "big_width": 1.57,
+  "all_coverage": 0.894
+ },
+ "1.5": {
+  "big_coverage": 0.853,
+  "big_width": 1.64,
+  "all_coverage": 0.895
+ },
+ "2.0": {
+  "big_coverage": 0.859,
+  "big_width": 1.82,
+  "all_coverage": 0.895
+ }
+}

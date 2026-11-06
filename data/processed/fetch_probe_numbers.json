@@ -1,0 +1,66 @@
+{
+ "facebook": {
+  "n": 8,
+  "ok": 7,
+  "status": {
+   "ok": 7,
+   "error": 1
+  },
+  "ratio_median": null,
+  "ratio_range": null,
+  "pairs": 0
+ },
+ "instagram": {
+  "n": 8,
+  "ok": 0,
+  "status": {
+   "needs_auth": 4,
+   "no_views": 4
+  },
+  "ratio_median": null,
+  "ratio_range": null,
+  "pairs": 0
+ },
+ "tiktok": {
+  "n": 8,
+  "ok": 6,
+  "status": {
+   "ok": 6,
+   "error": 2
+  },
+  "ratio_median": 1.58,
+  "ratio_range": [
+   1.05,
+   6.69
+  ],
+  "pairs": 6
+ },
+ "twitter": {
+  "n": 8,
+  "ok": 7,
+  "status": {
+   "ok": 7,
+   "gone": 1
+  },
+  "ratio_median": 1.77,
+  "ratio_range": [
+   1.07,
+   5.86
+  ],
+  "pairs": 5
+ },
+ "youtube": {
+  "n": 8,
+  "ok": 7,
+  "status": {
+   "ok": 7,
+   "gone": 1
+  },
+  "ratio_median": 4.37,
+  "ratio_range": [
+   1.02,
+   18.0
+  ],
+  "pairs": 7
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "posts": 130,
+ "brands": 19,
+ "followers_known": 88,
+ "median_log_followers_source": 3.817,
+ "models": {
+  "base (likes + comments)": {
+   "MAE": 0.3447,
+   "CI low": 0.281,
+   "CI high": 0.4354,
+   "bias": 0.0632,
+   "factor": 2.21
+  },
+  "+ followers": {
+   "MAE": 0.627,
+   "CI low": 0.5407,
+   "CI high": 0.7205,
+   "bias": 0.2274,
+   "factor": 4.24
+  },
+  "followers only": {
+   "MAE": 1.1986,
+   "CI low": 0.9341,
+   "CI high": 1.4128,
+   "bias": 0.7035,
+   "factor": 15.8
+  }
+ },
+ "gain_plus_followers": {
+  "mean": -0.283,
+  "CI": [
+   -0.361,
+   -0.209
+  ]
+ },
+ "subset_with_followers": {
+  "n": 88,
+  "base": 0.36,
+  "plus": 0.437
+ }
+}

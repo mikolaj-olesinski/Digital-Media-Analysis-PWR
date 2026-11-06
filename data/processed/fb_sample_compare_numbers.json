@@ -1,0 +1,15 @@
+{
+ "hand_n": 130,
+ "full_n": 402,
+ "overlap": 130,
+ "hand": {
+  "model_MAE": 0.345,
+  "rule_MAE": 0.947,
+  "median_views": 1080.0
+ },
+ "full": {
+  "model_MAE": 0.385,
+  "rule_MAE": 0.932,
+  "median_views": 1414.0
+ }
+}
