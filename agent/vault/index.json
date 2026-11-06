@@ -2059,5 +2059,29 @@
   "paths": [
    "src/brand_prior.py"
   ]
+ },
+ {
+  "id": "E170",
+  "date": "2026-11-06",
+  "question": "Brand news attention on Wikipedia at post time",
+  "setup": "Daily pageviews of 293 brand articles; post day / 7-day mean / peak vs 60-day baseline as columns; final CatBoost + FB transfer",
+  "result": "Gain -0.000 / -0.011 / -0.007 (TikTok / YouTube / X); FB 0.385 -> 0.384",
+  "type": "none",
+  "where": "`src/external_brand.py`",
+  "paths": [
+   "src/external_brand.py"
+  ]
+ },
+ {
+  "id": "E171",
+  "date": "2026-11-06",
+  "question": "Company facts from Wikidata",
+  "setup": "Employees, revenue (USD), brand age at post as columns; final CatBoost + FB transfer",
+  "result": "Gain -0.002 / -0.007 / -0.003; FB 0.385 -> 0.388; external brand data closed",
+  "type": "none",
+  "where": "`src/external_brand.py`",
+  "paths": [
+   "src/external_brand.py"
+  ]
  }
 ]

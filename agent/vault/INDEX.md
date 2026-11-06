@@ -174,3 +174,5 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E167 | finding | How much do views depend on followers vs reactions per platform? | [E167](E167.md) |
 | E168 | finding | How much of Brand24's reach rule can be recovered? | [E168](E168.md) |
 | E169 | finding | Can brand history substitute for unknown author history? | [E169](E169.md) |
+| E170 | none | Brand news attention on Wikipedia at post time | [E170](E170.md) |
+| E171 | none | Company facts from Wikidata | [E171](E171.md) |

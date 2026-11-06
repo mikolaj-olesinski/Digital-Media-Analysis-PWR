@@ -29,6 +29,7 @@ Próbkę dostarczył Brand24 na potrzeby kursu; sposób wyboru wzmianek nie jest
 - **130 ręcznie sprawdzonych postów.** Członek zespołu otworzył 130 z tych stron i zapisał wyświetlenia/odtworzenia; sparsowane wartości zgadzają się ze stroną. To próbka ręczna używana w E93.
 - **Instagram.** Próba anonimowa nie zwróciła wyświetleń (0 z 160 sprawdzonych postów); Instagram wymaga logowania do wyświetleń, więc nie zebrano danych o wyświetleniach z Instagrama. Lajki/komentarze dla 115 z 160 postów zapisano z publicznych stron.
 - **Regulaminy i dane osobowe.** Czytano tylko publiczne strony, bez logowania i bez cookies; nie publikujemy nazw ani URLi autorów. Pobrane pliki są lokalne i git-ignored (`data/processed/*fetched*.csv`); zawierają mention_id i liczniki, nie URL posta. W repo są tylko agregaty.
+- Publiczne dane o markach z Wikimedia (E86, E170, E171): miesięczne i dzienne wyświetlenia artykułów angielskiej Wikipedii oraz fakty o firmach z Wikidata (zatrudnienie, przychód, rok założenia) dla 293 artykułów marek. Na zewnątrz poszły tylko nazwy marek / tytuły artykułów (zgoda użytkownika 2026-11-05 i 2026-11-06); bez autorów, URL-i i treści postów. Pliki: `data/processed/brand_wikipedia.csv`, `brand_wiki_daily.csv`, `brand_wikidata.csv`.
 
 ## Prośby o usunięcie
 
