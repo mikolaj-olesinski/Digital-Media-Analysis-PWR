@@ -2155,5 +2155,137 @@
   "paths": [
    "src/fallback_estimator.py"
   ]
+ },
+ {
+  "id": "E178",
+  "date": "2026-11-06",
+  "question": "FB result on few brands",
+  "setup": "Leave-one-brand-out, without top 3 brands",
+  "result": "20 brands; LOBO 0.363-0.414; without top 3 0.461; typical brand ~0.44",
+  "type": "small",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E179",
+  "date": "2026-11-06",
+  "question": "Check age in the noise ceiling; 30-day target",
+  "setup": "E56 pairs + age matching; 30-day target",
+  "result": "Bound unchanged with age (0.243 / 0.386 / 0.331); 30-day target <= 0.007; ceiling stands",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E180",
+  "date": "2026-11-06",
+  "question": "Losses for totals",
+  "setup": "MAE / RMSE / tail-weighted / quantile 0.7; brand and brand-month totals",
+  "result": "No loss fixes totals (best -0.016 YouTube RMSE); brands off >x2 29 / 37 / 47%; rule on X 96%",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E181",
+  "date": "2026-11-06",
+  "question": "X missing views, inverse-probability weights",
+  "setup": "p(observed) classifier, weighted model and MAE",
+  "result": "Honest X MAE 0.494 (vs 0.469); weighting no gain; missing-view posts ~x1.8 smaller",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E182",
+  "date": "2026-11-06",
+  "question": "Error by language and sentiment",
+  "setup": "Subgroup MAE and bias with brand CI",
+  "result": "FB non-English 0.540, bias +0.35 (x2.2 under); YouTube positive +0.17",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E183",
+  "date": "2026-11-06",
+  "question": "Creator score stability",
+  "setup": "Author residual, first vs second half",
+  "result": "YouTube 23 authors Spearman 0.81; TikTok / X too few repeat authors",
+  "type": "small",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E184",
+  "date": "2026-11-06",
+  "question": "Anomalies vs promo / spam",
+  "setup": "Top / bottom 5% residual vs labels",
+  "result": "TikTok: over-performers promo 51% (34%), under-performers spam 26% (13%); none on YouTube / X",
+  "type": "small",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E185",
+  "date": "2026-11-06",
+  "question": "Early virality alert from the first check",
+  "setup": "Top 5% / 1% precision and recall, E40 pairs",
+  "result": "Top 5% precision 0.82 / 0.86 / 0.71 vs reactions only 0.71 / 0.64 / 0.35",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E186",
+  "date": "2026-11-06",
+  "question": "Monthly brand ranking within an industry",
+  "setup": "Kendall of brand-month totals, industry x month",
+  "result": "Model 0.73 / 0.70 / 0.60; rule on X 0.63",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E187",
+  "date": "2026-11-06",
+  "question": "Negative posts",
+  "setup": "Sentiment bias",
+  "result": "No bias on negative posts (+0.02 / -0.04 / +0.06)",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E188",
+  "date": "2026-11-06",
+  "question": "Earned media value",
+  "setup": "Brand totals x CPM 5 USD",
+  "result": "X: model 47% of brands within +-50%, rule 2%",
+  "type": "small",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
  }
 ]

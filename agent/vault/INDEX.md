@@ -182,3 +182,14 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E175 | small | New text cues | [E175](E175.md) |
 | E176 | finding | Estimator for whatever fields arrive, with calibrated confidence | [E176](E176.md) |
 | E177 | finding | Facebook on Brand24's own likes / comments | [E177](E177.md) |
+| E178 | small | FB result on few brands | [E178](E178.md) |
+| E179 | finding | Check age in the noise ceiling; 30-day target | [E179](E179.md) |
+| E180 | finding | Losses for totals | [E180](E180.md) |
+| E181 | finding | X missing views, inverse-probability weights | [E181](E181.md) |
+| E182 | finding | Error by language and sentiment | [E182](E182.md) |
+| E183 | small | Creator score stability | [E183](E183.md) |
+| E184 | small | Anomalies vs promo / spam | [E184](E184.md) |
+| E185 | finding | Early virality alert from the first check | [E185](E185.md) |
+| E186 | finding | Monthly brand ranking within an industry | [E186](E186.md) |
+| E187 | finding | Negative posts | [E187](E187.md) |
+| E188 | small | Earned media value | [E188](E188.md) |

@@ -184,6 +184,17 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E175 | 2026-11-06 | Nowe sygnały z tekstu | Konkurs, wezwanie do działania, oznaczenie reklamy, @wzmianki, linki, pytania, nazwy marek, cechy tytułu YouTube | +0,002 / +0,000 / **+0,009** (X CI +0,002 do +0,016); czasowo X +0,001 (CI zawiera 0) | mały | `src/time_momentum.py` |
 | E176 | 2026-11-06 | Estymator dla dowolnych dostępnych pól, ze skalibrowaną pewnością | Cztery wzorce danych, każdy z punktem CatBoost, CQR 50/90 i P(w granicach x2); router vs pełny model z brakiem reakcji | Pokrycie 90% per wzorzec 0,884-0,900; bez routera 0,46 / 0,56 / 0,83; P(x2) skalibrowane per wzorzec, bez rankingu postów | wniosek | `src/fallback_estimator.py` |
 | E177 | 2026-11-06 | Facebook na własnych lajkach / komentarzach Brand24 | Ridge X + YouTube na liczbach Brand24 vs świeżych (402 posty) | 0,831 (x6,8) vs 0,385; korekta na 25 postach 0,681; reguła zasięgu 1,119 | wniosek | `src/fallback_estimator.py` |
+| E178 | 2026-11-06 | Wynik FB na kilku markach | Bez jednej marki, bez 3 największych | 20 marek; bez jednej 0,363-0,414; bez 3 największych 0,461; typowa marka ~0,44 | mały | `src/critical_review.py` |
+| E179 | 2026-11-06 | Wiek sprawdzenia a sufit szumu; cel 30 dni | Pary E56 + dopasowanie wieku; cel 30 dni | Granica bez zmian z wiekiem (0,243 / 0,386 / 0,331); cel 30 dni <= 0,007; sufit się trzyma | wniosek | `src/critical_review.py` |
+| E180 | 2026-11-06 | Funkcje straty pod sumy | MAE / RMSE / ważony ogon / kwantyl 0,7; sumy marek i marka-miesiąc | Żadna strata nie naprawia sum (najlepiej -0,016 YouTube RMSE); marki >x2 29 / 37 / 47%; reguła na X 96% | wniosek | `src/critical_review.py` |
+| E181 | 2026-11-06 | Braki wyświetleń na X, wagi odwrotnego prawdopodobieństwa | Klasyfikator p(obserwowane), model i MAE ważone | Uczciwe MAE X 0,494 (vs 0,469); ważenie bez zysku; posty bez wyświetleń ~x1,8 mniejsze | wniosek | `src/critical_review.py` |
+| E182 | 2026-11-06 | Błąd wg języka i sentymentu | MAE i bias podgrup z CI po markach | FB nieangielskie 0,540, bias +0,35 (x2,2 za nisko); YouTube pozytywne +0,17 | wniosek | `src/critical_review.py` |
+| E183 | 2026-11-06 | Stabilność oceny twórcy | Reszta autora, pierwsza vs druga połowa | YouTube 23 autorów Spearman 0,81; TikTok / X za mało powtarzających się autorów | mały | `src/critical_review.py` |
+| E184 | 2026-11-06 | Anomalie vs promo / spam | Górne / dolne 5% reszty vs etykiety | TikTok: ponad oczekiwania promo 51% (34%), poniżej spam 26% (13%); brak na YouTube / X | mały | `src/critical_review.py` |
+| E185 | 2026-11-06 | Wczesny alarm o viralu z pierwszego odczytu | Precyzja i czułość top 5% / 1%, pary E40 | Precyzja top 5% 0,82 / 0,86 / 0,71 vs same reakcje 0,71 / 0,64 / 0,35 | wniosek | `src/critical_review.py` |
+| E186 | 2026-11-06 | Miesięczny ranking marek w branży | Kendall sum marka-miesiąc, branża x miesiąc | Model 0,73 / 0,70 / 0,60; reguła na X 0,63 | wniosek | `src/critical_review.py` |
+| E187 | 2026-11-06 | Posty negatywne | Bias wg sentymentu | Brak biasu na negatywnych (+0,02 / -0,04 / +0,06) | wniosek | `src/critical_review.py` |
+| E188 | 2026-11-06 | Wartość mediów (EMV) | Sumy marek x CPM 5 USD | X: model 47% marek w +-50%, reguła 2% | mały | `src/critical_review.py` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.

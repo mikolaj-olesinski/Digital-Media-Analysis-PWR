@@ -184,6 +184,17 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E175 | 2026-11-06 | New text cues | Giveaway, call to action, disclosure, @mentions, URLs, questions, brands named, YouTube title cues | +0.002 / +0.000 / **+0.009** (X CI +0.002 to +0.016); temporal X +0.001 (CI includes 0) | small | `src/time_momentum.py` |
 | E176 | 2026-11-06 | Estimator for whatever fields arrive, with calibrated confidence | Four input patterns, each with CatBoost point, CQR 50/90 and P(within x2); router vs full model fed missing reactions | Per-pattern 90% coverage 0.884-0.900; without router 0.46 / 0.56 / 0.83; P(x2) calibrated per pattern, no per-post ranking | finding | `src/fallback_estimator.py` |
 | E177 | 2026-11-06 | Facebook on Brand24's own likes / comments | X + YouTube ridge fed Brand24 counts vs fresh counts (402 posts) | 0.831 (x6.8) vs 0.385; shift on 25 posts 0.681; reach rule 1.119 | finding | `src/fallback_estimator.py` |
+| E178 | 2026-11-06 | FB result on few brands | Leave-one-brand-out, without top 3 brands | 20 brands; LOBO 0.363-0.414; without top 3 0.461; typical brand ~0.44 | small | `src/critical_review.py` |
+| E179 | 2026-11-06 | Check age in the noise ceiling; 30-day target | E56 pairs + age matching; 30-day target | Bound unchanged with age (0.243 / 0.386 / 0.331); 30-day target <= 0.007; ceiling stands | finding | `src/critical_review.py` |
+| E180 | 2026-11-06 | Losses for totals | MAE / RMSE / tail-weighted / quantile 0.7; brand and brand-month totals | No loss fixes totals (best -0.016 YouTube RMSE); brands off >x2 29 / 37 / 47%; rule on X 96% | finding | `src/critical_review.py` |
+| E181 | 2026-11-06 | X missing views, inverse-probability weights | p(observed) classifier, weighted model and MAE | Honest X MAE 0.494 (vs 0.469); weighting no gain; missing-view posts ~x1.8 smaller | finding | `src/critical_review.py` |
+| E182 | 2026-11-06 | Error by language and sentiment | Subgroup MAE and bias with brand CI | FB non-English 0.540, bias +0.35 (x2.2 under); YouTube positive +0.17 | finding | `src/critical_review.py` |
+| E183 | 2026-11-06 | Creator score stability | Author residual, first vs second half | YouTube 23 authors Spearman 0.81; TikTok / X too few repeat authors | small | `src/critical_review.py` |
+| E184 | 2026-11-06 | Anomalies vs promo / spam | Top / bottom 5% residual vs labels | TikTok: over-performers promo 51% (34%), under-performers spam 26% (13%); none on YouTube / X | small | `src/critical_review.py` |
+| E185 | 2026-11-06 | Early virality alert from the first check | Top 5% / 1% precision and recall, E40 pairs | Top 5% precision 0.82 / 0.86 / 0.71 vs reactions only 0.71 / 0.64 / 0.35 | finding | `src/critical_review.py` |
+| E186 | 2026-11-06 | Monthly brand ranking within an industry | Kendall of brand-month totals, industry x month | Model 0.73 / 0.70 / 0.60; rule on X 0.63 | finding | `src/critical_review.py` |
+| E187 | 2026-11-06 | Negative posts | Sentiment bias | No bias on negative posts (+0.02 / -0.04 / +0.06) | finding | `src/critical_review.py` |
+| E188 | 2026-11-06 | Earned media value | Brand totals x CPM 5 USD | X: model 47% of brands within +-50%, rule 2% | small | `src/critical_review.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.
