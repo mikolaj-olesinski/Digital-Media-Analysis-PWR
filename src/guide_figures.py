@@ -49,3 +49,15 @@ def plot_x_rule(s, M, r, p, path=None, lang="en"):
     plt.tight_layout()
     if path: fig.savefig(path, dpi=170, bbox_inches="tight")
     plt.show()
+
+if __name__ == "__main__":
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    f, meta = em.load(root); raw = eu.load(root)
+    T = baseline_table(f, meta)
+    for lang in ("en", "pl"):
+        plot_baseline(T, path=root / "figures" / f"baseline_{lang}.png", lang=lang)
+    s, M, r, p = x_rule(f, meta, raw)
+    for lang in ("en", "pl"):
+        plot_x_rule(s, M, r, p, path=root / "figures" / f"x_rule_{lang}.png", lang=lang)
+    print("guide figures written")

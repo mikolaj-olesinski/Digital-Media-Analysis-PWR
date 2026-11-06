@@ -1,4 +1,9 @@
-"""Builds the Polish project guide as one HTML page with embedded figures. Numbers in the text were read from data/processed/*.json. Run from the repo root: python src/guide_build.py <out.html>"""
+"""Builds the Polish project guide as one HTML page with embedded figures. Run: python src/guide_build.py <out.html>
+
+Only extra_numbers.json is read at build time; the tables (TUNED, XFER, RULE, GRAPHS, TARGETS) and many sentences carry
+numbers transcribed by hand from data/processed/*.json at the time they were written. When a number changes, update this
+script too, or the guide drifts from the model card.
+"""
 import base64, html, json, pathlib, sys
 
 F = pathlib.Path("figures"); D = pathlib.Path("data/processed")
@@ -46,6 +51,7 @@ GLOSS = "".join(f"<div><b>{a}</b>{b}</div>" for a, b in [("Wyświetlenia vs zasi
 body = f"""
 <header><div class="kicker">Projekt AMC · PWr · klient Brand24</div><h1>Czy da się oszacować, ile osób zobaczyło post w mediach społecznościowych?</h1>
 <p class="lead">Przewodnik dla kogoś, kto nie zna projektu: pytanie, dane, modele, strojenie, transfer między platformami, reguła Brand24, ablacja, etykiety i grafy.</p></header>
+<p class="box"><b>Uwaga o wersjach liczb.</b> Przewodnik opisuje analizy do 2026-11-04. Późniejsze zmiany (X v3: 0,454 i pasmo 1,99; 402 posty FB; CQR) są w <code>docs/pl/model_card.md</code>; ten tekst jest historyczny.</p>
 <nav class="box"><b>Spis</b><ol><li><a href="#dane">Dane i etykiety</a></li><li><a href="#wynik">Główny wynik</a></li><li><a href="#modele">Kolumny, modele, strojenie</a></li><li><a href="#transfer">Poza platformą</a></li><li><a href="#regula">Reguła Brand24</a></li><li><a href="#kolumny">Nowe kolumny</a></li><li><a href="#ablacja">Ablacja i błędy systematyczne</a></li><li><a href="#etykiety">Po co nam etykiety</a></li><li><a href="#grafy">Grafy i community detection</a></li><li><a href="#inne">Inne podejścia</a></li><li><a href="#wnioski">Wnioski, poprawki, ograniczenia</a></li></ol></nav>
 
 <section class="box"><h2>O co chodzi</h2>
@@ -154,4 +160,6 @@ a{{color:var(--hi)}}code{{background:var(--soft);padding:1px 5px;border-radius:5
 .tw{{overflow-x:auto;margin:6px 0 12px}}table{{border-collapse:collapse;width:100%;font-size:14px;min-width:460px}}th,td{{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}}th{{color:var(--hi);font-size:12px;text-transform:uppercase;letter-spacing:.04em}}
 </style>
 <main>{body}</main>"""
+if len(sys.argv) < 2:
+    raise SystemExit("Usage: python src/guide_build.py <out.html>")
 pathlib.Path(sys.argv[1]).write_text(page); print(len(page) // 1024, "KB")

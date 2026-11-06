@@ -22,7 +22,11 @@ T = {
                title_b="B. Error of the views estimate"),
 }[lang]
 
-d = pd.read_csv(ROOT / "data" / "raw" / "reach_samples_students.csv")
+p = ROOT / "data" / "raw" / "reach_samples_students.csv"
+if not p.exists():
+    raise SystemExit(f"Missing data file: {p}\n"
+                         "See docs/en/reproduce.md, section 'If a data file is missing'.")
+d = pd.read_csv(p)
 d["eng"] = d[["likes", "comments", "shares"]].fillna(0).sum(axis=1)
 names = {"tiktok": "TikTok", "youtube": "YouTube", "twitter": "X", "facebook": "Facebook", "instagram": "Instagram"}
 order = ["tiktok", "youtube", "twitter", "facebook", "instagram"]
