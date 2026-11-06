@@ -1,0 +1,140 @@
+{
+ "tiktok": {
+  "missing_reactions": {
+   "0.0": {
+    "full": 0.273,
+    "followers_only": 0.583
+   },
+   "0.25": {
+    "full": 0.491,
+    "followers_only": 0.583
+   },
+   "0.5": {
+    "full": 0.719,
+    "followers_only": 0.583
+   },
+   "0.75": {
+    "full": 0.929,
+    "followers_only": 0.583
+   },
+   "1.0": {
+    "full": 1.139,
+    "followers_only": 0.583
+   }
+  },
+  "missing_followers": {
+   "0.0": {
+    "full": 0.273,
+    "reactions_only": 0.276
+   },
+   "0.25": {
+    "full": 0.278,
+    "reactions_only": 0.276
+   },
+   "0.5": {
+    "full": 0.283,
+    "reactions_only": 0.276
+   },
+   "0.75": {
+    "full": 0.29,
+    "reactions_only": 0.276
+   },
+   "1.0": {
+    "full": 0.294,
+    "reactions_only": 0.276
+   }
+  }
+ },
+ "youtube": {
+  "missing_reactions": {
+   "0.0": {
+    "full": 0.456,
+    "followers_only": 0.767
+   },
+   "0.25": {
+    "full": 0.702,
+    "followers_only": 0.767
+   },
+   "0.5": {
+    "full": 0.966,
+    "followers_only": 0.767
+   },
+   "0.75": {
+    "full": 1.209,
+    "followers_only": 0.767
+   },
+   "1.0": {
+    "full": 1.462,
+    "followers_only": 0.767
+   }
+  },
+  "missing_followers": {
+   "0.0": {
+    "full": 0.456,
+    "reactions_only": 0.494
+   },
+   "0.25": {
+    "full": 0.522,
+    "reactions_only": 0.494
+   },
+   "0.5": {
+    "full": 0.582,
+    "reactions_only": 0.494
+   },
+   "0.75": {
+    "full": 0.64,
+    "reactions_only": 0.494
+   },
+   "1.0": {
+    "full": 0.711,
+    "reactions_only": 0.494
+   }
+  }
+ },
+ "twitter": {
+  "missing_reactions": {
+   "0.0": {
+    "full": 0.467,
+    "followers_only": 0.575
+   },
+   "0.25": {
+    "full": 0.497,
+    "followers_only": 0.575
+   },
+   "0.5": {
+    "full": 0.536,
+    "followers_only": 0.575
+   },
+   "0.75": {
+    "full": 0.577,
+    "followers_only": 0.575
+   },
+   "1.0": {
+    "full": 0.609,
+    "followers_only": 0.575
+   }
+  },
+  "missing_followers": {
+   "0.0": {
+    "full": 0.467,
+    "reactions_only": 0.515
+   },
+   "0.25": {
+    "full": 0.533,
+    "reactions_only": 0.515
+   },
+   "0.5": {
+    "full": 0.596,
+    "reactions_only": 0.515
+   },
+   "0.75": {
+    "full": 0.657,
+    "reactions_only": 0.515
+   },
+   "1.0": {
+    "full": 0.733,
+    "reactions_only": 0.515
+   }
+  }
+ }
+}

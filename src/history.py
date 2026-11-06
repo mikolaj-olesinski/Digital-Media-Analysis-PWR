@@ -12,7 +12,11 @@ M = ["views", "likes", "comments", "shares"]
 
 
 def load(root):
-    d = pd.read_csv(Path(root) / "data" / "raw" / FILE, parse_dates=TCOLS).astype({"mention_id": str})
+    p = Path(root) / "data" / "raw" / FILE
+    if not p.exists():
+        raise SystemExit(f"Missing data file: {p}\n"
+                         "See docs/en/reproduce.md, section 'If a data file is missing'.")
+    d = pd.read_csv(p, parse_dates=TCOLS).astype({"mention_id": str})
     for c in LOCAL:
         d[c] = d[c].dt.tz_localize("Europe/Warsaw", ambiguous="NaT", nonexistent="NaT").dt.tz_convert("UTC").dt.tz_localize(None)
     return d

@@ -1,0 +1,45 @@
+{
+ "twitter": {
+  "brands": 189,
+  "median_ratio_b24": 1.05,
+  "median_ratio_model": -0.18,
+  "share_off_2x_b24": 0.96,
+  "share_off_2x_model": 0.49,
+  "median_abs_log_err_b24": 1.05,
+  "median_abs_log_err_model": 0.3,
+  "kendall_b24": 0.631,
+  "kendall_model": 0.579,
+  "top5_overlap_b24": 4,
+  "top5_overlap_model": 4
+ },
+ "tiktok": {
+  "brands": 238,
+  "median_ratio_b24": 0.0,
+  "median_ratio_model": -0.08,
+  "share_off_2x_b24": 0.0,
+  "share_off_2x_model": 0.29,
+  "median_abs_log_err_b24": 0.0,
+  "median_abs_log_err_model": 0.19,
+  "kendall_b24": 1.0,
+  "kendall_model": 0.779,
+  "top5_overlap_b24": 5,
+  "top5_overlap_model": 3
+ },
+ "youtube": {
+  "brands": 213,
+  "median_ratio_b24": 0.0,
+  "median_ratio_model": -0.22,
+  "share_off_2x_b24": 0.0,
+  "share_off_2x_model": 0.5,
+  "median_abs_log_err_b24": 0.0,
+  "median_abs_log_err_model": 0.29,
+  "kendall_b24": 1.0,
+  "kendall_model": 0.65,
+  "top5_overlap_b24": 5,
+  "top5_overlap_model": 2
+ },
+ "facebook": {
+  "brands": 19,
+  "note": "no Brand24 reach in the fetched file; model vs views only"
+ }
+}

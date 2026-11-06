@@ -15,8 +15,17 @@ COLS = ["created_at", "metrics_updated_at", "brand", "language", "country", "tit
         "author_followers", "view_count", "likes", "comments", "shares", "sentiment", REACH]
 
 
+def require(path):
+    """Return the path, or stop with a readable message when a data file is missing."""
+    p = Path(path)
+    if not p.exists():
+        raise SystemExit(f"Missing data file: {p}\n"
+                         "See docs/en/reproduce.md, section 'If a data file is missing', for what it blocks.")
+    return p
+
+
 def load(root):
-    return pd.read_csv(Path(root) / "data" / "raw" / "reach_samples_students.csv",
+    return pd.read_csv(require(Path(root) / "data" / "raw" / "reach_samples_students.csv"),
                        parse_dates=["created_at", "metrics_updated_at"])
 
 

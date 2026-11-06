@@ -1,0 +1,70 @@
+{
+ "sample_130": {
+  "posts": 130,
+  "zero_shot_MAE": 0.345,
+  "strategies": {
+   "5": {
+    "random": 0.392,
+    "reactions": 0.388,
+    "extremes": 0.379,
+    "brands": 0.408,
+    "leverage": 0.348
+   },
+   "10": {
+    "random": 0.366,
+    "reactions": 0.364,
+    "extremes": 0.351,
+    "brands": 0.37,
+    "leverage": 0.367
+   },
+   "25": {
+    "random": 0.35,
+    "reactions": 0.35,
+    "extremes": 0.334,
+    "brands": 0.341,
+    "leverage": 0.382
+   },
+   "50": {
+    "random": 0.346,
+    "reactions": 0.347,
+    "extremes": 0.321,
+    "brands": 0.341,
+    "leverage": 0.334
+   }
+  }
+ },
+ "all_402": {
+  "posts": 402,
+  "zero_shot_MAE": 0.385,
+  "strategies": {
+   "5": {
+    "random": 0.426,
+    "reactions": 0.422,
+    "extremes": 0.389,
+    "brands": 0.442,
+    "leverage": 0.385
+   },
+   "10": {
+    "random": 0.4,
+    "reactions": 0.4,
+    "extremes": 0.398,
+    "brands": 0.404,
+    "leverage": 0.387
+   },
+   "25": {
+    "random": 0.388,
+    "reactions": 0.388,
+    "extremes": 0.393,
+    "brands": 0.39,
+    "leverage": 0.397
+   },
+   "50": {
+    "random": 0.385,
+    "reactions": 0.384,
+    "extremes": 0.377,
+    "brands": 0.391,
+    "leverage": 0.405
+   }
+  }
+ }
+}

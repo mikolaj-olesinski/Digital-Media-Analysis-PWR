@@ -1,0 +1,14 @@
+{
+ "tiktok": {
+  "base": 0.273,
+  "+graph": 0.278
+ },
+ "youtube": {
+  "base": 0.456,
+  "+graph": 0.479
+ },
+ "twitter": {
+  "base": 0.467,
+  "+graph": 0.485
+ }
+}

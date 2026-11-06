@@ -1,0 +1,122 @@
+{
+ "posts": 6571,
+ "overall": {
+  "median_ratio": 0.0,
+  "MAE_rule": 0.27
+ },
+ "by_platform": [
+  {
+   "platform": "tiktok",
+   "posts": 2491,
+   "median_ratio": 0.0,
+   "MAE_rule": 0.0,
+   "share_off_2x": 0.0
+  },
+  {
+   "platform": "twitter",
+   "posts": 1639,
+   "median_ratio": 0.97,
+   "MAE_rule": 1.08,
+   "share_off_2x": 0.87
+  },
+  {
+   "platform": "youtube",
+   "posts": 2441,
+   "median_ratio": 0.0,
+   "MAE_rule": 0.0,
+   "share_off_2x": 0.0
+  }
+ ],
+ "x_by_followers": [
+  {
+   "followers_bin": "<1k",
+   "posts": 959,
+   "median_ratio": 0.65,
+   "MAE_rule": 0.99,
+   "share_off_2x": 0.81
+  },
+  {
+   "followers_bin": "1k-10k",
+   "posts": 491,
+   "median_ratio": 1.22,
+   "MAE_rule": 1.2,
+   "share_off_2x": 0.95
+  },
+  {
+   "followers_bin": "10k-100k",
+   "posts": 127,
+   "median_ratio": 1.17,
+   "MAE_rule": 1.13,
+   "share_off_2x": 0.93
+  },
+  {
+   "followers_bin": "100k-1M",
+   "posts": 42,
+   "median_ratio": 1.21,
+   "MAE_rule": 1.37,
+   "share_off_2x": 0.9
+  }
+ ],
+ "x_by_reactions": [
+  {
+   "reactions_bin": "0",
+   "posts": 809,
+   "median_ratio": 0.36,
+   "MAE_rule": 0.8,
+   "share_off_2x": 0.77
+  },
+  {
+   "reactions_bin": "1-10",
+   "posts": 705,
+   "median_ratio": 1.43,
+   "MAE_rule": 1.41,
+   "share_off_2x": 0.97
+  },
+  {
+   "reactions_bin": "11-100",
+   "posts": 105,
+   "median_ratio": 1.1,
+   "MAE_rule": 1.03,
+   "share_off_2x": 0.93
+  }
+ ],
+ "x_by_age": [
+  {
+   "age_bin": "<1d",
+   "posts": 479,
+   "median_ratio": 1.03,
+   "MAE_rule": 1.11,
+   "share_off_2x": 0.85
+  },
+  {
+   "age_bin": "1-7d",
+   "posts": 125,
+   "median_ratio": 0.91,
+   "MAE_rule": 1.06,
+   "share_off_2x": 0.85
+  },
+  {
+   "age_bin": "7-30d",
+   "posts": 334,
+   "median_ratio": 0.85,
+   "MAE_rule": 1.02,
+   "share_off_2x": 0.88
+  },
+  {
+   "age_bin": ">30d",
+   "posts": 701,
+   "median_ratio": 1.01,
+   "MAE_rule": 1.1,
+   "share_off_2x": 0.87
+  }
+ ],
+ "x_by_language": [
+  {
+   "language_bin": "en",
+   "posts": 1616,
+   "median_ratio": 0.97,
+   "MAE_rule": 1.08,
+   "share_off_2x": 0.86
+  }
+ ]
+}

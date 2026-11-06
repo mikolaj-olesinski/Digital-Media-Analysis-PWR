@@ -1,0 +1,26 @@
+{
+ "tiktok": {
+  "posts": 2491,
+  "base_MAE": 0.273,
+  "author_te_MAE": 0.273,
+  "base_MAE_seen": 0.289,
+  "author_te_MAE_seen": 0.287,
+  "seen_share": 0.01
+ },
+ "youtube": {
+  "posts": 2441,
+  "base_MAE": 0.456,
+  "author_te_MAE": 0.454,
+  "base_MAE_seen": 0.465,
+  "author_te_MAE_seen": 0.446,
+  "seen_share": 0.081
+ },
+ "twitter": {
+  "posts": 1803,
+  "base_MAE": 0.467,
+  "author_te_MAE": 0.464,
+  "base_MAE_seen": 0.53,
+  "author_te_MAE_seen": 0.43,
+  "seen_share": 0.028
+ }
+}

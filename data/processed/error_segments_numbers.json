@@ -1,0 +1,50 @@
+{
+ "tiktok": {
+  "brands": 131,
+  "spearman_size_error": 0.134,
+  "corr_p": 0.1258,
+  "best_industries": {
+   "consumer goods": 0.197,
+   "other": 0.233,
+   "retail and e-commerce": 0.235
+  },
+  "worst_industries": {
+   "media and entertainment": 0.329,
+   "fashion and apparel": 0.353,
+   "sportswear": 0.421
+  },
+  "industry_spread": 0.224
+ },
+ "youtube": {
+  "brands": 118,
+  "spearman_size_error": -0.17,
+  "corr_p": 0.0663,
+  "best_industries": {
+   "telecom": 0.388,
+   "retail and e-commerce": 0.388,
+   "airlines": 0.397
+  },
+  "worst_industries": {
+   "social media and internet": 0.495,
+   "media and entertainment": 0.524,
+   "beverages": 0.686
+  },
+  "industry_spread": 0.298
+ },
+ "twitter": {
+  "brands": 60,
+  "spearman_size_error": -0.048,
+  "corr_p": 0.7156,
+  "best_industries": {
+   "food and restaurants": 0.404,
+   "automotive": 0.42,
+   "beverages": 0.423
+  },
+  "worst_industries": {
+   "media and entertainment": 0.606,
+   "sportswear": 0.637,
+   "social media and internet": 0.648
+  },
+  "industry_spread": 0.244
+ }
+}
