@@ -230,6 +230,9 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
 - **YouTube export views are much staler than TikTok's** (E194): re-reading 60 posts gives 58 readable, median new/old
   1.516, p90 25.3, only 19% within 5%, Spearman 0.857. Level comparisons need an age correction (E101); the export
   understates current popular videos. **solid**
+- **Facebook public view counts are frozen over three days** (E196): 60/60 posts re-read, ratio exactly 1.000 on every
+  post, unlike TikTok (+7% median) and YouTube (+52%). The public counter is static or cached, so the FB sample is a valid
+  single-time snapshot and drift is not a source of error there. **solid**
 - **TikTok export views are stale but rank-stable** (E192): re-reading 60 posts gives 40 readable, median new/old 1.068,
   p90 3.07, only 45% within 5%, but Spearman 0.918. Level comparisons need a common check date or an age correction
   (E101); a third of the posts cannot be read anonymously. **solid**

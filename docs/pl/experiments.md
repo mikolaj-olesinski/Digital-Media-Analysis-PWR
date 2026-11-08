@@ -202,6 +202,7 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E193 | 2026-11-08 | Czy wynik dla wzmianek trzecich stron utrzyma się na 20 markach? | Ten sam kolektor wzmianek, 20 marek; 73 filmy; model oceniany zewnętrznie | 73 filmy, 4 zera, 30 poniżej 100; MAE 0,737, bias +0,42; low/mid/top 0,574/0,581/1,385 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
 | E194 | 2026-11-08 | Jak nieaktualne są wyświetlenia YouTube z eksportu? | Ponowny odczyt 60 losowych wzmianek YouTube przez yt-dlp i porównanie z eksportem | 58/60; mediana 1,516, p90 25,3, 19% w 5%; Spearman 0,857 | wniosek | `src/youtube_refetch.py` |
 | E195 | 2026-11-08 | Czy wynik dla wzmianek zacieśnia się na 40 markach? | Ten sam kolektor wzmianek, 40 marek, 144 filmy; model oceniany zewnętrznie | 144 filmy, 4 zera, 49 poniżej 100; MAE 0,638, bias +0,35; low/mid/top 0,558/0,553/1,047 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E196 | 2026-11-08 | Czy publiczne wyświetlenia Facebooka zmieniają się w trzy dni? | Ponowny odczyt 60 pobranych filmów FB i porównanie z 2026-11-05 | 60/60 odczytane; stosunek 1,000 na każdym poście (brak driftu); licznik FB jest statyczny lub cache'owany | wniosek | `src/fb_refetch.py` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.

@@ -37,6 +37,7 @@ validations; **likely** = one validation, consistent with the rest; **open** = n
 | 26 | An early view read is the alerting signal: top-5% precision 0.82 / 0.86 / 0.71 vs 0.71 / 0.64 / 0.35 from reactions | likely | E185 |
 | 27 | YouTube export views are stale: median new/old 1.516, p90 25.3, 19% within 5%, Spearman 0.857; TikTok 1.068 and 0.918 | solid | E194, E192 |
 | 27 | Routing by available fields keeps 90% bands at 0.88-0.90; the full model with missing reactions covers 0.46-0.83 | likely | E176 |
+| 28 | Facebook public view counts are static over three days (60/60 identical), while TikTok grew 7% and YouTube 52%; FB is a single-time snapshot | solid | E196 |
 
 ## Unknown / open
 

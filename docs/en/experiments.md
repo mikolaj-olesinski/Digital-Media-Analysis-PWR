@@ -202,6 +202,7 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E193 | 2026-11-08 | Does the third-party mention result hold on 20 brands? | Same mention collector, 20 brands; 73 videos; model scored externally | 73 videos, 4 zero-view, 30 below 100; MAE 0.737, bias +0.42; low/mid/top 0.574/0.581/1.385 | finding | `src/external_youtube_mentions.py`, `src/external_validate.py` |
 | E194 | 2026-11-08 | How stale are the export YouTube views? | Re-read 60 random YouTube mentions with yt-dlp and compare with the export | 58/60; median ratio 1.516, p90 25.3, 19% within 5%; Spearman 0.857 | finding | `src/youtube_refetch.py` |
 | E195 | 2026-11-08 | Does the mention-population result tighten with 40 brands? | Same mention collector, 40 brands, 144 videos; model scored externally | 144 videos, 4 zero, 49 below 100; MAE 0.638, bias +0.35; low/mid/top 0.558/0.553/1.047 | finding | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E196 | 2026-11-08 | Do Facebook public view counts move over three days? | Re-read 60 fetched FB videos' public watch pages and compare with 2026-11-05 | 60/60 readable; ratio 1.000 on every post (no drift); FB counter is static or cached | finding | `src/fb_refetch.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

@@ -37,6 +37,7 @@ walidacjach; **prawdopodobne** = jedna walidacja, spójna z resztą; **otwarte**
 | 26 | Wczesny odczyt wyświetleń to sygnał do alarmów: precyzja top 5% 0,82 / 0,86 / 0,71 vs 0,71 / 0,64 / 0,35 z reakcji | likely | E185 |
 | 27 | Wyświetlenia YouTube z eksportu są nieaktualne: mediana 1,516, p90 25,3, 19% w 5%, Spearman 0,857; TikTok 1,068 i 0,918 | solidne | E194, E192 |
 | 27 | Routing po dostępnych polach trzyma pasma 90% na 0,88-0,90; pełny model z brakiem reakcji pokrywa 0,46-0,83 | likely | E176 |
+| 28 | Publiczne wyświetlenia Facebooka są statyczne w trzy dni (60/60 identyczne), podczas gdy TikTok urósł 7%, a YouTube 52%; FB to snapshot jednorazowy | solidne | E196 |
 
 ## Nieznane / otwarte
 

@@ -2374,5 +2374,17 @@
    "src/external_youtube_mentions.py",
    "src/external_validate.py"
   ]
+ },
+ {
+  "id": "E196",
+  "date": "2026-11-08",
+  "question": "Do Facebook public view counts move over three days?",
+  "setup": "Re-read 60 fetched FB videos' public watch pages and compare with 2026-11-05",
+  "result": "60/60 readable; ratio 1.000 on every post (no drift); FB counter is static or cached",
+  "type": "finding",
+  "where": "`src/fb_refetch.py`",
+  "paths": [
+   "src/fb_refetch.py"
+  ]
  }
 ]
