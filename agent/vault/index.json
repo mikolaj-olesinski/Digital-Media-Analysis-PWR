@@ -2643,6 +2643,18 @@
   ]
  },
  {
+  "id": "E225",
+  "date": "2026-11-08",
+  "question": "Does the X + YouTube ridge on likes + comments estimate Stack Exchange question views (sixth platform, evaluation only)?",
+  "setup": "Public SE API, 538 questions Apr-Aug 2026, 48 brands, 10 sites; likes = up votes, comments = answers + comments (fixed before scoring); ridge as results B; reference = same ridge with brand 5-fold CV; E201 grid row",
+  "result": "MAE 0.498 (x3.14, CI 0.448-0.525), 96% under-predicted, bias +0.45, within x2 28%, Spearman 0.57; own-platform x1.77; ratio 1.77 > 1.5, hypothesis refuted (level shift, rank equal); grid: YouTube x1.87, TikTok x2.41, Instagram x2.46, pooled x3.07, Facebook x3.32, X x4.50",
+  "type": "finding",
+  "where": "`src/stackexchange_transfer.py`",
+  "paths": [
+   "src/stackexchange_transfer.py"
+  ]
+ },
+ {
   "id": "E223",
   "date": "2026-11-08",
   "question": "Do our FB / IG post owners have the same account on YouTube or X?",

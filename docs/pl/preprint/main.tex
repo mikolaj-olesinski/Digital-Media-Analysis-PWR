@@ -218,7 +218,15 @@ samego momentu. Z tego samego powodu X jako platforma testowa wypada źle głów
 myli się na X z eksportu o 0,64, a na X odczytanym ponownie o 0,49. Posty X bez lajków nie są tu przyczyną.
 % E210, E211, E213, E218, E219. Główne liczby w tekście nadal na eksporcie Brand24.
 
-\todo{później: szósta platforma z publicznymi wyświetleniami (backlog B30).}
+\paragraph{Szósta platforma.} Żeby sprawdzić przeniesienie poza mediami społecznościowymi, pobraliśmy przez publiczne
+API 538 pytań z serwisów Stack Exchange (m.in. Stack Overflow, Super User, Android, Apple, Mechanics) o 48 markach z
+naszych danych, z tego samego okresu (kwiecień--sierpień 2026). Głos za traktujemy jak lajk, a odpowiedzi i komentarze
+jak komentarze; to przypisanie ustaliliśmy przed oceną. Model uczony na X i YouTube myli się tu \x{3,14}, a ten sam
+ridge uczony na samym Stack Exchange \x{1,77}. Kolejność pytań przenosi się tak samo dobrze (Spearman 0,57 w obu
+przypadkach), ale 96\% pytań jest niedoszacowanych: wyświetlenia pytań zbierają się miesiącami, a głos to nie lajk, więc
+cały poziom jest przesunięty. Najlepiej przenosi się sam YouTube (\x{1,87}), najgorzej sam X (\x{4,50}), tak jak na
+Facebooku i Instagramie.
+% E225 (stackexchange_numbers.json).
 
 \section{Porównanie metod}\label{sec:nie}
 

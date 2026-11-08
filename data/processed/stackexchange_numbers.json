@@ -1,0 +1,192 @@
+{
+ "E225": {
+  "questions": 538,
+  "brands": 48,
+  "sites": {
+   "stackoverflow": 254,
+   "superuser": 181,
+   "mechanics": 29,
+   "android": 20,
+   "gaming": 14,
+   "apple": 11,
+   "diy": 11,
+   "webapps": 11,
+   "travel": 5,
+   "money": 2
+  },
+  "median views": 156.0,
+  "median log10 views": 2.193,
+  "primary: X + YouTube ridge": {
+   "MAE": 0.498,
+   "CI": [
+    0.448,
+    0.525
+   ],
+   "bias": 0.488,
+   "factor": 3.14,
+   "Spearman": 0.571,
+   "posts": 538,
+   "within x2": 0.284,
+   "under-predicted": 0.959,
+   "median bias (+ = under)": 0.454,
+   "brands": 48
+  },
+  "variant_score": {
+   "MAE": 0.555,
+   "CI": [
+    0.485,
+    0.59
+   ],
+   "bias": 0.546,
+   "factor": 3.59,
+   "Spearman": 0.541,
+   "posts": 538,
+   "within x2": 0.219,
+   "under-predicted": 0.968,
+   "median bias (+ = under)": 0.529,
+   "brands": 48
+  },
+  "variant_answers": {
+   "MAE": 0.528,
+   "CI": [
+    0.478,
+    0.556
+   ],
+   "bias": 0.521,
+   "factor": 3.38,
+   "Spearman": 0.579,
+   "posts": 538,
+   "within x2": 0.243,
+   "under-predicted": 0.972,
+   "median bias (+ = under)": 0.487,
+   "brands": 48
+  },
+  "by site (primary)": {
+   "stackoverflow": {
+    "MAE": 0.454,
+    "CI": [
+     0.409,
+     0.522
+    ],
+    "bias": 0.451,
+    "factor": 2.84,
+    "Spearman": 0.497,
+    "posts": 254,
+    "within x2": 0.319,
+    "under-predicted": 0.976,
+    "median bias (+ = under)": 0.407,
+    "brands": 20
+   },
+   "superuser": {
+    "MAE": 0.571,
+    "CI": [
+     0.455,
+     0.609
+    ],
+    "bias": 0.569,
+    "factor": 3.72,
+    "Spearman": 0.548,
+    "posts": 181,
+    "within x2": 0.188,
+    "under-predicted": 0.978,
+    "median bias (+ = under)": 0.552,
+    "brands": 11
+   }
+  },
+  "own platform ridge, brand CV": {
+   "MAE": 0.248,
+   "CI": [
+    0.223,
+    0.272
+   ],
+   "bias": 0.005,
+   "factor": 1.77,
+   "Spearman": 0.565,
+   "posts": 538,
+   "within x2": 0.706,
+   "under-predicted": 0.437,
+   "median bias (+ = under)": -0.05
+  },
+  "ratio factor transfer / own": 1.774,
+  "hypothesis (ratio <= 1.5) holds": false,
+  "E201 grid row (target = Stack Exchange)": {
+   "tiktok": {
+    "MAE": 0.382,
+    "CI": [
+     0.338,
+     0.409
+    ],
+    "factor": 2.41,
+    "median bias (+ = under)": 0.314,
+    "within x2": 0.474,
+    "Spearman": 0.572
+   },
+   "youtube": {
+    "MAE": 0.271,
+    "CI": [
+     0.238,
+     0.295
+    ],
+    "factor": 1.87,
+    "median bias (+ = under)": 0.136,
+    "within x2": 0.669,
+    "Spearman": 0.572
+   },
+   "twitter": {
+    "MAE": 0.653,
+    "CI": [
+     0.611,
+     0.675
+    ],
+    "factor": 4.5,
+    "median bias (+ = under)": 0.627,
+    "within x2": 0.164,
+    "Spearman": 0.572
+   },
+   "facebook": {
+    "MAE": 0.522,
+    "CI": [
+     0.475,
+     0.548
+    ],
+    "factor": 3.32,
+    "median bias (+ = under)": 0.482,
+    "within x2": 0.257,
+    "Spearman": 0.388
+   },
+   "instagram": {
+    "MAE": 0.392,
+    "CI": [
+     0.349,
+     0.416
+    ],
+    "factor": 2.46,
+    "median bias (+ = under)": 0.328,
+    "within x2": 0.448,
+    "Spearman": 0.571
+   },
+   "all five pooled": {
+    "MAE": 0.487,
+    "CI": [
+     0.438,
+     0.515
+    ],
+    "factor": 3.07,
+    "median bias (+ = under)": 0.442,
+    "within x2": 0.299,
+    "Spearman": 0.572
+   },
+   "X + YouTube": {
+    "MAE": 0.498,
+    "CI": [
+     0.448,
+     0.525
+    ],
+    "factor": 3.14,
+    "median bias (+ = under)": 0.454,
+    "within x2": 0.284,
+    "Spearman": 0.571
+   }
+  }
+ }
+}
