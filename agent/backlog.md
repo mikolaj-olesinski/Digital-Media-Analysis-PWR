@@ -34,3 +34,5 @@ client), `done`, `dropped`. Plan letters (A-H) refer to `docs/en/project_plan.md
 | B25 | P2 | open | Monthly brand totals with intervals (the client reports monthly; we only have all-time totals) | register row + numbers | Data available; method from E109/E112/E157 |
 | B26 | P2 | open | Multi-language check: does the model hold outside English (85% of the sample)? | register row + numbers | E84 tested country, not language subgroups |
 | B27 | P1 | blocked | Author history at scale: several posts per author from Brand24 (high value, see future_work) | register row | Needs client export (Q8); E68/E119 show +0.10 MAE on seen authors |
+| B28 | P1 | open | Instagram manual sample: 100-200 public Reels with views, protocol in `docs/en/manual_sample.md`; the scoring tool is ready (`src/manual_sample.py`) | card + numbers | Needs a person (about 5 h); no login automation |
+| B29 | P1 | blocked | TikTok data: submit the Research API application (free for academia, weeks) and, in parallel, run a 100-video manual sample | card + numbers | Research API approval; manual sample needs a person |
