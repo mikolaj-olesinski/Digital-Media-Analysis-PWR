@@ -208,3 +208,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E201 | finding | Every training-platform combination | [E201](E201.md) |
 | E202 | finding | Instagram transfer on 500 hand-collected reels | [E202](E202.md) |
 | E203 | worse | Cross-domain ideas: post age, brand residual from other platforms | [E203](E203.md) |
+| E204 | finding | Full same-moment re-read of TikTok, YouTube and X | [E204](E204.md) |

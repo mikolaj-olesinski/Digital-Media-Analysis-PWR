@@ -255,6 +255,13 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
   the small posts by ~x2), median baseline 0.747. For a representative X sample we need several weekly windows, not a
   bigger one-off budget. **solid** (feasibility), **likely** (error)
 
+## Same-moment re-read (2026-11-08)
+
+- **Views and reactions are now from one request on TikTok, YouTube and X** (E204): TikTok 426/500 readable, YouTube
+  2,297/2,500, X 2,013/2,500. Fresh/export views: median x1.085 (TikTok), x1.350 (YouTube), x2.00 (X); p90 x2.35 / x20.7 /
+  x6.0; rank correlations 0.953 / 0.856 / 0.905. The export is stale in level but stable in rank, so the re-read files are
+  the ground truth for transfer scoring. X was free via FxTwitter (matched the paid API on 9/10 posts). **solid**
+
 ## Open items (state 2026-11-07)
 
 - **Instagram**: no public views (0/160 anonymous); a manual sample, a login or a provider is needed. Everything else in

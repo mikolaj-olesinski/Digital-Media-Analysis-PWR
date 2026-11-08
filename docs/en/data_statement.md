@@ -68,3 +68,7 @@ the affected aggregates, and we say so.
   one experiment. Compare the drift before replacing the old file (the November 2026 checks were 1.07-18x the stored
   snapshot, E95).
 - **Never overwrite** `data/raw/` or a fetched file in place: keep both versions and say which one a number uses.
+- **Same-moment re-read (2026-11-08).** TikTok: logged-in headless Chromium, 426 of 500 readable (`playCount`,
+  `diggCount`, `commentCount`, `shareCount`); YouTube: `yt-dlp`, 2,297 of 2,500 (`view_count`, `like_count`,
+  `comment_count`); X: FxTwitter, 2,013 of 2,500 (`views`, `likes`, `replies`, `retweets`). Rows carry `status` and
+  `source_field`; files are git-ignored, no URLs or author names.

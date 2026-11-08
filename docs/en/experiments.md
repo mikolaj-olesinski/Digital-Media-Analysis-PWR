@@ -1,6 +1,6 @@
 # Experiment register
 
-200 experiments (E01-E200) plus L1; failures included.
+204 experiments (E01-E204) plus L1; failures included.
 
 One line per experiment. **Add a line whenever an experiment is run, including failures.** Details are in the notebook; exact numbers are in `data/processed/`. Unless noted: target log10(views) on TikTok / YouTube / X, 5-fold CV grouped by brand, MAE on log10 (0.3 is about ×2, 0.5 about ×3, 1.0 ×10). Gain means fall in MAE against the stated base; positive is better. Result types: **gain** (CI above zero and useful), **small** (CI above zero but about 0.01 or less, or isolated), **none**, **worse**, **finding** (says something about the data).
 
@@ -210,6 +210,7 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E201 | 2026-11-08 | Every training-platform combination | Ridge on likes + comments, 31 training sets, each left-out platform scored; own-platform brand CV reference; equal-weight sensitivity | FB / IG x2.4-3.1 from any mix (own x2.4); X hardest x3.6-4.6; X-only training worst; equal weighting worse | finding | `src/train_combos.py` |
 | E202 | 2026-11-08 | Instagram transfer on 500 hand-collected reels | X + YouTube ridge on fresh likes + comments; 25-post shift; IG own brand CV; comments-only for hidden likes | 338 reels: 0.424 (x2.65) zero-shot, 0.382 (x2.41) after 25 posts, own 0.372 (x2.36); without likes x6-11 | finding | `src/ig_transfer.py` |
 | E203 | 2026-11-08 | Cross-domain ideas: post age, brand residual from other platforms | X + YouTube ridge on likes + comments, + log age; + brand median residual on TikTok / YouTube / X | Age: FB 0.385 -> 0.406, IG 0.424 -> 0.381 (extrapolated, level shift); brand residual worse everywhere (FB 0.398-0.502, IG 0.440-0.508) | worse | `src/cross_domain_aux.py` |
+| E204 | 2026-11-08 | Full same-moment re-read of TikTok, YouTube and X | yt-dlp for YouTube, FxTwitter for X (validated against the paid API), logged-in Chromium for TikTok; resumable, 1 req/s | TikTok 426/500, YouTube 2,297/2,500, X 2,013/2,500; views median ratio 1.085 / 1.350 / 2.000, Spearman 0.953 / 0.856 / 0.905 | finding | `src/full_reread_youtube.py`, `src/full_reread_x.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

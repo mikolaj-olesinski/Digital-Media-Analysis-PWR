@@ -1,6 +1,6 @@
 # Rejestr eksperymentów
 
-200 eksperymentów (E01-E200) plus L1; także nieudane.
+204 eksperymentów (E01-E204) plus L1; także nieudane.
 
 Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także nieudanym.** Szczegóły są w notebooku, a dokładne liczby w `data/processed/`. O ile nie napisano inaczej: cel log10(wyświetlenia) na TikToku / YouTube / X, 5 foldów po markach, MAE na log10 (0,3 to ok. ×2, 0,5 ok. ×3, 1,0 ×10). Zysk to spadek MAE względem podanej bazy. Rodzaj wyniku: **zysk** (przedział nad zerem i użyteczny), **mały** (przedział nad zerem, ale ok. 0,01 lub mniej albo pojedynczy wynik), **brak**, **gorzej**, **wniosek** (mówi coś o danych).
 
@@ -210,6 +210,7 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E201 | 2026-11-08 | Każda kombinacja platform treningowych | Ridge na lajkach + komentarzach, 31 zbiorów treningowych, ocena każdej pominiętej platformy; odniesienie: własna platforma CV po markach; wariant z równymi wagami | FB / IG x2,4-3,1 z dowolnej mieszanki (własna x2,4); X najtrudniejszy x3,6-4,6; trening na samym X najgorszy; równe wagi gorsze | wniosek | `src/train_combos.py` |
 | E202 | 2026-11-08 | Przeniesienie na Instagram, 500 ręcznie zebranych rolek | Ridge X + YouTube na świeżych lajkach + komentarzach; przesunięcie z 25 postów; IG własne CV po markach; same komentarze przy ukrytych lajkach | 338 rolek: 0,424 (x2,65) bez kalibracji, 0,382 (x2,41) po 25 postach, własne 0,372 (x2,36); bez lajków x6-11 | wniosek | `src/ig_transfer.py` |
 | E203 | 2026-11-08 | Pomysły cross-domain: wiek posta, reszta marki z innych platform | Ridge X + YouTube na lajkach + komentarzach, + log wieku; + mediana reszty marki na TikToku / YouTube / X | Wiek: FB 0,385 -> 0,406, IG 0,424 -> 0,381 (ekstrapolacja, przesunięcie poziomu); reszta marki wszędzie gorsza (FB 0,398-0,502, IG 0,440-0,508) | gorzej | `src/cross_domain_aux.py` |
+| E204 | 2026-11-08 | Pełny re-read w tym samym momencie: TikTok, YouTube i X | yt-dlp dla YouTube, FxTwitter dla X (zweryfikowany z płatnym API), zalogowany Chromium dla TikToka; wznawialne, 1 req/s | TikTok 426/500, YouTube 2297/2500, X 2013/2500; mediana stosunku wyświetleń 1,085 / 1,350 / 2,000, Spearman 0,953 / 0,856 / 0,905 | wniosek | `src/full_reread_youtube.py`, `src/full_reread_x.py` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.

@@ -56,3 +56,7 @@ dotknięte agregaty — i tak mówimy.
   2026 były 1,07-18× zapisanego snapshotu, E95).
 - **Nigdy nie nadpisywać** `data/raw/` ani pobranego pliku w miejscu: trzymać obie wersje i mówić, której używa dana
   liczba.
+- **Re-read w tym samym momencie (2026-11-08).** TikTok: zalogowany headless Chromium, 426 z 500 odczytanych
+  (`playCount`, `diggCount`, `commentCount`, `shareCount`); YouTube: `yt-dlp`, 2 297 z 2 500 (`view_count`, `like_count`,
+  `comment_count`); X: FxTwitter, 2 013 z 2 500 (`views`, `likes`, `replies`, `retweets`). Wiersze mają `status` i
+  `source_field`; pliki są git-ignored, bez URL-i i nazw autorów.
