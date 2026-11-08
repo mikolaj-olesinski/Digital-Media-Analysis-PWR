@@ -2460,5 +2460,30 @@
   "paths": [
    "src/ig_transfer.py"
   ]
+ },
+ {
+  "id": "E203",
+  "date": "2026-11-08",
+  "question": "Cross-domain ideas: post age, brand residual from other platforms",
+  "setup": "X + YouTube ridge on likes + comments, + log age; + brand median residual on TikTok / YouTube / X",
+  "result": "Age: FB 0.385 -> 0.406, IG 0.424 -> 0.381 (extrapolated, level shift); brand residual worse everywhere (FB 0.398-0.502, IG 0.440-0.508)",
+  "type": "worse",
+  "where": "`src/cross_domain_aux.py`",
+  "paths": [
+   "src/cross_domain_aux.py"
+  ]
+ },
+ {
+  "id": "E204",
+  "date": "2026-11-08",
+  "question": "Full same-moment re-read of TikTok, YouTube and X",
+  "setup": "yt-dlp for YouTube, FxTwitter for X (validated against the paid API), logged-in Chromium for TikTok; resumable, 1 req/s",
+  "result": "TikTok 426/500, YouTube 2,297/2,500, X 2,013/2,500; views median ratio 1.085 / 1.350 / 2.000, Spearman 0.953 / 0.856 / 0.905",
+  "type": "finding",
+  "where": "`src/full_reread_youtube.py`, `src/full_reread_x.py`",
+  "paths": [
+   "src/full_reread_youtube.py",
+   "src/full_reread_x.py"
+  ]
  }
 ]

@@ -1,0 +1,289 @@
+{
+ "E203": {
+  "post age at read, median days": {
+   "facebook": 310.0,
+   "instagram": 343.0,
+   "X + YouTube training": 23.0
+  },
+  "(a) age": {
+   "facebook": {
+    "likes + comments": {
+     "MAE": 0.385,
+     "CI": [
+      0.312,
+      0.482
+     ],
+     "bias": 0.14,
+     "factor": 2.43,
+     "Spearman": 0.909,
+     "posts": 402,
+     "median bias (+ = under)": 0.076
+    },
+    "+ log age": {
+     "MAE": 0.406,
+     "CI": [
+      0.34,
+      0.488
+     ],
+     "bias": -0.123,
+     "factor": 2.54,
+     "Spearman": 0.908,
+     "posts": 402,
+     "median bias (+ = under)": -0.168
+    }
+   },
+   "instagram": {
+    "likes + comments": {
+     "MAE": 0.424,
+     "CI": [
+      0.379,
+      0.494
+     ],
+     "bias": 0.22,
+     "factor": 2.65,
+     "Spearman": 0.884,
+     "posts": 338,
+     "median bias (+ = under)": 0.249
+    },
+    "+ log age": {
+     "MAE": 0.381,
+     "CI": [
+      0.337,
+      0.439
+     ],
+     "bias": -0.051,
+     "factor": 2.41,
+     "Spearman": 0.877,
+     "posts": 338,
+     "median bias (+ = under)": -0.023
+    }
+   }
+  },
+  "(b) brand residual from other platforms": {
+   "tiktok": {
+    "facebook": {
+     "brand coverage": 0.781,
+     "weight 0.5": {
+      "MAE": 0.398,
+      "CI": [
+       0.319,
+       0.489
+      ],
+      "bias": 0.098,
+      "factor": 2.5,
+      "Spearman": 0.9,
+      "posts": 402,
+      "median bias (+ = under)": 0.042
+     },
+     "weight 1.0": {
+      "MAE": 0.438,
+      "CI": [
+       0.356,
+       0.527
+      ],
+      "bias": 0.057,
+      "factor": 2.74,
+      "Spearman": 0.879,
+      "posts": 402,
+      "median bias (+ = under)": 0.02
+     }
+    },
+    "instagram": {
+     "brand coverage": 0.822,
+     "weight 0.5": {
+      "MAE": 0.446,
+      "CI": [
+       0.399,
+       0.506
+      ],
+      "bias": 0.181,
+      "factor": 2.79,
+      "Spearman": 0.854,
+      "posts": 338,
+      "median bias (+ = under)": 0.226
+     },
+     "weight 1.0": {
+      "MAE": 0.502,
+      "CI": [
+       0.437,
+       0.586
+      ],
+      "bias": 0.142,
+      "factor": 3.17,
+      "Spearman": 0.793,
+      "posts": 338,
+      "median bias (+ = under)": 0.201
+     }
+    }
+   },
+   "youtube": {
+    "facebook": {
+     "brand coverage": 0.687,
+     "weight 0.5": {
+      "MAE": 0.407,
+      "CI": [
+       0.35,
+       0.483
+      ],
+      "bias": 0.192,
+      "factor": 2.55,
+      "Spearman": 0.91,
+      "posts": 402,
+      "median bias (+ = under)": 0.182
+     },
+     "weight 1.0": {
+      "MAE": 0.448,
+      "CI": [
+       0.366,
+       0.546
+      ],
+      "bias": 0.245,
+      "factor": 2.81,
+      "Spearman": 0.898,
+      "posts": 402,
+      "median bias (+ = under)": 0.246
+     }
+    },
+    "instagram": {
+     "brand coverage": 0.604,
+     "weight 0.5": {
+      "MAE": 0.44,
+      "CI": [
+       0.37,
+       0.521
+      ],
+      "bias": 0.246,
+      "factor": 2.75,
+      "Spearman": 0.874,
+      "posts": 338,
+      "median bias (+ = under)": 0.26
+     },
+     "weight 1.0": {
+      "MAE": 0.472,
+      "CI": [
+       0.367,
+       0.592
+      ],
+      "bias": 0.272,
+      "factor": 2.96,
+      "Spearman": 0.85,
+      "posts": 338,
+      "median bias (+ = under)": 0.275
+     }
+    }
+   },
+   "twitter": {
+    "facebook": {
+     "brand coverage": 0.846,
+     "weight 0.5": {
+      "MAE": 0.502,
+      "CI": [
+       0.444,
+       0.562
+      ],
+      "bias": 0.329,
+      "factor": 3.17,
+      "Spearman": 0.9,
+      "posts": 402,
+      "median bias (+ = under)": 0.323
+     },
+     "weight 1.0": {
+      "MAE": 0.676,
+      "CI": [
+       0.562,
+       0.789
+      ],
+      "bias": 0.519,
+      "factor": 4.74,
+      "Spearman": 0.858,
+      "posts": 402,
+      "median bias (+ = under)": 0.571
+     }
+    },
+    "instagram": {
+     "brand coverage": 0.796,
+     "weight 0.5": {
+      "MAE": 0.508,
+      "CI": [
+       0.424,
+       0.598
+      ],
+      "bias": 0.336,
+      "factor": 3.22,
+      "Spearman": 0.853,
+      "posts": 338,
+      "median bias (+ = under)": 0.341
+     },
+     "weight 1.0": {
+      "MAE": 0.647,
+      "CI": [
+       0.491,
+       0.808
+      ],
+      "bias": 0.452,
+      "factor": 4.44,
+      "Spearman": 0.776,
+      "posts": 338,
+      "median bias (+ = under)": 0.462
+     }
+    }
+   },
+   "tiktok + youtube + twitter": {
+    "facebook": {
+     "brand coverage": 1.0,
+     "weight 0.5": {
+      "MAE": 0.416,
+      "CI": [
+       0.364,
+       0.484
+      ],
+      "bias": 0.196,
+      "factor": 2.6,
+      "Spearman": 0.908,
+      "posts": 402,
+      "median bias (+ = under)": 0.183
+     },
+     "weight 1.0": {
+      "MAE": 0.471,
+      "CI": [
+       0.391,
+       0.56
+      ],
+      "bias": 0.252,
+      "factor": 2.96,
+      "Spearman": 0.884,
+      "posts": 402,
+      "median bias (+ = under)": 0.262
+     }
+    },
+    "instagram": {
+     "brand coverage": 1.0,
+     "weight 0.5": {
+      "MAE": 0.446,
+      "CI": [
+       0.39,
+       0.512
+      ],
+      "bias": 0.202,
+      "factor": 2.79,
+      "Spearman": 0.854,
+      "posts": 338,
+      "median bias (+ = under)": 0.247
+     },
+     "weight 1.0": {
+      "MAE": 0.5,
+      "CI": [
+       0.421,
+       0.585
+      ],
+      "bias": 0.184,
+      "factor": 3.16,
+      "Spearman": 0.796,
+      "posts": 338,
+      "median bias (+ = under)": 0.23
+     }
+    }
+   }
+  }
+ }
+}

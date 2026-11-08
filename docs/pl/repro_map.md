@@ -1,4 +1,4 @@
-# Mapa reprodukcji: eksperymenty E95-E200
+# Mapa reprodukcji: eksperymenty E95-E204
 
 Wewnętrzny indeks dla zespołu: który eksperyment odtwarza który skrypt i jaki plik liczb zapisuje. Wygenerowane z kart vaulta. Nie tekst preprintu.
 
@@ -110,3 +110,7 @@ Wewnętrzny indeks dla zespołu: który eksperyment odtwarza który skrypt i jak
 | E198 | `src/external_x.py`, `src/external_x_validate.py` | `external_x_numbers.json`, `external_x_validation.json` |
 | E199 | — | `view_bins_numbers.json` |
 | E200 | `src/fb_full.py` | `fb_full_numbers.json` |
+| E201 | — | `train_combos_numbers.json` |
+| E202 | — | `ig_transfer_numbers.json` |
+| E203 | — | `cross_domain_aux_numbers.json` |
+| E204 | `src/full_reread_youtube.py`, `src/full_reread_x.py` | `full_reread_numbers.json` |

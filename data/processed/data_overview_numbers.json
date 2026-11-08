@@ -1,0 +1,94 @@
+{
+ "data overview": {
+  "tiktok": {
+   "mentions in export": 2500,
+   "brands in export": 266,
+   "posts with views (used)": 2491,
+   "brands with views": 266,
+   "median views": 729.0000000000001,
+   "median likes": 32.0,
+   "median comments": 2.0000000000000004,
+   "views p10-p90 (log10)": [
+    2.11,
+    4.27
+   ],
+   "median views per like": 25.251190095395803,
+   "share with 0 likes": 0.03693295865114412,
+   "slope log views on log likes (likes >= 1)": 0.8063183124911517,
+   "intercept": 1.753551005420805,
+   "r (likes >= 1)": 0.8939873180901738
+  },
+  "youtube": {
+   "mentions in export": 2500,
+   "brands in export": 273,
+   "posts with views (used)": 2441,
+   "brands with views": 273,
+   "median views": 433.0000000000001,
+   "median likes": 5.999999999999999,
+   "median comments": 0.0,
+   "views p10-p90 (log10)": [
+    1.08,
+    4.15
+   ],
+   "median views per like": 26.409090909090903,
+   "share with 0 likes": 0.291274068004916,
+   "slope log views on log likes (likes >= 1)": 0.9777588674773243,
+   "intercept": 1.4325515400459852,
+   "r (likes >= 1)": 0.8766779851273288
+  },
+  "twitter": {
+   "mentions in export": 2500,
+   "brands in export": 273,
+   "posts with views (used)": 1803,
+   "brands with views": 252,
+   "median views": 27.000000000000004,
+   "median likes": 0.0,
+   "median comments": 0.0,
+   "views p10-p90 (log10)": [
+    0.48,
+    2.61
+   ],
+   "median views per like": 21.999999999999996,
+   "share with 0 likes": 0.6211869107043816,
+   "slope log views on log likes (likes >= 1)": 1.062289501290232,
+   "intercept": 1.5703331593504077,
+   "r (likes >= 1)": 0.7080448111837535
+  },
+  "facebook": {
+   "mentions in export": 2500,
+   "brands in export": 22,
+   "posts with views (used)": 402,
+   "brands with views": 20,
+   "median views": 1413.4999999999998,
+   "median likes": 23.000000000000004,
+   "median comments": 2.0000000000000004,
+   "views p10-p90 (log10)": [
+    1.64,
+    4.74
+   ],
+   "median views per like": 34.83333333333333,
+   "share with 0 likes": 0.06218905472636816,
+   "slope log views on log likes (likes >= 1)": 0.9648675961583183,
+   "intercept": 1.6574121041713077,
+   "r (likes >= 1)": 0.9037417141491062
+  },
+  "instagram": {
+   "mentions in export": 2500,
+   "brands in export": 11,
+   "posts with views (used)": 642,
+   "brands with views": 11,
+   "median views": 504.0,
+   "median likes": 10.000000000000002,
+   "median comments": 0.0,
+   "views p10-p90 (log10)": [
+    1.64,
+    4.03
+   ],
+   "median views per like": 52.905929038281954,
+   "share with 0 likes": 0.12305295950155763,
+   "slope log views on log likes (likes >= 1)": 0.9143655401037712,
+   "intercept": 1.8158221540719341,
+   "r (likes >= 1)": 0.8713080472101552
+  }
+ }
+}
