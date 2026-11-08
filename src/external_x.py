@@ -71,13 +71,17 @@ def main():
         users = {u["id"]: u for u in (r.get("includes") or {}).get("users", [])}
         for t in r.get("data", []):
             u = users.get(t.get("author_id"), {})
-            rows.append({"brand_query": p["query"].strip('"').split('"')[0], "created_at": t.get("created_at"),
-                         "lang": t.get("lang"), **t.get("public_metrics", {}),
+            m = t.get("public_metrics", {})
+            rows.append({"id": t.get("id"), "brand_query": p["query"].strip('"').split('"')[0],
+                         "created_at": t.get("created_at"), "lang": t.get("lang"),
+                         "view_count": m.get("impression_count"), "like_count": m.get("like_count"),
+                         "reply_count": m.get("reply_count"), "retweet_count": m.get("retweet_count"),
+                         "quote_count": m.get("quote_count"), "bookmark_count": m.get("bookmark_count"),
                          "author_followers": (u.get("public_metrics") or {}).get("followers_count")})
         print(p["query"], len(r.get("data", [])), flush=True)
     if not rows:
         raise SystemExit("no rows")
-    d = pd.DataFrame(rows).drop_duplicates(subset=["created_at", "text"], keep="first") if "text" in rows[0] else pd.DataFrame(rows)
+    d = pd.DataFrame(rows).drop_duplicates(subset=["id"], keep="first")
     d.to_csv(ROOT / "data" / "processed" / "external_x_fetched.csv", index=False)
     out = {"rows": int(len(d)), "posts_returned": int(len(rows)),
            "cost_usd": round(len(rows) * (POST_COST + USER_COST), 2),

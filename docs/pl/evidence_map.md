@@ -38,6 +38,7 @@ walidacjach; **prawdopodobne** = jedna walidacja, spójna z resztą; **otwarte**
 | 27 | Wyświetlenia YouTube z eksportu są nieaktualne: mediana 1,516, p90 25,3, 19% w 5%, Spearman 0,857; TikTok 1,068 i 0,918 | solidne | E194, E192 |
 | 27 | Routing po dostępnych polach trzyma pasma 90% na 0,88-0,90; pełny model z brakiem reakcji pokrywa 0,46-0,83 | likely | E176 |
 | 28 | Publiczne wyświetlenia Facebooka są statyczne w trzy dni (60/60 identyczne), podczas gdy TikTok urósł 7%, a YouTube 52%; FB to snapshot jednorazowy | solidne | E196 |
+| 29 | API X w pay-per-use kosztuje 1,47 USD za 98 postów; strumień 7-dniowy ma medianę 8 wyświetleń vs 27 w eksporcie, a model przeszacowuje go ×2 (MAE 0,565, bias -0,29) | prawdopodobne | E198 |
 
 ## Nieznane / otwarte
 

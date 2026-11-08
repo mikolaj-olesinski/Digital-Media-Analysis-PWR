@@ -237,6 +237,13 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
   p90 3.07, only 45% within 5%, but Spearman 0.918. Level comparisons need a common check date or an age correction
   (E101); a third of the posts cannot be read anonymously. **solid**
 
+## External X sample (2026-11-08)
+
+- **The X API route works and is cheap; the 7-day stream is dominated by tiny posts** (E198): 98 posts for **$1.47**
+  (2,500 would be ~$37.50), median **8 views** against 27 in the export. Model MAE **0.565**, bias **-0.29** (over-predicts
+  the small posts by ~x2), median baseline 0.747. For a representative X sample we need several weekly windows, not a
+  bigger one-off budget. **solid** (feasibility), **likely** (error)
+
 ## Open items (state 2026-11-07)
 
 - **Instagram**: no public views (0/160 anonymous); a manual sample, a login or a provider is needed. Everything else in

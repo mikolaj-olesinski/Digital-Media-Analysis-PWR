@@ -101,3 +101,11 @@ either repeat a weekly sample going forward, or accept a snapshot of current men
 60 random TikTok posts were re-read with headless Chromium: 40 were readable, 20 hit a login wall/captcha. Median
 new/old views 1.068, p90 3.07, 45% within 5%, but rank correlation 0.918. The export is stale in level and stable in
 order; comparisons need a common check date or an age correction.
+
+
+### X: first sample (E198, 2026-11-08)
+
+A bearer token was created and 98 posts were fetched with recent search (10 brands, 7 days) for **$1.47**. The API returns
+`impression_count` as the view count. Median views are **8** against 27 in the export, so the 7-day stream is dominated by
+very small posts; the X model over-predicts them by ~x2 (MAE 0.565, bias -0.29) but still beats the median baseline (0.747).
+A 2,500-post sample would cost about $37.50; for representativeness, sample several weekly windows rather than one big one.

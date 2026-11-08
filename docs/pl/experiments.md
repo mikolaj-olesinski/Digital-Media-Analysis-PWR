@@ -1,6 +1,6 @@
 # Rejestr eksperymentów
 
-197 eksperymentów (E01-E197) plus L1; także nieudane.
+198 eksperymentów (E01-E198) plus L1; także nieudane.
 
 Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także nieudanym.** Szczegóły są w notebooku, a dokładne liczby w `data/processed/`. O ile nie napisano inaczej: cel log10(wyświetlenia) na TikToku / YouTube / X, 5 foldów po markach, MAE na log10 (0,3 to ok. ×2, 0,5 ok. ×3, 1,0 ×10). Zysk to spadek MAE względem podanej bazy. Rodzaj wyniku: **zysk** (przedział nad zerem i użyteczny), **mały** (przedział nad zerem, ale ok. 0,01 lub mniej albo pojedynczy wynik), **brak**, **gorzej**, **wniosek** (mówi coś o danych).
 
@@ -204,6 +204,7 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E195 | 2026-11-08 | Czy wynik dla wzmianek zacieśnia się na 40 markach? | Ten sam kolektor wzmianek, 40 marek, 144 filmy; model oceniany zewnętrznie | 144 filmy, 4 zera, 49 poniżej 100; MAE 0,638, bias +0,35; low/mid/top 0,558/0,553/1,047 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
 | E196 | 2026-11-08 | Czy publiczne wyświetlenia Facebooka zmieniają się w trzy dni? | Ponowny odczyt 60 pobranych filmów FB i porównanie z 2026-11-05 | 60/60 odczytane; stosunek 1,000 na każdym poście (brak driftu); licznik FB jest statyczny lub cache'owany | wniosek | `src/fb_refetch.py` |
 | E197 | 2026-11-08 | Czy wynik dla wzmianek utrzymuje się na 60 markach? | Ten sam kolektor, 60 marek, 203 filmy; model oceniany zewnętrznie | 203 filmy, 10 zer, 83 poniżej 100; MAE 0,606, bias +0,28; low/mid/top 0,536/0,555/1,044 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E198 | 2026-11-08 | Czy tania próbka X z pay-per-use da się pobrać i czy model na niej działa? | Bearer, recent search 7 dni, 10 marek x 10 postów; impression_count jako wyświetlenia; model uczony na Brand24 X | 98 postów za 1,47 USD; mediana 8 vs 27; MAE 0,565, bias -0,29 (×2 za wysoko); baseline 0,747 | wniosek | `src/external_x.py`, `src/external_x_validate.py` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.

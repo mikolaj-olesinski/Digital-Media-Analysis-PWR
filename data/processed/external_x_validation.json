@@ -1,0 +1,9 @@
+{
+ "n_external": 87,
+ "median_external_views": 8.0,
+ "median_internal_views": 27.000000000000004,
+ "MAE": 0.565,
+ "bias": -0.293,
+ "median_baseline_MAE": 0.747,
+ "share_with_views": 1.0
+}

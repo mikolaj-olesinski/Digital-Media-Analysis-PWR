@@ -1,6 +1,6 @@
 # Experiment register
 
-197 experiments (E01-E197) plus L1; failures included.
+198 experiments (E01-E198) plus L1; failures included.
 
 One line per experiment. **Add a line whenever an experiment is run, including failures.** Details are in the notebook; exact numbers are in `data/processed/`. Unless noted: target log10(views) on TikTok / YouTube / X, 5-fold CV grouped by brand, MAE on log10 (0.3 is about ×2, 0.5 about ×3, 1.0 ×10). Gain means fall in MAE against the stated base; positive is better. Result types: **gain** (CI above zero and useful), **small** (CI above zero but about 0.01 or less, or isolated), **none**, **worse**, **finding** (says something about the data).
 
@@ -204,6 +204,7 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E195 | 2026-11-08 | Does the mention-population result tighten with 40 brands? | Same mention collector, 40 brands, 144 videos; model scored externally | 144 videos, 4 zero, 49 below 100; MAE 0.638, bias +0.35; low/mid/top 0.558/0.553/1.047 | finding | `src/external_youtube_mentions.py`, `src/external_validate.py` |
 | E196 | 2026-11-08 | Do Facebook public view counts move over three days? | Re-read 60 fetched FB videos' public watch pages and compare with 2026-11-05 | 60/60 readable; ratio 1.000 on every post (no drift); FB counter is static or cached | finding | `src/fb_refetch.py` |
 | E197 | 2026-11-08 | Does the mention result hold at 60 brands? | Same collector, 60 brands, 203 videos; model scored externally | 203 videos, 10 zero, 83 below 100; MAE 0.606, bias +0.28; low/mid/top 0.536/0.555/1.044 | finding | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E198 | 2026-11-08 | Can a cheap pay-per-use X sample be fetched, and does the model hold on it? | Bearer token, recent search 7 days, 10 brands x 10 posts; impression_count as views; model trained on Brand24 X | 98 posts for $1.47; median 8 views vs 27; MAE 0.565, bias -0.29 (x2 high); baseline 0.747 | finding | `src/external_x.py`, `src/external_x_validate.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

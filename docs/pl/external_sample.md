@@ -99,3 +99,11 @@ sampling, albo snapshot bieżących wzmianek.
 60 losowych filmów TikToka odczytano ponownie headless Chromium: 40 się udało, 20 trafiło na login/captchę. Mediana
 nowe/stare 1,068, p90 3,07, 45% w granicach 5%, ale korelacja rang 0,918. Eksport jest nieaktualny poziomem i stabilny
 kolejnością; porównania wymagają wspólnej daty odczytu lub korekty wieku.
+
+
+### X: pierwsza próbka (E198, 2026-11-08)
+
+Utworzono bearer token i pobrano 98 postów przez recent search (10 marek, 7 dni) za **1,47 USD**. API zwraca
+`impression_count` jako liczbę wyświetleń. Mediana wyświetleń to **8** wobec 27 w eksporcie, więc strumień 7-dniowy to
+głównie bardzo małe posty; model przeszacowuje je ~×2 (MAE 0,565, bias -0,29), ale bije medianę (0,747). Próbka 2 500
+postów kosztowałaby ~37,50 USD; dla reprezentatywności lepiej próbkować kilka tygodniowych okien niż jedno duże.
