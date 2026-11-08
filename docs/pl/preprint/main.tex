@@ -202,6 +202,15 @@ CatBoost dla każdego układu dostępnych pól, walidacja po markach.}}
 \label{fig:needs}
 \end{figure}
 
+\paragraph{Świeże dane źródłowe.} Wyświetlenia w eksporcie są odczytane krótko po publikacji, a nasze odczyty z Facebooka
+i Instagramu kilka miesięcy później. Gdy ten sam model uczymy na X i YouTube odczytanych ponownie, razem z reakcjami z tej
+samej chwili, błąd na Instagramie spada z \x{2,72} do \x{2,41} (tyle, co model uczony na samym Instagramie), a na Facebooku
+zostaje \x{2,44}. Niedoszacowanie dużych postów i sum dla marek zmniejsza się mniej więcej o połowę. Samo przesunięcie
+wyświetleń z eksportu do późniejszego wieku tego nie daje, więc ważne jest, żeby wyświetlenia i reakcje pochodziły z tego
+samego momentu. Z tego samego powodu X jako platforma testowa wypada źle głównie przez nieaktualne etykiety: ten sam model
+myli się na X z eksportu o 0,64, a na X odczytanym ponownie o 0,49. Posty X bez lajków nie są tu przyczyną.
+% E210, E211, E213, E218, E219. Główne liczby w tekście nadal na eksporcie Brand24.
+
 \todo{później: szósta platforma z publicznymi wyświetleniami (backlog B30).}
 
 \section{Porównanie metod}\label{sec:nie}
@@ -266,6 +275,14 @@ tekst (od TF-IDF po osadzenia zdań), etykiety AI, grafy autorów i marek oraz d
 błędu o więcej niż \x{1,04}, a większość mniej niż \x{1,02} albo pogarsza wynik. Tekst pomaga trochę na YouTube i X,
 grafy i dane zewnętrzne szkodzą. Na Facebooku tekst pogarsza przeniesienie (MAE 0,385 $\to$ 0,436). Historię autora opisujemy osobno poniżej.
 % E50, E65, E127, E170-E175, ablacja; E100 (FB tekst); E68/E70 (autor).
+
+\paragraph{Więcej danych bez nowych etykiet.} Sprawdziliśmy też metody, które dokładają danych albo uczą się ich struktury
+bez wyświetleń. Syntetyczne duże posty (SMOTER/SMOGN) zmniejszają niedoszacowanie najpopularniejszej dziesiątej części
+postów, ale tylko przez rozciągnięcie skali oszacowań, i podnoszą błąd o 0,006--0,019. Losowe zaburzanie danych wzdłuż
+trendu i mixup nie pozwalają CatBoost ani sieci MLP przenosić się tak dobrze jak ridge (zostają o 0,014--0,062 w tyle
+na każdej z pięciu platform). Reprezentacja uczona bez etykiet (autoenkoder odszumiający, SCARF) zmienia błąd o najwyżej
+0,005, a pseudo-etykiety dla postów bez wyświetleń o najwyżej 0,008. Model końcowy zostaje więc bez augmentacji.
+% E214 smoter_tail, E215 aug_transfer, E216 ssl_repr, E217 pseudo_label.
 
 \begin{figure}[!htb]
 \centering
