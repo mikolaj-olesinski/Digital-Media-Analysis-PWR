@@ -90,7 +90,9 @@ Odtworzenie: `docs/pl/reproduce.md` (sześć komend).
 - **Próbka:** 12 500 wzmianek od Brand24, nie losowa próbka social mediów; 85% angielskich; czas nierówny.
 
 - **Poza populacją wzmianek:** na 53 niezależnie pobranych filmach marek model jest ×5 za nisko (bias +0,71), choć
-  nachylenie się trzyma (0,83); mały zbiór kalibracyjny usuwa większość różnicy (E189, E115).
+  nachylenie się trzyma (0,83); mały zbiór kalibracyjny usuwa większość różnicy (E189, E115). Na zróżnicowanej próbce 131
+  filmów błąd rośnie z rozmiarem: MAE 0,289 na małych, 1,48 na popularnych (×30 za nisko), a filmów z zerem nie da się
+  pobrać (E190).
 
 ## Zastosowanie
 

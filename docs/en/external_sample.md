@@ -47,3 +47,26 @@ logged-in session or the team's decision to collect manually; the plan for them 
 
 If the views-reactions relation holds on the external YouTube sample, the transfer claim is not an artefact of the
 Brand24 export. If it fails, we learn that the export's YouTube rows are special - both outcomes are results.
+
+## Diverse YouTube strata (E190)
+
+A plain search returns only popular videos. The diverse collector therefore draws four strata per brand: most viewed
+from search, most recent from search, least viewed from the brand channel, newest from the brand channel. The last two
+include small and zero-view videos, which are missing from search. Results: `data/processed/external_youtube_diverse_numbers.json`,
+card E190.
+
+## Cost of the X API (checked 2026-11-08)
+
+X no longer sells monthly tiers: Basic ($200/month) and Pro ($5,000/month) were retired in February 2026, and there is no
+free read tier. The public API is pay-per-use: **$0.005 per post read**, $0.010 per user read, $0.015 per post written
+($0.200 when the post contains a URL), capped at 3 million post reads per month before an Enterprise contract. For our
+external sample of 2,500 X posts with author data that is about **$12.50 for the posts + $25 for the authors = $37.50**
+(one-off). Sources: X API pricing page (docs.x.com/x-api/getting-started/pricing) and a 2026 rate summary
+(twitterapis.com/answers/x-api-pricing-tiers-explained).
+
+
+### Result of the diverse strata (E190)
+
+131 videos, 12 brands: 0 zero-view videos, minimum 71 views, one below 100. Median views by stratum: popular 1,544,176,
+recent 15,661, newest 3,943, small 876. Model MAE: small 0.289 (bias +0.17), recent 0.620, newest 0.601, popular 1.480
+(bias +1.48, ~x30 low). Zero-view public videos cannot be fetched at all.

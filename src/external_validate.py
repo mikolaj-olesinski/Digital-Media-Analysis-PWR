@@ -39,8 +39,8 @@ def internal():
     return d, d.y
 
 
-def external():
-    p = ROOT / "data" / "processed" / "external_youtube_fetched.csv"
+def external(path=None):
+    p = Path(path) if path else ROOT / "data" / "processed" / "external_youtube_fetched.csv"
     e = pd.read_csv(p)
     for c in ["view_count", "like_count", "comment_count", "channel_follower_count"]:
         e[c] = pd.to_numeric(e[c], errors="coerce")
@@ -58,7 +58,7 @@ def external():
 
 def main():
     tr, y = internal()
-    e = external()
+    e = external(sys.argv[1] if len(sys.argv) > 1 else None)
     m = CatBoostRegressor(loss_function="MAE", iterations=600, random_state=42, verbose=0, allow_writing_files=False)
     m.fit(tr[FEATS].values, y.values)
     p = m.predict(e[FEATS].values)
@@ -79,8 +79,15 @@ def main():
         "median_external_views": float(np.median(10 ** e.y.values)),
         "median_internal_views": float(np.median(10 ** y.values)),
     }
+    if "stratum" in e.columns:
+        out["by_stratum"] = {}
+        for k, g in e.groupby("stratum"):
+            res_k = g.y.values - m.predict(g[FEATS].values)
+            out["by_stratum"][k] = {"n": int(len(g)), "MAE": round(float(np.abs(res_k).mean()), 3),
+                                    "bias": round(float(res_k.mean()), 3)}
     print(json.dumps(out, indent=1))
-    (ROOT / "data" / "processed" / "external_youtube_validation.json").write_text(json.dumps(out, indent=1))
+    out_path = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "data" / "processed" / "external_youtube_validation.json"
+    out_path.write_text(json.dumps(out, indent=1))
 
 
 if __name__ == "__main__":

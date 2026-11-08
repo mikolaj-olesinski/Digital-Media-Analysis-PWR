@@ -90,7 +90,9 @@ Reproduce it: `docs/en/reproduce.md` (six commands).
 - **Sample:** 12,500 mentions supplied by Brand24, not a random sample of social media; 85% English; time not uniform.
 
 - **Outside the mention population:** on 53 independently fetched brand videos the model is x5 low (bias +0.71) although
-  the slope holds (0.83); a small recalibration set fixes most of it (E189, E115).
+  the slope holds (0.83); a small recalibration set fixes most of it (E189, E115). On a diverse 131-video sample the error
+  rises with size: MAE 0.289 on small videos, 1.48 on popular ones (~x30 low), and zero-view public videos cannot be
+  sampled at all (E190).
 
 ## Intended use
 

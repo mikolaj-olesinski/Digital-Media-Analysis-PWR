@@ -212,6 +212,14 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
   433 in the export, bias +0.71 (x5 low), MAE 0.726; after removing the level shift MAE is 0.540 against 0.456 inside.
   External use needs a small recalibration set (E115). **likely**
 
+## External sample, diverse strata (2026-11-08)
+
+- **Zero-view public videos are not reachable** (E190): 0 in 131 fetched videos, minimum 71 views, one below 100. A zero
+  in platform data therefore means hidden or not collected, not a true zero - consistent with E116. **solid**
+- **The model is a small-post model** (E190): on the small external stratum MAE 0.289 (bias +0.17), on popular videos
+  MAE 1.480 (bias +1.48, ~x30 low); recent 0.620, newest 0.601. The mention population is small posts, so the model works
+  there and needs recalibration above it (E115, E132). **likely**
+
 ## Open items (state 2026-11-07)
 
 - **Instagram**: no public views (0/160 anonymous); a manual sample, a login or a provider is needed. Everything else in

@@ -1,6 +1,6 @@
 # Rejestr eksperymentów
 
-189 eksperymentów (E01-E189) plus L1; także nieudane.
+190 eksperymentów (E01-E190) plus L1; także nieudane.
 
 Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także nieudanym.** Szczegóły są w notebooku, a dokładne liczby w `data/processed/`. O ile nie napisano inaczej: cel log10(wyświetlenia) na TikToku / YouTube / X, 5 foldów po markach, MAE na log10 (0,3 to ok. ×2, 0,5 ok. ×3, 1,0 ×10). Zysk to spadek MAE względem podanej bazy. Rodzaj wyniku: **zysk** (przedział nad zerem i użyteczny), **mały** (przedział nad zerem, ale ok. 0,01 lub mniej albo pojedynczy wynik), **brak**, **gorzej**, **wniosek** (mówi coś o danych).
 
@@ -196,6 +196,7 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E187 | 2026-11-06 | Posty negatywne | Bias wg sentymentu | Brak biasu na negatywnych (+0,02 / -0,04 / +0,06) | wniosek | `src/critical_review.py` |
 | E188 | 2026-11-06 | Wartość mediów (EMV) | Sumy marek x CPM 5 USD | X: model 47% marek w +-50%, reguła 2% | mały | `src/critical_review.py` |
 | E189 | 2026-11-08 | Czy da się pobrać zewnętrzną próbkę YouTube/X/TikTok i czy model na niej działa? | yt-dlp: wyszukiwanie YouTube działa, TikTok zepsuty, X blokuje; 53 filmy marek (najnowsze, 2025+); model uczony na YouTube Brand24 | Mediana wyświetleń 6697 vs 433; MAE 0,726, bias +0,706 (×5 za nisko); po korekcie 0,540; nachylenie 0,83; TikTok/X/IG wymagają API lub loginu | wniosek | `src/external_youtube.py`, `src/external_validate.py` |
+| E190 | 2026-11-08 | Czy próbka YouTube obejmie filmy małe, duże i zerowe i jak model wypada per warstwa? | 4 warstwy na markę (popularne/najnowsze z wyszukiwania, małe/najnowsze z kanału marki); 131 filmów, 12 marek | 0 filmów z zerowymi wyświetleniami (min 71); MAE modelu 0,289 małe, 0,620 świeże, 0,601 najnowsze, 1,480 popularne (×30 za nisko) | wniosek | `src/external_youtube_diverse.py` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.

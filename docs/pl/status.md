@@ -70,7 +70,7 @@ Pozostałe trzy wymagają decyzji, ręcznych etykiet albo klienta.
 
 ## Reprodukowalność
 
-- 189 kart eksperymentów (190 eksperymentów z eksploracją M1); każdy plik `numbers:` i notebook wskazany przez kartę istnieje.
+- 190 kart eksperymentów (191 eksperymentów z eksploracją M1); każdy plik `numbers:` i notebook wskazany przez kartę istnieje.
 - Ponowne uruchomienie `src/fb_rule_vs_model.py` i `src/cqr_50.py`: pliki JSON są bajtowo identyczne z zapisanymi
   (stałe ziarna).
 - Wszystkie skrypty się kompilują (`python -m py_compile src/*.py`).

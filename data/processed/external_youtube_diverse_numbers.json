@@ -1,0 +1,36 @@
+{
+ "rows": 131,
+ "brands": 12,
+ "zero_views": 0,
+ "below_100_views": 1,
+ "median_views": 11489.0,
+ "p10_views": 284.0,
+ "p90_views": 4405285.0,
+ "by_stratum": {
+  "newest": {
+   "n": 32,
+   "median_views": 3943.0,
+   "zero": 0
+  },
+  "popular": {
+   "n": 36,
+   "median_views": 1544176.0,
+   "zero": 0
+  },
+  "recent": {
+   "n": 27,
+   "median_views": 15661.0,
+   "zero": 0
+  },
+  "small": {
+   "n": 36,
+   "median_views": 876.0,
+   "zero": 0
+  }
+ },
+ "share_likes": 0.977,
+ "share_comments": 0.779,
+ "share_followers": 1.0,
+ "date_min": "20091025",
+ "date_max": "20261107"
+}

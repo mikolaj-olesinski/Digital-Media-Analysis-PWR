@@ -46,3 +46,26 @@ zalogowanej sesji albo decyzji zespołu o zbieraniu ręcznym; plan poniżej.
 Jeśli relacja wyświetlenia-reakcje utrzyma się na zewnętrznej próbce YouTube, twierdzenie o transferze nie jest artefaktem
 eksportu Brand24. Jeśli się nie utrzyma, dowiadujemy się, że youtube'owe wiersze eksportu są specyficzne — oba wyniki są
 wynikami.
+
+## Zróżnicowane warstwy YouTube (E190)
+
+Samo wyszukiwanie zwraca tylko popularne filmy. Kolektor zróżnicowany losuje cztery warstwy na markę: najczęściej oglądane
+z wyszukiwania, najnowsze z wyszukiwania, najsłabiej oglądane z kanału marki i najnowsze z kanału marki. Dwie ostatnie
+zawierają filmy małe i z zerową liczbą wyświetleń, których w wyszukiwaniu nie ma. Wyniki:
+`data/processed/external_youtube_diverse_numbers.json`, karta E190.
+
+## Koszt API X (sprawdzone 2026-11-08)
+
+X nie sprzedaje już abonamentów miesięcznych: Basic (200 USD/mies.) i Pro (5 000 USD/mies.) wycofano w lutym 2026, nie ma
+też darmowego odczytu. Publiczne API działa w modelu pay-per-use: **0,005 USD za odczyt posta**, 0,010 USD za odczyt
+użytkownika, 0,015 USD za zapis posta (0,200 USD, gdy post zawiera URL), z limitem 3 mln odczytów postów miesięcznie przed
+kontraktem Enterprise. Dla naszej zewnętrznej próbki 2 500 postów X z danymi autora to około **12,50 USD za posty + 25 USD
+za autorów = 37,50 USD** (jednorazowo). Źródła: strona cenowa X API (docs.x.com/x-api/getting-started/pricing) i
+podsumowanie stawek 2026 (twitterapis.com/answers/x-api-pricing-tiers-explained).
+
+
+### Wynik zróżnicowanych warstw (E190)
+
+131 filmów, 12 marek: 0 filmów z zerem, minimum 71 wyświetleń, jeden poniżej 100. Mediana wyświetleń per warstwa:
+popularne 1 544 176, świeże 15 661, najnowsze 3 943, małe 876. MAE modelu: małe 0,289 (bias +0,17), świeże 0,620,
+najnowsze 0,601, popularne 1,480 (bias +1,48, ~×30 za nisko). Filmów z zerem nie da się pobrać.

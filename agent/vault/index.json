@@ -2300,5 +2300,17 @@
    "src/external_youtube.py",
    "src/external_validate.py"
   ]
+ },
+ {
+  "id": "E190",
+  "date": "2026-11-08",
+  "question": "Can a YouTube sample span small, large and zero-view videos, and how does the model do per stratum?",
+  "setup": "4 strata per brand (popular/recent from search, small/newest from the brand channel); 131 videos, 12 brands",
+  "result": "0 zero-view videos reachable (min 71); model MAE 0.289 on small, 0.620 recent, 0.601 newest, 1.480 popular (x30 low)",
+  "type": "finding",
+  "where": "`src/external_youtube_diverse.py`",
+  "paths": [
+   "src/external_youtube_diverse.py"
+  ]
  }
 ]
