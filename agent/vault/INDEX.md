@@ -203,3 +203,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E196 | finding | Do Facebook public view counts move over three days? | [E196](E196.md) |
 | E197 | finding | Does the mention result hold at 60 brands? | [E197](E197.md) |
 | E198 | finding | Can a cheap pay-per-use X sample be fetched, and does the model hold on it? | [E198](E198.md) |
+| E199 | finding | View range instead of a number | [E199](E199.md) |

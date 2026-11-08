@@ -2412,5 +2412,17 @@
    "src/external_x.py",
    "src/external_x_validate.py"
   ]
+ },
+ {
+  "id": "E199",
+  "date": "2026-11-08",
+  "question": "View range instead of a number",
+  "setup": "4 bin schemes; regression cut into bins vs CatBoost classifier vs majority; brand CV + transfer to FB / IG",
+  "result": "3 ranges acc 0.82 / 0.81 / 0.95 (maj 0.95) / FB 0.80 / IG 0.78; decades 0.74 / 0.60 / 0.58 / 0.64 / 0.56; classifier lower everywhere",
+  "type": "finding",
+  "where": "`src/view_bins.py`",
+  "paths": [
+   "src/view_bins.py"
+  ]
  }
 ]
