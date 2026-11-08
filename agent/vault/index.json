@@ -2428,6 +2428,18 @@
  {
   "id": "E200",
   "date": "2026-11-08",
+  "question": "Every training-platform combination",
+  "setup": "Ridge on likes + comments, 31 training sets, each left-out platform scored; own-platform brand CV reference; equal-weight sensitivity",
+  "result": "FB / IG x2.4-3.1 from any mix (own x2.4); X hardest x3.6-4.6; X-only training worst; equal weighting worse",
+  "type": "finding",
+  "where": "`src/train_combos.py`",
+  "paths": [
+   "src/train_combos.py"
+  ]
+ },
+ {
+  "id": "E200",
+  "date": "2026-11-08",
   "question": "Why were only 470 of 2,500 Facebook posts attempted?",
   "setup": "Full sweep of all 2,500 FB URLs with the public watch-page fetcher",
   "result": "402 ok, 68 gone, 2,030 have no video id (ordinary posts) - 470 video posts is the complete measurable subset",
