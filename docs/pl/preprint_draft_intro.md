@@ -1,4 +1,4 @@
-# Wstęp: wersja robocza wygenerowana przez Claude (2026-11-08)
+# Wstęp i dane: wersja robocza wygenerowana przez Claude (2026-11-08)
 
 > Szkic do przepisania własnymi słowami. Wygenerowany przez AI na prośbę zespołu; użycie AI ujawnić w preprincie.
 > Cytaty: Tatar, de Amorim, Fdida, Antoniadis 2014, *A survey on predicting the popularity of web content*, J. Internet Serv. Appl. 5:8 (metadane z Crossref);
@@ -40,3 +40,53 @@ Nasz wkład jest następujący:
 - liczby IG po partii 3 (rolki 501-950) mogą się zmienić;
 - ×2,4 na FB = E93 (402 posty), ×2,65 / ×2,41 / ×2,36 IG = E202, pokrycie = E118, bez reakcji = E202 / E176, inne źródła <= 0,01 = E49, E100, E122, E170-E175;
 - zakres: IG tylko rolki, FB tylko filmy; 20 marek FB, 11 marek IG (do ograniczeń). -->
+
+## 2. Dane i pomiar
+
+Korzystamy z 12 500 wzmianek o 348 markach, udostępnionych przez Brand24. Wzmianki pochodzą z pięciu platform (TikTok,
+YouTube, X, Facebook, Instagram), 85% z nich opublikowano między kwietniem a sierpniem 2026, a 85% jest po angielsku.
+Eksport zawiera liczbę wyświetleń dla prawie wszystkich wzmianek z TikToka (100%) i YouTube (99%) oraz dla 75% wzmianek
+z X. Dla Facebooka i Instagrama eksport nie podaje wyświetleń, dlatego zebraliśmy je sami.
+
+**Facebook.** Dla 130 filmów odczytaliśmy liczby ręcznie, a dla 402 pobraliśmy je automatycznie z publicznej strony
+filmu, razem z reakcjami i komentarzami z tego samego odczytu. Facebook pokazuje dwie różne liczby: wyświetlenia
+i odtworzenia, które różnią się od 2,3 do 3,6 raza (E95); używamy wyświetleń. Część linków już nie działa.
+
+**Instagram.** Wylosowaliśmy 500 rolek z 11 marek, czyli z całego wycinka Instagrama w danych. Agent przeglądarki
+na zalogowanym koncie członka zespołu odczytał dla każdej rolki wyświetlenia, polubienia i komentarze w jednym momencie,
+tylko w trybie odczytu. Wyświetlenia udało się odczytać dla 368 rolek, a 132 zostały usunięte; przy 30 polubienia były
+ukryte. Do modelu z polubieniami trafia więc 338 rolek. Zwykłe posty Instagrama (zdjęcia i karuzele) nie mają licznika
+wyświetleń, więc wyniki dla Instagrama dotyczą tylko rolek.
+
+**Odczyty z tego samego momentu.** Na Facebooku i Instagramie wyświetlenia i reakcje pochodzą z jednego odczytu.
+W eksporcie Brand24 mogą pochodzić z różnych chwil. Dla TikToka, YouTube i X zebraliśmy więc dodatkowo własny odczyt
+z jednego momentu i sprawdzamy, o ile zmienia on błąd na tych samych postach. Główne wyniki dla tych platform liczymy
+jednak na danych z eksportu.
+
+**Etykiety treści.** Typ i sentyment każdej wzmianki oznaczyły modele językowe (trzy niezależne kodery; zgodność kappa
+0,77–0,79 dla typu i 0,71–0,73 dla sentymentu). Członek zespołu przejrzał ręcznie około 200 etykiet.
+
+Tabela 1 i rysunek 1 podsumowują dane, na których oceniamy modele. Wyświetlenia na jeden post obejmują około siedmiu
+rzędów wielkości, a typowy post na X ma ich kilkadziesiąt razy mniej niż na Facebooku. Mediana liczby wyświetleń
+na jeden lajk różni się mniej: od 22 na X do 49 na Instagramie.
+
+**Tabela 1.** Dane według platformy. Posty z wyświetleniami to te, które trafiają do modelu.
+
+| Platforma | Wzmianki w eksporcie | Marki | Źródło wyświetleń | Posty z wyświetleniami (marki) | Mediana wyświetleń | Mediana lajków | Mediana wyświetleń na lajk |
+|---|---|---|---|---|---|---|---|
+| TikTok | 2 500 | 266 | eksport Brand24 | 2 491 (266) | 729 | 32 | 25 |
+| YouTube | 2 500 | 273 | eksport Brand24 | 2 441 (273) | 433 | 6 | 26 |
+| X | 2 500 | 273 | eksport Brand24 | 1 803 (252) | 27 | 0 | 22 |
+| Facebook | 2 500 | 22 | własny odczyt | 402 (20) | 1 413 | 23 | 35 |
+| Instagram | 2 500 | 11 | własny odczyt (rolki) | 338 (11) | 506 | 10 | 49 |
+
+![Rysunek 1](../../figures/data_overview_pl.png)
+
+**Rysunek 1.** Rozkład wyświetleń na post na każdej platformie (skala logarytmiczna, pionowa kreska = mediana).
+TikTok, YouTube i X: wyświetlenia z eksportu Brand24; Facebook i Instagram: nasz odczyt.
+
+Wszystkie modele oceniamy na markach, których nie widziały w treningu (5-krotna walidacja krzyżowa z podziałem po
+markach). Zasady zbierania danych, zgodność z regulaminami i RODO opisujemy w oświadczeniu o danych.
+
+<!-- Do sprawdzenia: liczby IG po partii 3; akapit o odczytach z tego samego momentu dopiero gdy DeepSeek skończy odczyt
+TT/YT/X (inaczej usunąć); kappa i odsetki z plan/preprint_plan.md sekcja 2; FB 130/402 = E93/E95; tabela 1 i rysunek 1 z `src/data_overview.py` (`data/processed/data_overview_numbers.json`), po partii 3 IG przeliczyć. -->
