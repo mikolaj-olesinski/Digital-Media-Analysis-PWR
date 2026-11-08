@@ -12,7 +12,11 @@
     2.11,
     4.27
    ],
-   "median views per like": 25.251190095395803
+   "median views per like": 25.251190095395803,
+   "share with 0 likes": 0.03693295865114412,
+   "slope log views on log likes (likes >= 1)": 0.8063183124911517,
+   "intercept": 1.753551005420805,
+   "r (likes >= 1)": 0.8939873180901738
   },
   "youtube": {
    "mentions in export": 2500,
@@ -26,7 +30,11 @@
     1.08,
     4.15
    ],
-   "median views per like": 26.409090909090903
+   "median views per like": 26.409090909090903,
+   "share with 0 likes": 0.291274068004916,
+   "slope log views on log likes (likes >= 1)": 0.9777588674773243,
+   "intercept": 1.4325515400459852,
+   "r (likes >= 1)": 0.8766779851273288
   },
   "twitter": {
    "mentions in export": 2500,
@@ -40,7 +48,11 @@
     0.48,
     2.61
    ],
-   "median views per like": 21.999999999999996
+   "median views per like": 21.999999999999996,
+   "share with 0 likes": 0.6211869107043816,
+   "slope log views on log likes (likes >= 1)": 1.062289501290232,
+   "intercept": 1.5703331593504077,
+   "r (likes >= 1)": 0.7080448111837535
   },
   "facebook": {
    "mentions in export": 2500,
@@ -54,7 +66,11 @@
     1.64,
     4.74
    ],
-   "median views per like": 34.83333333333333
+   "median views per like": 34.83333333333333,
+   "share with 0 likes": 0.06218905472636816,
+   "slope log views on log likes (likes >= 1)": 0.9648675961583183,
+   "intercept": 1.6574121041713077,
+   "r (likes >= 1)": 0.9037417141491062
   },
   "instagram": {
    "mentions in export": 2500,
@@ -68,7 +84,11 @@
     1.54,
     4.19
    ],
-   "median views per like": 48.56793478260872
+   "median views per like": 48.56793478260872,
+   "share with 0 likes": 0.1242603550295858,
+   "slope log views on log likes (likes >= 1)": 0.9173711941387271,
+   "intercept": 1.8168226205790547,
+   "r (likes >= 1)": 0.8950249929991729
   }
  }
 }
