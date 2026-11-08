@@ -267,3 +267,4 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
 - **Instagram**: no public views (0/160 anonymous); a manual sample, a login or a provider is needed. Everything else in
   the plan was run (see `docs/en/plan_status.md`).
 - **False brand matches**: documented on examples only; a detector needs 100-200 hand labels (backlog B15).
+- E222: the headline in-platform result now uses folds that keep authors and copied texts apart; X is 0.482 (x3.03) instead of 0.470, TikTok and YouTube unchanged.

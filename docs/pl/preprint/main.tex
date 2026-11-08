@@ -107,13 +107,16 @@ Brand24; Facebook (filmy), Instagram (rolki): nasz odczyt.}}
 \section{Metoda}\label{sec:met}
 
 Przewidujemy $y=\log_{10}(\text{wyświetlenia})$. Błąd podajemy jako MAE w tej skali i jako mnożnik
-$10^{\text{MAE}}$ (MAE 0,30 $\approx$ \x{2}). Wszystkie modele oceniamy pięciokrotną walidacją krzyżową z podziałem po
-markach, więc każda ocena dotyczy marki, której model nie widział; przedziały ufności liczymy bootstrapem po markach. Jeden autor może pisać o kilku markach (1--9\% postów), więc sprawdziliśmy też podział, w którym ten sam autor ani identyczny tekst nie trafia do treningu i testu jednocześnie: błąd zmienia się o najwyżej 0,002 na TikToku i YouTube, a na X rośnie z 0,47 do 0,48.
+$10^{\text{MAE}}$ (MAE 0,30 $\approx$ \x{2}). Model końcowy oceniamy pięciokrotną walidacją krzyżową, w której ta sama marka, ten sam autor ani identyczny tekst nigdy nie
+trafia jednocześnie do treningu i testu: jeden autor może pisać o kilku markach (1--9\% postów), a ten sam tekst bywa
+wklejany na różnych kontach. Każda ocena dotyczy więc marki i autora, których model nie widział. Przedziały ufności
+liczymy bootstrapem po markach. Porównania metod (rozdział~\ref{sec:nie}) robimy na prostszym podziale po samych markach;
+ostrzejszy podział zmienia błąd o najwyżej 0,002 na TikToku i YouTube i o 0,012 na X, tak samo dla wszystkich metod.
 Na TikToku, YouTube i X używamy CatBoost~\cite{catboost} na obserwujących, reakcjach i flagach braków. Do przeniesienia
 na Facebooka i Instagram używamy regresji ridge na $\log(1+\text{lajki})$ i $\log(1+\text{komentarze})$, czyli dwóch
 polach, które ma każda platforma, uczonej na X i YouTube razem; przy pominiętej platformie przenosi się ona lepiej niż
 CatBoost. Przedziały 50\% i 90\% dla każdego posta dają konformalna regresja kwantylowa~\cite{romano2019}.
-% E114, E124, E61/E131 (ridge > CatBoost przy pominiętej platformie), E118, E137.
+% E55, E222 (results_a na podziale marka+autor+tekst). E114, E124, E61/E131 (ridge > CatBoost przy pominiętej platformie), E118, E137.
 
 \section{Wyniki}\label{sec:wyniki}
 
@@ -153,7 +156,7 @@ Rys.~\ref{fig:main}.}}
 \label{fig:size}
 \end{figure}
 
-\paragraph{Przedziały.} Przedział 90\% trafia w 89--90\% postów na TikToku, YouTube i X, także na miesiącach spoza
+\paragraph{Przedziały.} Przedział 90\% trafia w 87--91\% postów na TikToku, YouTube i X, także na miesiącach spoza
 treningu (0,90--0,93). Na Facebooku trafia w 93\% filmów kont poniżej miliona obserwujących, ale dla największych kont
 tylko w 80--86\%. Jeśli zamiast liczby podamy jeden z trzech przedziałów (<1\,000, 1\,000--10\,000, >10\,000), trafiamy
 w 78--82\% postów na TikToku, YouTube, Facebooku i Instagramie.
