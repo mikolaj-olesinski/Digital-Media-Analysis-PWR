@@ -1,0 +1,27 @@
+{
+ "rows": 53,
+ "brands": 11,
+ "median_views": 6697.0,
+ "p10_views": 528.6,
+ "p90_views": 948498.4000000004,
+ "share_likes": 0.887,
+ "share_comments": 0.887,
+ "share_followers": 1.0,
+ "date_min": "20250404",
+ "date_max": "20261107",
+ "spearman_log_views_likes": 0.933,
+ "median_views_per_like": 78.26829268292683,
+ "per_brand": {
+  "eToro": 5,
+  "Mollie": 5,
+  "Motorola": 5,
+  "Hootsuite": 5,
+  "Stripe": 5,
+  "Avanza": 5,
+  "Coinbase": 5,
+  "MailerLite": 5,
+  "Monster Energy": 5,
+  "Adidas": 4,
+  "PayPal": 4
+ }
+}

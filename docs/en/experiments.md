@@ -1,6 +1,6 @@
 # Experiment register
 
-169 experiments (E01-E169) plus L1; failures included.
+198 experiments (E01-E198) plus L1; failures included.
 
 One line per experiment. **Add a line whenever an experiment is run, including failures.** Details are in the notebook; exact numbers are in `data/processed/`. Unless noted: target log10(views) on TikTok / YouTube / X, 5-fold CV grouped by brand, MAE on log10 (0.3 is about ×2, 0.5 about ×3, 1.0 ×10). Gain means fall in MAE against the stated base; positive is better. Result types: **gain** (CI above zero and useful), **small** (CI above zero but about 0.01 or less, or isolated), **none**, **worse**, **finding** (says something about the data).
 
@@ -195,6 +195,16 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E186 | 2026-11-06 | Monthly brand ranking within an industry | Kendall of brand-month totals, industry x month | Model 0.73 / 0.70 / 0.60; rule on X 0.63 | finding | `src/critical_review.py` |
 | E187 | 2026-11-06 | Negative posts | Sentiment bias | No bias on negative posts (+0.02 / -0.04 / +0.06) | finding | `src/critical_review.py` |
 | E188 | 2026-11-06 | Earned media value | Brand totals x CPM 5 USD | X: model 47% of brands within +-50%, rule 2% | small | `src/critical_review.py` |
+| E189 | 2026-11-08 | Can we fetch an external YouTube/X/TikTok sample, and does the model hold on it? | yt-dlp: YouTube search works, TikTok broken, X blocked; 53 brand videos (recent, 2025+); model trained on Brand24 YouTube | Median views 6,697 vs 433; MAE 0.726, bias +0.706 (x5 low); bias-corrected 0.540; slope 0.83; TikTok/X/IG need API or login | finding | `src/external_youtube.py`, `src/external_validate.py` |
+| E190 | 2026-11-08 | Can a YouTube sample span small, large and zero-view videos, and how does the model do per stratum? | 4 strata per brand (popular/recent from search, small/newest from the brand channel); 131 videos, 12 brands | 0 zero-view videos reachable (min 71); model MAE 0.289 on small, 0.620 recent, 0.601 newest, 1.480 popular (x30 low) | finding | `src/external_youtube_diverse.py` |
+| E191 | 2026-11-08 | Can third-party mention videos (not brand channels) be sampled, including tiny/zero-view ones, and does the model hold on them? | 4 mention-like queries per brand, brand-owned channel excluded, top/mid/low strata, 47 videos 2025+ | 1 zero-view, 17 below 100, median 362 (vs 433); MAE 0.690 low, 0.441 mid, 1.569 top; overall 0.791 (bias +0.39) | finding | `src/external_youtube_mentions.py` |
+| E192 | 2026-11-08 | Do the export TikTok views match the public counts today? | Re-read 60 random TikTok posts with headless Chromium; compare playCount with the export | 40/60 readable; median ratio 1.068, p90 3.07, 45% within 5%; Spearman 0.918 | finding | `data/processed/tiktok_refetch_numbers.json` |
+| E193 | 2026-11-08 | Does the third-party mention result hold on 20 brands? | Same mention collector, 20 brands; 73 videos; model scored externally | 73 videos, 4 zero-view, 30 below 100; MAE 0.737, bias +0.42; low/mid/top 0.574/0.581/1.385 | finding | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E194 | 2026-11-08 | How stale are the export YouTube views? | Re-read 60 random YouTube mentions with yt-dlp and compare with the export | 58/60; median ratio 1.516, p90 25.3, 19% within 5%; Spearman 0.857 | finding | `src/youtube_refetch.py` |
+| E195 | 2026-11-08 | Does the mention-population result tighten with 40 brands? | Same mention collector, 40 brands, 144 videos; model scored externally | 144 videos, 4 zero, 49 below 100; MAE 0.638, bias +0.35; low/mid/top 0.558/0.553/1.047 | finding | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E196 | 2026-11-08 | Do Facebook public view counts move over three days? | Re-read 60 fetched FB videos' public watch pages and compare with 2026-11-05 | 60/60 readable; ratio 1.000 on every post (no drift); FB counter is static or cached | finding | `src/fb_refetch.py` |
+| E197 | 2026-11-08 | Does the mention result hold at 60 brands? | Same collector, 60 brands, 203 videos; model scored externally | 203 videos, 10 zero, 83 below 100; MAE 0.606, bias +0.28; low/mid/top 0.536/0.555/1.044 | finding | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E198 | 2026-11-08 | Can a cheap pay-per-use X sample be fetched, and does the model hold on it? | Bearer token, recent search 7 days, 10 brands x 10 posts; impression_count as views; model trained on Brand24 X | 98 posts for $1.47; median 8 views vs 27; MAE 0.565, bias -0.29 (x2 high); baseline 0.747 | finding | `src/external_x.py`, `src/external_x_validate.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

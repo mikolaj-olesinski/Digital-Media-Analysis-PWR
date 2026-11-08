@@ -32,7 +32,7 @@ Most documents have a Polish version in `docs/pl/`; the internal `project_plan.m
 
 | area | documents |
 |---|---|
-| Start here | [status](docs/en/status.md) · [verdict](docs/en/verdict.md) · [one-pager](docs/en/one_pager.md) · [what is new](docs/en/whats_new.md) · [future work](docs/en/future_work.md) · [plan coverage](docs/en/plan_status.md) |
+| Start here | [status](docs/en/status.md) · [verdict](docs/en/verdict.md) · [one-pager](docs/en/one_pager.md) · [what is new](docs/en/whats_new.md) · [future work](docs/en/future_work.md) · [plan coverage](docs/en/plan_status.md) · [external sample](docs/en/external_sample.md) |
 | The estimator | [model card](docs/en/model_card.md) · [estimator spec](docs/en/estimator_spec.md) · [reporting guide](docs/en/reporting_guide.md) |
 | Evidence | [evidence map](docs/en/evidence_map.md) · [experiments register](docs/en/experiments.md) · [documentation status](docs/en/doc_status.md) |
 | Client and preprint | [client Q&A](docs/en/client_qa.md) · [example report](docs/en/report_example.md) · [preprint outline](docs/en/preprint_outline.md) · [slide plan](docs/en/slides.md) · [release checklist](docs/en/release_checklist.md) |

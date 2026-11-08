@@ -1,0 +1,14 @@
+{
+ "n_external": 53,
+ "brands": 11,
+ "bias_corrected_MAE": 0.54,
+ "calibration_slope": 0.831,
+ "calibration_intercept": 1.271,
+ "MAE": 0.726,
+ "bias": 0.706,
+ "median_baseline_MAE": 1.599,
+ "median_baseline_bias": 1.419,
+ "internal_cv_reference": 0.456,
+ "median_external_views": 6697.0,
+ "median_internal_views": 433.0000000000001
+}

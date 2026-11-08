@@ -27,11 +27,18 @@ walidacjach; **prawdopodobne** = jedna walidacja, spójna z resztą; **otwarte**
 | 20 | Widoczny rozkład różni się między platformami: elastyczność followersów 0,044 / 0,303 / 0,164 (TT/YT/X), reakcji 0,82 / 0,66 / 1,06; 43% / 5% / 14% postów bije liczbę followersów | prawdopodobne | E167 |
 | 21 | Prosta zrekonstruowana reguła Brand24 odtwarza 97% wierszy IG, 62% X i 49% FB; na TikToku/YouTube zasięg to liczba wyświetleń | prawdopodobne | E168 |
 | 22 | Historia marki nie zastępuje brakującej historii autora: podział czasowy, prior marki -0,005 (TikTok), -0,035 (YouTube), +0,006 (X, CI zawiera 0); 35-52% postów testowych ma znaną markę | prawdopodobne | E169 |
+| 23 | Model jest skalibrowany do populacji wzmianek Brand24: na 53 niezależnie pobranych filmach marek na YouTube relacja się trzyma (Spearman 0,93, nachylenie 0,83), ale poziom jest ×5 za nisko (MAE 0,726, bias +0,71; 0,540 po usunięciu przesunięcia) | prawdopodobne | E189 |
 | 23 | Sufit szumu nie jest efektem wieku sprawdzenia: z dopasowanym wiekiem granica bez zmian; cel 30 dni zmienia MAE <= 0,007 | likely | E179 |
+| 24 | Filmy z zerem nie są osiągalne przez kanały marek i wyszukiwanie (0/131, minimum 71), ale wśród wzmianek trzecich stron się zdarzają (1 zero, 17 poniżej 100); model na filmach marek zawodzi powyżej małych postów (MAE 0,289 małe vs 1,480 popularne) | prawdopodobne | E190 |
 | 24 | Transfer FB stoi na 20 markach; bez 3 największych 0,46; posty nieangielskie FB ~x2,2 za nisko; na własnych liczbach Brand24 0,83 | likely | E177, E178, E182 |
-| 25 | Uczciwy błąd X dla całego strumienia (z postami bez wyświetleń) to ~0,49 | likely | E181 |
+| 25 | Na filmach trzecich stron (203 filmy, 60 marek) model jest blisko eksportu (MAE 0,536 małe, 0,555 średnie) i zawodzi tylko na popularnych (1,044); wcześniejsze ×5 wynikało z filmów marek | prawdopodobne | E191, E193, E195, E197 |
+| 25 | Na filmach trzecich stron (203 filmy, 60 marek) model jest blisko eksportu (MAE 0,536 małe, 0,555 średnie) i zawodzi tylko na popularnych (1,044); wcześniejsze ×5 wynikało z filmów marek | prawdopodobne | E191, E193, E195, E197 |
+| 26 | Wyświetlenia TikToka z eksportu są nieaktualne, ale stabilne rangowo: 40/60 odczytane, mediana 1,068, p90 3,07, Spearman 0,918 | solidne | E192 |
 | 26 | Wczesny odczyt wyświetleń to sygnał do alarmów: precyzja top 5% 0,82 / 0,86 / 0,71 vs 0,71 / 0,64 / 0,35 z reakcji | likely | E185 |
+| 27 | Wyświetlenia YouTube z eksportu są nieaktualne: mediana 1,516, p90 25,3, 19% w 5%, Spearman 0,857; TikTok 1,068 i 0,918 | solidne | E194, E192 |
 | 27 | Routing po dostępnych polach trzyma pasma 90% na 0,88-0,90; pełny model z brakiem reakcji pokrywa 0,46-0,83 | likely | E176 |
+| 28 | Publiczne wyświetlenia Facebooka są statyczne w trzy dni (60/60 identyczne), podczas gdy TikTok urósł 7%, a YouTube 52%; FB to snapshot jednorazowy | solidne | E196 |
+| 29 | API X w pay-per-use kosztuje 1,47 USD za 98 postów; strumień 7-dniowy ma medianę 8 wyświetleń vs 27 w eksporcie, a model przeszacowuje go ×2 (MAE 0,565, bias -0,29) | prawdopodobne | E198 |
 
 ## Nieznane / otwarte
 

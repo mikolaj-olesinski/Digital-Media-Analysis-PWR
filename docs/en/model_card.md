@@ -89,6 +89,11 @@ Reproduce it: `docs/en/reproduce.md` (six commands).
   (0.368) but the band stays at 0.80 (E150/E151).
 - **Sample:** 12,500 mentions supplied by Brand24, not a random sample of social media; 85% English; time not uniform.
 
+- **Outside the export:** on brand-owned/popular videos the model is x5 low (E189/E190, MAE 1.48 on popular), but on
+  third-party mention videos - the population it targets - it is close to the export: MAE 0.690 low, 0.441 mid, and only
+  the popular stratum fails (1.569) (E191). Zero-view videos are not reachable through brand channels, but exist among
+  obscure third-party mentions (E190, E191).
+
 ## Intended use
 
 - Estimate visibility of a post for monitoring, benchmarks and brand totals, always with an interval.
