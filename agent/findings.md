@@ -257,10 +257,16 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
 
 ## Same-moment re-read (2026-11-08)
 
-- **Views and reactions are now from one request on TikTok, YouTube and X** (E204): TikTok 426/500 readable, YouTube
-  2,297/2,500, X 2,013/2,500. Fresh/export views: median x1.085 (TikTok), x1.350 (YouTube), x2.00 (X); p90 x2.35 / x20.7 /
-  x6.0; rank correlations 0.953 / 0.856 / 0.905. The export is stale in level but stable in rank, so the re-read files are
-  the ground truth for transfer scoring. X was free via FxTwitter (matched the paid API on 9/10 posts). **solid**
+- **Views and reactions are now from one request on YouTube and X, and on the first 500 TikTok posts** (E204): TikTok
+  426/500 (logged-in headless browser; the remaining 2,000 are on hold until the team decides on the terms), YouTube
+  2,297/2,500, X 2,013/2,500 after removing one duplicate row. Fresh/export views: median x1.085 (TikTok), x1.350
+  (YouTube, 463 -> 1,220), x2.00 (X, 30 -> 72); rank correlations 0.953 / 0.856 / 0.905. The export is stale in level but
+  stable in rank, so the re-read files are the ground truth for transfer scoring. X was free via FxTwitter (matched the
+  paid API on 9/10 posts). **solid**
+- **The missing YouTube reactions are a yt-dlp extraction gap, not hidden likes or disabled comments** (E204): 289 ok rows
+  have no likes and 877 no comments; a 10-row page check shows the like count visible and `commentsDisabled` false, while
+  `commentCount` is absent from the page data. The rows carry `likes_hidden`/`comments_off` = `unknown` where the value is
+  missing; no zero is written for a missing value. **likely**
 
 ## Open items (state 2026-11-07)
 

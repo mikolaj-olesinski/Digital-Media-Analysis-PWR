@@ -17,3 +17,4 @@ browser-screenshots/
 data/processed/external_x_fetched.csv
 .tools/x_token.txt
 data/processed/fb_full_fetched.csv
+data/processed/youtube_reaction_flags.csv
