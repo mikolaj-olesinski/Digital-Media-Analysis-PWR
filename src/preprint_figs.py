@@ -171,12 +171,6 @@ def fig_side(lang):
 
 # Gain in MAE (log10, + = better) per method, TikTok / YouTube / X, from the register (experiment in comment).
 METHODS = [
-    ("models", [("stack of all model families", "E54", (.011, .028, .026)),
-                ("TabPFN v2 (tabular foundation model)", "E47", (.005, .010, .002)),
-                ("seed averaging", "E134", (.001, .002, -.001)),
-                ("distributional model", "E129", (-.003, -.003, -.004)),
-                ("multi-task across platforms", "E113", (.001, -.020, -.019)),
-                ("one pooled model for 3 platforms", "E61", (-.001, -.012, -.004))]),
     ("text", [("fine-tuned transformer as a correction", "E53", (.007, .012, .008)),
               ("transformer alone (row as text)", "E53", (-.018, -.001, -.023)),
               ("sentence embeddings (e5)", "E50", (.003, -.009, .011)),
@@ -209,24 +203,24 @@ PLN = {"models": "modele", "text": "tekst", "AI labels": "etykiety AI", "graphs"
 
 def fig_methods(lang):
     tr = (lambda t: PLN.get(t, t)) if lang == "pl" else (lambda t: t)
-    T = {"pl": ("Poza reakcjami żadna metoda nie zmienia błędu o więcej niż ×1,07", "zmiana błędu (dodatnia = lepiej)"),
-         "en": ("Beyond reactions no method changes the error by more than ×1.07", "change in error (positive = better)")}[lang]
+    T = {"pl": ("Żadne dodatkowe dane nie zmieniają błędu o więcej niż ×1,04", "zmiana błędu (dodatnia = lepiej)"),
+         "en": ("No extra data changes the error by more than ×1.04", "change in error (positive = better)")}[lang]
     rows, ylab, ys, groups, pos = [], [], [], [], 0
     for g, items in METHODS:
         groups.append((pos, tr(g))); pos += 1
         for name, eid, v in items: rows.append(v); ylab.append(tr(name)); ys.append(pos); pos += 1
         pos += .4
-    fig, a = plt.subplots(figsize=(7.6, 7.2)); fig.patch.set_facecolor(SURF); style(a); a.grid(axis="y", visible=False)
+    fig, a = plt.subplots(figsize=(7.6, 5.6)); fig.patch.set_facecolor(SURF); style(a); a.grid(axis="y", visible=False)
     y = np.array(ys); a.axvline(0 + 1, color=INK, lw=1)
     for k, p in enumerate(["tiktok", "youtube", "twitter"]):
         a.scatter([10 ** r[k] for r in rows], y + (k - 1) * .2, s=28, color=COL[p], edgecolor=SURF, lw=.8, label=LAB[p], zorder=3)
     for yi, r in zip(y, rows): a.plot([10 ** min(r), 10 ** max(r)], [yi, yi], color="#cfcdc6", lw=1, zorder=1)
-    a.set_xscale("log"); xt = [1/1.06, 1/1.04, 1/1.02, 1, 1.02, 1.04, 1.06]
+    a.set_xscale("log"); xt = [1/1.06, 1/1.04, 1/1.02, 1, 1.02, 1.04]
     a.set_xticks(xt); a.set_xticklabels([("÷" if t < 1 else "×") + dec(t if t >= 1 else 1 / t, lang, 2) for t in xt]); a.minorticks_off()
     a.set_yticks(y); a.set_yticklabels(ylab, fontsize=8); a.invert_yaxis(); a.set_xlabel(T[1], fontsize=9, color=MUTED)
     for gy, g in groups:
         a.text(-0.01, gy + .1, g.upper(), transform=a.get_yaxis_transform(), ha="right", va="center", fontsize=8, fontweight="bold", color=INK)
-    a.legend(frameon=False, fontsize=8.5, loc="lower right"); a.set_xlim(1 / 1.07, 1.075)
+    a.legend(frameon=False, fontsize=8.5, loc="lower right"); a.set_xlim(1 / 1.07, 1.05)
     fig.text(.0, .95, T[0], fontsize=13, fontweight="bold", color=INK); save(fig, "methods", lang)
 
 
