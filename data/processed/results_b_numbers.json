@@ -1,0 +1,50 @@
+{
+ "results B": {
+  "facebook": {
+   "MAE": 0.385,
+   "CI": [
+    0.312,
+    0.482
+   ],
+   "bias": 0.14,
+   "factor": 2.43,
+   "Spearman": 0.909,
+   "posts": 402,
+   "within x2": 0.525,
+   "under-predicted": 0.595,
+   "median bias (+ = under)": 0.076,
+   "brands": 20,
+   "25-post median shift": {
+    "MAE": 0.388,
+    "factor": 2.44
+   },
+   "own platform ridge, brand CV": {
+    "MAE": 0.384,
+    "factor": 2.42
+   }
+  },
+  "instagram": {
+   "MAE": 0.424,
+   "CI": [
+    0.379,
+    0.494
+   ],
+   "bias": 0.22,
+   "factor": 2.65,
+   "Spearman": 0.884,
+   "posts": 338,
+   "within x2": 0.408,
+   "under-predicted": 0.704,
+   "median bias (+ = under)": 0.249,
+   "brands": 11,
+   "25-post median shift": {
+    "MAE": 0.382,
+    "factor": 2.41
+   },
+   "own platform ridge, brand CV": {
+    "MAE": 0.372,
+    "factor": 2.36
+   }
+  }
+ }
+}
