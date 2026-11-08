@@ -2349,5 +2349,30 @@
    "src/external_youtube_mentions.py",
    "src/external_validate.py"
   ]
+ },
+ {
+  "id": "E194",
+  "date": "2026-11-08",
+  "question": "How stale are the export YouTube views?",
+  "setup": "Re-read 60 random YouTube mentions with yt-dlp and compare with the export",
+  "result": "58/60; median ratio 1.516, p90 25.3, 19% within 5%; Spearman 0.857",
+  "type": "finding",
+  "where": "`src/youtube_refetch.py`",
+  "paths": [
+   "src/youtube_refetch.py"
+  ]
+ },
+ {
+  "id": "E195",
+  "date": "2026-11-08",
+  "question": "Does the mention-population result tighten with 40 brands?",
+  "setup": "Same mention collector, 40 brands, 144 videos; model scored externally",
+  "result": "144 videos, 4 zero, 49 below 100; MAE 0.638, bias +0.35; low/mid/top 0.558/0.553/1.047",
+  "type": "finding",
+  "where": "`src/external_youtube_mentions.py`, `src/external_validate.py`",
+  "paths": [
+   "src/external_youtube_mentions.py",
+   "src/external_validate.py"
+  ]
  }
 ]

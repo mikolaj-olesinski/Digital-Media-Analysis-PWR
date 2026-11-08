@@ -1,6 +1,6 @@
 # Experiment register
 
-193 experiments (E01-E193) plus L1; failures included.
+195 experiments (E01-E195) plus L1; failures included.
 
 One line per experiment. **Add a line whenever an experiment is run, including failures.** Details are in the notebook; exact numbers are in `data/processed/`. Unless noted: target log10(views) on TikTok / YouTube / X, 5-fold CV grouped by brand, MAE on log10 (0.3 is about ×2, 0.5 about ×3, 1.0 ×10). Gain means fall in MAE against the stated base; positive is better. Result types: **gain** (CI above zero and useful), **small** (CI above zero but about 0.01 or less, or isolated), **none**, **worse**, **finding** (says something about the data).
 
@@ -200,6 +200,8 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E191 | 2026-11-08 | Can third-party mention videos (not brand channels) be sampled, including tiny/zero-view ones, and does the model hold on them? | 4 mention-like queries per brand, brand-owned channel excluded, top/mid/low strata, 47 videos 2025+ | 1 zero-view, 17 below 100, median 362 (vs 433); MAE 0.690 low, 0.441 mid, 1.569 top; overall 0.791 (bias +0.39) | finding | `src/external_youtube_mentions.py` |
 | E192 | 2026-11-08 | Do the export TikTok views match the public counts today? | Re-read 60 random TikTok posts with headless Chromium; compare playCount with the export | 40/60 readable; median ratio 1.068, p90 3.07, 45% within 5%; Spearman 0.918 | finding | `data/processed/tiktok_refetch_numbers.json` |
 | E193 | 2026-11-08 | Does the third-party mention result hold on 20 brands? | Same mention collector, 20 brands; 73 videos; model scored externally | 73 videos, 4 zero-view, 30 below 100; MAE 0.737, bias +0.42; low/mid/top 0.574/0.581/1.385 | finding | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E194 | 2026-11-08 | How stale are the export YouTube views? | Re-read 60 random YouTube mentions with yt-dlp and compare with the export | 58/60; median ratio 1.516, p90 25.3, 19% within 5%; Spearman 0.857 | finding | `src/youtube_refetch.py` |
+| E195 | 2026-11-08 | Does the mention-population result tighten with 40 brands? | Same mention collector, 40 brands, 144 videos; model scored externally | 144 videos, 4 zero, 49 below 100; MAE 0.638, bias +0.35; low/mid/top 0.558/0.553/1.047 | finding | `src/external_youtube_mentions.py`, `src/external_validate.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

@@ -223,10 +223,13 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
 
 ## Third-party mention sample (2026-11-08)
 
-- **The mention-like population is reachable and the model works there** (E191, expanded in E193): 73 third-party videos
-  from 20 brands (brand channels excluded), median 613 views against 433 in the export; model MAE 0.574 on the low stratum
-  (median 6 views), 0.581 on mid (4,515), 1.385 on top (965k), overall 0.737 with bias +0.42. The earlier x5 shift
-  (E189/E190) came from brand-owned and popular videos, not from the model. **likely**
+- **The mention-like population is reachable and the model works there** (E191, expanded in E193 and E195): 144
+  third-party videos from 40 brands (brand channels excluded), median 2,151 views; model MAE **0.558 low / 0.553 mid /
+  1.047 top**, overall **0.638** with bias +0.35 (137 validation rows). The earlier x5 shift (E189/E190) came from
+  brand-owned and popular videos, not from the model; the remaining boundary is video size. **likely**
+- **YouTube export views are much staler than TikTok's** (E194): re-reading 60 posts gives 58 readable, median new/old
+  1.516, p90 25.3, only 19% within 5%, Spearman 0.857. Level comparisons need an age correction (E101); the export
+  understates current popular videos. **solid**
 - **TikTok export views are stale but rank-stable** (E192): re-reading 60 posts gives 40 readable, median new/old 1.068,
   p90 3.07, only 45% within 5%, but Spearman 0.918. Level comparisons need a common check date or an age correction
   (E101); a third of the posts cannot be read anonymously. **solid**

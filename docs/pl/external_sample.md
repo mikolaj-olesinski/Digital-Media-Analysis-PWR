@@ -74,9 +74,9 @@ najnowsze 0,601, popularne 1,480 (bias +1,48, ~×30 za nisko). Filmów z zerem n
 ## Wzmianki trzecich stron (E191) - populacja, która ma znaczenie
 
 Wyszukiwanie marki i kanały marek dają filmy marek; wzmianki Brand24 to posty trzecich stron. Kolektor wzmianek szuka
-zapytań review/unboxing/haul/honest review, usuwa kanał marki i losuje warstwy top/mid/low. Wynik (rozszerzone do 20 marek w E193): **73 filmy, 20 marek, mediana 613
-wyświetleń** (eksport: 433), **4 zera i 30 poniżej 100** - czyli zera istnieją, tylko nie przez kanały marek. MAE modelu:
-**0,574 małe, 0,581 średnie, 1,385 top**; całość 0,737, bias +0,42.
+zapytań review/unboxing/haul/honest review, usuwa kanał marki i losuje warstwy top/mid/low. Wynik (rozszerzone do 40 marek w E195): **144 filmy, 40 marek, mediana 2 151 wyświetleń**, **4 zera i 49 poniżej 100** -
+czyli zera istnieją, tylko nie przez kanały marek. MAE modelu: **0,558 małe, 0,553 średnie, 1,047 top**; całość **0,638**,
+bias +0,35 (137 wierszy walidacji).
 
 ## X w budżecie 10 zł
 

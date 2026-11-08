@@ -198,3 +198,5 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E191 | finding | Can third-party mention videos (not brand channels) be sampled, including tiny/zero-view ones, and does the model hold on them? | [E191](E191.md) |
 | E192 | finding | Do the export TikTok views match the public counts today? | [E192](E192.md) |
 | E193 | finding | Does the third-party mention result hold on 20 brands? | [E193](E193.md) |
+| E194 | finding | How stale are the export YouTube views? | [E194](E194.md) |
+| E195 | finding | Does the mention-population result tighten with 40 brands? | [E195](E195.md) |

@@ -1,4 +1,4 @@
-# Mapa reprodukcji: eksperymenty E95-E193
+# Mapa reprodukcji: eksperymenty E95-E195
 
 Wewnętrzny indeks dla zespołu: który eksperyment odtwarza który skrypt i jaki plik liczb zapisuje. Wygenerowane z kart vaulta. Nie tekst preprintu.
 
@@ -103,3 +103,5 @@ Wewnętrzny indeks dla zespołu: który eksperyment odtwarza który skrypt i jak
 | E191 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |
 | E192 | — | `tiktok_refetch_numbers.json` |
 | E193 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |
+| E194 | `src/youtube_refetch.py` | `youtube_refetch_numbers.json` |
+| E195 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |

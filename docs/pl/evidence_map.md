@@ -31,10 +31,11 @@ walidacjach; **prawdopodobne** = jedna walidacja, spójna z resztą; **otwarte**
 | 23 | Sufit szumu nie jest efektem wieku sprawdzenia: z dopasowanym wiekiem granica bez zmian; cel 30 dni zmienia MAE <= 0,007 | likely | E179 |
 | 24 | Filmy z zerem nie są osiągalne przez kanały marek i wyszukiwanie (0/131, minimum 71), ale wśród wzmianek trzecich stron się zdarzają (1 zero, 17 poniżej 100); model na filmach marek zawodzi powyżej małych postów (MAE 0,289 małe vs 1,480 popularne) | prawdopodobne | E190 |
 | 24 | Transfer FB stoi na 20 markach; bez 3 największych 0,46; posty nieangielskie FB ~x2,2 za nisko; na własnych liczbach Brand24 0,83 | likely | E177, E178, E182 |
-| 25 | Na filmach trzecich stron o marce model jest blisko eksportu (MAE 0,690 małe, 0,441 średnie) i zawodzi tylko na popularnych (1,569); wcześniejsze ×5 wynikało z filmów marek | prawdopodobne | E191 |
-| 25 | Uczciwy błąd X dla całego strumienia (z postami bez wyświetleń) to ~0,49 | likely | E181 |
+| 25 | Na filmach trzecich stron (144 filmy, 40 marek) model jest blisko eksportu (MAE 0,558 małe, 0,553 średnie) i zawodzi tylko na popularnych (1,047); wcześniejsze ×5 wynikało z filmów marek | prawdopodobne | E191, E193, E195 |
+| 25 | Na filmach trzecich stron (144 filmy, 40 marek) model jest blisko eksportu (MAE 0,558 małe, 0,553 średnie) i zawodzi tylko na popularnych (1,047); wcześniejsze ×5 wynikało z filmów marek | prawdopodobne | E191, E193, E195 |
 | 26 | Wyświetlenia TikToka z eksportu są nieaktualne, ale stabilne rangowo: 40/60 odczytane, mediana 1,068, p90 3,07, Spearman 0,918 | solidne | E192 |
 | 26 | Wczesny odczyt wyświetleń to sygnał do alarmów: precyzja top 5% 0,82 / 0,86 / 0,71 vs 0,71 / 0,64 / 0,35 z reakcji | likely | E185 |
+| 27 | Wyświetlenia YouTube z eksportu są nieaktualne: mediana 1,516, p90 25,3, 19% w 5%, Spearman 0,857; TikTok 1,068 i 0,918 | solidne | E194, E192 |
 | 27 | Routing po dostępnych polach trzyma pasma 90% na 0,88-0,90; pełny model z brakiem reakcji pokrywa 0,46-0,83 | likely | E176 |
 
 ## Nieznane / otwarte

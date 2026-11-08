@@ -1,6 +1,6 @@
 # Rejestr eksperymentów
 
-193 eksperymentów (E01-E193) plus L1; także nieudane.
+195 eksperymentów (E01-E195) plus L1; także nieudane.
 
 Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także nieudanym.** Szczegóły są w notebooku, a dokładne liczby w `data/processed/`. O ile nie napisano inaczej: cel log10(wyświetlenia) na TikToku / YouTube / X, 5 foldów po markach, MAE na log10 (0,3 to ok. ×2, 0,5 ok. ×3, 1,0 ×10). Zysk to spadek MAE względem podanej bazy. Rodzaj wyniku: **zysk** (przedział nad zerem i użyteczny), **mały** (przedział nad zerem, ale ok. 0,01 lub mniej albo pojedynczy wynik), **brak**, **gorzej**, **wniosek** (mówi coś o danych).
 
@@ -200,6 +200,8 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E191 | 2026-11-08 | Czy da się pobrać filmy trzecich stron o marce (nie kanały marek), także małe i zerowe, i czy model na nich działa? | 4 zapytania o wzmianki na markę, kanał marki wyłączony, warstwy top/mid/low, 47 filmów 2025+ | 1 zero, 17 poniżej 100, mediana 362 (vs 433); MAE 0,690 małe, 0,441 średnie, 1,569 top; całość 0,791 (bias +0,39) | wniosek | `src/external_youtube_mentions.py` |
 | E192 | 2026-11-08 | Czy wyświetlenia TikToka z eksportu zgadzają się z dzisiejszymi publicznymi? | Ponowny odczyt 60 losowych filmów przez headless Chromium; porównanie playCount z eksportem | 40/60 odczytane; mediana stosunku 1,068, p90 3,07, 45% w 5%; Spearman 0,918 | wniosek | `data/processed/tiktok_refetch_numbers.json` |
 | E193 | 2026-11-08 | Czy wynik dla wzmianek trzecich stron utrzyma się na 20 markach? | Ten sam kolektor wzmianek, 20 marek; 73 filmy; model oceniany zewnętrznie | 73 filmy, 4 zera, 30 poniżej 100; MAE 0,737, bias +0,42; low/mid/top 0,574/0,581/1,385 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E194 | 2026-11-08 | Jak nieaktualne są wyświetlenia YouTube z eksportu? | Ponowny odczyt 60 losowych wzmianek YouTube przez yt-dlp i porównanie z eksportem | 58/60; mediana 1,516, p90 25,3, 19% w 5%; Spearman 0,857 | wniosek | `src/youtube_refetch.py` |
+| E195 | 2026-11-08 | Czy wynik dla wzmianek zacieśnia się na 40 markach? | Ten sam kolektor wzmianek, 40 marek, 144 filmy; model oceniany zewnętrznie | 144 filmy, 4 zera, 49 poniżej 100; MAE 0,638, bias +0,35; low/mid/top 0,558/0,553/1,047 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.
