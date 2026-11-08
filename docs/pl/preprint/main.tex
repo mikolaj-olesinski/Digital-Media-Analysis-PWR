@@ -50,9 +50,11 @@ przybliża się więc stałym mnożnikiem liczby obserwujących lub reakcji, kt�
 
 Przewidywanie popularności treści jest szeroko badane~\cite{tatar2014}, także między serwisami:
 Shulman i in.~\cite{shulman2016} przenoszą model między zbiorami muzyki, książek, zdjęć i linków, a Roy
-i in.~\cite{roy2013} wiedzę z Twittera na filmy z YouTube. Prace te oceniają jednak model tam, gdzie wynik jest znany.
-Nie znaleźliśmy pracy, która sprawdza oszacowanie wyświetleń z reakcji na platformach, gdzie wyświetlenia są ukryte,
-wobec niezależnie zmierzonej prawdy.
+i in.~\cite{roy2013} wiedzę z Twittera na filmy z YouTube. Prace te przewidują jednak przyszłą popularność
+i mają dane o popularności z platformy docelowej, na których model się uczy lub kalibruje. Nasze zadanie jest inne:
+szacujemy bieżące wyświetlenia z widocznych reakcji na platformie, z której model nie dostaje w treningu ani jednej
+wartości wyświetleń. Wyświetlenia z tej platformy zbieramy osobno i używamy ich tylko do oceny. Nie znaleźliśmy pracy,
+która tak sprawdza przeniesienie modelu wyświetleń między platformami.
 
 Pytamy, czy wyświetlenia posta na Facebooku i Instagramie da się oszacować z jego reakcji modelem uczonym wyłącznie na
 innych platformach, i z jaką niepewnością. Nasz wkład:
