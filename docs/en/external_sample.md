@@ -76,8 +76,9 @@ recent 15,661, newest 3,943, small 876. Model MAE: small 0.289 (bias +0.17), rec
 
 Brand search and brand channels give brand-owned videos; the Brand24 mentions are third-party posts. The mention
 collector therefore searches review/unboxing/haul/honest-review queries, removes the brand's own channel and samples top,
-mid and low views. Result: 47 videos, 12 brands, median 362 views (export: 433), **1 zero-view and 17 below 100** - so
-zeros exist, just not through brand channels. Model MAE: 0.690 low, 0.441 mid, 1.569 top; overall 0.791, bias +0.39.
+mid and low views. Result (expanded to 20 brands in E193): **73 videos, 20 brands, median 613 views** (export: 433), **4 zero-view and 30
+below 100** - so zeros exist, just not through brand channels. Model MAE: **0.574 low, 0.581 mid, 1.385 top**; overall
+0.737, bias +0.42.
 
 ## X on a 10 PLN budget
 
@@ -93,3 +94,10 @@ Rates (pay-per-use): $0.005 per post read, $0.010 per user (author) read; resour
 Limit that matters more than money: the pay-per-use **recent search covers only the last 7 days**; older posts need the
 full-archive endpoint, which is Enterprise-only. So a cheap X sample is a **7-day window**, not 2025-2026 history:
 either repeat a weekly sample going forward, or accept a snapshot of current mentions.
+
+
+## TikTok: current views vs the export (E192)
+
+60 random TikTok posts were re-read with headless Chromium: 40 were readable, 20 hit a login wall/captcha. Median
+new/old views 1.068, p90 3.07, 45% within 5%, but rank correlation 0.918. The export is stale in level and stable in
+order; comparisons need a common check date or an age correction.

@@ -196,3 +196,5 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E189 | finding | Can we fetch an external YouTube/X/TikTok sample, and does the model hold on it? | [E189](E189.md) |
 | E190 | finding | Can a YouTube sample span small, large and zero-view videos, and how does the model do per stratum? | [E190](E190.md) |
 | E191 | finding | Can third-party mention videos (not brand channels) be sampled, including tiny/zero-view ones, and does the model hold on them? | [E191](E191.md) |
+| E192 | finding | Do the export TikTok views match the public counts today? | [E192](E192.md) |
+| E193 | finding | Does the third-party mention result hold on 20 brands? | [E193](E193.md) |

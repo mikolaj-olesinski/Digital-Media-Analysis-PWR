@@ -13,3 +13,4 @@ data/processed/*fetched*.csv
 data/processed/*external*fetched*.csv
 data/processed/external_youtube_diverse_fetched.csv
 data/processed/external_youtube_mentions_fetched.csv
+browser-screenshots/

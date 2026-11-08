@@ -2324,5 +2324,30 @@
   "paths": [
    "src/external_youtube_mentions.py"
   ]
+ },
+ {
+  "id": "E192",
+  "date": "2026-11-08",
+  "question": "Do the export TikTok views match the public counts today?",
+  "setup": "Re-read 60 random TikTok posts with headless Chromium; compare playCount with the export",
+  "result": "40/60 readable; median ratio 1.068, p90 3.07, 45% within 5%; Spearman 0.918",
+  "type": "finding",
+  "where": "`data/processed/tiktok_refetch_numbers.json`",
+  "paths": [
+   "data/processed/tiktok_refetch_numbers.json"
+  ]
+ },
+ {
+  "id": "E193",
+  "date": "2026-11-08",
+  "question": "Does the third-party mention result hold on 20 brands?",
+  "setup": "Same mention collector, 20 brands; 73 videos; model scored externally",
+  "result": "73 videos, 4 zero-view, 30 below 100; MAE 0.737, bias +0.42; low/mid/top 0.574/0.581/1.385",
+  "type": "finding",
+  "where": "`src/external_youtube_mentions.py`, `src/external_validate.py`",
+  "paths": [
+   "src/external_youtube_mentions.py",
+   "src/external_validate.py"
+  ]
  }
 ]

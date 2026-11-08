@@ -1,29 +1,29 @@
 {
- "rows": 47,
- "brands": 12,
- "zero_views": 1,
- "below_100_views": 17,
- "below_1000_views": 26,
- "median_views": 362.0,
- "p10_views": 1.6000000000000005,
- "p90_views": 784417.0,
+ "rows": 73,
+ "brands": 20,
+ "zero_views": 4,
+ "below_100_views": 30,
+ "below_1000_views": 39,
+ "median_views": 613.0,
+ "p10_views": 1.0,
+ "p90_views": 791248.2,
  "by_stratum": {
   "low": {
-   "n": 20,
-   "median_views": 5.5
+   "n": 33,
+   "median_views": 6.0
   },
   "mid": {
-   "n": 17,
-   "median_views": 2638.0
+   "n": 27,
+   "median_views": 4515.0
   },
   "top": {
-   "n": 10,
-   "median_views": 786033.0
+   "n": 13,
+   "median_views": 965273.0
   }
  },
- "share_likes": 0.596,
- "share_comments": 0.468,
- "share_followers": 0.979,
+ "share_likes": 0.671,
+ "share_comments": 0.521,
+ "share_followers": 0.959,
  "date_min": "20250118",
  "date_max": "20261108"
 }
