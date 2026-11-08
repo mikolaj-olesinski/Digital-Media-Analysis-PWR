@@ -39,6 +39,9 @@ The sample was supplied by Brand24 for the course; how mentions were selected is
   from Instagram's web API as the page loads them. 368 had views (132 gone, 30 with hidden likes). Results are local and
   git-ignored (`data/manual/ig_browser_*.csv`); only statistics are published (E202). The counter's field name was not
   recorded.
+- **Instagram `/p/` posts.** 62% of the IG slice (1,550 of 2,500) are `/p/` posts. In a check of the first 26, 19 were
+  photos or carousels with no public view counter (`media_type` 1 / 8), 7 were gone, none were videos. Instagram results
+  therefore cover reels only; ordinary posts have no ground truth.
 - **Terms and personal data.** Only public pages were read, without logging in and without cookies; no author names or
   URLs are published. The fetched files are local and git-ignored (`data/processed/*fetched*.csv`); they carry the mention
   id and the counters, not the post URL. Only aggregates appear in the repository.

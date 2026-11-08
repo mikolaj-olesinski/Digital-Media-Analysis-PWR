@@ -97,7 +97,8 @@ Najmocniejsza część pracy.
 - FB posty spoza angielskiego: 0,540, przesunięcie +0,35 (E182).
 - Viral posty z top 1% niedoszacowane ×9-14 (E180).
 - Sumy marek mylą się o więcej niż ×2 w 29-47% przypadków (E180).
-- IG: tylko 11 marek, 3 największe = 44% rolek (bez nich ×2,95); tylko rolki. Reakcje i wyświetlenia w jednym momencie tylko na FB i IG; brak wniosków przyczynowych.
+- IG: tylko 11 marek, 3 największe = 44% rolek (bez nich ×2,95); tylko rolki.
+- IG, zakres: wynik dotyczy tylko rolek (38% wycinka IG: 950 z 2500). Posty `/p/` (62%) to zdjęcia i karuzele bez publicznego licznika wyświetleń: w próbce 26 postów 19 bez licznika (11 zdjęć, 8 karuzel), 7 usuniętych, 0 wideo. Dla zwykłych postów IG nie ma ground truth, więc model ich nie obejmuje (ten sam problem co zwykłe posty FB, E200). Reakcje i wyświetlenia w jednym momencie tylko na FB i IG; brak wniosków przyczynowych.
 - Rekomendacje dla Brand24 (`data_needs.md`):
   1. reakcje odczytywać razem z wyświetleniami;
   2. braki zapisywać jako null, nie jako 0;
