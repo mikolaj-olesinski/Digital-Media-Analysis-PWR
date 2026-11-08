@@ -1,0 +1,949 @@
+{
+ "note": "MAE of log10 views; gain = MAE(base) - MAE(variant), + = better, brand bootstrap 300 draws. Encoder MLP 64-64 -> 8, 50 epochs; DAE swap noise 0.2; SCARF corruption 0.6, tau 0.5.",
+ "encoder rows": {
+  "export": 12500,
+  "re-read": 3815
+ },
+ "transfer": {
+  "export X + YouTube source (primary)": {
+   "source rows": 4244,
+   "facebook": {
+    "base C2": {
+     "n": 402,
+     "MAE": 0.3853,
+     "CI": [
+      0.3123,
+      0.4817
+     ],
+     "factor": 2.428,
+     "median bias (+ = under)": 0.0761,
+     "within x2": 0.525,
+     "top fifth bias by true y": 0.4352,
+     "top fifth bias by predicted y": 0.1629,
+     "top tenth bias by true y": 0.5435,
+     "top tenth bias by predicted y": 0.1296
+    },
+    "reference C2 + raw e5 PCA16": {
+     "n": 402,
+     "MAE": 0.4491,
+     "CI": [
+      0.3994,
+      0.5282
+     ],
+     "factor": 2.812,
+     "median bias (+ = under)": 0.146,
+     "within x2": 0.425,
+     "top fifth bias by true y": 0.5153,
+     "top fifth bias by predicted y": 0.2256,
+     "top tenth bias by true y": 0.6323,
+     "top tenth bias by predicted y": 0.2259,
+     "gain vs base": {
+      "gain": -0.0637,
+      "CI": [
+       -0.1213,
+       -0.0152
+      ]
+     }
+    },
+    "DAE transductive (primary)": {
+     "n": 402,
+     "MAE": 0.412,
+     "CI": [
+      0.3549,
+      0.5019
+     ],
+     "factor": 2.583,
+     "median bias (+ = under)": 0.1388,
+     "within x2": 0.495,
+     "top fifth bias by true y": 0.4349,
+     "top fifth bias by predicted y": 0.1789,
+     "top tenth bias by true y": 0.5333,
+     "top tenth bias by predicted y": 0.1477,
+     "gain vs base": {
+      "gain": -0.0267,
+      "CI": [
+       -0.0797,
+       0.0185
+      ]
+     }
+    },
+    "SCARF transductive": {
+     "n": 402,
+     "MAE": 0.419,
+     "CI": [
+      0.3661,
+      0.4858
+     ],
+     "factor": 2.624,
+     "median bias (+ = under)": 0.1577,
+     "within x2": 0.463,
+     "top fifth bias by true y": 0.5708,
+     "top fifth bias by predicted y": 0.3312,
+     "top tenth bias by true y": 0.7051,
+     "top tenth bias by predicted y": 0.3456,
+     "gain vs base": {
+      "gain": -0.0337,
+      "CI": [
+       -0.0761,
+       0.0286
+      ]
+     }
+    },
+    "DAE strict (no FB / IG rows)": {
+     "n": 402,
+     "MAE": 0.4105,
+     "CI": [
+      0.3554,
+      0.5004
+     ],
+     "factor": 2.573,
+     "median bias (+ = under)": 0.0737,
+     "within x2": 0.468,
+     "top fifth bias by true y": 0.4181,
+     "top fifth bias by predicted y": 0.1564,
+     "top tenth bias by true y": 0.5353,
+     "top tenth bias by predicted y": 0.1315,
+     "gain vs base": {
+      "gain": -0.0252,
+      "CI": [
+       -0.0579,
+       0.0006
+      ]
+     }
+    },
+    "SCARF strict (no FB / IG rows)": {
+     "n": 402,
+     "MAE": 0.424,
+     "CI": [
+      0.3689,
+      0.5078
+     ],
+     "factor": 2.655,
+     "median bias (+ = under)": 0.1488,
+     "within x2": 0.468,
+     "top fifth bias by true y": 0.5568,
+     "top fifth bias by predicted y": 0.3035,
+     "top tenth bias by true y": 0.694,
+     "top tenth bias by predicted y": 0.3167,
+     "gain vs base": {
+      "gain": -0.0387,
+      "CI": [
+       -0.0682,
+       -0.0005
+      ]
+     }
+    }
+   },
+   "instagram": {
+    "base C2": {
+     "n": 642,
+     "MAE": 0.4348,
+     "CI": [
+      0.3964,
+      0.4836
+     ],
+     "factor": 2.722,
+     "median bias (+ = under)": 0.281,
+     "within x2": 0.4,
+     "top fifth bias by true y": 0.531,
+     "top fifth bias by predicted y": 0.3197,
+     "top tenth bias by true y": 0.5286,
+     "top tenth bias by predicted y": 0.3377
+    },
+    "reference C2 + raw e5 PCA16": {
+     "n": 642,
+     "MAE": 0.4585,
+     "CI": [
+      0.4058,
+      0.5205
+     ],
+     "factor": 2.874,
+     "median bias (+ = under)": 0.1675,
+     "within x2": 0.407,
+     "top fifth bias by true y": 0.4988,
+     "top fifth bias by predicted y": 0.1629,
+     "top tenth bias by true y": 0.5358,
+     "top tenth bias by predicted y": 0.2298,
+     "gain vs base": {
+      "gain": -0.0236,
+      "CI": [
+       -0.0657,
+       0.0224
+      ]
+     }
+    },
+    "DAE transductive (primary)": {
+     "n": 642,
+     "MAE": 0.4386,
+     "CI": [
+      0.3881,
+      0.5051
+     ],
+     "factor": 2.745,
+     "median bias (+ = under)": 0.1918,
+     "within x2": 0.413,
+     "top fifth bias by true y": 0.4937,
+     "top fifth bias by predicted y": 0.1823,
+     "top tenth bias by true y": 0.5249,
+     "top tenth bias by predicted y": 0.285,
+     "gain vs base": {
+      "gain": -0.0038,
+      "CI": [
+       -0.0355,
+       0.0373
+      ]
+     }
+    },
+    "SCARF transductive": {
+     "n": 642,
+     "MAE": 0.3929,
+     "CI": [
+      0.3504,
+      0.4376
+     ],
+     "factor": 2.471,
+     "median bias (+ = under)": 0.0907,
+     "within x2": 0.474,
+     "top fifth bias by true y": 0.4235,
+     "top fifth bias by predicted y": 0.1529,
+     "top tenth bias by true y": 0.5125,
+     "top tenth bias by predicted y": 0.2086,
+     "gain vs base": {
+      "gain": 0.0419,
+      "CI": [
+       0.0099,
+       0.0836
+      ]
+     }
+    },
+    "DAE strict (no FB / IG rows)": {
+     "n": 642,
+     "MAE": 0.4238,
+     "CI": [
+      0.3876,
+      0.4656
+     ],
+     "factor": 2.653,
+     "median bias (+ = under)": 0.1721,
+     "within x2": 0.419,
+     "top fifth bias by true y": 0.4881,
+     "top fifth bias by predicted y": 0.2647,
+     "top tenth bias by true y": 0.5312,
+     "top tenth bias by predicted y": 0.3211,
+     "gain vs base": {
+      "gain": 0.011,
+      "CI": [
+       -0.0092,
+       0.0322
+      ]
+     }
+    },
+    "SCARF strict (no FB / IG rows)": {
+     "n": 642,
+     "MAE": 0.4447,
+     "CI": [
+      0.4013,
+      0.4931
+     ],
+     "factor": 2.784,
+     "median bias (+ = under)": 0.2581,
+     "within x2": 0.396,
+     "top fifth bias by true y": 0.5596,
+     "top fifth bias by predicted y": 0.2973,
+     "top tenth bias by true y": 0.6246,
+     "top tenth bias by predicted y": 0.4192,
+     "gain vs base": {
+      "gain": -0.0099,
+      "CI": [
+       -0.0294,
+       0.0113
+      ]
+     }
+    }
+   }
+  },
+  "re-read X + YouTube source (sensitivity)": {
+   "source rows": 3389,
+   "facebook": {
+    "base C2": {
+     "n": 402,
+     "MAE": 0.3874,
+     "CI": [
+      0.3253,
+      0.4569
+     ],
+     "factor": 2.44,
+     "median bias (+ = under)": -0.0506,
+     "within x2": 0.483,
+     "top fifth bias by true y": 0.2036,
+     "top fifth bias by predicted y": -0.0536,
+     "top tenth bias by true y": 0.3025,
+     "top tenth bias by predicted y": -0.1068
+    },
+    "reference C2 + raw e5 PCA16": {
+     "n": 402,
+     "MAE": 0.3903,
+     "CI": [
+      0.3411,
+      0.4541
+     ],
+     "factor": 2.457,
+     "median bias (+ = under)": -0.0762,
+     "within x2": 0.463,
+     "top fifth bias by true y": 0.1373,
+     "top fifth bias by predicted y": -0.1018,
+     "top tenth bias by true y": 0.2248,
+     "top tenth bias by predicted y": -0.1781,
+     "gain vs base": {
+      "gain": -0.003,
+      "CI": [
+       -0.0324,
+       0.0249
+      ]
+     }
+    },
+    "DAE transductive (primary)": {
+     "n": 402,
+     "MAE": 0.418,
+     "CI": [
+      0.3645,
+      0.483
+     ],
+     "factor": 2.618,
+     "median bias (+ = under)": -0.098,
+     "within x2": 0.428,
+     "top fifth bias by true y": 0.1236,
+     "top fifth bias by predicted y": -0.1406,
+     "top tenth bias by true y": 0.1917,
+     "top tenth bias by predicted y": -0.2103,
+     "gain vs base": {
+      "gain": -0.0306,
+      "CI": [
+       -0.0522,
+       -0.0073
+      ]
+     }
+    },
+    "SCARF transductive": {
+     "n": 402,
+     "MAE": 0.3836,
+     "CI": [
+      0.3317,
+      0.4645
+     ],
+     "factor": 2.419,
+     "median bias (+ = under)": -0.0382,
+     "within x2": 0.498,
+     "top fifth bias by true y": 0.177,
+     "top fifth bias by predicted y": -0.071,
+     "top tenth bias by true y": 0.2513,
+     "top tenth bias by predicted y": -0.1477,
+     "gain vs base": {
+      "gain": 0.0038,
+      "CI": [
+       -0.023,
+       0.0331
+      ]
+     }
+    },
+    "DAE strict (no FB / IG rows)": {
+     "n": 402,
+     "MAE": 0.3961,
+     "CI": [
+      0.3409,
+      0.4624
+     ],
+     "factor": 2.489,
+     "median bias (+ = under)": -0.1063,
+     "within x2": 0.458,
+     "top fifth bias by true y": 0.1034,
+     "top fifth bias by predicted y": -0.1517,
+     "top tenth bias by true y": 0.1923,
+     "top tenth bias by predicted y": -0.2226,
+     "gain vs base": {
+      "gain": -0.0087,
+      "CI": [
+       -0.0194,
+       0.005
+      ]
+     }
+    },
+    "SCARF strict (no FB / IG rows)": {
+     "n": 402,
+     "MAE": 0.4036,
+     "CI": [
+      0.3504,
+      0.4683
+     ],
+     "factor": 2.533,
+     "median bias (+ = under)": -0.1014,
+     "within x2": 0.438,
+     "top fifth bias by true y": 0.168,
+     "top fifth bias by predicted y": -0.0879,
+     "top tenth bias by true y": 0.2646,
+     "top tenth bias by predicted y": -0.1455,
+     "gain vs base": {
+      "gain": -0.0162,
+      "CI": [
+       -0.0286,
+       -0.0028
+      ]
+     }
+    }
+   },
+   "instagram": {
+    "base C2": {
+     "n": 642,
+     "MAE": 0.3817,
+     "CI": [
+      0.3481,
+      0.4201
+     ],
+     "factor": 2.408,
+     "median bias (+ = under)": 0.0717,
+     "within x2": 0.481,
+     "top fifth bias by true y": 0.2863,
+     "top fifth bias by predicted y": 0.0587,
+     "top tenth bias by true y": 0.2732,
+     "top tenth bias by predicted y": 0.0727
+    },
+    "reference C2 + raw e5 PCA16": {
+     "n": 642,
+     "MAE": 0.3962,
+     "CI": [
+      0.3596,
+      0.4347
+     ],
+     "factor": 2.49,
+     "median bias (+ = under)": 0.1138,
+     "within x2": 0.483,
+     "top fifth bias by true y": 0.2878,
+     "top fifth bias by predicted y": 0.0096,
+     "top tenth bias by true y": 0.2713,
+     "top tenth bias by predicted y": 0.0372,
+     "gain vs base": {
+      "gain": -0.0145,
+      "CI": [
+       -0.0308,
+       0.01
+      ]
+     }
+    },
+    "DAE transductive (primary)": {
+     "n": 642,
+     "MAE": 0.3945,
+     "CI": [
+      0.3545,
+      0.439
+     ],
+     "factor": 2.48,
+     "median bias (+ = under)": 0.0836,
+     "within x2": 0.455,
+     "top fifth bias by true y": 0.2799,
+     "top fifth bias by predicted y": 0.0288,
+     "top tenth bias by true y": 0.257,
+     "top tenth bias by predicted y": 0.041,
+     "gain vs base": {
+      "gain": -0.0128,
+      "CI": [
+       -0.0315,
+       0.0076
+      ]
+     }
+    },
+    "SCARF transductive": {
+     "n": 642,
+     "MAE": 0.3869,
+     "CI": [
+      0.3423,
+      0.4324
+     ],
+     "factor": 2.437,
+     "median bias (+ = under)": 0.1207,
+     "within x2": 0.494,
+     "top fifth bias by true y": 0.318,
+     "top fifth bias by predicted y": 0.0863,
+     "top tenth bias by true y": 0.3178,
+     "top tenth bias by predicted y": 0.11,
+     "gain vs base": {
+      "gain": -0.0052,
+      "CI": [
+       -0.0222,
+       0.0172
+      ]
+     }
+    },
+    "DAE strict (no FB / IG rows)": {
+     "n": 642,
+     "MAE": 0.3781,
+     "CI": [
+      0.3451,
+      0.4113
+     ],
+     "factor": 2.388,
+     "median bias (+ = under)": 0.07,
+     "within x2": 0.47,
+     "top fifth bias by true y": 0.2359,
+     "top fifth bias by predicted y": 0.0007,
+     "top tenth bias by true y": 0.2241,
+     "top tenth bias by predicted y": 0.0326,
+     "gain vs base": {
+      "gain": 0.0036,
+      "CI": [
+       -0.0089,
+       0.0182
+      ]
+     }
+    },
+    "SCARF strict (no FB / IG rows)": {
+     "n": 642,
+     "MAE": 0.3785,
+     "CI": [
+      0.3442,
+      0.42
+     ],
+     "factor": 2.39,
+     "median bias (+ = under)": 0.0555,
+     "within x2": 0.5,
+     "top fifth bias by true y": 0.26,
+     "top fifth bias by predicted y": 0.0408,
+     "top tenth bias by true y": 0.2554,
+     "top tenth bias by predicted y": 0.0655,
+     "gain vs base": {
+      "gain": 0.0032,
+      "CI": [
+       -0.0062,
+       0.0123
+      ]
+     }
+    }
+   }
+  }
+ },
+ "in-platform": {
+  "tiktok": {
+   "base ENG": {
+    "n": 2491,
+    "MAE": 0.2732,
+    "CI": [
+     0.263,
+     0.285
+    ],
+    "factor": 1.876,
+    "median bias (+ = under)": 0.0002,
+    "within x2": 0.668,
+    "top fifth bias by true y": 0.2214,
+    "top fifth bias by predicted y": 0.0479,
+    "top tenth bias by true y": 0.2449,
+    "top tenth bias by predicted y": 0.0481
+   },
+   "reference ENG + raw rich inputs": {
+    "n": 2491,
+    "MAE": 0.2696,
+    "CI": [
+     0.2594,
+     0.2804
+    ],
+    "factor": 1.861,
+    "median bias (+ = under)": -0.0,
+    "within x2": 0.676,
+    "top fifth bias by true y": 0.2279,
+    "top fifth bias by predicted y": 0.0643,
+    "top tenth bias by true y": 0.2653,
+    "top tenth bias by predicted y": 0.079,
+    "gain vs base": {
+     "gain": 0.0036,
+     "CI": [
+      -0.0003,
+      0.0074
+     ]
+    }
+   },
+   "DAE transductive (primary)": {
+    "n": 2491,
+    "MAE": 0.2718,
+    "CI": [
+     0.2622,
+     0.2833
+    ],
+    "factor": 1.87,
+    "median bias (+ = under)": 0.002,
+    "within x2": 0.667,
+    "top fifth bias by true y": 0.2224,
+    "top fifth bias by predicted y": 0.0516,
+    "top tenth bias by true y": 0.2428,
+    "top tenth bias by predicted y": 0.0373,
+    "gain vs base": {
+     "gain": 0.0014,
+     "CI": [
+      -0.0015,
+      0.0044
+     ]
+    }
+   },
+   "SCARF transductive": {
+    "n": 2491,
+    "MAE": 0.2746,
+    "CI": [
+     0.2642,
+     0.2858
+    ],
+    "factor": 1.882,
+    "median bias (+ = under)": 0.0016,
+    "within x2": 0.662,
+    "top fifth bias by true y": 0.23,
+    "top fifth bias by predicted y": 0.047,
+    "top tenth bias by true y": 0.2548,
+    "top tenth bias by predicted y": 0.0407,
+    "gain vs base": {
+     "gain": -0.0014,
+     "CI": [
+      -0.004,
+      0.0014
+     ]
+    }
+   },
+   "DAE strict": {
+    "n": 2491,
+    "MAE": 0.2735,
+    "CI": [
+     0.263,
+     0.2853
+    ],
+    "factor": 1.877,
+    "median bias (+ = under)": 0.0025,
+    "within x2": 0.668,
+    "top fifth bias by true y": 0.2258,
+    "top fifth bias by predicted y": 0.0455,
+    "top tenth bias by true y": 0.2537,
+    "top tenth bias by predicted y": 0.0567,
+    "gain vs base": {
+     "gain": -0.0003,
+     "CI": [
+      -0.0038,
+      0.0031
+     ]
+    }
+   },
+   "SCARF strict": {
+    "n": 2491,
+    "MAE": 0.2725,
+    "CI": [
+     0.2622,
+     0.2834
+    ],
+    "factor": 1.873,
+    "median bias (+ = under)": -0.0022,
+    "within x2": 0.67,
+    "top fifth bias by true y": 0.2337,
+    "top fifth bias by predicted y": 0.0544,
+    "top tenth bias by true y": 0.2569,
+    "top tenth bias by predicted y": 0.0385,
+    "gain vs base": {
+     "gain": 0.0007,
+     "CI": [
+      -0.0029,
+      0.004
+     ]
+    }
+   }
+  },
+  "youtube": {
+   "base ENG": {
+    "n": 2441,
+    "MAE": 0.4557,
+    "CI": [
+     0.4339,
+     0.48
+    ],
+    "factor": 2.855,
+    "median bias (+ = under)": -0.0016,
+    "within x2": 0.435,
+    "top fifth bias by true y": 0.4563,
+    "top fifth bias by predicted y": 0.0679,
+    "top tenth bias by true y": 0.5428,
+    "top tenth bias by predicted y": 0.0436
+   },
+   "reference ENG + raw rich inputs": {
+    "n": 2441,
+    "MAE": 0.46,
+    "CI": [
+     0.4392,
+     0.4846
+    ],
+    "factor": 2.884,
+    "median bias (+ = under)": -0.0044,
+    "within x2": 0.449,
+    "top fifth bias by true y": 0.4867,
+    "top fifth bias by predicted y": 0.0707,
+    "top tenth bias by true y": 0.594,
+    "top tenth bias by predicted y": 0.0801,
+    "gain vs base": {
+     "gain": -0.0044,
+     "CI": [
+      -0.0125,
+      0.0033
+     ]
+    }
+   },
+   "DAE transductive (primary)": {
+    "n": 2441,
+    "MAE": 0.4553,
+    "CI": [
+     0.4331,
+     0.4778
+    ],
+    "factor": 2.853,
+    "median bias (+ = under)": -0.0022,
+    "within x2": 0.453,
+    "top fifth bias by true y": 0.4783,
+    "top fifth bias by predicted y": 0.0766,
+    "top tenth bias by true y": 0.5748,
+    "top tenth bias by predicted y": 0.0655,
+    "gain vs base": {
+     "gain": 0.0003,
+     "CI": [
+      -0.0081,
+      0.0087
+     ]
+    }
+   },
+   "SCARF transductive": {
+    "n": 2441,
+    "MAE": 0.4568,
+    "CI": [
+     0.4353,
+     0.4794
+    ],
+    "factor": 2.863,
+    "median bias (+ = under)": 0.0072,
+    "within x2": 0.444,
+    "top fifth bias by true y": 0.4736,
+    "top fifth bias by predicted y": 0.0859,
+    "top tenth bias by true y": 0.5677,
+    "top tenth bias by predicted y": 0.0614,
+    "gain vs base": {
+     "gain": -0.0011,
+     "CI": [
+      -0.0082,
+      0.0058
+     ]
+    }
+   },
+   "DAE strict": {
+    "n": 2441,
+    "MAE": 0.4581,
+    "CI": [
+     0.4372,
+     0.4821
+    ],
+    "factor": 2.872,
+    "median bias (+ = under)": -0.0044,
+    "within x2": 0.444,
+    "top fifth bias by true y": 0.4773,
+    "top fifth bias by predicted y": 0.0777,
+    "top tenth bias by true y": 0.5742,
+    "top tenth bias by predicted y": 0.0696,
+    "gain vs base": {
+     "gain": -0.0025,
+     "CI": [
+      -0.0098,
+      0.0046
+     ]
+    }
+   },
+   "SCARF strict": {
+    "n": 2441,
+    "MAE": 0.4591,
+    "CI": [
+     0.4376,
+     0.481
+    ],
+    "factor": 2.878,
+    "median bias (+ = under)": -0.0071,
+    "within x2": 0.437,
+    "top fifth bias by true y": 0.4792,
+    "top fifth bias by predicted y": 0.0696,
+    "top tenth bias by true y": 0.5741,
+    "top tenth bias by predicted y": 0.0669,
+    "gain vs base": {
+     "gain": -0.0034,
+     "CI": [
+      -0.011,
+      0.0038
+     ]
+    }
+   }
+  },
+  "twitter": {
+   "base ENG": {
+    "n": 1803,
+    "MAE": 0.4665,
+    "CI": [
+     0.4459,
+     0.4894
+    ],
+    "factor": 2.927,
+    "median bias (+ = under)": 0.0044,
+    "within x2": 0.413,
+    "top fifth bias by true y": 0.5852,
+    "top fifth bias by predicted y": 0.0578,
+    "top tenth bias by true y": 0.667,
+    "top tenth bias by predicted y": 0.0908
+   },
+   "reference ENG + raw rich inputs": {
+    "n": 1803,
+    "MAE": 0.4563,
+    "CI": [
+     0.4379,
+     0.4754
+    ],
+    "factor": 2.859,
+    "median bias (+ = under)": 0.0007,
+    "within x2": 0.426,
+    "top fifth bias by true y": 0.5982,
+    "top fifth bias by predicted y": 0.1278,
+    "top tenth bias by true y": 0.6947,
+    "top tenth bias by predicted y": 0.1365,
+    "gain vs base": {
+     "gain": 0.0102,
+     "CI": [
+      0.0021,
+      0.0194
+     ]
+    }
+   },
+   "DAE transductive (primary)": {
+    "n": 1803,
+    "MAE": 0.462,
+    "CI": [
+     0.4425,
+     0.4819
+    ],
+    "factor": 2.897,
+    "median bias (+ = under)": -0.0029,
+    "within x2": 0.414,
+    "top fifth bias by true y": 0.5828,
+    "top fifth bias by predicted y": 0.0841,
+    "top tenth bias by true y": 0.6781,
+    "top tenth bias by predicted y": 0.097,
+    "gain vs base": {
+     "gain": 0.0045,
+     "CI": [
+      -0.004,
+      0.0139
+     ]
+    }
+   },
+   "SCARF transductive": {
+    "n": 1803,
+    "MAE": 0.4636,
+    "CI": [
+     0.4458,
+     0.4845
+    ],
+    "factor": 2.908,
+    "median bias (+ = under)": 0.0087,
+    "within x2": 0.419,
+    "top fifth bias by true y": 0.5772,
+    "top fifth bias by predicted y": 0.0814,
+    "top tenth bias by true y": 0.6559,
+    "top tenth bias by predicted y": 0.092,
+    "gain vs base": {
+     "gain": 0.0029,
+     "CI": [
+      -0.0046,
+      0.0123
+     ]
+    }
+   },
+   "DAE strict": {
+    "n": 1803,
+    "MAE": 0.4619,
+    "CI": [
+     0.4424,
+     0.483
+    ],
+    "factor": 2.897,
+    "median bias (+ = under)": 0.0039,
+    "within x2": 0.428,
+    "top fifth bias by true y": 0.595,
+    "top fifth bias by predicted y": 0.0905,
+    "top tenth bias by true y": 0.6972,
+    "top tenth bias by predicted y": 0.099,
+    "gain vs base": {
+     "gain": 0.0046,
+     "CI": [
+      -0.0028,
+      0.0133
+     ]
+    }
+   },
+   "SCARF strict": {
+    "n": 1803,
+    "MAE": 0.4633,
+    "CI": [
+     0.4452,
+     0.4821
+    ],
+    "factor": 2.906,
+    "median bias (+ = under)": 0.0041,
+    "within x2": 0.41,
+    "top fifth bias by true y": 0.5837,
+    "top fifth bias by predicted y": 0.0904,
+    "top tenth bias by true y": 0.6734,
+    "top tenth bias by predicted y": 0.089,
+    "gain vs base": {
+     "gain": 0.0032,
+     "CI": [
+      -0.004,
+      0.0116
+     ]
+    }
+   }
+  }
+ },
+ "verdict": {
+  "primary in-platform gains": {
+   "tiktok": {
+    "gain": 0.0014,
+    "CI": [
+     -0.0015,
+     0.0044
+    ]
+   },
+   "youtube": {
+    "gain": 0.0003,
+    "CI": [
+     -0.0081,
+     0.0087
+    ]
+   },
+   "twitter": {
+    "gain": 0.0045,
+    "CI": [
+     -0.004,
+     0.0139
+    ]
+   }
+  },
+  "primary transfer gains": {
+   "facebook": {
+    "gain": -0.0267,
+    "CI": [
+     -0.0797,
+     0.0185
+    ]
+   },
+   "instagram": {
+    "gain": -0.0038,
+    "CI": [
+     -0.0355,
+     0.0373
+    ]
+   }
+  },
+  "supported": false
+ },
+ "runtime seconds": 143
+}

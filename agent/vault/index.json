@@ -2535,6 +2535,54 @@
   ]
  },
  {
+  "id": "E214",
+  "date": "2026-11-08",
+  "question": "Do synthetic large posts (SMOTER / SMOGN) fix under-prediction of large posts?",
+  "setup": "Top decile of training y oversampled 1x / 2x (primary) / 5x, SMOGN, + middle undersampling; (a) re-read X + YT ridge -> FB / IG, (b) rt.FINAL in-platform, training folds only",
+  "result": "2x: top-tenth bias (true y) -0.10 to -0.15 on IG / YT / X but MAE worse: FB 0.387 -> 0.406, YT 0.456 -> 0.462, X 0.467 -> 0.474 (CIs below 0); top by predicted y turns over-predicted: a stretch, not a gain",
+  "type": "finding",
+  "where": "`src/smoter_tail.py`",
+  "paths": [
+   "src/smoter_tail.py"
+  ]
+ },
+ {
+  "id": "E215",
+  "date": "2026-11-08",
+  "question": "Do domain randomization and mixup let CatBoost / MLP transfer like ridge?",
+  "setup": "C2, leave-one-platform-out over TikTok / YT / X + X+YT -> FB / IG; trend-consistent (primary), like-propensity, mixup; CatBoost and MLP 64-64",
+  "result": "Primary vs ridge +0.014 / +0.023 / +0.062 / +0.020 / +0.036 (0.313 / 0.612 / 0.650 / 0.385 / 0.435); moves CatBoost -0.004 to +0.012; ridge best everywhere",
+  "type": "none",
+  "where": "`src/aug_transfer.py`",
+  "paths": [
+   "src/aug_transfer.py"
+  ]
+ },
+ {
+  "id": "E216",
+  "date": "2026-11-08",
+  "question": "Does a self-supervised code (DAE / SCARF) add signal?",
+  "setup": "Encoders on 12,500 export + 3,815 re-read rows (no views), 8-dim code; CatBoost ENG + code (brand CV), ridge C2 + code -> FB / IG; transductive and strict",
+  "result": "DAE in-platform +0.001 / +0.000 / +0.005 (CIs incl. 0); FB 0.385 -> 0.412, IG 0.435 -> 0.439; one non-primary IG hit does not replicate",
+  "type": "none",
+  "where": "`src/ssl_repr.py`",
+  "paths": [
+   "src/ssl_repr.py"
+  ]
+ },
+ {
+  "id": "E217",
+  "date": "2026-11-08",
+  "question": "Does self-training on posts without views help?",
+  "setup": "(a) ridge teacher on re-read X + YT labels FB / IG features, CatBoost student (+ noisy); (b) 634 view-less X posts pseudo-labelled by the fold teacher",
+  "result": "Best +0.008 (noisy student FB, CI incl. 0); IG -0.002; X 0.467 -> 0.470 (-0.003); teacher error on view-less X 0.658 vs 0.563",
+  "type": "none",
+  "where": "`src/pseudo_label.py`",
+  "paths": [
+   "src/pseudo_label.py"
+  ]
+ },
+ {
   "id": "E218",
   "date": "2026-11-08",
   "question": "Do the 505 previously view-less X posts help the X model?",

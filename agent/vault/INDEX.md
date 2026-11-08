@@ -213,6 +213,10 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E211 | finding | Is the E210 gain just post age? | [E211](E211.md) |
 | E212 | none | Can regression to the mean be undone without losing MAE? | [E212](E212.md) |
 | E213 | finding | Results B re-scored with the re-read source | [E213](E213.md) |
+| E214 | finding | Do synthetic large posts (SMOTER / SMOGN) fix under-prediction of large posts? | [E214](E214.md) |
+| E215 | none | Do domain randomization and mixup let CatBoost / MLP transfer like ridge? | [E215](E215.md) |
+| E216 | none | Does a self-supervised code (DAE / SCARF) add signal? | [E216](E216.md) |
+| E217 | none | Does self-training on posts without views help? | [E217](E217.md) |
 | E218 | none | Do the 505 previously view-less X posts help the X model? | [E218](E218.md) |
 | E219 | small | Are X's zero-like posts what breaks X as source and target? | [E219](E219.md) |
 | E220 | small | Can borrowed >1M-follower residuals calibrate the FB >1M band? | [E220](E220.md) |
