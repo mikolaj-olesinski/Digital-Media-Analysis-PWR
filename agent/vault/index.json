@@ -2424,5 +2424,17 @@
   "paths": [
    "src/view_bins.py"
   ]
+ },
+ {
+  "id": "E200",
+  "date": "2026-11-08",
+  "question": "Why were only 470 of 2,500 Facebook posts attempted?",
+  "setup": "Full sweep of all 2,500 FB URLs with the public watch-page fetcher",
+  "result": "402 ok, 68 gone, 2,030 have no video id (ordinary posts) - 470 video posts is the complete measurable subset",
+  "type": "finding",
+  "where": "`src/fb_full.py`",
+  "paths": [
+   "src/fb_full.py"
+  ]
  }
 ]

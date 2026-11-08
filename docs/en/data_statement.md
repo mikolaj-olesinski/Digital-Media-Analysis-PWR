@@ -25,7 +25,7 @@ The sample was supplied by Brand24 for the course; how mentions were selected is
 
 ## Additional data collected by the team (November 2026)
 
-- **Facebook views.** 402 public Facebook Reels/videos from the sample were read on 2026-11-05 (fetcher:
+- **Facebook views.** Of the 2,500 Facebook rows, 470 are video posts; 402 of them exposed a public view count (68 removed), and the other 2,030 are ordinary posts/photos with no public view count at all (E200). The 402 public Facebook Reels/videos were read on 2026-11-05 (fetcher:
   `src/fetch_views.py`) from the public
   `facebook.com/watch/?v=<id>` page (logged out, desktop user agent). The page embeds `video_view_count` (the counter we
   use), `reaction_count` and `total_comment_count`. The visible play counter on the page is a different field (`play_count`,
