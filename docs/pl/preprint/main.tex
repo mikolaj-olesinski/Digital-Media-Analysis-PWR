@@ -360,8 +360,9 @@ zapisywać braki jako brak, a nie zero, robić drugi odczyt wyświetleń i przec
 \centering
 \includegraphics[width=.9\textwidth]{fig/final_compare_pl.png}
 \caption{Nasze oszacowanie a kolumna zasięgu w eksporcie Brand24, na tych samych postach.
-\capdet{Tylko platformy, na których zasięg nie jest liczbą wyświetleń: X (1\,803 posty, prawda z eksportu, nasz model z walidacji
-po markach i autorach), Facebook (402 filmy) i Instagram (642 rolki, prawda z naszego odczytu, nasz model uczony na X i YouTube).
+\capdet{Tylko platformy, na których zasięg nie jest liczbą wyświetleń. X (1\,803 posty): model uczony na X, oceniany na markach
+i autorach, których nie widział; prawda z eksportu. Facebook (402 filmy) i Instagram (642 rolki): model poza platformą, uczony tylko na X
+i YouTube, bez żadnego posta z FB ani IG; prawda z naszego odczytu.
 Zasięg Brand24 zawyża wyświetlenia na X (74\% postów) i Facebooku (67\%), a zaniża na Instagramie (97\%).}}
 \label{fig:final}
 \end{figure}

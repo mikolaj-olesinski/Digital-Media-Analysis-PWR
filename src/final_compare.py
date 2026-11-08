@@ -18,6 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 L2 = np.log10(2)
 P = ["twitter", "facebook", "instagram"]
 LAB = {"twitter": "X", "facebook": "Facebook", "instagram": "Instagram"}
+SUB = {"pl": {"twitter": "uczony na X (nowe marki)", "facebook": "bez danych z FB", "instagram": "bez danych z IG"},
+       "en": {"twitter": "trained on X (new brands)", "facebook": "no FB data", "instagram": "no IG data"}}
 INK, MUTED, SURF, OURS, B24 = "#0b0b0b", "#52514e", "#fcfcfb", "#2a78d6", "#a8a6a0"
 
 
@@ -56,8 +58,8 @@ def main():
     for lang in ["en", "pl"]:
         pl = lang == "pl"; dec = lambda v, k=1: f"{v:.{k}f}".replace(".", "," if pl else ".")
         T = ("Nasz model myli się kilka razy mniej niż zasięg w eksporcie" if pl else "Our model errs several times less than the export's reach",
-             "Te same posty; typowy błąd (×) i odsetek postów w granicach ×2. X: eksport, Facebook i Instagram: nasz odczyt." if pl else
-             "Same posts; typical error (×) and share of posts within ×2. X: export; Facebook and Instagram: our read.",
+             "Te same posty. X: model uczony na X, oceniany na nowych markach. Facebook i Instagram: model uczony tylko na X i YouTube." if pl else
+             "Same posts. X: model trained on X, scored on new brands. Facebook and Instagram: model trained only on X and YouTube.",
              "nasz model" if pl else "our model", "zasięg Brand24" if pl else "Brand24 reach", "typowy błąd (×)" if pl else "typical error (×)",
              "w granicach ×2" if pl else "within ×2")
         fig, ax = plt.subplots(1, 2, figsize=(10, 3.2), gridspec_kw={"wspace": .35}); fig.patch.set_facecolor(SURF)
@@ -68,7 +70,10 @@ def main():
                 v = [res[p][who][key] for p in P]; pos = yy + (.18 if k == 0 else -.18)
                 a.barh(pos, v, height=.34, color=c, zorder=2)
                 for yv, vv in zip(pos, v): a.text(vv, yv, " " + fmt(vv), va="center", fontsize=9, color=INK, fontweight="bold" if k == 0 else "normal")
-            a.set_yticks(yy); a.set_yticklabels([LAB[p] for p in P] if a is ax[0] else [], fontsize=10, color=INK)
+            a.set_yticks(yy); a.set_yticklabels([] if a is not ax[0] else [LAB[p] for p in P], fontsize=10, color=INK, fontweight="bold")
+            if a is ax[0]:
+                for yv, p in zip(yy, P):
+                    a.text(-.03, yv - .32, SUB[lang][p], transform=a.get_yaxis_transform(), ha="right", va="center", fontsize=7.5, color=MUTED)
             a.tick_params(length=0, labelsize=8, colors=MUTED); [a.spines[s].set_visible(False) for s in a.spines]
             a.grid(axis="x", color="#ebeae6", lw=.7, zorder=0); a.set_title(T[4] if key == "factor" else T[5], fontsize=10, color=MUTED, loc="left")
         ax[0].set_xscale("log"); ax[0].minorticks_off(); ax[0].set_xlim(1, 60); ax[0].set_xticks([1, 2, 5, 10, 20, 50]); ax[0].set_xticklabels(["1", "2", "5", "10", "20", "50"])
