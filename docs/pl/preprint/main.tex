@@ -102,7 +102,7 @@ Brand24; Facebook (filmy), Instagram (rolki): nasz odczyt.}}
 \label{fig:data}
 \end{figure}
 
-\section{Metoda}
+\section{Metoda}\label{sec:met}
 
 Przewidujemy $y=\log_{10}(\text{wyświetlenia})$. Błąd podajemy jako MAE w tej skali i jako mnożnik
 $10^{\text{MAE}}$ (MAE 0,30 $\approx$ \x{2}). Wszystkie modele oceniamy pięciokrotną walidacją krzyżową z podziałem po
@@ -195,16 +195,25 @@ w 78--82\% postów na TikToku, YouTube, Facebooku i Instagramie.
 \section{Porównanie metod}\label{sec:nie}
 
 \paragraph{Rodziny modeli.} Tabela~\ref{tab:models} porównuje modele na tych samych danych wejściowych. Po dostrojeniu
-prawie wszystkie rodziny dają ten sam błąd: \x{1,87}--\x{1,92} na TikToku, \x{2,8}--\x{3,0} na YouTube i \x{2,9}--\x{3,1}
-na X. Wyraźnie gorsze są tylko proste odniesienia (\x{4,6}--\x{8,8}) i regresja liniowa na YouTube (\x{3,5}). Model
-wstępnie wytrenowany dla tabel (TabPFN) i stos wszystkich rodzin poprawiają wynik o 0,005--0,03, czyli najwyżej o
-\x{1,07}, za cenę dużo większej złożoności i czasu liczenia. Sieć grafowa i transformer czytający post jako tekst są
-gorsze od zwykłego CatBoost. Dlatego jako model końcowy zostawiamy CatBoost.
+prawie wszystkie rodziny dają ten sam błąd: \x{1,85}--\x{1,92} na TikToku, \x{2,8}--\x{2,9} na YouTube i \x{2,9}--\x{3,1}
+na X. Wyraźnie gorsze są tylko proste odniesienia (\x{4,6}--\x{8,8}) oraz regresja liniowa i kNN na YouTube
+(\x{3,0}--\x{3,5}). Najlepszym pojedynczym modelem jest TabPFN v2, ale wyprzedza CatBoost tylko o 0,002--0,010, czyli
+w granicach szumu między przebiegami, a liczy się około 150 razy dłużej. Sieć grafowa i transformer czytający post jako
+tekst są gorsze od CatBoost.
+
+\paragraph{Dlaczego nie zespół.} Zespół łączy oszacowania kilku modeli, np. przez ich średnią (,,średnia 3 najlepszych'')
+albo przez model drugiego poziomu, który uczy się, jak ważyć oszacowania wszystkich rodzin (,,stos''). Błędy różnych
+modeli częściowo się znoszą, więc zespół jest zwykle trochę lepszy od każdego członka. U nas stos poprawia wynik
+o 0,011--0,028 (\x{1,03}--\x{1,07}). Zostajemy przy jednym modelu z trzech powodów: (1) zysk jest mały wobec typowego
+błędu \x{1,9}--\x{3,0}; (2) stos wymaga trenowania i utrzymania kilkunastu modeli, a przedziały niepewności (CQR)
+i przeniesienie na inne platformy budujemy na jednym modelu; (3) przy przeniesieniu i tak wygrywa najprostszy model
+liniowy (rozdział~\ref{sec:met}), więc złożoność nie przekłada się na główny wynik.
+% E11, E47 (TabPFN 136-176 s vs CatBoost 1 s), E54, E61/E131.
 
 \begin{table}[!htb]
 \centering\small
 \caption{Porównanie rodzin modeli: MAE w skali $\log_{10}$ i typowy błąd (\x{}).
-\capdet{Wszystkie modele na obserwujących, reakcjach i flagach braków, walidacja krzyżowa po markach. Modele z drzew, liniowe, jądrowe i MLP po strojeniu hiperparametrów (40 ustawień na fałd, strojenie zagnieżdżone). TabPFN, TabICL, GraphSAGE, transformer i stos pochodzą z osobnych przebiegów na tych samych danych; CatBoost w tych przebiegach mieścił się w 0,271--0,273 / 0,452--0,456 / 0,466--0,470, więc różnice poniżej około 0,005 są w granicach szumu. Pogrubione: najlepszy wynik w kolumnie.}}
+\capdet{Wszystkie modele na obserwujących, reakcjach i flagach braków, walidacja krzyżowa po markach. Modele z drzew, liniowe, jądrowe i MLP po strojeniu hiperparametrów (40 ustawień na fałd, strojenie zagnieżdżone). TabPFN, TabICL, GraphSAGE, transformer i stos pochodzą z osobnych przebiegów na tych samych danych; CatBoost w tych przebiegach mieścił się w 0,271--0,273 / 0,452--0,456 / 0,466--0,470, więc różnice poniżej około 0,005 są w granicach szumu. Pogrubione: najlepszy pojedynczy model w kolumnie. Zespoły pokazujemy tylko dla porównania.}}
 \label{tab:models}
 \begin{tabular}{lccc}
 \toprule
@@ -229,11 +238,12 @@ Model & TikTok & YouTube & X \\
 \quad sieć grafowa GraphSAGE (graf podobnych tekstów) & 0,279 (\x{1,90}) & 0,467 (\x{2,93}) & 0,474 (\x{2,98}) \\
 \quad dostrojony transformer (wiersz jako tekst) & 0,289 (\x{1,95}) & 0,454 (\x{2,84}) & 0,490 (\x{3,09}) \\
 \multicolumn{4}{l}{\textit{Modele wstępnie wytrenowane dla tabel}} \\
-\quad TabPFN v2 & 0,268 (\x{1,85}) & 0,443 (\x{2,77}) & 0,465 (\x{2,92}) \\
+\quad TabPFN v2 & \textbf{0,268 (\x{1,85})} & \textbf{0,443 (\x{2,77})} & \textbf{0,465 (\x{2,92})} \\
 \quad TabICL & 0,272 (\x{1,87}) & 0,445 (\x{2,79}) & 0,466 (\x{2,92}) \\
-\multicolumn{4}{l}{\textit{Zespoły modeli}} \\
+\midrule
+\multicolumn{4}{l}{\textit{Zespoły modeli (dla porównania)}} \\
 \quad średnia 3 najlepszych rodzin & 0,270 (\x{1,86}) & 0,446 (\x{2,79}) & 0,469 (\x{2,94}) \\
-\quad stos wszystkich rodzin & \textbf{0,260 (\x{1,82})} & \textbf{0,425 (\x{2,66})} & \textbf{0,441 (\x{2,76})} \\
+\quad stos wszystkich rodzin & 0,260 (\x{1,82}) & 0,425 (\x{2,66}) & 0,441 (\x{2,76}) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -242,9 +252,7 @@ Model & TikTok & YouTube & X \\
 \paragraph{Dodatkowe dane.} Sprawdziliśmy też ponad dwadzieścia dodatkowych źródeł sygnału (Rys.~\ref{fig:methods}):
 tekst (od TF-IDF po osadzenia zdań), etykiety AI, grafy autorów i marek oraz dane zewnętrzne o markach. Żadne nie zmienia
 błędu o więcej niż \x{1,04}, a większość mniej niż \x{1,02} albo pogarsza wynik. Tekst pomaga trochę na YouTube i X,
-grafy i dane zewnętrzne szkodzą. Na Facebooku tekst pogarsza przeniesienie (MAE 0,385 $\to$ 0,436). Jedyne, co pomaga
-wyraźnie, to historia autora: dla postów autorów, których model już widział, błąd spada o 0,10--0,15, ale takich
-postów jest tylko 3--16\%.
+grafy i dane zewnętrzne szkodzą. Na Facebooku tekst pogarsza przeniesienie (MAE 0,385 $\to$ 0,436). Historię autora opisujemy osobno poniżej.
 % E50, E65, E127, E170-E175, ablacja; E100 (FB tekst); E68/E70 (autor).
 
 \begin{figure}[!htb]
@@ -260,6 +268,20 @@ LLM}: typ i sentyment wzmianki z modelu językowego. \emph{GraphSAGE}: sieć gra
 o firmie. Wszystko z walidacją po markach.}}
 \label{fig:methods}
 \end{figure}
+
+\paragraph{Historia autora.} Jedynym sygnałem, który pomaga wyraźnie, jest historia autora. Ten sam autor ma
+podobną liczbę wyświetleń w kolejnych postach, niezależnie od reakcji: korelacja nadwyżki wyświetleń (prawda minus
+oszacowanie) między pierwszym a późniejszymi postami autora wynosi 0,68--0,70 na wszystkich trzech platformach,
+a autorzy z górnej jednej trzeciej mają przy tym samym oszacowaniu 4--9 razy więcej wyświetleń niż autorzy z dolnej.
+Wykorzystujemy to prosto: do oszacowania nowego posta dodajemy średnią nadwyżkę wcześniejszych postów tego autora,
+ściągniętą do zera, gdy postów jest mało (suma nadwyżek podzielona przez liczbę postów plus stała dobrana na innych
+markach). Na postach autorów z historią błąd spada z 0,37 do 0,26 na TikToku, z 0,50 do 0,35 na YouTube i z 0,53 do
+0,43 na X (\x{1,3}--\x{1,4}); większość zysku daje już jeden wcześniejszy post. Taka historia jest jednak tylko dla
+3--16\% postów w naszej próbie, więc w średnim błędzie zysk znika ($\le$0,003). Sprawdziliśmy też tego samego autora na
+innej platformie: po dokładnym dopasowaniu nazwy pokrywa się 0--0,1\% postów, za mało, żeby to ocenić.
+\todo{dopasowanie autorów między platformami po znormalizowanej nazwie konta, nie tylko dokładnej (pomysł do sprawdzenia).}
+% E68, E70, E119, E120.
+
 
 \section{Zastosowania}
 
