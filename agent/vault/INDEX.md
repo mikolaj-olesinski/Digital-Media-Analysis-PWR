@@ -201,3 +201,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E194 | finding | How stale are the export YouTube views? | [E194](E194.md) |
 | E195 | finding | Does the mention-population result tighten with 40 brands? | [E195](E195.md) |
 | E196 | finding | Do Facebook public view counts move over three days? | [E196](E196.md) |
+| E197 | finding | Does the mention result hold at 60 brands? | [E197](E197.md) |

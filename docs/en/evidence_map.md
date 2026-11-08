@@ -31,8 +31,8 @@ validations; **likely** = one validation, consistent with the rest; **open** = n
 | 23 | The noise ceiling is not a check-age artefact: with age matched the bound is unchanged; a 30-day target changes MAE <= 0.007 | likely | E179 |
 | 24 | Zero-view videos are not reachable through brand channels or search (0/131, minimum 71 views), but third-party mentions do include them (1 zero, 17 below 100); the model on brand videos fails above small posts (MAE 0.289 small vs 1.480 popular) | likely | E190 |
 | 24 | The FB transfer rests on 20 brands; without the 3 largest it is 0.46; non-English FB posts are ~x2.2 underestimated; on Brand24's own FB counts it is 0.83 | likely | E177, E178, E182 |
-| 25 | On third-party mention videos (144 videos, 40 brands) the model is close to the export (MAE 0.558 low, 0.553 mid) and fails only on the popular stratum (1.047); the earlier x5 shift came from brand-owned videos | likely | E191, E193, E195 |
-| 25 | On third-party mention videos (144 videos, 40 brands) the model is close to the export (MAE 0.558 low, 0.553 mid) and fails only on the popular stratum (1.047); the earlier x5 shift came from brand-owned videos | likely | E191, E193, E195 |
+| 25 | On third-party mention videos (203 videos, 60 brands) the model is close to the export (MAE 0.536 low, 0.555 mid) and fails only on the popular stratum (1.044); the earlier x5 shift came from brand-owned videos | likely | E191, E193, E195, E197 |
+| 25 | On third-party mention videos (203 videos, 60 brands) the model is close to the export (MAE 0.536 low, 0.555 mid) and fails only on the popular stratum (1.044); the earlier x5 shift came from brand-owned videos | likely | E191, E193, E195, E197 |
 | 26 | TikTok export views are stale but rank-stable: 40/60 readable, median new/old 1.068, p90 3.07, Spearman 0.918 | solid | E192 |
 | 26 | An early view read is the alerting signal: top-5% precision 0.82 / 0.86 / 0.71 vs 0.71 / 0.64 / 0.35 from reactions | likely | E185 |
 | 27 | YouTube export views are stale: median new/old 1.516, p90 25.3, 19% within 5%, Spearman 0.857; TikTok 1.068 and 0.918 | solid | E194, E192 |

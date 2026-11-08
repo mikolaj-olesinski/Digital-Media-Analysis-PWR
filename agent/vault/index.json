@@ -2386,5 +2386,18 @@
   "paths": [
    "src/fb_refetch.py"
   ]
+ },
+ {
+  "id": "E197",
+  "date": "2026-11-08",
+  "question": "Does the mention result hold at 60 brands?",
+  "setup": "Same collector, 60 brands, 203 videos; model scored externally",
+  "result": "203 videos, 10 zero, 83 below 100; MAE 0.606, bias +0.28; low/mid/top 0.536/0.555/1.044",
+  "type": "finding",
+  "where": "`src/external_youtube_mentions.py`, `src/external_validate.py`",
+  "paths": [
+   "src/external_youtube_mentions.py",
+   "src/external_validate.py"
+  ]
  }
 ]

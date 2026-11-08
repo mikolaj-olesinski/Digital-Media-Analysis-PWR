@@ -76,9 +76,9 @@ recent 15,661, newest 3,943, small 876. Model MAE: small 0.289 (bias +0.17), rec
 
 Brand search and brand channels give brand-owned videos; the Brand24 mentions are third-party posts. The mention
 collector therefore searches review/unboxing/haul/honest-review queries, removes the brand's own channel and samples top,
-mid and low views. Result (expanded to 40 brands in E195): **144 videos, 40 brands, median 2,151 views**, **4 zero-view and 49 below 100** -
-so zeros exist, just not through brand channels. Model MAE: **0.558 low, 0.553 mid, 1.047 top**; overall **0.638**, bias
-+0.35 (137 validation rows).
+mid and low views. Result (expanded to 60 brands in E197): **203 videos, 60 brands, median 437 views**, **10 zero-view and 83 below 100** -
+so zeros exist, just not through brand channels. Model MAE: **0.536 low, 0.555 mid, 1.044 top**; overall **0.606**, bias
++0.28 (189 validation rows).
 
 ## X on a 10 PLN budget
 

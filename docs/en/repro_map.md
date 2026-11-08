@@ -1,4 +1,4 @@
-# Reproduction map: experiments E95-E195
+# Reproduction map: experiments E95-E197
 
 Internal index for the team: which experiment is reproduced by which script, and which numbers file it writes. Generated from the vault cards. Not preprint text.
 
@@ -105,3 +105,5 @@ Internal index for the team: which experiment is reproduced by which script, and
 | E193 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |
 | E194 | `src/youtube_refetch.py` | `youtube_refetch_numbers.json` |
 | E195 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |
+| E196 | `src/fb_refetch.py` | `fb_refetch_numbers.json` |
+| E197 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |
