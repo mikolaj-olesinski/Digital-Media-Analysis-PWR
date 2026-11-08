@@ -34,7 +34,7 @@
   \item \textbf{Wstęp} --- problem, literatura, pytanie, wkład.
   \item \textbf{Dane} --- skąd prawda na każdej platformie; Tabela~1, Rys.~1.
   \item \textbf{Metoda} --- miara błędu, walidacja po markach, dwa modele, przedziały.
-  \item \textbf{Wyniki} --- Rys.~2 (wynik główny), Rys.~3 (kto jest źle szacowany), przedziały.
+  \item \textbf{Wyniki} --- Rys.~2 (wynik główny), Rys.~3 (kto jest źle szacowany), Rys.~4 (trzy przedziały), przedziały.
   \item \textbf{Przeniesienie między platformami} --- gdzie jest prawda, Tabela~2 (wszystkie 31 zestawów treningowych), Rys.~4 (czego model potrzebuje).
   \item \textbf{Porównanie metod} --- Tabela~2: rodziny modeli (regresja, lasy, boosting, sieci, grafy, transformery); Rys.~6: dodatkowe dane.
   \item \textbf{Zastosowania} (1 str.) --- Rys.~7: alert, ranking marek, EMV, posty odstające.
@@ -154,6 +154,24 @@ wyświetleń są zaniżone kilkanaście razy; po przeniesieniu Instagram zaniża
 przedziały z co najmniej 10 postami). Powyżej 1: model zaniża. Szary pas: w granicach \x{2}. Modele jak na
 Rys.~\ref{fig:main}.}}
 \label{fig:size}
+\end{figure}
+
+\paragraph{Trzy przedziały zamiast liczby.} W raporcie często wystarczy powiedzieć, czy post miał mniej niż tysiąc,
+od tysiąca do dziesięciu tysięcy, czy ponad dziesięć tysięcy wyświetleń. Gdy tym samym modelem tniemy oszacowanie na te trzy
+przedziały, trafiamy w dobry w 80--82\% postów na TikToku, YouTube, Facebooku i Instagramie (Rys.~\ref{fig:bins}), wobec
+45--65\% przy zgadywaniu zawsze najczęstszego przedziału. Prawie nigdy nie mylimy się o dwa przedziały (0,2--1,7\% postów).
+Najczęstszy błąd to zaniżenie o jeden przedział postów od tysiąca do dziesięciu tysięcy. Na X 95\% postów ma poniżej
+tysiąca wyświetleń, więc trafienie 95\% nie mówi tam nic ponad zgadywanie.
+% preprint_bins_numbers.json (results_preds + results_b_preds, bez nowego trenowania); E199 (klasyfikator nie jest lepszy).
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{fig/preprint_bins_pl.png}
+\caption{Oszacowanie pocięte na trzy przedziały wyświetleń.
+\capdet{Ten sam model co na Rys.~\ref{fig:main}: TikTok, YouTube, X z walidacji po markach i autorach, Facebook i Instagram
+z przeniesienia z X i YouTube. Wiersz: prawdziwy przedział; kolumna: oszacowany; w komórce udział w wierszu i liczba postów.
+Pogrubione: trafiony przedział. Szara liczba nad tabelą: wynik przy zgadywaniu zawsze najczęstszego przedziału.}}
+\label{fig:bins}
 \end{figure}
 
 \paragraph{Przedziały.} Przedział 90\% trafia w 87--91\% postów na TikToku, YouTube i X, także na miesiącach spoza

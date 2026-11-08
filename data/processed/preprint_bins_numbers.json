@@ -1,0 +1,149 @@
+{
+ "preprint bins": {
+  "tiktok": {
+   "n": 2491,
+   "accuracy": 0.819,
+   "within one range": 0.998,
+   "two ranges off": 0.002,
+   "majority baseline": 0.586,
+   "true share per range": [
+    0.586,
+    0.276,
+    0.138
+   ],
+   "confusion (rows true)": [
+    [
+     1341,
+     119,
+     0
+    ],
+    [
+     211,
+     436,
+     40
+    ],
+    [
+     5,
+     77,
+     262
+    ]
+   ]
+  },
+  "youtube": {
+   "n": 2441,
+   "accuracy": 0.801,
+   "within one range": 0.989,
+   "two ranges off": 0.011,
+   "majority baseline": 0.626,
+   "true share per range": [
+    0.626,
+    0.256,
+    0.118
+   ],
+   "confusion (rows true)": [
+    [
+     1397,
+     131,
+     0
+    ],
+    [
+     223,
+     377,
+     25
+    ],
+    [
+     28,
+     79,
+     181
+    ]
+   ]
+  },
+  "twitter": {
+   "n": 1803,
+   "accuracy": 0.954,
+   "within one range": 0.999,
+   "two ranges off": 0.001,
+   "majority baseline": 0.946,
+   "true share per range": [
+    0.946,
+    0.047,
+    0.008
+   ],
+   "confusion (rows true)": [
+    [
+     1694,
+     11,
+     0
+    ],
+    [
+     57,
+     26,
+     1
+    ],
+    [
+     2,
+     12,
+     0
+    ]
+   ]
+  },
+  "facebook": {
+   "n": 402,
+   "accuracy": 0.799,
+   "within one range": 0.983,
+   "two ranges off": 0.017,
+   "majority baseline": 0.453,
+   "true share per range": [
+    0.453,
+    0.326,
+    0.221
+   ],
+   "confusion (rows true)": [
+    [
+     177,
+     5,
+     0
+    ],
+    [
+     45,
+     82,
+     4
+    ],
+    [
+     7,
+     20,
+     62
+    ]
+   ]
+  },
+  "instagram": {
+   "n": 642,
+   "accuracy": 0.801,
+   "within one range": 0.994,
+   "two ranges off": 0.006,
+   "majority baseline": 0.65,
+   "true share per range": [
+    0.65,
+    0.245,
+    0.106
+   ],
+   "confusion (rows true)": [
+    [
+     406,
+     11,
+     0
+    ],
+    [
+     82,
+     74,
+     1
+    ],
+    [
+     4,
+     30,
+     34
+    ]
+   ]
+  }
+ }
+}
