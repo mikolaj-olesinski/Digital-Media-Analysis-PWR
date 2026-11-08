@@ -63,8 +63,8 @@ sprawdził i poprawił.
 
 Tabela 1 i rysunek 1 podsumowują dane, na których oceniamy modele. Wyświetlenia na jeden post obejmują około siedmiu
 rzędów wielkości, a typowy post na X ma ich kilkadziesiąt razy mniej niż na Facebooku. Mediana liczby wyświetleń
-na jeden lajk różni się mniej: od 22 na X do 49 na Instagramie. Na każdej platformie wyświetlenia rosną prawie
-proporcjonalnie do lajków (nachylenie w skali log 0,81–1,06), ale na X aż 62% postów nie ma ani jednego lajka.
+na jeden lajk różni się mniej: od 22 na X do 49 na Instagramie. Na każdej platformie post z 10 razy większą
+liczbą lajków ma od 6 do 11 razy więcej wyświetleń, ale na X aż 62% postów nie ma ani jednego lajka.
 
 **Tabela 1.** Dane według platformy. Posty z wyświetleniami to te, które trafiają do modelu.
 
@@ -79,7 +79,8 @@ proporcjonalnie do lajków (nachylenie w skali log 0,81–1,06), ale na X aż 62
 ![Rysunek 1](figures/data_overview_pl.png)
 
 **Rysunek 1.** Wyświetlenia a lajki dla każdego posta, osobno dla każdej platformy (obie osie w skali logarytmicznej).
-Linia: dopasowanie prostej na postach z co najmniej jednym lajkiem; liczba w rogu to jej nachylenie. Posty bez lajków
+Linia: dopasowanie prostej na postach z co najmniej jednym lajkiem; liczba w rogu mówi, ile razy więcej wyświetleń
+ma post z 10× większą liczbą lajków. Posty bez lajków
 leżą przy zerze na osi poziomej. TikTok, YouTube i X: eksport Brand24; Facebook i Instagram: nasz odczyt.
 
 Wszystkie modele oceniamy na markach, których nie widziały w treningu (5-krotna walidacja krzyżowa z podziałem po

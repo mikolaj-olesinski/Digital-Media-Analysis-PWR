@@ -40,11 +40,11 @@ COL = {"tiktok": "#2a78d6", "youtube": "#eb6834", "twitter": "#1baf7a", "faceboo
 
 def figure(d, rows, lang):
     T = {"en": ("10× more likes means about 6–11× more views on every platform",
-                "Each dot is one post. Line: fit on posts with at least one like; slope 1 = views grow as fast as likes.",
-                "likes", "views", "slope", "posts", "10× likes → {f}× views", "no likes: {z} of posts"),
+                "Each dot is one post. Line: fit on posts with at least one like.",
+                "likes", "views", "more views", "posts", "for 10× more likes", "no likes: {z} of posts"),
          "pl": ("10× więcej lajków to ok. 6–11× więcej wyświetleń na każdej platformie",
-                "Każda kropka to jeden post. Linia: dopasowanie na postach z co najmniej jednym lajkiem; nachylenie 1 = wyświetlenia rosną tak samo szybko jak lajki.",
-                "lajki", "wyświetlenia", "nachylenie", "postów", "10× lajków → {f}× wyśw.", "bez lajków: {z} postów")}[lang]
+                "Każda kropka to jeden post. Linia: dopasowanie na postach z co najmniej jednym lajkiem.",
+                "lajki", "wyświetlenia", "więcej wyświetleń", "postów", "przy 10× więcej lajków", "bez lajków: {z} postów")}[lang]
     num = lambda v: f"{v:,.0f}".replace(",", "\u2009")
     dec = lambda v, k=2: f"{v:.{k}f}".replace(".", "," if lang == "pl" else ".")
     from matplotlib import font_manager as fm
@@ -64,9 +64,9 @@ def figure(d, rows, lang):
         a.plot(xx, ic + sl * xx, color=SURF, lw=4, solid_capstyle="round"); a.plot(xx, ic + sl * xx, color=INK, lw=1.8, solid_capstyle="round")
         a.text(0, 1.13, LAB[p], transform=a.transAxes, fontsize=12, color=COL[p], fontweight="bold")
         a.text(0, 1.04, f"{num(len(s))} {T[5]}", transform=a.transAxes, fontsize=8.5, color=MUTED)
-        a.text(.96, .27, dec(sl), transform=a.transAxes, ha="right", fontsize=17, fontweight="bold", color=COL[p], bbox=box)
-        a.text(.96, .2, T[4], transform=a.transAxes, ha="right", fontsize=8, color=INK, bbox=box)
-        a.text(.96, .12, T[6].format(f=dec(10 ** sl, 1)), transform=a.transAxes, ha="right", fontsize=8, color=INK, bbox=box)
+        a.text(.96, .27, "×" + dec(10 ** sl, 1), transform=a.transAxes, ha="right", fontsize=17, fontweight="bold", color=COL[p], bbox=box)
+        a.text(.96, .19, T[4], transform=a.transAxes, ha="right", fontsize=8, color=INK, bbox=box)
+        a.text(.96, .12, T[6], transform=a.transAxes, ha="right", fontsize=8, color=INK, bbox=box)
         a.text(.96, .04, T[7].format(z=f"{r['share with 0 likes']:.0%}"), transform=a.transAxes, ha="right", fontsize=8, color=MUTED, bbox=box)
         a.grid(color="#ebeae6", lw=.7); a.set_axisbelow(True)
         [a.spines[q].set_visible(False) for q in a.spines]
