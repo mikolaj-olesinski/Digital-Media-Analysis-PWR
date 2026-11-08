@@ -24,9 +24,9 @@ Legenda: **[do zrobienia]** brakuje danych lub eksperymentu; **[decyzja]** zesp�
 ## 2. Dane i pomiar (1 str.)
 
 - Próba Brand24: 12 500 wzmianek, 348 marek, 85% z IV-VIII 2026, 85% po angielsku.
-- Gdzie znamy prawdę: TikTok 100%, YouTube 99%, X 75%, FB 0%, IG 0%.
+- Gdzie znamy prawdę: TikTok 100%, YouTube 99%, X 75% (eksport Brand24); FB i IG tylko z naszych odczytów, które traktujemy jako ground truth.
 - Pomiar FB: 130 postów ręcznie, 402 pobrane; wyświetlenia ≠ odtworzenia (×2,3-3,6, E95); część linków już nie działa.
-- Pomiar IG: **[do zrobienia]** zbierane teraz ręcznie (wyświetlenia + lajki + komentarze w jednym momencie).
+- Pomiar IG: 500 losowych rolek (11 marek = cały wycinek IG), agent przeglądarki na zalogowanym koncie, wyświetlenia + lajki + komentarze w jednym momencie; 368 z wyświetleniami (E202). Partie 3-4 (reszta IG) w trakcie.
 - Etykiety AI (typ, sentyment): 3 kodery, kappa 0,77-0,79 / 0,71-0,73; ręczny przegląd ok. 200 etykiet przez członka zespołu.
 - RODO i regulaminy: odsyłacz do data statement.
 
@@ -66,14 +66,15 @@ Najmocniejsza część pracy.
   - test na FB: model z X i YouTube na reakcjach odczytanych razem z wyświetleniami daje 0,385 (×2,4; ręcznie 0,345, wewnątrz FB 0,355).
 - Warunek: reakcje odczytane w tym samym momencie co wyświetlenia (E177).
 - Pokrycie na FB: 0,925 poniżej 1M followersów, 0,80-0,86 powyżej (E123, E151).
-- IG: wstępnie 133 rolki, 0,429 (×2,7), 43% w granicach ×2, 70% niedoszacowanych (model zaniża ok. ×1,8). **[do zrobienia]** pełny wynik po partii 2 (do 500 rolek).
+- IG (E202, 338 rolek): bez kalibracji ×2,65, po 25 rolkach ×2,41, model uczony na samym IG ×2,36; zaniża ok. ×1,8; bez lajków ×6-11.
+- Macierz kombinacji platform treningowych (E201): FB / IG ×2,4-3,1 z dowolnej mieszanki; X nie przenosi się w żadną stronę; proporcje danych w treningu ustawiają poziom. Wykres główny `figures/train_combos_pl.png`.
 - Wykres: krzywa kalibracji; FB i IG prawda kontra predykcja.
 
 ## 6. Wyniki C: gdy brakuje danych i jak pewni jesteśmy (0,5 str.)
 
 - Router według dostępnych pól (pełne / bez reakcji / bez followersów / nic). Bez routera pokrycie spada do 0,46-0,83, z routerem 0,88-0,90 (E176).
 - P(błąd poniżej ×2) jest skalibrowane per wzorzec pól (od 0,66 do 0,19), ale nie porządkuje postów wewnątrz wzorca.
-- Przedziały rzędu wielkości (0-10, 11-100, ...) z prawdopodobieństwami i testem kalibracji: **[do zrobienia]** eksperyment. Pokazać jako formę prezentacji dla użytkownika, nie jako „lepszy wynik”.
+- Przedziały wyświetleń (E199): 3 przedziały ~0,8, 4 ~0,7, dekady ~0,6 trafności; regresja pocięta > osobny klasyfikator; X 0,95 = klasa większościowa. Forma prezentacji, nie lepszy model.
 
 ## 7. Co nie działa (0,5 str., jedna tabela)
 
@@ -96,7 +97,7 @@ Najmocniejsza część pracy.
 - FB posty spoza angielskiego: 0,540, przesunięcie +0,35 (E182).
 - Viral posty z top 1% niedoszacowane ×9-14 (E180).
 - Sumy marek mylą się o więcej niż ×2 w 29-47% przypadków (E180).
-- IG; reakcje i wyświetlenia odczytane w jednym momencie tylko na FB; brak wniosków przyczynowych.
+- IG: tylko 11 marek, 3 największe = 44% rolek (bez nich ×2,95); tylko rolki. Reakcje i wyświetlenia w jednym momencie tylko na FB i IG; brak wniosków przyczynowych.
 - Rekomendacje dla Brand24 (`data_needs.md`):
   1. reakcje odczytywać razem z wyświetleniami;
   2. braki zapisywać jako null, nie jako 0;
@@ -109,8 +110,9 @@ Najmocniejsza część pracy.
 
 ## Otwarte sprawy
 
-- **[do zrobienia]** IG: wyniki przeniesienia.
-- **[do zrobienia]** Eksperyment z przedziałami rzędu wielkości.
+- **[do zrobienia]** IG partie 3-4: przeliczyć E202 i E201.
+- **[do zrobienia]** Wykresy: ablacja (co ma największy wpływ), brak reakcji / części reakcji.
+- Przedziały wyświetleń (E199): zrobione; regresja pocięta na przedziały > klasyfikator; 4 przedziały ~0,7 trafności.
 - **[decyzja]** Alerty na top 1%: E104/E106 (reguła i lajki lepsze od modelu) kontra E185 (model lepszy na top 5%). Którą wersję pokazać, czy obie z różnym progiem?
 - **[decyzja]** Sekcja 8 jest najłatwiejsza do zaatakowania: co zostaje, co idzie do dyskusji.
 - Uwagi zespołu: (tu dopisujemy)
