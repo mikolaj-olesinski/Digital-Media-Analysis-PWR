@@ -209,3 +209,8 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E202 | finding | Instagram transfer on 500 hand-collected reels | [E202](E202.md) |
 | E203 | worse | Cross-domain ideas: post age, brand residual from other platforms | [E203](E203.md) |
 | E204 | finding | Full same-moment re-read of TikTok, YouTube and X | [E204](E204.md) |
+| E210 | gain | Does same-moment re-read source data improve the transfer to FB / IG? | [E210](E210.md) |
+| E211 | finding | Is the E210 gain just post age? | [E211](E211.md) |
+| E212 | none | Can regression to the mean be undone without losing MAE? | [E212](E212.md) |
+| E213 | finding | Results B re-scored with the re-read source | [E213](E213.md) |
+| E222 | finding | Headline result on author-safe folds | [E222](E222.md) |

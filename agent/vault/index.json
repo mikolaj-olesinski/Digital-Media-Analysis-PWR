@@ -2485,5 +2485,65 @@
    "src/full_reread_youtube.py",
    "src/full_reread_x.py"
   ]
+ },
+ {
+  "id": "E210",
+  "date": "2026-11-08",
+  "question": "Does same-moment re-read source data improve the transfer to FB / IG?",
+  "setup": "Ridge on likes + comments trained on re-read X + YouTube (missing reactions dropped; primary fixed in card) vs export X + YT; fill-0, +TikTok, stacked variants; E201 grid on re-read; paired brand bootstrap",
+  "result": "IG 0.435 (x2.72) -> 0.382 (x2.41), diff -0.053 (CI -0.087, -0.027), = IG own 0.381; FB 0.385 -> 0.387 (+0.002); top-quintile under-prediction halved; all variants agree",
+  "type": "gain",
+  "where": "`src/reread_transfer.py`",
+  "paths": [
+   "src/reread_transfer.py"
+  ]
+ },
+ {
+  "id": "E211",
+  "date": "2026-11-08",
+  "question": "Is the E210 gain just post age?",
+  "setup": "Growth exponent per platform from export/re-read pairs (TikTok 0.18, X 0.25, YouTube 0.56); export labels moved to the re-read age; decomposition on paired posts",
+  "result": "Views moved: IG 0.402 (0.62 of the gain, CI includes 0), FB 0.485 (+0.100); views + reactions moved together: IG 0.385, FB 0.388; the gain needs views and reactions at the same age",
+  "type": "finding",
+  "where": "`src/reread_age.py`",
+  "paths": [
+   "src/reread_age.py"
+  ]
+ },
+ {
+  "id": "E212",
+  "date": "2026-11-08",
+  "question": "Can regression to the mean be undone without losing MAE?",
+  "setup": "2SLS (export reactions instrument re-read ones), reliability correction, variance matching; re-read X + YT -> FB / IG and leave-one-platform-out on re-read TikTok / YouTube / X",
+  "result": "2SLS / OLS likes slope 0.97: no attenuation; FB 0.389, IG 0.379 (no change); reliability correction worse (+0.08 / +0.04); variance matching fixes totals at +0.01 but hurts TikTok / YouTube (+0.04 / +0.06)",
+  "type": "none",
+  "where": "`src/deshrink.py`",
+  "paths": [
+   "src/deshrink.py"
+  ]
+ },
+ {
+  "id": "E213",
+  "date": "2026-11-08",
+  "question": "Results B re-scored with the re-read source",
+  "setup": "E210 primary spec; 25-post shift, comments only, own-platform ridge, CQR 90% (E145 protocol, 20 splits)",
+  "result": "IG x2.41 zero-shot (= own x2.41; 25-post shift no longer helps), FB x2.44 (own x2.42); FB 90% coverage 0.917 at width 1.83, >1M tier 0.836 -> 0.898, <10k 0.845",
+  "type": "finding",
+  "where": "`src/results_b2.py`",
+  "paths": [
+   "src/results_b2.py"
+  ]
+ },
+ {
+  "id": "E222",
+  "date": "2026-11-08",
+  "question": "Headline result on author-safe folds",
+  "setup": "results A (CatBoost, CQR) with folds grouped by brand ∪ author ∪ identical text",
+  "result": "TikTok 0.273 (x1.87), YouTube 0.462 (x2.90), X 0.482 (x3.03); X +0.012 vs brand folds; 90% coverage 0.87-0.91",
+  "type": "finding",
+  "where": "`src/results_a.py`",
+  "paths": [
+   "src/results_a.py"
+  ]
  }
 ]

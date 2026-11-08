@@ -268,3 +268,5 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
   the plan was run (see `docs/en/plan_status.md`).
 - **False brand matches**: documented on examples only; a detector needs 100-200 hand labels (backlog B15).
 - E222: the headline in-platform result now uses folds that keep authors and copied texts apart; X is 0.482 (x3.03) instead of 0.470, TikTok and YouTube unchanged.
+- E210/E211/E213: train the transfer on views and reactions read together at an age close to the target's. Re-read X + YouTube brings IG from x2.72 to x2.41 (= IG's own ridge) with no target posts; FB stays x2.44; under-prediction of large posts and brand totals halved. Moving export views alone to the later age does not reproduce it and breaks FB (+0.10). With re-read labels YouTube as a target goes x4.1 -> x2.2 and X x4.4 -> x3.0, so much of "X / YouTube don't transfer" was stale export labels. likely
+- E212: tail under-prediction is not attenuation from noisy likes (2SLS slope = OLS, 0.97); errors-in-variables corrections cost MAE; variance matching fixes brand totals but hurts TikTok / YouTube out of platform. likely
