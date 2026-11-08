@@ -153,27 +153,6 @@ platformą. Modele jak na Rys.~\ref{fig:main}.}}
 \label{fig:size}
 \end{figure}
 
-\paragraph{Trzy przedziały zamiast liczby.} W raporcie często wystarczy powiedzieć, czy post miał mniej niż tysiąc,
-od tysiąca do dziesięciu tysięcy, czy ponad dziesięć tysięcy wyświetleń. Gdy tym samym modelem tniemy oszacowanie na te trzy
-przedziały, trafiamy w dobry w 80--82\% postów na TikToku, YouTube, Facebooku i Instagramie (Rys.~\ref{fig:bins}).
-Bo przedziały mają różną liczebność, ważniejsza jest trafność zrównoważona, czyli średnia czułość po przedziałach:
-77\% / 72\% na tej samej platformie (TikTok / YouTube) i 76\% / 65\% poza platformą (Facebook / Instagram), wobec 33\%
-przy zgadywaniu; F1 makro 0,70--0,79. Prawie nigdy nie mylimy się o dwa przedziały (0,2--1,7\% postów). Najsłabiej
-wypada środkowy przedział: posty z 1--10 tys. wyświetleń trafiamy w 47--63\%, a resztę zwykle zaniżamy o jeden
-przedział. Na X 95\% postów ma poniżej tysiąca wyświetleń, więc trafność 95\% nic nie mówi; trafność zrównoważona to
-tam tylko 43\%.
-% preprint_bins_numbers.json (results_preds + results_b_preds, bez nowego trenowania); E199 (klasyfikator nie jest lepszy).
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\textwidth]{fig/preprint_bins_pl.png}
-\caption{Oszacowanie pocięte na trzy przedziały wyświetleń.
-\capdet{Ten sam model co na Rys.~\ref{fig:main}: TikTok, YouTube, X z walidacji po markach i autorach, Facebook i Instagram
-z przeniesienia z X i YouTube. Wiersz: prawdziwy przedział; kolumna: oszacowany; w komórce udział w wierszu i liczba postów.
-Pogrubione: trafiony przedział (przekątna to czułość dla danego przedziału). Nad tabelą: trafność, trafność zrównoważona
-(średnia czułość), F1 makro; szare: te same miary przy zgadywaniu zawsze najczęstszego przedziału.}}
-\label{fig:bins}
-\end{figure}
 
 \paragraph{Przedziały.} Przedział 90\% trafia w 87--91\% postów na TikToku, YouTube i X, także na miesiącach spoza
 treningu (0,90--0,93). Na Facebooku trafia w 93\% filmów kont poniżej miliona obserwujących, ale dla największych kont
@@ -201,6 +180,33 @@ platform w treningu nie zawsze pomaga: liczy się, które platformy są w zestaw
 % E201 (train_combos_numbers.json, pooled). Najlepsze: TT z YT 2,0; YT z TT+FB 4,06; X z FB 3,60; FB z YT+X+IG 2,39; IG z FB 2,47.
 
 \input{combos_table}
+
+\paragraph{Trzy przedziały zamiast liczby.} W raporcie często wystarczy powiedzieć, czy post miał mniej niż tysiąc,
+od tysiąca do dziesięciu tysięcy, czy ponad dziesięć tysięcy wyświetleń. Rys.~\ref{fig:bins} pokazuje to poza platformą
+dla każdej z pięciu platform: model uczony na pozostałych czterech, bez żadnego posta z platformy docelowej. Accuracy
+wynosi 78--81\%, ale przedziały mają bardzo różną liczebność, więc ważniejsza jest balanced accuracy (średni recall po
+przedziałach): 78\% na TikToku, 76\% na Facebooku, 70\% na YouTube i 65\% na Instagramie, wobec 33\% przy zgadywaniu;
+macro F1 0,70--0,78. O dwa przedziały mylimy się w 0,2--1,9\% postów. Najsłabiej wypada środkowy przedział (1--10 tys.
+wyświetleń, recall 50--73\%), którego posty zwykle zaniżamy o jeden przedział.
+
+X wygląda inaczej: accuracy 96\%, ale balanced accuracy tylko 46\%, a macro F1 0,52. Na X 95\% postów ma poniżej tysiąca
+wyświetleń (mediana 27), więc model, który prawie zawsze mówi ,,poniżej tysiąca'', ma wysoką accuracy za darmo. Z 98
+postów powyżej tysiąca trafia tylko 23. Powody są dwa. Po pierwsze, 62\% postów na X nie ma ani jednego lajka, więc
+model widzi tam tylko zero i nie odróżnia małego posta od dużego. Po drugie, wyświetlenia w eksporcie X są odczytane
+wcześnie i są zaniżone około dwa razy względem naszego ponownego odczytu, a ten sam model myli się na X z ponownego
+odczytu o 0,49 zamiast 0,64 (E219). Duże posty na X wyglądają więc dla modelu jak małe.
+% preprint_bins_numbers.json (ridge E201, pozostałe cztery); E204, E219.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{fig/preprint_bins_pl.png}
+\caption{Oszacowanie poza platformą pocięte na trzy przedziały wyświetleń.
+\capdet{Dla każdej platformy ridge na lajkach i komentarzach uczony na pozostałych czterech (jak w ostatnim wierszu
+Tabeli~\ref{tab:combos}). Wiersz: prawdziwy przedział; kolumna: oszacowany; w komórce udział w wierszu i liczba postów;
+przekątna (pogrubiona) to recall przedziału. Nad tabelą: accuracy, balanced accuracy (średni recall), macro F1; szare:
+accuracy i balanced accuracy przy zgadywaniu zawsze najczęstszego przedziału.}}
+\label{fig:bins}
+\end{figure}
 
 \paragraph{Co daje każda informacja.} Rys.~\ref{fig:ladder} pokazuje, jak spada błąd, gdy dokładamy kolejne pola.
 Na tej samej platformie (A) sama mediana daje \x{4,6}--\x{8,8}, obserwujący zmniejszają błąd tylko do \x{3,8}--\x{6,0},
