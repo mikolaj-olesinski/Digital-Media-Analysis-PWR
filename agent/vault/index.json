@@ -2477,13 +2477,205 @@
   "id": "E204",
   "date": "2026-11-08",
   "question": "Full same-moment re-read of TikTok, YouTube and X",
-  "setup": "yt-dlp for YouTube, FxTwitter for X (validated against the paid API), logged-in Chromium for TikTok; resumable, 1 req/s",
-  "result": "TikTok 426/500, YouTube 2,297/2,500, X 2,013/2,500; views median ratio 1.085 / 1.350 / 2.000, Spearman 0.953 / 0.856 / 0.905",
+  "setup": "yt-dlp for YouTube, FxTwitter for X (validated against the paid API), logged-in Chromium for the first 500 TikTok posts; resumable, 1 req/s",
+  "result": "TikTok 426/500, YouTube 2,297/2,500, X 2,013/2,500; views median 1.085 / 1.350 / 2.000, Spearman 0.953 / 0.856 / 0.905; YouTube reactions gap is a yt-dlp extraction issue",
   "type": "finding",
   "where": "`src/full_reread_youtube.py`, `src/full_reread_x.py`",
   "paths": [
    "src/full_reread_youtube.py",
    "src/full_reread_x.py"
+  ]
+ },
+ {
+  "id": "E210",
+  "date": "2026-11-08",
+  "question": "Does same-moment re-read source data improve the transfer to FB / IG?",
+  "setup": "Ridge on likes + comments trained on re-read X + YouTube (missing reactions dropped; primary fixed in card) vs export X + YT; fill-0, +TikTok, stacked variants; E201 grid on re-read; paired brand bootstrap",
+  "result": "IG 0.435 (x2.72) -> 0.382 (x2.41), diff -0.053 (CI -0.087, -0.027), = IG own 0.381; FB 0.385 -> 0.387 (+0.002); top-quintile under-prediction halved; all variants agree",
+  "type": "gain",
+  "where": "`src/reread_transfer.py`",
+  "paths": [
+   "src/reread_transfer.py"
+  ]
+ },
+ {
+  "id": "E211",
+  "date": "2026-11-08",
+  "question": "Is the E210 gain just post age?",
+  "setup": "Growth exponent per platform from export/re-read pairs (TikTok 0.18, X 0.25, YouTube 0.56); export labels moved to the re-read age; decomposition on paired posts",
+  "result": "Views moved: IG 0.402 (0.62 of the gain, CI includes 0), FB 0.485 (+0.100); views + reactions moved together: IG 0.385, FB 0.388; the gain needs views and reactions at the same age",
+  "type": "finding",
+  "where": "`src/reread_age.py`",
+  "paths": [
+   "src/reread_age.py"
+  ]
+ },
+ {
+  "id": "E212",
+  "date": "2026-11-08",
+  "question": "Can regression to the mean be undone without losing MAE?",
+  "setup": "2SLS (export reactions instrument re-read ones), reliability correction, variance matching; re-read X + YT -> FB / IG and leave-one-platform-out on re-read TikTok / YouTube / X",
+  "result": "2SLS / OLS likes slope 0.97: no attenuation; FB 0.389, IG 0.379 (no change); reliability correction worse (+0.08 / +0.04); variance matching fixes totals at +0.01 but hurts TikTok / YouTube (+0.04 / +0.06)",
+  "type": "none",
+  "where": "`src/deshrink.py`",
+  "paths": [
+   "src/deshrink.py"
+  ]
+ },
+ {
+  "id": "E213",
+  "date": "2026-11-08",
+  "question": "Results B re-scored with the re-read source",
+  "setup": "E210 primary spec; 25-post shift, comments only, own-platform ridge, CQR 90% (E145 protocol, 20 splits)",
+  "result": "IG x2.41 zero-shot (= own x2.41; 25-post shift no longer helps), FB x2.44 (own x2.42); FB 90% coverage 0.917 at width 1.83, >1M tier 0.836 -> 0.898, <10k 0.845",
+  "type": "finding",
+  "where": "`src/results_b2.py`",
+  "paths": [
+   "src/results_b2.py"
+  ]
+ },
+ {
+  "id": "E214",
+  "date": "2026-11-08",
+  "question": "Do synthetic large posts (SMOTER / SMOGN) fix under-prediction of large posts?",
+  "setup": "Top decile of training y oversampled 1x / 2x (primary) / 5x, SMOGN, + middle undersampling; (a) re-read X + YT ridge -> FB / IG, (b) rt.FINAL in-platform, training folds only",
+  "result": "2x: top-tenth bias (true y) -0.10 to -0.15 on IG / YT / X but MAE worse: FB 0.387 -> 0.406, YT 0.456 -> 0.462, X 0.467 -> 0.474 (CIs below 0); top by predicted y turns over-predicted: a stretch, not a gain",
+  "type": "finding",
+  "where": "`src/smoter_tail.py`",
+  "paths": [
+   "src/smoter_tail.py"
+  ]
+ },
+ {
+  "id": "E215",
+  "date": "2026-11-08",
+  "question": "Do domain randomization and mixup let CatBoost / MLP transfer like ridge?",
+  "setup": "C2, leave-one-platform-out over TikTok / YT / X + X+YT -> FB / IG; trend-consistent (primary), like-propensity, mixup; CatBoost and MLP 64-64",
+  "result": "Primary vs ridge +0.014 / +0.023 / +0.062 / +0.020 / +0.036 (0.313 / 0.612 / 0.650 / 0.385 / 0.435); moves CatBoost -0.004 to +0.012; ridge best everywhere",
+  "type": "none",
+  "where": "`src/aug_transfer.py`",
+  "paths": [
+   "src/aug_transfer.py"
+  ]
+ },
+ {
+  "id": "E216",
+  "date": "2026-11-08",
+  "question": "Does a self-supervised code (DAE / SCARF) add signal?",
+  "setup": "Encoders on 12,500 export + 3,815 re-read rows (no views), 8-dim code; CatBoost ENG + code (brand CV), ridge C2 + code -> FB / IG; transductive and strict",
+  "result": "DAE in-platform +0.001 / +0.000 / +0.005 (CIs incl. 0); FB 0.385 -> 0.412, IG 0.435 -> 0.439; one non-primary IG hit does not replicate",
+  "type": "none",
+  "where": "`src/ssl_repr.py`",
+  "paths": [
+   "src/ssl_repr.py"
+  ]
+ },
+ {
+  "id": "E217",
+  "date": "2026-11-08",
+  "question": "Does self-training on posts without views help?",
+  "setup": "(a) ridge teacher on re-read X + YT labels FB / IG features, CatBoost student (+ noisy); (b) 634 view-less X posts pseudo-labelled by the fold teacher",
+  "result": "Best +0.008 (noisy student FB, CI incl. 0); IG -0.002; X 0.467 -> 0.470 (-0.003); teacher error on view-less X 0.658 vs 0.563",
+  "type": "none",
+  "where": "`src/pseudo_label.py`",
+  "paths": [
+   "src/pseudo_label.py"
+  ]
+ },
+ {
+  "id": "E218",
+  "date": "2026-11-08",
+  "question": "Do the 505 previously view-less X posts help the X model?",
+  "setup": "CatBoost (rt.FINAL) on re-read likes / comments / shares + followers + log age, brand CV on 2,013 re-read X posts, trained with vs without the 505; X re-read -> FB / IG ridge",
+  "result": "Whole stream 0.444 -> 0.440 (diff -0.005 [-0.009, 0.000]); on the 505 -0.014; as source IG 0.438 -> 0.406, FB 0.487 -> 0.520 (CI incl. 0); the 505 add nothing to transfer",
+  "type": "none",
+  "where": "`src/x_reread.py`",
+  "paths": [
+   "src/x_reread.py"
+  ]
+ },
+ {
+  "id": "E219",
+  "date": "2026-11-08",
+  "question": "Are X's zero-like posts what breaks X as source and target?",
+  "setup": "Ridge on likes + comments; drop zero-like source rows or two-part (zero-like -> source zero-like median); export and re-read X; E201 combinations; zero vs non-zero rows",
+  "result": "X -> FB -0.036 (CI incl. 0), X -> IG -0.010; X + YT -> FB / IG slightly worse; to export X drop -0.079 but to re-read X -0.014; two-part worse on X targets",
+  "type": "small",
+  "where": "`src/x_zero_split.py`",
+  "paths": [
+   "src/x_zero_split.py"
+  ]
+ },
+ {
+  "id": "E220",
+  "date": "2026-11-08",
+  "question": "Can borrowed >1M-follower residuals calibrate the FB >1M band?",
+  "setup": "E145 CQR protocol (20 splits, 25% of FB brands); >1M pool + 167 re-read TikTok / YouTube / X posts from >=1M accounts, shifted to the FB level; E150 point model on re-read sources",
+  "result": "FB >1M coverage 0.836 -> 0.883 at 1.18x width (unshifted 0.884, 1.11x); level gap ~0 (+0.30 both); point model no gain (0.410 -> 0.402-0.412)",
+  "type": "small",
+  "where": "`src/fb_big_borrow.py`",
+  "paths": [
+   "src/fb_big_borrow.py"
+  ]
+ },
+ {
+  "id": "E221",
+  "date": "2026-11-08",
+  "question": "Do authors repeat across platforms with normalised names and handles?",
+  "setup": "Normalised author names + profile-URL handles over all five platforms incl. FB / IG; gate at 2% of labelled posts; counts only",
+  "result": "31 keys on 2+ platforms; 56 of 8,332 labelled posts (0.67%) have a labelled post of the same author elsewhere; gate not passed",
+  "type": "none",
+  "where": "`src/cross_author_norm.py`",
+  "paths": [
+   "src/cross_author_norm.py"
+  ]
+ },
+ {
+  "id": "E222",
+  "date": "2026-11-08",
+  "question": "Headline result on author-safe folds",
+  "setup": "results A (CatBoost, CQR) with folds grouped by brand ∪ author ∪ identical text",
+  "result": "TikTok 0.273 (x1.87), YouTube 0.462 (x2.90), X 0.482 (x3.03); X +0.012 vs brand folds; 90% coverage 0.87-0.91",
+  "type": "finding",
+  "where": "`src/results_a.py`",
+  "paths": [
+   "src/results_a.py"
+  ]
+ },
+ {
+  "id": "E225",
+  "date": "2026-11-08",
+  "question": "Does the X + YouTube ridge on likes + comments estimate Stack Exchange question views (sixth platform, evaluation only)?",
+  "setup": "Public SE API, 538 questions Apr-Aug 2026, 48 brands, 10 sites; likes = up votes, comments = answers + comments (fixed before scoring); ridge as results B; reference = same ridge with brand 5-fold CV; E201 grid row",
+  "result": "MAE 0.498 (x3.14, CI 0.448-0.525), 96% under-predicted, bias +0.45, within x2 28%, Spearman 0.57; own-platform x1.77; ratio 1.77 > 1.5, hypothesis refuted (level shift, rank equal); grid: YouTube x1.87, TikTok x2.41, Instagram x2.46, pooled x3.07, Facebook x3.32, X x4.50",
+  "type": "finding",
+  "where": "`src/stackexchange_transfer.py`",
+  "paths": [
+   "src/stackexchange_transfer.py"
+  ]
+ },
+ {
+  "id": "E226",
+  "date": "2026-11-08",
+  "question": "Information ladder: what each input buys",
+  "setup": "Same platform: CatBoost, author-safe folds, median -> followers -> + likes -> + comments -> + shares; out of platform: X + YouTube ridge, median -> comments -> likes -> likes + comments -> fresh source",
+  "result": "TikTok / YouTube / X x4.6 / 8.8 / 4.6 -> followers x3.8 / 6.0 / 3.9 -> + likes x1.9 / 3.2 / 3.0 -> final x1.9 / 2.9 / 3.0; FB / IG median x19.9 / 8.7, comments only x7.4 / 6.3, likes only x2.5 / 2.7, fresh source x2.4 / 2.4; FB export reactions x6.8",
+  "type": "finding",
+  "where": "`src/info_ladder.py`",
+  "paths": [
+   "src/info_ladder.py"
+  ]
+ },
+ {
+  "id": "E223",
+  "date": "2026-11-08",
+  "question": "Do our FB / IG post owners have the same account on YouTube or X?",
+  "setup": "Public pages only, strong evidence required (bio link, or same handle + same name + cross-link or badge); 246 owners behind 1,098 scored posts; YouTube search + about tab, X via FxTwitter; salted-hash storage, counts only",
+  "result": "181 FB author URLs are numeric page ids, so 65 IG owners were checkable; 11 of 65 matched on YouTube (all bio_link), 0 on X (no public profile API); 17 scored posts covered (1.55%), gate 40 not passed, verdict provisional for FB",
+  "type": "finding",
+  "where": "`src/e223_cross_accounts.py`",
+  "paths": [
+   "src/e223_cross_accounts.py"
   ]
  }
 ]

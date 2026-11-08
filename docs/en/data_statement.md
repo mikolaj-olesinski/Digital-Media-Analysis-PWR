@@ -68,7 +68,7 @@ the affected aggregates, and we say so.
   one experiment. Compare the drift before replacing the old file (the November 2026 checks were 1.07-18x the stored
   snapshot, E95).
 - **Never overwrite** `data/raw/` or a fetched file in place: keep both versions and say which one a number uses.
-- **Same-moment re-read (2026-11-08).** TikTok: logged-in headless Chromium, 426 of 500 readable (`playCount`,
-  `diggCount`, `commentCount`, `shareCount`); YouTube: `yt-dlp`, 2,297 of 2,500 (`view_count`, `like_count`,
+- **Same-moment re-read (2026-11-08).** TikTok: **only the first 500 of 2,500** posts were read, with a **logged-in headless browser** (exported cookies) on Xvfb; 426 readable (`playCount`, `diggCount`, `commentCount`, `shareCount`). The remaining 2,000 are not collected yet: a team decision on whether a logged-in session is acceptable under the platform terms is still open.
+  YouTube rows also carry `likes_hidden` and `comments_off`: `false` where the counter exists, `unknown` where it is missing; a 10-row check showed the missing likes/comments are a yt-dlp extraction gap, not hidden likes or disabled comments. YouTube: `yt-dlp`, 2,297 of 2,500 (`view_count`, `like_count`,
   `comment_count`); X: FxTwitter, 2,013 of 2,500 (`views`, `likes`, `replies`, `retweets`). Rows carry `status` and
   `source_field`; files are git-ignored, no URLs or author names.

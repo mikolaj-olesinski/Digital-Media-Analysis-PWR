@@ -56,7 +56,10 @@ dotknięte agregaty — i tak mówimy.
   2026 były 1,07-18× zapisanego snapshotu, E95).
 - **Nigdy nie nadpisywać** `data/raw/` ani pobranego pliku w miejscu: trzymać obie wersje i mówić, której używa dana
   liczba.
-- **Re-read w tym samym momencie (2026-11-08).** TikTok: zalogowany headless Chromium, 426 z 500 odczytanych
-  (`playCount`, `diggCount`, `commentCount`, `shareCount`); YouTube: `yt-dlp`, 2 297 z 2 500 (`view_count`, `like_count`,
-  `comment_count`); X: FxTwitter, 2 013 z 2 500 (`views`, `likes`, `replies`, `retweets`). Wiersze mają `status` i
+- **Re-read w tym samym momencie (2026-11-08).** TikTok: **tylko pierwsze 500 z 2 500** postów odczytano **zalogowaną
+  headlessową przeglądarką** (wyeksportowane cookies) na Xvfb; 426 czytelnych (`playCount`, `diggCount`, `commentCount`,
+  `shareCount`). Pozostałe 2 000 nie są zebrane: decyzja zespołu, czy zalogowana sesja jest dopuszczalna regulaminem, jest
+  otwarta. YouTube: `yt-dlp`, 2 297 z 2 500 (`view_count`, `like_count`, `comment_count`); X: FxTwitter, 2 013 z 2 500 po
+  usunięciu jednego duplikatu (2 501 -> 2 500; `views`, `likes`, `replies`, `retweets`). Wiersze mają `status` i
   `source_field`; pliki są git-ignored, bez URL-i i nazw autorów.
+- Wiersze YouTube mają też `likes_hidden` i `comments_off`: `false` gdy licznik istnieje, `unknown` gdy go brak; kontrola 10 wierszy pokazała, że brakujące lajki/komentarze to luka yt-dlp, a nie ukryte lajki czy wyłączone komentarze.

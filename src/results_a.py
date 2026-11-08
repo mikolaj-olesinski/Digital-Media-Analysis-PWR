@@ -1,5 +1,6 @@
 """Preprint section 4 (Results A): the final in-platform model on TikTok, YouTube and X, re-run to get per-post
-out-of-fold predictions for the figure. Same setup as E124 base (CatBoost MAE on em.ENG, brand-grouped 5-fold CV;
+out-of-fold predictions for the figure. Same setup as E124 base (CatBoost MAE on em.ENG, 5-fold CV grouped by brand ∪ author ∪ identical text (E55 components,
+so no author or copied text is in both training and test; E222);
 CQR 90% band with LightGBM 5/95 quantiles calibrated on a held-out quarter of training brands).
 Reports MAE with brand-bootstrap CI, factor 10^MAE, median bias, share within x2 / x3, under / over counts,
 90% coverage and median band width (as a factor).
@@ -7,13 +8,13 @@ Writes data/processed/results_a_numbers.json and figures/results_a_{en,pl}.png.
     python src/results_a.py"""
 import json, sys
 from pathlib import Path
-import numpy as np
+import numpy as np, pandas as pd
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from sklearn.model_selection import GroupKFold, GroupShuffleSplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import extra_models as em, reaction_tiers as rt, validation as va  # noqa: E402
+import eda_utils as eu, extra_models as em, limits as lm, reaction_tiers as rt, validation as va  # noqa: E402
 from final_v2 import qm  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,12 +25,13 @@ INK, MUTED, SURF = "#0b0b0b", "#52514e", "#fcfcfb"
 L2, L3 = np.log10(2), np.log10(3)
 
 
-def run(f, meta, p):
+def run(f, meta, p, comp):
     m = (meta.platform == p).values
     X, y, g = f[m][em.ENG].reset_index(drop=True), meta.y[m].reset_index(drop=True), meta.brand[m].reset_index(drop=True)
+    c = pd.Series(comp[m])
     pr, lo, hi = np.zeros(len(y)), np.zeros(len(y)), np.zeros(len(y))
-    for tr, te in GroupKFold(5).split(X, y, g):
-        inner = next(iter(GroupShuffleSplit(1, test_size=.25, random_state=42).split(X.iloc[tr], y.iloc[tr], g.iloc[tr])))
+    for tr, te in GroupKFold(5).split(X, y, c):
+        inner = next(iter(GroupShuffleSplit(1, test_size=.25, random_state=42).split(X.iloc[tr], y.iloc[tr], c.iloc[tr])))
         fit, cal = np.array(tr)[inner[0]], np.array(tr)[inner[1]]
         pr[te] = rt.FINAL().fit(X.iloc[fit], y.iloc[fit]).predict(X.iloc[te])
         ql, qh = qm(.05).fit(X.iloc[fit], y.iloc[fit]), qm(.95).fit(X.iloc[fit], y.iloc[fit])
@@ -79,9 +81,10 @@ def figure(res, lang, plats=P, name="results_a", T=None):
 
 
 def main():
-    f, meta = em.load(ROOT); res = {p: run(f, meta, p) for p in P}
+    f, meta = em.load(ROOT); raw = eu.load(ROOT).loc[f.index]
+    comp = lm.components(meta.reset_index(drop=True), raw.reset_index(drop=True))
+    res = {p: run(f, meta, p, comp) for p in P}
     (ROOT / "data/processed/results_a_numbers.json").write_text(json.dumps({"results A": {p: r[0] for p, r in res.items()}}, indent=1))
-    import pandas as pd
     pd.concat([pd.DataFrame({"platform": p, "y": r[1], "pred": r[2]}) for p, r in res.items()]).to_csv(ROOT / "data/processed/results_preds.csv", index=False)
     for lang in ["en", "pl"]: figure(res, lang)
     print(json.dumps({p: r[0] for p, r in res.items()}, indent=1))

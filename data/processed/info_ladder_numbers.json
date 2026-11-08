@@ -1,0 +1,222 @@
+{
+ "E226": {
+  "in platform (CatBoost, author-safe folds)": {
+   "tiktok": {
+    "median": {
+     "MAE": 0.663,
+     "factor": 4.6,
+     "CI": [
+      0.634,
+      0.691
+     ]
+    },
+    "followers": {
+     "MAE": 0.581,
+     "factor": 3.81,
+     "CI": [
+      0.554,
+      0.609
+     ]
+    },
+    "+ likes": {
+     "MAE": 0.284,
+     "factor": 1.92,
+     "CI": [
+      0.273,
+      0.297
+     ]
+    },
+    "+ comments": {
+     "MAE": 0.285,
+     "factor": 1.93,
+     "CI": [
+      0.274,
+      0.298
+     ]
+    },
+    "+ shares (final)": {
+     "MAE": 0.272,
+     "factor": 1.87,
+     "CI": [
+      0.261,
+      0.283
+     ]
+    }
+   },
+   "youtube": {
+    "median": {
+     "MAE": 0.943,
+     "factor": 8.77,
+     "CI": [
+      0.909,
+      0.977
+     ]
+    },
+    "followers": {
+     "MAE": 0.775,
+     "factor": 5.96,
+     "CI": [
+      0.748,
+      0.804
+     ]
+    },
+    "+ likes": {
+     "MAE": 0.504,
+     "factor": 3.19,
+     "CI": [
+      0.481,
+      0.526
+     ]
+    },
+    "+ comments": {
+     "MAE": 0.501,
+     "factor": 3.17,
+     "CI": [
+      0.479,
+      0.523
+     ]
+    },
+    "+ shares (final)": {
+     "MAE": 0.455,
+     "factor": 2.85,
+     "CI": [
+      0.433,
+      0.476
+     ]
+    }
+   },
+   "twitter": {
+    "median": {
+     "MAE": 0.666,
+     "factor": 4.63,
+     "CI": [
+      0.639,
+      0.695
+     ]
+    },
+    "followers": {
+     "MAE": 0.595,
+     "factor": 3.94,
+     "CI": [
+      0.57,
+      0.625
+     ]
+    },
+    "+ likes": {
+     "MAE": 0.481,
+     "factor": 3.02,
+     "CI": [
+      0.459,
+      0.502
+     ]
+    },
+    "+ comments": {
+     "MAE": 0.478,
+     "factor": 3.0,
+     "CI": [
+      0.457,
+      0.499
+     ]
+    },
+    "+ shares (final)": {
+     "MAE": 0.476,
+     "factor": 2.99,
+     "CI": [
+      0.456,
+      0.498
+     ]
+    }
+   }
+  },
+  "out of platform (ridge from X + YouTube)": {
+   "facebook": {
+    "median": {
+     "MAE": 1.298,
+     "factor": 19.87,
+     "CI": [
+      0.974,
+      1.612
+     ]
+    },
+    "comments only": {
+     "MAE": 0.87,
+     "factor": 7.41,
+     "CI": [
+      0.734,
+      0.994
+     ]
+    },
+    "likes only": {
+     "MAE": 0.39,
+     "factor": 2.45,
+     "CI": [
+      0.328,
+      0.476
+     ]
+    },
+    "likes + comments": {
+     "MAE": 0.385,
+     "factor": 2.43,
+     "CI": [
+      0.312,
+      0.482
+     ]
+    },
+    "likes + comments, fresh source": {
+     "MAE": 0.387,
+     "factor": 2.44,
+     "CI": [
+      0.325,
+      0.457
+     ]
+    },
+    "export reactions (another time)": {
+     "MAE": 0.831,
+     "factor": 6.77
+    }
+   },
+   "instagram": {
+    "median": {
+     "MAE": 0.939,
+     "factor": 8.69,
+     "CI": [
+      0.822,
+      1.028
+     ]
+    },
+    "comments only": {
+     "MAE": 0.798,
+     "factor": 6.29,
+     "CI": [
+      0.733,
+      0.869
+     ]
+    },
+    "likes only": {
+     "MAE": 0.425,
+     "factor": 2.66,
+     "CI": [
+      0.387,
+      0.474
+     ]
+    },
+    "likes + comments": {
+     "MAE": 0.435,
+     "factor": 2.72,
+     "CI": [
+      0.396,
+      0.484
+     ]
+    },
+    "likes + comments, fresh source": {
+     "MAE": 0.382,
+     "factor": 2.41,
+     "CI": [
+      0.348,
+      0.42
+     ]
+    }
+   }
+  }
+ }
+}

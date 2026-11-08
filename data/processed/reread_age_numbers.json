@@ -1,0 +1,672 @@
+{
+ "pairs": {
+  "twitter": 1508,
+  "youtube": 1371,
+  "tiktok": 426
+ },
+ "median read age, days": {
+  "export X + YT": 23.523344907407406,
+  "re-read X + YT": 137.41069444444443,
+  "facebook": 310.0,
+  "instagram": 334.0
+ },
+ "growth exponents (source pairs only)": {
+  "tiktok": {
+   "b (through origin)": 0.182,
+   "b with intercept": 0.189,
+   "intercept": -0.007,
+   "b likes": 0.301,
+   "b comments": 0.128,
+   "median \u0394log10 age": 0.631,
+   "median \u0394log10 views": 0.036,
+   "pairs": 426
+  },
+  "twitter": {
+   "b (through origin)": 0.247,
+   "b with intercept": -0.017,
+   "intercept": 0.4,
+   "b likes": 0.13,
+   "b comments": 0.057,
+   "median \u0394log10 age": 0.808,
+   "median \u0394log10 views": 0.301,
+   "pairs": 1508
+  },
+  "youtube": {
+   "b (through origin)": 0.555,
+   "b with intercept": 0.652,
+   "intercept": -0.129,
+   "b likes": 1.009,
+   "b comments": 0.715,
+   "median \u0394log10 age": 0.697,
+   "median \u0394log10 views": 0.152,
+   "pairs": 1371
+  }
+ },
+ "variants": {
+  "export X + YT (base)": {
+   "rows": 4244,
+   "coefficients (raw scale)": {
+    "log_likes": 0.394,
+    "log_comments": 0.037,
+    "intercept": 1.478
+   },
+   "facebook": {
+    "MAE": 0.385,
+    "CI": [
+     0.312,
+     0.482
+    ],
+    "bias": 0.14,
+    "factor": 2.43,
+    "Spearman": 0.909,
+    "posts": 402,
+    "median bias (+ = under)": 0.076,
+    "within x2": 0.525,
+    "top 20% by true y, mean bias": 0.435,
+    "top 20% by predicted y, mean bias": 0.163,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": -0.308,
+     "share off >x2": 0.526,
+     "Kendall": 0.801
+    }
+   },
+   "instagram": {
+    "MAE": 0.435,
+    "CI": [
+     0.396,
+     0.484
+    ],
+    "bias": 0.232,
+    "factor": 2.72,
+    "Spearman": 0.861,
+    "posts": 642,
+    "median bias (+ = under)": 0.281,
+    "within x2": 0.4,
+    "top 20% by true y, mean bias": 0.531,
+    "top 20% by predicted y, mean bias": 0.32,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.498,
+     "share off >x2": 0.727,
+     "Kendall": 0.782
+    }
+   }
+  },
+  "export moved to re-read age (primary)": {
+   "rows": 4244,
+   "coefficients (raw scale)": {
+    "log_likes": 0.434,
+    "log_comments": -0.003,
+    "intercept": 1.849
+   },
+   "facebook": {
+    "MAE": 0.485,
+    "CI": [
+     0.428,
+     0.56
+    ],
+    "bias": -0.31,
+    "factor": 3.05,
+    "Spearman": 0.908,
+    "posts": 402,
+    "median bias (+ = under)": -0.352,
+    "within x2": 0.348,
+    "top 20% by true y, mean bias": -0.075,
+    "top 20% by predicted y, mean bias": -0.333,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": 0.208,
+     "share off >x2": 0.474,
+     "Kendall": 0.789
+    },
+    "paired diff vs base": {
+     "diff": 0.1,
+     "CI": [
+      0.006,
+      0.183
+     ]
+    }
+   },
+   "instagram": {
+    "MAE": 0.402,
+    "CI": [
+     0.357,
+     0.454
+    ],
+    "bias": -0.213,
+    "factor": 2.52,
+    "Spearman": 0.861,
+    "posts": 642,
+    "median bias (+ = under)": -0.185,
+    "within x2": 0.486,
+    "top 20% by true y, mean bias": 0.03,
+    "top 20% by predicted y, mean bias": -0.2,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.02,
+     "share off >x2": 0.273,
+     "Kendall": 0.745
+    },
+    "paired diff vs base": {
+     "diff": -0.033,
+     "CI": [
+      -0.111,
+      0.028
+     ]
+    }
+   }
+  },
+  "moved, b with intercept": {
+   "rows": 4244,
+   "coefficients (raw scale)": {
+    "log_likes": 0.417,
+    "log_comments": -0.005,
+    "intercept": 1.904
+   },
+   "facebook": {
+    "MAE": 0.478,
+    "CI": [
+     0.412,
+     0.569
+    ],
+    "bias": -0.3,
+    "factor": 3.0,
+    "Spearman": 0.908,
+    "posts": 402,
+    "median bias (+ = under)": -0.323,
+    "within x2": 0.373,
+    "top 20% by true y, mean bias": -0.002,
+    "top 20% by predicted y, mean bias": -0.255,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": 0.167,
+     "share off >x2": 0.421,
+     "Kendall": 0.778
+    },
+    "paired diff vs base": {
+     "diff": 0.092,
+     "CI": [
+      0.001,
+      0.184
+     ]
+    }
+   },
+   "instagram": {
+    "MAE": 0.404,
+    "CI": [
+     0.359,
+     0.458
+    ],
+    "bias": -0.222,
+    "factor": 2.53,
+    "Spearman": 0.861,
+    "posts": 642,
+    "median bias (+ = under)": -0.186,
+    "within x2": 0.494,
+    "top 20% by true y, mean bias": 0.07,
+    "top 20% by predicted y, mean bias": -0.155,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.091,
+     "share off >x2": 0.273,
+     "Kendall": 0.745
+    },
+    "paired diff vs base": {
+     "diff": -0.031,
+     "CI": [
+      -0.108,
+      0.029
+     ]
+    }
+   }
+  },
+  "moved views + likes + comments": {
+   "rows": 4244,
+   "coefficients (raw scale)": {
+    "log_likes": 0.387,
+    "log_comments": 0.028,
+    "intercept": 1.661
+   },
+   "facebook": {
+    "MAE": 0.388,
+    "CI": [
+     0.322,
+     0.465
+    ],
+    "bias": -0.005,
+    "factor": 2.44,
+    "Spearman": 0.909,
+    "posts": 402,
+    "median bias (+ = under)": -0.051,
+    "within x2": 0.512,
+    "top 20% by true y, mean bias": 0.331,
+    "top 20% by predicted y, mean bias": 0.065,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": -0.174,
+     "share off >x2": 0.421,
+     "Kendall": 0.813
+    },
+    "paired diff vs base": {
+     "diff": 0.002,
+     "CI": [
+      -0.03,
+      0.039
+     ]
+    }
+   },
+   "instagram": {
+    "MAE": 0.385,
+    "CI": [
+     0.351,
+     0.427
+    ],
+    "bias": 0.072,
+    "factor": 2.43,
+    "Spearman": 0.861,
+    "posts": 642,
+    "median bias (+ = under)": 0.115,
+    "within x2": 0.497,
+    "top 20% by true y, mean bias": 0.401,
+    "top 20% by predicted y, mean bias": 0.187,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.41,
+     "share off >x2": 0.727,
+     "Kendall": 0.745
+    },
+    "paired diff vs base": {
+     "diff": -0.05,
+     "CI": [
+      -0.074,
+      -0.028
+     ]
+    }
+   }
+  },
+  "pairs: export y + export reactions": {
+   "rows": 2879,
+   "coefficients (raw scale)": {
+    "log_likes": 0.413,
+    "log_comments": -0.002,
+    "intercept": 1.466
+   },
+   "facebook": {
+    "MAE": 0.394,
+    "CI": [
+     0.334,
+     0.481
+    ],
+    "bias": 0.146,
+    "factor": 2.48,
+    "Spearman": 0.908,
+    "posts": 402,
+    "median bias (+ = under)": 0.119,
+    "within x2": 0.502,
+    "top 20% by true y, mean bias": 0.451,
+    "top 20% by predicted y, mean bias": 0.198,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": -0.287,
+     "share off >x2": 0.474,
+     "Kendall": 0.789
+    },
+    "paired diff vs base": {
+     "diff": 0.009,
+     "CI": [
+      -0.001,
+      0.02
+     ]
+    }
+   },
+   "instagram": {
+    "MAE": 0.43,
+    "CI": [
+     0.391,
+     0.479
+    ],
+    "bias": 0.223,
+    "factor": 2.69,
+    "Spearman": 0.861,
+    "posts": 642,
+    "median bias (+ = under)": 0.258,
+    "within x2": 0.407,
+    "top 20% by true y, mean bias": 0.521,
+    "top 20% by predicted y, mean bias": 0.296,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.536,
+     "share off >x2": 0.727,
+     "Kendall": 0.745
+    },
+    "paired diff vs base": {
+     "diff": -0.005,
+     "CI": [
+      -0.008,
+      -0.002
+     ]
+    }
+   }
+  },
+  "pairs: moved y + export reactions": {
+   "rows": 2879,
+   "coefficients (raw scale)": {
+    "log_likes": 0.467,
+    "log_comments": -0.051,
+    "intercept": 1.791
+   },
+   "facebook": {
+    "MAE": 0.476,
+    "CI": [
+     0.422,
+     0.556
+    ],
+    "bias": -0.294,
+    "factor": 2.99,
+    "Spearman": 0.906,
+    "posts": 402,
+    "median bias (+ = under)": -0.315,
+    "within x2": 0.383,
+    "top 20% by true y, mean bias": -0.082,
+    "top 20% by predicted y, mean bias": -0.341,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": 0.237,
+     "share off >x2": 0.474,
+     "Kendall": 0.766
+    },
+    "paired diff vs base": {
+     "diff": 0.091,
+     "CI": [
+      0.004,
+      0.169
+     ]
+    }
+   },
+   "instagram": {
+    "MAE": 0.407,
+    "CI": [
+     0.361,
+     0.457
+    ],
+    "bias": -0.205,
+    "factor": 2.55,
+    "Spearman": 0.86,
+    "posts": 642,
+    "median bias (+ = under)": -0.182,
+    "within x2": 0.469,
+    "top 20% by true y, mean bias": 0.01,
+    "top 20% by predicted y, mean bias": -0.219,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": 0.03,
+     "share off >x2": 0.364,
+     "Kendall": 0.745
+    },
+    "paired diff vs base": {
+     "diff": -0.028,
+     "CI": [
+      -0.106,
+      0.032
+     ]
+    }
+   }
+  },
+  "pairs: re-read y + export reactions": {
+   "rows": 2879,
+   "coefficients (raw scale)": {
+    "log_likes": 0.406,
+    "log_comments": -0.036,
+    "intercept": 1.939
+   },
+   "facebook": {
+    "MAE": 0.454,
+    "CI": [
+     0.385,
+     0.562
+    ],
+    "bias": -0.242,
+    "factor": 2.85,
+    "Spearman": 0.906,
+    "posts": 402,
+    "median bias (+ = under)": -0.24,
+    "within x2": 0.415,
+    "top 20% by true y, mean bias": 0.157,
+    "top 20% by predicted y, mean bias": -0.088,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": 0.004,
+     "share off >x2": 0.421,
+     "Kendall": 0.778
+    },
+    "paired diff vs base": {
+     "diff": 0.069,
+     "CI": [
+      -0.014,
+      0.162
+     ]
+    }
+   },
+   "instagram": {
+    "MAE": 0.401,
+    "CI": [
+     0.356,
+     0.457
+    ],
+    "bias": -0.204,
+    "factor": 2.52,
+    "Spearman": 0.86,
+    "posts": 642,
+    "median bias (+ = under)": -0.169,
+    "within x2": 0.494,
+    "top 20% by true y, mean bias": 0.16,
+    "top 20% by predicted y, mean bias": -0.055,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.207,
+     "share off >x2": 0.182,
+     "Kendall": 0.745
+    },
+    "paired diff vs base": {
+     "diff": -0.033,
+     "CI": [
+      -0.104,
+      0.025
+     ]
+    }
+   }
+  },
+  "pairs: re-read y + re-read reactions": {
+   "rows": 2879,
+   "coefficients (raw scale)": {
+    "log_likes": 0.446,
+    "log_comments": -0.041,
+    "intercept": 1.599
+   },
+   "facebook": {
+    "MAE": 0.39,
+    "CI": [
+     0.327,
+     0.462
+    ],
+    "bias": -0.041,
+    "factor": 2.45,
+    "Spearman": 0.906,
+    "posts": 402,
+    "median bias (+ = under)": -0.057,
+    "within x2": 0.478,
+    "top 20% by true y, mean bias": 0.226,
+    "top 20% by predicted y, mean bias": -0.029,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": -0.059,
+     "share off >x2": 0.421,
+     "Kendall": 0.778
+    },
+    "paired diff vs base": {
+     "diff": 0.004,
+     "CI": [
+      -0.038,
+      0.047
+     ]
+    }
+   },
+   "instagram": {
+    "MAE": 0.379,
+    "CI": [
+     0.345,
+     0.418
+    ],
+    "bias": 0.034,
+    "factor": 2.39,
+    "Spearman": 0.86,
+    "posts": 642,
+    "median bias (+ = under)": 0.059,
+    "within x2": 0.491,
+    "top 20% by true y, mean bias": 0.294,
+    "top 20% by predicted y, mean bias": 0.069,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.267,
+     "share off >x2": 0.545,
+     "Kendall": 0.745
+    },
+    "paired diff vs base": {
+     "diff": -0.056,
+     "CI": [
+      -0.091,
+      -0.028
+     ]
+    }
+   }
+  }
+ },
+ "primary IG gain / E210 IG gain": 0.62,
+ "views per like by age bin": {
+  "export tiktok": {
+   "<7d": {
+    "n": 166,
+    "median log10(views/(likes+1))": 1.331
+   },
+   "7-30d": {
+    "n": 969,
+    "median log10(views/(likes+1))": 1.368
+   },
+   "30-90d": {
+    "n": 1086,
+    "median log10(views/(likes+1))": 1.387
+   },
+   "90-180d": {
+    "n": 260,
+    "median log10(views/(likes+1))": 1.373
+   },
+   "180-365d": {
+    "n": 10,
+    "median log10(views/(likes+1))": 1.422
+   }
+  },
+  "export youtube": {
+   "<7d": {
+    "n": 664,
+    "median log10(views/(likes+1))": 1.076
+   },
+   "7-30d": {
+    "n": 652,
+    "median log10(views/(likes+1))": 1.375
+   },
+   "30-90d": {
+    "n": 804,
+    "median log10(views/(likes+1))": 1.548
+   },
+   "90-180d": {
+    "n": 298,
+    "median log10(views/(likes+1))": 1.545
+   },
+   "180-365d": {
+    "n": 18,
+    "median log10(views/(likes+1))": 1.362
+   },
+   ">365d": {
+    "n": 5,
+    "median log10(views/(likes+1))": 1.0
+   }
+  },
+  "export twitter": {
+   "<7d": {
+    "n": 669,
+    "median log10(views/(likes+1))": 1.23
+   },
+   "7-30d": {
+    "n": 371,
+    "median log10(views/(likes+1))": 1.301
+   },
+   "30-90d": {
+    "n": 732,
+    "median log10(views/(likes+1))": 1.245
+   },
+   "90-180d": {
+    "n": 26,
+    "median log10(views/(likes+1))": 1.574
+   },
+   "180-365d": {
+    "n": 5,
+    "median log10(views/(likes+1))": 1.415
+   }
+  },
+  "re-read tiktok": {
+   "30-90d": {
+    "n": 51,
+    "median log10(views/(likes+1))": 1.437
+   },
+   "90-180d": {
+    "n": 274,
+    "median log10(views/(likes+1))": 1.409
+   },
+   "180-365d": {
+    "n": 86,
+    "median log10(views/(likes+1))": 1.44
+   },
+   ">365d": {
+    "n": 15,
+    "median log10(views/(likes+1))": 1.484
+   }
+  },
+  "re-read youtube": {
+   "30-90d": {
+    "n": 215,
+    "median log10(views/(likes+1))": 1.484
+   },
+   "90-180d": {
+    "n": 847,
+    "median log10(views/(likes+1))": 1.485
+   },
+   "180-365d": {
+    "n": 259,
+    "median log10(views/(likes+1))": 1.496
+   },
+   ">365d": {
+    "n": 55,
+    "median log10(views/(likes+1))": 1.612
+   }
+  },
+  "re-read twitter": {
+   "30-90d": {
+    "n": 213,
+    "median log10(views/(likes+1))": 1.489
+   },
+   "90-180d": {
+    "n": 1249,
+    "median log10(views/(likes+1))": 1.568
+   },
+   "180-365d": {
+    "n": 451,
+    "median log10(views/(likes+1))": 1.525
+   },
+   ">365d": {
+    "n": 100,
+    "median log10(views/(likes+1))": 1.498
+   }
+  }
+ }
+}
