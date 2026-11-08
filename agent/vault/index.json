@@ -2448,5 +2448,17 @@
   "paths": [
    "src/train_combos.py"
   ]
+ },
+ {
+  "id": "E202",
+  "date": "2026-11-08",
+  "question": "Instagram transfer on 500 hand-collected reels",
+  "setup": "X + YouTube ridge on fresh likes + comments; 25-post shift; IG own brand CV; comments-only for hidden likes",
+  "result": "338 reels: 0.424 (x2.65) zero-shot, 0.382 (x2.41) after 25 posts, own 0.372 (x2.36); without likes x6-11",
+  "type": "finding",
+  "where": "`src/ig_transfer.py`",
+  "paths": [
+   "src/ig_transfer.py"
+  ]
  }
 ]

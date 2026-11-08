@@ -208,6 +208,7 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E199 | 2026-11-08 | View range instead of a number | 4 bin schemes; regression cut into bins vs CatBoost classifier vs majority; brand CV + transfer to FB / IG | 3 ranges acc 0.82 / 0.81 / 0.95 (maj 0.95) / FB 0.80 / IG 0.78; decades 0.74 / 0.60 / 0.58 / 0.64 / 0.56; classifier lower everywhere | finding | `src/view_bins.py` |
 | E200 | 2026-11-08 | Why were only 470 of 2,500 Facebook posts attempted? | Full sweep of all 2,500 FB URLs with the public watch-page fetcher | 402 ok, 68 gone, 2,030 have no video id (ordinary posts) - 470 video posts is the complete measurable subset | finding | `src/fb_full.py` |
 | E201 | 2026-11-08 | Every training-platform combination | Ridge on likes + comments, 31 training sets, each left-out platform scored; own-platform brand CV reference; equal-weight sensitivity | FB / IG x2.4-3.1 from any mix (own x2.4); X hardest x3.6-4.6; X-only training worst; equal weighting worse | finding | `src/train_combos.py` |
+| E202 | 2026-11-08 | Instagram transfer on 500 hand-collected reels | X + YouTube ridge on fresh likes + comments; 25-post shift; IG own brand CV; comments-only for hidden likes | 338 reels: 0.424 (x2.65) zero-shot, 0.382 (x2.41) after 25 posts, own 0.372 (x2.36); without likes x6-11 | finding | `src/ig_transfer.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

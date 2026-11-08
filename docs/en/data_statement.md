@@ -34,6 +34,11 @@ The sample was supplied by Brand24 for the course; how mentions were selected is
   the page. This is the hand-check sample used in E93.
 - **Instagram.** An anonymous attempt returned no view count (0 of 160 checked posts); Instagram requires a login for
   views, so no Instagram view data was collected. Likes/comments for 115 of 160 posts were recorded from public pages.
+- **Instagram, logged in (2026-11-08).** 500 random reels from the Brand24 Instagram slice (11 brands) were read by a
+  browser agent on a team member's own logged-in account: views, likes and comments at the same moment, read-only, values
+  from Instagram's web API as the page loads them. 368 had views (132 gone, 30 with hidden likes). Results are local and
+  git-ignored (`data/manual/ig_browser_*.csv`); only statistics are published (E202). The counter's field name was not
+  recorded.
 - **Terms and personal data.** Only public pages were read, without logging in and without cookies; no author names or
   URLs are published. The fetched files are local and git-ignored (`data/processed/*fetched*.csv`); they carry the mention
   id and the counters, not the post URL. Only aggregates appear in the repository.
