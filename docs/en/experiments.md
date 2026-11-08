@@ -1,6 +1,6 @@
 # Experiment register
 
-169 experiments (E01-E169) plus L1; failures included.
+189 experiments (E01-E189) plus L1; failures included.
 
 One line per experiment. **Add a line whenever an experiment is run, including failures.** Details are in the notebook; exact numbers are in `data/processed/`. Unless noted: target log10(views) on TikTok / YouTube / X, 5-fold CV grouped by brand, MAE on log10 (0.3 is about ×2, 0.5 about ×3, 1.0 ×10). Gain means fall in MAE against the stated base; positive is better. Result types: **gain** (CI above zero and useful), **small** (CI above zero but about 0.01 or less, or isolated), **none**, **worse**, **finding** (says something about the data).
 
@@ -195,6 +195,7 @@ One line per experiment. **Add a line whenever an experiment is run, including f
 | E186 | 2026-11-06 | Monthly brand ranking within an industry | Kendall of brand-month totals, industry x month | Model 0.73 / 0.70 / 0.60; rule on X 0.63 | finding | `src/critical_review.py` |
 | E187 | 2026-11-06 | Negative posts | Sentiment bias | No bias on negative posts (+0.02 / -0.04 / +0.06) | finding | `src/critical_review.py` |
 | E188 | 2026-11-06 | Earned media value | Brand totals x CPM 5 USD | X: model 47% of brands within +-50%, rule 2% | small | `src/critical_review.py` |
+| E189 | 2026-11-08 | Can we fetch an external YouTube/X/TikTok sample, and does the model hold on it? | yt-dlp: YouTube search works, TikTok broken, X blocked; 53 brand videos (recent, 2025+); model trained on Brand24 YouTube | Median views 6,697 vs 433; MAE 0.726, bias +0.706 (x5 low); bias-corrected 0.540; slope 0.83; TikTok/X/IG need API or login | finding | `src/external_youtube.py`, `src/external_validate.py` |
 
 ## Planned, not run
 From `docs/en/project_plan.md`: own FB/IG sample, abstention, false-match detector, virality classification, quantile models, weighted tails, treating YouTube zeros as missing.

@@ -27,6 +27,7 @@ walidacjach; **prawdopodobne** = jedna walidacja, spójna z resztą; **otwarte**
 | 20 | Widoczny rozkład różni się między platformami: elastyczność followersów 0,044 / 0,303 / 0,164 (TT/YT/X), reakcji 0,82 / 0,66 / 1,06; 43% / 5% / 14% postów bije liczbę followersów | prawdopodobne | E167 |
 | 21 | Prosta zrekonstruowana reguła Brand24 odtwarza 97% wierszy IG, 62% X i 49% FB; na TikToku/YouTube zasięg to liczba wyświetleń | prawdopodobne | E168 |
 | 22 | Historia marki nie zastępuje brakującej historii autora: podział czasowy, prior marki -0,005 (TikTok), -0,035 (YouTube), +0,006 (X, CI zawiera 0); 35-52% postów testowych ma znaną markę | prawdopodobne | E169 |
+| 23 | Model jest skalibrowany do populacji wzmianek Brand24: na 53 niezależnie pobranych filmach marek na YouTube relacja się trzyma (Spearman 0,93, nachylenie 0,83), ale poziom jest ×5 za nisko (MAE 0,726, bias +0,71; 0,540 po usunięciu przesunięcia) | prawdopodobne | E189 |
 | 23 | Sufit szumu nie jest efektem wieku sprawdzenia: z dopasowanym wiekiem granica bez zmian; cel 30 dni zmienia MAE <= 0,007 | likely | E179 |
 | 24 | Transfer FB stoi na 20 markach; bez 3 największych 0,46; posty nieangielskie FB ~x2,2 za nisko; na własnych liczbach Brand24 0,83 | likely | E177, E178, E182 |
 | 25 | Uczciwy błąd X dla całego strumienia (z postami bez wyświetleń) to ~0,49 | likely | E181 |

@@ -69,7 +69,7 @@ other three need a decision, hand labels or the client.
 
 ## Reproducibility
 
-- 169 experiment cards (170 experiments including the M1 exploration); every `numbers:` file and notebook referenced by a card exists.
+- 189 experiment cards (190 experiments including the M1 exploration); every `numbers:` file and notebook referenced by a card exists.
 - Re-ran `src/fb_rule_vs_model.py` and `src/cqr_50.py` end to end: the output JSON files are byte-identical to the stored
   ones (fixed seeds).
 - All scripts compile (`python -m py_compile src/*.py`).

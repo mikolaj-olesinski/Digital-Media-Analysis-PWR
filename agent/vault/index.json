@@ -2287,5 +2287,18 @@
   "paths": [
    "src/critical_review.py"
   ]
+ },
+ {
+  "id": "E189",
+  "date": "2026-11-08",
+  "question": "Can we fetch an external YouTube/X/TikTok sample, and does the model hold on it?",
+  "setup": "yt-dlp: YouTube search works, TikTok broken, X blocked; 53 brand videos (recent, 2025+); model trained on Brand24 YouTube",
+  "result": "Median views 6,697 vs 433; MAE 0.726, bias +0.706 (x5 low); bias-corrected 0.540; slope 0.83; TikTok/X/IG need API or login",
+  "type": "finding",
+  "where": "`src/external_youtube.py`, `src/external_validate.py`",
+  "paths": [
+   "src/external_youtube.py",
+   "src/external_validate.py"
+  ]
  }
 ]

@@ -89,6 +89,9 @@ Reproduce it: `docs/en/reproduce.md` (six commands).
   (0.368) but the band stays at 0.80 (E150/E151).
 - **Sample:** 12,500 mentions supplied by Brand24, not a random sample of social media; 85% English; time not uniform.
 
+- **Outside the mention population:** on 53 independently fetched brand videos the model is x5 low (bias +0.71) although
+  the slope holds (0.83); a small recalibration set fixes most of it (E189, E115).
+
 ## Intended use
 
 - Estimate visibility of a post for monitoring, benchmarks and brand totals, always with an interval.

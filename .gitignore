@@ -10,3 +10,4 @@ catboost_info/
 data/manual/
 data/processed/*fetched*.csv
 .tools/
+data/processed/*external*fetched*.csv

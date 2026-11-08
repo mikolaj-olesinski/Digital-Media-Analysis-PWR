@@ -89,6 +89,9 @@ Odtworzenie: `docs/pl/reproduce.md` (sześć komend).
   zostaje na 0,80 (E150/E151).
 - **Próbka:** 12 500 wzmianek od Brand24, nie losowa próbka social mediów; 85% angielskich; czas nierówny.
 
+- **Poza populacją wzmianek:** na 53 niezależnie pobranych filmach marek model jest ×5 za nisko (bias +0,71), choć
+  nachylenie się trzyma (0,83); mały zbiór kalibracyjny usuwa większość różnicy (E189, E115).
+
 ## Zastosowanie
 
 - Szacowanie widoczności posta do monitoringu, benchmarków i sum marek — zawsze z przedziałem.

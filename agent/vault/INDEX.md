@@ -193,3 +193,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E186 | finding | Monthly brand ranking within an industry | [E186](E186.md) |
 | E187 | finding | Negative posts | [E187](E187.md) |
 | E188 | small | Earned media value | [E188](E188.md) |
+| E189 | finding | Can we fetch an external YouTube/X/TikTok sample, and does the model hold on it? | [E189](E189.md) |

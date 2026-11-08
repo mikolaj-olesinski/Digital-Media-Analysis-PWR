@@ -202,6 +202,16 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
   reproduces **97%** of IG rows, **62%** of X, **49%** of FB; on TikTok/YouTube the column is the view count, so the
   near-0 reproduction is correct, not a failure. **likely**
 
+## External sample (2026-11-08)
+
+- **An independent YouTube sample is feasible; TikTok, X and Instagram are not** (E189). `yt-dlp` search fetches 53
+  brand-related videos (recent, 2025+), but TikTok reports "No working app info", x.com answers HTTP 520 and Instagram has
+  no public views; those need an API, a login or a provider (`docs/en/external_sample.md`). **solid** (for feasibility)
+- **The model is calibrated to the Brand24 mention population, not to brand videos in general** (E189): on the external
+  sample the relation survives (Spearman 0.93, calibration slope 0.83) but the level does not - median 6,697 views against
+  433 in the export, bias +0.71 (x5 low), MAE 0.726; after removing the level shift MAE is 0.540 against 0.456 inside.
+  External use needs a small recalibration set (E115). **likely**
+
 ## Open items (state 2026-11-07)
 
 - **Instagram**: no public views (0/160 anonymous); a manual sample, a login or a provider is needed. Everything else in
