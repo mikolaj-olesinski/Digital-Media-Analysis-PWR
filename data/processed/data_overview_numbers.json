@@ -75,20 +75,20 @@
   "instagram": {
    "mentions in export": 2500,
    "brands in export": 11,
-   "posts with views (used)": 338,
+   "posts with views (used)": 642,
    "brands with views": 11,
-   "median views": 506.0000000000001,
+   "median views": 504.0,
    "median likes": 10.000000000000002,
    "median comments": 0.0,
    "views p10-p90 (log10)": [
-    1.54,
-    4.19
+    1.64,
+    4.03
    ],
-   "median views per like": 48.56793478260872,
-   "share with 0 likes": 0.1242603550295858,
-   "slope log views on log likes (likes >= 1)": 0.9173711941387271,
-   "intercept": 1.8168226205790547,
-   "r (likes >= 1)": 0.8950249929991729
+   "median views per like": 52.905929038281954,
+   "share with 0 likes": 0.12305295950155763,
+   "slope log views on log likes (likes >= 1)": 0.9143655401037712,
+   "intercept": 1.8158221540719341,
+   "r (likes >= 1)": 0.8713080472101552
   }
  }
 }

@@ -1,164 +1,170 @@
 {
  "E202": {
-  "rows": 500,
+  "rows": 976,
   "status": {
-   "ok": 368,
-   "gone": 132
+   "ok": 696,
+   "gone": 261,
+   "no_views": 19
   },
-  "likes hidden": 30,
-  "posts with views": 368,
+  "likes hidden": 54,
+  "posts with views": 696,
   "brands": 11,
   "X + YouTube -> IG, likes + comments": {
-   "MAE": 0.424,
+   "MAE": 0.435,
    "CI": [
-    0.379,
-    0.494
+    0.396,
+    0.484
    ],
-   "bias": 0.22,
-   "factor": 2.65,
-   "Spearman": 0.884,
-   "posts": 338,
-   "median bias (+ = under)": 0.249,
-   "within x2": 0.408,
-   "within x3": 0.639,
-   "under-predicted": 238,
-   "over-predicted": 100,
-   "under by more than x3": 98,
-   "over by more than x3": 24,
-   "median |error| factor": 2.33
+   "bias": 0.232,
+   "factor": 2.72,
+   "Spearman": 0.861,
+   "posts": 642,
+   "median bias (+ = under)": 0.281,
+   "within x2": 0.4,
+   "within x3": 0.618,
+   "under-predicted": 461,
+   "over-predicted": 181,
+   "under by more than x3": 196,
+   "over by more than x3": 49,
+   "median |error| factor": 2.4
   },
   "X + YouTube -> IG, comments only (likes hidden)": {
-   "MAE": 1.048,
+   "MAE": 1.122,
    "CI": [
-    0.845,
-    1.272
+    0.939,
+    1.299
    ],
-   "bias": 0.94,
-   "factor": 11.18,
-   "Spearman": 0.353,
-   "posts": 30,
-   "median bias (+ = under)": 1.096,
-   "within x2": 0.1,
-   "within x3": 0.133,
-   "under-predicted": 27,
-   "over-predicted": 3,
-   "under by more than x3": 24,
+   "bias": 1.051,
+   "factor": 13.24,
+   "Spearman": 0.492,
+   "posts": 54,
+   "median bias (+ = under)": 1.1,
+   "within x2": 0.111,
+   "within x3": 0.13,
+   "under-predicted": 50,
+   "over-predicted": 4,
+   "under by more than x3": 45,
    "over by more than x3": 2,
-   "median |error| factor": 12.47
+   "median |error| factor": 12.6
   },
   "X + YouTube -> IG, comments only, on posts with visible likes": {
-   "MAE": 0.791,
+   "MAE": 0.798,
    "CI": [
-    0.729,
-    0.882
+    0.733,
+    0.869
    ],
-   "bias": 0.601,
-   "factor": 6.18,
-   "Spearman": 0.65,
-   "posts": 338,
-   "median bias (+ = under)": 0.579,
-   "within x2": 0.195,
-   "within x3": 0.34,
-   "under-predicted": 277,
-   "over-predicted": 61,
-   "under by more than x3": 195,
-   "over by more than x3": 28,
-   "median |error| factor": 4.43
+   "bias": 0.616,
+   "factor": 6.29,
+   "Spearman": 0.616,
+   "posts": 642,
+   "median bias (+ = under)": 0.621,
+   "within x2": 0.184,
+   "within x3": 0.326,
+   "under-predicted": 535,
+   "over-predicted": 107,
+   "under by more than x3": 385,
+   "over by more than x3": 48,
+   "median |error| factor": 4.99
   },
   "25-post median shift (mean of 200 draws)": {
-   "MAE": 0.382,
+   "MAE": 0.383,
    "factor": 2.41,
-   "within x2": 0.484
+   "within x2": 0.497
   },
   "own platform: IG ridge, brand CV": {
-   "MAE": 0.372,
+   "MAE": 0.381,
    "CI": [
-    0.327,
-    0.422
+    0.349,
+    0.417
    ],
-   "bias": -0.005,
-   "factor": 2.36,
-   "Spearman": 0.882,
-   "posts": 338,
-   "median bias (+ = under)": 0.006,
-   "within x2": 0.485,
-   "within x3": 0.719,
-   "under-predicted": 172,
-   "over-predicted": 166,
-   "under by more than x3": 44,
-   "over by more than x3": 51,
-   "median |error| factor": 2.03
-  },
-  "top 3 brands share": 0.441,
-  "transfer without the 3 largest brands": {
-   "MAE": 0.469,
-   "CI": [
-    0.412,
-    0.534
-   ],
-   "bias": 0.199,
-   "factor": 2.95,
+   "bias": -0.003,
+   "factor": 2.41,
    "Spearman": 0.857,
-   "posts": 189,
-   "median bias (+ = under)": 0.265,
-   "within x2": 0.349,
-   "within x3": 0.598,
-   "under-predicted": 130,
-   "over-predicted": 59,
-   "under by more than x3": 56,
-   "over by more than x3": 20,
-   "median |error| factor": 2.49
+   "posts": 642,
+   "median bias (+ = under)": 0.028,
+   "within x2": 0.488,
+   "within x3": 0.713,
+   "under-predicted": 334,
+   "over-predicted": 308,
+   "under by more than x3": 87,
+   "over by more than x3": 97,
+   "median |error| factor": 2.04
+  },
+  "top 3 brands share": 0.436,
+  "transfer without the 3 largest brands": {
+   "MAE": 0.472,
+   "CI": [
+    0.425,
+    0.516
+   ],
+   "bias": 0.226,
+   "factor": 2.96,
+   "Spearman": 0.833,
+   "posts": 362,
+   "median bias (+ = under)": 0.3,
+   "within x2": 0.343,
+   "within x3": 0.564,
+   "under-predicted": 261,
+   "over-predicted": 101,
+   "under by more than x3": 120,
+   "over by more than x3": 38,
+   "median |error| factor": 2.63
   },
   "per brand (posts >= 10)": [
    {
+    "posts": 100,
+    "MAE": 0.348,
+    "bias": 0.214
+   },
+   {
+    "posts": 92,
+    "MAE": 0.464,
+    "bias": 0.352
+   },
+   {
+    "posts": 88,
+    "MAE": 0.351,
+    "bias": 0.216
+   },
+   {
+    "posts": 62,
+    "MAE": 0.453,
+    "bias": 0.061
+   },
+   {
+    "posts": 61,
+    "MAE": 0.387,
+    "bias": 0.139
+   },
+   {
+    "posts": 58,
+    "MAE": 0.526,
+    "bias": 0.321
+   },
+   {
     "posts": 55,
-    "MAE": 0.444,
-    "bias": 0.367
+    "MAE": 0.49,
+    "bias": 0.444
    },
    {
-    "posts": 51,
-    "MAE": 0.323,
-    "bias": 0.217
+    "posts": 44,
+    "MAE": 0.522,
+    "bias": 0.233
    },
    {
-    "posts": 43,
-    "MAE": 0.319,
-    "bias": 0.118
+    "posts": 40,
+    "MAE": 0.492,
+    "bias": 0.458
    },
    {
-    "posts": 37,
-    "MAE": 0.39,
-    "bias": -0.002
+    "posts": 26,
+    "MAE": 0.346,
+    "bias": 0.055
    },
    {
-    "posts": 31,
-    "MAE": 0.509,
-    "bias": 0.277
-   },
-   {
-    "posts": 31,
-    "MAE": 0.394,
-    "bias": 0.039
-   },
-   {
-    "posts": 29,
-    "MAE": 0.575,
-    "bias": 0.503
-   },
-   {
-    "posts": 20,
-    "MAE": 0.447,
-    "bias": 0.436
-   },
-   {
-    "posts": 18,
-    "MAE": 0.589,
-    "bias": 0.454
-   },
-   {
-    "posts": 14,
-    "MAE": 0.37,
-    "bias": -0.053
+    "posts": 16,
+    "MAE": 0.63,
+    "bias": 0.579
    }
   ]
  }

@@ -11,7 +11,8 @@
 \fi
 \usepackage[polish]{babel}
 \usepackage[margin=2.2cm]{geometry}
-\usepackage{graphicx,booktabs,amsmath,xcolor,enumitem,microtype}
+\usepackage[table]{xcolor}
+\usepackage{graphicx,booktabs,amsmath,enumitem,microtype}
 \usepackage[hidelinks]{hyperref}
 \usepackage[most]{tcolorbox}
 \usepackage[font=small,labelfont=bf]{caption}
@@ -33,7 +34,8 @@
   \item \textbf{Wstęp} --- problem, literatura, pytanie, wkład.
   \item \textbf{Dane} --- skąd prawda na każdej platformie; Tabela~1, Rys.~1.
   \item \textbf{Metoda} --- miara błędu, walidacja po markach, dwa modele, przedziały.
-  \item \textbf{Wyniki} --- Rys.~2 (wynik główny), Rys.~3 (na czym uczyć), Rys.~4 (czego model potrzebuje), Rys.~5 (kto jest źle szacowany), przedziały.
+  \item \textbf{Wyniki} --- Rys.~2 (wynik główny), Rys.~3 (kto jest źle szacowany), przedziały.
+  \item \textbf{Przeniesienie między platformami} --- gdzie jest prawda, Tabela~2 (wszystkie 31 zestawów treningowych), Rys.~4 (czego model potrzebuje).
   \item \textbf{Porównanie metod} --- Tabela~2: rodziny modeli (regresja, lasy, boosting, sieci, grafy, transformery); Rys.~6: dodatkowe dane.
   \item \textbf{Zastosowania} (1 str.) --- Rys.~7: alert, ranking marek, EMV, posty odstające.
   \item \textbf{Ograniczenia i rekomendacje}.
@@ -60,7 +62,7 @@ Pytamy, czy wyświetlenia posta na Facebooku i Instagramie da się oszacować z 
 innych platformach, i z jaką niepewnością. Nasz wkład:
 \begin{itemize}
   \item model uczony tylko na X i YouTube szacuje wyświetlenia filmów na Facebooku z typowym błędem \x{2,4}, a rolek na
-        Instagramie \x{2,65}, tak samo dobrze jak model uczony na samej platformie docelowej;
+        Instagramie \x{2,72}, prawie tak samo dobrze jak model uczony na samej platformie docelowej;
   \item pokazujemy, kiedy to przeniesienie działa (reakcje odczytane razem z wyświetleniami) i kiedy zawodzi;
   \item dla każdego posta podajemy przedział niepewności, trafny także przy brakujących danych;
   \item pokazujemy zastosowania: alert o wybiciu, ranking marek i wartość medialną.
@@ -71,7 +73,7 @@ innych platformach, i z jaką niepewnością. Nasz wkład:
 Korzystamy z 12\,500 wzmianek o 348 markach z pięciu platform, udostępnionych przez Brand24 (po 2\,500 na platformę,
 85\% z nich opublikowano między kwietniem a sierpniem 2026 r., a 85\% jest po angielsku). Dla TikToka, YouTube i X wyświetlenia są w eksporcie. Dla Facebooka
 i Instagrama ich nie ma, więc pobraliśmy je własnym sposobem razem z reakcjami z tego samego momentu: 402 filmy z 20
-marek na Facebooku i \todo{IG po partii 3:} 338 rolek z 11 marek na Instagramie. Zwykłe posty na tych platformach nie
+marek na Facebooku i 642 rolki z 11 marek na Instagramie. Zwykłe posty na tych platformach nie
 mają licznika wyświetleń, więc wyniki dotyczą tylko filmów i rolek. Typ i sentyment wzmianek oznaczyły modele językowe,
 a następnie członek zespołu je sprawdził i poprawił.
 
@@ -87,7 +89,7 @@ TikTok    & 266 & eksport Brand24       & 2\,491 & 729    & 25 \\
 YouTube   & 273 & eksport Brand24       & 2\,441 & 433    & 26 \\
 X         & 252 & eksport Brand24       & 1\,803 & 27     & 22 \\
 Facebook  & 20  & własny odczyt (filmy) & 402    & 1\,413 & 35 \\
-Instagram & 11  & własny odczyt (rolki) & 338    & 506    & 49 \\
+Instagram & 11  & własny odczyt (rolki) & 642    & 504    & 53 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -106,22 +108,23 @@ Brand24; Facebook (filmy), Instagram (rolki): nasz odczyt.}}
 
 Przewidujemy $y=\log_{10}(\text{wyświetlenia})$. Błąd podajemy jako MAE w tej skali i jako mnożnik
 $10^{\text{MAE}}$ (MAE 0,30 $\approx$ \x{2}). Wszystkie modele oceniamy pięciokrotną walidacją krzyżową z podziałem po
-markach, więc każda ocena dotyczy marki, której model nie widział; przedziały ufności liczymy bootstrapem po markach.
+markach, więc każda ocena dotyczy marki, której model nie widział; przedziały ufności liczymy bootstrapem po markach. Jeden autor może pisać o kilku markach (1--9\% postów), więc sprawdziliśmy też podział, w którym ten sam autor ani identyczny tekst nie trafia do treningu i testu jednocześnie: błąd zmienia się o najwyżej 0,002 na TikToku i YouTube, a na X rośnie z 0,47 do 0,48.
 Na TikToku, YouTube i X używamy CatBoost~\cite{catboost} na obserwujących, reakcjach i flagach braków. Do przeniesienia
 na Facebooka i Instagram używamy regresji ridge na $\log(1+\text{lajki})$ i $\log(1+\text{komentarze})$, czyli dwóch
 polach, które ma każda platforma, uczonej na X i YouTube razem; przy pominiętej platformie przenosi się ona lepiej niż
 CatBoost. Przedziały 50\% i 90\% dla każdego posta dają konformalna regresja kwantylowa~\cite{romano2019}.
 % E114, E124, E61/E131 (ridge > CatBoost przy pominiętej platformie), E118, E137.
 
-\section{Wyniki}
+\section{Wyniki}\label{sec:wyniki}
 
 \paragraph{Wynik główny.} Rys.~\ref{fig:main} zestawia oba scenariusze. Na TikToku, YouTube i X, gdzie model uczy
 się na tej samej platformie, typowy błąd wynosi \x{1,9}, \x{2,9} i \x{3,0}. Na Facebooku i Instagramie model nie widział
-ani jednego posta z tych platform, a myli się \x{2,43} (przedział ufności \x{2,05}--\x{3,03}) i \x{2,65}
-(\x{2,39}--\x{3,12}). To tyle samo, co ten sam model uczony na samej platformie docelowej (\x{2,42} i \x{2,36}), więc
+ani jednego posta z tych platform, a myli się \x{2,43} (przedział ufności \x{2,05}--\x{3,03}) i \x{2,72}
+(\x{2,49}--\x{3,05}). Na Facebooku to tyle samo, co ten sam model uczony na samej platformie docelowej (\x{2,42}),
+a na Instagramie trochę więcej niż przy uczeniu na samym Instagramie (\x{2,41}; 72\% rolek jest niedoszacowanych), więc
 zależność między reakcjami a wyświetleniami przenosi się między platformami prawie bez straty. Kolejność postów jest
-zachowana bardzo dobrze (Spearman 0,91 i 0,88).
-% results_a/results_b_numbers.json; CI MAE 0,312-0,482 i 0,379-0,494.
+zachowana bardzo dobrze (Spearman 0,91 i 0,86).
+% results_a/results_b_numbers.json; CI MAE 0,312-0,482 i 0,396-0,484.
 
 \begin{figure}[!htb]
 \centering
@@ -129,46 +132,10 @@ zachowana bardzo dobrze (Spearman 0,91 i 0,88).
 \caption{Oszacowane a prawdziwe wyświetlenia.
 \capdet{Każda kropka to jeden post, oszacowany przez model, który nie widział jego marki (walidacja krzyżowa po
 markach). TikTok, YouTube, X: CatBoost na obserwujących, reakcjach i flagach braków, uczony na tej samej platformie;
-prawda z eksportu Brand24. Facebook (402 filmy, 20 marek), Instagram (338 rolek, 11 marek): ridge na $\log$ lajków
+prawda z eksportu Brand24. Facebook (402 filmy, 20 marek), Instagram (642 rolki, 11 marek): ridge na $\log$ lajków
 i komentarzy uczony tylko na X i YouTube; prawda z naszego odczytu. Szary pas: oszacowanie w granicach \x{2}. Liczba:
 typowy błąd $10^{\text{MAE}}$.}}
 \label{fig:main}
-\end{figure}
-
-\paragraph{Na czym uczyć.} Facebook i Instagram dają się oszacować z dowolnej platformy z błędem \x{2,4}--\x{3,1}
-(Rys.~\ref{fig:combos}). Wyjątkiem jest X: model uczony na X myli się na YouTube \x{5,5}, a modele uczone gdzie indziej
-mylą się na X \x{3,6}--\x{4,6}. Na X większość postów ma zero lub jeden lajk (Rys.~\ref{fig:data}), więc reakcje
-mówią tam mało. Więcej platform w treningu nie zawsze pomaga: wszystkie cztery pozostałe dają na X \x{4,4}, a sam
-Facebook \x{3,6}.
-\todo{później: szósta platforma z publicznymi wyświetleniami (backlog B30).}
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=.68\textwidth]{fig/train_combos_simple_pl.png}
-\caption{Typowy błąd przy uczeniu na jednej platformie i teście na innej.
-\capdet{Ridge na $\log$ lajków i komentarzy (jedyne dwa pola, które ma każda platforma). Wiersz: platforma treningowa,
-ostatni wiersz: wszystkie cztery pozostałe naraz. Kolumna: platforma testowa. W ramce: trening i test na tej samej
-platformie, na markach spoza treningu. Kolor: o ile błąd jest większy niż w ramce danej kolumny.}}
-\label{fig:combos}
-\end{figure}
-
-\paragraph{Czego model potrzebuje.} Przeniesienie działa tylko z lajkami odczytanymi razem z wyświetleniami
-(Rys.~\ref{fig:needs}A). Same komentarze dają \x{6,2}--\x{7,4}, a lajki i komentarze z eksportu, odczytane w innym
-momencie niż wyświetlenia, \x{6,8}. Na platformach ze znanymi wyświetleniami (Rys.~\ref{fig:needs}B) brak obserwujących
-prawie nie szkodzi, a brak reakcji podnosi błąd do \x{3,8}--\x{5,2}. Dla każdego układu dostępnych pól uczymy osobny
-model z osobnym przedziałem, dzięki czemu przedział 90\% trafia w 88--90\% postów w każdym przypadku; model uczony na
-pełnych danych i karmiony niepełnymi trafiałby tylko w 46--83\%.
-% E177, E176, results_b (comments only).
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\textwidth]{fig/preprint_needs_pl.png}
-\caption{Typowy błąd przy różnych danych wejściowych.
-\capdet{A: Facebook i Instagram, ridge uczony na X i YouTube. ,,Lajki + komentarze'': nasze pola odczytane razem
-z wyświetleniami; ,,tylko komentarze'': model na samych komentarzach; ,,reakcje z eksportu'': lajki i komentarze
-z eksportu Brand24, odczytane w innym momencie niż wyświetlenia (dla Instagramu brak). B: TikTok, YouTube, X, osobny
-CatBoost dla każdego układu dostępnych pól, walidacja po markach.}}
-\label{fig:needs}
 \end{figure}
 
 \paragraph{Kto jest źle szacowany.} Na każdej platformie, także po przeniesieniu, model zawyża posty z małą liczbą
@@ -191,6 +158,48 @@ treningu (0,90--0,93). Na Facebooku trafia w 93\% filmów kont poniżej miliona 
 tylko w 80--86\%. Jeśli zamiast liczby podamy jeden z trzech przedziałów (<1\,000, 1\,000--10\,000, >10\,000), trafiamy
 w 78--82\% postów na TikToku, YouTube, Facebooku i Instagramie.
 % E118, E142, E123, E151, E199.
+
+\section{Przeniesienie między platformami}\label{sec:transfer}
+
+\paragraph{Gdzie znamy prawdę.} Prawdziwe wyświetlenia mamy na wszystkich pięciu platformach (Tabela~\ref{tab:data}):
+na TikToku, YouTube i X z eksportu Brand24, na Facebooku (filmy) i Instagramie (rolki) z naszego odczytu, razem
+z lajkami i komentarzami z tej samej chwili. Dzięki temu każdą platformę możemy potraktować jak ,,ukrytą'': uczymy model
+na pozostałych i sprawdzamy na niej. Używamy tylko dwóch pól, które ma każda platforma, lajków i komentarzy, i prostej
+regresji ridge, bo przy pominiętej platformie przenosi się ona lepiej niż CatBoost. W praktyce ważne są Facebook
+i Instagram, bo tam wyświetleń w danych monitoringu nie ma; pozostałe platformy pokazują, jak ogólny jest ten wynik.
+
+\paragraph{Wszystkie kombinacje.} Tabela~\ref{tab:combos} pokazuje błąd dla każdego z 31 zestawów platform treningowych.
+Widać trzy rzeczy. Po pierwsze, Facebook i Instagram dają się oszacować z prawie dowolnego zestawu z błędem
+\x{2,4}--\x{3,1}, czyli blisko modelu uczonego na nich samych (\x{2,4}); najgorszy jest trening na samym X. Po drugie,
+X jest wyjątkiem w obie strony: model uczony na X myli się na YouTube \x{5,5}, a żaden zestaw nie schodzi na X poniżej
+\x{3,6}, wobec \x{3,3} przy uczeniu na X. Na X większość postów ma zero lub jeden lajk (Rys.~\ref{fig:data}), więc
+zależność wyświetleń od lajków wygląda tam inaczej. Po trzecie, YouTube jest trudny nawet dla modelu uczonego na nim
+samym (\x{4,1} dla ridge wobec \x{2,8} dla CatBoost), bo dużo filmów ma wyświetlenia bez żadnych reakcji. Więcej
+platform w treningu nie zawsze pomaga: liczy się, które platformy są w zestawie i w jakich proporcjach.
+% E201 (train_combos_numbers.json, pooled). Najlepsze: TT z YT 2,0; YT z TT+FB 4,06; X z FB 3,60; FB z YT+X+IG 2,39; IG z FB 2,47.
+
+\input{combos_table}
+
+\paragraph{Czego model potrzebuje.} Przeniesienie działa tylko z lajkami odczytanymi razem z wyświetleniami
+(Rys.~\ref{fig:needs}A). Same komentarze dają \x{6,2}--\x{7,4}, a lajki i komentarze z eksportu, odczytane w innym
+momencie niż wyświetlenia, \x{6,8}. Na platformach ze znanymi wyświetleniami (Rys.~\ref{fig:needs}B) brak obserwujących
+prawie nie szkodzi, a brak reakcji podnosi błąd do \x{3,8}--\x{5,2}. Dla każdego układu dostępnych pól uczymy osobny
+model z osobnym przedziałem, dzięki czemu przedział 90\% trafia w 88--90\% postów w każdym przypadku; model uczony na
+pełnych danych i karmiony niepełnymi trafiałby tylko w 46--83\%.
+% E177, E176, results_b (comments only).
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{fig/preprint_needs_pl.png}
+\caption{Typowy błąd przy różnych danych wejściowych.
+\capdet{A: Facebook i Instagram, ridge uczony na X i YouTube. ,,Lajki + komentarze'': nasze pola odczytane razem
+z wyświetleniami; ,,tylko komentarze'': model na samych komentarzach; ,,reakcje z eksportu'': lajki i komentarze
+z eksportu Brand24, odczytane w innym momencie niż wyświetlenia (dla Instagramu brak). B: TikTok, YouTube, X, osobny
+CatBoost dla każdego układu dostępnych pól, walidacja po markach.}}
+\label{fig:needs}
+\end{figure}
+
+\todo{później: szósta platforma z publicznymi wyświetleniami (backlog B30).}
 
 \section{Porównanie metod}\label{sec:nie}
 
@@ -313,7 +322,7 @@ promocja (51\% wobec 34\%), a z dużo mniejszą częściej spam (26\% wobec 13\%
 
 \section{Ograniczenia i rekomendacje}
 
-Wynik dla Facebooka opiera się na 20 markach (bez trzech największych \x{2,9}), a dla Instagramu na 11 (\x{2,95}).
+Wynik dla Facebooka opiera się na 20 markach (bez trzech największych \x{2,9}), a dla Instagramu na 11 (\x{2,96}).
 Posty wiralowe są zaniżane \x{9}--\x{14}, więc sumy marek mylą się o więcej niż \x{2} dla 29--47\% marek. Wyniki
 opisują zależności, nie przyczyny. Dostawcy monitoringu rekomendujemy: odczytywać reakcje razem z wyświetleniami,
 zapisywać braki jako brak, a nie zero, robić drugi odczyt wyświetleń i przechowywać historię autorów.

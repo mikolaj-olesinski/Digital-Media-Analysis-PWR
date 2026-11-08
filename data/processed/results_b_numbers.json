@@ -35,37 +35,37 @@
    }
   },
   "instagram": {
-   "MAE": 0.424,
+   "MAE": 0.435,
    "CI": [
-    0.379,
-    0.494
+    0.396,
+    0.484
    ],
-   "bias": 0.22,
-   "factor": 2.65,
-   "Spearman": 0.884,
-   "posts": 338,
-   "within x2": 0.408,
-   "under-predicted": 0.704,
-   "median bias (+ = under)": 0.249,
+   "bias": 0.232,
+   "factor": 2.72,
+   "Spearman": 0.861,
+   "posts": 642,
+   "within x2": 0.4,
+   "under-predicted": 0.718,
+   "median bias (+ = under)": 0.281,
    "brands": 11,
    "25-post median shift": {
-    "MAE": 0.382,
+    "MAE": 0.383,
     "factor": 2.41
    },
    "own platform ridge, brand CV": {
-    "MAE": 0.372,
-    "factor": 2.36
+    "MAE": 0.381,
+    "factor": 2.41
    },
    "comments only (X + YouTube ridge)": {
-    "MAE": 0.791,
+    "MAE": 0.798,
     "CI": [
-     0.729,
-     0.882
+     0.733,
+     0.869
     ],
-    "bias": 0.601,
-    "factor": 6.18,
-    "Spearman": 0.65,
-    "posts": 338
+    "bias": 0.616,
+    "factor": 6.29,
+    "Spearman": 0.616,
+    "posts": 642
    }
   }
  }
