@@ -77,9 +77,9 @@ na jeden lajk różni się mniej: od 22 na X do 49 na Instagramie.
 
 ![Rysunek 1](figures/data_overview_pl.png)
 
-**Rysunek 1.** Lewo: wyświetlenia na post, prawo: wyświetlenia na lajk (skala logarytmiczna). Kropka = mediana,
-ciemny pasek = połowa środkowych postów (25–75%), jasny pasek = 80% postów (10–90%). TikTok, YouTube i X: eksport
-Brand24; Facebook i Instagram: nasz odczyt.
+**Rysunek 1.** Wyświetlenia a lajki dla każdego posta, osobno dla każdej platformy (obie osie w skali logarytmicznej).
+Linia przerywana: wyświetlenia = mediana wyświetleń na lajk × lajki. Posty bez lajków leżą przy zerze na osi poziomej.
+TikTok, YouTube i X: eksport Brand24; Facebook i Instagram: nasz odczyt.
 
 Wszystkie modele oceniamy na markach, których nie widziały w treningu (5-krotna walidacja krzyżowa z podziałem po
 markach). Zasady zbierania danych, zgodność z regulaminami i RODO opisujemy w oświadczeniu o danych.
