@@ -37,31 +37,40 @@ COL = {"tiktok": "#2a78d6", "youtube": "#eb6834", "twitter": "#1baf7a", "faceboo
 
 def figure(d, rows, lang):
     T = {"en": ("Views grow with likes on every platform, from a different level on each",
-                "likes", "views", "median", "views per like", "posts", "dashed: views = median views per like × likes"),
+                "Each dot is one post. Dashed line: views = median views per like × likes.",
+                "likes", "views", "views per like", "posts", "median views"),
          "pl": ("Na każdej platformie wyświetlenia rosną razem z lajkami, ale od innego poziomu",
-                "lajki", "wyświetlenia", "mediana", "wyśw. na lajk", "postów", "linia przerywana: wyświetlenia = mediana wyświetleń na lajk × lajki")}[lang]
-    fig, ax = plt.subplots(1, len(P), figsize=(11, 3.3), sharex=True, sharey=True, gridspec_kw={"wspace": 0.08})
+                "Każda kropka to jeden post. Linia przerywana: wyświetlenia = mediana wyświetleń na lajk × lajki.",
+                "lajki", "wyświetlenia", "wyświetleń na lajk", "postów", "mediana wyświetleń")}[lang]
+    num = lambda v: f"{v:,.0f}".replace(",", "\u2009")
+    from matplotlib import font_manager as fm
+    for f in Path("/usr/share/fonts/truetype/liberation").glob("LiberationSans-*.ttf"): fm.fontManager.addfont(str(f))
+    plt.rcParams.update({"font.family": "Liberation Sans" if any(f.name == "Liberation Sans" for f in fm.fontManager.ttflist) else "DejaVu Sans"})
+    fig, ax = plt.subplots(1, len(P), figsize=(11, 3.6), sharex=True, sharey=True, gridspec_kw={"wspace": 0.07})
     fig.patch.set_facecolor(SURF)
     rng = np.random.default_rng(0)
     for a, p in zip(ax, P):
-        s = d[d.platform == p]
+        s = d[d.platform == p]; r = rows[p]
         x = np.log10(np.expm1(s.log_likes.values) + 1) + rng.uniform(-.06, .06, len(s)); y = s.y.values
         a.set_facecolor(SURF)
-        a.scatter(x, y, s=7, color=COL[p], alpha=.35 if len(s) > 1000 else .6, linewidth=0, rasterized=True)
-        k = np.log10(rows[p]["median views per like"]); xx = np.array([0, 5])
-        a.plot(xx, xx + k, color=INK, lw=1.2, ls="--")
-        a.set_title(LAB[p], fontsize=11, color=COL[p], fontweight="bold", loc="left")
-        a.text(0.03, 0.97, f"{len(s)} {T[5]}\n{T[3]}: {rows[p]['median views']:,.0f}\n{rows[p]['median views per like']:.0f} {T[4]}".replace(",", " "),
-               transform=a.transAxes, va="top", fontsize=8, color=INK, linespacing=1.4)
-        a.grid(color="#e6e5e0", lw=.7); a.set_axisbelow(True)
-        [a.spines[q].set_visible(False) for q in ("top", "right")]; [a.spines[q].set_color("#bdbcb6") for q in ("left", "bottom")]
-        a.tick_params(length=0, labelsize=8, colors=MUTED); a.set_xlabel(T[1], fontsize=9, color=MUTED)
-    lab = lambda t: ["1", "10", "100", "1k", "10k", "100k", "1M", "10M"][t]
-    ax[0].set_xticks(range(0, 6)); ax[0].set_xticklabels(["0"] + [lab(t) for t in range(1, 6)])
-    ax[0].set_yticks(range(0, 8)); ax[0].set_yticklabels([lab(t) for t in range(0, 8)])
-    ax[0].set_xlim(-.2, 5.2); ax[0].set_ylim(-.2, 7.6); ax[0].set_ylabel(T[2], fontsize=9, color=MUTED)
-    fig.suptitle(T[0], fontsize=11.5, x=.125, ha="left", y=1.04, color=INK)
-    fig.text(.125, -.06, T[6], fontsize=8, color=MUTED)
+        a.scatter(x, y, s=7, color=COL[p], alpha=.3 if len(s) > 1000 else .55, linewidth=0, rasterized=True)
+        k = np.log10(r["median views per like"]); xx = np.array([-.2, 5.2])
+        a.plot(xx, xx + k, color=INK, lw=1, ls=(0, (4, 3)))
+        a.text(0, 1.13, LAB[p], transform=a.transAxes, fontsize=12, color=COL[p], fontweight="bold")
+        a.text(0, 1.04, f"{num(len(s))} {T[5]}", transform=a.transAxes, fontsize=8.5, color=MUTED)
+        a.text(.96, .2, f"{r['median views per like']:.0f}", transform=a.transAxes, ha="right", fontsize=17, fontweight="bold", color=COL[p], bbox=dict(boxstyle="round,pad=0.25", fc=SURF, ec="none", alpha=.85))
+        a.text(.96, .13, T[4], transform=a.transAxes, ha="right", fontsize=8, color=INK, bbox=dict(boxstyle="round,pad=0.25", fc=SURF, ec="none", alpha=.85))
+        a.text(.96, .05, f"{T[6]}: {num(r['median views'])}", transform=a.transAxes, ha="right", fontsize=8, color=MUTED, bbox=dict(boxstyle="round,pad=0.25", fc=SURF, ec="none", alpha=.85))
+        a.grid(color="#ebeae6", lw=.7); a.set_axisbelow(True)
+        [a.spines[q].set_visible(False) for q in a.spines]
+        a.tick_params(length=0, labelsize=8, colors=MUTED)
+    lab = ["0", "10", "100", "1k", "10k", "100k", "1M", "10M"]
+    ax[0].set_xticks(range(0, 6)); ax[0].set_xticklabels(lab[:6])
+    ax[0].set_yticks(range(0, 8)); ax[0].set_yticklabels(["1"] + lab[1:])
+    ax[0].set_xlim(-.3, 5.3); ax[0].set_ylim(-.3, 7.6)
+    fig.supxlabel(T[2], fontsize=9.5, color=MUTED, y=.0); ax[0].set_ylabel(T[3], fontsize=9.5, color=MUTED)
+    fig.text(.125, 1.13, T[0], fontsize=13.5, fontweight="bold", color=INK)
+    fig.text(.125, 1.065, T[1], fontsize=9.5, color=MUTED)
     fig.savefig(ROOT / "figures" / f"data_overview_{lang}.png", dpi=170, bbox_inches="tight", facecolor=SURF); plt.close(fig)
     if lang == "pl":
         out = ROOT / "docs/pl/figures"; out.mkdir(exist_ok=True)
