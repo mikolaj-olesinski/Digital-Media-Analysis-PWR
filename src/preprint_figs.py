@@ -230,12 +230,12 @@ def fig_needs(lang):
     st = json.loads((ROOT / "data/processed/fallback_estimator_numbers.json").read_text())["E177"]["Brand24 likes + comments"]["factor"]
     d = json.loads((ROOT / "data/processed/fallback_estimator_numbers.json").read_text())["E176"]
     T = {"pl": ("Najważniejsze są lajki odczytane razem z wyświetleniami",
-                ("A. Facebook i Instagram (model z X + YouTube)", ["lajki + komentarze", "tylko komentarze", "reakcje z eksportu\n(inny moment)"]),
-                ("B. TikTok, YouTube, X: gdy brakuje pól", ["pełne dane", "bez\nobserwujących", "bez reakcji", "bez reakcji\ni obserwujących"]),
+                ("A. Poza platformą: Facebook i Instagram (model z X + YouTube)", ["lajki + komentarze", "tylko komentarze", "reakcje z eksportu\n(inny moment)"]),
+                ("B. Na tej samej platformie: TikTok, YouTube, X, gdy brakuje pól", ["pełne dane", "bez\nobserwujących", "bez reakcji", "bez reakcji\ni obserwujących"]),
                 "typowy błąd (×)"),
          "en": ("What matters most: likes read together with the views",
-                ("A. Facebook and Instagram (model from X + YouTube)", ["likes + comments", "comments only", "export reactions\n(another time)"]),
-                ("B. TikTok, YouTube, X: when fields are missing", ["all fields", "no\nfollowers", "no reactions", "no reactions\nor followers"]),
+                ("A. Out of platform: Facebook and Instagram (model from X + YouTube)", ["likes + comments", "comments only", "export reactions\n(another time)"]),
+                ("B. Same platform: TikTok, YouTube, X, when fields are missing", ["all fields", "no\nfollowers", "no reactions", "no reactions\nor followers"]),
                 "typical error (×)")}[lang]
     fig, ax = plt.subplots(1, 2, figsize=(11, 3.4), gridspec_kw={"wspace": .18, "width_ratios": [1, 1.3]}); fig.patch.set_facecolor(SURF)
     a = ax[0]; style(a); a.grid(axis="x", visible=False)
