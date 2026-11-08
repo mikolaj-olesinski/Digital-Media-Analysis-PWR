@@ -26,7 +26,7 @@ def targets():
 
 def main():
     f, meta = em.load(ROOT); m = meta.platform.isin(["twitter", "youtube"]).values
-    src = fe.ridge().fit(f[m][fe.C2].fillna(0), meta.y[m])
+    src = fe.ridge().fit(f[m][fe.C2].fillna(0), meta.y[m]); src_c = fe.ridge().fit(f[m][["log_comments"]].fillna(0), meta.y[m])
     out, res = {}, {}
     for p, d in targets().items():
         y, g = d.y.values, d.brand.values; pr = src.predict(d[fe.C2]); e = y - pr
@@ -41,7 +41,10 @@ def main():
         for tr, te in GroupKFold(5).split(d, y, g):
             own[te] = fe.ridge().fit(d.iloc[tr][fe.C2], y[tr]).predict(d.iloc[te][fe.C2])
         mo = float(np.abs(y - own).mean()); s["own platform ridge, brand CV"] = {"MAE": round(mo, 3), "factor": round(10 ** mo, 2)}
+        s["comments only (X + YouTube ridge)"] = fe.score(src_c.predict(d[["log_comments"]]), y, g)
         out[p] = s; res[p] = ({"n": len(y), "factor": s["factor"], "within x2": s["within x2"]}, y, pr)
+    import pandas as pd
+    pd.concat([pd.DataFrame({"platform": p, "y": r[1], "pred": r[2]}) for p, r in res.items()]).to_csv(ROOT / "data/processed/results_b_preds.csv", index=False)
     (ROOT / "data/processed/results_b_numbers.json").write_text(json.dumps({"results B": out}, indent=1))
     T = {"en": ("Trained only on X and YouTube: typical error ×2.43 on Facebook, ×2.65 on Instagram",
                 "Each dot is one post; the model never saw this platform. Band: prediction within ×2.",

@@ -81,6 +81,8 @@ def figure(res, lang, plats=P, name="results_a", T=None):
 def main():
     f, meta = em.load(ROOT); res = {p: run(f, meta, p) for p in P}
     (ROOT / "data/processed/results_a_numbers.json").write_text(json.dumps({"results A": {p: r[0] for p, r in res.items()}}, indent=1))
+    import pandas as pd
+    pd.concat([pd.DataFrame({"platform": p, "y": r[1], "pred": r[2]}) for p, r in res.items()]).to_csv(ROOT / "data/processed/results_preds.csv", index=False)
     for lang in ["en", "pl"]: figure(res, lang)
     print(json.dumps({p: r[0] for p, r in res.items()}, indent=1))
 

@@ -21,6 +21,17 @@
    "own platform ridge, brand CV": {
     "MAE": 0.384,
     "factor": 2.42
+   },
+   "comments only (X + YouTube ridge)": {
+    "MAE": 0.87,
+    "CI": [
+     0.734,
+     0.994
+    ],
+    "bias": 0.484,
+    "factor": 7.41,
+    "Spearman": 0.68,
+    "posts": 402
    }
   },
   "instagram": {
@@ -44,6 +55,17 @@
    "own platform ridge, brand CV": {
     "MAE": 0.372,
     "factor": 2.36
+   },
+   "comments only (X + YouTube ridge)": {
+    "MAE": 0.791,
+    "CI": [
+     0.729,
+     0.882
+    ],
+    "bias": 0.601,
+    "factor": 6.18,
+    "Spearman": 0.65,
+    "posts": 338
    }
   }
  }
