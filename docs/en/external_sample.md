@@ -78,3 +78,18 @@ Brand search and brand channels give brand-owned videos; the Brand24 mentions ar
 collector therefore searches review/unboxing/haul/honest-review queries, removes the brand's own channel and samples top,
 mid and low views. Result: 47 videos, 12 brands, median 362 views (export: 433), **1 zero-view and 17 below 100** - so
 zeros exist, just not through brand channels. Model MAE: 0.690 low, 0.441 mid, 1.569 top; overall 0.791, bias +0.39.
+
+## X on a 10 PLN budget
+
+Rates (pay-per-use): $0.005 per post read, $0.010 per user (author) read; resources are deduplicated within a 24 h window.
+10 PLN is about $2.5-2.7, so:
+
+| what | cost | how many |
+|---|---|---|
+| posts + authors | $0.015 per post (less with author dedup) | **~165-250 posts** |
+| posts only (no followers) | $0.005 per post | ~500 posts |
+| first purchase bonus | +$20 free credits after saving a card and the first purchase (expires in 3 months) | up to **~1,500 posts with authors** |
+
+Limit that matters more than money: the pay-per-use **recent search covers only the last 7 days**; older posts need the
+full-archive endpoint, which is Enterprise-only. So a cheap X sample is a **7-day window**, not 2025-2026 history:
+either repeat a weekly sample going forward, or accept a snapshot of current mentions.

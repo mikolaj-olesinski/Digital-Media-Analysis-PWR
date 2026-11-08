@@ -77,3 +77,18 @@ Wyszukiwanie marki i kanały marek dają filmy marek; wzmianki Brand24 to posty 
 zapytań review/unboxing/haul/honest review, usuwa kanał marki i losuje warstwy top/mid/low. Wynik: 47 filmów, 12 marek,
 mediana 362 wyświetleń (eksport: 433), **1 zero i 17 poniżej 100** - czyli zera istnieją, tylko nie przez kanały marek.
 MAE modelu: 0,690 małe, 0,441 średnie, 1,569 top; całość 0,791, bias +0,39.
+
+## X w budżecie 10 zł
+
+Stawki (pay-per-use): 0,005 USD za odczyt posta, 0,010 USD za odczyt użytkownika (autora); zasoby są deduplikowane w oknie
+24 h. 10 zł to około 2,5-2,7 USD, więc:
+
+| co | koszt | ile |
+|---|---|---|
+| posty + autorzy | 0,015 USD za post (mniej przy deduplikacji autorów) | **~165-250 postów** |
+| same posty (bez followersów) | 0,005 USD za post | ~500 postów |
+| bonus za pierwszy zakup | +20 USD darmowych kredytów po dodaniu karty i pierwszym zakupie (wygasa po 3 miesiącach) | do **~1 500 postów z autorami** |
+
+Ograniczenie ważniejsze niż pieniądze: **recent search w pay-per-use obejmuje tylko ostatnie 7 dni**; starsze posty wymagają
+full archive, czyli Enterprise. Tania próbka X to więc **okno 7 dni**, a nie historia 2025-2026: albo powtarzany tygodniowy
+sampling, albo snapshot bieżących wzmianek.
