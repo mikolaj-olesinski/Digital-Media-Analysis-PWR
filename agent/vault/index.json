@@ -2677,5 +2677,17 @@
   "paths": [
    "src/e223_cross_accounts.py"
   ]
+ },
+ {
+  "id": "E224",
+  "date": "2026-11-09",
+  "question": "Is a mention really about its brand?",
+  "setup": "Four views-free detectors on all 12,500 mentions: lexical name / handle match, e5 leave-self-out centroid z, TF-IDF + e5 10-NN graphs + Louvain against the brand base rate, one-vs-rest brand classifier; rank average; 300-post blind sample by combined-score decile (ambiguous names x3, all 5 platforms), 3 blind AI passes + adjudication",
+  "result": "AUC for not_about_brand (n=287, 221 positives): lexical 0.475, embedding 0.616, graph TF-IDF 0.670, graph e5 0.693, graph 0.702, classifier 0.665, **combined 0.677 (0.589-0.763; design-weighted 0.717) - below the pre-registered 0.75, hypothesis refuted**; Fleiss kappa 0.811; precision 0.784 in the top 5% and 0.844 in the top 10% of the combined score; design-weighted off-brand share 64.3% (55.8-72.6) under the \"brand is the subject\" definition, 6.7% when the brand string is not in the text at all; model MAE 0.385 on the top-5% posts vs 0.398 elsewhere, 0.418 (not_about_brand) vs 0.380 (about_brand); dropping the top 5% removes 5% of all views, Cricket Wireless loses 50.7% of its views",
+  "type": "finding",
+  "where": "`src/offbrand.py`",
+  "paths": [
+   "src/offbrand.py"
+  ]
  }
 ]

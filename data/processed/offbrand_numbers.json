@@ -1,0 +1,932 @@
+{
+ "experiment": "E224",
+ "date": "2026-11-09",
+ "data": {
+  "mentions": 12500,
+  "brands": 348,
+  "ambiguous-name brands": 83,
+  "platforms": {
+   "TikTok": 2500,
+   "YouTube": 2500,
+   "X (Twitter)": 2500,
+   "Facebook": 2500,
+   "Instagram": 2500
+  },
+  "note": "Phase 1 reads no view, reaction or reach column."
+ },
+ "alignment check": {
+  "metric": "cosine to own-brand centroid minus cosine to a random brand's centroid",
+  "median over 500 posts": 0.031
+ },
+ "detectors": {
+  "min posts per brand (classifier)": 5,
+  "min posts per brand (embedding centroid)": 5,
+  "k neighbours": 10,
+  "smoothing": 2.0,
+  "classifier": {
+   "TikTok": {
+    "brands as classes": 239,
+    "posts scored": 2449,
+    "median P(own brand)": 0.0199,
+    "coverage": 0.98
+   },
+   "YouTube": {
+    "brands as classes": 219,
+    "posts scored": 2382,
+    "median P(own brand)": 0.0151,
+    "coverage": 0.953
+   },
+   "X (Twitter)": {
+    "brands as classes": 251,
+    "posts scored": 2450,
+    "median P(own brand)": 0.0159,
+    "coverage": 0.98
+   },
+   "Facebook": {
+    "brands as classes": 20,
+    "posts scored": 2495,
+    "median P(own brand)": 0.2936,
+    "coverage": 0.998
+   },
+   "Instagram": {
+    "brands as classes": 11,
+    "posts scored": 2500,
+    "median P(own brand)": 0.466,
+    "coverage": 1.0
+   }
+  },
+  "graph communities": {
+   "graph_tfidf TikTok": {
+    "communities": 37,
+    "median log lift": 3.584
+   },
+   "graph_e5 TikTok": {
+    "communities": 10,
+    "median log lift": 1.983
+   },
+   "graph_tfidf YouTube": {
+    "communities": 32,
+    "median log lift": 2.677
+   },
+   "graph_e5 YouTube": {
+    "communities": 13,
+    "median log lift": 1.698
+   },
+   "graph_tfidf X (Twitter)": {
+    "communities": 30,
+    "median log lift": 3.245
+   },
+   "graph_e5 X (Twitter)": {
+    "communities": 11,
+    "median log lift": 2.092
+   },
+   "graph_tfidf Facebook": {
+    "communities": 28,
+    "median log lift": 2.193
+   },
+   "graph_e5 Facebook": {
+    "communities": 16,
+    "median log lift": 2.157
+   },
+   "graph_tfidf Instagram": {
+    "communities": 20,
+    "median log lift": 1.927
+   },
+   "graph_e5 Instagram": {
+    "communities": 14,
+    "median log lift": 1.972
+   }
+  },
+  "lexical abbreviation caveat": [
+   "AB InBev",
+   "PepsiCo"
+  ]
+ },
+ "score distributions": {
+  "lex": {
+   "p0": 0.0,
+   "p10": 0.0,
+   "p25": 0.0,
+   "p50": 0.0,
+   "p75": 0.0,
+   "p90": 1.0,
+   "p95": 1.0,
+   "p99": 1.0,
+   "p100": 1.0,
+   "mean": 0.106,
+   "missing share": 0.0
+  },
+  "emb": {
+   "p0": -3.565,
+   "p10": -1.074,
+   "p25": -0.632,
+   "p50": 0.0,
+   "p75": 0.719,
+   "p90": 1.542,
+   "p95": 2.104,
+   "p99": 3.349,
+   "p100": 8.901,
+   "mean": 0.133,
+   "missing share": 0.004
+  },
+  "graph_tfidf": {
+   "p0": -5.182,
+   "p10": -3.958,
+   "p25": -3.477,
+   "p50": -2.322,
+   "p75": -1.736,
+   "p90": 0.352,
+   "p95": 1.368,
+   "p99": 3.165,
+   "p100": 4.575,
+   "mean": -2.167,
+   "missing share": 0.0
+  },
+  "graph_e5": {
+   "p0": -4.604,
+   "p10": -2.946,
+   "p25": -2.516,
+   "p50": -2.011,
+   "p75": -0.886,
+   "p90": 1.121,
+   "p95": 3.233,
+   "p99": 3.747,
+   "p100": 4.752,
+   "mean": -1.386,
+   "missing share": 0.0
+  },
+  "graph": {
+   "p0": -4.354,
+   "p10": -3.341,
+   "p25": -2.783,
+   "p50": -2.105,
+   "p75": -1.216,
+   "p90": 0.313,
+   "p95": 1.506,
+   "p99": 3.202,
+   "p100": 4.157,
+   "mean": -1.776,
+   "missing share": 0.0
+  },
+  "clf": {
+   "p0": 0.0,
+   "p10": 0.429,
+   "p25": 0.686,
+   "p50": 0.951,
+   "p75": 0.986,
+   "p90": 0.991,
+   "p95": 0.993,
+   "p99": 0.995,
+   "p100": 0.996,
+   "mean": 0.813,
+   "missing share": 0.018
+  },
+  "lex_pct": {
+   "p0": 0.447,
+   "p10": 0.447,
+   "p25": 0.447,
+   "p50": 0.447,
+   "p75": 0.447,
+   "p90": 0.947,
+   "p95": 0.947,
+   "p99": 0.947,
+   "p100": 0.947,
+   "mean": 0.5,
+   "missing share": 0.0
+  },
+  "emb_pct": {
+   "p0": 0.0,
+   "p10": 0.1,
+   "p25": 0.25,
+   "p50": 0.5,
+   "p75": 0.75,
+   "p90": 0.9,
+   "p95": 0.95,
+   "p99": 0.99,
+   "p100": 1.0,
+   "mean": 0.5,
+   "missing share": 0.004
+  },
+  "graph_tfidf_pct": {
+   "p0": 0.0,
+   "p10": 0.1,
+   "p25": 0.25,
+   "p50": 0.5,
+   "p75": 0.75,
+   "p90": 0.9,
+   "p95": 0.95,
+   "p99": 0.99,
+   "p100": 1.0,
+   "mean": 0.5,
+   "missing share": 0.0
+  },
+  "graph_e5_pct": {
+   "p0": 0.0,
+   "p10": 0.1,
+   "p25": 0.25,
+   "p50": 0.5,
+   "p75": 0.75,
+   "p90": 0.9,
+   "p95": 0.95,
+   "p99": 0.99,
+   "p100": 1.0,
+   "mean": 0.5,
+   "missing share": 0.0
+  },
+  "graph_pct": {
+   "p0": 0.001,
+   "p10": 0.152,
+   "p25": 0.295,
+   "p50": 0.501,
+   "p75": 0.705,
+   "p90": 0.849,
+   "p95": 0.91,
+   "p99": 0.975,
+   "p100": 1.0,
+   "mean": 0.5,
+   "missing share": 0.0
+  },
+  "clf_pct": {
+   "p0": 0.0,
+   "p10": 0.1,
+   "p25": 0.25,
+   "p50": 0.5,
+   "p75": 0.75,
+   "p90": 0.9,
+   "p95": 0.95,
+   "p99": 0.99,
+   "p100": 1.0,
+   "mean": 0.5,
+   "missing share": 0.018
+  },
+  "combined": {
+   "p0": 0.132,
+   "p10": 0.296,
+   "p25": 0.382,
+   "p50": 0.492,
+   "p75": 0.613,
+   "p90": 0.716,
+   "p95": 0.772,
+   "p99": 0.877,
+   "p100": 0.98,
+   "mean": 0.5,
+   "missing share": 0.0
+  }
+ },
+ "spearman": {
+  "lex_pct vs emb_pct": {
+   "spearman": 0.025,
+   "n": 12451
+  },
+  "lex_pct vs graph_tfidf_pct": {
+   "spearman": 0.048,
+   "n": 12500
+  },
+  "lex_pct vs graph_e5_pct": {
+   "spearman": 0.047,
+   "n": 12500
+  },
+  "lex_pct vs graph_pct": {
+   "spearman": 0.05,
+   "n": 12500
+  },
+  "lex_pct vs clf_pct": {
+   "spearman": 0.062,
+   "n": 12276
+  },
+  "emb_pct vs graph_tfidf_pct": {
+   "spearman": 0.159,
+   "n": 12451
+  },
+  "emb_pct vs graph_e5_pct": {
+   "spearman": 0.251,
+   "n": 12451
+  },
+  "emb_pct vs graph_pct": {
+   "spearman": 0.232,
+   "n": 12451
+  },
+  "emb_pct vs clf_pct": {
+   "spearman": 0.209,
+   "n": 12276
+  },
+  "graph_tfidf_pct vs graph_e5_pct": {
+   "spearman": 0.544,
+   "n": 12500
+  },
+  "graph_tfidf_pct vs graph_pct": {
+   "spearman": 0.877,
+   "n": 12500
+  },
+  "graph_tfidf_pct vs clf_pct": {
+   "spearman": 0.416,
+   "n": 12276
+  },
+  "graph_e5_pct vs graph_pct": {
+   "spearman": 0.877,
+   "n": 12500
+  },
+  "graph_e5_pct vs clf_pct": {
+   "spearman": 0.399,
+   "n": 12276
+  },
+  "graph_pct vs clf_pct": {
+   "spearman": 0.465,
+   "n": 12276
+  },
+  "mean pairwise spearman": 0.311,
+  "all four on one post": 12276,
+  "top-10% jaccard with combined": {
+   "lex_pct": 0.216,
+   "emb_pct": 0.243,
+   "graph_tfidf_pct": 0.308,
+   "graph_e5_pct": 0.279,
+   "graph_pct": 0.293,
+   "clf_pct": 0.302
+  }
+ },
+ "phase1 brands": {
+  "top by share of posts in the top decile of combined": [
+   {
+    "brand": "HBO Max",
+    "mentions": 20,
+    "mean_percentile": 0.637,
+    "share_top_decile": 0.6
+   },
+   {
+    "brand": "AB InBev",
+    "mentions": 22,
+    "mean_percentile": 0.868,
+    "share_top_decile": 0.545
+   },
+   {
+    "brand": "AT&T",
+    "mentions": 24,
+    "mean_percentile": 0.829,
+    "share_top_decile": 0.5
+   },
+   {
+    "brand": "Huntington Bank",
+    "mentions": 28,
+    "mean_percentile": 0.833,
+    "share_top_decile": 0.429
+   },
+   {
+    "brand": "X",
+    "mentions": 26,
+    "mean_percentile": 0.807,
+    "share_top_decile": 0.423
+   },
+   {
+    "brand": "Twilio",
+    "mentions": 99,
+    "mean_percentile": 0.787,
+    "share_top_decile": 0.394
+   },
+   {
+    "brand": "U.S. Bank",
+    "mentions": 24,
+    "mean_percentile": 0.711,
+    "share_top_decile": 0.333
+   },
+   {
+    "brand": "H&M",
+    "mentions": 24,
+    "mean_percentile": 0.787,
+    "share_top_decile": 0.333
+   },
+   {
+    "brand": "Keurig Dr Pepper",
+    "mentions": 42,
+    "mean_percentile": 0.685,
+    "share_top_decile": 0.31
+   },
+   {
+    "brand": "Kontoor Brands",
+    "mentions": 26,
+    "mean_percentile": 0.721,
+    "share_top_decile": 0.308
+   },
+   {
+    "brand": "Hershey's",
+    "mentions": 33,
+    "mean_percentile": 0.741,
+    "share_top_decile": 0.303
+   },
+   {
+    "brand": "Burlington",
+    "mentions": 20,
+    "mean_percentile": 0.644,
+    "share_top_decile": 0.3
+   },
+   {
+    "brand": "General Mills",
+    "mentions": 24,
+    "mean_percentile": 0.727,
+    "share_top_decile": 0.292
+   },
+   {
+    "brand": "Citibank",
+    "mentions": 36,
+    "mean_percentile": 0.784,
+    "share_top_decile": 0.278
+   },
+   {
+    "brand": "Marriott",
+    "mentions": 30,
+    "mean_percentile": 0.476,
+    "share_top_decile": 0.267
+   },
+   {
+    "brand": "PVH",
+    "mentions": 30,
+    "mean_percentile": 0.508,
+    "share_top_decile": 0.267
+   },
+   {
+    "brand": "First Watch",
+    "mentions": 23,
+    "mean_percentile": 0.669,
+    "share_top_decile": 0.261
+   },
+   {
+    "brand": "Nike",
+    "mentions": 20,
+    "mean_percentile": 0.625,
+    "share_top_decile": 0.25
+   },
+   {
+    "brand": "Kellogg's",
+    "mentions": 42,
+    "mean_percentile": 0.587,
+    "share_top_decile": 0.238
+   },
+   {
+    "brand": "Bed Bath & Beyond",
+    "mentions": 21,
+    "mean_percentile": 0.553,
+    "share_top_decile": 0.238
+   }
+  ],
+  "brands considered": 202,
+  "brands total": 348
+ },
+ "sample design": {
+  "sample": 300,
+  "seed": 42,
+  "per decile": {
+   "1": 15,
+   "2": 15,
+   "3": 15,
+   "4": 15,
+   "5": 15,
+   "6": 25,
+   "7": 25,
+   "8": 25,
+   "9": 50,
+   "10": 100
+  },
+  "per platform": {
+   "TikTok": 53,
+   "YouTube": 59,
+   "X (Twitter)": 68,
+   "Facebook": 65,
+   "Instagram": 55
+  },
+  "ambiguous-name brands in sample": 135,
+  "asks per decile": {
+   "1": 15,
+   "2": 15,
+   "3": 15,
+   "4": 15,
+   "5": 15,
+   "6": 25,
+   "7": 25,
+   "8": 25,
+   "9": 50,
+   "10": 100
+  },
+  "ambiguous weight": 3.0,
+  "brand cap per decile": 4,
+  "brand cap overall": 10,
+  "blind passes": {
+   "A": 3,
+   "B": 3,
+   "C": 3
+  }
+ },
+ "files": {
+  "scores": "data/processed/offbrand_scores.csv",
+  "sample": "data/processed/offbrand_sample.csv",
+  "blind passes": "data/manual/offbrand_passes/"
+ },
+ "validation": {
+  "labels": {
+   "rows": 300,
+   "ai generated": true,
+   "note": "AI labels, awaiting a team member's check",
+   "counts": {
+    "not_about_brand": 221,
+    "about_brand": 66,
+    "unclear": 13
+   },
+   "share not_about_brand (sample)": 0.737,
+   "disputed": 34,
+   "unanimous": 266,
+   "adjudication sided with the majority": 0.618,
+   "by decile": {
+    "1": {
+     "not_about_brand": 7,
+     "about_brand": 6,
+     "unclear": 2
+    },
+    "2": {
+     "about_brand": 8,
+     "not_about_brand": 7
+    },
+    "3": {
+     "not_about_brand": 7,
+     "about_brand": 7,
+     "unclear": 1
+    },
+    "4": {
+     "not_about_brand": 7,
+     "about_brand": 7,
+     "unclear": 1
+    },
+    "5": {
+     "about_brand": 9,
+     "not_about_brand": 5,
+     "unclear": 1
+    },
+    "6": {
+     "not_about_brand": 20,
+     "about_brand": 4,
+     "unclear": 1
+    },
+    "7": {
+     "not_about_brand": 22,
+     "about_brand": 3
+    },
+    "8": {
+     "not_about_brand": 22,
+     "about_brand": 3
+    },
+    "9": {
+     "not_about_brand": 43,
+     "about_brand": 4,
+     "unclear": 3
+    },
+    "10": {
+     "not_about_brand": 81,
+     "about_brand": 15,
+     "unclear": 4
+    }
+   }
+  },
+  "kappa": {
+   "fleiss": 0.811,
+   "agreement all three equal": 0.887,
+   "pairwise cohen": {
+    "AB": 0.804,
+    "AC": 0.816,
+    "BC": 0.814
+   },
+   "n": 300
+  },
+  "auc": {
+   "lexical": {
+    "auc": 0.475,
+    "low": 0.422,
+    "high": 0.525,
+    "n": 287,
+    "not_about": 221,
+    "auc design-weighted": 0.533
+   },
+   "embedding": {
+    "auc": 0.616,
+    "low": 0.543,
+    "high": 0.686,
+    "n": 287,
+    "not_about": 221,
+    "auc design-weighted": 0.53
+   },
+   "graph TF-IDF": {
+    "auc": 0.67,
+    "low": 0.592,
+    "high": 0.738,
+    "n": 287,
+    "not_about": 221,
+    "auc design-weighted": 0.634
+   },
+   "graph e5": {
+    "auc": 0.693,
+    "low": 0.622,
+    "high": 0.767,
+    "n": 287,
+    "not_about": 221,
+    "auc design-weighted": 0.742
+   },
+   "graph (both)": {
+    "auc": 0.702,
+    "low": 0.628,
+    "high": 0.773,
+    "n": 287,
+    "not_about": 221,
+    "auc design-weighted": 0.719
+   },
+   "classifier": {
+    "auc": 0.665,
+    "low": 0.584,
+    "high": 0.747,
+    "n": 284,
+    "not_about": 219,
+    "auc design-weighted": 0.686
+   },
+   "combined": {
+    "auc": 0.677,
+    "low": 0.589,
+    "high": 0.763,
+    "n": 287,
+    "not_about": 221,
+    "auc design-weighted": 0.717
+   },
+   "combined without lexical (post-hoc)": {
+    "auc": 0.697,
+    "low": 0.619,
+    "high": 0.775,
+    "n": 287,
+    "not_about": 221,
+    "auc design-weighted": 0.694
+   }
+  },
+  "precision": {
+   "top 5%": {
+    "posts in the population": 626,
+    "labelled posts in the region": 54,
+    "labelled": 54,
+    "unclear": 3,
+    "precision (unclear excluded)": 0.784,
+    "precision (unclear as not off-brand)": 0.741,
+    "share of all not_about_brand labels in the region": 0.181
+   },
+   "top 10%": {
+    "posts in the population": 1251,
+    "labelled posts in the region": 100,
+    "labelled": 100,
+    "unclear": 4,
+    "precision (unclear excluded)": 0.844,
+    "precision (unclear as not off-brand)": 0.81,
+    "share of all not_about_brand labels in the region": 0.367
+   }
+  },
+  "population estimate": {
+   "excluding unclear": {
+    "estimate": 0.643,
+    "n": 287,
+    "low": 0.558,
+    "high": 0.726
+   },
+   "unclear as not off-brand": {
+    "estimate": 0.615,
+    "n": 300,
+    "low": 0.537,
+    "high": 0.698
+   },
+   "unclear share (design-weighted)": 0.043,
+   "conservative lower bound: off-brand and no brand string in the text": {
+    "estimate": 0.067,
+    "n": 300,
+    "note": "a false match that even a name-only check can see; the rest of the off-brand posts do name the keyword"
+   }
+  },
+  "per platform": {
+   "TikTok": {
+    "labelled": 53,
+    "not_about_brand": 42,
+    "share not_about_brand": 0.792,
+    "unclear": 3,
+    "design-weighted share": 0.588
+   },
+   "YouTube": {
+    "labelled": 59,
+    "not_about_brand": 48,
+    "share not_about_brand": 0.814,
+    "unclear": 2,
+    "design-weighted share": 0.708
+   },
+   "X (Twitter)": {
+    "labelled": 68,
+    "not_about_brand": 48,
+    "share not_about_brand": 0.706,
+    "unclear": 2,
+    "design-weighted share": 0.638
+   },
+   "Facebook": {
+    "labelled": 65,
+    "not_about_brand": 37,
+    "share not_about_brand": 0.569,
+    "unclear": 5,
+    "design-weighted share": 0.443
+   },
+   "Instagram": {
+    "labelled": 55,
+    "not_about_brand": 46,
+    "share not_about_brand": 0.836,
+    "unclear": 1,
+    "design-weighted share": 0.773
+   }
+  },
+  "per brand": {
+   "brands with >= 5 labelled posts": 12,
+   "top": [
+    {
+     "brand": "Dodge",
+     "labelled": 6,
+     "not_about": 6,
+     "share": 1.0
+    },
+    {
+     "brand": "Mollie",
+     "labelled": 10,
+     "not_about": 9,
+     "share": 1.0
+    },
+    {
+     "brand": "PayPal",
+     "labelled": 10,
+     "not_about": 10,
+     "share": 1.0
+    },
+    {
+     "brand": "Avanza",
+     "labelled": 10,
+     "not_about": 9,
+     "share": 0.9
+    },
+    {
+     "brand": "Hootsuite",
+     "labelled": 9,
+     "not_about": 8,
+     "share": 0.889
+    },
+    {
+     "brand": "MailerLite",
+     "labelled": 6,
+     "not_about": 5,
+     "share": 0.833
+    },
+    {
+     "brand": "Stripe",
+     "labelled": 10,
+     "not_about": 8,
+     "share": 0.8
+    },
+    {
+     "brand": "Adidas",
+     "labelled": 10,
+     "not_about": 7,
+     "share": 0.7
+    },
+    {
+     "brand": "eToro",
+     "labelled": 10,
+     "not_about": 6,
+     "share": 0.667
+    },
+    {
+     "brand": "Motorola",
+     "labelled": 9,
+     "not_about": 6,
+     "share": 0.667
+    },
+    {
+     "brand": "Monster Energy",
+     "labelled": 10,
+     "not_about": 3,
+     "share": 0.3
+    },
+    {
+     "brand": "The North Face",
+     "labelled": 10,
+     "not_about": 2,
+     "share": 0.222
+    }
+   ]
+  },
+  "model error": {
+   "top 5% of combined": {
+    "posts": 444,
+    "MAE log10": 0.385,
+    "factor": 2.42,
+    "low": 0.35,
+    "high": 0.419,
+    "median bias (+ = over)": 0.022,
+    "median views": 300.0
+   },
+   "rest": {
+    "posts": 6291,
+    "MAE log10": 0.398,
+    "factor": 2.5,
+    "low": 0.385,
+    "high": 0.412,
+    "median bias (+ = over)": 0.002,
+    "median views": 319.0
+   },
+   "top 5% TikTok": {
+    "posts": 162,
+    "MAE log10": 0.282,
+    "rest MAE log10": 0.272,
+    "median bias (+ = over)": -0.004
+   },
+   "top 5% YouTube": {
+    "posts": 161,
+    "MAE log10": 0.45,
+    "rest MAE log10": 0.463,
+    "median bias (+ = over)": 0.041
+   },
+   "top 5% X (Twitter)": {
+    "posts": 121,
+    "MAE log10": 0.435,
+    "rest MAE log10": 0.485,
+    "median bias (+ = over)": 0.091
+   },
+   "labelled about_brand": {
+    "posts": 49,
+    "MAE log10": 0.38,
+    "factor": 2.4,
+    "low": 0.286,
+    "high": 0.499,
+    "median bias (+ = over)": 0.116
+   },
+   "labelled not_about_brand": {
+    "posts": 131,
+    "MAE log10": 0.418,
+    "factor": 2.62,
+    "low": 0.359,
+    "high": 0.484,
+    "median bias (+ = over)": -0.071
+   }
+  },
+  "brand totals": {
+   "brands with >= 5 posts with views": 319,
+   "posts": 6735,
+   "median share of a brand's views kept": 0.998,
+   "brands losing > 10% of views": 0.15,
+   "brands losing > 25% of views": 0.085,
+   "all-brand views kept": 0.95,
+   "largest absolute losses": [
+    {
+     "brand": "Cricket Wireless",
+     "posts": 48,
+     "share of views dropped": 0.507
+    },
+    {
+     "brand": "Subaru",
+     "posts": 35,
+     "share of views dropped": 0.807
+    },
+    {
+     "brand": "Dairy Queen",
+     "posts": 38,
+     "share of views dropped": 0.253
+    },
+    {
+     "brand": "Samsung",
+     "posts": 50,
+     "share of views dropped": 0.348
+    },
+    {
+     "brand": "Dunkin",
+     "posts": 15,
+     "share of views dropped": 0.983
+    },
+    {
+     "brand": "Dunkin'",
+     "posts": 28,
+     "share of views dropped": 0.803
+    },
+    {
+     "brand": "YouTube",
+     "posts": 28,
+     "share of views dropped": 0.515
+    },
+    {
+     "brand": "Pinterest",
+     "posts": 40,
+     "share of views dropped": 0.03
+    },
+    {
+     "brand": "Southwest",
+     "posts": 5,
+     "share of views dropped": 0.983
+    },
+    {
+     "brand": "Authentic Brands Group",
+     "posts": 33,
+     "share of views dropped": 0.405
+    }
+   ]
+  }
+ }
+}

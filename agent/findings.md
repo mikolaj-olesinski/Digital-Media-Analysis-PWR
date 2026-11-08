@@ -191,7 +191,7 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
 ## Data quality notes
 - On X, posts from 2025 almost never have a view count (12 of 170) and missing counts go with a late check; missing/zero views are predictable (AUC 0.91-0.95), so they look like a collection artefact. On TikTok and YouTube the Brand24 reach column equals the view count. (E48)
 - Duplicates or near-duplicates are 6-14% of posts; on X 38% of them are spam against 9% overall. (E08)
-- False brand matches exist (Cricket Wireless: 0 of 20 mentions about the company); frequency across the data is unknown. (E22, E35, E37)
+- False brand matches are not a curiosity. On a 300-post AI-labelled sample (Fleiss kappa 0.81, labels unchecked by a person) **64% of mentions are not about their brand** under the definition "the brand must be the subject" (95% CI 56-73; 62% if unclear counts as on-brand), and 7% do not even contain the brand string. The off-brand rate is already 36-54% in the least suspicious score deciles. Views-free detectors flag the extreme but not the middle: AUC 0.68 for the combined score (design-weighted 0.72, below the pre-registered 0.75; best single detector, the e5 text graph, 0.69), precision 0.78 in the top 5% and 0.84 in the top 10%; dropping those posts does not improve the view model (MAE 0.385 on the top 5% vs 0.398 elsewhere; 0.418 for not_about_brand vs 0.380 for about_brand). **likely** (E224; examples in E22, E35, E37)
 - About 21% of YouTube mentions are transcripts starting with a time stamp. (E23)
 - Labels: three AI coders agree with kappa 0.77-0.79 on type, 0.71-0.73 on sentiment; there is no human gold standard. (L1)
 - Brand24's Facebook comments are close to absent (6 of 152 posts non-zero, 22 in total) while the pages show thousands; FB `likes` also differ from the page's total reactions. On Instagram 0 of 160 posts expose a view count without a login, 115 give likes and comments. (B24)
@@ -272,7 +272,7 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
 
 - **Instagram**: no public views (0/160 anonymous); a manual sample, a login or a provider is needed. Everything else in
   the plan was run (see `docs/en/plan_status.md`).
-- **False brand matches**: documented on examples only; a detector needs 100-200 hand labels (backlog B15).
+- **False brand matches**: detector, blind 300-post sample, guide and AI labels exist (E224); the remaining gap is a human check of those labels (B31).
 - E222: the headline in-platform result now uses folds that keep authors and copied texts apart; X is 0.482 (x3.03) instead of 0.470, TikTok and YouTube unchanged.
 - E210/E211/E213: train the transfer on views and reactions read together at an age close to the target's. Re-read X + YouTube brings IG from x2.72 to x2.41 (= IG's own ridge) with no target posts; FB stays x2.44; under-prediction of large posts and brand totals halved. Moving export views alone to the later age does not reproduce it and breaks FB (+0.10). With re-read labels YouTube as a target goes x4.1 -> x2.2 and X x4.4 -> x3.0, so much of "X / YouTube don't transfer" was stale export labels. likely
 - E212: tail under-prediction is not attenuation from noisy likes (2SLS slope = OLS, 0.97); errors-in-variables corrections cost MAE; variance matching fixes brand totals but hurts TikTok / YouTube out of platform. likely

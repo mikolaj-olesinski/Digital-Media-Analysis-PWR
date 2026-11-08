@@ -225,3 +225,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E225 | finding | Does the X + YouTube ridge on likes + comments estimate Stack Exchange question views (sixth platform, evaluation only)? | [E225](E225.md) |
 | E226 | finding | Information ladder: what each input buys | [E226](E226.md) |
 | E223 | finding | Do our FB / IG post owners have the same account on YouTube or X? | [E223](E223.md) |
+| E224 | finding | Is a mention really about its brand? | [E224](E224.md) |
