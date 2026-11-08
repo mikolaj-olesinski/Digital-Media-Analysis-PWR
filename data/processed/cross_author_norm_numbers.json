@@ -1,0 +1,114 @@
+{
+ "E221": {
+  "posts": 12500,
+  "labelled posts": {
+   "tiktok": 2491,
+   "youtube": 2489,
+   "twitter": 2308,
+   "facebook": 402,
+   "instagram": 642
+  },
+  "share with a name key": {
+   "tiktok": 1.0,
+   "youtube": 0.996,
+   "twitter": 1.0,
+   "facebook": 0.72,
+   "instagram": 0.082
+  },
+  "share with a handle key": {
+   "tiktok": 1.0,
+   "youtube": 0.001,
+   "twitter": 1.0,
+   "facebook": 0.0,
+   "instagram": 0.082
+  },
+  "matching": {
+   "name": {
+    "keys on 2+ platforms": 31,
+    "keys on 3+ platforms": 1,
+    "posts (all) whose key is on another platform": {
+     "tiktok": 7,
+     "youtube": 28,
+     "twitter": 7,
+     "facebook": 78,
+     "instagram": 24
+    },
+    "labelled posts whose key is on another platform": {
+     "tiktok": 7,
+     "youtube": 28,
+     "twitter": 7,
+     "facebook": 30,
+     "instagram": 10
+    },
+    "labelled posts with a labelled post of the same key on another platform": {
+     "tiktok": 7,
+     "youtube": 19,
+     "twitter": 3,
+     "facebook": 25,
+     "instagram": 2
+    },
+    "share of labelled posts matched": 0.0098,
+    "share of labelled posts with a labelled cross-platform post": 0.0067
+   },
+   "handle": {
+    "keys on 2+ platforms": 1,
+    "keys on 3+ platforms": 0,
+    "posts (all) whose key is on another platform": {
+     "tiktok": 1,
+     "youtube": 0,
+     "twitter": 1,
+     "facebook": 0,
+     "instagram": 0
+    },
+    "labelled posts whose key is on another platform": {
+     "tiktok": 1,
+     "youtube": 0,
+     "twitter": 1,
+     "facebook": 0,
+     "instagram": 0
+    },
+    "labelled posts with a labelled post of the same key on another platform": {
+     "tiktok": 1,
+     "youtube": 0,
+     "twitter": 1,
+     "facebook": 0,
+     "instagram": 0
+    },
+    "share of labelled posts matched": 0.0002,
+    "share of labelled posts with a labelled cross-platform post": 0.0002
+   },
+   "name or handle": {
+    "keys on 2+ platforms": 31,
+    "keys on 3+ platforms": 1,
+    "posts (all) whose key is on another platform": {
+     "tiktok": 7,
+     "youtube": 28,
+     "twitter": 7,
+     "facebook": 78,
+     "instagram": 24
+    },
+    "labelled posts whose key is on another platform": {
+     "tiktok": 7,
+     "youtube": 28,
+     "twitter": 7,
+     "facebook": 30,
+     "instagram": 10
+    },
+    "labelled posts with a labelled post of the same key on another platform": {
+     "tiktok": 7,
+     "youtube": 19,
+     "twitter": 3,
+     "facebook": 25,
+     "instagram": 2
+    },
+    "share of labelled posts matched": 0.0098,
+    "share of labelled posts with a labelled cross-platform post": 0.0067
+   }
+  },
+  "gate": {
+   "threshold": 0.02,
+   "share (name or handle, labelled on another platform)": 0.0067,
+   "passed": false
+  }
+ }
+}

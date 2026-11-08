@@ -1,0 +1,9580 @@
+{
+ "E219": {
+  "n": {
+   "tiktok": 2491,
+   "youtube": 2441,
+   "x_reread": 2013,
+   "twitter": 1803,
+   "instagram": 642,
+   "facebook": 402
+  },
+  "zero = likes": {
+   "twitter -> facebook": {
+    "zero-like share source": 0.621,
+    "zero-like share target": 0.062,
+    "base": {
+     "n": 402,
+     "MAE": 0.487,
+     "factor": 3.07,
+     "CI": [
+      0.42,
+      0.536
+     ],
+     "median bias (+ = under)": -0.225,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.498,
+      "factor": 3.15,
+      "CI": [
+       0.394,
+       0.648
+      ],
+      "median bias (+ = under)": 0.084
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.486,
+      "factor": 3.06,
+      "CI": [
+       0.411,
+       0.54
+      ],
+      "median bias (+ = under)": -0.236
+     }
+    },
+    "drop": {
+     "n": 402,
+     "MAE": 0.451,
+     "factor": 2.82,
+     "CI": [
+      0.396,
+      0.5
+     ],
+     "median bias (+ = under)": -0.183,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.497,
+      "factor": 3.14,
+      "CI": [
+       0.393,
+       0.653
+      ],
+      "median bias (+ = under)": 0.068
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.448,
+      "factor": 2.8,
+      "CI": [
+       0.387,
+       0.502
+      ],
+      "median bias (+ = under)": -0.184
+     },
+     "paired diff vs base": {
+      "diff": -0.036,
+      "CI": [
+       -0.078,
+       0.006
+      ]
+     }
+    },
+    "two-part": {
+     "n": 402,
+     "MAE": 0.451,
+     "factor": 2.83,
+     "CI": [
+      0.397,
+      0.5
+     ],
+     "median bias (+ = under)": -0.182,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.502,
+      "factor": 3.17,
+      "CI": [
+       0.397,
+       0.664
+      ],
+      "median bias (+ = under)": 0.125
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.448,
+      "factor": 2.8,
+      "CI": [
+       0.387,
+       0.502
+      ],
+      "median bias (+ = under)": -0.184
+     },
+     "paired diff vs base": {
+      "diff": -0.036,
+      "CI": [
+       -0.078,
+       0.006
+      ]
+     }
+    }
+   },
+   "twitter -> instagram": {
+    "zero-like share source": 0.621,
+    "zero-like share target": 0.123,
+    "base": {
+     "n": 642,
+     "MAE": 0.438,
+     "factor": 2.74,
+     "CI": [
+      0.402,
+      0.473
+     ],
+     "median bias (+ = under)": 0.087,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.717,
+      "factor": 5.22,
+      "CI": [
+       0.651,
+       0.779
+      ],
+      "median bias (+ = under)": 0.622
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.398,
+      "factor": 2.5,
+      "CI": [
+       0.371,
+       0.423
+      ],
+      "median bias (+ = under)": 0.06
+     }
+    },
+    "drop": {
+     "n": 642,
+     "MAE": 0.425,
+     "factor": 2.66,
+     "CI": [
+      0.386,
+      0.459
+     ],
+     "median bias (+ = under)": 0.076,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.711,
+      "factor": 5.14,
+      "CI": [
+       0.648,
+       0.769
+      ],
+      "median bias (+ = under)": 0.606
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.385,
+      "factor": 2.43,
+      "CI": [
+       0.358,
+       0.41
+      ],
+      "median bias (+ = under)": 0.062
+     },
+     "paired diff vs base": {
+      "diff": -0.012,
+      "CI": [
+       -0.018,
+       -0.006
+      ]
+     }
+    },
+    "two-part": {
+     "n": 642,
+     "MAE": 0.428,
+     "factor": 2.68,
+     "CI": [
+      0.388,
+      0.466
+     ],
+     "median bias (+ = under)": 0.079,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.733,
+      "factor": 5.41,
+      "CI": [
+       0.659,
+       0.805
+      ],
+      "median bias (+ = under)": 0.663
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.385,
+      "factor": 2.43,
+      "CI": [
+       0.358,
+       0.41
+      ],
+      "median bias (+ = under)": 0.062
+     },
+     "paired diff vs base": {
+      "diff": -0.01,
+      "CI": [
+       -0.016,
+       -0.003
+      ]
+     }
+    }
+   },
+   "twitter -> tiktok": {
+    "zero-like share source": 0.621,
+    "zero-like share target": 0.037,
+    "base": {
+     "n": 2491,
+     "MAE": 0.529,
+     "factor": 3.38,
+     "CI": [
+      0.511,
+      0.547
+     ],
+     "median bias (+ = under)": -0.299,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.703,
+      "factor": 5.04,
+      "CI": [
+       0.625,
+       0.782
+      ],
+      "median bias (+ = under)": 0.678
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.522,
+      "factor": 3.33,
+      "CI": [
+       0.503,
+       0.544
+      ],
+      "median bias (+ = under)": -0.318
+     }
+    },
+    "drop": {
+     "n": 2491,
+     "MAE": 0.503,
+     "factor": 3.19,
+     "CI": [
+      0.487,
+      0.518
+     ],
+     "median bias (+ = under)": -0.293,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.695,
+      "factor": 4.96,
+      "CI": [
+       0.616,
+       0.772
+      ],
+      "median bias (+ = under)": 0.662
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.496,
+      "factor": 3.13,
+      "CI": [
+       0.478,
+       0.517
+      ],
+      "median bias (+ = under)": -0.311
+     },
+     "paired diff vs base": {
+      "diff": -0.026,
+      "CI": [
+       -0.03,
+       -0.022
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2491,
+     "MAE": 0.504,
+     "factor": 3.19,
+     "CI": [
+      0.488,
+      0.52
+     ],
+     "median bias (+ = under)": -0.293,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.728,
+      "factor": 5.34,
+      "CI": [
+       0.648,
+       0.807
+      ],
+      "median bias (+ = under)": 0.719
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.496,
+      "factor": 3.13,
+      "CI": [
+       0.478,
+       0.517
+      ],
+      "median bias (+ = under)": -0.311
+     },
+     "paired diff vs base": {
+      "diff": -0.025,
+      "CI": [
+       -0.029,
+       -0.021
+      ]
+     }
+    }
+   },
+   "twitter -> youtube": {
+    "zero-like share source": 0.621,
+    "zero-like share target": 0.291,
+    "base": {
+     "n": 2441,
+     "MAE": 0.742,
+     "factor": 5.52,
+     "CI": [
+      0.707,
+      0.783
+     ],
+     "median bias (+ = under)": -0.229,
+     "zero-like rows": {
+      "n": 711,
+      "MAE": 1.191,
+      "factor": 15.54,
+      "CI": [
+       1.105,
+       1.275
+      ],
+      "median bias (+ = under)": 0.804
+     },
+     "non-zero rows": {
+      "n": 1730,
+      "MAE": 0.557,
+      "factor": 3.6,
+      "CI": [
+       0.534,
+       0.577
+      ],
+      "median bias (+ = under)": -0.4
+     }
+    },
+    "drop": {
+     "n": 2441,
+     "MAE": 0.705,
+     "factor": 5.08,
+     "CI": [
+      0.672,
+      0.745
+     ],
+     "median bias (+ = under)": -0.208,
+     "zero-like rows": {
+      "n": 711,
+      "MAE": 1.196,
+      "factor": 15.69,
+      "CI": [
+       1.107,
+       1.278
+      ],
+      "median bias (+ = under)": 0.793
+     },
+     "non-zero rows": {
+      "n": 1730,
+      "MAE": 0.504,
+      "factor": 3.19,
+      "CI": [
+       0.485,
+       0.522
+      ],
+      "median bias (+ = under)": -0.358
+     },
+     "paired diff vs base": {
+      "diff": -0.036,
+      "CI": [
+       -0.041,
+       -0.031
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2441,
+     "MAE": 0.711,
+     "factor": 5.14,
+     "CI": [
+      0.677,
+      0.751
+     ],
+     "median bias (+ = under)": -0.199,
+     "zero-like rows": {
+      "n": 711,
+      "MAE": 1.214,
+      "factor": 16.37,
+      "CI": [
+       1.122,
+       1.298
+      ],
+      "median bias (+ = under)": 0.845
+     },
+     "non-zero rows": {
+      "n": 1730,
+      "MAE": 0.504,
+      "factor": 3.19,
+      "CI": [
+       0.485,
+       0.522
+      ],
+      "median bias (+ = under)": -0.358
+     },
+     "paired diff vs base": {
+      "diff": -0.031,
+      "CI": [
+       -0.036,
+       -0.025
+      ]
+     }
+    }
+   },
+   "x_reread -> facebook": {
+    "zero-like share source": 0.522,
+    "zero-like share target": 0.062,
+    "base": {
+     "n": 402,
+     "MAE": 0.52,
+     "factor": 3.31,
+     "CI": [
+      0.464,
+      0.57
+     ],
+     "median bias (+ = under)": -0.39,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.529,
+      "factor": 3.38,
+      "CI": [
+       0.378,
+       0.644
+      ],
+      "median bias (+ = under)": -0.219
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.52,
+      "factor": 3.31,
+      "CI": [
+       0.461,
+       0.57
+      ],
+      "median bias (+ = under)": -0.391
+     }
+    },
+    "drop": {
+     "n": 402,
+     "MAE": 0.488,
+     "factor": 3.08,
+     "CI": [
+      0.442,
+      0.526
+     ],
+     "median bias (+ = under)": -0.346,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.532,
+      "factor": 3.41,
+      "CI": [
+       0.378,
+       0.643
+      ],
+      "median bias (+ = under)": -0.239
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.485,
+      "factor": 3.06,
+      "CI": [
+       0.433,
+       0.527
+      ],
+      "median bias (+ = under)": -0.346
+     },
+     "paired diff vs base": {
+      "diff": -0.032,
+      "CI": [
+       -0.062,
+       -0.005
+      ]
+     }
+    },
+    "two-part": {
+     "n": 402,
+     "MAE": 0.488,
+     "factor": 3.07,
+     "CI": [
+      0.441,
+      0.526
+     ],
+     "median bias (+ = under)": -0.344,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.524,
+      "factor": 3.34,
+      "CI": [
+       0.388,
+       0.635
+      ],
+      "median bias (+ = under)": -0.204
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.485,
+      "factor": 3.06,
+      "CI": [
+       0.433,
+       0.527
+      ],
+      "median bias (+ = under)": -0.346
+     },
+     "paired diff vs base": {
+      "diff": -0.033,
+      "CI": [
+       -0.063,
+       -0.006
+      ]
+     }
+    }
+   },
+   "x_reread -> instagram": {
+    "zero-like share source": 0.522,
+    "zero-like share target": 0.123,
+    "base": {
+     "n": 642,
+     "MAE": 0.406,
+     "factor": 2.55,
+     "CI": [
+      0.37,
+      0.442
+     ],
+     "median bias (+ = under)": -0.068,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.635,
+      "factor": 4.31,
+      "CI": [
+       0.577,
+       0.703
+      ],
+      "median bias (+ = under)": 0.319
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.374,
+      "factor": 2.37,
+      "CI": [
+       0.332,
+       0.404
+      ],
+      "median bias (+ = under)": -0.083
+     }
+    },
+    "drop": {
+     "n": 642,
+     "MAE": 0.398,
+     "factor": 2.5,
+     "CI": [
+      0.36,
+      0.435
+     ],
+     "median bias (+ = under)": -0.062,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.632,
+      "factor": 4.28,
+      "CI": [
+       0.568,
+       0.703
+      ],
+      "median bias (+ = under)": 0.299
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.365,
+      "factor": 2.32,
+      "CI": [
+       0.324,
+       0.397
+      ],
+      "median bias (+ = under)": -0.07
+     },
+     "paired diff vs base": {
+      "diff": -0.008,
+      "CI": [
+       -0.013,
+       -0.004
+      ]
+     }
+    },
+    "two-part": {
+     "n": 642,
+     "MAE": 0.399,
+     "factor": 2.51,
+     "CI": [
+      0.36,
+      0.437
+     ],
+     "median bias (+ = under)": -0.061,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.638,
+      "factor": 4.34,
+      "CI": [
+       0.583,
+       0.704
+      ],
+      "median bias (+ = under)": 0.334
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.365,
+      "factor": 2.32,
+      "CI": [
+       0.324,
+       0.397
+      ],
+      "median bias (+ = under)": -0.07
+     },
+     "paired diff vs base": {
+      "diff": -0.008,
+      "CI": [
+       -0.012,
+       -0.003
+      ]
+     }
+    }
+   },
+   "x_reread -> tiktok": {
+    "zero-like share source": 0.522,
+    "zero-like share target": 0.037,
+    "base": {
+     "n": 2491,
+     "MAE": 0.542,
+     "factor": 3.48,
+     "CI": [
+      0.524,
+      0.56
+     ],
+     "median bias (+ = under)": -0.419,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.559,
+      "factor": 3.62,
+      "CI": [
+       0.477,
+       0.631
+      ],
+      "median bias (+ = under)": 0.375
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.541,
+      "factor": 3.48,
+      "CI": [
+       0.524,
+       0.562
+      ],
+      "median bias (+ = under)": -0.433
+     }
+    },
+    "drop": {
+     "n": 2491,
+     "MAE": 0.524,
+     "factor": 3.34,
+     "CI": [
+      0.507,
+      0.542
+     ],
+     "median bias (+ = under)": -0.411,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.553,
+      "factor": 3.57,
+      "CI": [
+       0.471,
+       0.626
+      ],
+      "median bias (+ = under)": 0.355
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.523,
+      "factor": 3.33,
+      "CI": [
+       0.506,
+       0.542
+      ],
+      "median bias (+ = under)": -0.423
+     },
+     "paired diff vs base": {
+      "diff": -0.018,
+      "CI": [
+       -0.021,
+       -0.015
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2491,
+     "MAE": 0.524,
+     "factor": 3.35,
+     "CI": [
+      0.508,
+      0.542
+     ],
+     "median bias (+ = under)": -0.411,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.564,
+      "factor": 3.67,
+      "CI": [
+       0.482,
+       0.637
+      ],
+      "median bias (+ = under)": 0.389
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.523,
+      "factor": 3.33,
+      "CI": [
+       0.506,
+       0.542
+      ],
+      "median bias (+ = under)": -0.423
+     },
+     "paired diff vs base": {
+      "diff": -0.018,
+      "CI": [
+       -0.021,
+       -0.015
+      ]
+     }
+    }
+   },
+   "x_reread -> youtube": {
+    "zero-like share source": 0.522,
+    "zero-like share target": 0.291,
+    "base": {
+     "n": 2441,
+     "MAE": 0.76,
+     "factor": 5.75,
+     "CI": [
+      0.73,
+      0.795
+     ],
+     "median bias (+ = under)": -0.406,
+     "zero-like rows": {
+      "n": 711,
+      "MAE": 1.082,
+      "factor": 12.08,
+      "CI": [
+       1.013,
+       1.156
+      ],
+      "median bias (+ = under)": 0.502
+     },
+     "non-zero rows": {
+      "n": 1730,
+      "MAE": 0.627,
+      "factor": 4.24,
+      "CI": [
+       0.604,
+       0.65
+      ],
+      "median bias (+ = under)": -0.548
+     }
+    },
+    "drop": {
+     "n": 2441,
+     "MAE": 0.736,
+     "factor": 5.44,
+     "CI": [
+      0.707,
+      0.77
+     ],
+     "median bias (+ = under)": -0.395,
+     "zero-like rows": {
+      "n": 711,
+      "MAE": 1.083,
+      "factor": 12.11,
+      "CI": [
+       1.014,
+       1.156
+      ],
+      "median bias (+ = under)": 0.481
+     },
+     "non-zero rows": {
+      "n": 1730,
+      "MAE": 0.593,
+      "factor": 3.92,
+      "CI": [
+       0.572,
+       0.615
+      ],
+      "median bias (+ = under)": -0.52
+     },
+     "paired diff vs base": {
+      "diff": -0.024,
+      "CI": [
+       -0.027,
+       -0.021
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2441,
+     "MAE": 0.739,
+     "factor": 5.49,
+     "CI": [
+      0.71,
+      0.774
+     ],
+     "median bias (+ = under)": -0.391,
+     "zero-like rows": {
+      "n": 711,
+      "MAE": 1.095,
+      "factor": 12.45,
+      "CI": [
+       1.024,
+       1.169
+      ],
+      "median bias (+ = under)": 0.516
+     },
+     "non-zero rows": {
+      "n": 1730,
+      "MAE": 0.593,
+      "factor": 3.92,
+      "CI": [
+       0.572,
+       0.615
+      ],
+      "median bias (+ = under)": -0.52
+     },
+     "paired diff vs base": {
+      "diff": -0.021,
+      "CI": [
+       -0.024,
+       -0.017
+      ]
+     }
+    }
+   },
+   "twitter + youtube -> facebook": {
+    "zero-like share source": 0.431,
+    "zero-like share target": 0.062,
+    "base": {
+     "n": 402,
+     "MAE": 0.385,
+     "factor": 2.43,
+     "CI": [
+      0.312,
+      0.482
+     ],
+     "median bias (+ = under)": 0.076,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.519,
+      "factor": 3.3,
+      "CI": [
+       0.385,
+       0.631
+      ],
+      "median bias (+ = under)": -0.177
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.376,
+      "factor": 2.38,
+      "CI": [
+       0.297,
+       0.48
+      ],
+      "median bias (+ = under)": 0.087
+     }
+    },
+    "drop": {
+     "n": 402,
+     "MAE": 0.403,
+     "factor": 2.53,
+     "CI": [
+      0.34,
+      0.493
+     ],
+     "median bias (+ = under)": 0.126,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.496,
+      "factor": 3.13,
+      "CI": [
+       0.391,
+       0.645
+      ],
+      "median bias (+ = under)": 0.037
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.397,
+      "factor": 2.49,
+      "CI": [
+       0.33,
+       0.492
+      ],
+      "median bias (+ = under)": 0.136
+     },
+     "paired diff vs base": {
+      "diff": 0.018,
+      "CI": [
+       -0.013,
+       0.058
+      ]
+     }
+    },
+    "two-part": {
+     "n": 402,
+     "MAE": 0.403,
+     "factor": 2.53,
+     "CI": [
+      0.339,
+      0.493
+     ],
+     "median bias (+ = under)": 0.126,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.499,
+      "factor": 3.15,
+      "CI": [
+       0.387,
+       0.611
+      ],
+      "median bias (+ = under)": -0.079
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.397,
+      "factor": 2.49,
+      "CI": [
+       0.33,
+       0.492
+      ],
+      "median bias (+ = under)": 0.136
+     },
+     "paired diff vs base": {
+      "diff": 0.018,
+      "CI": [
+       -0.013,
+       0.058
+      ]
+     }
+    }
+   },
+   "twitter + youtube -> instagram": {
+    "zero-like share source": 0.431,
+    "zero-like share target": 0.123,
+    "base": {
+     "n": 642,
+     "MAE": 0.435,
+     "factor": 2.72,
+     "CI": [
+      0.396,
+      0.484
+     ],
+     "median bias (+ = under)": 0.281,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.644,
+      "factor": 4.4,
+      "CI": [
+       0.596,
+       0.707
+      ],
+      "median bias (+ = under)": 0.361
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.406,
+      "factor": 2.54,
+      "CI": [
+       0.371,
+       0.456
+      ],
+      "median bias (+ = under)": 0.277
+     }
+    },
+    "drop": {
+     "n": 642,
+     "MAE": 0.446,
+     "factor": 2.79,
+     "CI": [
+      0.405,
+      0.502
+     ],
+     "median bias (+ = under)": 0.277,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.7,
+      "factor": 5.01,
+      "CI": [
+       0.643,
+       0.752
+      ],
+      "median bias (+ = under)": 0.575
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.411,
+      "factor": 2.57,
+      "CI": [
+       0.375,
+       0.463
+      ],
+      "median bias (+ = under)": 0.262
+     },
+     "paired diff vs base": {
+      "diff": 0.012,
+      "CI": [
+       -0.003,
+       0.026
+      ]
+     }
+    },
+    "two-part": {
+     "n": 642,
+     "MAE": 0.442,
+     "factor": 2.77,
+     "CI": [
+      0.402,
+      0.497
+     ],
+     "median bias (+ = under)": 0.271,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.668,
+      "factor": 4.66,
+      "CI": [
+       0.625,
+       0.71
+      ],
+      "median bias (+ = under)": 0.459
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.411,
+      "factor": 2.57,
+      "CI": [
+       0.375,
+       0.463
+      ],
+      "median bias (+ = under)": 0.262
+     },
+     "paired diff vs base": {
+      "diff": 0.008,
+      "CI": [
+       -0.004,
+       0.017
+      ]
+     }
+    }
+   },
+   "twitter + youtube -> tiktok": {
+    "zero-like share source": 0.431,
+    "zero-like share target": 0.037,
+    "base": {
+     "n": 2491,
+     "MAE": 0.313,
+     "factor": 2.05,
+     "CI": [
+      0.301,
+      0.325
+     ],
+     "median bias (+ = under)": -0.001,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.573,
+      "factor": 3.74,
+      "CI": [
+       0.492,
+       0.645
+      ],
+      "median bias (+ = under)": 0.416
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.303,
+      "factor": 2.01,
+      "CI": [
+       0.291,
+       0.314
+      ],
+      "median bias (+ = under)": -0.008
+     }
+    },
+    "drop": {
+     "n": 2491,
+     "MAE": 0.354,
+     "factor": 2.26,
+     "CI": [
+      0.341,
+      0.368
+     ],
+     "median bias (+ = under)": -0.035,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.677,
+      "factor": 4.76,
+      "CI": [
+       0.596,
+       0.753
+      ],
+      "median bias (+ = under)": 0.63
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.341,
+      "factor": 2.2,
+      "CI": [
+       0.33,
+       0.356
+      ],
+      "median bias (+ = under)": -0.045
+     },
+     "paired diff vs base": {
+      "diff": 0.041,
+      "CI": [
+       0.036,
+       0.047
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2491,
+     "MAE": 0.352,
+     "factor": 2.25,
+     "CI": [
+      0.338,
+      0.366
+     ],
+     "median bias (+ = under)": -0.037,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.615,
+      "factor": 4.13,
+      "CI": [
+       0.537,
+       0.689
+      ],
+      "median bias (+ = under)": 0.514
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.341,
+      "factor": 2.2,
+      "CI": [
+       0.33,
+       0.356
+      ],
+      "median bias (+ = under)": -0.045
+     },
+     "paired diff vs base": {
+      "diff": 0.039,
+      "CI": [
+       0.033,
+       0.044
+      ]
+     }
+    }
+   },
+   "x_reread + youtube -> facebook": {
+    "zero-like share source": 0.395,
+    "zero-like share target": 0.062,
+    "base": {
+     "n": 402,
+     "MAE": 0.397,
+     "factor": 2.49,
+     "CI": [
+      0.33,
+      0.479
+     ],
+     "median bias (+ = under)": 0.016,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.581,
+      "factor": 3.81,
+      "CI": [
+       0.388,
+       0.698
+      ],
+      "median bias (+ = under)": -0.353
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.385,
+      "factor": 2.42,
+      "CI": [
+       0.314,
+       0.469
+      ],
+      "median bias (+ = under)": 0.027
+     }
+    },
+    "drop": {
+     "n": 402,
+     "MAE": 0.391,
+     "factor": 2.46,
+     "CI": [
+      0.333,
+      0.471
+     ],
+     "median bias (+ = under)": 0.078,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.511,
+      "factor": 3.25,
+      "CI": [
+       0.395,
+       0.618
+      ],
+      "median bias (+ = under)": -0.141
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.383,
+      "factor": 2.42,
+      "CI": [
+       0.319,
+       0.464
+      ],
+      "median bias (+ = under)": 0.084
+     },
+     "paired diff vs base": {
+      "diff": -0.005,
+      "CI": [
+       -0.034,
+       0.022
+      ]
+     }
+    },
+    "two-part": {
+     "n": 402,
+     "MAE": 0.394,
+     "factor": 2.48,
+     "CI": [
+      0.335,
+      0.475
+     ],
+     "median bias (+ = under)": 0.063,
+     "zero-like rows": {
+      "n": 25,
+      "MAE": 0.559,
+      "factor": 3.62,
+      "CI": [
+       0.382,
+       0.672
+      ],
+      "median bias (+ = under)": -0.312
+     },
+     "non-zero rows": {
+      "n": 377,
+      "MAE": 0.383,
+      "factor": 2.42,
+      "CI": [
+       0.319,
+       0.464
+      ],
+      "median bias (+ = under)": 0.084
+     },
+     "paired diff vs base": {
+      "diff": -0.002,
+      "CI": [
+       -0.028,
+       0.027
+      ]
+     }
+    }
+   },
+   "x_reread + youtube -> instagram": {
+    "zero-like share source": 0.395,
+    "zero-like share target": 0.123,
+    "base": {
+     "n": 642,
+     "MAE": 0.404,
+     "factor": 2.54,
+     "CI": [
+      0.37,
+      0.451
+     ],
+     "median bias (+ = under)": 0.185,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.619,
+      "factor": 4.16,
+      "CI": [
+       0.526,
+       0.717
+      ],
+      "median bias (+ = under)": 0.185
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.374,
+      "factor": 2.37,
+      "CI": [
+       0.347,
+       0.417
+      ],
+      "median bias (+ = under)": 0.186
+     }
+    },
+    "drop": {
+     "n": 642,
+     "MAE": 0.408,
+     "factor": 2.56,
+     "CI": [
+      0.373,
+      0.456
+     ],
+     "median bias (+ = under)": 0.197,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.652,
+      "factor": 4.49,
+      "CI": [
+       0.609,
+       0.704
+      ],
+      "median bias (+ = under)": 0.397
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.374,
+      "factor": 2.36,
+      "CI": [
+       0.346,
+       0.418
+      ],
+      "median bias (+ = under)": 0.191
+     },
+     "paired diff vs base": {
+      "diff": 0.004,
+      "CI": [
+       -0.009,
+       0.016
+      ]
+     }
+    },
+    "two-part": {
+     "n": 642,
+     "MAE": 0.405,
+     "factor": 2.54,
+     "CI": [
+      0.369,
+      0.45
+     ],
+     "median bias (+ = under)": 0.193,
+     "zero-like rows": {
+      "n": 79,
+      "MAE": 0.623,
+      "factor": 4.2,
+      "CI": [
+       0.541,
+       0.71
+      ],
+      "median bias (+ = under)": 0.226
+     },
+     "non-zero rows": {
+      "n": 563,
+      "MAE": 0.374,
+      "factor": 2.36,
+      "CI": [
+       0.346,
+       0.418
+      ],
+      "median bias (+ = under)": 0.191
+     },
+     "paired diff vs base": {
+      "diff": 0.0,
+      "CI": [
+       -0.008,
+       0.007
+      ]
+     }
+    }
+   },
+   "x_reread + youtube -> tiktok": {
+    "zero-like share source": 0.395,
+    "zero-like share target": 0.037,
+    "base": {
+     "n": 2491,
+     "MAE": 0.305,
+     "factor": 2.02,
+     "CI": [
+      0.294,
+      0.317
+     ],
+     "median bias (+ = under)": -0.063,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.524,
+      "factor": 3.34,
+      "CI": [
+       0.442,
+       0.602
+      ],
+      "median bias (+ = under)": 0.24
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.296,
+      "factor": 1.98,
+      "CI": [
+       0.286,
+       0.308
+      ],
+      "median bias (+ = under)": -0.066
+     }
+    },
+    "drop": {
+     "n": 2491,
+     "MAE": 0.336,
+     "factor": 2.17,
+     "CI": [
+      0.324,
+      0.35
+     ],
+     "median bias (+ = under)": -0.094,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.588,
+      "factor": 3.87,
+      "CI": [
+       0.508,
+       0.662
+      ],
+      "median bias (+ = under)": 0.453
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.327,
+      "factor": 2.12,
+      "CI": [
+       0.316,
+       0.34
+      ],
+      "median bias (+ = under)": -0.1
+     },
+     "paired diff vs base": {
+      "diff": 0.032,
+      "CI": [
+       0.026,
+       0.037
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2491,
+     "MAE": 0.334,
+     "factor": 2.16,
+     "CI": [
+      0.322,
+      0.347
+     ],
+     "median bias (+ = under)": -0.097,
+     "zero-like rows": {
+      "n": 92,
+      "MAE": 0.534,
+      "factor": 3.42,
+      "CI": [
+       0.451,
+       0.61
+      ],
+      "median bias (+ = under)": 0.282
+     },
+     "non-zero rows": {
+      "n": 2399,
+      "MAE": 0.327,
+      "factor": 2.12,
+      "CI": [
+       0.316,
+       0.34
+      ],
+      "median bias (+ = under)": -0.1
+     },
+     "paired diff vs base": {
+      "diff": 0.03,
+      "CI": [
+       0.024,
+       0.035
+      ]
+     }
+    }
+   },
+   "tiktok -> twitter": {
+    "zero-like share source": 0.037,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.618,
+     "factor": 4.15,
+     "CI": [
+      0.593,
+      0.638
+     ],
+     "median bias (+ = under)": -0.364,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.673,
+      "factor": 4.71,
+      "CI": [
+       0.64,
+       0.707
+      ],
+      "median bias (+ = under)": -0.489
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.528,
+      "factor": 3.37,
+      "CI": [
+       0.494,
+       0.558
+      ],
+      "median bias (+ = under)": -0.194
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.617,
+     "factor": 4.14,
+     "CI": [
+      0.592,
+      0.637
+     ],
+     "median bias (+ = under)": -0.36,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.671,
+      "factor": 4.69,
+      "CI": [
+       0.639,
+       0.705
+      ],
+      "median bias (+ = under)": -0.485
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.527,
+      "factor": 3.37,
+      "CI": [
+       0.494,
+       0.557
+      ],
+      "median bias (+ = under)": -0.193
+     },
+     "paired diff vs base": {
+      "diff": -0.001,
+      "CI": [
+       -0.001,
+       -0.001
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.704,
+     "factor": 5.06,
+     "CI": [
+      0.675,
+      0.727
+     ],
+     "median bias (+ = under)": -0.497,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.813,
+      "factor": 6.5,
+      "CI": [
+       0.778,
+       0.848
+      ],
+      "median bias (+ = under)": -0.719
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.527,
+      "factor": 3.37,
+      "CI": [
+       0.494,
+       0.557
+      ],
+      "median bias (+ = under)": -0.193
+     },
+     "paired diff vs base": {
+      "diff": 0.087,
+      "CI": [
+       0.078,
+       0.094
+      ]
+     }
+    }
+   },
+   "tiktok -> x_reread": {
+    "zero-like share source": 0.037,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.489,
+     "factor": 3.08,
+     "CI": [
+      0.47,
+      0.507
+     ],
+     "median bias (+ = under)": -0.057,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.517,
+      "factor": 3.29,
+      "CI": [
+       0.492,
+       0.549
+      ],
+      "median bias (+ = under)": -0.16
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.459,
+      "factor": 2.88,
+      "CI": [
+       0.429,
+       0.483
+      ],
+      "median bias (+ = under)": 0.053
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.489,
+     "factor": 3.08,
+     "CI": [
+      0.47,
+      0.507
+     ],
+     "median bias (+ = under)": -0.056,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.516,
+      "factor": 3.28,
+      "CI": [
+       0.491,
+       0.548
+      ],
+      "median bias (+ = under)": -0.156
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.459,
+      "factor": 2.88,
+      "CI": [
+       0.429,
+       0.483
+      ],
+      "median bias (+ = under)": 0.054
+     },
+     "paired diff vs base": {
+      "diff": -0.0,
+      "CI": [
+       -0.0,
+       -0.0
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.53,
+     "factor": 3.39,
+     "CI": [
+      0.511,
+      0.55
+     ],
+     "median bias (+ = under)": -0.165,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.596,
+      "factor": 3.94,
+      "CI": [
+       0.566,
+       0.633
+      ],
+      "median bias (+ = under)": -0.389
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.459,
+      "factor": 2.88,
+      "CI": [
+       0.429,
+       0.483
+      ],
+      "median bias (+ = under)": 0.054
+     },
+     "paired diff vs base": {
+      "diff": 0.041,
+      "CI": [
+       0.034,
+       0.049
+      ]
+     }
+    }
+   },
+   "youtube -> twitter": {
+    "zero-like share source": 0.291,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.667,
+     "factor": 4.64,
+     "CI": [
+      0.639,
+      0.689
+     ],
+     "median bias (+ = under)": -0.465,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.737,
+      "factor": 5.46,
+      "CI": [
+       0.703,
+       0.772
+      ],
+      "median bias (+ = under)": -0.599
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.551,
+      "factor": 3.56,
+      "CI": [
+       0.515,
+       0.585
+      ],
+      "median bias (+ = under)": -0.237
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.522,
+     "factor": 3.32,
+     "CI": [
+      0.5,
+      0.546
+     ],
+     "median bias (+ = under)": 0.021,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.544,
+      "factor": 3.5,
+      "CI": [
+       0.514,
+       0.573
+      ],
+      "median bias (+ = under)": -0.033
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.486,
+      "factor": 3.06,
+      "CI": [
+       0.446,
+       0.523
+      ],
+      "median bias (+ = under)": 0.086
+     },
+     "paired diff vs base": {
+      "diff": -0.145,
+      "CI": [
+       -0.169,
+       -0.117
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.745,
+     "factor": 5.56,
+     "CI": [
+      0.714,
+      0.769
+     ],
+     "median bias (+ = under)": -0.453,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.903,
+      "factor": 8.0,
+      "CI": [
+       0.867,
+       0.937
+      ],
+      "median bias (+ = under)": -0.845
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.486,
+      "factor": 3.06,
+      "CI": [
+       0.446,
+       0.523
+      ],
+      "median bias (+ = under)": 0.086
+     },
+     "paired diff vs base": {
+      "diff": 0.078,
+      "CI": [
+       0.064,
+       0.091
+      ]
+     }
+    }
+   },
+   "youtube -> x_reread": {
+    "zero-like share source": 0.291,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.509,
+     "factor": 3.23,
+     "CI": [
+      0.49,
+      0.527
+     ],
+     "median bias (+ = under)": -0.14,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.548,
+      "factor": 3.53,
+      "CI": [
+       0.521,
+       0.583
+      ],
+      "median bias (+ = under)": -0.284
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.467,
+      "factor": 2.93,
+      "CI": [
+       0.436,
+       0.49
+      ],
+      "median bias (+ = under)": 0.008
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.538,
+     "factor": 3.46,
+     "CI": [
+      0.515,
+      0.558
+     ],
+     "median bias (+ = under)": 0.299,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.562,
+      "factor": 3.65,
+      "CI": [
+       0.533,
+       0.59
+      ],
+      "median bias (+ = under)": 0.297
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.513,
+      "factor": 3.26,
+      "CI": [
+       0.481,
+       0.546
+      ],
+      "median bias (+ = under)": 0.3
+     },
+     "paired diff vs base": {
+      "diff": 0.029,
+      "CI": [
+       0.005,
+       0.051
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.592,
+     "factor": 3.9,
+     "CI": [
+      0.572,
+      0.611
+     ],
+     "median bias (+ = under)": -0.077,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.664,
+      "factor": 4.61,
+      "CI": [
+       0.632,
+       0.702
+      ],
+      "median bias (+ = under)": -0.516
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.513,
+      "factor": 3.26,
+      "CI": [
+       0.481,
+       0.546
+      ],
+      "median bias (+ = under)": 0.3
+     },
+     "paired diff vs base": {
+      "diff": 0.082,
+      "CI": [
+       0.071,
+       0.095
+      ]
+     }
+    }
+   },
+   "facebook -> twitter": {
+    "zero-like share source": 0.062,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.556,
+     "factor": 3.6,
+     "CI": [
+      0.535,
+      0.578
+     ],
+     "median bias (+ = under)": -0.229,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.591,
+      "factor": 3.9,
+      "CI": [
+       0.564,
+       0.622
+      ],
+      "median bias (+ = under)": -0.303
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.498,
+      "factor": 3.15,
+      "CI": [
+       0.468,
+       0.529
+      ],
+      "median bias (+ = under)": -0.145
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.574,
+     "factor": 3.75,
+     "CI": [
+      0.552,
+      0.596
+     ],
+     "median bias (+ = under)": -0.285,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.614,
+      "factor": 4.11,
+      "CI": [
+       0.585,
+       0.646
+      ],
+      "median bias (+ = under)": -0.364
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.509,
+      "factor": 3.23,
+      "CI": [
+       0.477,
+       0.54
+      ],
+      "median bias (+ = under)": -0.19
+     },
+     "paired diff vs base": {
+      "diff": 0.018,
+      "CI": [
+       0.015,
+       0.021
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.534,
+     "factor": 3.42,
+     "CI": [
+      0.513,
+      0.557
+     ],
+     "median bias (+ = under)": -0.155,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.55,
+      "factor": 3.54,
+      "CI": [
+       0.523,
+       0.579
+      ],
+      "median bias (+ = under)": -0.125
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.509,
+      "factor": 3.23,
+      "CI": [
+       0.477,
+       0.54
+      ],
+      "median bias (+ = under)": -0.19
+     },
+     "paired diff vs base": {
+      "diff": -0.022,
+      "CI": [
+       -0.028,
+       -0.014
+      ]
+     }
+    }
+   },
+   "facebook -> x_reread": {
+    "zero-like share source": 0.062,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.475,
+     "factor": 2.98,
+     "CI": [
+      0.454,
+      0.493
+     ],
+     "median bias (+ = under)": 0.06,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.5,
+      "factor": 3.16,
+      "CI": [
+       0.474,
+       0.531
+      ],
+      "median bias (+ = under)": 0.027
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.446,
+      "factor": 2.8,
+      "CI": [
+       0.42,
+       0.472
+      ],
+      "median bias (+ = under)": 0.091
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.473,
+     "factor": 2.97,
+     "CI": [
+      0.454,
+      0.492
+     ],
+     "median bias (+ = under)": 0.008,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.501,
+      "factor": 3.17,
+      "CI": [
+       0.474,
+       0.531
+      ],
+      "median bias (+ = under)": -0.035
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.443,
+      "factor": 2.78,
+      "CI": [
+       0.417,
+       0.468
+      ],
+      "median bias (+ = under)": 0.049
+     },
+     "paired diff vs base": {
+      "diff": -0.001,
+      "CI": [
+       -0.004,
+       0.002
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.487,
+     "factor": 3.07,
+     "CI": [
+      0.467,
+      0.506
+     ],
+     "median bias (+ = under)": 0.125,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.527,
+      "factor": 3.36,
+      "CI": [
+       0.499,
+       0.556
+      ],
+      "median bias (+ = under)": 0.204
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.443,
+      "factor": 2.78,
+      "CI": [
+       0.417,
+       0.468
+      ],
+      "median bias (+ = under)": 0.049
+     },
+     "paired diff vs base": {
+      "diff": 0.012,
+      "CI": [
+       0.006,
+       0.018
+      ]
+     }
+    }
+   },
+   "instagram -> twitter": {
+    "zero-like share source": 0.123,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.608,
+     "factor": 4.06,
+     "CI": [
+      0.586,
+      0.629
+     ],
+     "median bias (+ = under)": -0.374,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.654,
+      "factor": 4.51,
+      "CI": [
+       0.623,
+       0.687
+      ],
+      "median bias (+ = under)": -0.453
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.533,
+      "factor": 3.41,
+      "CI": [
+       0.499,
+       0.563
+      ],
+      "median bias (+ = under)": -0.277
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.622,
+     "factor": 4.19,
+     "CI": [
+      0.599,
+      0.642
+     ],
+     "median bias (+ = under)": -0.407,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.671,
+      "factor": 4.69,
+      "CI": [
+       0.639,
+       0.705
+      ],
+      "median bias (+ = under)": -0.486
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.541,
+      "factor": 3.48,
+      "CI": [
+       0.506,
+       0.573
+      ],
+      "median bias (+ = under)": -0.3
+     },
+     "paired diff vs base": {
+      "diff": 0.014,
+      "CI": [
+       0.012,
+       0.015
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.686,
+     "factor": 4.86,
+     "CI": [
+      0.659,
+      0.71
+     ],
+     "median bias (+ = under)": -0.496,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.775,
+      "factor": 5.96,
+      "CI": [
+       0.74,
+       0.81
+      ],
+      "median bias (+ = under)": -0.663
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.541,
+      "factor": 3.48,
+      "CI": [
+       0.506,
+       0.573
+      ],
+      "median bias (+ = under)": -0.3
+     },
+     "paired diff vs base": {
+      "diff": 0.078,
+      "CI": [
+       0.07,
+       0.085
+      ]
+     }
+    }
+   },
+   "instagram -> x_reread": {
+    "zero-like share source": 0.123,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.478,
+     "factor": 3.01,
+     "CI": [
+      0.458,
+      0.496
+     ],
+     "median bias (+ = under)": -0.079,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.51,
+      "factor": 3.24,
+      "CI": [
+       0.485,
+       0.541
+      ],
+      "median bias (+ = under)": -0.124
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.443,
+      "factor": 2.77,
+      "CI": [
+       0.416,
+       0.466
+      ],
+      "median bias (+ = under)": -0.038
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.482,
+     "factor": 3.03,
+     "CI": [
+      0.462,
+      0.5
+     ],
+     "median bias (+ = under)": -0.106,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.516,
+      "factor": 3.28,
+      "CI": [
+       0.491,
+       0.549
+      ],
+      "median bias (+ = under)": -0.157
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.445,
+      "factor": 2.79,
+      "CI": [
+       0.418,
+       0.468
+      ],
+      "median bias (+ = under)": -0.06
+     },
+     "paired diff vs base": {
+      "diff": 0.004,
+      "CI": [
+       0.003,
+       0.006
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.511,
+     "factor": 3.24,
+     "CI": [
+      0.491,
+      0.53
+     ],
+     "median bias (+ = under)": -0.192,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.571,
+      "factor": 3.72,
+      "CI": [
+       0.543,
+       0.606
+      ],
+      "median bias (+ = under)": -0.334
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.445,
+      "factor": 2.79,
+      "CI": [
+       0.418,
+       0.468
+      ],
+      "median bias (+ = under)": -0.06
+     },
+     "paired diff vs base": {
+      "diff": 0.033,
+      "CI": [
+       0.026,
+       0.04
+      ]
+     }
+    }
+   },
+   "tiktok + youtube -> twitter": {
+    "zero-like share source": 0.163,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.65,
+     "factor": 4.47,
+     "CI": [
+      0.623,
+      0.671
+     ],
+     "median bias (+ = under)": -0.436,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.715,
+      "factor": 5.19,
+      "CI": [
+       0.682,
+       0.75
+      ],
+      "median bias (+ = under)": -0.563
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.543,
+      "factor": 3.5,
+      "CI": [
+       0.509,
+       0.576
+      ],
+      "median bias (+ = under)": -0.227
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.552,
+     "factor": 3.56,
+     "CI": [
+      0.531,
+      0.573
+     ],
+     "median bias (+ = under)": -0.194,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.585,
+      "factor": 3.85,
+      "CI": [
+       0.559,
+       0.616
+      ],
+      "median bias (+ = under)": -0.286
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.497,
+      "factor": 3.14,
+      "CI": [
+       0.465,
+       0.528
+      ],
+      "median bias (+ = under)": -0.069
+     },
+     "paired diff vs base": {
+      "diff": -0.098,
+      "CI": [
+       -0.111,
+       -0.085
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.725,
+     "factor": 5.31,
+     "CI": [
+      0.695,
+      0.748
+     ],
+     "median bias (+ = under)": -0.491,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.865,
+      "factor": 7.32,
+      "CI": [
+       0.829,
+       0.899
+      ],
+      "median bias (+ = under)": -0.792
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.497,
+      "factor": 3.14,
+      "CI": [
+       0.465,
+       0.528
+      ],
+      "median bias (+ = under)": -0.069
+     },
+     "paired diff vs base": {
+      "diff": 0.075,
+      "CI": [
+       0.066,
+       0.084
+      ]
+     }
+    }
+   },
+   "tiktok + youtube -> x_reread": {
+    "zero-like share source": 0.163,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.5,
+     "factor": 3.17,
+     "CI": [
+      0.482,
+      0.518
+     ],
+     "median bias (+ = under)": -0.117,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.536,
+      "factor": 3.43,
+      "CI": [
+       0.51,
+       0.57
+      ],
+      "median bias (+ = under)": -0.248
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.462,
+      "factor": 2.9,
+      "CI": [
+       0.432,
+       0.486
+      ],
+      "median bias (+ = under)": 0.014
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.486,
+     "factor": 3.06,
+     "CI": [
+      0.466,
+      0.505
+     ],
+     "median bias (+ = under)": 0.107,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.502,
+      "factor": 3.17,
+      "CI": [
+       0.475,
+       0.532
+      ],
+      "median bias (+ = under)": 0.043
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.469,
+      "factor": 2.94,
+      "CI": [
+       0.439,
+       0.499
+      ],
+      "median bias (+ = under)": 0.171
+     },
+     "paired diff vs base": {
+      "diff": -0.015,
+      "CI": [
+       -0.027,
+       -0.002
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.555,
+     "factor": 3.59,
+     "CI": [
+      0.536,
+      0.574
+     ],
+     "median bias (+ = under)": -0.136,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.634,
+      "factor": 4.3,
+      "CI": [
+       0.603,
+       0.672
+      ],
+      "median bias (+ = under)": -0.463
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.469,
+      "factor": 2.94,
+      "CI": [
+       0.439,
+       0.499
+      ],
+      "median bias (+ = under)": 0.171
+     },
+     "paired diff vs base": {
+      "diff": 0.054,
+      "CI": [
+       0.046,
+       0.063
+      ]
+     }
+    }
+   },
+   "tiktok + facebook -> twitter": {
+    "zero-like share source": 0.04,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.606,
+     "factor": 4.03,
+     "CI": [
+      0.582,
+      0.627
+     ],
+     "median bias (+ = under)": -0.345,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.657,
+      "factor": 4.54,
+      "CI": [
+       0.625,
+       0.69
+      ],
+      "median bias (+ = under)": -0.457
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.522,
+      "factor": 3.33,
+      "CI": [
+       0.489,
+       0.552
+      ],
+      "median bias (+ = under)": -0.183
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.61,
+     "factor": 4.07,
+     "CI": [
+      0.585,
+      0.63
+     ],
+     "median bias (+ = under)": -0.355,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.662,
+      "factor": 4.59,
+      "CI": [
+       0.63,
+       0.695
+      ],
+      "median bias (+ = under)": -0.467
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.524,
+      "factor": 3.34,
+      "CI": [
+       0.491,
+       0.554
+      ],
+      "median bias (+ = under)": -0.191
+     },
+     "paired diff vs base": {
+      "diff": 0.004,
+      "CI": [
+       0.003,
+       0.004
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.636,
+     "factor": 4.33,
+     "CI": [
+      0.61,
+      0.657
+     ],
+     "median bias (+ = under)": -0.394,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.705,
+      "factor": 5.07,
+      "CI": [
+       0.672,
+       0.739
+      ],
+      "median bias (+ = under)": -0.548
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.524,
+      "factor": 3.34,
+      "CI": [
+       0.491,
+       0.554
+      ],
+      "median bias (+ = under)": -0.191
+     },
+     "paired diff vs base": {
+      "diff": 0.03,
+      "CI": [
+       0.027,
+       0.034
+      ]
+     }
+    }
+   },
+   "tiktok + facebook -> x_reread": {
+    "zero-like share source": 0.04,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.484,
+     "factor": 3.05,
+     "CI": [
+      0.465,
+      0.503
+     ],
+     "median bias (+ = under)": -0.033,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.511,
+      "factor": 3.24,
+      "CI": [
+       0.486,
+       0.542
+      ],
+      "median bias (+ = under)": -0.128
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.456,
+      "factor": 2.86,
+      "CI": [
+       0.426,
+       0.481
+      ],
+      "median bias (+ = under)": 0.058
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.485,
+     "factor": 3.06,
+     "CI": [
+      0.466,
+      0.503
+     ],
+     "median bias (+ = under)": -0.041,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.512,
+      "factor": 3.25,
+      "CI": [
+       0.488,
+       0.544
+      ],
+      "median bias (+ = under)": -0.138
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.456,
+      "factor": 2.86,
+      "CI": [
+       0.426,
+       0.48
+      ],
+      "median bias (+ = under)": 0.054
+     },
+     "paired diff vs base": {
+      "diff": 0.001,
+      "CI": [
+       0.0,
+       0.001
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.495,
+     "factor": 3.13,
+     "CI": [
+      0.476,
+      0.512
+     ],
+     "median bias (+ = under)": -0.081,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.531,
+      "factor": 3.39,
+      "CI": [
+       0.505,
+       0.565
+      ],
+      "median bias (+ = under)": -0.219
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.456,
+      "factor": 2.86,
+      "CI": [
+       0.426,
+       0.48
+      ],
+      "median bias (+ = under)": 0.054
+     },
+     "paired diff vs base": {
+      "diff": 0.011,
+      "CI": [
+       0.008,
+       0.014
+      ]
+     }
+    }
+   },
+   "tiktok + instagram -> twitter": {
+    "zero-like share source": 0.055,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.621,
+     "factor": 4.18,
+     "CI": [
+      0.596,
+      0.642
+     ],
+     "median bias (+ = under)": -0.377,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.676,
+      "factor": 4.75,
+      "CI": [
+       0.644,
+       0.71
+      ],
+      "median bias (+ = under)": -0.496
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.53,
+      "factor": 3.39,
+      "CI": [
+       0.497,
+       0.56
+      ],
+      "median bias (+ = under)": -0.215
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.626,
+     "factor": 4.22,
+     "CI": [
+      0.601,
+      0.646
+     ],
+     "median bias (+ = under)": -0.385,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.682,
+      "factor": 4.81,
+      "CI": [
+       0.65,
+       0.717
+      ],
+      "median bias (+ = under)": -0.507
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.533,
+      "factor": 3.41,
+      "CI": [
+       0.499,
+       0.563
+      ],
+      "median bias (+ = under)": -0.224
+     },
+     "paired diff vs base": {
+      "diff": 0.005,
+      "CI": [
+       0.004,
+       0.005
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.696,
+     "factor": 4.96,
+     "CI": [
+      0.667,
+      0.718
+     ],
+     "median bias (+ = under)": -0.489,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.795,
+      "factor": 6.24,
+      "CI": [
+       0.76,
+       0.83
+      ],
+      "median bias (+ = under)": -0.693
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.533,
+      "factor": 3.41,
+      "CI": [
+       0.499,
+       0.563
+      ],
+      "median bias (+ = under)": -0.224
+     },
+     "paired diff vs base": {
+      "diff": 0.075,
+      "CI": [
+       0.068,
+       0.081
+      ]
+     }
+    }
+   },
+   "tiktok + instagram -> x_reread": {
+    "zero-like share source": 0.055,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.488,
+     "factor": 3.08,
+     "CI": [
+      0.469,
+      0.506
+     ],
+     "median bias (+ = under)": -0.07,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.518,
+      "factor": 3.3,
+      "CI": [
+       0.493,
+       0.551
+      ],
+      "median bias (+ = under)": -0.167
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.456,
+      "factor": 2.86,
+      "CI": [
+       0.427,
+       0.48
+      ],
+      "median bias (+ = under)": 0.029
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.49,
+     "factor": 3.09,
+     "CI": [
+      0.471,
+      0.508
+     ],
+     "median bias (+ = under)": -0.081,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.52,
+      "factor": 3.31,
+      "CI": [
+       0.495,
+       0.554
+      ],
+      "median bias (+ = under)": -0.178
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.456,
+      "factor": 2.86,
+      "CI": [
+       0.427,
+       0.48
+      ],
+      "median bias (+ = under)": 0.023
+     },
+     "paired diff vs base": {
+      "diff": 0.001,
+      "CI": [
+       0.001,
+       0.002
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.523,
+     "factor": 3.33,
+     "CI": [
+      0.504,
+      0.542
+     ],
+     "median bias (+ = under)": -0.17,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.584,
+      "factor": 3.84,
+      "CI": [
+       0.555,
+       0.62
+      ],
+      "median bias (+ = under)": -0.364
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.456,
+      "factor": 2.86,
+      "CI": [
+       0.427,
+       0.48
+      ],
+      "median bias (+ = under)": 0.023
+     },
+     "paired diff vs base": {
+      "diff": 0.035,
+      "CI": [
+       0.028,
+       0.041
+      ]
+     }
+    }
+   },
+   "youtube + facebook -> twitter": {
+    "zero-like share source": 0.259,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.651,
+     "factor": 4.47,
+     "CI": [
+      0.624,
+      0.672
+     ],
+     "median bias (+ = under)": -0.438,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.715,
+      "factor": 5.19,
+      "CI": [
+       0.682,
+       0.75
+      ],
+      "median bias (+ = under)": -0.563
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.545,
+      "factor": 3.5,
+      "CI": [
+       0.51,
+       0.577
+      ],
+      "median bias (+ = under)": -0.238
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.522,
+     "factor": 3.33,
+     "CI": [
+      0.502,
+      0.546
+     ],
+     "median bias (+ = under)": -0.03,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.546,
+      "factor": 3.52,
+      "CI": [
+       0.517,
+       0.576
+      ],
+      "median bias (+ = under)": -0.089
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.483,
+      "factor": 3.04,
+      "CI": [
+       0.445,
+       0.517
+      ],
+      "median bias (+ = under)": 0.04
+     },
+     "paired diff vs base": {
+      "diff": -0.128,
+      "CI": [
+       -0.148,
+       -0.105
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.719,
+     "factor": 5.24,
+     "CI": [
+      0.689,
+      0.742
+     ],
+     "median bias (+ = under)": -0.448,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.863,
+      "factor": 7.29,
+      "CI": [
+       0.827,
+       0.898
+      ],
+      "median bias (+ = under)": -0.79
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.483,
+      "factor": 3.04,
+      "CI": [
+       0.445,
+       0.517
+      ],
+      "median bias (+ = under)": 0.04
+     },
+     "paired diff vs base": {
+      "diff": 0.068,
+      "CI": [
+       0.056,
+       0.08
+      ]
+     }
+    }
+   },
+   "youtube + facebook -> x_reread": {
+    "zero-like share source": 0.259,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.499,
+     "factor": 3.16,
+     "CI": [
+      0.48,
+      0.517
+     ],
+     "median bias (+ = under)": -0.125,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.536,
+      "factor": 3.43,
+      "CI": [
+       0.51,
+       0.57
+      ],
+      "median bias (+ = under)": -0.247
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.459,
+      "factor": 2.88,
+      "CI": [
+       0.429,
+       0.483
+      ],
+      "median bias (+ = under)": 0.002
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.519,
+     "factor": 3.3,
+     "CI": [
+      0.496,
+      0.539
+     ],
+     "median bias (+ = under)": 0.254,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.541,
+      "factor": 3.48,
+      "CI": [
+       0.513,
+       0.57
+      ],
+      "median bias (+ = under)": 0.24
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.494,
+      "factor": 3.12,
+      "CI": [
+       0.465,
+       0.525
+      ],
+      "median bias (+ = under)": 0.259
+     },
+     "paired diff vs base": {
+      "diff": 0.02,
+      "CI": [
+       -0.001,
+       0.038
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.566,
+     "factor": 3.68,
+     "CI": [
+      0.547,
+      0.585
+     ],
+     "median bias (+ = under)": -0.08,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.632,
+      "factor": 4.29,
+      "CI": [
+       0.602,
+       0.671
+      ],
+      "median bias (+ = under)": -0.461
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.494,
+      "factor": 3.12,
+      "CI": [
+       0.465,
+       0.525
+      ],
+      "median bias (+ = under)": 0.259
+     },
+     "paired diff vs base": {
+      "diff": 0.067,
+      "CI": [
+       0.057,
+       0.079
+      ]
+     }
+    }
+   },
+   "youtube + instagram -> twitter": {
+    "zero-like share source": 0.256,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.658,
+     "factor": 4.55,
+     "CI": [
+      0.632,
+      0.68
+     ],
+     "median bias (+ = under)": -0.454,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.725,
+      "factor": 5.3,
+      "CI": [
+       0.692,
+       0.759
+      ],
+      "median bias (+ = under)": -0.579
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.55,
+      "factor": 3.54,
+      "CI": [
+       0.515,
+       0.583
+      ],
+      "median bias (+ = under)": -0.257
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.527,
+     "factor": 3.37,
+     "CI": [
+      0.508,
+      0.55
+     ],
+     "median bias (+ = under)": -0.092,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.554,
+      "factor": 3.58,
+      "CI": [
+       0.528,
+       0.584
+      ],
+      "median bias (+ = under)": -0.146
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.484,
+      "factor": 3.04,
+      "CI": [
+       0.449,
+       0.516
+      ],
+      "median bias (+ = under)": -0.017
+     },
+     "paired diff vs base": {
+      "diff": -0.131,
+      "CI": [
+       -0.149,
+       -0.11
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.723,
+     "factor": 5.29,
+     "CI": [
+      0.693,
+      0.746
+     ],
+     "median bias (+ = under)": -0.47,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.87,
+      "factor": 7.41,
+      "CI": [
+       0.834,
+       0.904
+      ],
+      "median bias (+ = under)": -0.799
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.484,
+      "factor": 3.04,
+      "CI": [
+       0.449,
+       0.516
+      ],
+      "median bias (+ = under)": -0.017
+     },
+     "paired diff vs base": {
+      "diff": 0.065,
+      "CI": [
+       0.053,
+       0.076
+      ]
+     }
+    }
+   },
+   "youtube + instagram -> x_reread": {
+    "zero-like share source": 0.256,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.502,
+     "factor": 3.18,
+     "CI": [
+      0.483,
+      0.52
+     ],
+     "median bias (+ = under)": -0.139,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.541,
+      "factor": 3.48,
+      "CI": [
+       0.515,
+       0.575
+      ],
+      "median bias (+ = under)": -0.264
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.459,
+      "factor": 2.88,
+      "CI": [
+       0.43,
+       0.482
+      ],
+      "median bias (+ = under)": -0.017
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.503,
+     "factor": 3.18,
+     "CI": [
+      0.482,
+      0.523
+     ],
+     "median bias (+ = under)": 0.2,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.527,
+      "factor": 3.36,
+      "CI": [
+       0.5,
+       0.556
+      ],
+      "median bias (+ = under)": 0.187
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.477,
+      "factor": 3.0,
+      "CI": [
+       0.449,
+       0.508
+      ],
+      "median bias (+ = under)": 0.205
+     },
+     "paired diff vs base": {
+      "diff": 0.001,
+      "CI": [
+       -0.018,
+       0.018
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.561,
+     "factor": 3.64,
+     "CI": [
+      0.542,
+      0.58
+     ],
+     "median bias (+ = under)": -0.108,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.637,
+      "factor": 4.34,
+      "CI": [
+       0.607,
+       0.676
+      ],
+      "median bias (+ = under)": -0.47
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.477,
+      "factor": 3.0,
+      "CI": [
+       0.449,
+       0.508
+      ],
+      "median bias (+ = under)": 0.205
+     },
+     "paired diff vs base": {
+      "diff": 0.059,
+      "CI": [
+       0.049,
+       0.07
+      ]
+     }
+    }
+   },
+   "facebook + instagram -> twitter": {
+    "zero-like share source": 0.1,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.589,
+     "factor": 3.88,
+     "CI": [
+      0.567,
+      0.61
+     ],
+     "median bias (+ = under)": -0.325,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.631,
+      "factor": 4.27,
+      "CI": [
+       0.601,
+       0.663
+      ],
+      "median bias (+ = under)": -0.404
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.52,
+      "factor": 3.31,
+      "CI": [
+       0.487,
+       0.548
+      ],
+      "median bias (+ = under)": -0.234
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.603,
+     "factor": 4.01,
+     "CI": [
+      0.581,
+      0.624
+     ],
+     "median bias (+ = under)": -0.363,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.649,
+      "factor": 4.45,
+      "CI": [
+       0.618,
+       0.681
+      ],
+      "median bias (+ = under)": -0.442
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.528,
+      "factor": 3.38,
+      "CI": [
+       0.495,
+       0.558
+      ],
+      "median bias (+ = under)": -0.264
+     },
+     "paired diff vs base": {
+      "diff": 0.014,
+      "CI": [
+       0.013,
+       0.016
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.587,
+     "factor": 3.87,
+     "CI": [
+      0.565,
+      0.609
+     ],
+     "median bias (+ = under)": -0.329,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.623,
+      "factor": 4.2,
+      "CI": [
+       0.594,
+       0.655
+      ],
+      "median bias (+ = under)": -0.386
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.528,
+      "factor": 3.38,
+      "CI": [
+       0.495,
+       0.558
+      ],
+      "median bias (+ = under)": -0.264
+     },
+     "paired diff vs base": {
+      "diff": -0.002,
+      "CI": [
+       -0.003,
+       -0.0
+      ]
+     }
+    }
+   },
+   "facebook + instagram -> x_reread": {
+    "zero-like share source": 0.1,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.474,
+     "factor": 2.98,
+     "CI": [
+      0.455,
+      0.493
+     ],
+     "median bias (+ = under)": -0.029,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.504,
+      "factor": 3.19,
+      "CI": [
+       0.478,
+       0.535
+      ],
+      "median bias (+ = under)": -0.075
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.442,
+      "factor": 2.77,
+      "CI": [
+       0.416,
+       0.465
+      ],
+      "median bias (+ = under)": 0.005
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.477,
+     "factor": 3.0,
+     "CI": [
+      0.457,
+      0.496
+     ],
+     "median bias (+ = under)": -0.062,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.509,
+      "factor": 3.22,
+      "CI": [
+       0.483,
+       0.539
+      ],
+      "median bias (+ = under)": -0.113
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.443,
+      "factor": 2.77,
+      "CI": [
+       0.416,
+       0.466
+      ],
+      "median bias (+ = under)": -0.02
+     },
+     "paired diff vs base": {
+      "diff": 0.003,
+      "CI": [
+       0.001,
+       0.005
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.474,
+     "factor": 2.98,
+     "CI": [
+      0.454,
+      0.493
+     ],
+     "median bias (+ = under)": -0.038,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.502,
+      "factor": 3.18,
+      "CI": [
+       0.476,
+       0.532
+      ],
+      "median bias (+ = under)": -0.057
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.443,
+      "factor": 2.77,
+      "CI": [
+       0.416,
+       0.466
+      ],
+      "median bias (+ = under)": -0.02
+     },
+     "paired diff vs base": {
+      "diff": -0.0,
+      "CI": [
+       -0.002,
+       0.0
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + facebook -> twitter": {
+    "zero-like share source": 0.155,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.642,
+     "factor": 4.38,
+     "CI": [
+      0.616,
+      0.663
+     ],
+     "median bias (+ = under)": -0.419,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.704,
+      "factor": 5.06,
+      "CI": [
+       0.671,
+       0.738
+      ],
+      "median bias (+ = under)": -0.544
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.54,
+      "factor": 3.46,
+      "CI": [
+       0.505,
+       0.572
+      ],
+      "median bias (+ = under)": -0.224
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.553,
+     "factor": 3.57,
+     "CI": [
+      0.532,
+      0.575
+     ],
+     "median bias (+ = under)": -0.203,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.587,
+      "factor": 3.86,
+      "CI": [
+       0.561,
+       0.618
+      ],
+      "median bias (+ = under)": -0.291
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.497,
+      "factor": 3.14,
+      "CI": [
+       0.465,
+       0.528
+      ],
+      "median bias (+ = under)": -0.075
+     },
+     "paired diff vs base": {
+      "diff": -0.089,
+      "CI": [
+       -0.1,
+       -0.077
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.714,
+     "factor": 5.17,
+     "CI": [
+      0.684,
+      0.736
+     ],
+     "median bias (+ = under)": -0.478,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.846,
+      "factor": 7.01,
+      "CI": [
+       0.81,
+       0.881
+      ],
+      "median bias (+ = under)": -0.766
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.497,
+      "factor": 3.14,
+      "CI": [
+       0.465,
+       0.528
+      ],
+      "median bias (+ = under)": -0.075
+     },
+     "paired diff vs base": {
+      "diff": 0.072,
+      "CI": [
+       0.063,
+       0.081
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + facebook -> x_reread": {
+    "zero-like share source": 0.155,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.496,
+     "factor": 3.13,
+     "CI": [
+      0.477,
+      0.514
+     ],
+     "median bias (+ = under)": -0.107,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.53,
+      "factor": 3.39,
+      "CI": [
+       0.505,
+       0.564
+      ],
+      "median bias (+ = under)": -0.228
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.459,
+      "factor": 2.88,
+      "CI": [
+       0.429,
+       0.483
+      ],
+      "median bias (+ = under)": 0.016
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.484,
+     "factor": 3.05,
+     "CI": [
+      0.464,
+      0.503
+     ],
+     "median bias (+ = under)": 0.101,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.501,
+      "factor": 3.17,
+      "CI": [
+       0.474,
+       0.531
+      ],
+      "median bias (+ = under)": 0.038
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.466,
+      "factor": 2.92,
+      "CI": [
+       0.437,
+       0.495
+      ],
+      "median bias (+ = under)": 0.158
+     },
+     "paired diff vs base": {
+      "diff": -0.012,
+      "CI": [
+       -0.023,
+       -0.001
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.546,
+     "factor": 3.51,
+     "CI": [
+      0.527,
+      0.565
+     ],
+     "median bias (+ = under)": -0.129,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.62,
+      "factor": 4.16,
+      "CI": [
+       0.589,
+       0.658
+      ],
+      "median bias (+ = under)": -0.437
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.466,
+      "factor": 2.92,
+      "CI": [
+       0.437,
+       0.495
+      ],
+      "median bias (+ = under)": 0.158
+     },
+     "paired diff vs base": {
+      "diff": 0.05,
+      "CI": [
+       0.042,
+       0.059
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + instagram -> twitter": {
+    "zero-like share source": 0.158,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.648,
+     "factor": 4.44,
+     "CI": [
+      0.621,
+      0.669
+     ],
+     "median bias (+ = under)": -0.432,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.711,
+      "factor": 5.14,
+      "CI": [
+       0.679,
+       0.746
+      ],
+      "median bias (+ = under)": -0.557
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.543,
+      "factor": 3.49,
+      "CI": [
+       0.509,
+       0.575
+      ],
+      "median bias (+ = under)": -0.236
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.561,
+     "factor": 3.64,
+     "CI": [
+      0.539,
+      0.582
+     ],
+     "median bias (+ = under)": -0.229,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.597,
+      "factor": 3.95,
+      "CI": [
+       0.57,
+       0.628
+      ],
+      "median bias (+ = under)": -0.321
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.5,
+      "factor": 3.17,
+      "CI": [
+       0.469,
+       0.532
+      ],
+      "median bias (+ = under)": -0.105
+     },
+     "paired diff vs base": {
+      "diff": -0.087,
+      "CI": [
+       -0.097,
+       -0.076
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.721,
+     "factor": 5.26,
+     "CI": [
+      0.691,
+      0.744
+     ],
+     "median bias (+ = under)": -0.494,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.856,
+      "factor": 7.18,
+      "CI": [
+       0.821,
+       0.891
+      ],
+      "median bias (+ = under)": -0.781
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.5,
+      "factor": 3.17,
+      "CI": [
+       0.469,
+       0.532
+      ],
+      "median bias (+ = under)": -0.105
+     },
+     "paired diff vs base": {
+      "diff": 0.074,
+      "CI": [
+       0.065,
+       0.082
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + instagram -> x_reread": {
+    "zero-like share source": 0.158,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.498,
+     "factor": 3.15,
+     "CI": [
+      0.479,
+      0.516
+     ],
+     "median bias (+ = under)": -0.12,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.534,
+      "factor": 3.42,
+      "CI": [
+       0.508,
+       0.568
+      ],
+      "median bias (+ = under)": -0.242
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.459,
+      "factor": 2.88,
+      "CI": [
+       0.43,
+       0.483
+      ],
+      "median bias (+ = under)": 0.005
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.482,
+     "factor": 3.03,
+     "CI": [
+      0.462,
+      0.501
+     ],
+     "median bias (+ = under)": 0.073,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.5,
+      "factor": 3.17,
+      "CI": [
+       0.475,
+       0.532
+      ],
+      "median bias (+ = under)": 0.008
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.462,
+      "factor": 2.89,
+      "CI": [
+       0.433,
+       0.49
+      ],
+      "median bias (+ = under)": 0.136
+     },
+     "paired diff vs base": {
+      "diff": -0.016,
+      "CI": [
+       -0.027,
+       -0.006
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.548,
+     "factor": 3.53,
+     "CI": [
+      0.529,
+      0.567
+     ],
+     "median bias (+ = under)": -0.148,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.627,
+      "factor": 4.24,
+      "CI": [
+       0.597,
+       0.666
+      ],
+      "median bias (+ = under)": -0.451
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.462,
+      "factor": 2.89,
+      "CI": [
+       0.433,
+       0.49
+      ],
+      "median bias (+ = under)": 0.136
+     },
+     "paired diff vs base": {
+      "diff": 0.05,
+      "CI": [
+       0.042,
+       0.058
+      ]
+     }
+    }
+   },
+   "tiktok + facebook + instagram -> twitter": {
+    "zero-like share source": 0.055,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.611,
+     "factor": 4.08,
+     "CI": [
+      0.587,
+      0.632
+     ],
+     "median bias (+ = under)": -0.362,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.663,
+      "factor": 4.6,
+      "CI": [
+       0.631,
+       0.696
+      ],
+      "median bias (+ = under)": -0.47
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.525,
+      "factor": 3.35,
+      "CI": [
+       0.492,
+       0.555
+      ],
+      "median bias (+ = under)": -0.209
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.618,
+     "factor": 4.15,
+     "CI": [
+      0.594,
+      0.639
+     ],
+     "median bias (+ = under)": -0.374,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.673,
+      "factor": 4.7,
+      "CI": [
+       0.64,
+       0.706
+      ],
+      "median bias (+ = under)": -0.488
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.529,
+      "factor": 3.38,
+      "CI": [
+       0.496,
+       0.559
+      ],
+      "median bias (+ = under)": -0.215
+     },
+     "paired diff vs base": {
+      "diff": 0.007,
+      "CI": [
+       0.006,
+       0.008
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.652,
+     "factor": 4.49,
+     "CI": [
+      0.625,
+      0.674
+     ],
+     "median bias (+ = under)": -0.421,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.728,
+      "factor": 5.34,
+      "CI": [
+       0.695,
+       0.762
+      ],
+      "median bias (+ = under)": -0.587
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.529,
+      "factor": 3.38,
+      "CI": [
+       0.496,
+       0.559
+      ],
+      "median bias (+ = under)": -0.215
+     },
+     "paired diff vs base": {
+      "diff": 0.042,
+      "CI": [
+       0.037,
+       0.045
+      ]
+     }
+    }
+   },
+   "tiktok + facebook + instagram -> x_reread": {
+    "zero-like share source": 0.055,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.484,
+     "factor": 3.05,
+     "CI": [
+      0.465,
+      0.503
+     ],
+     "median bias (+ = under)": -0.052,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.513,
+      "factor": 3.26,
+      "CI": [
+       0.488,
+       0.545
+      ],
+      "median bias (+ = under)": -0.141
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.453,
+      "factor": 2.84,
+      "CI": [
+       0.424,
+       0.478
+      ],
+      "median bias (+ = under)": 0.035
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.486,
+     "factor": 3.06,
+     "CI": [
+      0.467,
+      0.504
+     ],
+     "median bias (+ = under)": -0.065,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.516,
+      "factor": 3.28,
+      "CI": [
+       0.491,
+       0.549
+      ],
+      "median bias (+ = under)": -0.159
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.454,
+      "factor": 2.84,
+      "CI": [
+       0.425,
+       0.478
+      ],
+      "median bias (+ = under)": 0.026
+     },
+     "paired diff vs base": {
+      "diff": 0.002,
+      "CI": [
+       0.001,
+       0.003
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.5,
+     "factor": 3.16,
+     "CI": [
+      0.481,
+      0.517
+     ],
+     "median bias (+ = under)": -0.116,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.543,
+      "factor": 3.49,
+      "CI": [
+       0.516,
+       0.577
+      ],
+      "median bias (+ = under)": -0.258
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.454,
+      "factor": 2.84,
+      "CI": [
+       0.425,
+       0.478
+      ],
+      "median bias (+ = under)": 0.026
+     },
+     "paired diff vs base": {
+      "diff": 0.016,
+      "CI": [
+       0.012,
+       0.02
+      ]
+     }
+    }
+   },
+   "youtube + facebook + instagram -> twitter": {
+    "zero-like share source": 0.234,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.646,
+     "factor": 4.43,
+     "CI": [
+      0.62,
+      0.667
+     ],
+     "median bias (+ = under)": -0.429,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.708,
+      "factor": 5.11,
+      "CI": [
+       0.675,
+       0.742
+      ],
+      "median bias (+ = under)": -0.551
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.544,
+      "factor": 3.5,
+      "CI": [
+       0.51,
+       0.576
+      ],
+      "median bias (+ = under)": -0.266
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.531,
+     "factor": 3.39,
+     "CI": [
+      0.511,
+      0.553
+     ],
+     "median bias (+ = under)": -0.11,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.559,
+      "factor": 3.62,
+      "CI": [
+       0.534,
+       0.589
+      ],
+      "median bias (+ = under)": -0.177
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.485,
+      "factor": 3.05,
+      "CI": [
+       0.452,
+       0.517
+      ],
+      "median bias (+ = under)": -0.035
+     },
+     "paired diff vs base": {
+      "diff": -0.115,
+      "CI": [
+       -0.131,
+       -0.097
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.708,
+     "factor": 5.1,
+     "CI": [
+      0.678,
+      0.73
+     ],
+     "median bias (+ = under)": -0.448,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.844,
+      "factor": 6.98,
+      "CI": [
+       0.808,
+       0.879
+      ],
+      "median bias (+ = under)": -0.763
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.485,
+      "factor": 3.05,
+      "CI": [
+       0.452,
+       0.517
+      ],
+      "median bias (+ = under)": -0.035
+     },
+     "paired diff vs base": {
+      "diff": 0.062,
+      "CI": [
+       0.051,
+       0.072
+      ]
+     }
+    }
+   },
+   "youtube + facebook + instagram -> x_reread": {
+    "zero-like share source": 0.234,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.495,
+     "factor": 3.13,
+     "CI": [
+      0.476,
+      0.513
+     ],
+     "median bias (+ = under)": -0.125,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.532,
+      "factor": 3.4,
+      "CI": [
+       0.507,
+       0.566
+      ],
+      "median bias (+ = under)": -0.236
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.455,
+      "factor": 2.85,
+      "CI": [
+       0.426,
+       0.479
+      ],
+      "median bias (+ = under)": -0.016
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.495,
+     "factor": 3.13,
+     "CI": [
+      0.474,
+      0.515
+     ],
+     "median bias (+ = under)": 0.177,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.518,
+      "factor": 3.3,
+      "CI": [
+       0.492,
+       0.548
+      ],
+      "median bias (+ = under)": 0.153
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.47,
+      "factor": 2.95,
+      "CI": [
+       0.442,
+       0.5
+      ],
+      "median bias (+ = under)": 0.184
+     },
+     "paired diff vs base": {
+      "diff": -0.0,
+      "CI": [
+       -0.017,
+       0.015
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.547,
+     "factor": 3.53,
+     "CI": [
+      0.529,
+      0.566
+     ],
+     "median bias (+ = under)": -0.107,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.618,
+      "factor": 4.15,
+      "CI": [
+       0.588,
+       0.656
+      ],
+      "median bias (+ = under)": -0.434
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.47,
+      "factor": 2.95,
+      "CI": [
+       0.442,
+       0.5
+      ],
+      "median bias (+ = under)": 0.184
+     },
+     "paired diff vs base": {
+      "diff": 0.052,
+      "CI": [
+       0.043,
+       0.062
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + facebook + instagram -> twitter": {
+    "zero-like share source": 0.152,
+    "zero-like share target": 0.621,
+    "base": {
+     "n": 1803,
+     "MAE": 0.64,
+     "factor": 4.37,
+     "CI": [
+      0.614,
+      0.661
+     ],
+     "median bias (+ = under)": -0.415,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.701,
+      "factor": 5.03,
+      "CI": [
+       0.669,
+       0.736
+      ],
+      "median bias (+ = under)": -0.54
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.54,
+      "factor": 3.46,
+      "CI": [
+       0.506,
+       0.571
+      ],
+      "median bias (+ = under)": -0.24
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.561,
+     "factor": 3.64,
+     "CI": [
+      0.539,
+      0.583
+     ],
+     "median bias (+ = under)": -0.233,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.598,
+      "factor": 3.96,
+      "CI": [
+       0.57,
+       0.629
+      ],
+      "median bias (+ = under)": -0.323
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.501,
+      "factor": 3.17,
+      "CI": [
+       0.469,
+       0.532
+      ],
+      "median bias (+ = under)": -0.107
+     },
+     "paired diff vs base": {
+      "diff": -0.079,
+      "CI": [
+       -0.088,
+       -0.069
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.707,
+     "factor": 5.1,
+     "CI": [
+      0.678,
+      0.73
+     ],
+     "median bias (+ = under)": -0.477,
+     "zero-like rows": {
+      "n": 1120,
+      "MAE": 0.833,
+      "factor": 6.81,
+      "CI": [
+       0.798,
+       0.869
+      ],
+      "median bias (+ = under)": -0.748
+     },
+     "non-zero rows": {
+      "n": 683,
+      "MAE": 0.501,
+      "factor": 3.17,
+      "CI": [
+       0.469,
+       0.532
+      ],
+      "median bias (+ = under)": -0.107
+     },
+     "paired diff vs base": {
+      "diff": 0.067,
+      "CI": [
+       0.059,
+       0.075
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + facebook + instagram -> x_reread": {
+    "zero-like share source": 0.152,
+    "zero-like share target": 0.522,
+    "base": {
+     "n": 2013,
+     "MAE": 0.494,
+     "factor": 3.12,
+     "CI": [
+      0.475,
+      0.512
+     ],
+     "median bias (+ = under)": -0.106,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.529,
+      "factor": 3.38,
+      "CI": [
+       0.503,
+       0.563
+      ],
+      "median bias (+ = under)": -0.225
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.457,
+      "factor": 2.86,
+      "CI": [
+       0.428,
+       0.481
+      ],
+      "median bias (+ = under)": 0.006
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.481,
+     "factor": 3.03,
+     "CI": [
+      0.461,
+      0.5
+     ],
+     "median bias (+ = under)": 0.069,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.5,
+      "factor": 3.16,
+      "CI": [
+       0.474,
+       0.532
+      ],
+      "median bias (+ = under)": 0.006
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.46,
+      "factor": 2.88,
+      "CI": [
+       0.432,
+       0.487
+      ],
+      "median bias (+ = under)": 0.131
+     },
+     "paired diff vs base": {
+      "diff": -0.014,
+      "CI": [
+       -0.023,
+       -0.004
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.538,
+     "factor": 3.45,
+     "CI": [
+      0.519,
+      0.557
+     ],
+     "median bias (+ = under)": -0.132,
+     "zero-like rows": {
+      "n": 1050,
+      "MAE": 0.61,
+      "factor": 4.08,
+      "CI": [
+       0.58,
+       0.648
+      ],
+      "median bias (+ = under)": -0.419
+     },
+     "non-zero rows": {
+      "n": 963,
+      "MAE": 0.46,
+      "factor": 2.88,
+      "CI": [
+       0.432,
+       0.487
+      ],
+      "median bias (+ = under)": 0.131
+     },
+     "paired diff vs base": {
+      "diff": 0.044,
+      "CI": [
+       0.037,
+       0.052
+      ]
+     }
+    }
+   }
+  },
+  "zero = likes and comments": {
+   "twitter -> facebook": {
+    "zero-like share source": 0.55,
+    "zero-like share target": 0.052,
+    "base": {
+     "n": 402,
+     "MAE": 0.487,
+     "factor": 3.07,
+     "CI": [
+      0.42,
+      0.536
+     ],
+     "median bias (+ = under)": -0.225,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.452,
+      "factor": 2.83,
+      "CI": [
+       0.323,
+       0.606
+      ],
+      "median bias (+ = under)": 0.084
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.489,
+      "factor": 3.08,
+      "CI": [
+       0.421,
+       0.541
+      ],
+      "median bias (+ = under)": -0.236
+     }
+    },
+    "drop": {
+     "n": 402,
+     "MAE": 0.429,
+     "factor": 2.69,
+     "CI": [
+      0.387,
+      0.472
+     ],
+     "median bias (+ = under)": -0.187,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.449,
+      "factor": 2.81,
+      "CI": [
+       0.317,
+       0.589
+      ],
+      "median bias (+ = under)": -0.015
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.428,
+      "factor": 2.68,
+      "CI": [
+       0.386,
+       0.472
+      ],
+      "median bias (+ = under)": -0.192
+     },
+     "paired diff vs base": {
+      "diff": -0.057,
+      "CI": [
+       -0.097,
+       -0.011
+      ]
+     }
+    },
+    "two-part": {
+     "n": 402,
+     "MAE": 0.43,
+     "factor": 2.69,
+     "CI": [
+      0.388,
+      0.473
+     ],
+     "median bias (+ = under)": -0.186,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.464,
+      "factor": 2.91,
+      "CI": [
+       0.335,
+       0.618
+      ],
+      "median bias (+ = under)": 0.155
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.428,
+      "factor": 2.68,
+      "CI": [
+       0.386,
+       0.472
+      ],
+      "median bias (+ = under)": -0.192
+     },
+     "paired diff vs base": {
+      "diff": -0.056,
+      "CI": [
+       -0.098,
+       -0.009
+      ]
+     }
+    }
+   },
+   "twitter -> instagram": {
+    "zero-like share source": 0.55,
+    "zero-like share target": 0.12,
+    "base": {
+     "n": 642,
+     "MAE": 0.438,
+     "factor": 2.74,
+     "CI": [
+      0.402,
+      0.473
+     ],
+     "median bias (+ = under)": 0.087,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.717,
+      "factor": 5.22,
+      "CI": [
+       0.651,
+       0.778
+      ],
+      "median bias (+ = under)": 0.622
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.4,
+      "factor": 2.51,
+      "CI": [
+       0.373,
+       0.424
+      ],
+      "median bias (+ = under)": 0.06
+     }
+    },
+    "drop": {
+     "n": 642,
+     "MAE": 0.413,
+     "factor": 2.59,
+     "CI": [
+      0.38,
+      0.445
+     ],
+     "median bias (+ = under)": 0.112,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.684,
+      "factor": 4.83,
+      "CI": [
+       0.632,
+       0.728
+      ],
+      "median bias (+ = under)": 0.523
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.376,
+      "factor": 2.38,
+      "CI": [
+       0.356,
+       0.398
+      ],
+      "median bias (+ = under)": 0.094
+     },
+     "paired diff vs base": {
+      "diff": -0.024,
+      "CI": [
+       -0.037,
+       -0.008
+      ]
+     }
+    },
+    "two-part": {
+     "n": 642,
+     "MAE": 0.421,
+     "factor": 2.64,
+     "CI": [
+      0.382,
+      0.463
+     ],
+     "median bias (+ = under)": 0.117,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.747,
+      "factor": 5.58,
+      "CI": [
+       0.667,
+       0.823
+      ],
+      "median bias (+ = under)": 0.693
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.376,
+      "factor": 2.38,
+      "CI": [
+       0.356,
+       0.398
+      ],
+      "median bias (+ = under)": 0.094
+     },
+     "paired diff vs base": {
+      "diff": -0.017,
+      "CI": [
+       -0.029,
+       -0.0
+      ]
+     }
+    }
+   },
+   "twitter -> tiktok": {
+    "zero-like share source": 0.55,
+    "zero-like share target": 0.036,
+    "base": {
+     "n": 2491,
+     "MAE": 0.529,
+     "factor": 3.38,
+     "CI": [
+      0.511,
+      0.547
+     ],
+     "median bias (+ = under)": -0.299,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.706,
+      "factor": 5.08,
+      "CI": [
+       0.626,
+       0.785
+      ],
+      "median bias (+ = under)": 0.678
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.522,
+      "factor": 3.33,
+      "CI": [
+       0.503,
+       0.544
+      ],
+      "median bias (+ = under)": -0.318
+     }
+    },
+    "drop": {
+     "n": 2491,
+     "MAE": 0.457,
+     "factor": 2.86,
+     "CI": [
+      0.443,
+      0.471
+     ],
+     "median bias (+ = under)": -0.244,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.65,
+      "factor": 4.47,
+      "CI": [
+       0.571,
+       0.729
+      ],
+      "median bias (+ = under)": 0.579
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.45,
+      "factor": 2.82,
+      "CI": [
+       0.434,
+       0.469
+      ],
+      "median bias (+ = under)": -0.259
+     },
+     "paired diff vs base": {
+      "diff": -0.072,
+      "CI": [
+       -0.077,
+       -0.068
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2491,
+     "MAE": 0.46,
+     "factor": 2.89,
+     "CI": [
+      0.446,
+      0.475
+     ],
+     "median bias (+ = under)": -0.241,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.748,
+      "factor": 5.59,
+      "CI": [
+       0.667,
+       0.829
+      ],
+      "median bias (+ = under)": 0.749
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.45,
+      "factor": 2.82,
+      "CI": [
+       0.434,
+       0.469
+      ],
+      "median bias (+ = under)": -0.259
+     },
+     "paired diff vs base": {
+      "diff": -0.069,
+      "CI": [
+       -0.074,
+       -0.064
+      ]
+     }
+    }
+   },
+   "twitter -> youtube": {
+    "zero-like share source": 0.55,
+    "zero-like share target": 0.272,
+    "base": {
+     "n": 2441,
+     "MAE": 0.742,
+     "factor": 5.52,
+     "CI": [
+      0.707,
+      0.783
+     ],
+     "median bias (+ = under)": -0.229,
+     "zero-like rows": {
+      "n": 665,
+      "MAE": 1.177,
+      "factor": 15.01,
+      "CI": [
+       1.085,
+       1.273
+      ],
+      "median bias (+ = under)": 0.761
+     },
+     "non-zero rows": {
+      "n": 1776,
+      "MAE": 0.579,
+      "factor": 3.79,
+      "CI": [
+       0.554,
+       0.606
+      ],
+      "median bias (+ = under)": -0.388
+     }
+    },
+    "drop": {
+     "n": 2441,
+     "MAE": 0.691,
+     "factor": 4.9,
+     "CI": [
+      0.659,
+      0.729
+     ],
+     "median bias (+ = under)": -0.205,
+     "zero-like rows": {
+      "n": 665,
+      "MAE": 1.139,
+      "factor": 13.77,
+      "CI": [
+       1.049,
+       1.229
+      ],
+      "median bias (+ = under)": 0.662
+     },
+     "non-zero rows": {
+      "n": 1776,
+      "MAE": 0.523,
+      "factor": 3.33,
+      "CI": [
+       0.5,
+       0.547
+      ],
+      "median bias (+ = under)": -0.33
+     },
+     "paired diff vs base": {
+      "diff": -0.051,
+      "CI": [
+       -0.056,
+       -0.045
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2441,
+     "MAE": 0.709,
+     "factor": 5.12,
+     "CI": [
+      0.674,
+      0.749
+     ],
+     "median bias (+ = under)": -0.192,
+     "zero-like rows": {
+      "n": 665,
+      "MAE": 1.206,
+      "factor": 16.09,
+      "CI": [
+       1.11,
+       1.305
+      ],
+      "median bias (+ = under)": 0.832
+     },
+     "non-zero rows": {
+      "n": 1776,
+      "MAE": 0.523,
+      "factor": 3.33,
+      "CI": [
+       0.5,
+       0.547
+      ],
+      "median bias (+ = under)": -0.33
+     },
+     "paired diff vs base": {
+      "diff": -0.033,
+      "CI": [
+       -0.037,
+       -0.027
+      ]
+     }
+    }
+   },
+   "x_reread -> facebook": {
+    "zero-like share source": 0.439,
+    "zero-like share target": 0.052,
+    "base": {
+     "n": 402,
+     "MAE": 0.52,
+     "factor": 3.31,
+     "CI": [
+      0.464,
+      0.57
+     ],
+     "median bias (+ = under)": -0.39,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.487,
+      "factor": 3.07,
+      "CI": [
+       0.355,
+       0.621
+      ],
+      "median bias (+ = under)": -0.219
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.522,
+      "factor": 3.33,
+      "CI": [
+       0.468,
+       0.572
+      ],
+      "median bias (+ = under)": -0.391
+     }
+    },
+    "drop": {
+     "n": 402,
+     "MAE": 0.489,
+     "factor": 3.08,
+     "CI": [
+      0.444,
+      0.528
+     ],
+     "median bias (+ = under)": -0.357,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.507,
+      "factor": 3.21,
+      "CI": [
+       0.374,
+       0.636
+      ],
+      "median bias (+ = under)": -0.285
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.488,
+      "factor": 3.08,
+      "CI": [
+       0.443,
+       0.528
+      ],
+      "median bias (+ = under)": -0.358
+     },
+     "paired diff vs base": {
+      "diff": -0.031,
+      "CI": [
+       -0.055,
+       -0.003
+      ]
+     }
+    },
+    "two-part": {
+     "n": 402,
+     "MAE": 0.487,
+     "factor": 3.07,
+     "CI": [
+      0.442,
+      0.527
+     ],
+     "median bias (+ = under)": -0.355,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.473,
+      "factor": 2.97,
+      "CI": [
+       0.348,
+       0.61
+      ],
+      "median bias (+ = under)": -0.161
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.488,
+      "factor": 3.08,
+      "CI": [
+       0.443,
+       0.528
+      ],
+      "median bias (+ = under)": -0.358
+     },
+     "paired diff vs base": {
+      "diff": -0.033,
+      "CI": [
+       -0.057,
+       -0.007
+      ]
+     }
+    }
+   },
+   "x_reread -> instagram": {
+    "zero-like share source": 0.439,
+    "zero-like share target": 0.12,
+    "base": {
+     "n": 642,
+     "MAE": 0.406,
+     "factor": 2.55,
+     "CI": [
+      0.37,
+      0.442
+     ],
+     "median bias (+ = under)": -0.068,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.633,
+      "factor": 4.29,
+      "CI": [
+       0.574,
+       0.702
+      ],
+      "median bias (+ = under)": 0.319
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.376,
+      "factor": 2.38,
+      "CI": [
+       0.334,
+       0.405
+      ],
+      "median bias (+ = under)": -0.083
+     }
+    },
+    "drop": {
+     "n": 642,
+     "MAE": 0.392,
+     "factor": 2.47,
+     "CI": [
+      0.356,
+      0.428
+     ],
+     "median bias (+ = under)": -0.056,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.624,
+      "factor": 4.21,
+      "CI": [
+       0.55,
+       0.705
+      ],
+      "median bias (+ = under)": 0.253
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.36,
+      "factor": 2.29,
+      "CI": [
+       0.324,
+       0.392
+      ],
+      "median bias (+ = under)": -0.068
+     },
+     "paired diff vs base": {
+      "diff": -0.014,
+      "CI": [
+       -0.022,
+       -0.006
+      ]
+     }
+    },
+    "two-part": {
+     "n": 642,
+     "MAE": 0.395,
+     "factor": 2.48,
+     "CI": [
+      0.357,
+      0.432
+     ],
+     "median bias (+ = under)": -0.044,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.645,
+      "factor": 4.42,
+      "CI": [
+       0.599,
+       0.706
+      ],
+      "median bias (+ = under)": 0.376
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.36,
+      "factor": 2.29,
+      "CI": [
+       0.324,
+       0.392
+      ],
+      "median bias (+ = under)": -0.068
+     },
+     "paired diff vs base": {
+      "diff": -0.012,
+      "CI": [
+       -0.019,
+       -0.003
+      ]
+     }
+    }
+   },
+   "x_reread -> tiktok": {
+    "zero-like share source": 0.439,
+    "zero-like share target": 0.036,
+    "base": {
+     "n": 2491,
+     "MAE": 0.542,
+     "factor": 3.48,
+     "CI": [
+      0.524,
+      0.56
+     ],
+     "median bias (+ = under)": -0.419,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.564,
+      "factor": 3.66,
+      "CI": [
+       0.484,
+       0.635
+      ],
+      "median bias (+ = under)": 0.375
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.541,
+      "factor": 3.48,
+      "CI": [
+       0.523,
+       0.562
+      ],
+      "median bias (+ = under)": -0.433
+     }
+    },
+    "drop": {
+     "n": 2491,
+     "MAE": 0.504,
+     "factor": 3.19,
+     "CI": [
+      0.488,
+      0.521
+     ],
+     "median bias (+ = under)": -0.389,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.545,
+      "factor": 3.51,
+      "CI": [
+       0.461,
+       0.623
+      ],
+      "median bias (+ = under)": 0.309
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.503,
+      "factor": 3.18,
+      "CI": [
+       0.486,
+       0.521
+      ],
+      "median bias (+ = under)": -0.402
+     },
+     "paired diff vs base": {
+      "diff": -0.038,
+      "CI": [
+       -0.04,
+       -0.035
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2491,
+     "MAE": 0.506,
+     "factor": 3.2,
+     "CI": [
+      0.49,
+      0.522
+     ],
+     "median bias (+ = under)": -0.388,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.584,
+      "factor": 3.83,
+      "CI": [
+       0.507,
+       0.659
+      ],
+      "median bias (+ = under)": 0.432
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.503,
+      "factor": 3.18,
+      "CI": [
+       0.486,
+       0.521
+      ],
+      "median bias (+ = under)": -0.402
+     },
+     "paired diff vs base": {
+      "diff": -0.036,
+      "CI": [
+       -0.039,
+       -0.033
+      ]
+     }
+    }
+   },
+   "x_reread -> youtube": {
+    "zero-like share source": 0.439,
+    "zero-like share target": 0.272,
+    "base": {
+     "n": 2441,
+     "MAE": 0.76,
+     "factor": 5.75,
+     "CI": [
+      0.73,
+      0.795
+     ],
+     "median bias (+ = under)": -0.406,
+     "zero-like rows": {
+      "n": 665,
+      "MAE": 1.079,
+      "factor": 12.0,
+      "CI": [
+       1.007,
+       1.16
+      ],
+      "median bias (+ = under)": 0.458
+     },
+     "non-zero rows": {
+      "n": 1776,
+      "MAE": 0.64,
+      "factor": 4.37,
+      "CI": [
+       0.615,
+       0.666
+      ],
+      "median bias (+ = under)": -0.533
+     }
+    },
+    "drop": {
+     "n": 2441,
+     "MAE": 0.735,
+     "factor": 5.43,
+     "CI": [
+      0.706,
+      0.768
+     ],
+     "median bias (+ = under)": -0.404,
+     "zero-like rows": {
+      "n": 665,
+      "MAE": 1.065,
+      "factor": 11.63,
+      "CI": [
+       0.997,
+       1.143
+      ],
+      "median bias (+ = under)": 0.392
+     },
+     "non-zero rows": {
+      "n": 1776,
+      "MAE": 0.611,
+      "factor": 4.08,
+      "CI": [
+       0.587,
+       0.637
+      ],
+      "median bias (+ = under)": -0.504
+     },
+     "paired diff vs base": {
+      "diff": -0.025,
+      "CI": [
+       -0.028,
+       -0.021
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2441,
+     "MAE": 0.743,
+     "factor": 5.53,
+     "CI": [
+      0.713,
+      0.779
+     ],
+     "median bias (+ = under)": -0.387,
+     "zero-like rows": {
+      "n": 665,
+      "MAE": 1.093,
+      "factor": 12.4,
+      "CI": [
+       1.018,
+       1.176
+      ],
+      "median bias (+ = under)": 0.515
+     },
+     "non-zero rows": {
+      "n": 1776,
+      "MAE": 0.611,
+      "factor": 4.08,
+      "CI": [
+       0.587,
+       0.637
+      ],
+      "median bias (+ = under)": -0.504
+     },
+     "paired diff vs base": {
+      "diff": -0.017,
+      "CI": [
+       -0.02,
+       -0.014
+      ]
+     }
+    }
+   },
+   "twitter + youtube -> facebook": {
+    "zero-like share source": 0.39,
+    "zero-like share target": 0.052,
+    "base": {
+     "n": 402,
+     "MAE": 0.385,
+     "factor": 2.43,
+     "CI": [
+      0.312,
+      0.482
+     ],
+     "median bias (+ = under)": 0.076,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.477,
+      "factor": 3.0,
+      "CI": [
+       0.351,
+       0.613
+      ],
+      "median bias (+ = under)": -0.177
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.38,
+      "factor": 2.4,
+      "CI": [
+       0.301,
+       0.481
+      ],
+      "median bias (+ = under)": 0.085
+     }
+    },
+    "drop": {
+     "n": 402,
+     "MAE": 0.381,
+     "factor": 2.4,
+     "CI": [
+      0.312,
+      0.483
+     ],
+     "median bias (+ = under)": 0.084,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.457,
+      "factor": 2.86,
+      "CI": [
+       0.335,
+       0.597
+      ],
+      "median bias (+ = under)": -0.093
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.377,
+      "factor": 2.38,
+      "CI": [
+       0.304,
+       0.483
+      ],
+      "median bias (+ = under)": 0.092
+     },
+     "paired diff vs base": {
+      "diff": -0.005,
+      "CI": [
+       -0.015,
+       0.005
+      ]
+     }
+    },
+    "two-part": {
+     "n": 402,
+     "MAE": 0.38,
+     "factor": 2.4,
+     "CI": [
+      0.312,
+      0.482
+     ],
+     "median bias (+ = under)": 0.084,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.451,
+      "factor": 2.82,
+      "CI": [
+       0.322,
+       0.591
+      ],
+      "median bias (+ = under)": -0.051
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.377,
+      "factor": 2.38,
+      "CI": [
+       0.304,
+       0.483
+      ],
+      "median bias (+ = under)": 0.092
+     },
+     "paired diff vs base": {
+      "diff": -0.005,
+      "CI": [
+       -0.015,
+       0.005
+      ]
+     }
+    }
+   },
+   "twitter + youtube -> instagram": {
+    "zero-like share source": 0.39,
+    "zero-like share target": 0.12,
+    "base": {
+     "n": 642,
+     "MAE": 0.435,
+     "factor": 2.72,
+     "CI": [
+      0.396,
+      0.484
+     ],
+     "median bias (+ = under)": 0.281,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.642,
+      "factor": 4.38,
+      "CI": [
+       0.594,
+       0.706
+      ],
+      "median bias (+ = under)": 0.361
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.407,
+      "factor": 2.55,
+      "CI": [
+       0.371,
+       0.457
+      ],
+      "median bias (+ = under)": 0.277
+     }
+    },
+    "drop": {
+     "n": 642,
+     "MAE": 0.446,
+     "factor": 2.79,
+     "CI": [
+      0.405,
+      0.5
+     ],
+     "median bias (+ = under)": 0.296,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.663,
+      "factor": 4.6,
+      "CI": [
+       0.619,
+       0.709
+      ],
+      "median bias (+ = under)": 0.445
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.417,
+      "factor": 2.61,
+      "CI": [
+       0.379,
+       0.468
+      ],
+      "median bias (+ = under)": 0.289
+     },
+     "paired diff vs base": {
+      "diff": 0.011,
+      "CI": [
+       0.007,
+       0.017
+      ]
+     }
+    },
+    "two-part": {
+     "n": 642,
+     "MAE": 0.448,
+     "factor": 2.8,
+     "CI": [
+      0.406,
+      0.502
+     ],
+     "median bias (+ = under)": 0.301,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.674,
+      "factor": 4.72,
+      "CI": [
+       0.627,
+       0.718
+      ],
+      "median bias (+ = under)": 0.487
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.417,
+      "factor": 2.61,
+      "CI": [
+       0.379,
+       0.468
+      ],
+      "median bias (+ = under)": 0.289
+     },
+     "paired diff vs base": {
+      "diff": 0.013,
+      "CI": [
+       0.007,
+       0.02
+      ]
+     }
+    }
+   },
+   "twitter + youtube -> tiktok": {
+    "zero-like share source": 0.39,
+    "zero-like share target": 0.036,
+    "base": {
+     "n": 2491,
+     "MAE": 0.313,
+     "factor": 2.05,
+     "CI": [
+      0.301,
+      0.325
+     ],
+     "median bias (+ = under)": -0.001,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.578,
+      "factor": 3.78,
+      "CI": [
+       0.501,
+       0.653
+      ],
+      "median bias (+ = under)": 0.416
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.303,
+      "factor": 2.01,
+      "CI": [
+       0.291,
+       0.314
+      ],
+      "median bias (+ = under)": -0.008
+     }
+    },
+    "drop": {
+     "n": 2491,
+     "MAE": 0.324,
+     "factor": 2.11,
+     "CI": [
+      0.312,
+      0.338
+     ],
+     "median bias (+ = under)": 0.01,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.613,
+      "factor": 4.11,
+      "CI": [
+       0.535,
+       0.69
+      ],
+      "median bias (+ = under)": 0.501
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.313,
+      "factor": 2.06,
+      "CI": [
+       0.302,
+       0.326
+      ],
+      "median bias (+ = under)": 0.001
+     },
+     "paired diff vs base": {
+      "diff": 0.012,
+      "CI": [
+       0.01,
+       0.013
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2491,
+     "MAE": 0.325,
+     "factor": 2.11,
+     "CI": [
+      0.312,
+      0.339
+     ],
+     "median bias (+ = under)": 0.01,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.633,
+      "factor": 4.29,
+      "CI": [
+       0.553,
+       0.712
+      ],
+      "median bias (+ = under)": 0.543
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.313,
+      "factor": 2.06,
+      "CI": [
+       0.302,
+       0.326
+      ],
+      "median bias (+ = under)": 0.001
+     },
+     "paired diff vs base": {
+      "diff": 0.012,
+      "CI": [
+       0.011,
+       0.014
+      ]
+     }
+    }
+   },
+   "x_reread + youtube -> facebook": {
+    "zero-like share source": 0.348,
+    "zero-like share target": 0.052,
+    "base": {
+     "n": 402,
+     "MAE": 0.397,
+     "factor": 2.49,
+     "CI": [
+      0.33,
+      0.479
+     ],
+     "median bias (+ = under)": 0.016,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.538,
+      "factor": 3.45,
+      "CI": [
+       0.391,
+       0.658
+      ],
+      "median bias (+ = under)": -0.353
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.389,
+      "factor": 2.45,
+      "CI": [
+       0.316,
+       0.471
+      ],
+      "median bias (+ = under)": 0.027
+     }
+    },
+    "drop": {
+     "n": 402,
+     "MAE": 0.383,
+     "factor": 2.42,
+     "CI": [
+      0.317,
+      0.473
+     ],
+     "median bias (+ = under)": 0.026,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.498,
+      "factor": 3.15,
+      "CI": [
+       0.367,
+       0.629
+      ],
+      "median bias (+ = under)": -0.259
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.377,
+      "factor": 2.38,
+      "CI": [
+       0.3,
+       0.468
+      ],
+      "median bias (+ = under)": 0.04
+     },
+     "paired diff vs base": {
+      "diff": -0.014,
+      "CI": [
+       -0.025,
+       -0.003
+      ]
+     }
+    },
+    "two-part": {
+     "n": 402,
+     "MAE": 0.383,
+     "factor": 2.42,
+     "CI": [
+      0.317,
+      0.473
+     ],
+     "median bias (+ = under)": 0.026,
+     "zero-like rows": {
+      "n": 21,
+      "MAE": 0.505,
+      "factor": 3.2,
+      "CI": [
+       0.371,
+       0.634
+      ],
+      "median bias (+ = under)": -0.279
+     },
+     "non-zero rows": {
+      "n": 381,
+      "MAE": 0.377,
+      "factor": 2.38,
+      "CI": [
+       0.3,
+       0.468
+      ],
+      "median bias (+ = under)": 0.04
+     },
+     "paired diff vs base": {
+      "diff": -0.014,
+      "CI": [
+       -0.024,
+       -0.002
+      ]
+     }
+    }
+   },
+   "x_reread + youtube -> instagram": {
+    "zero-like share source": 0.348,
+    "zero-like share target": 0.12,
+    "base": {
+     "n": 642,
+     "MAE": 0.404,
+     "factor": 2.54,
+     "CI": [
+      0.37,
+      0.451
+     ],
+     "median bias (+ = under)": 0.185,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.616,
+      "factor": 4.13,
+      "CI": [
+       0.526,
+       0.715
+      ],
+      "median bias (+ = under)": 0.185
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.375,
+      "factor": 2.37,
+      "CI": [
+       0.348,
+       0.42
+      ],
+      "median bias (+ = under)": 0.186
+     }
+    },
+    "drop": {
+     "n": 642,
+     "MAE": 0.41,
+     "factor": 2.57,
+     "CI": [
+      0.374,
+      0.457
+     ],
+     "median bias (+ = under)": 0.217,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.627,
+      "factor": 4.23,
+      "CI": [
+       0.559,
+       0.704
+      ],
+      "median bias (+ = under)": 0.278
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.38,
+      "factor": 2.4,
+      "CI": [
+       0.35,
+       0.424
+      ],
+      "median bias (+ = under)": 0.202
+     },
+     "paired diff vs base": {
+      "diff": 0.006,
+      "CI": [
+       0.001,
+       0.01
+      ]
+     }
+    },
+    "two-part": {
+     "n": 642,
+     "MAE": 0.41,
+     "factor": 2.57,
+     "CI": [
+      0.373,
+      0.456
+     ],
+     "median bias (+ = under)": 0.217,
+     "zero-like rows": {
+      "n": 77,
+      "MAE": 0.625,
+      "factor": 4.21,
+      "CI": [
+       0.552,
+       0.705
+      ],
+      "median bias (+ = under)": 0.259
+     },
+     "non-zero rows": {
+      "n": 565,
+      "MAE": 0.38,
+      "factor": 2.4,
+      "CI": [
+       0.35,
+       0.424
+      ],
+      "median bias (+ = under)": 0.202
+     },
+     "paired diff vs base": {
+      "diff": 0.005,
+      "CI": [
+       0.001,
+       0.01
+      ]
+     }
+    }
+   },
+   "x_reread + youtube -> tiktok": {
+    "zero-like share source": 0.348,
+    "zero-like share target": 0.036,
+    "base": {
+     "n": 2491,
+     "MAE": 0.305,
+     "factor": 2.02,
+     "CI": [
+      0.294,
+      0.317
+     ],
+     "median bias (+ = under)": -0.063,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.528,
+      "factor": 3.37,
+      "CI": [
+       0.445,
+       0.607
+      ],
+      "median bias (+ = under)": 0.24
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.297,
+      "factor": 1.98,
+      "CI": [
+       0.286,
+       0.308
+      ],
+      "median bias (+ = under)": -0.066
+     }
+    },
+    "drop": {
+     "n": 2491,
+     "MAE": 0.312,
+     "factor": 2.05,
+     "CI": [
+      0.301,
+      0.324
+     ],
+     "median bias (+ = under)": -0.052,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.552,
+      "factor": 3.56,
+      "CI": [
+       0.468,
+       0.626
+      ],
+      "median bias (+ = under)": 0.334
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.303,
+      "factor": 2.01,
+      "CI": [
+       0.293,
+       0.315
+      ],
+      "median bias (+ = under)": -0.062
+     },
+     "paired diff vs base": {
+      "diff": 0.007,
+      "CI": [
+       0.005,
+       0.009
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2491,
+     "MAE": 0.312,
+     "factor": 2.05,
+     "CI": [
+      0.301,
+      0.324
+     ],
+     "median bias (+ = under)": -0.053,
+     "zero-like rows": {
+      "n": 90,
+      "MAE": 0.546,
+      "factor": 3.52,
+      "CI": [
+       0.462,
+       0.624
+      ],
+      "median bias (+ = under)": 0.315
+     },
+     "non-zero rows": {
+      "n": 2401,
+      "MAE": 0.303,
+      "factor": 2.01,
+      "CI": [
+       0.293,
+       0.315
+      ],
+      "median bias (+ = under)": -0.062
+     },
+     "paired diff vs base": {
+      "diff": 0.007,
+      "CI": [
+       0.005,
+       0.009
+      ]
+     }
+    }
+   },
+   "tiktok -> twitter": {
+    "zero-like share source": 0.036,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.618,
+     "factor": 4.15,
+     "CI": [
+      0.593,
+      0.638
+     ],
+     "median bias (+ = under)": -0.364,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.695,
+      "factor": 4.95,
+      "CI": [
+       0.659,
+       0.726
+      ],
+      "median bias (+ = under)": -0.519
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.524,
+      "factor": 3.34,
+      "CI": [
+       0.495,
+       0.554
+      ],
+      "median bias (+ = under)": -0.207
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.617,
+     "factor": 4.14,
+     "CI": [
+      0.592,
+      0.637
+     ],
+     "median bias (+ = under)": -0.361,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.693,
+      "factor": 4.94,
+      "CI": [
+       0.658,
+       0.725
+      ],
+      "median bias (+ = under)": -0.516
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.523,
+      "factor": 3.34,
+      "CI": [
+       0.495,
+       0.553
+      ],
+      "median bias (+ = under)": -0.205
+     },
+     "paired diff vs base": {
+      "diff": -0.001,
+      "CI": [
+       -0.001,
+       -0.001
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.697,
+     "factor": 4.98,
+     "CI": [
+      0.669,
+      0.719
+     ],
+     "median bias (+ = under)": -0.475,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.84,
+      "factor": 6.92,
+      "CI": [
+       0.799,
+       0.875
+      ],
+      "median bias (+ = under)": -0.749
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.523,
+      "factor": 3.34,
+      "CI": [
+       0.495,
+       0.553
+      ],
+      "median bias (+ = under)": -0.205
+     },
+     "paired diff vs base": {
+      "diff": 0.079,
+      "CI": [
+       0.071,
+       0.087
+      ]
+     }
+    }
+   },
+   "tiktok -> x_reread": {
+    "zero-like share source": 0.036,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.489,
+     "factor": 3.08,
+     "CI": [
+      0.47,
+      0.507
+     ],
+     "median bias (+ = under)": -0.057,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.533,
+      "factor": 3.41,
+      "CI": [
+       0.505,
+       0.559
+      ],
+      "median bias (+ = under)": -0.202
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.455,
+      "factor": 2.85,
+      "CI": [
+       0.433,
+       0.479
+      ],
+      "median bias (+ = under)": 0.045
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.489,
+     "factor": 3.08,
+     "CI": [
+      0.47,
+      0.507
+     ],
+     "median bias (+ = under)": -0.056,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.532,
+      "factor": 3.41,
+      "CI": [
+       0.505,
+       0.559
+      ],
+      "median bias (+ = under)": -0.2
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.455,
+      "factor": 2.85,
+      "CI": [
+       0.433,
+       0.479
+      ],
+      "median bias (+ = under)": 0.047
+     },
+     "paired diff vs base": {
+      "diff": -0.0,
+      "CI": [
+       -0.0,
+       -0.0
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.528,
+     "factor": 3.37,
+     "CI": [
+      0.509,
+      0.547
+     ],
+     "median bias (+ = under)": -0.148,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.622,
+      "factor": 4.19,
+      "CI": [
+       0.589,
+       0.653
+      ],
+      "median bias (+ = under)": -0.432
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.455,
+      "factor": 2.85,
+      "CI": [
+       0.433,
+       0.479
+      ],
+      "median bias (+ = under)": 0.047
+     },
+     "paired diff vs base": {
+      "diff": 0.039,
+      "CI": [
+       0.033,
+       0.046
+      ]
+     }
+    }
+   },
+   "youtube -> twitter": {
+    "zero-like share source": 0.272,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.667,
+     "factor": 4.64,
+     "CI": [
+      0.639,
+      0.689
+     ],
+     "median bias (+ = under)": -0.465,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.758,
+      "factor": 5.73,
+      "CI": [
+       0.721,
+       0.791
+      ],
+      "median bias (+ = under)": -0.628
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.555,
+      "factor": 3.59,
+      "CI": [
+       0.525,
+       0.585
+      ],
+      "median bias (+ = under)": -0.273
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.54,
+     "factor": 3.46,
+     "CI": [
+      0.519,
+      0.561
+     ],
+     "median bias (+ = under)": -0.144,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.584,
+      "factor": 3.84,
+      "CI": [
+       0.55,
+       0.613
+      ],
+      "median bias (+ = under)": -0.254
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.486,
+      "factor": 3.06,
+      "CI": [
+       0.454,
+       0.521
+      ],
+      "median bias (+ = under)": -0.019
+     },
+     "paired diff vs base": {
+      "diff": -0.127,
+      "CI": [
+       -0.143,
+       -0.11
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.713,
+     "factor": 5.17,
+     "CI": [
+      0.684,
+      0.738
+     ],
+     "median bias (+ = under)": -0.425,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.9,
+      "factor": 7.94,
+      "CI": [
+       0.857,
+       0.937
+      ],
+      "median bias (+ = under)": -0.832
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.486,
+      "factor": 3.06,
+      "CI": [
+       0.454,
+       0.521
+      ],
+      "median bias (+ = under)": -0.019
+     },
+     "paired diff vs base": {
+      "diff": 0.046,
+      "CI": [
+       0.035,
+       0.058
+      ]
+     }
+    }
+   },
+   "youtube -> x_reread": {
+    "zero-like share source": 0.272,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.509,
+     "factor": 3.23,
+     "CI": [
+      0.49,
+      0.527
+     ],
+     "median bias (+ = under)": -0.14,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.568,
+      "factor": 3.69,
+      "CI": [
+       0.539,
+       0.596
+      ],
+      "median bias (+ = under)": -0.311
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.464,
+      "factor": 2.91,
+      "CI": [
+       0.44,
+       0.488
+      ],
+      "median bias (+ = under)": -0.016
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.493,
+     "factor": 3.11,
+     "CI": [
+      0.472,
+      0.512
+     ],
+     "median bias (+ = under)": 0.162,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.509,
+      "factor": 3.23,
+      "CI": [
+       0.483,
+       0.535
+      ],
+      "median bias (+ = under)": 0.062
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.48,
+      "factor": 3.02,
+      "CI": [
+       0.449,
+       0.507
+      ],
+      "median bias (+ = under)": 0.231
+     },
+     "paired diff vs base": {
+      "diff": -0.017,
+      "CI": [
+       -0.033,
+       -0.001
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.562,
+     "factor": 3.65,
+     "CI": [
+      0.542,
+      0.582
+     ],
+     "median bias (+ = under)": -0.053,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.668,
+      "factor": 4.65,
+      "CI": [
+       0.632,
+       0.701
+      ],
+      "median bias (+ = under)": -0.515
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.48,
+      "factor": 3.02,
+      "CI": [
+       0.449,
+       0.507
+      ],
+      "median bias (+ = under)": 0.231
+     },
+     "paired diff vs base": {
+      "diff": 0.053,
+      "CI": [
+       0.043,
+       0.064
+      ]
+     }
+    }
+   },
+   "facebook -> twitter": {
+    "zero-like share source": 0.052,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.556,
+     "factor": 3.6,
+     "CI": [
+      0.535,
+      0.578
+     ],
+     "median bias (+ = under)": -0.229,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.608,
+      "factor": 4.06,
+      "CI": [
+       0.574,
+       0.639
+      ],
+      "median bias (+ = under)": -0.333
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.492,
+      "factor": 3.1,
+      "CI": [
+       0.464,
+       0.522
+      ],
+      "median bias (+ = under)": -0.132
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.57,
+     "factor": 3.71,
+     "CI": [
+      0.548,
+      0.592
+     ],
+     "median bias (+ = under)": -0.271,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.627,
+      "factor": 4.24,
+      "CI": [
+       0.593,
+       0.659
+      ],
+      "median bias (+ = under)": -0.38
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.5,
+      "factor": 3.16,
+      "CI": [
+       0.472,
+       0.53
+      ],
+      "median bias (+ = under)": -0.167
+     },
+     "paired diff vs base": {
+      "diff": 0.014,
+      "CI": [
+       0.012,
+       0.016
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.534,
+     "factor": 3.42,
+     "CI": [
+      0.513,
+      0.557
+     ],
+     "median bias (+ = under)": -0.161,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.561,
+      "factor": 3.64,
+      "CI": [
+       0.531,
+       0.589
+      ],
+      "median bias (+ = under)": -0.155
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.5,
+      "factor": 3.16,
+      "CI": [
+       0.472,
+       0.53
+      ],
+      "median bias (+ = under)": -0.167
+     },
+     "paired diff vs base": {
+      "diff": -0.022,
+      "CI": [
+       -0.028,
+       -0.016
+      ]
+     }
+    }
+   },
+   "facebook -> x_reread": {
+    "zero-like share source": 0.052,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.475,
+     "factor": 2.98,
+     "CI": [
+      0.454,
+      0.493
+     ],
+     "median bias (+ = under)": 0.06,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.507,
+      "factor": 3.21,
+      "CI": [
+       0.482,
+       0.532
+      ],
+      "median bias (+ = under)": -0.016
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.449,
+      "factor": 2.81,
+      "CI": [
+       0.425,
+       0.476
+      ],
+      "median bias (+ = under)": 0.103
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.473,
+     "factor": 2.97,
+     "CI": [
+      0.454,
+      0.492
+     ],
+     "median bias (+ = under)": 0.02,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.51,
+      "factor": 3.24,
+      "CI": [
+       0.484,
+       0.535
+      ],
+      "median bias (+ = under)": -0.064
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.445,
+      "factor": 2.78,
+      "CI": [
+       0.421,
+       0.471
+      ],
+      "median bias (+ = under)": 0.068
+     },
+     "paired diff vs base": {
+      "diff": -0.001,
+      "CI": [
+       -0.003,
+       0.001
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.479,
+     "factor": 3.01,
+     "CI": [
+      0.459,
+      0.499
+     ],
+     "median bias (+ = under)": 0.101,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.523,
+      "factor": 3.34,
+      "CI": [
+       0.498,
+       0.551
+      ],
+      "median bias (+ = under)": 0.161
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.445,
+      "factor": 2.78,
+      "CI": [
+       0.421,
+       0.471
+      ],
+      "median bias (+ = under)": 0.068
+     },
+     "paired diff vs base": {
+      "diff": 0.005,
+      "CI": [
+       -0.001,
+       0.01
+      ]
+     }
+    }
+   },
+   "instagram -> twitter": {
+    "zero-like share source": 0.12,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.608,
+     "factor": 4.06,
+     "CI": [
+      0.586,
+      0.629
+     ],
+     "median bias (+ = under)": -0.374,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.676,
+      "factor": 4.74,
+      "CI": [
+       0.64,
+       0.708
+      ],
+      "median bias (+ = under)": -0.483
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.526,
+      "factor": 3.36,
+      "CI": [
+       0.5,
+       0.557
+      ],
+      "median bias (+ = under)": -0.27
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.621,
+     "factor": 4.18,
+     "CI": [
+      0.598,
+      0.641
+     ],
+     "median bias (+ = under)": -0.404,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.692,
+      "factor": 4.92,
+      "CI": [
+       0.656,
+       0.723
+      ],
+      "median bias (+ = under)": -0.513
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.534,
+      "factor": 3.42,
+      "CI": [
+       0.508,
+       0.566
+      ],
+      "median bias (+ = under)": -0.289
+     },
+     "paired diff vs base": {
+      "diff": 0.012,
+      "CI": [
+       0.011,
+       0.013
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.681,
+     "factor": 4.8,
+     "CI": [
+      0.655,
+      0.703
+     ],
+     "median bias (+ = under)": -0.483,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.801,
+      "factor": 6.32,
+      "CI": [
+       0.762,
+       0.835
+      ],
+      "median bias (+ = under)": -0.693
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.534,
+      "factor": 3.42,
+      "CI": [
+       0.508,
+       0.566
+      ],
+      "median bias (+ = under)": -0.289
+     },
+     "paired diff vs base": {
+      "diff": 0.072,
+      "CI": [
+       0.065,
+       0.079
+      ]
+     }
+    }
+   },
+   "instagram -> x_reread": {
+    "zero-like share source": 0.12,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.478,
+     "factor": 3.01,
+     "CI": [
+      0.458,
+      0.496
+     ],
+     "median bias (+ = under)": -0.079,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.525,
+      "factor": 3.35,
+      "CI": [
+       0.498,
+       0.55
+      ],
+      "median bias (+ = under)": -0.167
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.441,
+      "factor": 2.76,
+      "CI": [
+       0.42,
+       0.465
+      ],
+      "median bias (+ = under)": -0.029
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.482,
+     "factor": 3.03,
+     "CI": [
+      0.462,
+      0.5
+     ],
+     "median bias (+ = under)": -0.103,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.531,
+      "factor": 3.4,
+      "CI": [
+       0.504,
+       0.558
+      ],
+      "median bias (+ = under)": -0.197
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.443,
+      "factor": 2.77,
+      "CI": [
+       0.422,
+       0.465
+      ],
+      "median bias (+ = under)": -0.045
+     },
+     "paired diff vs base": {
+      "diff": 0.004,
+      "CI": [
+       0.002,
+       0.005
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.509,
+     "factor": 3.23,
+     "CI": [
+      0.49,
+      0.528
+     ],
+     "median bias (+ = under)": -0.174,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.595,
+      "factor": 3.93,
+      "CI": [
+       0.564,
+       0.625
+      ],
+      "median bias (+ = under)": -0.376
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.443,
+      "factor": 2.77,
+      "CI": [
+       0.422,
+       0.465
+      ],
+      "median bias (+ = under)": -0.045
+     },
+     "paired diff vs base": {
+      "diff": 0.031,
+      "CI": [
+       0.025,
+       0.038
+      ]
+     }
+    }
+   },
+   "tiktok + youtube -> twitter": {
+    "zero-like share source": 0.153,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.65,
+     "factor": 4.47,
+     "CI": [
+      0.623,
+      0.671
+     ],
+     "median bias (+ = under)": -0.436,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.737,
+      "factor": 5.46,
+      "CI": [
+       0.701,
+       0.768
+      ],
+      "median bias (+ = under)": -0.593
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.544,
+      "factor": 3.5,
+      "CI": [
+       0.516,
+       0.575
+      ],
+      "median bias (+ = under)": -0.259
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.573,
+     "factor": 3.74,
+     "CI": [
+      0.55,
+      0.594
+     ],
+     "median bias (+ = under)": -0.259,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.633,
+      "factor": 4.29,
+      "CI": [
+       0.597,
+       0.664
+      ],
+      "median bias (+ = under)": -0.392
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.5,
+      "factor": 3.16,
+      "CI": [
+       0.471,
+       0.531
+      ],
+      "median bias (+ = under)": -0.13
+     },
+     "paired diff vs base": {
+      "diff": -0.077,
+      "CI": [
+       -0.086,
+       -0.068
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.71,
+     "factor": 5.13,
+     "CI": [
+      0.681,
+      0.734
+     ],
+     "median bias (+ = under)": -0.463,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.882,
+      "factor": 7.63,
+      "CI": [
+       0.841,
+       0.919
+      ],
+      "median bias (+ = under)": -0.808
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.5,
+      "factor": 3.16,
+      "CI": [
+       0.471,
+       0.531
+      ],
+      "median bias (+ = under)": -0.13
+     },
+     "paired diff vs base": {
+      "diff": 0.06,
+      "CI": [
+       0.051,
+       0.069
+      ]
+     }
+    }
+   },
+   "tiktok + youtube -> x_reread": {
+    "zero-like share source": 0.153,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.5,
+     "factor": 3.17,
+     "CI": [
+      0.482,
+      0.518
+     ],
+     "median bias (+ = under)": -0.117,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.555,
+      "factor": 3.59,
+      "CI": [
+       0.526,
+       0.583
+      ],
+      "median bias (+ = under)": -0.277
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.458,
+      "factor": 2.87,
+      "CI": [
+       0.435,
+       0.482
+      ],
+      "median bias (+ = under)": 0.005
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.482,
+     "factor": 3.03,
+     "CI": [
+      0.463,
+      0.5
+     ],
+     "median bias (+ = under)": 0.049,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.511,
+      "factor": 3.24,
+      "CI": [
+       0.484,
+       0.536
+      ],
+      "median bias (+ = under)": -0.076
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.459,
+      "factor": 2.88,
+      "CI": [
+       0.432,
+       0.485
+      ],
+      "median bias (+ = under)": 0.132
+     },
+     "paired diff vs base": {
+      "diff": -0.019,
+      "CI": [
+       -0.027,
+       -0.01
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.545,
+     "factor": 3.5,
+     "CI": [
+      0.524,
+      0.565
+     ],
+     "median bias (+ = under)": -0.114,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.654,
+      "factor": 4.51,
+      "CI": [
+       0.619,
+       0.687
+      ],
+      "median bias (+ = under)": -0.492
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.459,
+      "factor": 2.88,
+      "CI": [
+       0.432,
+       0.485
+      ],
+      "median bias (+ = under)": 0.132
+     },
+     "paired diff vs base": {
+      "diff": 0.044,
+      "CI": [
+       0.037,
+       0.052
+      ]
+     }
+    }
+   },
+   "tiktok + facebook -> twitter": {
+    "zero-like share source": 0.038,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.606,
+     "factor": 4.03,
+     "CI": [
+      0.582,
+      0.627
+     ],
+     "median bias (+ = under)": -0.345,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.678,
+      "factor": 4.77,
+      "CI": [
+       0.643,
+       0.71
+      ],
+      "median bias (+ = under)": -0.487
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.517,
+      "factor": 3.29,
+      "CI": [
+       0.488,
+       0.547
+      ],
+      "median bias (+ = under)": -0.2
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.609,
+     "factor": 4.06,
+     "CI": [
+      0.584,
+      0.629
+     ],
+     "median bias (+ = under)": -0.352,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.682,
+      "factor": 4.81,
+      "CI": [
+       0.647,
+       0.714
+      ],
+      "median bias (+ = under)": -0.494
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.519,
+      "factor": 3.3,
+      "CI": [
+       0.49,
+       0.548
+      ],
+      "median bias (+ = under)": -0.207
+     },
+     "paired diff vs base": {
+      "diff": 0.003,
+      "CI": [
+       0.002,
+       0.003
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.642,
+     "factor": 4.38,
+     "CI": [
+      0.616,
+      0.663
+     ],
+     "median bias (+ = under)": -0.391,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.743,
+      "factor": 5.53,
+      "CI": [
+       0.706,
+       0.774
+      ],
+      "median bias (+ = under)": -0.602
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.519,
+      "factor": 3.3,
+      "CI": [
+       0.49,
+       0.548
+      ],
+      "median bias (+ = under)": -0.207
+     },
+     "paired diff vs base": {
+      "diff": 0.036,
+      "CI": [
+       0.032,
+       0.04
+      ]
+     }
+    }
+   },
+   "tiktok + facebook -> x_reread": {
+    "zero-like share source": 0.038,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.484,
+     "factor": 3.05,
+     "CI": [
+      0.465,
+      0.503
+     ],
+     "median bias (+ = under)": -0.033,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.526,
+      "factor": 3.35,
+      "CI": [
+       0.498,
+       0.551
+      ],
+      "median bias (+ = under)": -0.171
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.452,
+      "factor": 2.83,
+      "CI": [
+       0.43,
+       0.477
+      ],
+      "median bias (+ = under)": 0.058
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.485,
+     "factor": 3.05,
+     "CI": [
+      0.466,
+      0.503
+     ],
+     "median bias (+ = under)": -0.039,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.527,
+      "factor": 3.37,
+      "CI": [
+       0.5,
+       0.553
+      ],
+      "median bias (+ = under)": -0.178
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.452,
+      "factor": 2.83,
+      "CI": [
+       0.43,
+       0.477
+      ],
+      "median bias (+ = under)": 0.053
+     },
+     "paired diff vs base": {
+      "diff": 0.001,
+      "CI": [
+       0.0,
+       0.001
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.499,
+     "factor": 3.15,
+     "CI": [
+      0.48,
+      0.516
+     ],
+     "median bias (+ = under)": -0.09,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.558,
+      "factor": 3.61,
+      "CI": [
+       0.529,
+       0.586
+      ],
+      "median bias (+ = under)": -0.286
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.452,
+      "factor": 2.83,
+      "CI": [
+       0.43,
+       0.477
+      ],
+      "median bias (+ = under)": 0.053
+     },
+     "paired diff vs base": {
+      "diff": 0.014,
+      "CI": [
+       0.011,
+       0.018
+      ]
+     }
+    }
+   },
+   "tiktok + instagram -> twitter": {
+    "zero-like share source": 0.053,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.621,
+     "factor": 4.18,
+     "CI": [
+      0.596,
+      0.642
+     ],
+     "median bias (+ = under)": -0.377,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.699,
+      "factor": 5.0,
+      "CI": [
+       0.663,
+       0.73
+      ],
+      "median bias (+ = under)": -0.526
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.526,
+      "factor": 3.36,
+      "CI": [
+       0.498,
+       0.556
+      ],
+      "median bias (+ = under)": -0.229
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.626,
+     "factor": 4.22,
+     "CI": [
+      0.601,
+      0.646
+     ],
+     "median bias (+ = under)": -0.385,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.705,
+      "factor": 5.07,
+      "CI": [
+       0.669,
+       0.736
+      ],
+      "median bias (+ = under)": -0.537
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.529,
+      "factor": 3.38,
+      "CI": [
+       0.501,
+       0.559
+      ],
+      "median bias (+ = under)": -0.236
+     },
+     "paired diff vs base": {
+      "diff": 0.005,
+      "CI": [
+       0.004,
+       0.005
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.69,
+     "factor": 4.9,
+     "CI": [
+      0.662,
+      0.712
+     ],
+     "median bias (+ = under)": -0.471,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.822,
+      "factor": 6.64,
+      "CI": [
+       0.782,
+       0.857
+      ],
+      "median bias (+ = under)": -0.723
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.529,
+      "factor": 3.38,
+      "CI": [
+       0.501,
+       0.559
+      ],
+      "median bias (+ = under)": -0.236
+     },
+     "paired diff vs base": {
+      "diff": 0.069,
+      "CI": [
+       0.062,
+       0.076
+      ]
+     }
+    }
+   },
+   "tiktok + instagram -> x_reread": {
+    "zero-like share source": 0.053,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.488,
+     "factor": 3.08,
+     "CI": [
+      0.469,
+      0.506
+     ],
+     "median bias (+ = under)": -0.07,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.535,
+      "factor": 3.42,
+      "CI": [
+       0.507,
+       0.561
+      ],
+      "median bias (+ = under)": -0.209
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.452,
+      "factor": 2.83,
+      "CI": [
+       0.431,
+       0.476
+      ],
+      "median bias (+ = under)": 0.028
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.49,
+     "factor": 3.09,
+     "CI": [
+      0.471,
+      0.508
+     ],
+     "median bias (+ = under)": -0.081,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.538,
+      "factor": 3.45,
+      "CI": [
+       0.509,
+       0.564
+      ],
+      "median bias (+ = under)": -0.22
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.452,
+      "factor": 2.83,
+      "CI": [
+       0.431,
+       0.476
+      ],
+      "median bias (+ = under)": 0.021
+     },
+     "paired diff vs base": {
+      "diff": 0.001,
+      "CI": [
+       0.001,
+       0.002
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.521,
+     "factor": 3.32,
+     "CI": [
+      0.502,
+      0.54
+     ],
+     "median bias (+ = under)": -0.153,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.609,
+      "factor": 4.06,
+      "CI": [
+       0.577,
+       0.64
+      ],
+      "median bias (+ = under)": -0.407
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.452,
+      "factor": 2.83,
+      "CI": [
+       0.431,
+       0.476
+      ],
+      "median bias (+ = under)": 0.021
+     },
+     "paired diff vs base": {
+      "diff": 0.033,
+      "CI": [
+       0.028,
+       0.038
+      ]
+     }
+    }
+   },
+   "youtube + facebook -> twitter": {
+    "zero-like share source": 0.241,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.651,
+     "factor": 4.47,
+     "CI": [
+      0.624,
+      0.672
+     ],
+     "median bias (+ = under)": -0.438,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.737,
+      "factor": 5.46,
+      "CI": [
+       0.7,
+       0.768
+      ],
+      "median bias (+ = under)": -0.592
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.545,
+      "factor": 3.51,
+      "CI": [
+       0.518,
+       0.576
+      ],
+      "median bias (+ = under)": -0.267
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.541,
+     "factor": 3.47,
+     "CI": [
+      0.52,
+      0.562
+     ],
+     "median bias (+ = under)": -0.154,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.586,
+      "factor": 3.86,
+      "CI": [
+       0.553,
+       0.615
+      ],
+      "median bias (+ = under)": -0.263
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.485,
+      "factor": 3.05,
+      "CI": [
+       0.454,
+       0.52
+      ],
+      "median bias (+ = under)": -0.045
+     },
+     "paired diff vs base": {
+      "diff": -0.11,
+      "CI": [
+       -0.124,
+       -0.095
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.7,
+     "factor": 5.02,
+     "CI": [
+      0.672,
+      0.724
+     ],
+     "median bias (+ = under)": -0.417,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.877,
+      "factor": 7.54,
+      "CI": [
+       0.835,
+       0.914
+      ],
+      "median bias (+ = under)": -0.801
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.485,
+      "factor": 3.05,
+      "CI": [
+       0.454,
+       0.52
+      ],
+      "median bias (+ = under)": -0.045
+     },
+     "paired diff vs base": {
+      "diff": 0.05,
+      "CI": [
+       0.039,
+       0.06
+      ]
+     }
+    }
+   },
+   "youtube + facebook -> x_reread": {
+    "zero-like share source": 0.241,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.499,
+     "factor": 3.16,
+     "CI": [
+      0.48,
+      0.517
+     ],
+     "median bias (+ = under)": -0.125,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.555,
+      "factor": 3.59,
+      "CI": [
+       0.526,
+       0.582
+      ],
+      "median bias (+ = under)": -0.276
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.456,
+      "factor": 2.86,
+      "CI": [
+       0.433,
+       0.479
+      ],
+      "median bias (+ = under)": -0.01
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.488,
+     "factor": 3.08,
+     "CI": [
+      0.468,
+      0.508
+     ],
+     "median bias (+ = under)": 0.151,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.508,
+      "factor": 3.22,
+      "CI": [
+       0.483,
+       0.534
+      ],
+      "median bias (+ = under)": 0.053
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.473,
+      "factor": 2.97,
+      "CI": [
+       0.442,
+       0.499
+      ],
+      "median bias (+ = under)": 0.203
+     },
+     "paired diff vs base": {
+      "diff": -0.011,
+      "CI": [
+       -0.026,
+       0.003
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.55,
+     "factor": 3.55,
+     "CI": [
+      0.53,
+      0.57
+     ],
+     "median bias (+ = under)": -0.062,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.65,
+      "factor": 4.46,
+      "CI": [
+       0.615,
+       0.682
+      ],
+      "median bias (+ = under)": -0.484
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.473,
+      "factor": 2.97,
+      "CI": [
+       0.442,
+       0.499
+      ],
+      "median bias (+ = under)": 0.203
+     },
+     "paired diff vs base": {
+      "diff": 0.051,
+      "CI": [
+       0.042,
+       0.061
+      ]
+     }
+    }
+   },
+   "youtube + instagram -> twitter": {
+    "zero-like share source": 0.241,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.658,
+     "factor": 4.55,
+     "CI": [
+      0.632,
+      0.68
+     ],
+     "median bias (+ = under)": -0.454,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.747,
+      "factor": 5.58,
+      "CI": [
+       0.71,
+       0.779
+      ],
+      "median bias (+ = under)": -0.609
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.55,
+      "factor": 3.55,
+      "CI": [
+       0.522,
+       0.58
+      ],
+      "median bias (+ = under)": -0.285
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.553,
+     "factor": 3.57,
+     "CI": [
+      0.532,
+      0.575
+     ],
+     "median bias (+ = under)": -0.213,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.605,
+      "factor": 4.03,
+      "CI": [
+       0.57,
+       0.636
+      ],
+      "median bias (+ = under)": -0.322
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.49,
+      "factor": 3.09,
+      "CI": [
+       0.461,
+       0.521
+      ],
+      "median bias (+ = under)": -0.096
+     },
+     "paired diff vs base": {
+      "diff": -0.105,
+      "CI": [
+       -0.117,
+       -0.092
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.709,
+     "factor": 5.11,
+     "CI": [
+      0.679,
+      0.732
+     ],
+     "median bias (+ = under)": -0.445,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.888,
+      "factor": 7.72,
+      "CI": [
+       0.846,
+       0.924
+      ],
+      "median bias (+ = under)": -0.815
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.49,
+      "factor": 3.09,
+      "CI": [
+       0.461,
+       0.521
+      ],
+      "median bias (+ = under)": -0.096
+     },
+     "paired diff vs base": {
+      "diff": 0.05,
+      "CI": [
+       0.04,
+       0.06
+      ]
+     }
+    }
+   },
+   "youtube + instagram -> x_reread": {
+    "zero-like share source": 0.241,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.502,
+     "factor": 3.18,
+     "CI": [
+      0.483,
+      0.52
+     ],
+     "median bias (+ = under)": -0.139,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.561,
+      "factor": 3.64,
+      "CI": [
+       0.532,
+       0.589
+      ],
+      "median bias (+ = under)": -0.293
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.456,
+      "factor": 2.86,
+      "CI": [
+       0.433,
+       0.479
+      ],
+      "median bias (+ = under)": -0.026
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.48,
+     "factor": 3.02,
+     "CI": [
+      0.46,
+      0.5
+     ],
+     "median bias (+ = under)": 0.093,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.507,
+      "factor": 3.21,
+      "CI": [
+       0.483,
+       0.531
+      ],
+      "median bias (+ = under)": -0.006
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.46,
+      "factor": 2.88,
+      "CI": [
+       0.432,
+       0.487
+      ],
+      "median bias (+ = under)": 0.157
+     },
+     "paired diff vs base": {
+      "diff": -0.021,
+      "CI": [
+       -0.034,
+       -0.009
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.547,
+     "factor": 3.52,
+     "CI": [
+      0.526,
+      0.567
+     ],
+     "median bias (+ = under)": -0.096,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.658,
+      "factor": 4.55,
+      "CI": [
+       0.623,
+       0.691
+      ],
+      "median bias (+ = under)": -0.499
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.46,
+      "factor": 2.88,
+      "CI": [
+       0.432,
+       0.487
+      ],
+      "median bias (+ = under)": 0.157
+     },
+     "paired diff vs base": {
+      "diff": 0.045,
+      "CI": [
+       0.036,
+       0.054
+      ]
+     }
+    }
+   },
+   "facebook + instagram -> twitter": {
+    "zero-like share source": 0.094,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.589,
+     "factor": 3.88,
+     "CI": [
+      0.567,
+      0.61
+     ],
+     "median bias (+ = under)": -0.325,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.652,
+      "factor": 4.48,
+      "CI": [
+       0.615,
+       0.683
+      ],
+      "median bias (+ = under)": -0.434
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.512,
+      "factor": 3.25,
+      "CI": [
+       0.485,
+       0.542
+      ],
+      "median bias (+ = under)": -0.223
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.6,
+     "factor": 3.98,
+     "CI": [
+      0.578,
+      0.621
+     ],
+     "median bias (+ = under)": -0.355,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.666,
+      "factor": 4.64,
+      "CI": [
+       0.63,
+       0.698
+      ],
+      "median bias (+ = under)": -0.464
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.519,
+      "factor": 3.3,
+      "CI": [
+       0.492,
+       0.55
+      ],
+      "median bias (+ = under)": -0.244
+     },
+     "paired diff vs base": {
+      "diff": 0.011,
+      "CI": [
+       0.01,
+       0.012
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.6,
+     "factor": 3.98,
+     "CI": [
+      0.578,
+      0.622
+     ],
+     "median bias (+ = under)": -0.356,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.667,
+      "factor": 4.65,
+      "CI": [
+       0.631,
+       0.699
+      ],
+      "median bias (+ = under)": -0.465
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.519,
+      "factor": 3.3,
+      "CI": [
+       0.492,
+       0.55
+      ],
+      "median bias (+ = under)": -0.244
+     },
+     "paired diff vs base": {
+      "diff": 0.012,
+      "CI": [
+       0.01,
+       0.013
+      ]
+     }
+    }
+   },
+   "facebook + instagram -> x_reread": {
+    "zero-like share source": 0.094,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.474,
+     "factor": 2.98,
+     "CI": [
+      0.455,
+      0.493
+     ],
+     "median bias (+ = under)": -0.029,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.516,
+      "factor": 3.28,
+      "CI": [
+       0.489,
+       0.541
+      ],
+      "median bias (+ = under)": -0.118
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.441,
+      "factor": 2.76,
+      "CI": [
+       0.42,
+       0.467
+      ],
+      "median bias (+ = under)": 0.019
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.476,
+     "factor": 2.99,
+     "CI": [
+      0.457,
+      0.495
+     ],
+     "median bias (+ = under)": -0.054,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.521,
+      "factor": 3.32,
+      "CI": [
+       0.494,
+       0.546
+      ],
+      "median bias (+ = under)": -0.147
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.442,
+      "factor": 2.76,
+      "CI": [
+       0.421,
+       0.466
+      ],
+      "median bias (+ = under)": -0.004
+     },
+     "paired diff vs base": {
+      "diff": 0.002,
+      "CI": [
+       0.001,
+       0.004
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.477,
+     "factor": 3.0,
+     "CI": [
+      0.457,
+      0.495
+     ],
+     "median bias (+ = under)": -0.055,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.521,
+      "factor": 3.32,
+      "CI": [
+       0.494,
+       0.546
+      ],
+      "median bias (+ = under)": -0.149
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.442,
+      "factor": 2.76,
+      "CI": [
+       0.421,
+       0.466
+      ],
+      "median bias (+ = under)": -0.004
+     },
+     "paired diff vs base": {
+      "diff": 0.002,
+      "CI": [
+       0.001,
+       0.004
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + facebook -> twitter": {
+    "zero-like share source": 0.145,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.642,
+     "factor": 4.38,
+     "CI": [
+      0.616,
+      0.663
+     ],
+     "median bias (+ = under)": -0.419,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.726,
+      "factor": 5.32,
+      "CI": [
+       0.689,
+       0.757
+      ],
+      "median bias (+ = under)": -0.574
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.539,
+      "factor": 3.46,
+      "CI": [
+       0.512,
+       0.57
+      ],
+      "median bias (+ = under)": -0.25
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.571,
+     "factor": 3.73,
+     "CI": [
+      0.548,
+      0.593
+     ],
+     "median bias (+ = under)": -0.255,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.631,
+      "factor": 4.27,
+      "CI": [
+       0.596,
+       0.662
+      ],
+      "median bias (+ = under)": -0.388
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.499,
+      "factor": 3.16,
+      "CI": [
+       0.471,
+       0.53
+      ],
+      "median bias (+ = under)": -0.13
+     },
+     "paired diff vs base": {
+      "diff": -0.07,
+      "CI": [
+       -0.078,
+       -0.062
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.697,
+     "factor": 4.98,
+     "CI": [
+      0.668,
+      0.72
+     ],
+     "median bias (+ = under)": -0.44,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.859,
+      "factor": 7.23,
+      "CI": [
+       0.818,
+       0.895
+      ],
+      "median bias (+ = under)": -0.776
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.499,
+      "factor": 3.16,
+      "CI": [
+       0.471,
+       0.53
+      ],
+      "median bias (+ = under)": -0.13
+     },
+     "paired diff vs base": {
+      "diff": 0.055,
+      "CI": [
+       0.047,
+       0.064
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + facebook -> x_reread": {
+    "zero-like share source": 0.145,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.496,
+     "factor": 3.13,
+     "CI": [
+      0.477,
+      0.514
+     ],
+     "median bias (+ = under)": -0.107,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.548,
+      "factor": 3.53,
+      "CI": [
+       0.52,
+       0.575
+      ],
+      "median bias (+ = under)": -0.257
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.455,
+      "factor": 2.85,
+      "CI": [
+       0.433,
+       0.479
+      ],
+      "median bias (+ = under)": 0.009
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.481,
+     "factor": 3.03,
+     "CI": [
+      0.461,
+      0.499
+     ],
+     "median bias (+ = under)": 0.046,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.511,
+      "factor": 3.24,
+      "CI": [
+       0.484,
+       0.536
+      ],
+      "median bias (+ = under)": -0.071
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.458,
+      "factor": 2.87,
+      "CI": [
+       0.431,
+       0.484
+      ],
+      "median bias (+ = under)": 0.127
+     },
+     "paired diff vs base": {
+      "diff": -0.015,
+      "CI": [
+       -0.023,
+       -0.007
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.536,
+     "factor": 3.43,
+     "CI": [
+      0.516,
+      0.555
+     ],
+     "median bias (+ = under)": -0.103,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.636,
+      "factor": 4.32,
+      "CI": [
+       0.601,
+       0.668
+      ],
+      "median bias (+ = under)": -0.459
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.458,
+      "factor": 2.87,
+      "CI": [
+       0.431,
+       0.484
+      ],
+      "median bias (+ = under)": 0.127
+     },
+     "paired diff vs base": {
+      "diff": 0.04,
+      "CI": [
+       0.033,
+       0.047
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + instagram -> twitter": {
+    "zero-like share source": 0.149,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.648,
+     "factor": 4.44,
+     "CI": [
+      0.621,
+      0.669
+     ],
+     "median bias (+ = under)": -0.432,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.733,
+      "factor": 5.41,
+      "CI": [
+       0.697,
+       0.765
+      ],
+      "median bias (+ = under)": -0.587
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.543,
+      "factor": 3.49,
+      "CI": [
+       0.516,
+       0.573
+      ],
+      "median bias (+ = under)": -0.261
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.581,
+     "factor": 3.81,
+     "CI": [
+      0.557,
+      0.602
+     ],
+     "median bias (+ = under)": -0.286,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.644,
+      "factor": 4.41,
+      "CI": [
+       0.608,
+       0.676
+      ],
+      "median bias (+ = under)": -0.418
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.504,
+      "factor": 3.19,
+      "CI": [
+       0.476,
+       0.534
+      ],
+      "median bias (+ = under)": -0.154
+     },
+     "paired diff vs base": {
+      "diff": -0.067,
+      "CI": [
+       -0.074,
+       -0.059
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.704,
+     "factor": 5.06,
+     "CI": [
+      0.675,
+      0.727
+     ],
+     "median bias (+ = under)": -0.457,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.868,
+      "factor": 7.38,
+      "CI": [
+       0.827,
+       0.904
+      ],
+      "median bias (+ = under)": -0.788
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.504,
+      "factor": 3.19,
+      "CI": [
+       0.476,
+       0.534
+      ],
+      "median bias (+ = under)": -0.154
+     },
+     "paired diff vs base": {
+      "diff": 0.057,
+      "CI": [
+       0.049,
+       0.065
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + instagram -> x_reread": {
+    "zero-like share source": 0.149,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.498,
+     "factor": 3.15,
+     "CI": [
+      0.479,
+      0.516
+     ],
+     "median bias (+ = under)": -0.12,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.553,
+      "factor": 3.57,
+      "CI": [
+       0.524,
+       0.58
+      ],
+      "median bias (+ = under)": -0.271
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.455,
+      "factor": 2.85,
+      "CI": [
+       0.433,
+       0.479
+      ],
+      "median bias (+ = under)": -0.001
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.481,
+     "factor": 3.02,
+     "CI": [
+      0.461,
+      0.499
+     ],
+     "median bias (+ = under)": 0.02,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.514,
+      "factor": 3.26,
+      "CI": [
+       0.487,
+       0.539
+      ],
+      "median bias (+ = under)": -0.102
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.455,
+      "factor": 2.85,
+      "CI": [
+       0.429,
+       0.481
+      ],
+      "median bias (+ = under)": 0.102
+     },
+     "paired diff vs base": {
+      "diff": -0.018,
+      "CI": [
+       -0.025,
+       -0.01
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.537,
+     "factor": 3.45,
+     "CI": [
+      0.517,
+      0.557
+     ],
+     "median bias (+ = under)": -0.122,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.643,
+      "factor": 4.39,
+      "CI": [
+       0.608,
+       0.675
+      ],
+      "median bias (+ = under)": -0.472
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.455,
+      "factor": 2.85,
+      "CI": [
+       0.429,
+       0.481
+      ],
+      "median bias (+ = under)": 0.102
+     },
+     "paired diff vs base": {
+      "diff": 0.039,
+      "CI": [
+       0.033,
+       0.046
+      ]
+     }
+    }
+   },
+   "tiktok + facebook + instagram -> twitter": {
+    "zero-like share source": 0.053,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.611,
+     "factor": 4.08,
+     "CI": [
+      0.587,
+      0.632
+     ],
+     "median bias (+ = under)": -0.362,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.685,
+      "factor": 4.84,
+      "CI": [
+       0.65,
+       0.717
+      ],
+      "median bias (+ = under)": -0.5
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.521,
+      "factor": 3.32,
+      "CI": [
+       0.493,
+       0.55
+      ],
+      "median bias (+ = under)": -0.221
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.617,
+     "factor": 4.14,
+     "CI": [
+      0.593,
+      0.637
+     ],
+     "median bias (+ = under)": -0.372,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.693,
+      "factor": 4.93,
+      "CI": [
+       0.658,
+       0.725
+      ],
+      "median bias (+ = under)": -0.515
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.524,
+      "factor": 3.34,
+      "CI": [
+       0.496,
+       0.554
+      ],
+      "median bias (+ = under)": -0.229
+     },
+     "paired diff vs base": {
+      "diff": 0.006,
+      "CI": [
+       0.005,
+       0.007
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.657,
+     "factor": 4.54,
+     "CI": [
+      0.631,
+      0.679
+     ],
+     "median bias (+ = under)": -0.423,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.766,
+      "factor": 5.83,
+      "CI": [
+       0.728,
+       0.798
+      ],
+      "median bias (+ = under)": -0.639
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.524,
+      "factor": 3.34,
+      "CI": [
+       0.496,
+       0.554
+      ],
+      "median bias (+ = under)": -0.229
+     },
+     "paired diff vs base": {
+      "diff": 0.046,
+      "CI": [
+       0.041,
+       0.051
+      ]
+     }
+    }
+   },
+   "tiktok + facebook + instagram -> x_reread": {
+    "zero-like share source": 0.053,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.484,
+     "factor": 3.05,
+     "CI": [
+      0.465,
+      0.503
+     ],
+     "median bias (+ = under)": -0.052,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.528,
+      "factor": 3.38,
+      "CI": [
+       0.501,
+       0.554
+      ],
+      "median bias (+ = under)": -0.184
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.45,
+      "factor": 2.82,
+      "CI": [
+       0.429,
+       0.474
+      ],
+      "median bias (+ = under)": 0.037
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.486,
+     "factor": 3.06,
+     "CI": [
+      0.467,
+      0.504
+     ],
+     "median bias (+ = under)": -0.063,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.532,
+      "factor": 3.4,
+      "CI": [
+       0.505,
+       0.558
+      ],
+      "median bias (+ = under)": -0.199
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.45,
+      "factor": 2.82,
+      "CI": [
+       0.429,
+       0.474
+      ],
+      "median bias (+ = under)": 0.027
+     },
+     "paired diff vs base": {
+      "diff": 0.002,
+      "CI": [
+       0.001,
+       0.002
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.504,
+     "factor": 3.19,
+     "CI": [
+      0.485,
+      0.521
+     ],
+     "median bias (+ = under)": -0.114,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.572,
+      "factor": 3.73,
+      "CI": [
+       0.543,
+       0.601
+      ],
+      "median bias (+ = under)": -0.323
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.45,
+      "factor": 2.82,
+      "CI": [
+       0.429,
+       0.474
+      ],
+      "median bias (+ = under)": 0.027
+     },
+     "paired diff vs base": {
+      "diff": 0.019,
+      "CI": [
+       0.015,
+       0.023
+      ]
+     }
+    }
+   },
+   "youtube + facebook + instagram -> twitter": {
+    "zero-like share source": 0.219,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.646,
+     "factor": 4.43,
+     "CI": [
+      0.62,
+      0.667
+     ],
+     "median bias (+ = under)": -0.429,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.73,
+      "factor": 5.37,
+      "CI": [
+       0.694,
+       0.761
+      ],
+      "median bias (+ = under)": -0.581
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.543,
+      "factor": 3.49,
+      "CI": [
+       0.516,
+       0.573
+      ],
+      "median bias (+ = under)": -0.282
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.553,
+     "factor": 3.57,
+     "CI": [
+      0.532,
+      0.575
+     ],
+     "median bias (+ = under)": -0.213,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.605,
+      "factor": 4.03,
+      "CI": [
+       0.57,
+       0.636
+      ],
+      "median bias (+ = under)": -0.322
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.49,
+      "factor": 3.09,
+      "CI": [
+       0.461,
+       0.521
+      ],
+      "median bias (+ = under)": -0.098
+     },
+     "paired diff vs base": {
+      "diff": -0.093,
+      "CI": [
+       -0.104,
+       -0.081
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.692,
+     "factor": 4.92,
+     "CI": [
+      0.663,
+      0.715
+     ],
+     "median bias (+ = under)": -0.428,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.857,
+      "factor": 7.2,
+      "CI": [
+       0.816,
+       0.893
+      ],
+      "median bias (+ = under)": -0.773
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.49,
+      "factor": 3.09,
+      "CI": [
+       0.461,
+       0.521
+      ],
+      "median bias (+ = under)": -0.098
+     },
+     "paired diff vs base": {
+      "diff": 0.046,
+      "CI": [
+       0.037,
+       0.055
+      ]
+     }
+    }
+   },
+   "youtube + facebook + instagram -> x_reread": {
+    "zero-like share source": 0.219,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.495,
+     "factor": 3.13,
+     "CI": [
+      0.476,
+      0.513
+     ],
+     "median bias (+ = under)": -0.125,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.551,
+      "factor": 3.56,
+      "CI": [
+       0.522,
+       0.578
+      ],
+      "median bias (+ = under)": -0.265
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.452,
+      "factor": 2.83,
+      "CI": [
+       0.43,
+       0.475
+      ],
+      "median bias (+ = under)": -0.022
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.479,
+     "factor": 3.02,
+     "CI": [
+      0.459,
+      0.499
+     ],
+     "median bias (+ = under)": 0.088,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.507,
+      "factor": 3.21,
+      "CI": [
+       0.483,
+       0.531
+      ],
+      "median bias (+ = under)": -0.006
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.458,
+      "factor": 2.87,
+      "CI": [
+       0.43,
+       0.485
+      ],
+      "median bias (+ = under)": 0.147
+     },
+     "paired diff vs base": {
+      "diff": -0.016,
+      "CI": [
+       -0.028,
+       -0.005
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.535,
+     "factor": 3.43,
+     "CI": [
+      0.515,
+      0.555
+     ],
+     "median bias (+ = under)": -0.087,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.635,
+      "factor": 4.31,
+      "CI": [
+       0.6,
+       0.666
+      ],
+      "median bias (+ = under)": -0.457
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.458,
+      "factor": 2.87,
+      "CI": [
+       0.43,
+       0.485
+      ],
+      "median bias (+ = under)": 0.147
+     },
+     "paired diff vs base": {
+      "diff": 0.04,
+      "CI": [
+       0.032,
+       0.048
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + facebook + instagram -> twitter": {
+    "zero-like share source": 0.143,
+    "zero-like share target": 0.55,
+    "base": {
+     "n": 1803,
+     "MAE": 0.64,
+     "factor": 4.37,
+     "CI": [
+      0.614,
+      0.661
+     ],
+     "median bias (+ = under)": -0.415,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.723,
+      "factor": 5.29,
+      "CI": [
+       0.687,
+       0.754
+      ],
+      "median bias (+ = under)": -0.57
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.539,
+      "factor": 3.46,
+      "CI": [
+       0.512,
+       0.569
+      ],
+      "median bias (+ = under)": -0.259
+     }
+    },
+    "drop": {
+     "n": 1803,
+     "MAE": 0.579,
+     "factor": 3.79,
+     "CI": [
+      0.555,
+      0.6
+     ],
+     "median bias (+ = under)": -0.279,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.641,
+      "factor": 4.38,
+      "CI": [
+       0.605,
+       0.673
+      ],
+      "median bias (+ = under)": -0.412
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.503,
+      "factor": 3.18,
+      "CI": [
+       0.475,
+       0.533
+      ],
+      "median bias (+ = under)": -0.149
+     },
+     "paired diff vs base": {
+      "diff": -0.061,
+      "CI": [
+       -0.068,
+       -0.054
+      ]
+     }
+    },
+    "two-part": {
+     "n": 1803,
+     "MAE": 0.694,
+     "factor": 4.94,
+     "CI": [
+      0.665,
+      0.716
+     ],
+     "median bias (+ = under)": -0.446,
+     "zero-like rows": {
+      "n": 991,
+      "MAE": 0.85,
+      "factor": 7.07,
+      "CI": [
+       0.809,
+       0.885
+      ],
+      "median bias (+ = under)": -0.762
+     },
+     "non-zero rows": {
+      "n": 812,
+      "MAE": 0.503,
+      "factor": 3.18,
+      "CI": [
+       0.475,
+       0.533
+      ],
+      "median bias (+ = under)": -0.149
+     },
+     "paired diff vs base": {
+      "diff": 0.053,
+      "CI": [
+       0.046,
+       0.061
+      ]
+     }
+    }
+   },
+   "tiktok + youtube + facebook + instagram -> x_reread": {
+    "zero-like share source": 0.143,
+    "zero-like share target": 0.439,
+    "base": {
+     "n": 2013,
+     "MAE": 0.494,
+     "factor": 3.12,
+     "CI": [
+      0.475,
+      0.512
+     ],
+     "median bias (+ = under)": -0.106,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.547,
+      "factor": 3.52,
+      "CI": [
+       0.518,
+       0.574
+      ],
+      "median bias (+ = under)": -0.253
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.453,
+      "factor": 2.84,
+      "CI": [
+       0.431,
+       0.477
+      ],
+      "median bias (+ = under)": -0.001
+     }
+    },
+    "drop": {
+     "n": 2013,
+     "MAE": 0.48,
+     "factor": 3.02,
+     "CI": [
+      0.46,
+      0.498
+     ],
+     "median bias (+ = under)": 0.022,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.513,
+      "factor": 3.26,
+      "CI": [
+       0.486,
+       0.539
+      ],
+      "median bias (+ = under)": -0.096
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.454,
+      "factor": 2.84,
+      "CI": [
+       0.428,
+       0.48
+      ],
+      "median bias (+ = under)": 0.101
+     },
+     "paired diff vs base": {
+      "diff": -0.015,
+      "CI": [
+       -0.022,
+       -0.008
+      ]
+     }
+    },
+    "two-part": {
+     "n": 2013,
+     "MAE": 0.531,
+     "factor": 3.39,
+     "CI": [
+      0.51,
+      0.55
+     ],
+     "median bias (+ = under)": -0.107,
+     "zero-like rows": {
+      "n": 883,
+      "MAE": 0.629,
+      "factor": 4.26,
+      "CI": [
+       0.595,
+       0.66
+      ],
+      "median bias (+ = under)": -0.446
+     },
+     "non-zero rows": {
+      "n": 1130,
+      "MAE": 0.454,
+      "factor": 2.84,
+      "CI": [
+       0.428,
+       0.48
+      ],
+      "median bias (+ = under)": 0.101
+     },
+     "paired diff vs base": {
+      "diff": 0.036,
+      "CI": [
+       0.03,
+       0.043
+      ]
+     }
+    }
+   }
+  },
+  "primary (zero = likes, paired diff = new - base)": {
+   "source X export -> facebook": {
+    "drop": {
+     "diff": -0.036,
+     "CI": [
+      -0.078,
+      0.006
+     ]
+    },
+    "two-part": {
+     "diff": -0.036,
+     "CI": [
+      -0.078,
+      0.006
+     ]
+    }
+   },
+   "source X export -> instagram": {
+    "drop": {
+     "diff": -0.012,
+     "CI": [
+      -0.018,
+      -0.006
+     ]
+    },
+    "two-part": {
+     "diff": -0.01,
+     "CI": [
+      -0.016,
+      -0.003
+     ]
+    }
+   },
+   "target TT + YT + FB + IG -> X export": {
+    "drop": {
+     "diff": -0.079,
+     "CI": [
+      -0.088,
+      -0.069
+     ]
+    },
+    "two-part": {
+     "diff": 0.067,
+     "CI": [
+      0.059,
+      0.075
+     ]
+    }
+   }
+  },
+  "mean over 15 combinations -> twitter": {
+   "base": 0.627,
+   "drop": 0.573,
+   "two-part": 0.684
+  },
+  "mean over 15 combinations -> x_reread": {
+   "base": 0.491,
+   "drop": 0.491,
+   "two-part": 0.532
+  }
+ }
+}

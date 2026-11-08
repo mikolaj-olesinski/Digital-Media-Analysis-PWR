@@ -213,4 +213,8 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E211 | finding | Is the E210 gain just post age? | [E211](E211.md) |
 | E212 | none | Can regression to the mean be undone without losing MAE? | [E212](E212.md) |
 | E213 | finding | Results B re-scored with the re-read source | [E213](E213.md) |
+| E218 | none | Do the 505 previously view-less X posts help the X model? | [E218](E218.md) |
+| E219 | small | Are X's zero-like posts what breaks X as source and target? | [E219](E219.md) |
+| E220 | small | Can borrowed >1M-follower residuals calibrate the FB >1M band? | [E220](E220.md) |
+| E221 | none | Do authors repeat across platforms with normalised names and handles? | [E221](E221.md) |
 | E222 | finding | Headline result on author-safe folds | [E222](E222.md) |

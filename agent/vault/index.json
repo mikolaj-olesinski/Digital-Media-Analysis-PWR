@@ -2535,6 +2535,54 @@
   ]
  },
  {
+  "id": "E218",
+  "date": "2026-11-08",
+  "question": "Do the 505 previously view-less X posts help the X model?",
+  "setup": "CatBoost (rt.FINAL) on re-read likes / comments / shares + followers + log age, brand CV on 2,013 re-read X posts, trained with vs without the 505; X re-read -> FB / IG ridge",
+  "result": "Whole stream 0.444 -> 0.440 (diff -0.005 [-0.009, 0.000]); on the 505 -0.014; as source IG 0.438 -> 0.406, FB 0.487 -> 0.520 (CI incl. 0); the 505 add nothing to transfer",
+  "type": "none",
+  "where": "`src/x_reread.py`",
+  "paths": [
+   "src/x_reread.py"
+  ]
+ },
+ {
+  "id": "E219",
+  "date": "2026-11-08",
+  "question": "Are X's zero-like posts what breaks X as source and target?",
+  "setup": "Ridge on likes + comments; drop zero-like source rows or two-part (zero-like -> source zero-like median); export and re-read X; E201 combinations; zero vs non-zero rows",
+  "result": "X -> FB -0.036 (CI incl. 0), X -> IG -0.010; X + YT -> FB / IG slightly worse; to export X drop -0.079 but to re-read X -0.014; two-part worse on X targets",
+  "type": "small",
+  "where": "`src/x_zero_split.py`",
+  "paths": [
+   "src/x_zero_split.py"
+  ]
+ },
+ {
+  "id": "E220",
+  "date": "2026-11-08",
+  "question": "Can borrowed >1M-follower residuals calibrate the FB >1M band?",
+  "setup": "E145 CQR protocol (20 splits, 25% of FB brands); >1M pool + 167 re-read TikTok / YouTube / X posts from >=1M accounts, shifted to the FB level; E150 point model on re-read sources",
+  "result": "FB >1M coverage 0.836 -> 0.883 at 1.18x width (unshifted 0.884, 1.11x); level gap ~0 (+0.30 both); point model no gain (0.410 -> 0.402-0.412)",
+  "type": "small",
+  "where": "`src/fb_big_borrow.py`",
+  "paths": [
+   "src/fb_big_borrow.py"
+  ]
+ },
+ {
+  "id": "E221",
+  "date": "2026-11-08",
+  "question": "Do authors repeat across platforms with normalised names and handles?",
+  "setup": "Normalised author names + profile-URL handles over all five platforms incl. FB / IG; gate at 2% of labelled posts; counts only",
+  "result": "31 keys on 2+ platforms; 56 of 8,332 labelled posts (0.67%) have a labelled post of the same author elsewhere; gate not passed",
+  "type": "none",
+  "where": "`src/cross_author_norm.py`",
+  "paths": [
+   "src/cross_author_norm.py"
+  ]
+ },
+ {
   "id": "E222",
   "date": "2026-11-08",
   "question": "Headline result on author-safe folds",
