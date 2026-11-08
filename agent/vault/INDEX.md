@@ -207,4 +207,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E200 | finding | Why were only 470 of 2,500 Facebook posts attempted? | [E200](E200.md) |
 | E201 | finding | Every training-platform combination | [E201](E201.md) |
 | E202 | finding | Instagram transfer on 500 hand-collected reels | [E202](E202.md) |
-| E203 | negative | Cross-domain ideas: post age, brand residual from other platforms | [E203](E203.md) |
+| E203 | worse | Cross-domain ideas: post age, brand residual from other platforms | [E203](E203.md) |
