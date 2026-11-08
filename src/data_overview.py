@@ -14,8 +14,8 @@ import eda_utils as eu, train_combos as tc  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 P, LAB = tc.P, tc.LAB
-SRC = {"en": {"tiktok": "Brand24 export", "youtube": "Brand24 export", "twitter": "Brand24 export", "facebook": "own read", "instagram": "own read (reels)"},
-       "pl": {"tiktok": "eksport Brand24", "youtube": "eksport Brand24", "twitter": "eksport Brand24", "facebook": "własny odczyt", "instagram": "własny odczyt (rolki)"}}
+SRC = {"en": {"tiktok": "Brand24 export", "youtube": "Brand24 export", "twitter": "Brand24 export", "facebook": "own read (videos)", "instagram": "own read (reels)"},
+       "pl": {"tiktok": "eksport Brand24", "youtube": "eksport Brand24", "twitter": "eksport Brand24", "facebook": "własny odczyt (filmy)", "instagram": "własny odczyt (rolki)"}}
 BLUE, LIGHT, INK, MUTED, SURF = "#2a78d6", "#b7d3f6", "#0b0b0b", "#52514e", "#fcfcfb"
 
 

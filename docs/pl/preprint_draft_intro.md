@@ -50,7 +50,8 @@ z X. Dla Facebooka i Instagrama eksport nie podaje wyświetleń, dlatego pobrali
 z reakcjami z tego samego momentu.
 
 **Facebook.** Mamy wyświetlenia, reakcje i komentarze dla 402 filmów z 20 marek. Facebook pokazuje osobno wyświetlenia
-i odtworzenia; używamy wyświetleń.
+i odtworzenia; używamy wyświetleń. Wyniki dla Facebooka dotyczą tylko filmów, bo inne posty nie mają licznika
+wyświetleń.
 
 **Instagram.** TODO: zbieranie jeszcze trwa, uzupełnić liczbę rolek i marek. Wyniki dla Instagrama dotyczą tylko rolek,
 bo zwykłe posty (zdjęcia, karuzele) nie mają licznika wyświetleń.
@@ -73,7 +74,7 @@ liczbą lajków ma od 6 do 11 razy więcej wyświetleń, ale na X aż 62% postó
 | TikTok | 2 500 | 266 | eksport Brand24 | 2 491 (266) | 729 | 32 | 25 |
 | YouTube | 2 500 | 273 | eksport Brand24 | 2 441 (273) | 433 | 6 | 26 |
 | X | 2 500 | 273 | eksport Brand24 | 1 803 (252) | 27 | 0 | 22 |
-| Facebook | 2 500 | 22 | własny odczyt | 402 (20) | 1 413 | 23 | 35 |
+| Facebook | 2 500 | 22 | własny odczyt (filmy) | 402 (20) | 1 413 | 23 | 35 |
 | Instagram | 2 500 | 11 | własny odczyt (rolki) | 338 (11) | 506 | 10 | 49 |
 
 ![Rysunek 1](figures/data_overview_pl.png)
@@ -81,7 +82,7 @@ liczbą lajków ma od 6 do 11 razy więcej wyświetleń, ale na X aż 62% postó
 **Rysunek 1.** Wyświetlenia a lajki dla każdego posta, osobno dla każdej platformy (obie osie w skali logarytmicznej).
 Linia: dopasowanie prostej na postach z co najmniej jednym lajkiem; liczba w rogu mówi, ile razy więcej wyświetleń
 ma post z 10× większą liczbą lajków. Posty bez lajków
-leżą przy zerze na osi poziomej. TikTok, YouTube i X: eksport Brand24; Facebook i Instagram: nasz odczyt.
+leżą przy zerze na osi poziomej. TikTok, YouTube i X: eksport Brand24; Facebook (filmy) i Instagram (rolki): nasz odczyt.
 
 Wszystkie modele oceniamy na markach, których nie widziały w treningu (5-krotna walidacja krzyżowa z podziałem po
 markach). Zasady zbierania danych, zgodność z regulaminami i RODO opisujemy w oświadczeniu o danych.
