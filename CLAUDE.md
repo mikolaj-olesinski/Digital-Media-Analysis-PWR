@@ -12,7 +12,6 @@ Hard rules (details in the files above):
 - Runs longer than a minute on homelab3 go through Kueue: `~/claude-sessions/homelab-kueue/amc/submit.sh`.
 - Before a commit: `.venv/bin/python src/agent_tools.py vault && .venv/bin/python src/agent_tools.py check`.
 - Commit messages in English, small and descriptive, no AI co-author lines. Never push.
-- Do not write final preprint or poster text.
 - Log each session in `logs/YYYY-MM-DD_<person>_<agent>.md`.
 
 To run a full experiment, use the `run-experiment` skill.
