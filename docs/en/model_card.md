@@ -89,10 +89,10 @@ Reproduce it: `docs/en/reproduce.md` (six commands).
   (0.368) but the band stays at 0.80 (E150/E151).
 - **Sample:** 12,500 mentions supplied by Brand24, not a random sample of social media; 85% English; time not uniform.
 
-- **Outside the mention population:** on 53 independently fetched brand videos the model is x5 low (bias +0.71) although
-  the slope holds (0.83); a small recalibration set fixes most of it (E189, E115). On a diverse 131-video sample the error
-  rises with size: MAE 0.289 on small videos, 1.48 on popular ones (~x30 low), and zero-view public videos cannot be
-  sampled at all (E190).
+- **Outside the export:** on brand-owned/popular videos the model is x5 low (E189/E190, MAE 1.48 on popular), but on
+  third-party mention videos - the population it targets - it is close to the export: MAE 0.690 low, 0.441 mid, and only
+  the popular stratum fails (1.569) (E191). Zero-view videos are not reachable through brand channels, but exist among
+  obscure third-party mentions (E190, E191).
 
 ## Intended use
 

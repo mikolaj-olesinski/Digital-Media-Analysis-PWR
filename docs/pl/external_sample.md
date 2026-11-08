@@ -69,3 +69,11 @@ podsumowanie stawek 2026 (twitterapis.com/answers/x-api-pricing-tiers-explained)
 131 filmów, 12 marek: 0 filmów z zerem, minimum 71 wyświetleń, jeden poniżej 100. Mediana wyświetleń per warstwa:
 popularne 1 544 176, świeże 15 661, najnowsze 3 943, małe 876. MAE modelu: małe 0,289 (bias +0,17), świeże 0,620,
 najnowsze 0,601, popularne 1,480 (bias +1,48, ~×30 za nisko). Filmów z zerem nie da się pobrać.
+
+
+## Wzmianki trzecich stron (E191) - populacja, która ma znaczenie
+
+Wyszukiwanie marki i kanały marek dają filmy marek; wzmianki Brand24 to posty trzecich stron. Kolektor wzmianek szuka
+zapytań review/unboxing/haul/honest review, usuwa kanał marki i losuje warstwy top/mid/low. Wynik: 47 filmów, 12 marek,
+mediana 362 wyświetleń (eksport: 433), **1 zero i 17 poniżej 100** - czyli zera istnieją, tylko nie przez kanały marek.
+MAE modelu: 0,690 małe, 0,441 średnie, 1,569 top; całość 0,791, bias +0,39.

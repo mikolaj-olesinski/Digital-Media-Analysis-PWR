@@ -2312,5 +2312,17 @@
   "paths": [
    "src/external_youtube_diverse.py"
   ]
+ },
+ {
+  "id": "E191",
+  "date": "2026-11-08",
+  "question": "Can third-party mention videos (not brand channels) be sampled, including tiny/zero-view ones, and does the model hold on them?",
+  "setup": "4 mention-like queries per brand, brand-owned channel excluded, top/mid/low strata, 47 videos 2025+",
+  "result": "1 zero-view, 17 below 100, median 362 (vs 433); MAE 0.690 low, 0.441 mid, 1.569 top; overall 0.791 (bias +0.39)",
+  "type": "finding",
+  "where": "`src/external_youtube_mentions.py`",
+  "paths": [
+   "src/external_youtube_mentions.py"
+  ]
  }
 ]

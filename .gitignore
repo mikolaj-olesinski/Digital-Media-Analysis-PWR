@@ -12,3 +12,4 @@ data/processed/*fetched*.csv
 .tools/
 data/processed/*external*fetched*.csv
 data/processed/external_youtube_diverse_fetched.csv
+data/processed/external_youtube_mentions_fetched.csv

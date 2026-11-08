@@ -70,3 +70,11 @@ external sample of 2,500 X posts with author data that is about **$12.50 for the
 131 videos, 12 brands: 0 zero-view videos, minimum 71 views, one below 100. Median views by stratum: popular 1,544,176,
 recent 15,661, newest 3,943, small 876. Model MAE: small 0.289 (bias +0.17), recent 0.620, newest 0.601, popular 1.480
 (bias +1.48, ~x30 low). Zero-view public videos cannot be fetched at all.
+
+
+## Third-party mentions (E191) - the population that matters
+
+Brand search and brand channels give brand-owned videos; the Brand24 mentions are third-party posts. The mention
+collector therefore searches review/unboxing/haul/honest-review queries, removes the brand's own channel and samples top,
+mid and low views. Result: 47 videos, 12 brands, median 362 views (export: 433), **1 zero-view and 17 below 100** - so
+zeros exist, just not through brand channels. Model MAE: 0.690 low, 0.441 mid, 1.569 top; overall 0.791, bias +0.39.

@@ -214,11 +214,19 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
 
 ## External sample, diverse strata (2026-11-08)
 
-- **Zero-view public videos are not reachable** (E190): 0 in 131 fetched videos, minimum 71 views, one below 100. A zero
-  in platform data therefore means hidden or not collected, not a true zero - consistent with E116. **solid**
+- **Zero-view public videos are not reachable through brand channels or search** (E190: 0 in 131, minimum 71), but
+  obscure third-party mentions do include them (E191: 1 zero, several 1-view, 17 below 100). A zero in platform data can
+  therefore be hidden/not collected, but real zeros exist among tiny posts. **solid** (reachability)
 - **The model is a small-post model** (E190): on the small external stratum MAE 0.289 (bias +0.17), on popular videos
   MAE 1.480 (bias +1.48, ~x30 low); recent 0.620, newest 0.601. The mention population is small posts, so the model works
   there and needs recalibration above it (E115, E132). **likely**
+
+## Third-party mention sample (2026-11-08)
+
+- **The mention-like population is reachable and the model works there** (E191): 47 third-party videos (brand channels
+  excluded), median 362 views against 433 in the export; model MAE 0.690 on the low stratum (median 5.5 views), 0.441 on
+  mid (2,638), 1.569 on top (786k), overall 0.791 with bias +0.39. The earlier x5 shift (E189/E190) came from brand-owned
+  and popular videos, not from the model. **likely**
 
 ## Open items (state 2026-11-07)
 

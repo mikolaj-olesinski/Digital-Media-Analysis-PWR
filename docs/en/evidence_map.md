@@ -29,8 +29,9 @@ validations; **likely** = one validation, consistent with the rest; **open** = n
 | 22 | Brand history does not substitute for a missing author history: temporal split, brand prior -0.005 (TikTok), -0.035 (YouTube), +0.006 (X, CI includes 0); 35-52% of test posts have a known brand | likely | E169 |
 | 23 | The model is calibrated to the Brand24 mention population: on 53 independently fetched YouTube brand videos the relation holds (Spearman 0.93, slope 0.83) but the level is x5 low (MAE 0.726, bias +0.71; 0.540 after removing the shift) | likely | E189 |
 | 23 | The noise ceiling is not a check-age artefact: with age matched the bound is unchanged; a 30-day target changes MAE <= 0.007 | likely | E179 |
-| 24 | Zero-view public YouTube videos are not reachable (0/131 fetched, minimum 71 views), so a platform zero means hidden/not collected; the model is calibrated to small posts (MAE 0.289 small vs 1.480 popular) | likely | E190 |
+| 24 | Zero-view videos are not reachable through brand channels or search (0/131, minimum 71 views), but third-party mentions do include them (1 zero, 17 below 100); the model on brand videos fails above small posts (MAE 0.289 small vs 1.480 popular) | likely | E190 |
 | 24 | The FB transfer rests on 20 brands; without the 3 largest it is 0.46; non-English FB posts are ~x2.2 underestimated; on Brand24's own FB counts it is 0.83 | likely | E177, E178, E182 |
+| 25 | On third-party mention videos the model is close to the export (MAE 0.690 low, 0.441 mid) and fails only on the popular stratum (1.569); the earlier x5 shift came from brand-owned videos | likely | E191 |
 | 25 | The honest X error over the whole stream (incl. posts without views) is ~0.49 | likely | E181 |
 | 26 | An early view read is the alerting signal: top-5% precision 0.82 / 0.86 / 0.71 vs 0.71 / 0.64 / 0.35 from reactions | likely | E185 |
 | 27 | Routing by available fields keeps 90% bands at 0.88-0.90; the full model with missing reactions covers 0.46-0.83 | likely | E176 |
