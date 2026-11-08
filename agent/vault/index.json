@@ -2460,5 +2460,17 @@
   "paths": [
    "src/ig_transfer.py"
   ]
+ },
+ {
+  "id": "E203",
+  "date": "2026-11-08",
+  "question": "Cross-domain ideas: post age, brand residual from other platforms",
+  "setup": "X + YouTube ridge on likes + comments, + log age; + brand median residual on TikTok / YouTube / X",
+  "result": "Age: FB 0.385 -> 0.406, IG 0.424 -> 0.381 (extrapolated, level shift); brand residual worse everywhere (FB 0.398-0.502, IG 0.440-0.508)",
+  "type": "negative",
+  "where": "`src/cross_domain_aux.py`",
+  "paths": [
+   "src/cross_domain_aux.py"
+  ]
  }
 ]
