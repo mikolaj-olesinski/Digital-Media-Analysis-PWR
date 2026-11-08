@@ -116,4 +116,5 @@ Najmocniejsza część pracy.
 - Przedziały wyświetleń (E199): zrobione; regresja pocięta na przedziały > klasyfikator; 4 przedziały ~0,7 trafności.
 - **[decyzja]** Alerty na top 1%: E104/E106 (reguła i lajki lepsze od modelu) kontra E185 (model lepszy na top 5%). Którą wersję pokazać, czy obie z różnym progiem?
 - **[decyzja]** Sekcja 8 jest najłatwiejsza do zaatakowania: co zostaje, co idzie do dyskusji.
+- **[TODO, później]** Szósta platforma z publicznymi wyświetleniami (np. serwis filmowy jak Filmweb albo cokolwiek, co pokazuje wyświetlenia obok reakcji): dodać do macierzy platform treningowych jako nowy wiersz i kolumnę. Po pobraniu odczytu TT/YT/X; sprawdzić regulamin źródła (backlog B30).
 - Uwagi zespołu: (tu dopisujemy)
