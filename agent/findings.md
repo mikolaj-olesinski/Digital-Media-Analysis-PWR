@@ -51,6 +51,9 @@ line. When a line cites a legacy card, a re-run with a JSON is preferred over re
 - The FB transfer holds only with fresh reactions: on Brand24's own FB likes / comments the same model has MAE 0.831 (x6.8) vs 0.385, still better than the reach rule (1.119). Brand24's FB likes are x2 below current reactions and its FB comments are almost all zero. **likely** (E177)
 - Critical review (E178-E188): the noise ceiling is not a check-age artefact (bound unchanged with age matched; a 30-day target changes MAE <= 0.007) (E179). No loss fixes brand totals; the tail stays x9-14 under on YouTube / X (E180). The honest X error over the whole stream is 0.49, not 0.47, and posts without views are ~x1.8 smaller (E181). FB rests on 20 brands; without the 3 largest it is 0.46 (E178), and non-English FB posts are underestimated ~x2.2 (E182). Negative posts are not biased (E187). **likely**
 - Business uses (E183-E188): an early view read is the alerting product (top-5% precision 0.82 / 0.86 / 0.71 vs 0.71 / 0.64 / 0.35 from reactions) (E185); brands rank well within industry-months (Kendall 0.73 / 0.70 / 0.60; on X the rule orders slightly better, 0.63) (E186); on X the model puts 47% of brand EMVs within +-50% vs 2% for the rule (E188); creator scores are stable on YouTube (Spearman 0.81, 23 authors) but the sample lacks repeat authors (E183); TikTok anomalies mark promo / spam, YouTube / X do not (E184).
+- View ranges (E199): cutting the regression into bins beats a direct classifier on every platform and scheme; accuracy is set by bin width (3 ranges ~0.8, decades ~0.6, half decades ~0.35; X 3 ranges 0.95 = majority). Bins are presentation, not a better model. **likely**
+- Training-platform grid (E201): with likes + comments only, FB and IG are predicted at x2.4-3.1 from any mix of other platforms, close to their own x2.4; X is the target and the source that does not transfer; pooled rows beat equal platform weighting. IG re-run on 338 reels: x2.4-2.8. **likely**
+- Instagram (E202, 338 reels, 11 brands): X + YouTube ridge on fresh likes + comments x2.65 zero-shot, x2.41 after a 25-post shift, vs x2.36 trained on IG itself; under-predicts ~x1.8; without likes x6-11. Same picture as Facebook. **likely**
 - Mapping reaction scales between platforms (quantile matching, z-score, ratios) without target views makes out-of-platform estimates much worse (TikTok 0.31 -> 0.76-1.04, X 0.64 -> 1.28-1.43): absolute likes carry the view level across platforms better than within-platform rank. With 25-50 calibration posts a mapped CatBoost gains about +0.03 on X only. (E87)
 - Adapting the out-of-platform model to the target's reaction structure without target views (importance weights, per-source mixture, views per like) helps only on X (+0.02 to +0.03) and hurts on TikTok; ridge on raw likes + comments stays the robust default. FB / IG estimates of these variants are pre-registered (`fbig_preregistered_v2.csv`). (E88)
 - Literature-based transfer methods (anchor regression, group DRO, stabilised weights, invariant subsets, brand carry-over) do not beat ridge on likes + comments, as the shift benchmarks predict (E90-E92). What helps is a few target posts: with 5-10, a shift shrunk toward zero (τ² from platform pairs) beats the raw median (0.315 / 0.626 / 0.588 vs 0.347 / 0.679 / 0.621); from 25-50, intercept + slope; a few-shot conformal 90% interval is calibrated from about 10 posts. (E89)
@@ -236,6 +239,13 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
 - **TikTok export views are stale but rank-stable** (E192): re-reading 60 posts gives 40 readable, median new/old 1.068,
   p90 3.07, only 45% within 5%, but Spearman 0.918. Level comparisons need a common check date or an age correction
   (E101); a third of the posts cannot be read anonymously. **solid**
+
+## Facebook measurability (2026-11-08)
+
+- **Only 470 of the 2,500 Facebook rows are videos with a public view count; 402 were readable.** A full sweep of all
+  2,500 URLs gives 402 ok, 68 removed and **2,030 ordinary posts/photos with no video id** - so the 402 is the complete
+  measurable subset, not a stopping point (E200). Ordinary Facebook posts are unmeasurable without the owner's insights,
+  like Instagram. **solid**
 
 ## External X sample (2026-11-08)
 

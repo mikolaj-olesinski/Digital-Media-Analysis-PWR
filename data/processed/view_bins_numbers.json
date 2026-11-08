@@ -1,0 +1,490 @@
+{
+ "E199": {
+  "in platform": {
+   "tiktok": {
+    "decades (<10, 10-100, ..., 1M+)": {
+     "n": 2491,
+     "classes present": 7,
+     "majority": {
+      "accuracy": 0.5214773183460457,
+      "macro F1": 0.09792687523558237,
+      "weighted F1": 0.357466510043015,
+      "within one bin": 0.8530710558008832
+     },
+     "regression cut into bins": {
+      "accuracy": 0.7354476114010438,
+      "macro F1": 0.5463634668718556,
+      "weighted F1": 0.7193282034407302,
+      "within one bin": 0.9911682055399438
+     },
+     "classifier": {
+      "accuracy": 0.7133681252509032,
+      "macro F1": 0.5411706796380831,
+      "weighted F1": 0.7011017510143337,
+      "within one bin": 0.9875551987153753,
+      "mean top probability": 0.7846443044510691,
+      "ECE": 0.0724632474633301
+     }
+    },
+    "4 user ranges (<100, 100-1k, 1k-10k, 10k+)": {
+     "n": 2491,
+     "classes present": 4,
+     "majority": {
+      "accuracy": 0.5214773183460457,
+      "macro F1": 0.17137203166226914,
+      "weighted F1": 0.357466510043015,
+      "within one bin": 0.8619028502609394
+     },
+     "regression cut into bins": {
+      "accuracy": 0.758329987956644,
+      "macro F1": 0.6512084633634159,
+      "weighted F1": 0.7457672163896959,
+      "within one bin": 0.9983942191890807
+     },
+     "classifier": {
+      "accuracy": 0.7334403853873946,
+      "macro F1": 0.6373995146869496,
+      "weighted F1": 0.7244644114235418,
+      "within one bin": 0.9971898835808912,
+      "mean top probability": 0.8050292261189093,
+      "ECE": 0.072414217895687
+     }
+    },
+    "3 ranges (<1k, 1k-10k, 10k+)": {
+     "n": 2491,
+     "classes present": 3,
+     "majority": {
+      "accuracy": 0.586109995985548,
+      "macro F1": 0.24635113473382267,
+      "weighted F1": 0.43316658776962796,
+      "within one bin": 0.8619028502609394
+     },
+     "regression cut into bins": {
+      "accuracy": 0.8201525491770373,
+      "macro F1": 0.785284748376443,
+      "weighted F1": 0.816406272983987,
+      "within one bin": 0.9983942191890807
+     },
+     "classifier": {
+      "accuracy": 0.7960658370132477,
+      "macro F1": 0.7511952829091341,
+      "weighted F1": 0.7915803768078594,
+      "within one bin": 0.9983942191890807,
+      "mean top probability": 0.8588565783024468,
+      "ECE": 0.06279074128919893
+     }
+    },
+    "half decades (x3.2 wide)": {
+     "n": 2491,
+     "classes present": 14,
+     "majority": {
+      "accuracy": 0.3123243677238057,
+      "macro F1": 0.03399903858759778,
+      "weighted F1": 0.1486621952212425,
+      "within one bin": 0.6924929747089522
+     },
+     "regression cut into bins": {
+      "accuracy": 0.525491770373344,
+      "macro F1": 0.33189740350523284,
+      "weighted F1": 0.511010381720893,
+      "within one bin": 0.9321557607386591
+     },
+     "classifier": {
+      "accuracy": 0.4865515857085508,
+      "macro F1": 0.31379520286454593,
+      "weighted F1": 0.4741583508891676,
+      "within one bin": 0.9040545965475713,
+      "mean top probability": 0.6125501072256431,
+      "ECE": 0.1259985215170923
+     }
+    }
+   },
+   "youtube": {
+    "decades (<10, 10-100, ..., 1M+)": {
+     "n": 2441,
+     "classes present": 7,
+     "majority": {
+      "accuracy": 0.3232281851700123,
+      "macro F1": 0.0697921273772667,
+      "weighted F1": 0.1579114786991577,
+      "within one bin": 0.7951659156083573
+     },
+     "regression cut into bins": {
+      "accuracy": 0.5981155264235969,
+      "macro F1": 0.5521883157533721,
+      "weighted F1": 0.5936912454389763,
+      "within one bin": 0.9651782056534207
+     },
+     "classifier": {
+      "accuracy": 0.5800901269971324,
+      "macro F1": 0.5579750255138122,
+      "weighted F1": 0.5800405191719741,
+      "within one bin": 0.9500204834084391,
+      "mean top probability": 0.6659616230631419,
+      "ECE": 0.0858714960660095
+     }
+    },
+    "4 user ranges (<100, 100-1k, 1k-10k, 10k+)": {
+     "n": 2441,
+     "classes present": 4,
+     "majority": {
+      "accuracy": 0.30151577222449816,
+      "macro F1": 0.16257742015447474,
+      "weighted F1": 0.20599155647368517,
+      "within one bin": 0.8295780417861532
+     },
+     "regression cut into bins": {
+      "accuracy": 0.6820975010241704,
+      "macro F1": 0.6906032744093706,
+      "weighted F1": 0.6838074159895279,
+      "within one bin": 0.977058582548136
+     },
+     "classifier": {
+      "accuracy": 0.6579270790659566,
+      "macro F1": 0.6686143416338243,
+      "weighted F1": 0.65779925022065,
+      "within one bin": 0.9631298648095044,
+      "mean top probability": 0.7345216684323489,
+      "ECE": 0.0765945893663923
+     }
+    },
+    "3 ranges (<1k, 1k-10k, 10k+)": {
+     "n": 2441,
+     "classes present": 3,
+     "majority": {
+      "accuracy": 0.6259729619008603,
+      "macro F1": 0.2566557487192408,
+      "weighted F1": 0.4819786776439983,
+      "within one bin": 0.8820155673904138
+     },
+     "regression cut into bins": {
+      "accuracy": 0.8058172879967227,
+      "macro F1": 0.7474678147504216,
+      "weighted F1": 0.7991950370676034,
+      "within one bin": 0.9889389594428513
+     },
+     "classifier": {
+      "accuracy": 0.7783695206882425,
+      "macro F1": 0.7193538818567116,
+      "weighted F1": 0.7741308744544532,
+      "within one bin": 0.9873002867677182,
+      "mean top probability": 0.8416032313972877,
+      "ECE": 0.06474330094495616
+     }
+    },
+    "half decades (x3.2 wide)": {
+     "n": 2441,
+     "classes present": 14,
+     "majority": {
+      "accuracy": 0.17165096272019664,
+      "macro F1": 0.02092907092907093,
+      "weighted F1": 0.050294932433400275,
+      "within one bin": 0.48013109381401065
+     },
+     "regression cut into bins": {
+      "accuracy": 0.357230643179025,
+      "macro F1": 0.3039890956415639,
+      "weighted F1": 0.3507752897315845,
+      "within one bin": 0.8152396558787383
+     },
+     "classifier": {
+      "accuracy": 0.34985661614092584,
+      "macro F1": 0.2938118896400014,
+      "weighted F1": 0.34896401120727566,
+      "within one bin": 0.77181482998771,
+      "mean top probability": 0.4866691873254763,
+      "ECE": 0.13767590638989594
+     }
+    }
+   },
+   "twitter": {
+    "decades (<10, 10-100, ..., 1M+)": {
+     "n": 1803,
+     "classes present": 6,
+     "majority": {
+      "accuracy": 0.4647809206877426,
+      "macro F1": 0.10576801716521521,
+      "weighted F1": 0.29495373838419414,
+      "within one bin": 0.9456461453133667
+     },
+     "regression cut into bins": {
+      "accuracy": 0.5806988352745425,
+      "macro F1": 0.3261022332618182,
+      "weighted F1": 0.5489810709468572,
+      "within one bin": 0.9811425402107599
+     },
+     "classifier": {
+      "accuracy": 0.5513033832501386,
+      "macro F1": 0.3182742361494068,
+      "weighted F1": 0.5401475137537564,
+      "within one bin": 0.9645036051026068,
+      "mean top probability": 0.6591700573918688,
+      "ECE": 0.10881592013366859
+     }
+    },
+    "4 user ranges (<100, 100-1k, 1k-10k, 10k+)": {
+     "n": 1803,
+     "classes present": 4,
+     "majority": {
+      "accuracy": 0.7276760953965613,
+      "macro F1": 0.21059390048154092,
+      "weighted F1": 0.6129765888669588,
+      "within one bin": 0.9456461453133667
+     },
+     "regression cut into bins": {
+      "accuracy": 0.8008874098724348,
+      "macro F1": 0.43822887479693584,
+      "weighted F1": 0.7748029804783831,
+      "within one bin": 0.9922351636161952
+     },
+     "classifier": {
+      "accuracy": 0.7842484747642817,
+      "macro F1": 0.45596551117418344,
+      "weighted F1": 0.7659030118616891,
+      "within one bin": 0.9905712701053799,
+      "mean top probability": 0.8404372262093804,
+      "ECE": 0.0635493237041181
+     }
+    },
+    "3 ranges (<1k, 1k-10k, 10k+)": {
+     "n": 1803,
+     "classes present": 3,
+     "majority": {
+      "accuracy": 0.9456461453133667,
+      "macro F1": 0.3240212846826302,
+      "weighted F1": 0.9192284365788427,
+      "within one bin": 0.9922351636161952
+     },
+     "regression cut into bins": {
+      "accuracy": 0.9523017193566279,
+      "macro F1": 0.45374138077807097,
+      "weighted F1": 0.9434792263076951,
+      "within one bin": 0.9988907376594565
+     },
+     "classifier": {
+      "accuracy": 0.9489739323349973,
+      "macro F1": 0.4864459421303969,
+      "weighted F1": 0.9418726515931098,
+      "within one bin": 0.9977814753189129,
+      "mean top probability": 0.9758697407175418,
+      "ECE": 0.027820772953839102
+     }
+    },
+    "half decades (x3.2 wide)": {
+     "n": 1803,
+     "classes present": 11,
+     "majority": {
+      "accuracy": 0.2689961175818081,
+      "macro F1": 0.03854100445009536,
+      "weighted F1": 0.11404118621256724,
+      "within one bin": 0.6134220743205768
+     },
+     "regression cut into bins": {
+      "accuracy": 0.3250138657792568,
+      "macro F1": 0.18587201459582597,
+      "weighted F1": 0.2831146682143586,
+      "within one bin": 0.7925679423183583
+     },
+     "classifier": {
+      "accuracy": 0.28840820854132004,
+      "macro F1": 0.19479747366664724,
+      "weighted F1": 0.2772269258524354,
+      "within one bin": 0.7193566278424848,
+      "mean top probability": 0.4728885699242412,
+      "ECE": 0.18448036138292112
+     }
+    }
+   }
+  },
+  "transfer from X + YouTube": {
+   "facebook": {
+    "decades (<10, 10-100, ..., 1M+)": {
+     "n": 402,
+     "majority (of X+YT)": {
+      "accuracy": 0.1791044776119403,
+      "macro F1": 0.0433996383363472,
+      "weighted F1": 0.054411486869450215,
+      "within one bin": 0.4527363184079602
+     },
+     "ridge cut into bins": {
+      "accuracy": 0.6393034825870647,
+      "macro F1": 0.5707402092451634,
+      "weighted F1": 0.6306031518367555,
+      "within one bin": 0.9776119402985075
+     },
+     "classifier": {
+      "accuracy": 0.5895522388059702,
+      "macro F1": 0.4263836143937492,
+      "weighted F1": 0.5791850675629507,
+      "within one bin": 0.9577114427860697,
+      "mean top probability": 0.6411108741720755,
+      "ECE": 0.10817971905224195
+     }
+    },
+    "4 user ranges (<100, 100-1k, 1k-10k, 10k+)": {
+     "n": 402,
+     "majority (of X+YT)": {
+      "accuracy": 0.21144278606965175,
+      "macro F1": 0.08726899383983573,
+      "weighted F1": 0.07380959677996057,
+      "within one bin": 0.4527363184079602
+     },
+     "ridge cut into bins": {
+      "accuracy": 0.6990049751243781,
+      "macro F1": 0.7116319254974717,
+      "weighted F1": 0.7076833266097031,
+      "within one bin": 0.9800995024875622
+     },
+     "classifier": {
+      "accuracy": 0.6616915422885572,
+      "macro F1": 0.6809106250489478,
+      "weighted F1": 0.6707198650880443,
+      "within one bin": 0.9676616915422885,
+      "mean top probability": 0.7087992119145292,
+      "ECE": 0.05627742521232373
+     }
+    },
+    "3 ranges (<1k, 1k-10k, 10k+)": {
+     "n": 402,
+     "majority (of X+YT)": {
+      "accuracy": 0.4527363184079602,
+      "macro F1": 0.2077625570776256,
+      "weighted F1": 0.28218496558304373,
+      "within one bin": 0.7786069651741293
+     },
+     "ridge cut into bins": {
+      "accuracy": 0.7985074626865671,
+      "macro F1": 0.7834631662884132,
+      "weighted F1": 0.7916120190313842,
+      "within one bin": 0.9825870646766169
+     },
+     "classifier": {
+      "accuracy": 0.7412935323383084,
+      "macro F1": 0.7280445377246035,
+      "weighted F1": 0.731914897526544,
+      "within one bin": 0.9825870646766169,
+      "mean top probability": 0.8150594848939131,
+      "ECE": 0.07376595255560445
+     }
+    },
+    "half decades (x3.2 wide)": {
+     "n": 402,
+     "majority (of X+YT)": {
+      "accuracy": 0.04228855721393035,
+      "macro F1": 0.005796113194681214,
+      "weighted F1": 0.0034315297023237035,
+      "within one bin": 0.20149253731343283
+     },
+     "ridge cut into bins": {
+      "accuracy": 0.39054726368159204,
+      "macro F1": 0.3804016678869609,
+      "weighted F1": 0.38681081991908434,
+      "within one bin": 0.8532338308457711
+     },
+     "classifier": {
+      "accuracy": 0.3208955223880597,
+      "macro F1": 0.23709668478964468,
+      "weighted F1": 0.30636953550416496,
+      "within one bin": 0.8059701492537313,
+      "mean top probability": 0.4576275280163662,
+      "ECE": 0.13673200562830648
+     }
+    }
+   },
+   "instagram": {
+    "decades (<10, 10-100, ..., 1M+)": {
+     "n": 133,
+     "majority (of X+YT)": {
+      "accuracy": 0.15037593984962405,
+      "macro F1": 0.03734827264239029,
+      "weighted F1": 0.0393139712025161,
+      "within one bin": 0.5789473684210527
+     },
+     "ridge cut into bins": {
+      "accuracy": 0.5639097744360902,
+      "macro F1": 0.45734661744664523,
+      "weighted F1": 0.54014628123518,
+      "within one bin": 0.9849624060150376
+     },
+     "classifier": {
+      "accuracy": 0.518796992481203,
+      "macro F1": 0.3676399774760787,
+      "weighted F1": 0.4830576190497982,
+      "within one bin": 0.9924812030075187,
+      "mean top probability": 0.6108622576030881,
+      "ECE": 0.1507738839220131
+     }
+    },
+    "4 user ranges (<100, 100-1k, 1k-10k, 10k+)": {
+     "n": 133,
+     "majority (of X+YT)": {
+      "accuracy": 0.20300751879699247,
+      "macro F1": 0.084375,
+      "weighted F1": 0.06851503759398497,
+      "within one bin": 0.5789473684210527
+     },
+     "ridge cut into bins": {
+      "accuracy": 0.6691729323308271,
+      "macro F1": 0.6763973362334019,
+      "weighted F1": 0.6637037068443453,
+      "within one bin": 0.9924812030075187
+     },
+     "classifier": {
+      "accuracy": 0.5939849624060151,
+      "macro F1": 0.5894927536231884,
+      "weighted F1": 0.5778265539625461,
+      "within one bin": 0.9924812030075187,
+      "mean top probability": 0.7071555738407745,
+      "ECE": 0.11317061143475937
+     }
+    },
+    "3 ranges (<1k, 1k-10k, 10k+)": {
+     "n": 133,
+     "majority (of X+YT)": {
+      "accuracy": 0.5789473684210527,
+      "macro F1": 0.24444444444444444,
+      "weighted F1": 0.4245614035087719,
+      "within one bin": 0.8345864661654135
+     },
+     "ridge cut into bins": {
+      "accuracy": 0.7819548872180451,
+      "macro F1": 0.7207664338811881,
+      "weighted F1": 0.7693086282387404,
+      "within one bin": 1.0
+     },
+     "classifier": {
+      "accuracy": 0.7518796992481203,
+      "macro F1": 0.667964709461515,
+      "weighted F1": 0.7261167826777165,
+      "within one bin": 1.0,
+      "mean top probability": 0.8286316775626571,
+      "ECE": 0.08599064978762809
+     }
+    },
+    "half decades (x3.2 wide)": {
+     "n": 133,
+     "majority (of X+YT)": {
+      "accuracy": 0.05263157894736842,
+      "macro F1": 0.0071428571428571435,
+      "weighted F1": 0.005263157894736843,
+      "within one bin": 0.17293233082706766
+     },
+     "ridge cut into bins": {
+      "accuracy": 0.3308270676691729,
+      "macro F1": 0.2753344671201814,
+      "weighted F1": 0.31916636830170664,
+      "within one bin": 0.8045112781954887
+     },
+     "classifier": {
+      "accuracy": 0.3082706766917293,
+      "macro F1": 0.20479828086841145,
+      "weighted F1": 0.29267750297356887,
+      "within one bin": 0.6992481203007519,
+      "mean top probability": 0.42678770831852986,
+      "ECE": 0.1336388652178911
+     }
+    }
+   }
+  }
+ }
+}

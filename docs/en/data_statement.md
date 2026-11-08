@@ -25,7 +25,7 @@ The sample was supplied by Brand24 for the course; how mentions were selected is
 
 ## Additional data collected by the team (November 2026)
 
-- **Facebook views.** 402 public Facebook Reels/videos from the sample were read on 2026-11-05 (fetcher:
+- **Facebook views.** Of the 2,500 Facebook rows, 470 are video posts; 402 of them exposed a public view count (68 removed), and the other 2,030 are ordinary posts/photos with no public view count at all (E200). The 402 public Facebook Reels/videos were read on 2026-11-05 (fetcher:
   `src/fetch_views.py`) from the public
   `facebook.com/watch/?v=<id>` page (logged out, desktop user agent). The page embeds `video_view_count` (the counter we
   use), `reaction_count` and `total_comment_count`. The visible play counter on the page is a different field (`play_count`,
@@ -34,6 +34,14 @@ The sample was supplied by Brand24 for the course; how mentions were selected is
   the page. This is the hand-check sample used in E93.
 - **Instagram.** An anonymous attempt returned no view count (0 of 160 checked posts); Instagram requires a login for
   views, so no Instagram view data was collected. Likes/comments for 115 of 160 posts were recorded from public pages.
+- **Instagram, logged in (2026-11-08).** 500 random reels from the Brand24 Instagram slice (11 brands) were read by a
+  browser agent on a team member's own logged-in account: views, likes and comments at the same moment, read-only, values
+  from Instagram's web API as the page loads them. 368 had views (132 gone, 30 with hidden likes). Results are local and
+  git-ignored (`data/manual/ig_browser_*.csv`); only statistics are published (E202). The counter's field name was not
+  recorded.
+- **Instagram `/p/` posts.** 62% of the IG slice (1,550 of 2,500) are `/p/` posts. In a check of the first 26, 19 were
+  photos or carousels with no public view counter (`media_type` 1 / 8), 7 were gone, none were videos. Instagram results
+  therefore cover reels only; ordinary posts have no ground truth.
 - **Terms and personal data.** Only public pages were read, without logging in and without cookies; no author names or
   URLs are published. The fetched files are local and git-ignored (`data/processed/*fetched*.csv`); they carry the mention
   id and the counters, not the post URL. Only aggregates appear in the repository.
