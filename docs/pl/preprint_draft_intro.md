@@ -1,7 +1,8 @@
 # Wstęp: wersja robocza wygenerowana przez Claude (2026-11-08)
 
 > Szkic do przepisania własnymi słowami. Wygenerowany przez AI na prośbę zespołu; użycie AI ujawnić w preprincie.
-> [cyt.] = miejsce na cytat, do uzupełnienia tylko pozycjami sprawdzonymi w `docs/en/literature_notes.md`.
+> Cytaty: Tatar, de Amorim, Fdida, Antoniadis 2014, *A survey on predicting the popularity of web content*, J. Internet Serv. Appl. 5:8 (metadane z Crossref);
+> Shulman, Sharma, Cosley 2016, ICWSM, arXiv:1603.09436; Roy, Mei, Zeng, Li 2013, IEEE Trans. Multimedia (oba w `literature_notes.md`, checked).
 
 ## 1. Wstęp
 
@@ -11,10 +12,12 @@ publicznie, a zakres tych danych zmienia się między platformami, formatami pos
 osób faktycznie zobaczyło dany post, a jeszcze trudniej przewidzieć, ile go zobaczy. W praktyce zasięg przybliża się więc
 stałym mnożnikiem liczby obserwujących lub reakcji. Taki mnożnik nie mówi, jak bardzo może się mylić.
 
-Przewidywanie popularności treści jest dobrze zbadane, ale prawie zawsze w obrębie jednej platformy, na której model jest
-uczony i testowany [cyt.]. Pytanie, czy zależność między reakcjami a wyświetleniami przenosi się na platformę, z której
-model nie widział żadnego posta, pozostaje otwarte z prostego powodu: tam, gdzie wyświetleń nie widać, nie ma też prawdy,
-z którą można by porównać oszacowanie.
+Przewidywanie popularności treści w sieci jest szeroko badane [Tatar i in. 2014]. Część prac sprawdza też przenoszenie
+modeli między serwisami: Shulman i in. [2016] pokazują, że model uczony na jednym zbiorze (muzyka, książki, zdjęcia, linki)
+działa podobnie dobrze na pozostałych, a Roy i in. [2013] przenoszą wiedzę z Twittera na popularność filmów na YouTube.
+Prace te opierają się jednak na innych sygnałach (tempo pierwszych odbiorców, tematy) i oceniają model tam, gdzie wynik
+jest znany. Nie znaleźliśmy pracy, która sprawdza oszacowanie wyświetleń z reakcji na platformach, gdzie wyświetlenia
+są ukryte, wobec niezależnie zmierzonej prawdy; tam, gdzie wyświetleń nie widać, zwykle nie ma też z czym porównać.
 
 W tej pracy pytamy, czy wyświetlenia posta na Facebooku i Instagramie da się oszacować z jego reakcji modelem uczonym
 wyłącznie na innych platformach, i z jaką niepewnością. Korzystamy z 12 500 wzmianek o 348 markach z pięciu platform,
