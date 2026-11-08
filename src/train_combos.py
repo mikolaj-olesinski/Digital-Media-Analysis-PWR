@@ -1,4 +1,4 @@
-"""E200: every combination of training platforms, tested on every platform left out.
+"""E201: every combination of training platforms, tested on every platform left out.
 Ground truth on all five platforms: Brand24 export views (TikTok, YouTube, X), Facebook re-measured (402 fetched, with
 fresh reactions, taken from fb_extend.fb_frame for the brand column) and Instagram re-measured (hand batches, fresh likes and comments). Only the Brand24 frame is used
 (own-search rows are a different population).
@@ -103,7 +103,7 @@ def figure(out, lang):
 
 def main():
     out = run(data())
-    (ROOT / "data/processed/train_combos_numbers.json").write_text(json.dumps({"E200": out}, indent=1))
+    (ROOT / "data/processed/train_combos_numbers.json").write_text(json.dumps({"E201": out}, indent=1))
     for lang in ["en", "pl"]: figure(out, lang)
     print(json.dumps(out["own platform (brand CV)"], indent=0)[:600])
     for r, v in out["combinations"].items(): print(r, {q: round(s["factor"], 2) for q, s in v.items()})
