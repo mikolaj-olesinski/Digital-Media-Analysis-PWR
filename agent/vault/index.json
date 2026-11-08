@@ -2655,6 +2655,18 @@
   ]
  },
  {
+  "id": "E226",
+  "date": "2026-11-08",
+  "question": "Information ladder: what each input buys",
+  "setup": "Same platform: CatBoost, author-safe folds, median -> followers -> + likes -> + comments -> + shares; out of platform: X + YouTube ridge, median -> comments -> likes -> likes + comments -> fresh source",
+  "result": "TikTok / YouTube / X x4.6 / 8.8 / 4.6 -> followers x3.8 / 6.0 / 3.9 -> + likes x1.9 / 3.2 / 3.0 -> final x1.9 / 2.9 / 3.0; FB / IG median x19.9 / 8.7, comments only x7.4 / 6.3, likes only x2.5 / 2.7, fresh source x2.4 / 2.4; FB export reactions x6.8",
+  "type": "finding",
+  "where": "`src/info_ladder.py`",
+  "paths": [
+   "src/info_ladder.py"
+  ]
+ },
+ {
   "id": "E223",
   "date": "2026-11-08",
   "question": "Do our FB / IG post owners have the same account on YouTube or X?",

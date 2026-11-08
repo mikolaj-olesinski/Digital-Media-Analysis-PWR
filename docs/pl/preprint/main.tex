@@ -16,6 +16,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[most]{tcolorbox}
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage[section]{placeins}
 \newcommand{\capdet}[1]{\par\footnotesize\color{black!75}#1}
 \setlist{nosep,leftmargin=1.4em}
 \newcommand{\x}[1]{$\times$#1}
@@ -99,8 +100,15 @@ Przewidujemy $y=\log_{10}(\text{wyświetlenia})$. Błąd podajemy jako MAE w tej
 $10^{\text{MAE}}$ (MAE 0,30 $\approx$ \x{2}). Model końcowy oceniamy pięciokrotną walidacją krzyżową, w której ta sama marka, ten sam autor ani identyczny tekst nigdy nie
 trafia jednocześnie do treningu i testu: jeden autor może pisać o kilku markach (1--9\% postów), a ten sam tekst bywa
 wklejany na różnych kontach. Każda ocena dotyczy więc marki i autora, których model nie widział. Przedziały ufności
-liczymy bootstrapem po markach. Porównania metod (rozdział~\ref{sec:nie}) robimy na prostszym podziale po samych markach;
+liczymy bootstrapem po markach. Porównania metod (rozdział~\ref{sec:nie}, tylko na tej samej platformie) robimy na prostszym podziale po samych markach;
 ostrzejszy podział zmienia błąd o najwyżej 0,002 na TikToku i YouTube i o 0,012 na X, tak samo dla wszystkich metod.
+\begin{tcolorbox}[colback=black!3,colframe=black!25,boxrule=.4pt,left=4pt,right=4pt,top=2pt,bottom=2pt]\small
+\textbf{Dwa scenariusze, oznaczane na każdym wykresie.} \emph{Na tej samej platformie}: model uczy się na postach z danej
+platformy (TikTok, YouTube, X), a oceniamy go na markach i autorach, których nie widział. \emph{Poza platformą}: model
+nie widzi w treningu ani jednego posta z platformy docelowej (Facebook, Instagram, Stack Exchange; w Tabeli~\ref{tab:combos}
+każda platforma po kolei), a jej wyświetlenia służą tylko do oceny.
+\end{tcolorbox}
+
 Na TikToku, YouTube i X używamy CatBoost~\cite{catboost} na obserwujących, reakcjach i flagach braków. Do przeniesienia
 na Facebooka i Instagram używamy regresji ridge na $\log(1+\text{lajki})$ i $\log(1+\text{komentarze})$, czyli dwóch
 polach, które ma każda platforma, uczonej na X i YouTube razem; przy pominiętej platformie przenosi się ona lepiej niż
@@ -140,17 +148,20 @@ wyświetleń są zaniżone kilkanaście razy; po przeniesieniu Instagram zaniża
 \includegraphics[width=.78\textwidth]{fig/preprint_size_pl.png}
 \caption{Błąd według wielkości posta.
 \capdet{Mediana stosunku prawdziwych do oszacowanych wyświetleń w przedziałach prawdziwych wyświetleń (pokazane
-przedziały z co najmniej 10 postami). Powyżej 1: model zaniża. Szary pas: w granicach \x{2}. Modele jak na
-Rys.~\ref{fig:main}.}}
+przedziały z co najmniej 10 postami). Powyżej 1: model zaniża. Szary pas: w granicach \x{2}. Linia ciągła: na tej samej platformie, przerywana: poza
+platformą. Modele jak na Rys.~\ref{fig:main}.}}
 \label{fig:size}
 \end{figure}
 
 \paragraph{Trzy przedziały zamiast liczby.} W raporcie często wystarczy powiedzieć, czy post miał mniej niż tysiąc,
 od tysiąca do dziesięciu tysięcy, czy ponad dziesięć tysięcy wyświetleń. Gdy tym samym modelem tniemy oszacowanie na te trzy
-przedziały, trafiamy w dobry w 80--82\% postów na TikToku, YouTube, Facebooku i Instagramie (Rys.~\ref{fig:bins}), wobec
-45--65\% przy zgadywaniu zawsze najczęstszego przedziału. Prawie nigdy nie mylimy się o dwa przedziały (0,2--1,7\% postów).
-Najczęstszy błąd to zaniżenie o jeden przedział postów od tysiąca do dziesięciu tysięcy. Na X 95\% postów ma poniżej
-tysiąca wyświetleń, więc trafienie 95\% nie mówi tam nic ponad zgadywanie.
+przedziały, trafiamy w dobry w 80--82\% postów na TikToku, YouTube, Facebooku i Instagramie (Rys.~\ref{fig:bins}).
+Bo przedziały mają różną liczebność, ważniejsza jest trafność zrównoważona, czyli średnia czułość po przedziałach:
+77\% / 72\% na tej samej platformie (TikTok / YouTube) i 76\% / 65\% poza platformą (Facebook / Instagram), wobec 33\%
+przy zgadywaniu; F1 makro 0,70--0,79. Prawie nigdy nie mylimy się o dwa przedziały (0,2--1,7\% postów). Najsłabiej
+wypada środkowy przedział: posty z 1--10 tys. wyświetleń trafiamy w 47--63\%, a resztę zwykle zaniżamy o jeden
+przedział. Na X 95\% postów ma poniżej tysiąca wyświetleń, więc trafność 95\% nic nie mówi; trafność zrównoważona to
+tam tylko 43\%.
 % preprint_bins_numbers.json (results_preds + results_b_preds, bez nowego trenowania); E199 (klasyfikator nie jest lepszy).
 
 \begin{figure}[!htb]
@@ -159,7 +170,8 @@ tysiąca wyświetleń, więc trafienie 95\% nie mówi tam nic ponad zgadywanie.
 \caption{Oszacowanie pocięte na trzy przedziały wyświetleń.
 \capdet{Ten sam model co na Rys.~\ref{fig:main}: TikTok, YouTube, X z walidacji po markach i autorach, Facebook i Instagram
 z przeniesienia z X i YouTube. Wiersz: prawdziwy przedział; kolumna: oszacowany; w komórce udział w wierszu i liczba postów.
-Pogrubione: trafiony przedział. Szara liczba nad tabelą: wynik przy zgadywaniu zawsze najczęstszego przedziału.}}
+Pogrubione: trafiony przedział (przekątna to czułość dla danego przedziału). Nad tabelą: trafność, trafność zrównoważona
+(średnia czułość), F1 makro; szare: te same miary przy zgadywaniu zawsze najczęstszego przedziału.}}
 \label{fig:bins}
 \end{figure}
 
@@ -190,23 +202,25 @@ platform w treningu nie zawsze pomaga: liczy się, które platformy są w zestaw
 
 \input{combos_table}
 
-\paragraph{Czego model potrzebuje.} Przeniesienie działa tylko z lajkami odczytanymi razem z wyświetleniami
-(Rys.~\ref{fig:needs}A). Same komentarze dają \x{6,2}--\x{7,4}, a lajki i komentarze z eksportu, odczytane w innym
-momencie niż wyświetlenia, \x{6,8}. Na platformach ze znanymi wyświetleniami (Rys.~\ref{fig:needs}B) brak obserwujących
-prawie nie szkodzi, a brak reakcji podnosi błąd do \x{3,8}--\x{5,2}. Dla każdego układu dostępnych pól uczymy osobny
-model z osobnym przedziałem, dzięki czemu przedział 90\% trafia w 88--90\% postów w każdym przypadku; model uczony na
-pełnych danych i karmiony niepełnymi trafiałby tylko w 46--83\%.
-% E177, E176, results_b (comments only).
+\paragraph{Co daje każda informacja.} Rys.~\ref{fig:ladder} pokazuje, jak spada błąd, gdy dokładamy kolejne pola.
+Na tej samej platformie (A) sama mediana daje \x{4,6}--\x{8,8}, obserwujący zmniejszają błąd tylko do \x{3,8}--\x{6,0},
+a dopiero lajki sprowadzają go do \x{1,9}--\x{3,2}. Komentarze i udostępnienia dokładają niewiele, najwięcej na YouTube
+(\x{3,2} $\to$ \x{2,9}). Poza platformą (B) jest tak samo, tylko mocniej: mediana źródła myli się na Facebooku \x{19,9}, bo
+poziom wyświetleń jest tam zupełnie inny, same komentarze dają \x{6,3}--\x{7,4}, a same lajki już \x{2,5}--\x{2,7}.
+Lajki muszą być odczytane razem z wyświetleniami: te same pola z eksportu, odczytane w innym momencie, dają na Facebooku
+\x{6,8}. Świeże dane źródłowe (akapit niżej) poprawiają już tylko Instagram. Gdy brakuje pól, uczymy osobny model dla
+każdego układu dostępnych danych, z osobnym przedziałem; wtedy przedział 90\% trafia w 88--90\% postów w każdym przypadku.
+% E226 info_ladder_numbers.json; E177 (reakcje z eksportu); E176 (osobne modele dla braków).
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=\textwidth]{fig/preprint_needs_pl.png}
-\caption{Typowy błąd przy różnych danych wejściowych.
-\capdet{A: Facebook i Instagram, ridge uczony na X i YouTube. ,,Lajki + komentarze'': nasze pola odczytane razem
-z wyświetleniami; ,,tylko komentarze'': model na samych komentarzach; ,,reakcje z eksportu'': lajki i komentarze
-z eksportu Brand24, odczytane w innym momencie niż wyświetlenia (dla Instagramu brak). B: TikTok, YouTube, X, osobny
-CatBoost dla każdego układu dostępnych pól, walidacja po markach.}}
-\label{fig:needs}
+\includegraphics[width=\textwidth]{fig/preprint_ladder_pl.png}
+\caption{Typowy błąd po kolejnych krokach, od samej mediany do pełnego modelu.
+\capdet{A: na tej samej platformie, CatBoost na coraz większym zestawie pól, walidacja po markach i autorach
+(,,mediana'': mediana wyświetleń w treningu). B: poza platformą, ridge uczony tylko na X i YouTube, bez żadnego posta
+z Facebooka ani Instagramu; ,,+ świeże źródło'': X i YouTube odczytane ponownie, razem z reakcjami. Romb: lajki
+i komentarze z eksportu Brand24, odczytane w innym momencie niż wyświetlenia (dla Instagramu brak). Skala logarytmiczna.}}
+\label{fig:ladder}
 \end{figure}
 
 \paragraph{Świeże dane źródłowe.} Wyświetlenia w eksporcie są odczytane krótko po publikacji, a nasze odczyty z Facebooka

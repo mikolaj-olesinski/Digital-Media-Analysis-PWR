@@ -49,10 +49,10 @@ def preds():
 def fig_main(D, lang):
     T = {"pl": ("Uczony na tej samej platformie (TikTok, YouTube, X) i na innych (Facebook, Instagram)",
                 "Każda kropka to post z marki, której model nie widział. Pas: w granicach ×2. Liczba: typowy błąd.",
-                "prawdziwe wyświetlenia", "oszacowane", "ta sama platforma", "inne platformy (X + YouTube)"),
+                "prawdziwe wyświetlenia", "oszacowane", "NA TEJ SAMEJ PLATFORMIE (nowe marki i autorzy)", "POZA PLATFORMĄ (uczony tylko na X + YouTube)"),
          "en": ("Trained on the same platform (TikTok, YouTube, X) and on others (Facebook, Instagram)",
                 "Each dot is a post from a brand the model did not see. Band: within ×2. Number: typical error.",
-                "true views", "predicted", "same platform", "other platforms (X + YouTube)")}[lang]
+                "true views", "predicted", "SAME PLATFORM (new brands and authors)", "OUT OF PLATFORM (trained only on X + YouTube)")}[lang]
     fig, ax = plt.subplots(1, 5, figsize=(12, 3.3), sharex=True, sharey=True, gridspec_kw={"wspace": .06}); fig.patch.set_facecolor(SURF)
     xx = np.array([-.5, 8]); box = dict(boxstyle="round,pad=0.2", fc=SURF, ec="none", alpha=.85)
     for a, p in zip(ax, P5):
@@ -73,10 +73,10 @@ def fig_main(D, lang):
 
 def fig_size(D, lang):
     T = {"pl": ("Model zawyża małe posty i zaniża duże, na każdej platformie",
-                "Mediana błędu (prawda / oszacowanie) w przedziałach prawdziwych wyświetleń; powyżej 1 = model zaniża.",
+                "Mediana błędu (prawda / oszacowanie); powyżej 1 = model zaniża. Linia ciągła: ta sama platforma, przerywana: poza platformą.",
                 "prawdziwe wyświetlenia", "prawda / oszacowanie (mediana)"),
          "en": ("The model overestimates small posts and underestimates large ones, on every platform",
-                "Median error (true / predicted) by true-views range; above 1 = the model underestimates.",
+                "Median error (true / predicted); above 1 = underestimates. Solid: same platform, dashed: out of platform.",
                 "true views", "true / predicted (median)")}[lang]
     bins = [-1, 2, 3, 4, 5, 9]; names = ["<100", "100–1k", "1k–10k", "10k–100k", "100k+"]
     fig, a = plt.subplots(figsize=(7.4, 3.6)); fig.patch.set_facecolor(SURF); style(a)
@@ -84,11 +84,12 @@ def fig_size(D, lang):
     for k, p in enumerate(P5):
         s = D[p]; b = pd.cut(s.y, bins, labels=False); m = (s.y - s.pred).groupby(b).median(); n = b.value_counts()
         m = m[n.reindex(m.index) >= 10]
-        a.plot(m.index + (k - 2) * .05, m.values, "-o", color=COL[p], lw=2, ms=6, mec=SURF, mew=1.5, label=LAB[p])
+        out = p in ("facebook", "instagram"); tag = {"pl": " (poza platformą)", "en": " (out of platform)"}[lang] if out else ""
+        a.plot(m.index + (k - 2) * .05, m.values, "--o" if out else "-o", color=COL[p], lw=2, ms=6, mec=SURF, mew=1.5, label=LAB[p] + tag)
     ticks = [-1, -L2, 0, L2, 1, np.log10(30)]
     a.set_yticks(ticks); a.set_yticklabels(["1/10", "1/2", "1", "2", "10", "30"]); a.set_xticks(range(5)); a.set_xticklabels(names)
     a.set_xlabel(T[2], fontsize=9, color=MUTED); a.set_ylabel(T[3], fontsize=9, color=MUTED)
-    a.legend(frameon=False, fontsize=8.5, ncol=5, loc="upper left", bbox_to_anchor=(0, 1.02))
+    a.legend(frameon=False, fontsize=8.5, ncol=3, loc="upper left", bbox_to_anchor=(0, 1.02))
     head(fig, T[0], T[1], x=.02); save(fig, "size", lang)
 
 

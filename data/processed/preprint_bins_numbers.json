@@ -6,6 +6,14 @@
    "within one range": 0.998,
    "two ranges off": 0.002,
    "majority baseline": 0.586,
+   "balanced accuracy": 0.772,
+   "macro F1": 0.787,
+   "recall per range": [
+    0.918,
+    0.635,
+    0.762
+   ],
+   "balanced accuracy, majority baseline": 0.333,
    "true share per range": [
     0.586,
     0.276,
@@ -35,6 +43,14 @@
    "within one range": 0.989,
    "two ranges off": 0.011,
    "majority baseline": 0.626,
+   "balanced accuracy": 0.715,
+   "macro F1": 0.745,
+   "recall per range": [
+    0.914,
+    0.603,
+    0.628
+   ],
+   "balanced accuracy, majority baseline": 0.333,
    "true share per range": [
     0.626,
     0.256,
@@ -64,6 +80,14 @@
    "within one range": 0.999,
    "two ranges off": 0.001,
    "majority baseline": 0.946,
+   "balanced accuracy": 0.434,
+   "macro F1": 0.457,
+   "recall per range": [
+    0.994,
+    0.31,
+    0.0
+   ],
+   "balanced accuracy, majority baseline": 0.333,
    "true share per range": [
     0.946,
     0.047,
@@ -93,6 +117,14 @@
    "within one range": 0.983,
    "two ranges off": 0.017,
    "majority baseline": 0.453,
+   "balanced accuracy": 0.765,
+   "macro F1": 0.783,
+   "recall per range": [
+    0.973,
+    0.626,
+    0.697
+   ],
+   "balanced accuracy, majority baseline": 0.333,
    "true share per range": [
     0.453,
     0.326,
@@ -122,6 +154,14 @@
    "within one range": 0.994,
    "two ranges off": 0.006,
    "majority baseline": 0.65,
+   "balanced accuracy": 0.648,
+   "macro F1": 0.699,
+   "recall per range": [
+    0.974,
+    0.471,
+    0.5
+   ],
+   "balanced accuracy, majority baseline": 0.333,
    "true share per range": [
     0.65,
     0.245,
