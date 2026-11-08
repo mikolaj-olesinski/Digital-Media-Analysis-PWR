@@ -356,8 +356,21 @@ opisują zależności, nie przyczyny. Dostawcy monitoringu rekomendujemy: odczyt
 zapisywać braki jako brak, a nie zero, robić drugi odczyt wyświetleń i przechowywać historię autorów.
 % E178, E180, E202.
 
-\todo{jeden wykres końcowy: nasz model a stały mnożnik Brand24.}
-\todo{opis użycia AI zgodnie z wymaganiami kursu; odtwarzalność: repozytorium, skrypty, rejestr eksperymentów.}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=.9\textwidth]{fig/final_compare_pl.png}
+\caption{Nasze oszacowanie a kolumna zasięgu w eksporcie Brand24, na tych samych postach.
+\capdet{Tylko platformy, na których zasięg nie jest liczbą wyświetleń: X (1\,803 posty, prawda z eksportu, nasz model z walidacji
+po markach i autorach), Facebook (402 filmy) i Instagram (642 rolki, prawda z naszego odczytu, nasz model uczony na X i YouTube).
+Zasięg Brand24 zawyża wyświetlenia na X (74\% postów) i Facebooku (67\%), a zaniża na Instagramie (97\%).}}
+\label{fig:final}
+\end{figure}
+% final_compare_numbers.json: X 3,03 vs 11,47; FB 2,43 vs 13,14; IG 2,72 vs 26,44.
+\paragraph{Użycie AI i odtwarzalność.} \todo{do napisania przez zespół własnymi słowami.} Fakty do ujęcia:
+agenci AI (Claude Code, DeepSeek) pisali kod analiz i odczytu danych, uruchamiali eksperymenty, robili wykresy i szkic
+tekstu; modele językowe oznaczyły typ i sentyment wzmianek, a etykiety poprawił członek zespołu; logi sesji agentów są
+w \texttt{logs/}. Każdy wynik ma kartę eksperymentu, wiersz w rejestrze (\texttt{docs/pl/experiments.md}, 220 pozycji),
+skrypt w \texttt{src/} i liczby w \texttt{data/processed/}.
 
 \begin{thebibliography}{9}
 \bibitem{tatar2014} A.~Tatar, M.~D. de~Amorim, S.~Fdida, P.~Antoniadis. A survey on predicting the popularity of web
