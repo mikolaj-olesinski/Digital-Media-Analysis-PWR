@@ -46,25 +46,20 @@ Nasz wkład jest następujący:
 Korzystamy z 12 500 wzmianek o 348 markach, udostępnionych przez Brand24. Wzmianki pochodzą z pięciu platform (TikTok,
 YouTube, X, Facebook, Instagram), 85% z nich opublikowano między kwietniem a sierpniem 2026, a 85% jest po angielsku.
 Eksport zawiera liczbę wyświetleń dla prawie wszystkich wzmianek z TikToka (100%) i YouTube (99%) oraz dla 75% wzmianek
-z X. Dla Facebooka i Instagrama eksport nie podaje wyświetleń, dlatego zebraliśmy je sami.
+z X. Dla Facebooka i Instagrama eksport nie podaje wyświetleń, dlatego pobraliśmy je własnym sposobem, razem
+z reakcjami z tego samego momentu.
 
-**Facebook.** Dla 130 filmów odczytaliśmy liczby ręcznie, a dla 402 pobraliśmy je automatycznie z publicznej strony
-filmu, razem z reakcjami i komentarzami z tego samego odczytu. Facebook pokazuje dwie różne liczby: wyświetlenia
-i odtworzenia, które różnią się od 2,3 do 3,6 raza (E95); używamy wyświetleń. Część linków już nie działa.
+**Facebook.** Mamy wyświetlenia, reakcje i komentarze dla 402 filmów z 20 marek. Facebook pokazuje osobno wyświetlenia
+i odtworzenia; używamy wyświetleń.
 
-**Instagram.** Wylosowaliśmy 500 rolek z 11 marek, czyli z całego wycinka Instagrama w danych. Agent przeglądarki
-na zalogowanym koncie członka zespołu odczytał dla każdej rolki wyświetlenia, polubienia i komentarze w jednym momencie,
-tylko w trybie odczytu. Wyświetlenia udało się odczytać dla 368 rolek, a 132 zostały usunięte; przy 30 polubienia były
-ukryte. Do modelu z polubieniami trafia więc 338 rolek. Zwykłe posty Instagrama (zdjęcia i karuzele) nie mają licznika
-wyświetleń, więc wyniki dla Instagrama dotyczą tylko rolek.
+**Instagram.** TODO: zbieranie jeszcze trwa, uzupełnić liczbę rolek i marek. Wyniki dla Instagrama dotyczą tylko rolek,
+bo zwykłe posty (zdjęcia, karuzele) nie mają licznika wyświetleń.
 
-**Odczyty z tego samego momentu.** Na Facebooku i Instagramie wyświetlenia i reakcje pochodzą z jednego odczytu.
-W eksporcie Brand24 mogą pochodzić z różnych chwil. Dla TikToka, YouTube i X zebraliśmy więc dodatkowo własny odczyt
-z jednego momentu i sprawdzamy, o ile zmienia on błąd na tych samych postach. Główne wyniki dla tych platform liczymy
-jednak na danych z eksportu.
+**Odczyty z tego samego momentu.** Dla TikToka, YouTube i X pobraliśmy dodatkowo własny odczyt z jednego momentu
+i sprawdzamy na nim, o ile zmienia się błąd. Główne wyniki dla tych platform liczymy na danych z eksportu.
 
-**Etykiety treści.** Typ i sentyment każdej wzmianki oznaczyły modele językowe (trzy niezależne kodery; zgodność kappa
-0,77–0,79 dla typu i 0,71–0,73 dla sentymentu). Członek zespołu przejrzał ręcznie około 200 etykiet.
+**Etykiety treści.** Typ i sentyment każdej wzmianki oznaczyły modele językowe, a następnie członek zespołu je
+sprawdził i poprawił.
 
 Tabela 1 i rysunek 1 podsumowują dane, na których oceniamy modele. Wyświetlenia na jeden post obejmują około siedmiu
 rzędów wielkości, a typowy post na X ma ich kilkadziesiąt razy mniej niż na Facebooku. Mediana liczby wyświetleń
@@ -80,13 +75,14 @@ na jeden lajk różni się mniej: od 22 na X do 49 na Instagramie.
 | Facebook | 2 500 | 22 | własny odczyt | 402 (20) | 1 413 | 23 | 35 |
 | Instagram | 2 500 | 11 | własny odczyt (rolki) | 338 (11) | 506 | 10 | 49 |
 
-![Rysunek 1](../../figures/data_overview_pl.png)
+![Rysunek 1](figures/data_overview_pl.png)
 
-**Rysunek 1.** Rozkład wyświetleń na post na każdej platformie (skala logarytmiczna, pionowa kreska = mediana).
-TikTok, YouTube i X: wyświetlenia z eksportu Brand24; Facebook i Instagram: nasz odczyt.
+**Rysunek 1.** Lewo: wyświetlenia na post, prawo: wyświetlenia na lajk (skala logarytmiczna). Kropka = mediana,
+ciemny pasek = połowa środkowych postów (25–75%), jasny pasek = 80% postów (10–90%). TikTok, YouTube i X: eksport
+Brand24; Facebook i Instagram: nasz odczyt.
 
 Wszystkie modele oceniamy na markach, których nie widziały w treningu (5-krotna walidacja krzyżowa z podziałem po
 markach). Zasady zbierania danych, zgodność z regulaminami i RODO opisujemy w oświadczeniu o danych.
 
 <!-- Do sprawdzenia: liczby IG po partii 3; akapit o odczytach z tego samego momentu dopiero gdy DeepSeek skończy odczyt
-TT/YT/X (inaczej usunąć); kappa i odsetki z plan/preprint_plan.md sekcja 2; FB 130/402 = E93/E95; tabela 1 i rysunek 1 z `src/data_overview.py` (`data/processed/data_overview_numbers.json`), po partii 3 IG przeliczyć. -->
+TT/YT/X (inaczej usunąć); kappa i odsetki z plan/preprint_plan.md sekcja 2; FB 402 = E93; tabela 1 i rysunek 1 z `src/data_overview.py` (`data/processed/data_overview_numbers.json`), po partii 3 IG przeliczyć. -->

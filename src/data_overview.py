@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 P, LAB = tc.P, tc.LAB
 SRC = {"en": {"tiktok": "Brand24 export", "youtube": "Brand24 export", "twitter": "Brand24 export", "facebook": "own read", "instagram": "own read (reels)"},
        "pl": {"tiktok": "eksport Brand24", "youtube": "eksport Brand24", "twitter": "eksport Brand24", "facebook": "własny odczyt", "instagram": "własny odczyt (rolki)"}}
-BLUE, INK, MUTED = "#2a78d6", "#0b0b0b", "#52514e"
+BLUE, LIGHT, INK, MUTED, SURF = "#2a78d6", "#b7d3f6", "#0b0b0b", "#52514e", "#fcfcfb"
 
 
 def table(d, raw):
@@ -33,22 +33,33 @@ def table(d, raw):
 
 
 def figure(d, rows, lang):
-    T = {"en": ("Views per post on each platform", "views (log scale)", "median", "posts"),
-         "pl": ("Wyświetlenia na post na każdej platformie", "wyświetlenia (skala log)", "mediana", "postów")}[lang]
-    fig, ax = plt.subplots(len(P), 1, figsize=(7, 6.2), sharex=True, gridspec_kw={"hspace": 0.15})
-    bins = np.arange(0, 8.01, 0.25)
-    for a, p in zip(ax, P):
-        y = d[d.platform == p].y
-        a.hist(y, bins=bins, color=BLUE, edgecolor="#fcfcfb", linewidth=1, density=True)
-        m = np.median(y); a.axvline(m, color=INK, lw=1.2)
-        a.text(m + 0.08, a.get_ylim()[1] * 0.82, f"{T[2]} {rows[p]['median views']:,.0f}".replace(",", " "), fontsize=8, color=INK)
-        a.text(-0.02, 0.5, f"{LAB[p]}\n{len(y)} {T[3]}\n{SRC[lang][p]}", transform=a.transAxes, ha="right", va="center", fontsize=8.5, color=MUTED)
-        a.set_facecolor("#fcfcfb"); a.set_yticks([]); [a.spines[s].set_visible(False) for s in ("left", "right", "top")]
-        a.spines["bottom"].set_color("#bdbcb6"); a.tick_params(colors=MUTED, labelsize=8)
-    ax[-1].set_xlabel(T[1], color=MUTED, fontsize=9); ax[-1].set_xticks(range(9))
-    ax[-1].set_xticklabels([f"{10 ** k:,}".replace(",", " ") if k < 7 else ("10 mln" if lang == "pl" else "10M") if k == 7 else "" for k in range(9)])
-    fig.suptitle(T[0], fontsize=11, x=0.42, y=0.95, color=INK)
-    fig.savefig(ROOT / "figures" / f"data_overview_{lang}.png", dpi=160, bbox_inches="tight", facecolor="#fcfcfb"); plt.close(fig)
+    T = {"en": ("Views per post", "Views per like", "median", "posts"),
+         "pl": ("Wyświetlenia na post", "Wyświetlenia na lajk", "mediana", "postów")}[lang]
+    fig, ax = plt.subplots(1, 2, figsize=(9, 3.6), sharey=True, gridspec_kw={"wspace": 0.12})
+    fig.patch.set_facecolor(SURF)
+    for k, a in enumerate(ax):
+        a.set_facecolor(SURF)
+        for i, p in enumerate(P):
+            s = d[d.platform == p]
+            v = s.y.values if k == 0 else s.y.values - np.log10(np.maximum(np.expm1(s.log_likes.values), 1))
+            q10, q25, q50, q75, q90 = np.percentile(v, [10, 25, 50, 75, 90])
+            a.plot([q10, q90], [i, i], color=LIGHT, lw=9, solid_capstyle="round", zorder=1)
+            a.plot([q25, q75], [i, i], color=BLUE, lw=9, solid_capstyle="round", zorder=2)
+            a.scatter(q50, i, s=70, color=INK, edgecolor=SURF, linewidth=2, zorder=3)
+            a.text(q50, i - 0.36, f"{10 ** q50:,.0f}".replace(",", " "), ha="center", va="bottom", fontsize=8, color=INK)
+        ticks = range(0, 6) if k == 0 else range(0, 4)
+        a.set_xticks(list(ticks)); a.set_xticklabels([f"{10 ** t:,}".replace(",", " ") for t in ticks], fontsize=8, color=MUTED)
+        a.set_xlim(-0.2, 5.3 if k == 0 else 3.2)
+        a.grid(axis="x", color="#e6e5e0", lw=0.8); a.set_axisbelow(True)
+        a.set_title(T[k], fontsize=10, color=INK, loc="left")
+        [a.spines[x].set_visible(False) for x in a.spines]; a.tick_params(length=0)
+    ax[0].set_yticks(range(len(P)))
+    ax[0].set_yticklabels([f"{LAB[p]}  ({rows[p]['posts with views (used)']})" for p in P], fontsize=9, color=INK)
+    ax[0].set_ylim(len(P) - 0.5, -0.7)
+    fig.savefig(ROOT / "figures" / f"data_overview_{lang}.png", dpi=160, bbox_inches="tight", facecolor=SURF); plt.close(fig)
+    if lang == "pl":
+        out = ROOT / "docs/pl/figures"; out.mkdir(exist_ok=True)
+        (out / "data_overview_pl.png").write_bytes((ROOT / "figures/data_overview_pl.png").read_bytes())
 
 
 def main():
