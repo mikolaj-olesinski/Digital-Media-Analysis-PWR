@@ -6,15 +6,15 @@
 ## 1. Wstęp
 
 Firmy monitorujące media, takie jak Brand24, raportują klientom, ile osób mogło zobaczyć wzmiankę o ich marce. Najprostsza
-miara takiego zasięgu, liczba wyświetleń, jest jednak publiczna tylko na części platform. TikTok i YouTube podają ją przy
-każdym filmie, a X przy większości postów. Facebook i Instagram, czyli platformy, na których marki są najbardziej obecne,
-jej nie pokazują. W praktyce zasięg na tych platformach przybliża się więc stałym mnożnikiem liczby obserwujących lub
-reakcji. Taki mnożnik nie mówi, jak bardzo może się mylić.
+miara takiego zasięgu, liczba wyświetleń, często nie jest jednak widoczna: platformy ograniczają to, co pokazują
+publicznie, a zakres tych danych zmienia się między platformami, formatami postów i w czasie. Bez niej trudno ocenić, ile
+osób faktycznie zobaczyło dany post, a jeszcze trudniej przewidzieć, ile go zobaczy. W praktyce zasięg przybliża się więc
+stałym mnożnikiem liczby obserwujących lub reakcji. Taki mnożnik nie mówi, jak bardzo może się mylić.
 
 Przewidywanie popularności treści jest dobrze zbadane, ale prawie zawsze w obrębie jednej platformy, na której model jest
 uczony i testowany [cyt.]. Pytanie, czy zależność między reakcjami a wyświetleniami przenosi się na platformę, z której
-model nie widział żadnego posta, pozostaje otwarte z prostego powodu: na Facebooku i Instagramie nie ma prawdy, z którą
-można by porównać oszacowanie.
+model nie widział żadnego posta, pozostaje otwarte z prostego powodu: tam, gdzie wyświetleń nie widać, nie ma też prawdy,
+z którą można by porównać oszacowanie.
 
 W tej pracy pytamy, czy wyświetlenia posta na Facebooku i Instagramie da się oszacować z jego reakcji modelem uczonym
 wyłącznie na innych platformach, i z jaką niepewnością. Korzystamy z 12 500 wzmianek o 348 markach z pięciu platform,
