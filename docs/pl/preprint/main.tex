@@ -1,0 +1,197 @@
+% Wersja robocza wygenerowana przez Claude (2026-11-08) na prośbę zespołu; do przepisania własnymi słowami.
+% Użycie AI ujawnić w preprincie. Odwołania do eksperymentów (E##) są tylko w komentarzach.
+\documentclass[10pt,a4paper]{article}
+\usepackage{iftex}
+\ifXeTeX
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+\usepackage[polish]{babel}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{graphicx,booktabs,amsmath,xcolor,enumitem,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage[most]{tcolorbox}
+\setlist{nosep,leftmargin=1.4em}
+\newcommand{\x}[1]{$\times$#1}
+\newcommand{\todo}[1]{\textcolor{red!70!black}{\textbf{TODO:} #1}}
+
+\title{Szacowanie ukrytych wyświetleń postów z reakcji:\\przeniesienie modelu między platformami}
+\author{Zespół projektu AMC, Politechnika Wrocławska}
+\date{wersja robocza, \today}
+
+\begin{document}
+\maketitle
+
+% ---------- roboczy spis treści: usunąć przed oddaniem ----------
+\begin{tcolorbox}[colback=yellow!8,colframe=yellow!50!black,title={Roboczy spis treści (usunąć przed oddaniem; razem $\le$ 8 stron)},fonttitle=\bfseries\small,fontupper=\small]
+\begin{enumerate}[leftmargin=1.6em]
+  \item \textbf{Wstęp} (0,75 str.) --- problem ukrytych wyświetleń, literatura, pytanie badawcze, wkład. \emph{Napisany.}
+  \item \textbf{Dane i pomiar} (1 str.) --- próba Brand24, skąd prawda na każdej platformie, Tabela~1, Rysunek~1. \emph{Napisany, IG do uzupełnienia.}
+  \item \textbf{Metoda i walidacja} (1 str.) --- cel i miara błędu, walidacja po markach i w czasie, dwa modele, przedziały, sufit szumu. \emph{Napisany.}
+  \item \textbf{Wyniki A: platformy ze znanymi wyświetleniami} (1,25 str.) --- błąd na TikToku, YouTube i X, pokrycie przedziałów, które pola są ważne.
+  \item \textbf{Wyniki B: przeniesienie na Facebooka i Instagram} (1,5 str.) --- wynik główny: FB \x{2,4}, IG \x{2,65}; kalibracja na 25 postach; macierz platform treningowych.
+  \item \textbf{Wyniki C: brakujące dane i pewność} (0,5 str.) --- co, gdy brakuje reakcji lub obserwujących; przedziały wyświetleń (np. 3 przedziały, trafność ok. 0,8).
+  \item \textbf{Co nie działa} (0,5 str., tabela) --- tekst, grafy, etykiety AI, dane zewnętrzne: wszystko poprawia o $\le$0,01.
+  \item \textbf{Zastosowania poboczne} (0,5 str.) --- alert o wybiciu, rankingi marek, EMV.
+  \item \textbf{Ograniczenia, dyskusja, rekomendacje} (0,75 str.) --- mało marek na FB i IG, tylko filmy i rolki, posty wiralowe; co powinien zbierać dostawca; jeden wykres porównania z regułą Brand24.
+\end{enumerate}
+\end{tcolorbox}
+% ----------------------------------------------------------------
+
+\section{Wstęp}
+
+Firmy monitorujące media, takie jak Brand24, raportują klientom, ile osób mogło zobaczyć wzmiankę o ich marce.
+Najprostsza miara takiego zasięgu, liczba wyświetleń, często nie jest jednak widoczna: platformy ograniczają to, co
+pokazują publicznie, a zakres tych danych zmienia się między platformami, formatami postów i w czasie. Bez niej trudno
+ocenić, ile osób faktycznie zobaczyło dany post, a jeszcze trudniej przewidzieć, ile go zobaczy. W praktyce zasięg
+przybliża się więc stałym mnożnikiem liczby obserwujących lub reakcji. Taki mnożnik nie mówi, jak bardzo może się mylić.
+
+Przewidywanie popularności treści w sieci jest szeroko badane~\cite{tatar2014}. Część prac sprawdza też przenoszenie
+modeli między serwisami: Shulman i in.~\cite{shulman2016} pokazują, że model uczony na jednym zbiorze (muzyka, książki,
+zdjęcia, linki) działa podobnie dobrze na pozostałych, a Roy i in.~\cite{roy2013} przenoszą wiedzę z Twittera na
+popularność filmów na YouTube. Prace te opierają się jednak na innych sygnałach (tempo pierwszych odbiorców, tematy)
+i oceniają model tam, gdzie wynik jest znany. Nie znaleźliśmy pracy, która sprawdza oszacowanie wyświetleń z reakcji na
+platformach, gdzie wyświetlenia są ukryte, wobec niezależnie zmierzonej prawdy; tam, gdzie wyświetleń nie widać, zwykle
+nie ma też z czym porównać.
+
+W tej pracy pytamy, czy wyświetlenia posta na Facebooku i Instagramie da się oszacować z jego reakcji modelem uczonym
+wyłącznie na innych platformach, i z jaką niepewnością. Korzystamy z 12\,500 wzmianek o 348 markach z pięciu platform,
+udostępnionych przez Brand24. Dla Facebooka i Instagrama sami zebraliśmy wyświetlenia razem z reakcjami odczytanymi
+w tym samym momencie: 402 filmy z Facebooka i 338 rolek z Instagrama. Traktujemy je jako punkt odniesienia. Wszystkie
+modele oceniamy na markach, których nie widziały w treningu.
+
+Nasz wkład jest następujący:
+\begin{itemize}
+  \item Model uczony tylko na X i YouTube szacuje wyświetlenia na Facebooku z typowym błędem \x{2,4}, a na Instagramie
+        \x{2,65}. Po kalibracji na 25 postach błąd na Instagramie spada do \x{2,41}, czyli prawie do poziomu modelu
+        uczonego na samym Instagramie (\x{2,36}).
+  \item Prawie cały sygnał niosą reakcje. Tekst, etykiety treści, grafy autorów i marek oraz dane zewnętrzne o markach
+        poprawiają błąd o najwyżej 0,01 w skali $\log_{10}$. Bez reakcji błąd rośnie do \x{6}--\x{11}.
+  \item Dla każdego posta podajemy przedział niepewności (pokrycie przedziału 90\%: 0,89--0,90), który pozostaje
+        wiarygodny także wtedy, gdy części danych brakuje.
+  \item Pokazujemy, jakie dane musi zbierać dostawca monitoringu, żeby takie oszacowanie działało. Najważniejsze jest
+        odczytywanie reakcji w tym samym momencie co wyświetleń.
+\end{itemize}
+% FB x2,4 = E93 (402); IG = E202; pokrycie = E118; bez reakcji = E202/E176; inne źródła <= 0,01 = E49, E100, E122, E170-E175.
+
+\section{Dane i pomiar}
+
+Korzystamy z 12\,500 wzmianek o 348 markach, udostępnionych przez Brand24. Wzmianki pochodzą z pięciu platform (TikTok,
+YouTube, X, Facebook, Instagram), 85\% z nich opublikowano między kwietniem a sierpniem 2026, a 85\% jest po angielsku.
+Eksport zawiera liczbę wyświetleń dla prawie wszystkich wzmianek z TikToka (100\%) i YouTube (99\%) oraz dla 75\%
+wzmianek z X. Dla Facebooka i Instagrama eksport nie podaje wyświetleń, dlatego pobraliśmy je własnym sposobem, razem
+z reakcjami z tego samego momentu.
+
+\paragraph{Facebook.} Mamy wyświetlenia, reakcje i komentarze dla 402 filmów z 20 marek. Facebook pokazuje osobno
+wyświetlenia i odtworzenia; używamy wyświetleń. Wyniki dla Facebooka dotyczą tylko filmów, bo inne posty nie mają
+licznika wyświetleń.
+
+\paragraph{Instagram.} \todo{zbieranie jeszcze trwa, uzupełnić liczbę rolek i marek.} Wyniki dla Instagrama dotyczą
+tylko rolek, bo zwykłe posty (zdjęcia, karuzele) nie mają licznika wyświetleń.
+
+\paragraph{Odczyty z tego samego momentu.} Dla TikToka, YouTube i X pobraliśmy dodatkowo własny odczyt z jednego
+momentu i sprawdzamy na nim, o ile zmienia się błąd. Główne wyniki dla tych platform liczymy na danych z eksportu.
+% Usunąć, jeśli odczyt TT/YT/X się nie odbędzie.
+
+\paragraph{Etykiety treści.} Typ i sentyment każdej wzmianki oznaczyły modele językowe, a następnie członek zespołu je
+sprawdził i poprawił.
+
+Tabela~\ref{tab:data} i Rysunek~\ref{fig:data} podsumowują dane, na których oceniamy modele. Wyświetlenia na jeden post
+obejmują około siedmiu rzędów wielkości, a typowy post na X ma ich kilkadziesiąt razy mniej niż na Facebooku. Mediana
+liczby wyświetleń na jeden lajk różni się mniej: od 22 na X do 49 na Instagramie. Na każdej platformie post z~10 razy
+większą liczbą lajków ma od 6 do 11 razy więcej wyświetleń, ale na X aż 62\% postów nie ma ani jednego lajka.
+
+\begin{table}[t]
+\centering\small
+\caption{Dane według platformy. Posty z wyświetleniami to te, które trafiają do modelu.}
+\label{tab:data}
+\begin{tabular}{lrrlrrrr}
+\toprule
+Platforma & Wzmianki & Marki & Źródło wyświetleń & Posty (marki) & \multicolumn{3}{c}{Mediana} \\
+\cmidrule(l){6-8}
+ & & & & & wyśw. & lajków & wyśw./lajk \\
+\midrule
+TikTok    & 2\,500 & 266 & eksport Brand24        & 2\,491 (266) & 729    & 32 & 25 \\
+YouTube   & 2\,500 & 273 & eksport Brand24        & 2\,441 (273) & 433    & 6  & 26 \\
+X         & 2\,500 & 273 & eksport Brand24        & 1\,803 (252) & 27     & 0  & 22 \\
+Facebook  & 2\,500 & 22  & własny odczyt (filmy)  & 402 (20)     & 1\,413 & 23 & 35 \\
+Instagram & 2\,500 & 11  & własny odczyt (rolki)  & 338 (11)     & 506    & 10 & 49 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig/data_overview_pl.png}
+\caption{Wyświetlenia a lajki dla każdego posta, osobno dla każdej platformy (obie osie w skali logarytmicznej).
+Linia: dopasowanie prostej na postach z co najmniej jednym lajkiem; liczba w rogu mówi, ile razy więcej wyświetleń ma
+post z~10 razy większą liczbą lajków. TikTok, YouTube i X: eksport Brand24; Facebook (filmy) i Instagram (rolki): nasz odczyt.}
+\label{fig:data}
+\end{figure}
+
+\section{Metoda i walidacja}
+
+\paragraph{Co przewidujemy.} Celem jest $y=\log_{10}(\text{wyświetlenia})$ jednego posta. Skala logarytmiczna
+odpowiada temu, jak myli się każdy model zasięgu: o czynnik, a nie o stałą liczbę. Błąd mierzymy średnim błędem
+bezwzględnym (MAE) w tej skali i zawsze podajemy go też jako mnożnik $10^{\text{MAE}}$: MAE równe 0,30 to typowy błąd
+\x{2}, czyli oszacowanie dwa razy za duże albo dwa razy za małe.
+
+\paragraph{Jak sprawdzamy.} Posty jednej marki są do siebie podobne, więc losowy podział na trening i test zawyżałby
+wyniki. Wszystkie modele oceniamy pięciokrotną walidacją krzyżową z podziałem po markach: marka trafia w całości albo do
+treningu, albo do testu. Dodatkowo sprawdzamy model w czasie: uczymy go na postach sprzed 1~czerwca 2026 i testujemy na
+późniejszych. Przedziały ufności dla błędu i dla różnic między modelami liczymy bootstrapem po markach.
+
+\paragraph{Model na platformach ze znanymi wyświetleniami.} Na TikToku, YouTube i X używamy gradientowego wzmacniania
+drzew CatBoost~\cite{catboost}. Model dostaje liczbę obserwujących autora, lajki, komentarze i udostępnienia
+(w skali log) oraz informację, których z tych pól brakuje. Różne rodziny modeli po dostrojeniu dają prawie ten sam błąd,
+dlatego nie porównujemy ich dalej.
+% E114: dostrojone rodziny zbiegają do ok. 0,27 / 0,45 / 0,47; E124: model końcowy.
+
+\paragraph{Model do przeniesienia na inne platformy.} Na Facebooku i Instagramie model nie widzi w treningu ani jednego
+posta. Używamy tu regresji grzbietowej (ridge) na dwóch cechach, które ma każda platforma: $\log(1+\text{lajki})$
+i $\log(1+\text{komentarze})$, uczonej na wszystkich postach z X i YouTube razem. Prosty model przenosi się lepiej niż
+CatBoost i lepiej niż metody przenoszenia z literatury, które sprawdziliśmy. Jako punkt odniesienia uczymy ten sam
+model na samej platformie docelowej, z tym samym podziałem po markach. Sprawdzamy też wariant, w którym klient zna
+wyświetlenia 25 swoich postów: wtedy przesuwamy oszacowania o medianę błędu na tych postach.
+% LOPO: ridge lepszy niż CatBoost (E61, E131); metody z literatury nie wygrywają (E90-E92); 25 postów (E89, E202).
+
+\paragraph{Przedziały niepewności.} Dla każdego posta podajemy przedział, w którym na 50\% i na 90\% leży prawdziwa
+liczba wyświetleń. Używamy konformalnej regresji kwantylowej (CQR)~\cite{romano2019}: model przewiduje kwantyle,
+a ich szerokość poprawiamy na markach odłożonych z treningu, tak żeby przedział 90\% faktycznie trafiał w 90\% postów.
+% E118, E137.
+
+\paragraph{Granica błędu.} Nawet idealny model nie odgadnie wyświetleń dokładnie: dwa posty o prawie tych samych
+obserwujących i reakcjach potrafią mieć bardzo różną liczbę wyświetleń. Szacujemy tę granicę na parach takich postów.
+Wynosi ona 0,24 na TikToku, 0,39 na YouTube i 0,33 na X (\x{1,8} / \x{2,4} / \x{2,1}). Błędu poniżej tego poziomu nie
+da się osiągnąć z tymi danymi.
+% E56, E179: 0,243 / 0,386 / 0,331.
+
+\section{Wyniki A: platformy ze znanymi wyświetleniami}
+\todo{do napisania.}
+\section{Wyniki B: przeniesienie na Facebooka i Instagram}
+\todo{do napisania.}
+\section{Wyniki C: brakujące dane i pewność}
+\todo{do napisania.}
+\section{Co nie działa}
+\todo{do napisania.}
+\section{Zastosowania poboczne}
+\todo{do napisania.}
+\section{Ograniczenia, dyskusja, rekomendacje}
+\todo{do napisania.}
+
+\begin{thebibliography}{9}
+\bibitem{tatar2014} A.~Tatar, M.~D. de~Amorim, S.~Fdida, P.~Antoniadis. A survey on predicting the popularity of web
+  content. \emph{Journal of Internet Services and Applications}, 5:8, 2014.
+\bibitem{shulman2016} B.~Shulman, A.~Sharma, D.~Cosley. Predictability of popularity: gaps between prediction and
+  understanding. \emph{ICWSM}, 2016.
+\bibitem{roy2013} S.~D. Roy, T.~Mei, W.~Zeng, S.~Li. Towards cross-domain learning for social video popularity
+  prediction. \emph{IEEE Transactions on Multimedia}, 15(6), 2013.
+\bibitem{catboost} L.~Prokhorenkova, G.~Gusev, A.~Vorobev, A.~V. Dorogush, A.~Gulin. CatBoost: unbiased boosting with
+  categorical features. \emph{NeurIPS}, 2018.
+\bibitem{romano2019} Y.~Romano, E.~Patterson, E.~Cand\`es. Conformalized quantile regression. \emph{NeurIPS}, 2019.
+\end{thebibliography}
+
+\end{document}
