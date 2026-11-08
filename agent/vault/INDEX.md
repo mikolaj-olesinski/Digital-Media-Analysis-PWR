@@ -222,3 +222,4 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E220 | small | Can borrowed >1M-follower residuals calibrate the FB >1M band? | [E220](E220.md) |
 | E221 | none | Do authors repeat across platforms with normalised names and handles? | [E221](E221.md) |
 | E222 | finding | Headline result on author-safe folds | [E222](E222.md) |
+| E223 | finding | Do our FB / IG post owners have the same account on YouTube or X? | [E223](E223.md) |

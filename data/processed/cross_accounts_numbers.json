@@ -1,0 +1,29 @@
+{
+ "generated": "2026-11-08T22:51:49Z",
+ "scored_posts": {
+  "facebook": 402,
+  "instagram": 696
+ },
+ "scored_total": 1098,
+ "owners_checked": 246,
+ "owners": {
+  "facebook": 181,
+  "instagram": 65
+ },
+ "owners_with_handle": 65,
+ "matched_youtube": 11,
+ "matched_youtube_bio_link": 11,
+ "matched_x": 0,
+ "x_lookup": "unavailable",
+ "facebook_owners_linkable": false,
+ "gate_scope": "IG owners only; FB author URLs in the export are numeric page ids, so their bios cannot be matched against a link target (a public watch page does expose the page URL: recovery pending)",
+ "gate_provisional": true,
+ "covered_posts": 17,
+ "covered_share": 0.0155,
+ "gate_posts": 40,
+ "gate_passed": false,
+ "owners_with_handle_by_platform": {
+  "facebook": 0,
+  "instagram": 65
+ }
+}

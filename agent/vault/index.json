@@ -2641,5 +2641,17 @@
   "paths": [
    "src/results_a.py"
   ]
+ },
+ {
+  "id": "E223",
+  "date": "2026-11-08",
+  "question": "Do our FB / IG post owners have the same account on YouTube or X?",
+  "setup": "Public pages only, strong evidence required (bio link, or same handle + same name + cross-link or badge); 246 owners behind 1,098 scored posts; YouTube search + about tab, X via FxTwitter; salted-hash storage, counts only",
+  "result": "181 FB author URLs are numeric page ids, so 65 IG owners were checkable; 11 of 65 matched on YouTube (all bio_link), 0 on X (no public profile API); 17 scored posts covered (1.55%), gate 40 not passed, verdict provisional for FB",
+  "type": "finding",
+  "where": "`src/e223_cross_accounts.py`",
+  "paths": [
+   "src/e223_cross_accounts.py"
+  ]
  }
 ]
