@@ -2715,6 +2715,18 @@
   ]
  },
  {
+  "id": "E231",
+  "date": "2026-11-09",
+  "question": "Confidence model",
+  "setup": "Second CatBoost predicts each post's absolute error (or P within x2) from its fields + the estimate, out-of-fold; risk-coverage vs reactions rule and oracle",
+  "result": "Weak: AUC 'error > x2' 0.54 / 0.62 / 0.53; most trusted 80% x1.83 / x2.62 / x2.92 vs all x1.87 / x2.90 / x3.03; reactions rule as good on YT; P >= 0.8 covers 8% / 2% / 0.4% and is overconfident",
+  "type": "finding",
+  "where": "`src/confidence.py`",
+  "paths": [
+   "src/confidence.py"
+  ]
+ },
+ {
   "id": "E223",
   "date": "2026-11-08",
   "question": "Do our FB / IG post owners have the same account on YouTube or X?",

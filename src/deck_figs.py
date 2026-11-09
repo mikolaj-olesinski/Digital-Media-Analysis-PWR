@@ -3,6 +3,8 @@
 - deck_tails_pl.png: signed error of the final CatBoost (results_preds.csv) by quintile of true views, per platform.
 - deck_calib_pl.png: coverage of the 90% interval, raw quantiles vs CQR (cqr_numbers.json, E118).
 - deck_reread_pl.png: transfer error with export labels vs views and reactions re-read at the same moment (E210-E213).
+- deck_b24_pl.png: X, distance from true views: Brand24 reach, final CatBoost trained on X (out-of-fold), ridge on likes
+  + comments trained on TikTok + YouTube only (never sees X). Same 1,803 posts as final_compare.py.
     .venv/bin/python src/deck_figs.py"""
 import json
 from pathlib import Path
@@ -16,12 +18,13 @@ BEFORE, AFTER, INK = "#c4c2bb", "#3d3c39", "#55544f"
 
 
 def bars(groups, a, b, labels, title, out, note):
-    fig, ax = plt.subplots(figsize=(8, 4.4))
+    fs = 13.5 if len(groups) <= 4 else 10.5
+    fig, ax = plt.subplots(figsize=(8 if len(groups) <= 4 else 9.5, 4.4))
     x = np.arange(len(groups)); w = .36
     for off, v, c, lab in ((-w / 2, a, BEFORE, labels[0]), (w / 2, b, AFTER, labels[1])):
         ax.bar(x + off, v, w, color=c, label=lab)
         for xi, vi in zip(x + off, v):
-            ax.text(xi, vi + .05, f"×{vi:.2f}".replace(".", ","), ha="center", va="bottom", fontsize=13.5, color="#1d1d1b")
+            ax.text(xi, vi + .05, f"×{vi:.2f}".replace(".", ","), ha="center", va="bottom", fontsize=fs, color="#1d1d1b")
     ax.set_xticks(x); ax.set_xticklabels(groups, fontsize=13.5)
     ax.set_ylim(1, max(max(a), max(b)) * 1.1)
     ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda t, _: f"{t:.1f}".replace(".", ","))); ax.set_ylabel("typowy błąd (×)", fontsize=13, color=INK)
@@ -41,11 +44,38 @@ def main():
     v, g = r["variants"], r["grid (31 training sets)"]
     ex, rr = g["export TikTok/YouTube/X"]["combinations"], g["re-read TikTok/YouTube/X"]["combinations"]
     base, prim = v["export X + YT (base)"], v["re-read X + YT, drop missing (primary)"]
-    a = [ex["tiktok + twitter"]["youtube"]["factor"], ex["tiktok + youtube"]["twitter"]["factor"], base["facebook"]["factor"], base["instagram"]["factor"]]
-    b = [rr["tiktok + twitter"]["youtube"]["factor"], rr["tiktok + youtube"]["twitter"]["factor"], prim["facebook"]["factor"], prim["instagram"]["factor"]]
-    bars(["YouTube\n(TT + X)", "X\n(TT + YT)", "Facebook\n(X + YT)", "Instagram\n(X + YT)"], a, b,
+    a = [ex["youtube + twitter"]["tiktok"]["factor"], ex["tiktok + twitter"]["youtube"]["factor"], ex["tiktok + youtube"]["twitter"]["factor"], base["facebook"]["factor"], base["instagram"]["factor"]]
+    b = [rr["youtube + twitter"]["tiktok"]["factor"], rr["tiktok + twitter"]["youtube"]["factor"], rr["tiktok + youtube"]["twitter"]["factor"], prim["facebook"]["factor"], prim["instagram"]["factor"]]
+    bars(["TikTok\n(YT + X)", "YouTube\n(TT + X)", "X\n(TT + YT)", "Facebook\n(X + YT)", "Instagram\n(X + YT)"], a, b,
          ["etykiety z eksportu", "wyświetlenia i reakcje odczytane razem"], "Poza platformą: odczyt w tej samej chwili zmniejsza błąd",
          "deck_reread_pl.png", "Ten sam model (ridge na lajkach i komentarzach); zmienia się tylko moment odczytu (dla YouTube i X także etykiet testowych).")
+
+
+def b24():
+    import sys, pandas as pd
+    sys.path.insert(0, str(ROOT / "src"))
+    import final_compare as fc, extra_models as em, fb_extend as fe
+    x = fc.frames()["twitter"]; f, meta = em.load(ROOT)
+    m = meta.platform.isin(["tiktok", "youtube"]).values
+    tt = fe.ridge().fit(f[m][fe.C2].fillna(0), meta.y[m])
+    mx = (meta.platform == "twitter").values; fx = f[mx][fe.C2].fillna(0).reset_index(drop=True)
+    x = x.copy(); x["tt"] = tt.predict(fx.loc[x.index])
+    assert np.allclose(meta.y[mx].values[x.index], x.y.values)
+    F = lambda p: float(10 ** np.abs(x.y - p).mean()); W = lambda p: float((np.abs(x.y - p) < np.log10(2)).mean())
+    rows = [("zasięg Brand24", x.b24, "#c4c2bb"), ("model bez danych z X\n(ridge, trening TikTok + YouTube)", x.tt, "#8a8882"),
+            ("nasz model uczony na X\n(nowe marki i autorzy)", x.pred, "#3d3c39")]
+    out = {n.replace("\n", " "): {"factor": round(F(p), 2), "within x2": round(W(p), 3)} for n, p, _ in rows}; out["posts"] = int(len(x))
+    (P / "deck_b24_numbers.json").write_text(json.dumps(out, indent=1, ensure_ascii=False)); print(out)
+    fig, ax = plt.subplots(figsize=(8.5, 3.2)); y = np.arange(len(rows))[::-1]
+    for yi, (n, p, c) in zip(y, rows):
+        v = F(p); ax.barh(yi, v, .6, color=c)
+        ax.text(v * 1.04, yi, f"×{v:.2f}   ({W(p):.0%} w granicach ×2)".replace(".", ","), va="center", fontsize=12.5, color="#1d1d1b")
+    ax.set_yticks(y); ax.set_yticklabels([n for n, _, _ in rows], fontsize=12.5)
+    ax.set_xscale("log"); ax.minorticks_off(); ax.set_xlim(1, 60); ax.set_xticks([1, 2, 5, 10, 20, 50]); ax.set_xticklabels(["1", "2", "5", "10", "20", "50"])
+    ax.set_xlabel("typowa odległość od prawdziwych wyświetleń (×)", fontsize=12.5, color=INK)
+    for s_ in ("top", "right"): ax.spines[s_].set_visible(False)
+    ax.tick_params(colors=INK); ax.grid(axis="x", color="#e6e5e1", lw=.8); ax.set_axisbelow(True)
+    fig.savefig(ROOT / "figures" / "deck_b24_pl.png", dpi=170, bbox_inches="tight"); plt.close(fig)
 
 
 def tails():
@@ -87,5 +117,5 @@ def calib():
 
 
 if __name__ == "__main__":
-    tails(); calib()
+    tails(); calib(); b24()
     main()

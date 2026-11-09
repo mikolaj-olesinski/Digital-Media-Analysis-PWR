@@ -1,0 +1,15 @@
+{
+ "zasięg Brand24": {
+  "factor": 11.47,
+  "within x2": 0.135
+ },
+ "model bez danych z X (ridge, trening TikTok + YouTube)": {
+  "factor": 4.47,
+  "within x2": 0.27
+ },
+ "nasz model uczony na X (nowe marki i autorzy)": {
+  "factor": 3.03,
+  "within x2": 0.397
+ },
+ "posts": 1803
+}

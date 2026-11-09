@@ -228,5 +228,6 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E228 | finding | Result without extreme posts, as classification, as probability | [E228](E228.md) |
 | E229 | finding | Instagram owner followers | [E229](E229.md) |
 | E230 | finding | Transfer with more fields | [E230](E230.md) |
+| E231 | finding | Confidence model | [E231](E231.md) |
 | E223 | finding | Do our FB / IG post owners have the same account on YouTube or X? | [E223](E223.md) |
 | E224 | finding | Is a mention really about its brand? | [E224](E224.md) |
