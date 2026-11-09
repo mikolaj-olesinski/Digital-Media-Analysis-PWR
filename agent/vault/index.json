@@ -2739,6 +2739,31 @@
   ]
  },
  {
+  "id": "E234",
+  "date": "2026-11-09",
+  "question": "Are view-model outliers off-brand mentions, and can the detector reach AUC 0.75?",
+  "setup": "Top and bottom 5% of the final residual vs the E224 score (TikTok / YouTube / X); 9 methods (stack, name ambiguity, Louvain grid, author level, text features, label propagation, calibration) in brand-grouped CV on 287 AI labels",
+  "result": "Outliers not more off-brand: AUC of the score 0.47 (over 0.45, under 0.50); flagging the top 5% removes 2.3% of the views, over-performer rate stays 5%. Detector: best stack + text features 0.766 (0.701-0.823), lower bound below 0.75 and 14 variants tried, so not confirmed; graph grid 0.731, all features 0.747, others 0.34-0.69",
+  "type": "finding",
+  "where": "`src/offbrand_more.py`, `offbrand_more_numbers.json`",
+  "paths": [
+   "src/offbrand_more.py",
+   "data/processed/offbrand_more_numbers.json"
+  ]
+ },
+ {
+  "id": "E235",
+  "date": "2026-11-09",
+  "question": "Spikes of small accounts",
+  "setup": "Views >= 30x what an account of that size usually gets, found from likes per follower without views; own-history baseline checked where possible",
+  "result": "Spike AUC 0.98 / 0.86 / 0.89 (TT / YT / X), precision top 5% 0.78 / 0.51 / 0.36; TikTok: 23 small accounts with ~600 usual views and ~185k, 96% flagged; own-history test impossible (1-5 spikes)",
+  "type": "finding",
+  "where": "`src/spike_detect.py`",
+  "paths": [
+   "src/spike_detect.py"
+  ]
+ },
+ {
   "id": "E233",
   "date": "2026-11-09",
   "question": "Are the export X views or our read wrong, and are YouTube zero likes real?",

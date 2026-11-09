@@ -1,0 +1,676 @@
+{
+ "experiment": "E234",
+ "date": "2026-11-09",
+ "design": {
+  "outliers": "top / bottom 5% of the out-of-fold residual per platform (results_preds.csv)",
+  "cv": "brand-grouped 5-fold, 5 random group splits, AUC CI = post bootstrap (500) of the repeat-averaged out-of-fold score",
+  "precision top q": "share of not_about_brand among the top q of the OUT-OF-FOLD score within the 287 labelled posts (enriched sample), not the population top 5% of E224",
+  "labels": "AI labels of E224 (unclear excluded)"
+ },
+ "task1": {
+  "posts": 6735,
+  "all": {
+   "n": 6735,
+   "outliers": {
+    "n": 678,
+    "mean combined percentile": 0.493,
+    "mean combined percentile, rest": 0.52,
+    "share in top 10% of score": 0.1,
+    "share in top 10%, rest": 0.11,
+    "AUC of score for the outlier label": [
+     0.474,
+     0.451,
+     0.497
+    ]
+   },
+   "over (top 5% residual)": {
+    "n": 339,
+    "mean combined percentile": 0.471,
+    "mean combined percentile, rest": 0.52,
+    "share in top 10% of score": 0.068,
+    "share in top 10%, rest": 0.111,
+    "AUC of score for the outlier label": [
+     0.452,
+     0.422,
+     0.482
+    ]
+   },
+   "under (bottom 5% residual)": {
+    "n": 339,
+    "mean combined percentile": 0.515,
+    "mean combined percentile, rest": 0.517,
+    "share in top 10% of score": 0.133,
+    "share in top 10%, rest": 0.107,
+    "AUC of score for the outlier label": [
+     0.498,
+     0.47,
+     0.532
+    ]
+   }
+  },
+  "per platform": {
+   "TikTok": {
+    "n": 2491,
+    "outliers": {
+     "n": 250,
+     "mean combined percentile": 0.475,
+     "mean combined percentile, rest": 0.489,
+     "share in top 10% of score": 0.108,
+     "share in top 10%, rest": 0.09,
+     "AUC of score for the outlier label": [
+      0.485,
+      0.449,
+      0.518
+     ]
+    },
+    "over (top 5% residual)": {
+     "n": 125,
+     "mean combined percentile": 0.445,
+     "mean combined percentile, rest": 0.49,
+     "share in top 10% of score": 0.08,
+     "share in top 10%, rest": 0.093,
+     "AUC of score for the outlier label": [
+      0.454,
+      0.398,
+      0.512
+     ]
+    },
+    "under (bottom 5% residual)": {
+     "n": 125,
+     "mean combined percentile": 0.505,
+     "mean combined percentile, rest": 0.487,
+     "share in top 10% of score": 0.136,
+     "share in top 10%, rest": 0.09,
+     "AUC of score for the outlier label": [
+      0.517,
+      0.467,
+      0.568
+     ]
+    }
+   },
+   "YouTube": {
+    "n": 2441,
+    "outliers": {
+     "n": 246,
+     "mean combined percentile": 0.462,
+     "mean combined percentile, rest": 0.521,
+     "share in top 10% of score": 0.061,
+     "share in top 10%, rest": 0.108,
+     "AUC of score for the outlier label": [
+      0.441,
+      0.407,
+      0.48
+     ]
+    },
+    "over (top 5% residual)": {
+     "n": 123,
+     "mean combined percentile": 0.454,
+     "mean combined percentile, rest": 0.518,
+     "share in top 10% of score": 0.041,
+     "share in top 10%, rest": 0.106,
+     "AUC of score for the outlier label": [
+      0.435,
+      0.388,
+      0.49
+     ]
+    },
+    "under (bottom 5% residual)": {
+     "n": 123,
+     "mean combined percentile": 0.469,
+     "mean combined percentile, rest": 0.517,
+     "share in top 10% of score": 0.081,
+     "share in top 10%, rest": 0.104,
+     "AUC of score for the outlier label": [
+      0.453,
+      0.403,
+      0.506
+     ]
+    }
+   },
+   "X": {
+    "n": 1803,
+    "outliers": {
+     "n": 182,
+     "mean combined percentile": 0.56,
+     "mean combined percentile, rest": 0.561,
+     "share in top 10% of score": 0.143,
+     "share in top 10%, rest": 0.139,
+     "AUC of score for the outlier label": [
+      0.501,
+      0.457,
+      0.541
+     ]
+    },
+    "over (top 5% residual)": {
+     "n": 91,
+     "mean combined percentile": 0.53,
+     "mean combined percentile, rest": 0.563,
+     "share in top 10% of score": 0.088,
+     "share in top 10%, rest": 0.143,
+     "AUC of score for the outlier label": [
+      0.468,
+      0.41,
+      0.521
+     ]
+    },
+    "under (bottom 5% residual)": {
+     "n": 91,
+     "mean combined percentile": 0.59,
+     "mean combined percentile, rest": 0.56,
+     "share in top 10% of score": 0.198,
+     "share in top 10%, rest": 0.137,
+     "AUC of score for the outlier label": [
+      0.533,
+      0.472,
+      0.596
+     ]
+    }
+   }
+  },
+  "labelled outliers": {
+   "labelled posts on TikTok / YouTube / X": 164,
+   "outliers": {
+    "labelled": 11,
+    "not_about_brand": 7,
+    "about_brand": 3,
+    "unclear": 1,
+    "share not_about_brand": 0.636,
+    "share not_about_brand, other labelled": 0.804
+   },
+   "over": {
+    "labelled": 5,
+    "not_about_brand": 3,
+    "about_brand": 2,
+    "unclear": 0,
+    "share not_about_brand": 0.6,
+    "share not_about_brand, other labelled": 0.799
+   },
+   "under": {
+    "labelled": 6,
+    "not_about_brand": 4,
+    "about_brand": 1,
+    "unclear": 1,
+    "share not_about_brand": 0.667,
+    "share not_about_brand, other labelled": 0.797
+   }
+  },
+  "drop flagged": {
+   "flag top 5% score": {
+    "flagged posts": 346,
+    "share of views lost": 0.023,
+    "share of posts": 0.051,
+    "per platform share of views lost": {
+     "TikTok": 0.011,
+     "YouTube": 0.035,
+     "X": 0.079
+    },
+    "share of top-5% over-performers flagged": 0.032,
+    "share of under-performers flagged": 0.059,
+    "over share among kept posts (was 0.05 per platform)": 0.051,
+    "under share among kept posts": 0.05,
+    "share of over-performers' views lost": 0.009,
+    "over cut after removal (log10 residual) vs before": {
+     "TikTok": [
+      0.645,
+      0.646
+     ],
+     "YouTube": [
+      1.056,
+      1.068
+     ],
+     "X": [
+      1.089,
+      1.105
+     ]
+    }
+   },
+   "flag top 10% score": {
+    "flagged posts": 732,
+    "share of views lost": 0.065,
+    "share of posts": 0.109,
+    "per platform share of views lost": {
+     "TikTok": 0.039,
+     "YouTube": 0.095,
+     "X": 0.209
+    },
+    "share of top-5% over-performers flagged": 0.068,
+    "share of under-performers flagged": 0.133,
+    "over share among kept posts (was 0.05 per platform)": 0.053,
+    "under share among kept posts": 0.049,
+    "share of over-performers' views lost": 0.021,
+    "over cut after removal (log10 residual) vs before": {
+     "TikTok": [
+      0.645,
+      0.646
+     ],
+     "YouTube": [
+      1.056,
+      1.078
+     ],
+     "X": [
+      1.089,
+      1.108
+     ]
+    }
+   }
+  },
+  "example candidates (ids only, read by hand; text is not stored)": [
+   {
+    "sample mention": "338807654229057537",
+    "platform": "X",
+    "brand": "AAA",
+    "views": 1178,
+    "estimate": 4,
+    "x factor": 296.108
+   },
+   {
+    "sample mention": "338819530325266432",
+    "platform": "X",
+    "brand": "Tripadvisor",
+    "views": 9,
+    "estimate": 523,
+    "x factor": 0.017
+   },
+   {
+    "sample mention": "92511507589",
+    "platform": "YouTube",
+    "brand": "Marsh",
+    "views": 28,
+    "estimate": 1546,
+    "x factor": 0.018
+   },
+   {
+    "sample mention": "347901828144406529",
+    "platform": "YouTube",
+    "brand": "Dodge",
+    "views": 6157,
+    "estimate": 121,
+    "x factor": 51.06
+   },
+   {
+    "sample mention": "338808997027110912",
+    "platform": "X",
+    "brand": "Staples",
+    "views": 3,
+    "estimate": 48,
+    "x factor": 0.063
+   },
+   {
+    "sample mention": "338822896134459392",
+    "platform": "YouTube",
+    "brand": "DoorDash",
+    "views": 1974,
+    "estimate": 180,
+    "x factor": 10.995
+   },
+   {
+    "sample mention": "342927489091440640",
+    "platform": "YouTube",
+    "brand": "Lyft",
+    "views": 709,
+    "estimate": 67,
+    "x factor": 10.553
+   },
+   {
+    "sample mention": "338806352358961152",
+    "platform": "X",
+    "brand": "Dodge",
+    "views": 601,
+    "estimate": 58,
+    "x factor": 10.349
+   },
+   {
+    "sample mention": "350042397524176896",
+    "platform": "YouTube",
+    "brand": "Budget",
+    "views": 132,
+    "estimate": 13,
+    "x factor": 9.921
+   },
+   {
+    "sample mention": "349719760835043328",
+    "platform": "YouTube",
+    "brand": "Consumer Cellular",
+    "views": 113,
+    "estimate": 13,
+    "x factor": 8.622
+   },
+   {
+    "sample mention": "338824763608670208",
+    "platform": "TikTok",
+    "brand": "Dodge",
+    "views": 11,
+    "estimate": 88,
+    "x factor": 0.125
+   },
+   {
+    "sample mention": "338904375235715073",
+    "platform": "X",
+    "brand": "LinkedIn",
+    "views": 5,
+    "estimate": 33,
+    "x factor": 0.151
+   }
+  ]
+ },
+ "task2": {
+  "0 reference: E224 combined (no training)": {
+   "AUC": 0.677,
+   "CI low": 0.586,
+   "CI high": 0.765,
+   "AUC per repeat (min-max)": [
+    0.677,
+    0.677
+   ],
+   "precision top 5%": 0.571,
+   "precision top 10%": 0.69,
+   "AUC design-weighted": 0.712,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": "same 287 posts as E224"
+  },
+  "a stack: logistic regression on 5 detector percentiles": {
+   "AUC": 0.691,
+   "CI low": 0.625,
+   "CI high": 0.762,
+   "AUC per repeat (min-max)": [
+    0.665,
+    0.714
+   ],
+   "precision top 5%": 0.929,
+   "precision top 10%": 0.931,
+   "AUC design-weighted": 0.676,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": ""
+  },
+  "b ambiguity features alone (name frequency, length, words, hand flag)": {
+   "AUC": 0.525,
+   "CI low": 0.442,
+   "CI high": 0.615,
+   "AUC per repeat (min-max)": [
+    0.487,
+    0.56
+   ],
+   "precision top 5%": 0.929,
+   "precision top 10%": 0.69,
+   "AUC design-weighted": 0.481,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": ""
+  },
+  "b stack + ambiguity": {
+   "AUC": 0.688,
+   "CI low": 0.613,
+   "CI high": 0.758,
+   "AUC per repeat (min-max)": [
+    0.657,
+    0.718
+   ],
+   "precision top 5%": 0.929,
+   "precision top 10%": 0.966,
+   "AUC design-weighted": 0.667,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": ""
+  },
+  "b stack + ambiguity without the hand flag": {
+   "AUC": 0.687,
+   "CI low": 0.616,
+   "CI high": 0.751,
+   "AUC per repeat (min-max)": [
+    0.658,
+    0.71
+   ],
+   "precision top 5%": 0.929,
+   "precision top 10%": 0.897,
+   "AUC design-weighted": 0.657,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": "name frequency, length, words only"
+  },
+  "c graph grid, best config picked inside training folds": {
+   "AUC": 0.731,
+   "CI low": 0.655,
+   "CI high": 0.793,
+   "AUC per repeat (min-max)": [
+    0.717,
+    0.74
+   ],
+   "precision top 5%": 1.0,
+   "precision top 10%": 1.0,
+   "AUC design-weighted": 0.762,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": "24 configs: 2 graphs x k 5-40 x resolution 0.5-2"
+  },
+  "c grid descriptive (optimistic: AUC of each config on all 287 labels, not used for selection)": {
+   "e5 k=5 res=0.5": 0.678,
+   "e5 k=5 res=1.0": 0.694,
+   "e5 k=5 res=2.0": 0.694,
+   "e5 k=10 res=0.5": 0.707,
+   "e5 k=10 res=1.0": 0.693,
+   "e5 k=10 res=2.0": 0.688,
+   "e5 k=20 res=0.5": 0.707,
+   "e5 k=20 res=1.0": 0.718,
+   "e5 k=20 res=2.0": 0.74,
+   "e5 k=40 res=0.5": 0.713,
+   "e5 k=40 res=1.0": 0.713,
+   "e5 k=40 res=2.0": 0.728,
+   "tfidf k=5 res=0.5": 0.67,
+   "tfidf k=5 res=1.0": 0.682,
+   "tfidf k=5 res=2.0": 0.685,
+   "tfidf k=10 res=0.5": 0.668,
+   "tfidf k=10 res=1.0": 0.67,
+   "tfidf k=10 res=2.0": 0.679,
+   "tfidf k=20 res=0.5": 0.682,
+   "tfidf k=20 res=1.0": 0.663,
+   "tfidf k=20 res=2.0": 0.651,
+   "tfidf k=40 res=0.5": 0.658,
+   "tfidf k=40 res=1.0": 0.627,
+   "tfidf k=40 res=2.0": 0.639
+  },
+  "d author level alone (distinct brands, posts, mean score of other posts)": {
+   "AUC": 0.341,
+   "CI low": 0.267,
+   "CI high": 0.427,
+   "AUC per repeat (min-max)": [
+    0.363,
+    0.457
+   ],
+   "precision top 5%": 0.429,
+   "precision top 10%": 0.379,
+   "AUC design-weighted": 0.322,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": ""
+  },
+  "d stack + author level": {
+   "AUC": 0.678,
+   "CI low": 0.603,
+   "CI high": 0.742,
+   "AUC per repeat (min-max)": [
+    0.647,
+    0.702
+   ],
+   "precision top 5%": 0.929,
+   "precision top 10%": 0.931,
+   "AUC design-weighted": 0.654,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": ""
+  },
+  "e text features alone (hashtags, length, name only in hashtag, language proxy)": {
+   "AUC": 0.684,
+   "CI low": 0.621,
+   "CI high": 0.745,
+   "AUC per repeat (min-max)": [
+    0.649,
+    0.698
+   ],
+   "precision top 5%": 1.0,
+   "precision top 10%": 1.0,
+   "AUC design-weighted": 0.696,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": ""
+  },
+  "e stack + text features": {
+   "AUC": 0.766,
+   "CI low": 0.701,
+   "CI high": 0.823,
+   "AUC per repeat (min-max)": [
+    0.735,
+    0.781
+   ],
+   "precision top 5%": 1.0,
+   "precision top 10%": 1.0,
+   "AUC design-weighted": 0.762,
+   "exceeds 0.75": true,
+   "CI low above 0.75": false,
+   "note": ""
+  },
+  "f label propagation on the e5 kNN graph (training labels only)": {
+   "AUC": 0.542,
+   "CI low": 0.47,
+   "CI high": 0.62,
+   "AUC per repeat (min-max)": [
+    0.49,
+    0.554
+   ],
+   "precision top 5%": 0.929,
+   "precision top 10%": 0.897,
+   "AUC design-weighted": 0.538,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": "k=10, alpha 0.9, 30 iterations"
+  },
+  "f stack + propagated label score": {
+   "AUC": 0.616,
+   "CI low": 0.542,
+   "CI high": 0.695,
+   "AUC per repeat (min-max)": [
+    0.59,
+    0.63
+   ],
+   "precision top 5%": 0.929,
+   "precision top 10%": 0.862,
+   "AUC design-weighted": 0.599,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": "propagated score of training posts has its own label removed"
+  },
+  "h all features (a + b + d + e), L2 C=0.1": {
+   "AUC": 0.747,
+   "CI low": 0.687,
+   "CI high": 0.809,
+   "AUC per repeat (min-max)": [
+    0.723,
+    0.774
+   ],
+   "precision top 5%": 1.0,
+   "precision top 10%": 1.0,
+   "AUC design-weighted": 0.752,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": ""
+  },
+  "g calibrated (Platt) stack + ambiguity": {
+   "AUC": 0.65,
+   "CI low": 0.574,
+   "CI high": 0.721,
+   "AUC per repeat (min-max)": [
+    0.658,
+    0.658
+   ],
+   "precision top 5%": 0.929,
+   "precision top 10%": 0.966,
+   "AUC design-weighted": 0.622,
+   "exceeds 0.75": false,
+   "CI low above 0.75": false,
+   "note": "monotone map: AUC equals the uncalibrated one up to fold effects"
+  },
+  "g calibration": {
+   "model": "b stack + ambiguity",
+   "prevalence": 0.77,
+   "Brier raw": 0.173,
+   "ECE raw": 0.076,
+   "Brier constant prevalence": 0.177,
+   "Brier platt": 0.173,
+   "ECE platt": 0.053,
+   "AUC platt": 0.65,
+   "Brier isotonic": 0.171,
+   "ECE isotonic": 0.107,
+   "AUC isotonic": 0.628,
+   "reliability (decile of predicted P: mean predicted, observed share, n)": [
+    [
+     0,
+     0.397,
+     0.552,
+     29
+    ],
+    [
+     1,
+     0.596,
+     0.724,
+     29
+    ],
+    [
+     2,
+     0.676,
+     0.679,
+     28
+    ],
+    [
+     3,
+     0.756,
+     0.586,
+     29
+    ],
+    [
+     4,
+     0.821,
+     0.759,
+     29
+    ],
+    [
+     5,
+     0.859,
+     0.857,
+     28
+    ],
+    [
+     6,
+     0.895,
+     0.828,
+     29
+    ],
+    [
+     7,
+     0.915,
+     0.786,
+     28
+    ],
+    [
+     8,
+     0.936,
+     0.966,
+     29
+    ],
+    [
+     9,
+     0.959,
+     0.966,
+     29
+    ]
+   ],
+   "note": "calibration is on the enriched sample (77% off-brand), not the population; AUC is unchanged by a monotone map"
+  },
+  "_n": {
+   "labelled used": 287,
+   "not_about_brand": 221,
+   "brands": 128,
+   "repeats": 5
+  }
+ }
+}

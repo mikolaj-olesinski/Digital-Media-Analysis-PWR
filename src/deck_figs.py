@@ -3,6 +3,9 @@
 - deck_tails_pl.png: signed error of the final CatBoost (results_preds.csv) by quintile of true views, per platform.
 - deck_calib_pl.png: coverage of the 90% interval, raw quantiles vs CQR (cqr_numbers.json, E118).
 - deck_reread_pl.png: transfer error with export labels vs views and reactions re-read at the same moment (E210-E213).
+- deck_class_pl.png: three-range accuracy vs majority guess, AUC for large / small posts (size_slices_numbers.json, E228).
+- deck_conf_pl.png: error of the most trusted share of posts, confidence model vs reactions rule vs oracle (confidence_numbers.json, E231).
+- deck_ig_pl.png: IG followers, own platform vs transfer (ig_followers_numbers.json, E229).
 - deck_b24_pl.png: X, distance from true views: Brand24 reach, final CatBoost trained on X (out-of-fold), ridge on likes
   + comments trained on TikTok + YouTube only (never sees X). Same 1,803 posts as final_compare.py.
     .venv/bin/python src/deck_figs.py"""
@@ -78,6 +81,53 @@ def b24():
     fig.savefig(ROOT / "figures" / "deck_b24_pl.png", dpi=170, bbox_inches="tight"); plt.close(fig)
 
 
+def clean(ax):
+    for s_ in ("top", "right"): ax.spines[s_].set_visible(False)
+    ax.tick_params(colors=INK); ax.grid(axis="y", color="#e6e5e1", lw=.8); ax.set_axisbelow(True)
+
+
+def backup_class():
+    d = json.loads((P / "size_slices_numbers.json").read_text()); pl = ["tiktok", "youtube", "twitter"]; nm = {"tiktok": "TikTok", "youtube": "YouTube", "twitter": "X"}
+    fig, ax = plt.subplots(1, 2, figsize=(9, 3.7), gridspec_kw={"wspace": .28}); x = np.arange(3); w = .36
+    for off, key, c, lab in ((-w / 2, "majority baseline", BEFORE, "zgadywanie najczęstszego przedziału"), (w / 2, "accuracy", AFTER, "model")):
+        v = [100 * d[p]["three ranges"][key] for p in pl]; ax[0].bar(x + off, v, w, color=c, label=lab)
+        for xi, vi in zip(x + off, v): ax[0].text(xi, vi + 1.5, f"{vi:.0f}%", ha="center", fontsize=12)
+    ax[0].set_xticks(x); ax[0].set_xticklabels([nm[p] for p in pl], fontsize=12.5); ax[0].set_ylim(0, 112); ax[0].set_yticks([])
+    ax[0].set_title("trafny przedział (<1k / 1–10k / >10k)", fontsize=12.5, color=INK, loc="left"); ax[0].legend(frameon=False, fontsize=11, loc="lower left", bbox_to_anchor=(0, -.36), ncol=1)
+    for s_ in ("top", "right", "left"): ax[0].spines[s_].set_visible(False)
+    ax[0].tick_params(colors=INK)
+    for off, key, c, lab in ((-w / 2, "large post (top 20%)", AFTER, "duży post (top 20%)"), (w / 2, "small post (bottom 20%)", "#8a8882", "mały post (dół 20%)")):
+        v = [d[p]["AUC"][key] for p in pl]; ax[1].bar(x + off, v, w, color=c, label=lab)
+        for xi, vi in zip(x + off, v): ax[1].text(xi, vi + .01, f"{vi:.2f}".replace(".", ","), ha="center", fontsize=10.5)
+    ax[1].set_xticks(x); ax[1].set_xticklabels([nm[p] for p in pl], fontsize=12.5); ax[1].set_ylim(.4, 1.06); ax[1].set_yticks([])
+    ax[1].set_title("AUC: czy to duży / mały post (0,5 = losowo)", fontsize=12.5, color=INK, loc="left"); ax[1].legend(frameon=False, fontsize=11, loc="lower left", bbox_to_anchor=(0, -.36), ncol=1)
+    for s_ in ("top", "right", "left"): ax[1].spines[s_].set_visible(False)
+    ax[1].tick_params(colors=INK)
+    fig.savefig(ROOT / "figures" / "deck_class_pl.png", dpi=170, bbox_inches="tight"); plt.close(fig)
+
+
+def backup_conf():
+    d = json.loads((P / "confidence_numbers.json").read_text()); pl = ["tiktok", "youtube", "twitter"]; nm = {"tiktok": "TikTok", "youtube": "YouTube", "twitter": "X"}
+    cov = ["50%", "60%", "70%", "80%", "90%", "100%"]; xs = [50, 60, 70, 80, 90, 100]
+    fig, ax = plt.subplots(1, 3, figsize=(9.5, 3.4), gridspec_kw={"wspace": .32})
+    for a, p in zip(ax, pl):
+        rc = d[p]["risk-coverage"]
+        for key, c, ls, lab in (("oracle (true error)", "#c4c2bb", "--", "gdybyśmy znali błąd"), ("reactions rule", "#8a8882", "-", "najwięcej reakcji"), ("error model", AFTER, "-", "model pewności")):
+            a.plot(xs, [rc[key][k]["kept"] for k in cov], ls, color=c, lw=2.4, marker="o", ms=5, label=lab)
+        a.set_title(nm[p], fontsize=13, color=INK, loc="left"); a.set_xticks(xs[::2]); a.set_xticklabels([f"{v}%" for v in xs[::2]], fontsize=11)
+        a.tick_params(colors=INK, labelsize=11); clean(a); a.grid(axis="x", visible=False)
+        a.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda t, _: f"×{t:.1f}".replace(".", ",")))
+    ax[1].set_xlabel("odsetek najpewniejszych postów, które zostawiamy", fontsize=12, color=INK)
+    h, l = ax[0].get_legend_handles_labels(); fig.legend(h, l, loc="lower center", bbox_to_anchor=(.5, -.14), ncol=3, frameon=False, fontsize=12)
+    fig.savefig(ROOT / "figures" / "deck_conf_pl.png", dpi=170, bbox_inches="tight"); plt.close(fig)
+
+
+def backup_ig():
+    d = json.loads((P / "ig_followers_numbers.json").read_text()); own = d["own platform, grouped by brand"]; tr = d["transfer X + YT"]
+    bars(["ridge na samym IG", "transfer X + YT → IG"], [own["likes + comments"]["factor"], tr["likes + comments (ours)"]["factor"]],
+         [own["+ followers"]["factor"], tr["+ followers"]["factor"]], ["lajki + komentarze", "+ obserwujący"], "", "deck_ig_pl.png", "")
+
+
 def tails():
     import pandas as pd
     d = pd.read_csv(P / "results_preds.csv")
@@ -117,5 +167,5 @@ def calib():
 
 
 if __name__ == "__main__":
-    tails(); calib(); b24()
+    tails(); calib(); b24(); backup_class(); backup_conf(); backup_ig()
     main()
