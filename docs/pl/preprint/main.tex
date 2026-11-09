@@ -34,10 +34,12 @@ Na Facebooku i Instagramie dane z monitoringu mediów nie zawierają liczby wyś
 oszacować z lajków i komentarzy modelem, który nie widział ani jednego wyświetlenia z tych platform. Regresja liniowa na
 lajkach i komentarzach, uczona tylko na X i YouTube, szacuje wyświetlenia 402 filmów z Facebooka z typowym błędem
 \x{2,43} (MAE 0,385 w skali $\log_{10}$), tyle samo co ten sam model uczony na Facebooku, a 642 rolek z Instagramu
-z błędem \x{2,72} (model uczony na Instagramie: \x{2,41}). Mediana wyświetleń z platform źródłowych myli się tam
-\x{9}--\x{20}. Model w praktyce przenosi stosunek wyświetleń do lajków: od samego stałego mnożnika lajków jest lepszy
-albo równy na pięciu z sześciu platform docelowych, a gorszy na X. Przeniesienie wymaga reakcji odczytanych razem
-z wyświetleniami i zawodzi co do poziomu na Stack Exchange. Wyniki opierają się na 20 i 11 markach.
+z błędem \x{2,72}, gorzej niż ten sam model uczony na Instagramie (\x{2,41}). Mediana wyświetleń z platform
+źródłowych myli się tam \x{9}--\x{20}. Model w praktyce przenosi stosunek wyświetleń do lajków: od samego stałego
+mnożnika lajków jest lepszy na trzech z sześciu platform docelowych, nie gorszy na dwóch i gorszy na X. Przeniesienie
+wymaga reakcji odczytanych razem z wyświetleniami; na Stack Exchange przenosi się tylko kolejność, a poziom jest gorszy
+niż ze stałej mediany. Wyniki opierają się odpowiednio na 20 i 11 markach, a wyświetlenia źródłowe i docelowe odczytano
+w różnym wieku postów (23 wobec ponad 300 dni), co może częściowo maskować różnice.
 \end{abstract}
 
 % ----------------------------------------------------------------
@@ -65,7 +67,8 @@ Nasz wkład:
         Instagramie \x{2,72} (model uczony na Instagramie: \x{2,41});
   \item porównujemy ją uczciwie z prostymi regułami na sześciu platformach docelowych i pokazujemy, kiedy przeniesienie
         działa (reakcje odczytane razem z wyświetleniami) i kiedy zawodzi (X, poziom na Stack Exchange);
-  \item dla każdego posta podajemy przedział niepewności;
+  \item dla każdego posta podajemy przedział niepewności, trafny na tej samej platformie; poza platformą wymaga on
+        kalibracji na kilku markach z platformy docelowej;
   \item pokazujemy zastosowania: alert o wybiciu, ranking marek i wartość medialną.
 \end{itemize}
 
@@ -155,7 +158,7 @@ CatBoost jest od niego lepszy na każdej platformie o 0,075--0,15 MAE (przedzia�
 o MAE 0,385 (\x{2,43}, 95\% CI \x{2,05}--\x{3,03}) i 0,435 (\x{2,72}, \x{2,49}--\x{3,05}). Mediana wyświetleń z X
 i YouTube myli się tam \x{20} i \x{9}. Na Facebooku błąd jest taki sam jak przy uczeniu tego samego modelu na
 Facebooku (\x{2,42}; różnica 0,001, 95\% CI [$-$0,03; 0,03], czyli różnica co najwyżej \x{1,07} w którąkolwiek
-stronę). Na Instagramie jest wyraźnie gorzej niż przy uczeniu na Instagramie (\x{2,41}; różnica 0,054, 95\% CI
+stronę). Na Instagramie jest wyraźnie gorzej niż przy uczeniu ridge na samym Instagramie (\x{2,41}; różnica 0,054, 95\% CI
 [0,021; 0,093]), a 72\% rolek jest niedoszacowanych, bo mediana rolki to 53 wyświetlenia na lajk, a na X i YouTube
 około 25 (Tabela~\ref{tab:data}). Wynik nie zależy od wyboru X i YouTube: mediana po wszystkich 15 zestawach
 treningowych bez platformy docelowej to \x{2,58} na Facebooku i \x{2,65} na Instagramie. Kolejność postów jest
@@ -179,9 +182,9 @@ błąd $10^{\text{MAE}}$.}}
 
 \paragraph{Regresja a stały mnożnik.} Regresja w praktyce przenosi stosunek wyświetleń do lajków, więc trzeba ją
 porównać z samym mnożnikiem wyznaczonym na tych samych danych (Tabela~\ref{tab:rules}). Regresja jest lepsza na
-TikToku, Instagramie i Stack Exchange, równa na Facebooku i YouTube i gorsza na X, gdzie 62\% postów nie ma lajka,
-a komentarze ciągną oszacowanie w złą stronę. Obie metody są 4--9 razy dokładniejsze od mediany platform źródłowych
-na każdej platformie z filmami.
+TikToku, Instagramie i Stack Exchange, nie lepsza na Facebooku i YouTube (przedziały ufności sięgają zera) i gorsza na X, gdzie 62\% postów nie ma lajka,
+a komentarze ciągną oszacowanie w złą stronę. Obie metody są 2--8 razy dokładniejsze od mediany platform źródłowych
+na każdej platformie z filmami, ale na Stack Exchange mediana wygrywa z obiema.
 
 \begin{table}[!htb]
 \centering\small
@@ -259,9 +262,7 @@ przedziału.}}
 \paragraph{Czego model potrzebuje.} Przeniesienie działa tylko z lajkami odczytanymi w tej samej chwili co wyświetlenia
 (Rys.~\ref{fig:needs}A). Same komentarze dają \x{6,3}--\x{7,4}, a lajki i komentarze z eksportu, odczytane w innym
 momencie niż wyświetlenia, \x{6,8}. Na tej samej platformie (Rys.~\ref{fig:needs}B) brak obserwujących prawie nie
-szkodzi, a brak reakcji podnosi błąd do \x{3,8}--\x{5,2}. Dla każdego układu dostępnych pól uczymy osobny model
-z osobnym przedziałem, dzięki czemu przedział 90\% trafia w 88--90\% postów w każdym przypadku; model uczony na pełnych
-danych i karmiony niepełnymi trafiałby tylko w 46--83\%.
+szkodzi, a brak reakcji podnosi błąd do \x{3,8}--\x{5,2}. Dlatego dla każdego układu dostępnych pól uczymy osobny model z osobnym przedziałem.
 % E177, E176, results_b (comments only).
 
 \begin{figure}[!htb]
@@ -276,7 +277,7 @@ platformie): TikTok, YouTube, X, osobny CatBoost dla każdego układu dostępnyc
 \end{figure}
 
 \paragraph{Świeże dane źródłowe.} Gdy ten sam model uczymy na X i YouTube odczytanych ponownie, razem z reakcjami z tej
-samej chwili, błąd na Instagramie spada z \x{2,72} do \x{2,41} (tyle, co model uczony na Instagramie), a na Facebooku
+samej chwili, błąd na Instagramie spada z \x{2,72} do \x{2,41} (przypadkiem tyle samo, co ridge uczony na samym Instagramie), a na Facebooku
 zostaje \x{2,44}. Niedoszacowanie dużych postów i sum dla marek zmniejsza się mniej więcej o połowę. Samo przesunięcie
 wyświetleń z eksportu do późniejszego wieku tego nie daje, więc ważne jest, żeby wyświetlenia i reakcje pochodziły
 z tego samego momentu. Ten wariant nie zastępuje wyniku głównego, bo zysk na Instagramie sprawdziliśmy już po
@@ -365,8 +366,8 @@ wyświetleń; odsetek marek, dla których oszacowane EMV mieści się w $\pm$50\
 \end{figure}
 
 \paragraph{Alert o wybiciu.} Z pierwszego odczytu model wskazuje 5\% postów, które skończą w górnych 5\% wyświetleń,
-z trafnością 0,82 / 0,86 / 0,71; ranking po samych reakcjach daje 0,71 / 0,64 / 0,35 (Rys.~\ref{fig:side}). Przy trzy
-razy większej liczbie alertów łapie 82--100\% takich postów.
+z trafnością 0,82 / 0,86 / 0,71; ten sam alert z samych reakcji, bez modelu, daje 0,71 / 0,64 / 0,35
+(Rys.~\ref{fig:side}).
 
 \paragraph{Ranking marek.} Sumując oszacowane wyświetlenia marek w branży i miesiącu, odtwarzamy ich kolejność
 (Kendall 0,73 / 0,70 / 0,60).

@@ -34,10 +34,12 @@ On Facebook and Instagram, media-monitoring data contain no view counts. We test
 likes and comments by a model that has never seen a view count from these platforms. A linear regression on likes and
 comments, trained only on X and YouTube, estimates the views of 402 Facebook videos with a typical error of \x{2.43}
 (MAE 0.385 on the $\log_{10}$ scale), the same as the same model trained on Facebook, and of 642 Instagram reels with
-\x{2.72} (model trained on Instagram: \x{2.41}). The median views of the source platforms are off by \x{9}--\x{20}
-there. In practice the model transfers the ratio of views to likes: it is better than or equal to a fixed likes
-multiplier on five of six target platforms and worse on X. The transfer needs reactions read at the same moment as the
-views, and it fails on the level for Stack Exchange. The results rest on 20 and 11 brands.
+\x{2.72}, worse than the same model trained on Instagram (\x{2.41}). The median views of the source platforms are off by
+\x{9}--\x{20} there. In practice the model transfers the ratio of views to likes: it beats a fixed likes multiplier on
+three of six target platforms, is not worse on two and is worse on X. The transfer needs reactions read at the same
+moment as the views; on Stack Exchange only the ordering transfers, and the level is worse than a constant median. The
+results rest on 20 and 11 brands respectively, and source and target views were read at different post ages (23 against
+over 300 days), which may partly mask differences.
 \end{abstract}
 
 % ----------------------------------------------------------------
@@ -64,7 +66,8 @@ Our contributions:
         of Instagram reels with \x{2.72} (model trained on Instagram: \x{2.41});
   \item we compare it fairly with simple rules on six target platforms and show when the transfer works (reactions
         read together with views) and when it fails (X, the level on Stack Exchange);
-  \item we give an uncertainty interval for every post;
+  \item we give an uncertainty interval for every post, well calibrated on the same platform; out of platform it needs
+        calibration on a few brands from the target platform;
   \item we show applications: a breakout alert, a brand ranking and media value.
 \end{itemize}
 
@@ -155,7 +158,7 @@ so CatBoost beats it on every platform by 0.075--0.15 MAE (the confidence interv
 its error is MAE 0.385 (\x{2.43}, 95\% CI \x{2.05}--\x{3.03}) and 0.435 (\x{2.72}, \x{2.49}--\x{3.05}). The median
 views of X and YouTube are off there by \x{20} and \x{9}. On Facebook the error is the same as when the same model is
 trained on Facebook (\x{2.42}; difference 0.001, 95\% CI [$-$0.03, 0.03], i.e.\ at most \x{1.07} either way). On
-Instagram it is clearly worse than training on Instagram (\x{2.41}; difference 0.054, 95\% CI [0.021, 0.093]), and 72\%
+Instagram it is clearly worse than a ridge trained on Instagram itself (\x{2.41}; difference 0.054, 95\% CI [0.021, 0.093]), and 72\%
 of reels are underestimated, because the median reel has 53 views per like, against about 25 on X and YouTube
 (Table~\ref{tab:data}). The result does not depend on choosing X and YouTube: the median over all 15 training sets
 without the target platform is \x{2.58} on Facebook and \x{2.65} on Instagram. The ordering of posts is preserved well
@@ -178,9 +181,10 @@ $10^{\text{MAE}}$.}}
 
 \paragraph{Regression versus a fixed multiplier.} In practice the regression transfers the ratio of views to likes, so
 it must be compared with the multiplier alone, fitted on the same data (Table~\ref{tab:rules}). The regression is better
-on TikTok, Instagram and Stack Exchange, equal on Facebook and YouTube, and worse on X, where 62\% of posts have no like
-and comments pull the estimate the wrong way. Both are 4--9 times more accurate than the median of the source platforms
-on every video platform.
+on TikTok, Instagram and Stack Exchange, not better on Facebook and YouTube (the confidence intervals reach zero), and
+worse on X, where 62\% of posts have no like
+and comments pull the estimate the wrong way. Both are 2--8 times more accurate than the median of the source platforms
+on every video platform, but on Stack Exchange the median beats both.
 
 \begin{table}[!htb]
 \centering\small
@@ -257,9 +261,8 @@ accuracy, balanced accuracy (mean recall), macro F1; grey: values when always gu
 \paragraph{What the model needs.} The transfer works only with likes read at the same moment as the views
 (Fig.~\ref{fig:needs}A). Comments alone give \x{6.3}--\x{7.4}, and likes and comments from the export, read at a
 different moment than the views, \x{6.8}. On the same platform (Fig.~\ref{fig:needs}B) missing followers hardly hurt,
-while missing reactions raise the error to \x{3.8}--\x{5.2}. For each pattern of available fields we train a separate
-model with its own interval, so the 90\% interval covers 88--90\% of posts in every case; a model trained on full data
-and fed incomplete data would cover only 46--83\%.
+while missing reactions raise the error to \x{3.8}--\x{5.2}. Therefore we train a separate model with its own
+interval for each pattern of available fields.
 % E177, E176, results_b (comments only).
 
 \begin{figure}[!htb]
@@ -274,7 +277,7 @@ TikTok, YouTube, X, a separate CatBoost for each pattern of available fields, br
 \end{figure}
 
 \paragraph{Fresh source data.} When the same model is trained on re-read X and YouTube, with reactions from the same
-moment, the error on Instagram drops from \x{2.72} to \x{2.41} (as much as a model trained on Instagram), and on
+moment, the error on Instagram drops from \x{2.72} to \x{2.41} (by coincidence the same as a ridge trained on Instagram itself), and on
 Facebook it stays at \x{2.44}. The underestimation of large posts and of brand totals roughly halves. Merely shifting
 export views to a later age does not achieve this, so what matters is that views and reactions come from the same
 moment. This variant does not replace the main result, because the Instagram gain was checked after part of the reels
@@ -364,8 +367,8 @@ estimated EMV is within $\pm$50\% of the true one (238 / 213 / 189 brands).}}
 \end{figure}
 
 \paragraph{Breakout alert.} From the first read the model flags the 5\% of posts that will end in the top 5\% of views,
-with precision 0.82 / 0.86 / 0.71; ranking by reactions alone gives 0.71 / 0.64 / 0.35 (Fig.~\ref{fig:side}). With three
-times more alerts it catches 82--100\% of such posts.
+with precision 0.82 / 0.86 / 0.71; the same alert from reactions alone, without the model, gives 0.71 / 0.64 / 0.35
+(Fig.~\ref{fig:side}).
 
 \paragraph{Brand ranking.} By summing the estimated views of brands within an industry and month we recover their order
 (Kendall 0.73 / 0.70 / 0.60).

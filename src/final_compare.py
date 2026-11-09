@@ -57,7 +57,7 @@ def main():
     plt.rcParams.update({"font.family": "Liberation Sans" if any(f.name == "Liberation Sans" for f in fm.fontManager.ttflist) else "DejaVu Sans"})
     for lang in ["en", "pl"]:
         pl = lang == "pl"; dec = lambda v, k=1: f"{v:.{k}f}".replace(".", "," if pl else ".")
-        T = ("Nasz model myli się kilka razy mniej niż zasięg w eksporcie" if pl else "Our model errs several times less than the export's reach",
+        T = ("Kolumna zasięgu w eksporcie jest daleko od liczby wyświetleń" if pl else "The reach column in the export is far from the view count",
              "Te same posty. X: model uczony na X, oceniany na nowych markach. Facebook i Instagram: model uczony tylko na X i YouTube." if pl else
              "Same posts. X: model trained on X, scored on new brands. Facebook and Instagram: model trained only on X and YouTube.",
              "nasz model" if pl else "our model", "zasięg Brand24" if pl else "Brand24 reach", "typowy błąd (×)" if pl else "typical error (×)",
