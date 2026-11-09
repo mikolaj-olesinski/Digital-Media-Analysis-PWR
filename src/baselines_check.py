@@ -98,8 +98,24 @@ def combos_ci():
     return out
 
 
+def ridge_vs_multiplier():
+    """Same training set for both: ridge (likes + comments) vs likes multiplier, every target out of platform."""
+    D = tc.data(); D["brand"] = D.brand.fillna("unknown"); S = se.frame(); out = {}
+    def one(tr, te):
+        m = fe.ridge().fit(tr[fe.C2], tr.y); k = kfit(tr.log_likes.values, tr.y.values)
+        y, g = te.y.values, te.brand.values; pr, pk = m.predict(te[fe.C2]), kpred(te.log_likes.values, k)
+        return {"ridge": sc(y, pr, g), "likes multiplier": sc(y, pk, g), "ridge - multiplier": rt.paired_diff(y - pr, y - pk, g),
+                "Spearman ridge / likes": [round(float(spearmanr(y, pr)[0]), 3), round(float(spearmanr(y, pk)[0]), 3)]}
+    xy = D[D.platform.isin(["twitter", "youtube"])]
+    for p in tc.P:
+        out[f"{p} <- other four"] = one(D[D.platform != p], D[D.platform == p])
+        if p not in ("twitter", "youtube"): out[f"{p} <- X + YT"] = one(xy, D[D.platform == p])
+    out["stackexchange <- X + YT"] = one(xy, S)
+    return out
+
+
 def main():
-    out = {"same platform": same_platform(), "out of platform": out_of_platform(), "combos: other four platforms": combos_ci()}
+    out = {"same platform": same_platform(), "out of platform": out_of_platform(), "combos: other four platforms": combos_ci(), "ridge vs likes multiplier": ridge_vs_multiplier()}
     (ROOT / "data/processed/baselines_check_numbers.json").write_text(json.dumps(out, indent=1))
     print(json.dumps(out, indent=1))
 

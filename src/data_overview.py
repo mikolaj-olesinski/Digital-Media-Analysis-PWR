@@ -39,10 +39,10 @@ COL = {"tiktok": "#2a78d6", "youtube": "#eb6834", "twitter": "#1baf7a", "faceboo
 
 
 def figure(d, rows, lang):
-    T = {"en": ("10× more likes means about 6–11× more views on every platform",
+    T = {"en": ("10× more likes means about 6–12× more views on every platform",
                 "Each dot is one post. Line: fit on posts with at least one like.",
                 "likes", "views", "more views", "posts", "for 10× more likes", "no likes: {z} of posts"),
-         "pl": ("10× więcej lajków to ok. 6–11× więcej wyświetleń na każdej platformie",
+         "pl": ("10× więcej lajków to ok. 6–12× więcej wyświetleń na każdej platformie",
                 "Każda kropka to jeden post. Linia: dopasowanie na postach z co najmniej jednym lajkiem.",
                 "lajki", "wyświetlenia", "więcej wyświetleń", "postów", "przy 10× więcej lajków", "bez lajków: {z} postów")}[lang]
     num = lambda v: f"{v:,.0f}".replace(",", "\u2009")

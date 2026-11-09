@@ -446,5 +446,286 @@
    ],
    "within x2": 0.419
   }
+ },
+ "ridge vs likes multiplier": {
+  "tiktok <- other four": {
+   "ridge": {
+    "MAE": 0.327,
+    "factor": 2.12,
+    "CI": [
+     0.314,
+     0.34
+    ],
+    "within x2": 0.545
+   },
+   "likes multiplier": {
+    "MAE": 0.351,
+    "factor": 2.24,
+    "CI": [
+     0.338,
+     0.364
+    ],
+    "within x2": 0.512
+   },
+   "ridge - multiplier": {
+    "diff": -0.024,
+    "CI": [
+     -0.027,
+     -0.021
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.868,
+    0.868
+   ]
+  },
+  "tiktok <- X + YT": {
+   "ridge": {
+    "MAE": 0.313,
+    "factor": 2.05,
+    "CI": [
+     0.301,
+     0.326
+    ],
+    "within x2": 0.574
+   },
+   "likes multiplier": {
+    "MAE": 0.346,
+    "factor": 2.22,
+    "CI": [
+     0.333,
+     0.36
+    ],
+    "within x2": 0.52
+   },
+   "ridge - multiplier": {
+    "diff": -0.034,
+    "CI": [
+     -0.038,
+     -0.029
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.867,
+    0.868
+   ]
+  },
+  "youtube <- other four": {
+   "ridge": {
+    "MAE": 0.61,
+    "factor": 4.08,
+    "CI": [
+     0.579,
+     0.643
+    ],
+    "within x2": 0.384
+   },
+   "likes multiplier": {
+    "MAE": 0.606,
+    "factor": 4.03,
+    "CI": [
+     0.576,
+     0.638
+    ],
+    "within x2": 0.379
+   },
+   "ridge - multiplier": {
+    "diff": 0.004,
+    "CI": [
+     0.0,
+     0.009
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.633,
+    0.669
+   ]
+  },
+  "twitter <- other four": {
+   "ridge": {
+    "MAE": 0.64,
+    "factor": 4.37,
+    "CI": [
+     0.615,
+     0.665
+    ],
+    "within x2": 0.281
+   },
+   "likes multiplier": {
+    "MAE": 0.538,
+    "factor": 3.45,
+    "CI": [
+     0.515,
+     0.561
+    ],
+    "within x2": 0.354
+   },
+   "ridge - multiplier": {
+    "diff": 0.103,
+    "CI": [
+     0.084,
+     0.12
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.538,
+    0.545
+   ]
+  },
+  "facebook <- other four": {
+   "ridge": {
+    "MAE": 0.391,
+    "factor": 2.46,
+    "CI": [
+     0.331,
+     0.474
+    ],
+    "within x2": 0.505
+   },
+   "likes multiplier": {
+    "MAE": 0.377,
+    "factor": 2.38,
+    "CI": [
+     0.311,
+     0.469
+    ],
+    "within x2": 0.542
+   },
+   "ridge - multiplier": {
+    "diff": 0.015,
+    "CI": [
+     -0.007,
+     0.036
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.909,
+    0.908
+   ]
+  },
+  "facebook <- X + YT": {
+   "ridge": {
+    "MAE": 0.385,
+    "factor": 2.43,
+    "CI": [
+     0.318,
+     0.475
+    ],
+    "within x2": 0.525
+   },
+   "likes multiplier": {
+    "MAE": 0.384,
+    "factor": 2.42,
+    "CI": [
+     0.317,
+     0.48
+    ],
+    "within x2": 0.54
+   },
+   "ridge - multiplier": {
+    "diff": 0.002,
+    "CI": [
+     -0.017,
+     0.022
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.909,
+    0.908
+   ]
+  },
+  "instagram <- other four": {
+   "ridge": {
+    "MAE": 0.425,
+    "factor": 2.66,
+    "CI": [
+     0.385,
+     0.471
+    ],
+    "within x2": 0.419
+   },
+   "likes multiplier": {
+    "MAE": 0.463,
+    "factor": 2.9,
+    "CI": [
+     0.417,
+     0.519
+    ],
+    "within x2": 0.383
+   },
+   "ridge - multiplier": {
+    "diff": -0.038,
+    "CI": [
+     -0.052,
+     -0.023
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.861,
+    0.859
+   ]
+  },
+  "instagram <- X + YT": {
+   "ridge": {
+    "MAE": 0.435,
+    "factor": 2.72,
+    "CI": [
+     0.394,
+     0.482
+    ],
+    "within x2": 0.4
+   },
+   "likes multiplier": {
+    "MAE": 0.469,
+    "factor": 2.94,
+    "CI": [
+     0.422,
+     0.525
+    ],
+    "within x2": 0.38
+   },
+   "ridge - multiplier": {
+    "diff": -0.034,
+    "CI": [
+     -0.047,
+     -0.02
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.861,
+    0.859
+   ]
+  },
+  "stackexchange <- X + YT": {
+   "ridge": {
+    "MAE": 0.498,
+    "factor": 3.14,
+    "CI": [
+     0.454,
+     0.521
+    ],
+    "within x2": 0.284
+   },
+   "likes multiplier": {
+    "MAE": 0.727,
+    "factor": 5.33,
+    "CI": [
+     0.67,
+     0.756
+    ],
+    "within x2": 0.071
+   },
+   "ridge - multiplier": {
+    "diff": -0.229,
+    "CI": [
+     -0.24,
+     -0.207
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.571,
+    0.48
+   ]
+  }
  }
 }
