@@ -1,5 +1,5 @@
 \documentclass[aspectratio=169,10pt]{beamer}
-\usetheme[progressbar=frametitle,sectionpage=progressbar,numbering=fraction]{metropolis}
+\usetheme[progressbar=frametitle,sectionpage=none,numbering=fraction]{metropolis}
 \usepackage{fontspec}
 \usepackage[polish]{babel}
 \usepackage{booktabs,multirow,graphicx}
@@ -21,37 +21,29 @@
 
 \begin{document}
 
-\maketitle
+\begin{frame}[plain,noframenumbering]\vspace*{-14pt}\titlepage\end{frame}
 
-\begin{frame}{Plan}
-\begin{columns}[T]\column{.48\textwidth}\tableofcontents[sections={1-5}]\column{.48\textwidth}\tableofcontents[sections={6-9}]\end{columns}
-\end{frame}
-
-% ------------------------------------------------------------
-\section{Problem}
-
-\begin{frame}{Na Facebooku i Instagramie nie widać wyświetleń}
+% 1 ------------------------------------------------------------
+\begin{frame}{Pytanie badawcze}
+\begin{center}
+{\large Czy da się oszacować \alert{widoczność (wyświetlenia)} postów w~mediach społecznościowych?}
+\end{center}
+\vspace{6pt}
 \begin{columns}[T]
-\column{.48\textwidth}
-\begin{itemize}
-  \item Brand24 raportuje klientom, ile osób mogło zobaczyć wzmiankę o marce
-  \item Na TikToku, YouTube i X wyświetlenia są w eksporcie
-  \item Na FB i IG ich nie ma, jest tylko ,,zasięg'' z reguły
-\end{itemize}
-\column{.48\textwidth}
-\begin{block}{Pytanie}
-Czy model, który \alert{nigdy nie widział} wyświetleń z FB i IG, oszacuje je z lajków i komentarzy?
+\column{.46\textwidth}
+\begin{block}{Problem}
+TikTok, YouTube, X: wyświetlenia są w eksporcie.\\
+Facebook, Instagram: \alert{nie widać ich}; Brand24 daje tylko ,,zasięg'' z reguły.
 \end{block}
-\begin{block}{Jak sprawdzamy}
-Sami odczytujemy wyświetlenia 402 filmów z FB i 642 rolek z IG i używamy ich \alert{tylko do oceny}
+\column{.46\textwidth}
+\begin{block}{Pytanie szczegółowe}
+Czy model, który \alert{nigdy nie widział} wyświetleń z FB i IG, oszacuje je z lajków i komentarzy?
 \end{block}
 \end{columns}
 \end{frame}
 
-% ------------------------------------------------------------
-\section{Dane}
-
-\begin{frame}{12\,500 wzmianek, 348 marek, 5 platform}
+% 2 ------------------------------------------------------------
+\begin{frame}{Dane: 12\,500 wzmianek, 348 marek, 5 platform}
 \centering\small
 \setlength{\tabcolsep}{5pt}
 \begin{tabular}{lrrlrrr}
@@ -62,74 +54,84 @@ TikTok    & 266 & 2\,411 & eksport Brand24 & 2\,491 & 729    & 25 \\
 YouTube   & 273 & 2\,041 & eksport Brand24 & 2\,441 & 433    & 26 \\
 X         & 252 & 1\,658 & eksport Brand24 & 1\,803 & 27     & 22 \\
 \midrule
-Facebook  & 20  & $\geq$182 & nasz odczyt (filmy) & 402 & 1\,413 & 35 \\
-Instagram & 11  & ?         & nasz odczyt (rolki) & 642 & 504    & 53 \\
+Facebook  & 20  & $\geq$182 & \alert{nasz odczyt} (filmy) & 402 & 1\,413 & 35 \\
+Instagram & 11  & ?         & \alert{nasz odczyt} (rolki) & 642 & 504    & 53 \\
 \bottomrule
 \end{tabular}
-\sub{FB: 470 filmów, 68 usuniętych. IG: 976 rolek, 261 usuniętych, 19 bez licznika, 54 z ukrytymi lajkami.
-Zwykłe posty na FB/IG nie mają licznika, więc wyniki dotyczą tylko filmów i rolek.}
+\vspace{8pt}
+\sub{Wyświetlenia 402 filmów z FB i 642 rolek z IG odczytaliśmy sami; służą \textbf{tylko do oceny}.\\
+Zwykłe posty na FB/IG nie mają licznika, więc wyniki dotyczą filmów i rolek.}
 \end{frame}
 
-\begin{frame}{Wyświetlenia rosną z lajkami na każdej platformie}
-\centering
-\includegraphics[width=\textwidth,height=.8\textheight,keepaspectratio]{fig/data_overview_pl.png}
-\end{frame}
-
-% ------------------------------------------------------------
-\section{Metoda}
-
-\begin{frame}{Dwa scenariusze}
+% 3 ------------------------------------------------------------
+\begin{frame}{Metoda}
 \begin{columns}[T]
-\column{.48\textwidth}
-\begin{block}{Na tej samej platformie}
+\column{.31\textwidth}
+\begin{block}{Ta sama platforma}
 TikTok, YouTube, X\\[2pt]
-CatBoost na obserwujących, reakcjach i flagach braków\\[2pt]
-ocena na \alert{markach i autorach}, których model nie widział
+\textbf{CatBoost}\\[2pt]
+test na \alert{markach i autorach}, których model nie widział
 \end{block}
-\column{.48\textwidth}
+\column{.31\textwidth}
 \begin{block}{Poza platformą}
-Facebook, Instagram (+ Stack Exchange)\\[2pt]
-regresja liniowa (ridge) na $\log$ lajków i komentarzy\\[2pt]
-uczona \alert{tylko na X i YouTube}, 0 postów z platformy docelowej
+Facebook, Instagram\\[2pt]
+\textbf{ridge} na $\log$ lajków i komentarzy\\[2pt]
+uczony \alert{tylko na X + YouTube}
+\end{block}
+\column{.31\textwidth}
+\begin{block}{Dane zewnętrzne}
+nasz odczyt wyświetleń FB/IG, \alert{nigdy w treningu}\\[2pt]
+inna platforma: Stack Exchange (538 pytań)
 \end{block}
 \end{columns}
-\vspace{8pt}
+\vspace{10pt}
 \begin{center}
-Błąd: MAE na $\log_{10}$ wyświetleń, podawany jako \alert{typowy błąd $10^{\text{MAE}}$}\\
+Błąd: \alert{typowy błąd $10^{\text{MAE}}$} (MAE na $\log_{10}$ wyświetleń)\\
 {\small \x{2} = oszacowanie zwykle 2 razy za duże albo za małe}
 \end{center}
 \end{frame}
 
-% ------------------------------------------------------------
-\section{Wyniki}
-
-\begin{frame}{Główne wyniki: o ile mylimy się na pojedynczym poście}
-\centering\small
-\begin{tabular}{lllccc}
+% 4 ------------------------------------------------------------
+\begin{frame}{Wyniki: ta sama platforma}
+\centering
+\begin{tabular}{lcccc}
 \toprule
- & & Posty / marki & \textbf{Nasz błąd} (MAE) & W granicach \x{2} & Stała mediana \\
+ & \textbf{CatBoost} (MAE) & W granicach \x{2} & Stała mediana & Mnożnik lajków \\
 \midrule
-\multirow{3}{*}{\shortstack[l]{Ta sama\\platforma}} & TikTok & 2\,491 / 266 & \xb{1,87} (0,273) & 67\% & \x{4,60} \\
- & YouTube & 2\,441 / 273 & \xb{2,90} (0,462) & 43\% & \x{8,77} \\
- & X & 1\,803 / 252 & \xb{3,03} (0,482) & 40\% & \x{4,63} \\
-\midrule
-\multirow{2}{*}{\shortstack[l]{Poza\\platformą}} & Facebook & 402 / 20 & \xb{2,43} (0,385) & 53\% & \x{19,87} \\
- & Instagram & 642 / 11 & \xb{2,72} (0,435) & 40\% & \x{8,69} \\
+TikTok  & \xb{1,87} (0,273) & 67\% & \x{4,60} & \x{2,23} \\
+YouTube & \xb{2,90} (0,462) & 43\% & \x{8,77} & \x{4,06} \\
+X       & \xb{3,03} (0,482) & 40\% & \x{4,63} & \x{3,63} \\
 \bottomrule
 \end{tabular}
-\vspace{8pt}
-\begin{itemize}
-  \item Facebook: tyle samo, co ridge uczony na samym Facebooku (\x{2,42})
-  \item Instagram: gorzej niż ridge uczony na Instagramie (\x{2,41}); 72\% rolek niedoszacowanych
-\end{itemize}
+\vspace{12pt}
+\sub{Test na markach i autorach, których model nie widział.\\
+CatBoost lepszy od mnożnika lajków o 0,075--0,147 MAE; przedziały ufności wykluczają zero.}
 \end{frame}
 
+% 5 ------------------------------------------------------------
+\begin{frame}{Wyniki: poza platformą}
+\centering\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccc}
+\toprule
+ & \textbf{Ridge X + YT} (MAE) & W granicach \x{2} & Mediana X + YT & Ridge na celu \\
+\midrule
+Facebook  & \xb{2,43} (0,385) & 53\% & \x{19,87} & \x{2,42} \\
+Instagram & \xb{2,72} (0,435) & 40\% & \x{8,69}  & \x{2,41} \\
+\bottomrule
+\end{tabular}
+\vspace{12pt}
+\sub{Model uczony tylko na X + YouTube, 0 postów z FB/IG w treningu.\\
+FB: tyle samo co ridge uczony na samym FB. IG: nieco gorzej; 72\% rolek niedoszacowanych.}
+\end{frame}
+
+% 6 ------------------------------------------------------------
 \begin{frame}{Oszacowane a prawdziwe wyświetlenia}
 \centering
-\includegraphics[width=\textwidth,height=.82\textheight,keepaspectratio]{fig/preprint_main_pl.png}
+\includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{fig/preprint_main_pl.png}
 \end{frame}
 
-\begin{frame}{Regresja a stały mnożnik lajków (ok. 25 wyświetleń na lajk)}
+% 7 ------------------------------------------------------------
+\begin{frame}{Czy to więcej niż mnożnik lajków?}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \begin{tabular}{llcccc}
 \toprule
@@ -143,36 +145,20 @@ Instagram & X + YT & \xb{2,72} & \x{2,94} & $-$0,034 [$-$0,047; $-$0,020] & \x{8
 Stack Exchange & X + YT & \x{3,14} & \x{5,33} & $-$0,229 [$-$0,240; $-$0,207] & \xb{2,1} \\
 \bottomrule
 \end{tabular}
-\vspace{8pt}
-\begin{itemize}
-  \item Regresja lepsza na 3, bez wyraźnej różnicy na 2 (FB, YT), gorsza na X (62\% postów bez lajka)
-  \item Obie metody 2--8 razy lepsze od mediany na platformach z filmami
-\end{itemize}
+\vspace{10pt}
+\sub{Regresja lepsza na 3 celach, bez wyraźnej różnicy na 2 (FB, YT), gorsza na X (62\% postów bez lajka).}
 \end{frame}
 
-% ------------------------------------------------------------
-\section{Przeniesienie między platformami}
-
-\begin{frame}{Każda platforma jako ,,ukryta'': różne zestawy treningowe}
-\centering\scriptsize
-\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.05}
+% 8 ------------------------------------------------------------
+\begin{frame}{Czy wynik zależy od wyboru platform treningowych?}
+\centering\footnotesize
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{0.88}
 \input{combos_tabular}
-\sub{Typowy błąd (\x{}). Szare: platforma w treningu. Pierwszy wiersz: ridge uczony na platformie testowej.
-Mediana po wszystkich 15 zestawach bez celu: FB \x{2,58}, IG \x{2,65}, czyli wynik nie zależy od wyboru X + YT.}
+\sub{Typowy błąd (\x{}); szare = trening. Mediana po 15 zestawach bez celu: FB \x{2,58}, IG \x{2,65}, czyli nie zależy od wyboru X + YT.}
 \end{frame}
 
-\begin{frame}{Trzy przedziały zamiast liczby}
-\centering
-\includegraphics[width=\textwidth,height=.8\textheight,keepaspectratio]{fig/preprint_bins_pl.png}
-\end{frame}
-
-\begin{frame}{Czego model potrzebuje}
-\centering
-\includegraphics[width=\textwidth,height=.8\textheight,keepaspectratio]{fig/preprint_needs_pl.png}
-\sub{Kluczowe: lajki odczytane w tej samej chwili co wyświetlenia. Same komentarze: \x{6,3}--\x{7,4}.}
-\end{frame}
-
-\begin{frame}{Szósta platforma: Stack Exchange (538 pytań, 48 marek)}
+% 9 ------------------------------------------------------------
+\begin{frame}{Inna platforma: Stack Exchange (538 pytań, 48 marek)}
 \centering
 \begin{tabular}{lcc}
 \toprule
@@ -186,75 +172,66 @@ ridge uczony na Stack Exchange & \x{1,77} & 0,57 \\
 \bottomrule
 \end{tabular}
 \vspace{10pt}
-\begin{itemize}
-  \item Przenosi się \alert{kolejność}, nie poziom: 96\% pytań niedoszacowanych
-  \item Stosunek wyświetleń do reakcji przenosi się między serwisami z filmami, nie na serwis Q\&A
-\end{itemize}
+\sub{Przenosi się \alert{kolejność} (Spearman 0,57), nie poziom: gorzej niż mediana SE (\x{3,14} vs \x{1,96}).}
 \end{frame}
 
-% ------------------------------------------------------------
-\section{Porównanie metod}
+% 10 ------------------------------------------------------------
+\begin{frame}{Czego model potrzebuje}
+\centering
+\includegraphics[width=\textwidth,height=.78\textheight,keepaspectratio]{fig/preprint_needs_pl.png}
+\sub{Kluczowe: lajki odczytane w tej samej chwili co wyświetlenia. Same komentarze: \x{6,3}--\x{7,4}.}
+\end{frame}
 
-\begin{frame}{Na tej samej platformie prawie wszystkie modele są równe}
+% 11 ------------------------------------------------------------
+\begin{frame}{Co sprawdziliśmy i nie pomogło}
 \centering\small
 \begin{tabular}{lccc}
 \toprule
-Model & TikTok & YouTube & X \\
+Model (ta sama platforma) & TikTok & YouTube & X \\
 \midrule
-mediana wyświetleń platformy & \x{4,60} & \x{8,79} & \x{4,65} \\
-stały mnożnik liczby obserwujących & \x{8,30} & \x{7,16} & \x{7,57} \\
-stały mnożnik lajków & \x{2,23} & \x{4,06} & \x{3,63} \\
-\midrule
+stały mnożnik obserwujących & \x{8,30} & \x{7,16} & \x{7,57} \\
 regresja liniowa (ridge) & \x{1,89} & \x{3,51} & \x{3,07} \\
 las losowy & \x{1,88} & \x{2,90} & \x{2,97} \\
 XGBoost & \x{1,87} & \x{2,82} & \x{2,93} \\
 \textbf{CatBoost (model końcowy)} & \x{1,87} & \x{2,83} & \x{2,95} \\
 perceptron wielowarstwowy (MLP) & \x{1,89} & \x{2,84} & \x{3,00} \\
 TabPFN v2 & \x{1,85} & \x{2,77} & \x{2,92} \\
-\midrule
 stos wszystkich rodzin & \x{1,82} & \x{2,66} & \x{2,76} \\
 \bottomrule
 \end{tabular}
-\sub{Walidacja po markach, 40 ustawień na fałd. 95\% CI CatBoost: $\pm$0,012--0,021 MAE.
-Ponad 20 dodatkowych źródeł (tekst, etykiety AI, grafy, Wikipedia) poprawia błąd najwyżej \x{1,04}.}
+\vspace{8pt}
+\sub{Ponad 20 dodatkowych źródeł (tekst, etykiety AI, grafy, Wikipedia) poprawia błąd najwyżej \x{1,04}.}
 \end{frame}
 
-% ------------------------------------------------------------
-\section{Zastosowania}
-
-\begin{frame}{Alert o wybiciu, ranking marek, wartość medialna}
+% 12 ------------------------------------------------------------
+\begin{frame}{Zastosowania}
 \centering
-\includegraphics[width=\textwidth,height=.8\textheight,keepaspectratio]{fig/preprint_side_pl.png}
+\includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{fig/preprint_side_pl.png}
 \end{frame}
 
-\begin{frame}{Kolumna zasięgu w eksporcie a nasze oszacowanie (X)}
+% 13 ------------------------------------------------------------
+\begin{frame}{Kolumna zasięgu a nasze oszacowanie (X)}
 \centering
-\includegraphics[width=\textwidth,height=.7\textheight,keepaspectratio]{fig/final_compare_pl.png}
+\includegraphics[width=\textwidth,height=.78\textheight,keepaspectratio]{fig/final_compare_pl.png}
 \sub{Zasięg to inna miara niż wyświetlenia: pokazujemy, jak daleko od wyświetleń jest liczba, którą klient dostaje dziś.}
 \end{frame}
 
-% ------------------------------------------------------------
-\section{Ograniczenia}
-
+% 14 ------------------------------------------------------------
 \begin{frame}{Ograniczenia}
 \begin{columns}[T]
 \column{.48\textwidth}
 \begin{block}{Mało marek}
-FB: 20, IG: 11. Bez 3 największych: \x{2,89} i \x{2,96}.
-Jedna marka: \x{1,5}--\x{6,2} (FB)
+FB: 20, IG: 11
 \end{block}
 \begin{block}{Wiek odczytu}
 Eksport: 23 dni, nasz odczyt FB/IG: 310--334 dni
 \end{block}
 \begin{block}{Wybór postów}
-Tylko dostępne filmy i rolki; bez rolek z ukrytymi lajkami
+Tylko dostępne filmy i rolki
 \end{block}
 \column{.48\textwidth}
 \begin{block}{X}
-Regresja gorsza od stałego mnożnika; 62\% postów bez lajka
-\end{block}
-\begin{block}{Wzmianki nie o marce}
-6,7\% bez nazwy marki w tekście
+Regresja gorsza od stałego mnożnika lajków
 \end{block}
 \begin{block}{Korelacja, nie przyczynowość}
 Opisujemy związki, nie przyczyny
@@ -262,20 +239,14 @@ Opisujemy związki, nie przyczyny
 \end{columns}
 \end{frame}
 
-% ------------------------------------------------------------
-\section{Wnioski}
-
+% 15 ------------------------------------------------------------
 \begin{frame}{Wnioski}
 \begin{enumerate}
-  \item Prosta regresja na lajkach i komentarzach, uczona tylko na X i YouTube, szacuje wyświetlenia FB z błędem
-        \alert{\x{2,43}}, a IG z błędem \alert{\x{2,72}}; mediana myli się \x{9}--\x{20}
-  \item W praktyce przenosi się \alert{stosunek wyświetleń do lajków}; warunek: reakcje odczytane razem z wyświetleniami
-  \item Nie działa wszędzie: X gorszy od stałego mnożnika, Stack Exchange tylko kolejność
+  \item Tak: ridge na lajkach i komentarzach, uczony tylko na X i YouTube, szacuje FB z błędem
+        \alert{\x{2,43}}, IG z błędem \alert{\x{2,72}}; mediana myli się \x{9}--\x{20}
+  \item Przenosi się \alert{stosunek wyświetleń do lajków}; reakcje muszą być odczytane razem z wyświetleniami
+  \item Nie wszędzie: X gorszy od stałego mnożnika, Stack Exchange tylko kolejność
 \end{enumerate}
-\vspace{6pt}
-\begin{block}{Rekomendacja dla dostawcy monitoringu}
-Odczytywać reakcje razem z wyświetleniami, zapisywać braki jako braki, robić drugi odczyt wyświetleń
-\end{block}
 \end{frame}
 
 \end{document}
