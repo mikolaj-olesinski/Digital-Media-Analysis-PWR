@@ -330,26 +330,39 @@ i tak wygrywa model liniowy.
 \centering\small
 \caption{Na tej samej platformie: rodziny modeli, MAE w skali $\log_{10}$ i typowy błąd (\x{}).
 \capdet{Obserwujący, reakcje i flagi braków, walidacja po markach, strojenie zagnieżdżone (40 ustawień na fałd).
-TabPFN, TabICL i stos z osobnych przebiegów na tych samych danych. 95\% CI dla CatBoost: $\pm$0,012 / $\pm$0,021 /
-$\pm$0,021, więc różnice poniżej około 0,01 są w granicach szumu. *: podział bez wspólnych marek, autorów i tekstów.
-Pełna tabela 17 modeli jest w repozytorium.}}
+TabPFN, TabICL, GraphSAGE, transformer i zespoły z osobnych przebiegów na tych samych danych. 95\% CI dla CatBoost: $\pm$0,012 / $\pm$0,021 /
+$\pm$0,021, więc różnice poniżej około 0,01 są w granicach szumu. *: podział bez wspólnych marek, autorów i tekstów.}}
 \label{tab:models}
 \begin{tabular}{lccc}
 \toprule
 Model & TikTok & YouTube & X \\
 \midrule
-mediana wyświetleń platformy & 0,663 (\x{4,60}) & 0,944 (\x{8,79}) & 0,667 (\x{4,65}) \\
-stały mnożnik liczby obserwujących & 0,919 (\x{8,30}) & 0,855 (\x{7,16}) & 0,879 (\x{7,57}) \\
-stały mnożnik lajków\textsuperscript{*} & 0,348 (\x{2,23}) & 0,609 (\x{4,06}) & 0,560 (\x{3,63}) \\
-regresja liniowa (ridge) & 0,277 (\x{1,89}) & 0,545 (\x{3,51}) & 0,487 (\x{3,07}) \\
-las losowy & 0,275 (\x{1,88}) & 0,463 (\x{2,90}) & 0,473 (\x{2,97}) \\
-XGBoost~\cite{xgboost} & 0,273 (\x{1,87}) & 0,450 (\x{2,82}) & 0,467 (\x{2,93}) \\
-CatBoost (model końcowy) & 0,272 (\x{1,87}) & 0,452 (\x{2,83}) & 0,470 (\x{2,95}) \\
-perceptron wielowarstwowy (MLP) & 0,276 (\x{1,89}) & 0,454 (\x{2,84}) & 0,477 (\x{3,00}) \\
-TabPFN v2 & 0,268 (\x{1,85}) & 0,443 (\x{2,77}) & 0,465 (\x{2,92}) \\
-TabICL~\cite{tabicl} & 0,272 (\x{1,87}) & 0,445 (\x{2,79}) & 0,466 (\x{2,92}) \\
+\multicolumn{4}{l}{\textit{Proste odniesienia}} \\
+\quad mediana wyświetleń platformy & 0,663 (\x{4,60}) & 0,944 (\x{8,79}) & 0,667 (\x{4,65}) \\
+\quad stały mnożnik liczby obserwujących & 0,919 (\x{8,30}) & 0,855 (\x{7,16}) & 0,879 (\x{7,57}) \\
+\quad stały mnożnik lajków\textsuperscript{*} & 0,348 (\x{2,23}) & 0,609 (\x{4,06}) & 0,560 (\x{3,63}) \\
+\multicolumn{4}{l}{\textit{Modele liniowe i jądrowe}} \\
+\quad regresja liniowa (ridge) & 0,277 (\x{1,89}) & 0,545 (\x{3,51}) & 0,487 (\x{3,07}) \\
+\quad k najbliższych sąsiadów (kNN) & 0,283 (\x{1,92}) & 0,483 (\x{3,04}) & 0,490 (\x{3,09}) \\
+\quad SVR z jądrem RBF & 0,271 (\x{1,87}) & 0,463 (\x{2,90}) & 0,480 (\x{3,02}) \\
+\multicolumn{4}{l}{\textit{Drzewa decyzyjne}} \\
+\quad las losowy (random forest) & 0,275 (\x{1,88}) & 0,463 (\x{2,90}) & 0,473 (\x{2,97}) \\
+\quad extra trees & 0,275 (\x{1,88}) & 0,459 (\x{2,88}) & 0,475 (\x{2,99}) \\
+\quad gradient boosting (scikit-learn) & 0,276 (\x{1,89}) & 0,453 (\x{2,84}) & 0,474 (\x{2,98}) \\
+\quad LightGBM~\cite{lightgbm} & 0,275 (\x{1,88}) & 0,457 (\x{2,86}) & 0,475 (\x{2,99}) \\
+\quad XGBoost~\cite{xgboost} & 0,273 (\x{1,87}) & 0,450 (\x{2,82}) & 0,467 (\x{2,93}) \\
+\quad CatBoost (model końcowy) & 0,272 (\x{1,87}) & 0,452 (\x{2,83}) & 0,470 (\x{2,95}) \\
+\multicolumn{4}{l}{\textit{Sieci neuronowe}} \\
+\quad perceptron wielowarstwowy (MLP) & 0,276 (\x{1,89}) & 0,454 (\x{2,84}) & 0,477 (\x{3,00}) \\
+\quad GraphSAGE~\cite{graphsage} (graf podobnych tekstów) & 0,279 (\x{1,90}) & 0,467 (\x{2,93}) & 0,474 (\x{2,98}) \\
+\quad dostrojony transformer (wiersz jako tekst) & 0,289 (\x{1,95}) & 0,454 (\x{2,84}) & 0,490 (\x{3,09}) \\
+\multicolumn{4}{l}{\textit{Modele wstępnie wytrenowane dla tabel}} \\
+\quad TabPFN v2 & 0,268 (\x{1,85}) & 0,443 (\x{2,77}) & 0,465 (\x{2,92}) \\
+\quad TabICL~\cite{tabicl} & 0,272 (\x{1,87}) & 0,445 (\x{2,79}) & 0,466 (\x{2,92}) \\
 \midrule
-stos wszystkich rodzin & 0,260 (\x{1,82}) & 0,425 (\x{2,66}) & 0,441 (\x{2,76}) \\
+\multicolumn{4}{l}{\textit{Zespoły modeli (dla porównania)}} \\
+\quad średnia 3 najlepszych rodzin & 0,270 (\x{1,86}) & 0,446 (\x{2,79}) & 0,469 (\x{2,94}) \\
+\quad stos wszystkich rodzin & 0,260 (\x{1,82}) & 0,425 (\x{2,66}) & 0,441 (\x{2,76}) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -465,6 +478,7 @@ w \texttt{data/processed/}.
 \bibitem{hoerl1970} A.~E. Hoerl, R.~W. Kennard. Ridge regression: biased estimation for nonorthogonal problems.
   \emph{Technometrics}, 12(1), 1970.
 \bibitem{romano2019} Y.~Romano, E.~Patterson, E.~Cand\`es. Conformalized quantile regression. \emph{NeurIPS}, 2019.
+\bibitem{lightgbm} G.~Ke i in. LightGBM: a highly efficient gradient boosting decision tree. \emph{NeurIPS}, 2017.
 \bibitem{tabpfn} N.~Hollmann i in. Accurate predictions on small data with a tabular foundation model. \emph{Nature},
   637, 2025.
 \bibitem{xgboost} T.~Chen, C.~Guestrin. XGBoost: a scalable tree boosting system. \emph{KDD}, 2016.
