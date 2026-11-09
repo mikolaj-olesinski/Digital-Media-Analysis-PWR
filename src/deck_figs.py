@@ -1,5 +1,6 @@
 """Two simple figures for the Polish slide deck (no new experiment, numbers read from data/processed).
 - deck_author_pl.png: final model vs + author history (shrunk mean of earlier posts), posts with an earlier post (E70-E75).
+- deck_tails_pl.png: signed error of the final CatBoost (results_preds.csv) by quintile of true views, per platform.
 - deck_reread_pl.png: transfer error with export labels vs views and reactions re-read at the same moment (E210-E213).
     .venv/bin/python src/deck_figs.py"""
 import json
@@ -47,5 +48,30 @@ def main():
          "deck_reread_pl.png", "Ten sam model (ridge na lajkach i komentarzach); zmienia się tylko moment odczytu (dla YouTube i X także etykiet testowych).")
 
 
+def tails():
+    import pandas as pd
+    d = pd.read_csv(P / "results_preds.csv")
+    C = {"tiktok": ("TikTok", "#3b6ea8"), "youtube": ("YouTube", "#c4573a"), "twitter": ("X", "#3d3c39")}
+    fig, ax = plt.subplots(figsize=(7.2, 4.2)); x = np.arange(5)
+    ax.axhspan(-np.log10(2), np.log10(2), color="#efeee9", zorder=0); ax.axhline(0, color="#9c9a93", lw=1)
+    for p, (nm, c) in C.items():
+        g = d[d.platform == p]; q = pd.qcut(g.y, 5, labels=False); e = (g.y - g.pred).values
+        m = [e[q.values == i].mean() for i in range(5)]
+        ax.plot(x, m, "-o", color=c, lw=2.2, ms=7, label=nm, zorder=3)
+        ax.text(4.12, m[-1], nm, color=c, fontsize=10.5, va="center")
+    t = [-.6, -.3, 0, .3, .6]
+    ax.set_yticks(t); ax.set_yticklabels(["×4 za dużo", "×2 za dużo", "trafnie", "×2 za mało", "×4 za mało"], fontsize=10)
+    ax.set_xticks(x); ax.set_xticklabels(["20% najmniejszych", "", "środek", "", "20% największych"], fontsize=10)
+    ax.set_xlabel("posty według prawdziwych wyświetleń", fontsize=10, color=INK); ax.set_xlim(-.3, 4.7); ax.set_ylim(-.75, .75)
+    ax.text(-.25, .69, "model zaniża duże posty", fontsize=9.5, color=INK, va="top")
+    ax.text(.35, -.72, "model zawyża małe posty", fontsize=9.5, color=INK, va="bottom")
+    ax.set_title("Model ściąga oszacowania do środka", fontsize=11.5, loc="left")
+    for s_ in ("top", "right"): ax.spines[s_].set_visible(False)
+    ax.tick_params(colors=INK)
+    fig.text(.01, -.03, "Średni błąd ze znakiem w każdej piątce postów; szary pas = w granicach ×2. CatBoost, ta sama platforma.", fontsize=8.5, color="#8a8984")
+    fig.savefig(ROOT / "figures" / "deck_tails_pl.png", dpi=200, bbox_inches="tight"); plt.close(fig)
+
+
 if __name__ == "__main__":
+    tails()
     main()

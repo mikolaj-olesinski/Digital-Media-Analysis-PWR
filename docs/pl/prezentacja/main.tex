@@ -360,26 +360,21 @@ Metoda (typowy błąd) & Facebook & Instagram \\
 
 % errors
 \begin{frame}{Gdzie są błędy: małe i duże posty}
-\begin{columns}[T]
-\column{.42\textwidth}
-\includegraphics[width=\textwidth,height=.66\textheight,keepaspectratio]{fig/bias_views_pl.png}
-{\scriptsize Błąd ze znakiem wg kwintyli prawdziwych wyświetleń (+ = model zaniża).}
-\column{.56\textwidth}
-\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
-\begin{tabular}{p{2.9cm}p{3.6cm}}
-\toprule
-Próba & Efekt \\
-\midrule
-cel log(wyśw./lajki) & +0,001 / +0,007 / +0,000 \\
-ważenie ogonów ($\times$2) & $\le$ 0,002, bias bez zmian \\
-inne funkcje straty & ogon nadal \x{9}--\x{14} za nisko (YT, X) \\
-izotoniczna / shift per kwantyl & bez poprawy; bias w decylach $\pm$0,11 \\
-osobny model dla 0 reakcji & bez zysku \\
-\bottomrule
-\end{tabular}
+\begin{columns}[c]
+\column{.6\textwidth}
+\includegraphics[width=\textwidth,height=.8\textheight,keepaspectratio]{fig/deck_tails_pl.png}
+\column{.4\textwidth}
+\begin{block}{Jak próbowaliśmy to naprawić}\scriptsize
+\begin{itemize}\setlength\itemsep{2pt}
+\item \textbf{cel ,,wyświetlenia na lajk''} $\to$ prawie bez zmian
+\item \textbf{większa waga skrajnych postów} $\to$ bez zmian
+\item \textbf{inne funkcje błędu} (RMSE, kwantyl) $\to$ duże posty nadal zaniżone
+\item \textbf{osobny model dla postów bez reakcji} $\to$ bez zysku
+\item \textbf{korekta wyniku po fakcie} $\to$ bez poprawy
+\end{itemize}
+\end{block}
+{\scriptsize Najgorzej na X i YouTube: przy kilku reakcjach (X: 70\% postów bez lajka) model nie odróżni małego posta od dużego i daje wynik ze środka.}
 \end{columns}
-\vspace{3pt}
-\sub{\scriptsize Dół: posty bez reakcji najtrudniejsze, bez wyświetleń ok. \x{1,8} mniejsze. Góra: top 1\% to 60--74\% wyświetleń; surowe lajki biją model MAE na top 1\%: 0,64 vs 0,56 TT, 0,64 vs 0,48 YT, 0,47 vs 0,26 X.}
 \end{frame}
 
 % 11b
