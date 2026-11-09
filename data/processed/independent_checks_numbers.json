@@ -1,0 +1,23 @@
+{
+ "x_independent": {
+  "n": 50,
+  "source_paid": "X API public_metrics",
+  "source_free": "FxTwitter",
+  "source_export": "Brand24",
+  "fx_vs_paid_identical_share": 0.98,
+  "fx_vs_paid_median_ratio": 1.0,
+  "fx_vs_paid_spearman": 1.0,
+  "export_vs_paid_median_ratio": 1.792,
+  "export_vs_paid_spearman": 0.926,
+  "cost_usd": 0.25
+ },
+ "youtube_zero_likes": {
+  "n": 20,
+  "page_like_count_present": 16,
+  "true_zero": 6,
+  "positive_but_export_zero": 10,
+  "unknown": 4,
+  "reread_positive": 10,
+  "reread_missing": 10
+ }
+}

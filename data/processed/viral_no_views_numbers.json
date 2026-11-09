@@ -1,0 +1,294 @@
+{
+ "A: viral (top 10% of views) without views": {
+  "base rate": 0.1,
+  "tiktok": {
+   "posts": 2491,
+   "ridge estimate": {
+    "AUC": 0.98,
+    "precision top 10%": 0.815
+   },
+   "classifier (likes + comments)": {
+    "AUC": 0.957,
+    "precision top 10%": 0.767
+   },
+   "raw likes": {
+    "AUC": 0.98,
+    "precision top 10%": 0.803
+   }
+  },
+  "youtube": {
+   "posts": 2441,
+   "ridge estimate": {
+    "AUC": 0.878,
+    "precision top 10%": 0.721
+   },
+   "classifier (likes + comments)": {
+    "AUC": 0.847,
+    "precision top 10%": 0.676
+   },
+   "raw likes": {
+    "AUC": 0.879,
+    "precision top 10%": 0.705
+   }
+  },
+  "twitter": {
+   "posts": 1803,
+   "ridge estimate": {
+    "AUC": 0.858,
+    "precision top 10%": 0.567
+   },
+   "classifier (likes + comments)": {
+    "AUC": 0.318,
+    "precision top 10%": 0.094
+   },
+   "raw likes": {
+    "AUC": 0.852,
+    "precision top 10%": 0.561
+   }
+  },
+  "facebook": {
+   "posts": 402,
+   "ridge estimate": {
+    "AUC": 0.937,
+    "precision top 10%": 0.675
+   },
+   "classifier (likes + comments)": {
+    "AUC": 0.933,
+    "precision top 10%": 0.6
+   },
+   "raw likes": {
+    "AUC": 0.938,
+    "precision top 10%": 0.7
+   }
+  },
+  "instagram": {
+   "posts": 642,
+   "ridge estimate": {
+    "AUC": 0.982,
+    "precision top 10%": 0.844
+   },
+   "classifier (likes + comments)": {
+    "AUC": 0.853,
+    "precision top 10%": 0.703
+   },
+   "raw likes": {
+    "AUC": 0.981,
+    "precision top 10%": 0.812
+   }
+  }
+ },
+ "B: over / under-performers vs ridge on likes + comments (inflated: age, nonlinearity)": {
+  "tiktok": {
+   "posts": 2491,
+   "over-performer (top 10% residual)": {
+    "reactions only": {
+     "AUC": 0.565,
+     "precision top 10%": 0.145
+    },
+    "all non-view fields": {
+     "AUC": 0.709,
+     "precision top 10%": 0.269
+    }
+   },
+   "under-performer (bottom 10% residual)": {
+    "reactions only": {
+     "AUC": 0.628,
+     "precision top 10%": 0.193
+    },
+    "all non-view fields": {
+     "AUC": 0.665,
+     "precision top 10%": 0.273
+    }
+   }
+  },
+  "youtube": {
+   "posts": 2441,
+   "over-performer (top 10% residual)": {
+    "reactions only": {
+     "AUC": 0.855,
+     "precision top 10%": 0.344
+    },
+    "all non-view fields": {
+     "AUC": 0.899,
+     "precision top 10%": 0.578
+    }
+   },
+   "under-performer (bottom 10% residual)": {
+    "reactions only": {
+     "AUC": 0.787,
+     "precision top 10%": 0.332
+    },
+    "all non-view fields": {
+     "AUC": 0.887,
+     "precision top 10%": 0.484
+    }
+   }
+  },
+  "twitter": {
+   "posts": 1803,
+   "over-performer (top 10% residual)": {
+    "reactions only": {
+     "AUC": 0.505,
+     "precision top 10%": 0.117
+    },
+    "all non-view fields": {
+     "AUC": 0.693,
+     "precision top 10%": 0.383
+    }
+   },
+   "under-performer (bottom 10% residual)": {
+    "reactions only": {
+     "AUC": 0.577,
+     "precision top 10%": 0.072
+    },
+    "all non-view fields": {
+     "AUC": 0.698,
+     "precision top 10%": 0.278
+    }
+   }
+  }
+ },
+ "C: over / under-performers vs the final model": {
+  "tiktok": {
+   "posts": 2491,
+   "over-performer (top 10% residual of the final model)": {
+    "fields of the final model (followers, reactions, flags)": {
+     "AUC": 0.519,
+     "precision top 10%": 0.104
+    },
+    "post fields only (text length, type, sentiment, language, month)": {
+     "AUC": 0.573,
+     "precision top 10%": 0.141
+    },
+    "post fields + age of the check": {
+     "AUC": 0.586,
+     "precision top 10%": 0.137
+    },
+    "all, without age": {
+     "AUC": 0.553,
+     "precision top 10%": 0.104
+    },
+    "all, with age": {
+     "AUC": 0.573,
+     "precision top 10%": 0.145
+    }
+   },
+   "under-performer (bottom 10%)": {
+    "fields of the final model (followers, reactions, flags)": {
+     "AUC": 0.594,
+     "precision top 10%": 0.181
+    },
+    "post fields only (text length, type, sentiment, language, month)": {
+     "AUC": 0.496,
+     "precision top 10%": 0.06
+    },
+    "post fields + age of the check": {
+     "AUC": 0.547,
+     "precision top 10%": 0.161
+    },
+    "all, without age": {
+     "AUC": 0.591,
+     "precision top 10%": 0.213
+    },
+    "all, with age": {
+     "AUC": 0.611,
+     "precision top 10%": 0.221
+    }
+   }
+  },
+  "youtube": {
+   "posts": 2441,
+   "over-performer (top 10% residual of the final model)": {
+    "fields of the final model (followers, reactions, flags)": {
+     "AUC": 0.669,
+     "precision top 10%": 0.193
+    },
+    "post fields only (text length, type, sentiment, language, month)": {
+     "AUC": 0.552,
+     "precision top 10%": 0.119
+    },
+    "post fields + age of the check": {
+     "AUC": 0.579,
+     "precision top 10%": 0.152
+    },
+    "all, without age": {
+     "AUC": 0.645,
+     "precision top 10%": 0.143
+    },
+    "all, with age": {
+     "AUC": 0.664,
+     "precision top 10%": 0.172
+    }
+   },
+   "under-performer (bottom 10%)": {
+    "fields of the final model (followers, reactions, flags)": {
+     "AUC": 0.743,
+     "precision top 10%": 0.221
+    },
+    "post fields only (text length, type, sentiment, language, month)": {
+     "AUC": 0.525,
+     "precision top 10%": 0.094
+    },
+    "post fields + age of the check": {
+     "AUC": 0.571,
+     "precision top 10%": 0.078
+    },
+    "all, without age": {
+     "AUC": 0.759,
+     "precision top 10%": 0.291
+    },
+    "all, with age": {
+     "AUC": 0.761,
+     "precision top 10%": 0.283
+    }
+   }
+  },
+  "twitter": {
+   "posts": 1803,
+   "over-performer (top 10% residual of the final model)": {
+    "fields of the final model (followers, reactions, flags)": {
+     "AUC": 0.466,
+     "precision top 10%": 0.056
+    },
+    "post fields only (text length, type, sentiment, language, month)": {
+     "AUC": 0.533,
+     "precision top 10%": 0.106
+    },
+    "post fields + age of the check": {
+     "AUC": 0.551,
+     "precision top 10%": 0.111
+    },
+    "all, without age": {
+     "AUC": 0.542,
+     "precision top 10%": 0.1
+    },
+    "all, with age": {
+     "AUC": 0.532,
+     "precision top 10%": 0.128
+    }
+   },
+   "under-performer (bottom 10%)": {
+    "fields of the final model (followers, reactions, flags)": {
+     "AUC": 0.581,
+     "precision top 10%": 0.139
+    },
+    "post fields only (text length, type, sentiment, language, month)": {
+     "AUC": 0.447,
+     "precision top 10%": 0.078
+    },
+    "post fields + age of the check": {
+     "AUC": 0.416,
+     "precision top 10%": 0.072
+    },
+    "all, without age": {
+     "AUC": 0.553,
+     "precision top 10%": 0.111
+    },
+    "all, with age": {
+     "AUC": 0.532,
+     "precision top 10%": 0.106
+    }
+   }
+  }
+ }
+}

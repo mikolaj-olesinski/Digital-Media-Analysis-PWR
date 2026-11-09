@@ -72,3 +72,4 @@ the affected aggregates, and we say so.
   YouTube rows also carry `likes_hidden` and `comments_off`: `false` where the counter exists, `unknown` where it is missing; a 10-row check showed the missing likes/comments are a yt-dlp extraction gap, not hidden likes or disabled comments. YouTube: `yt-dlp`, 2,297 of 2,500 (`view_count`, `like_count`,
   `comment_count`); X: FxTwitter, 2,013 of 2,500 (`views`, `likes`, `replies`, `retweets`). Rows carry `status` and
   `source_field`; files are git-ignored, no URLs or author names.
+- **Independent check (2026-11-09).** 50 X posts: FxTwitter and the paid API agree on 98% of rows (median ratio 1.000), the export is 1.79x lower (Spearman 0.926). On 20 YouTube posts with `likes = 0` in the export, 10 have positive likes on the page, 6 are true zeros and 4 are unknown, so export zeros are treated as missing (E233).

@@ -2727,6 +2727,30 @@
   ]
  },
  {
+  "id": "E232",
+  "date": "2026-11-09",
+  "question": "Viral and outlier posts without views",
+  "setup": "Top 10% of views flagged from reactions and followers (export platforms leave-one-out, FB / IG from X + YT); over / under-performers vs the final model from followers, text, time",
+  "result": "Viral: AUC 0.98 / 0.88 / 0.86 (TT / YT / X), FB 0.94, IG 0.98, raw likes as good; outliers not predictable (AUC 0.53-0.65, YT under-performers 0.76 = zero reactions); first run inflated by age",
+  "type": "finding",
+  "where": "`src/viral_no_views.py`",
+  "paths": [
+   "src/viral_no_views.py"
+  ]
+ },
+ {
+  "id": "E233",
+  "date": "2026-11-09",
+  "question": "Are the export X views or our read wrong, and are YouTube zero likes real?",
+  "setup": "50 X posts compared across export, FxTwitter and the paid API; 20 YouTube posts with export likes=0 re-read from the public page",
+  "result": "FxTwitter vs paid 98% identical (ratio 1.000, rho 1.000); export vs paid ratio 1.792, rho 0.926; 10/20 YouTube zeros are positive likes, 6 true zeros, 4 unknown",
+  "type": "finding",
+  "where": "`data/processed/independent_checks_numbers.json`",
+  "paths": [
+   "data/processed/independent_checks_numbers.json"
+  ]
+ },
+ {
   "id": "E223",
   "date": "2026-11-08",
   "question": "Do our FB / IG post owners have the same account on YouTube or X?",
