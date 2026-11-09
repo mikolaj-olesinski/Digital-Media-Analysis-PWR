@@ -3,8 +3,8 @@
 \setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.05}
 \caption{Typowy błąd (\x{}) regresji na lajkach i komentarzach przy różnych platformach treningowych.
 \capdet{Ridge na $\log$ lajków i komentarzy, posty z platform treningowych połączone w jeden zbiór. Wiersz: platformy
-w treningu (TT TikTok, YT YouTube, X, FB Facebook, IG Instagram): pojedyncze, X + YouTube (zestaw główny) i wszystkie
-z czterema platformami; pełna tabela 30 zestawów jest w repozytorium. Kolumna: platforma testowa, której nie było
+w treningu (TT TikTok, YT YouTube, X, FB Facebook, IG Instagram): pojedyncze, X + YouTube (zestaw główny), TikTok + YouTube + X
+i wszystkie z czterema platformami; pełna tabela 30 zestawów jest w repozytorium. Kolumna: platforma testowa, której nie było
 w treningu. Pierwszy wiersz: ten sam ridge uczony na platformie testowej (walidacja po markach), a nie CatBoost
 z Rys.~\ref{fig:main}. Pogrubione: najlepszy wynik w kolumnie wśród pokazanych. Ciemniej: większy błąd.}}
 \label{tab:combos}
@@ -20,6 +20,8 @@ TT & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{5A95DF
 X & \cellcolor[HTML]{7FB0EA}3,4 & \cellcolor[HTML]{184A8C}\textcolor{white}{5,5} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{A3C8F2}3,1 & \cellcolor[HTML]{C3DCF8}2,7 \\
 \midrule
 YT + X & \cellcolor[HTML]{DDEBFC}2,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{DDEBFC}\textbf{2,4} & \cellcolor[HTML]{C3DCF8}2,7 \\
+\midrule
+TT + YT + X & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,5 & \cellcolor[HTML]{C3DCF8}2,7 \\
 \midrule
 YT + X + FB + IG & \cellcolor[HTML]{DDEBFC}2,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
 TT + YT + X + IG & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,5 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\

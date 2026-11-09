@@ -3,8 +3,8 @@
 \setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.05}
 \caption{Typical error (\x{}) of the regression on likes and comments with different training platforms.
 \capdet{Ridge on $\log$ likes and comments, posts from the training platforms pooled into one set. Row: platforms in
-training (TT TikTok, YT YouTube, X, FB Facebook, IG Instagram): single ones, X + YouTube (the main set) and all sets of
-four platforms; the full table of 30 sets is in the repository. Column: test platform, absent from training. First row:
+training (TT TikTok, YT YouTube, X, FB Facebook, IG Instagram): single ones, X + YouTube (the main set), TikTok + YouTube + X
+and all sets of four platforms; the full table of 30 sets is in the repository. Column: test platform, absent from training. First row:
 the same ridge trained on the test platform itself (brand-grouped CV), not the CatBoost of Fig.~\ref{fig:main}. Bold:
 best result in the column among those shown. Darker: larger error.}}
 \label{tab:combos}
@@ -20,6 +20,8 @@ TT & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{5A95DF}\
 X & \cellcolor[HTML]{7FB0EA}3.4 & \cellcolor[HTML]{184A8C}\textcolor{white}{5.5} & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{A3C8F2}3.1 & \cellcolor[HTML]{C3DCF8}2.7 \\
 \midrule
 YT + X & \cellcolor[HTML]{DDEBFC}2.1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{DDEBFC}\textbf{2.4} & \cellcolor[HTML]{C3DCF8}2.7 \\
+\midrule
+TT + YT + X & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{C3DCF8}2.5 & \cellcolor[HTML]{C3DCF8}2.7 \\
 \midrule
 YT + X + FB + IG & \cellcolor[HTML]{DDEBFC}2.1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} \\
 TT + YT + X + IG & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} & \cellcolor[HTML]{C3DCF8}2.5 & \cellcolor[HTML]{EEEDEA}{\color{black!35}train} \\
