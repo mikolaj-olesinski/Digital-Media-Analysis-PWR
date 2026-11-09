@@ -1,0 +1,16 @@
+{
+ "video_like_rows": 470,
+ "ok": 402,
+ "gone": 68,
+ "share_of_all_fb_mentions_measured": 0.161,
+ "views_quantiles": {
+  "0.1": 44.0,
+  "0.5": 1413.5,
+  "0.9": 55243.50000000001
+ },
+ "views_max": 16673240.0,
+ "views_per_reaction_median": 41.3,
+ "reactions_vs_brand24_median": 2.0,
+ "comments_brand24_total": 198,
+ "comments_now_total": 30126
+}

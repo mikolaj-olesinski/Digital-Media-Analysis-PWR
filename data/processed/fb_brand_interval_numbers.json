@@ -1,0 +1,14 @@
+{
+ "min_5": {
+  "brands": 19,
+  "coverage_const": 0.737,
+  "coverage_scaled": 0.789,
+  "n_median": 18.0
+ },
+ "min_10": {
+  "brands": 14,
+  "coverage_const": 0.714,
+  "coverage_scaled": 0.714,
+  "n_median": 19.5
+ }
+}

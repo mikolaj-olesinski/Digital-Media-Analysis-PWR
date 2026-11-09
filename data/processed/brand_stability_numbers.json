@@ -1,0 +1,16 @@
+{
+ "brands": 39,
+ "groups": 41,
+ "5": {
+  "median_p90_p10": 52.91,
+  "median_within_2x": 0.17
+ },
+ "10": {
+  "median_p90_p10": 21.15,
+  "median_within_2x": 0.37
+ },
+ "20": {
+  "median_p90_p10": 6.44,
+  "median_within_2x": 0.66
+ }
+}

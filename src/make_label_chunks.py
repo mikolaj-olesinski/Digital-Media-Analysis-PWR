@@ -7,7 +7,11 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 out = Path(sys.argv[1]); size = int(sys.argv[2]) if len(sys.argv) > 2 else 200
 out.mkdir(parents=True, exist_ok=True)
-d = pd.read_csv(ROOT / "data" / "raw" / "reach_samples_students.csv", usecols=["mention_id", "platform", "language", "brand", "title", "content"])
+p = ROOT / "data" / "raw" / "reach_samples_students.csv"
+if not p.exists():
+    raise SystemExit(f"Missing data file: {p}\n"
+                         "See docs/en/reproduce.md, section 'If a data file is missing'.")
+    d = pd.read_csv(p, usecols=["mention_id", "platform", "language", "brand", "title", "content"])
 d = d.sample(frac=1, random_state=0).reset_index(drop=True)  # shuffled so every chunk mixes platforms
 clean = lambda s: re.sub(r"\s+", " ", str(s) if pd.notna(s) else "").strip()
 for k in range(0, len(d), size):

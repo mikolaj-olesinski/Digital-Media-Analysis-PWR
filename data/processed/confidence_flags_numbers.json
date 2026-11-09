@@ -1,0 +1,25 @@
+{
+ "posts": 6735,
+ "big_error_share": 0.356,
+ "AUC_big_error": 0.936,
+ "flag": {
+  "0.2": {
+   "flagged": 1347,
+   "share_of_total_error_flagged": 0.45,
+   "MAE_all": 0.484,
+   "MAE_unflagged": 0.333
+  },
+  "0.3": {
+   "flagged": 2020,
+   "share_of_total_error_flagged": 0.575,
+   "MAE_all": 0.484,
+   "MAE_unflagged": 0.294
+  },
+  "0.5": {
+   "flagged": 3367,
+   "share_of_total_error_flagged": 0.777,
+   "MAE_all": 0.484,
+   "MAE_unflagged": 0.216
+  }
+ }
+}

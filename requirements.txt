@@ -1,8 +1,26 @@
-pandas
-numpy
-matplotlib
-seaborn
-scipy
-scikit-learn
-jupyter
+# Core
+pandas>=3.1
+numpy>=2.5
+scipy>=1.18
+scikit-learn>=1.9
+matplotlib>=3.11
+seaborn>=0.13
+
+# Models (the final model needs catboost; the rest are experiments)
+catboost>=1.2
+lightgbm>=4.7
+xgboost>=3.4
+torch>=2.15
+tabpfn>=9.2
+tabicl>=2.2
+
+# Text (only for the text experiments E50/E53)
+sentence-transformers>=6.2
+transformers>=5.22
+
+# Data and tools (yt-dlp: fetching only; python-pptx: pitchdeck only; jupyter: notebooks)
+networkx>=3.7
+yt-dlp>=2026.10
+jupyter>=1.1
+nbconvert>=7.17
 python-pptx

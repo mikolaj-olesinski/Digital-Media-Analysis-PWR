@@ -1,0 +1,35 @@
+{
+ "posts": 2500,
+ "observed": 1866,
+ "missing": 634,
+ "missing_share": 0.254,
+ "medians": {
+  "reactions": {
+   "observed": 0.0,
+   "missing": 0.0
+  },
+  "author_followers": {
+   "observed": 435.0,
+   "missing": 239.0
+  },
+  "age_days": {
+   "observed": 22.24,
+   "missing": 65.93
+  }
+ },
+ "missing_by_year": {
+  "2025": 0.665,
+  "2026": 0.224
+ },
+ "selection_auc": 0.837,
+ "predicted_views": {
+  "observed_median": 16.5,
+  "missing_median": 16.5,
+  "zero_median": 16.5
+ },
+ "mean_reach": {
+  "observed_unweighted": 435.4,
+  "observed_ipw": 367.0,
+  "full_sample_model": 332.5
+ }
+}

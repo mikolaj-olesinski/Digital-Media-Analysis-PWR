@@ -1,0 +1,23 @@
+{
+ "tiktok": {
+  "posts": 2491,
+  "MAE_mean": 0.276,
+  "coverage90": 0.871,
+  "median_width": 1.01,
+  "bias": 0.001
+ },
+ "youtube": {
+  "posts": 2441,
+  "MAE_mean": 0.459,
+  "coverage90": 0.884,
+  "median_width": 1.67,
+  "bias": 0.001
+ },
+ "twitter": {
+  "posts": 1803,
+  "MAE_mean": 0.471,
+  "coverage90": 0.864,
+  "median_width": 1.87,
+  "bias": 0.003
+ }
+}

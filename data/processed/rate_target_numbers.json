@@ -1,0 +1,17 @@
+{
+ "tiktok": {
+  "direct": 0.273,
+  "direct+age": 0.273,
+  "rate": 0.276
+ },
+ "youtube": {
+  "direct": 0.456,
+  "direct+age": 0.454,
+  "rate": 0.458
+ },
+ "twitter": {
+  "direct": 0.467,
+  "direct+age": 0.454,
+  "rate": 0.459
+ }
+}

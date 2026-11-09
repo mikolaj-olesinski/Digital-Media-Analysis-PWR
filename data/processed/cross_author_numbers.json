@@ -1,0 +1,26 @@
+{
+ "tiktok": {
+  "posts": 2491,
+  "seen_share": 0.0,
+  "base_MAE": 0.273,
+  "cross_author_MAE": 0.273,
+  "base_seen": null,
+  "cross_seen": null
+ },
+ "youtube": {
+  "posts": 2441,
+  "seen_share": 0.0,
+  "base_MAE": 0.456,
+  "cross_author_MAE": 0.454,
+  "base_seen": 0.303,
+  "cross_seen": 0.322
+ },
+ "twitter": {
+  "posts": 1803,
+  "seen_share": 0.001,
+  "base_MAE": 0.467,
+  "cross_author_MAE": 0.467,
+  "base_seen": 0.517,
+  "cross_seen": 0.566
+ }
+}

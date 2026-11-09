@@ -1,0 +1,17 @@
+{
+ "followers only": {
+  "MAE_all": 1.342,
+  "MAE_big": 0.827,
+  "MAE_small": 1.45
+ },
+ "reactions only": {
+  "MAE_all": 0.385,
+  "MAE_big": 0.41,
+  "MAE_small": 0.38
+ },
+ "both": {
+  "MAE_all": 0.66,
+  "MAE_big": 0.343,
+  "MAE_small": 0.727
+ }
+}

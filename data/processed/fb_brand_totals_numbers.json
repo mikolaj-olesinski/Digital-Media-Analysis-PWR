@@ -1,0 +1,25 @@
+{
+ "brands": 19,
+ "global": {
+  "median_ratio": -0.31,
+  "share_off_2x": 0.53,
+  "kendall": 0.801
+ },
+ "hybrid": {
+  "median_ratio": -0.3,
+  "share_off_2x": 0.53,
+  "kendall": 0.789
+ },
+ "industry": {
+  "best": {
+   "beverages": 0.263,
+   "finance and insurance": 0.334,
+   "fashion and apparel": 0.374
+  },
+  "worst": {
+   "fashion and apparel": 0.374,
+   "tech and software": 0.408,
+   "sportswear": 0.597
+  }
+ }
+}

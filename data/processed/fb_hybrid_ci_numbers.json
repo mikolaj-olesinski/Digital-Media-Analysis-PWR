@@ -1,0 +1,7 @@
+{
+ "MAE_global": 0.385,
+ "MAE_hybrid": 0.379,
+ "diff": -0.007,
+ "CI_low": -0.035,
+ "CI_high": 0.015
+}

@@ -14,7 +14,11 @@ REG_EN, REG_PL = ROOT / "docs/en/experiments.md", ROOT / "docs/pl/experiments.md
 VAULT, BACKLOG, KNOWN = ROOT / "agent/vault", ROOT / "agent/backlog.md", ROOT / "agent/check_known.txt"
 ROW = re.compile(r"^\|\s*((?:E|L)\d+)\s*\|(.*)\|\s*$")
 PII_COLS = ("author_name", "author_url", "attributes_url")
+TYPES_EN = {"gain", "small", "none", "worse", "finding", "instrument", "pending"}
+TYPES_PL = {"zysk", "mały", "brak", "gorzej", "wniosek", "instrument", "w toku"}
+MALFORMED = []
 URL = re.compile(r"https?://(?!(?:arxiv\.org|github\.com|www\.brandwatch|www\.socialcrawl|www\.microsoft|docs\.|ubuntu\.com))\S+")
+SOCIAL = re.compile(r"(facebook\.com/(?:watch|reel|videos)[^\s)\"']*\d|twitter\.com/[A-Za-z0-9_]+/status/\d|instagram\.com/(?:p|reel)/[A-Za-z0-9_-]+|tiktok\.com/@[A-Za-z0-9_.]+)")
 
 
 def register(path=REG_EN):
@@ -24,6 +28,9 @@ def register(path=REG_EN):
         m = ROW.match(line)
         if m:
             cells = [c.strip() for c in m.group(2).split("|")]
+            if len(cells) != 6:
+                MALFORMED.append((m.group(1), len(cells) + 1))
+                continue
             rows.append(dict(zip(["id", "date", "question", "setup", "result", "type", "where"], [m.group(1)] + cells)))
     return rows
 
@@ -33,7 +40,9 @@ def where_paths(where):
     out = []
     for tok in re.findall(r"`([^`]+)`", where):
         tok = tok.strip()
-        if tok.endswith((".json", ".csv")):
+        if tok.endswith(".ipynb"):
+            out.append(tok)
+        elif tok.endswith((".json", ".csv")):
             out.append(tok if "/" in tok else f"data/processed/{tok}")
         elif "/" in tok and tok.endswith(".py"):
             out.append(tok)
@@ -81,6 +90,10 @@ def vault():
         if card.exists():
             continue
         paths = where_paths(r["where"])
+        missing = [p for p in paths if not (ROOT / p).exists()]
+        if missing:
+            print(f"vault: {r['id']} skipped, missing {missing}")
+            continue
         nbs = [p for p in paths if p.endswith(".ipynb")]; nums = [p for p in paths if not p.endswith(".ipynb")]
         card.write_text(CARD.format(**r, nbs=", ".join(nbs), nums=", ".join(nums), links="\n".join(f"- `{p}`" for p in paths) or "- none"))
         made += 1
@@ -98,6 +111,14 @@ def check():
     en, pl = register(REG_EN), register(REG_PL)
     if [r["id"] for r in en] != [r["id"] for r in pl]:
         fails.append(f"register IDs differ between en and pl: only en {sorted(set(r['id'] for r in en) - set(r['id'] for r in pl))}, only pl {sorted(set(r['id'] for r in pl) - set(r['id'] for r in en))}")
+    if MALFORMED:
+        fails.append(f"register rows with the wrong number of columns (7 expected): {MALFORMED}")
+    for r in en:
+        if r["type"] not in TYPES_EN:
+            fails.append(f"{r['id']}: unknown result type `{r['type']}` (EN register)")
+    for r in pl:
+        if r["type"] not in TYPES_PL:
+            fails.append(f"{r['id']}: unknown result type `{r['type']}` (PL register)")
     ids = [r["id"] for r in en]
     if len(ids) != len(set(ids)):
         fails.append("duplicate experiment IDs in the register")
@@ -107,6 +128,24 @@ def check():
                 fails.append(f"{r['id']}: `{p}` named in the register does not exist")
         if not (VAULT / f"{r['id']}.md").exists():
             fails.append(f"{r['id']}: no vault card (run `python src/agent_tools.py vault`)")
+    for card in sorted(VAULT.glob("E*.md")):
+        text = card.read_text()
+        if "## Result" not in text:
+            warns.append(f"{card.name}: no ## Result section")
+        if "## Decision" not in text:
+            warns.append(f"{card.name}: no ## Decision section")
+        if re.search(r"^numbers:\s*\[\s*\]", text, re.M) and "Legacy note." not in text:
+            warns.append(f"{card.name}: numbers: [] and no Legacy note")
+        m = re.search(r"^numbers:\s*\[(.*?)\]", text, re.M)
+        if m:
+            for tok in re.findall(r"([^,\[\]`]+?\.(?:json|csv))", m.group(1)):
+                if not (ROOT / tok.strip()).exists():
+                    fails.append(f"{card.name}: numbers path `{tok.strip()}` does not exist")
+        m = re.search(r"^notebooks:\s*\[(.*?)\]", text, re.M)
+        if m:
+            for tok in re.findall(r"([^,\[\]`]+?\.ipynb)", m.group(1)):
+                if not (ROOT / tok.strip()).exists():
+                    fails.append(f"{card.name}: notebook `{tok.strip()}` does not exist")
     for f in sorted((ROOT / "figures").glob("*_en.png")):
         if not f.with_name(f.name.replace("_en.png", "_pl.png")).exists():
             fails.append(f"figure {f.name} has no Polish twin")
@@ -114,6 +153,9 @@ def check():
         if ".ipynb_checkpoints" in nb.parts:
             continue
         cells = json.loads(nb.read_text())["cells"]; code = [c for c in cells if c["cell_type"] == "code"]
+        src_all = "\n".join("".join(c.get("source", [])) for c in cells)
+        if SOCIAL.search(src_all):
+            warns.append(f"{nb.relative_to(ROOT)}: source contains a social URL")
         if code and not any(c.get("outputs") for c in code):
             warns.append(f"{nb.relative_to(ROOT)}: stored without outputs")
         for c in code:
@@ -128,8 +170,24 @@ def check():
                         fails.append(f"{nb.relative_to(ROOT)}: an output shows column `{col}` (personal data rule)")
     tracked = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True).stdout.splitlines()
     for t in tracked:
-        if t.startswith("data/raw/") or t.startswith("logs/") or t == "AGENTS.md":
+        if t.endswith((".md", ".py")) and (ROOT / t).exists():
+            m = SOCIAL.search((ROOT / t).read_text(errors="ignore"))
+            if m:
+                warns.append(f"tracked file `{t}` contains a social URL: {m.group(0)[:60]}")
+        if t.endswith(".csv") and (ROOT / t).exists():
+            header = [c.strip().strip('"').lower() for c in (ROOT / t).read_text(errors="ignore").splitlines()[0].split(",")]
+            bad = [c for c in header if c in PII_COLS or c == "url"]
+            if bad:
+                fails.append(f"tracked CSV `{t}` has personal-data column(s) {bad}")
+    for t in tracked:
+        if t.startswith("data/raw/") or t.startswith("logs/") or t == "AGENTS.md" or ("fetched" in t and t.endswith(".csv")):
             fails.append(f"`{t}` is tracked by git but must stay local")
+    q = ROOT / "agent/questions_for_brand24.md"
+    if q.exists():
+        for line in q.read_text().splitlines():
+            if line.startswith("|") and "---" not in line:
+                if len(line.strip().strip("|").split("|")) != 5:
+                    fails.append(f"questions_for_brand24.md: row with the wrong number of columns: {line[:60]}")
     if not BACKLOG.exists():
         fails.append("agent/backlog.md is missing")
     known = [l.split("#")[0].strip() for l in KNOWN.read_text().splitlines()] if KNOWN.exists() else []

@@ -1,0 +1,41 @@
+{
+ "tiktok": {
+  "posts": 2491,
+  "brands": 238,
+  "kendall_b24": 1.0,
+  "kendall_model": 0.779,
+  "top5_overlap_b24": 5,
+  "top5_overlap_model": 3,
+  "alert_precision_b24": 1.0,
+  "alert_precision_model": 0.807,
+  "alert_precision_reactions": 0.799,
+  "auc_model": 0.98,
+  "auc_b24": 1.0
+ },
+ "youtube": {
+  "posts": 2441,
+  "brands": 213,
+  "kendall_b24": 1.0,
+  "kendall_model": 0.65,
+  "top5_overlap_b24": 5,
+  "top5_overlap_model": 2,
+  "alert_precision_b24": 1.0,
+  "alert_precision_model": 0.684,
+  "alert_precision_reactions": 0.705,
+  "auc_model": 0.877,
+  "auc_b24": 1.0
+ },
+ "twitter": {
+  "posts": 1803,
+  "brands": 189,
+  "kendall_b24": 0.631,
+  "kendall_model": 0.579,
+  "top5_overlap_b24": 4,
+  "top5_overlap_model": 4,
+  "alert_precision_b24": 0.611,
+  "alert_precision_model": 0.578,
+  "alert_precision_reactions": 0.578,
+  "auc_model": 0.855,
+  "auc_b24": 0.898
+ }
+}

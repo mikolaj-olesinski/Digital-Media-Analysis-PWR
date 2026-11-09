@@ -2,6 +2,9 @@
 
 Pełna lista eksperymentów i wyników: `docs/pl/experiments.md`.
 
+**Zakres czasowy:** sekcje przed pushem listopadowym opisują analizy do 2026-11-04 i są historyczne; aktualne liczby są
+w `model_card.md`.
+
 Wewnętrzna mapa tego, co, jak i gdzie sprawdziliśmy. To nie jest tekst preprintu. Liczby pochodzą z `data/processed/*_numbers.json`; każdą można odtworzyć z notebooka podanego obok.
 
 ## Wspólne ustawienia
@@ -97,7 +100,29 @@ Zasięg = max(k × reakcje, c(followersi) × followersi). k wynosi 700 na X (300
 - „Rodziny są równe” jest prawdą dopiero po strojeniu i nie dla ridge na YouTube.
 - „Zasięg na X = 0,1 × followersi” dotyczy tylko postów bez reakcji.
 
+## Push listopad 2026 (E95-E167)
+
+Skryptowy, bez nowych notebooków; każdy eksperyment ma kartę, a `docs/pl/repro_map.md` mapuje go na kod i liczby.
+
+- **Facebook zmierzony** (E93/E95/E111/E153/E165): 130 ręcznych + 402 pobrane; MAE modelu 0,345 / 0,385 vs 0,93 dla
+  reguły; reguła ×4,1 za wysoko i myli się w każdym tierze; model wygrywa w każdym (0,36-0,46).
+- **Przedziały FB** (E123/E132/E147/E148/E151/E166): CQR 0,925 przy szerokości 1,99; strony <1M pokryte 0,94, >1M 0,80-0,86
+  i nie da się ich skalibrować na 70 postach; poszerzanie, shift, kwantyle per tier i model dużych stron nie pomagają.
+- **Przedziały w platformie** (E118/E137/E142/E141): CQR 0,889 / 0,902 / 0,899, pasma 50% 0,45 / 0,74 / 0,83; pasma
+  trzymają się na przyszłych miesiącach (0,907 / 0,901 / 0,932).
+- **Jakość modelu** (E114/E119/E133-E136/E139/E141): powtórzone CV 0,269 ± 0,011 / 0,466 ± 0,030 / 0,463 ± 0,018;
+  isotonic, tiery, ziarna i świeżość nie pomagają; target encoding autora daje 0,10 na znanych autorach X, ale tylko
+  1-8% postów go ma; log(age) daje X 0,013.
+- **Transfer** (E115/E131): tylko X wymaga kalibracji (25-50 postów, 0,650 -> 0,551); bez danych celu pasma mają
+  1,51 / 2,84 / 3,69.
+- **Braki danych** (E105/E116/E117/E126/E138/E161/E163/E164): 25% braków X nielosowo; zera to nie braki; retrenować bez
+  systematycznie brakującej cechy (przełączenie ~35% reakcji / ~20% followersów).
+- **Ogon i sumy** (E96/E109/E112/E157/E158/E159): top 1% = 60-74% wyświetleń; sumy marek ×2 za niskie przed kalibracją
+  i niestabilne przy małej liczbie postów.
+- **Zamknięte linie** (E100/E113/E121/E122/E127/E128/E140): tekst, dodatkowe kolumny, graf (w tym metapath2vec),
+  multi-task, ziarna, hurdle: brak zysku; graf nie ma sygnału resztowego na krawędziach.
+
 ## Otwarte
-Ludzki gold standard dla etykiet; czy zasięg to to samo co wyświetlenia; próbka z FB lub IG z prawdziwymi wyświetleniami (312 Reelsów i filmów do ręcznego sprawdzenia: `docs/pl/fbig_reczne_sprawdzenie.md`, B14); fałszywe dopasowania marek w całych danych; historia wyświetleń autorów od Brand24 (pytanie Q8, E68). Embeddingi zdaniowe i GNN są już sprawdzone (E50, E53, E65).
+Ludzki gold standard dla etykiet; czy zasięg to to samo co wyświetlenia; wyświetlenia FB i IG (FB: 130 ręcznych + 402 pobrane, zrobione; IG: 0/160 anonimowo, blokada na logowaniu lub dostawcy); fałszywe dopasowania marek w całych danych; historia wyświetleń autorów od Brand24 (pytanie Q8, E68). Embeddingi zdaniowe, GNN i metapath2vec są sprawdzone (E50, E53, E65, E127).
 
 Planowane kolejne kroki: „Ideas to stand out” w `docs/en/project_plan.md`.

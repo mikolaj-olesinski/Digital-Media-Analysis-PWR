@@ -1,0 +1,12 @@
+{
+ "global": {
+  "MAE_all": 0.385,
+  "MAE_big": 0.41,
+  "MAE_small": 0.38
+ },
+ "hybrid": {
+  "MAE_all": 0.379,
+  "MAE_big": 0.372,
+  "MAE_small": 0.38
+ }
+}
