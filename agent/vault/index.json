@@ -2412,5 +2412,53 @@
    "src/external_x.py",
    "src/external_x_validate.py"
   ]
+ },
+ {
+  "id": "E199",
+  "date": "2026-11-08",
+  "question": "View range instead of a number",
+  "setup": "4 bin schemes; regression cut into bins vs CatBoost classifier vs majority; brand CV + transfer to FB / IG",
+  "result": "3 ranges acc 0.82 / 0.81 / 0.95 (maj 0.95) / FB 0.80 / IG 0.78; decades 0.74 / 0.60 / 0.58 / 0.64 / 0.56; classifier lower everywhere",
+  "type": "finding",
+  "where": "`src/view_bins.py`",
+  "paths": [
+   "src/view_bins.py"
+  ]
+ },
+ {
+  "id": "E200",
+  "date": "2026-11-08",
+  "question": "Why were only 470 of 2,500 Facebook posts attempted?",
+  "setup": "Full sweep of all 2,500 FB URLs with the public watch-page fetcher",
+  "result": "402 ok, 68 gone, 2,030 have no video id (ordinary posts) - 470 video posts is the complete measurable subset",
+  "type": "finding",
+  "where": "`src/fb_full.py`",
+  "paths": [
+   "src/fb_full.py"
+  ]
+ },
+ {
+  "id": "E201",
+  "date": "2026-11-08",
+  "question": "Every training-platform combination",
+  "setup": "Ridge on likes + comments, 31 training sets, each left-out platform scored; own-platform brand CV reference; equal-weight sensitivity",
+  "result": "FB / IG x2.4-3.1 from any mix (own x2.4); X hardest x3.6-4.6; X-only training worst; equal weighting worse",
+  "type": "finding",
+  "where": "`src/train_combos.py`",
+  "paths": [
+   "src/train_combos.py"
+  ]
+ },
+ {
+  "id": "E202",
+  "date": "2026-11-08",
+  "question": "Instagram transfer on 500 hand-collected reels",
+  "setup": "X + YouTube ridge on fresh likes + comments; 25-post shift; IG own brand CV; comments-only for hidden likes",
+  "result": "338 reels: 0.424 (x2.65) zero-shot, 0.382 (x2.41) after 25 posts, own 0.372 (x2.36); without likes x6-11",
+  "type": "finding",
+  "where": "`src/ig_transfer.py`",
+  "paths": [
+   "src/ig_transfer.py"
+  ]
  }
 ]

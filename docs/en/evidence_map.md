@@ -39,6 +39,7 @@ validations; **likely** = one validation, consistent with the rest; **open** = n
 | 27 | Routing by available fields keeps 90% bands at 0.88-0.90; the full model with missing reactions covers 0.46-0.83 | likely | E176 |
 | 28 | Facebook public view counts are static over three days (60/60 identical), while TikTok grew 7% and YouTube 52%; FB is a single-time snapshot | solid | E196 |
 | 29 | The X pay-per-use API costs $1.47 for 98 posts; the 7-day stream has median 8 views vs 27 in the export, and the model over-predicts it by x2 (MAE 0.565, bias -0.29) | likely | E198 |
+| 30 | Only 470 of the 2,500 Facebook rows are videos; 402 expose views, 2,030 are ordinary posts with no public view count - the 402 is the complete measurable subset | solid | E200 |
 
 ## Unknown / open
 

@@ -1,6 +1,6 @@
 # Rejestr eksperymentów
 
-198 eksperymentów (E01-E198) plus L1; także nieudane.
+200 eksperymentów (E01-E200) plus L1; także nieudane.
 
 Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także nieudanym.** Szczegóły są w notebooku, a dokładne liczby w `data/processed/`. O ile nie napisano inaczej: cel log10(wyświetlenia) na TikToku / YouTube / X, 5 foldów po markach, MAE na log10 (0,3 to ok. ×2, 0,5 ok. ×3, 1,0 ×10). Zysk to spadek MAE względem podanej bazy. Rodzaj wyniku: **zysk** (przedział nad zerem i użyteczny), **mały** (przedział nad zerem, ale ok. 0,01 lub mniej albo pojedynczy wynik), **brak**, **gorzej**, **wniosek** (mówi coś o danych).
 
@@ -205,6 +205,10 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E196 | 2026-11-08 | Czy publiczne wyświetlenia Facebooka zmieniają się w trzy dni? | Ponowny odczyt 60 pobranych filmów FB i porównanie z 2026-11-05 | 60/60 odczytane; stosunek 1,000 na każdym poście (brak driftu); licznik FB jest statyczny lub cache'owany | wniosek | `src/fb_refetch.py` |
 | E197 | 2026-11-08 | Czy wynik dla wzmianek utrzymuje się na 60 markach? | Ten sam kolektor, 60 marek, 203 filmy; model oceniany zewnętrznie | 203 filmy, 10 zer, 83 poniżej 100; MAE 0,606, bias +0,28; low/mid/top 0,536/0,555/1,044 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
 | E198 | 2026-11-08 | Czy tania próbka X z pay-per-use da się pobrać i czy model na niej działa? | Bearer, recent search 7 dni, 10 marek x 10 postów; impression_count jako wyświetlenia; model uczony na Brand24 X | 98 postów za 1,47 USD; mediana 8 vs 27; MAE 0,565, bias -0,29 (×2 za wysoko); baseline 0,747 | wniosek | `src/external_x.py`, `src/external_x_validate.py` |
+| E199 | 2026-11-08 | Przedział wyświetleń zamiast liczby | 4 schematy przedziałów; regresja pocięta na przedziały vs klasyfikator CatBoost vs klasa większościowa; CV po markach + przeniesienie na FB / IG | 3 przedziały trafność 0,82 / 0,81 / 0,95 (większość 0,95) / FB 0,80 / IG 0,78; dekady 0,74 / 0,60 / 0,58 / 0,64 / 0,56; klasyfikator wszędzie gorszy | wniosek | `src/view_bins.py` |
+| E200 | 2026-11-08 | Dlaczego próbowano tylko 470 z 2 500 postów Facebooka? | Pełny przemarsz po 2 500 URL-ach FB publicznym fetcherem | 402 ok, 68 znikniętych, 2 030 bez video id (zwykłe posty) - 470 filmów to cała mierzalna podpróbka | wniosek | `src/fb_full.py` |
+| E201 | 2026-11-08 | Każda kombinacja platform treningowych | Ridge na lajkach + komentarzach, 31 zbiorów treningowych, ocena każdej pominiętej platformy; odniesienie: własna platforma CV po markach; wariant z równymi wagami | FB / IG x2,4-3,1 z dowolnej mieszanki (własna x2,4); X najtrudniejszy x3,6-4,6; trening na samym X najgorszy; równe wagi gorsze | wniosek | `src/train_combos.py` |
+| E202 | 2026-11-08 | Przeniesienie na Instagram, 500 ręcznie zebranych rolek | Ridge X + YouTube na świeżych lajkach + komentarzach; przesunięcie z 25 postów; IG własne CV po markach; same komentarze przy ukrytych lajkach | 338 rolek: 0,424 (x2,65) bez kalibracji, 0,382 (x2,41) po 25 postach, własne 0,372 (x2,36); bez lajków x6-11 | wniosek | `src/ig_transfer.py` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.
