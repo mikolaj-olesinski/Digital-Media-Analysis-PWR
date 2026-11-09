@@ -37,7 +37,7 @@ On Facebook and Instagram, media-monitoring data contain no view counts. We test
 likes and comments by a model that has never seen a view count from these platforms. A linear (ridge) regression on likes and comments, trained only on X and YouTube, estimates the views of 402 Facebook videos with a typical error of \x{2.43}
 (MAE 0.385 on the $\log_{10}$ scale), matching the same model trained on Facebook, and of 642 Instagram reels with \x{2.72} (MAE 0.435), worse than the same model trained on Instagram (\x{2.41}). The median views of the source platforms are off by
 \x{9}--\x{20} there. In practice the model transfers the ratio of views to likes: it beats a fixed likes multiplier on
-three of six target platforms, is not clearly different on two (the confidence interval reaches zero) and is worse on X. The transfer needs reactions read at the same
+three of six target platforms, is not clearly different on Facebook and is worse on YouTube (slightly) and X. The transfer needs reactions read at the same
 moment as the views; on Stack Exchange only the ordering transfers, and the level is worse than a constant median. The
 results rest on 20 and 11 brands respectively, and source and target views were read at different post ages (23 against
 over 300 days), which may partly mask differences.
@@ -134,8 +134,9 @@ not a single post from the target platform in training (Facebook, Instagram, Sta
 evaluation.
 \end{tcolorbox}
 
-\textbf{Models.} On the same platform we use CatBoost~\cite{catboost} on followers, reactions and missingness flags (a
-separate feature says whether a field was empty, because missing is not zero). Out of platform we use ridge
+\textbf{Models.} On the same platform we use CatBoost~\cite{catboost} on eight fields: $\log(1+x)$ of followers, likes,
+comments and shares, and four flags saying whether each of these fields was empty (missing is not zero). Text, AI labels,
+country and time are not used, because they did not improve the error (Section~\ref{sec:nie}). Out of platform we use ridge
 regression~\cite{hoerl1970} on $\log(1+\text{likes})$ and $\log(1+\text{comments})$, the two fields every platform has,
 trained on X and YouTube together. With the target platform left out it transfers better than CatBoost and multilayer perceptrons (MLP; by
 0.014--0.062 MAE on each of the five platforms, also after data augmentation). The main Facebook and Instagram numbers
@@ -196,14 +197,14 @@ $10^{\text{MAE}}$.}}
 
 \paragraph{Regression versus a fixed multiplier.} In practice the regression transfers the ratio of views to likes, so
 it must be compared with the multiplier alone, fitted on the same data (Table~\ref{tab:rules}). The regression is better
-on TikTok, Instagram and Stack Exchange, not clearly different on Facebook and YouTube (the confidence intervals reach zero), and worse on X, where 62\% of posts have no like, and comments pull the estimate the wrong way. Both are 2--8 times more accurate than the median of the source platforms
+on TikTok, Instagram and Stack Exchange, not clearly different on Facebook (the confidence interval includes zero), slightly worse on YouTube, and worse on X, where 62\% of posts have no like, and comments pull the estimate the wrong way. Both are 2--8 times more accurate than the median of the source platforms
 on every video platform, but on Stack Exchange the median beats both.
 
 \begin{table}[!htb]
 \centering\small
 \caption{Out of platform: the regression versus simple rules fitted on the same source platforms.
 \capdet{Typical error (\x{}); MAE difference regression $-$ multiplier with a paired brand-bootstrap 95\% CI (negative:
-regression better). YT: YouTube. Source: X + YouTube; for X and YouTube as targets, the other four platforms. Median: one number for
+regression better). TT: TikTok, YT: YouTube. Source: X + YouTube; for X and YouTube as targets, the other two export platforms (training never uses Facebook or Instagram). Median: one number for
 all posts, the median views of the source.}}
 \label{tab:rules}
 \begin{tabular}{llcccc}
@@ -211,8 +212,8 @@ all posts, the median views of the source.}}
 Target & Source & Regression & Likes multiplier & Difference [95\% CI] & Source median \\
 \midrule
 TikTok & X + YT & \x{2.05} & \x{2.22} & $-$0.034 [$-$0.038, $-$0.029] & \x{11.0} \\
-YouTube & other 4 & \x{4.08} & \x{4.03} & +0.004 [0.000, 0.009] & \x{8.9} \\
-X & other 4 & \x{4.37} & \x{3.45} & +0.103 [0.084, 0.120] & \x{22.1} \\
+YouTube & TT + X & \x{4.09} & \x{4.02} & +0.007 [0.002, 0.011] & \x{9.0} \\
+X & TT + YT & \x{4.47} & \x{3.42} & +0.116 [0.094, 0.137] & \x{21.8} \\
 Facebook & X + YT & \x{2.43} & \x{2.42} & +0.002 [$-$0.017, 0.022] & \x{19.9} \\
 Instagram & X + YT & \x{2.72} & \x{2.94} & $-$0.034 [$-$0.047, $-$0.020] & \x{8.7} \\
 Stack Exchange & X + YT & \x{3.14} & \x{5.33} & $-$0.229 [$-$0.240, $-$0.207] & \x{2.1} \\

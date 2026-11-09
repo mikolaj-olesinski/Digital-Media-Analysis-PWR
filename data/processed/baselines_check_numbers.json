@@ -477,7 +477,16 @@
    "Spearman ridge / likes": [
     0.868,
     0.868
-   ]
+   ],
+   "source median": {
+    "MAE": 0.899,
+    "factor": 7.93,
+    "CI": [
+     0.861,
+     0.938
+    ],
+    "within x2": 0.253
+   }
   },
   "tiktok <- X + YT": {
    "ridge": {
@@ -508,7 +517,16 @@
    "Spearman ridge / likes": [
     0.867,
     0.868
-   ]
+   ],
+   "source median": {
+    "MAE": 1.042,
+    "factor": 11.02,
+    "CI": [
+     1.001,
+     1.084
+    ],
+    "within x2": 0.148
+   }
   },
   "youtube <- other four": {
    "ridge": {
@@ -539,7 +557,16 @@
    "Spearman ridge / likes": [
     0.633,
     0.669
-   ]
+   ],
+   "source median": {
+    "MAE": 0.948,
+    "factor": 8.88,
+    "CI": [
+     0.915,
+     0.985
+    ],
+    "within x2": 0.202
+   }
   },
   "twitter <- other four": {
    "ridge": {
@@ -570,7 +597,16 @@
    "Spearman ridge / likes": [
     0.538,
     0.545
-   ]
+   ],
+   "source median": {
+    "MAE": 1.345,
+    "factor": 22.14,
+    "CI": [
+     1.303,
+     1.387
+    ],
+    "within x2": 0.085
+   }
   },
   "facebook <- other four": {
    "ridge": {
@@ -601,7 +637,16 @@
    "Spearman ridge / likes": [
     0.909,
     0.908
-   ]
+   ],
+   "source median": {
+    "MAE": 1.09,
+    "factor": 12.31,
+    "CI": [
+     0.88,
+     1.332
+    ],
+    "within x2": 0.147
+   }
   },
   "facebook <- X + YT": {
    "ridge": {
@@ -632,7 +677,16 @@
    "Spearman ridge / likes": [
     0.909,
     0.908
-   ]
+   ],
+   "source median": {
+    "MAE": 1.298,
+    "factor": 19.87,
+    "CI": [
+     0.956,
+     1.613
+    ],
+    "within x2": 0.157
+   }
   },
   "instagram <- other four": {
    "ridge": {
@@ -663,7 +717,16 @@
    "Spearman ridge / likes": [
     0.861,
     0.859
-   ]
+   ],
+   "source median": {
+    "MAE": 0.757,
+    "factor": 5.72,
+    "CI": [
+     0.713,
+     0.797
+    ],
+    "within x2": 0.29
+   }
   },
   "instagram <- X + YT": {
    "ridge": {
@@ -694,7 +757,96 @@
    "Spearman ridge / likes": [
     0.861,
     0.859
-   ]
+   ],
+   "source median": {
+    "MAE": 0.939,
+    "factor": 8.69,
+    "CI": [
+     0.815,
+     1.043
+    ],
+    "within x2": 0.232
+   }
+  },
+  "youtube <- other export platforms": {
+   "ridge": {
+    "MAE": 0.612,
+    "factor": 4.09,
+    "CI": [
+     0.58,
+     0.644
+    ],
+    "within x2": 0.388
+   },
+   "likes multiplier": {
+    "MAE": 0.605,
+    "factor": 4.02,
+    "CI": [
+     0.574,
+     0.637
+    ],
+    "within x2": 0.383
+   },
+   "ridge - multiplier": {
+    "diff": 0.007,
+    "CI": [
+     0.002,
+     0.011
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.633,
+    0.669
+   ],
+   "source median": {
+    "MAE": 0.954,
+    "factor": 8.99,
+    "CI": [
+     0.92,
+     0.991
+    ],
+    "within x2": 0.206
+   }
+  },
+  "twitter <- other export platforms": {
+   "ridge": {
+    "MAE": 0.65,
+    "factor": 4.47,
+    "CI": [
+     0.624,
+     0.675
+    ],
+    "within x2": 0.27
+   },
+   "likes multiplier": {
+    "MAE": 0.534,
+    "factor": 3.42,
+    "CI": [
+     0.512,
+     0.557
+    ],
+    "within x2": 0.371
+   },
+   "ridge - multiplier": {
+    "diff": 0.116,
+    "CI": [
+     0.094,
+     0.137
+    ]
+   },
+   "Spearman ridge / likes": [
+    0.538,
+    0.545
+   ],
+   "source median": {
+    "MAE": 1.339,
+    "factor": 21.82,
+    "CI": [
+     1.297,
+     1.38
+    ],
+    "within x2": 0.088
+   }
   },
   "stackexchange <- X + YT": {
    "ridge": {
@@ -725,7 +877,16 @@
    "Spearman ridge / likes": [
     0.571,
     0.48
-   ]
+   ],
+   "source median": {
+    "MAE": 0.322,
+    "factor": 2.1,
+    "CI": [
+     0.273,
+     0.348
+    ],
+    "within x2": 0.634
+   }
   }
  }
 }

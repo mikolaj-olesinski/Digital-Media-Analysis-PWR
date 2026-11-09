@@ -166,13 +166,15 @@ Instagram & właściciele rolek & 627 rolek (541 autorów) & autorzy w walidacji
 \column{.31\textwidth}
 \begin{block}{Ta sama platforma}
 TikTok, YouTube, X\\[2pt]
-\textbf{CatBoost}\\[2pt]
+\textbf{CatBoost} na 8 polach:\\
+{\scriptsize\texttt{log(1+obserwujący)}, \texttt{log(1+lajki)}, \texttt{log(1+komentarze)}, \texttt{log(1+udostępnienia)} + 4 flagi ,,pole puste''}\\[2pt]
 test na \alert{markach i autorach}, których model nie widział
 \end{block}
 \column{.31\textwidth}
 \begin{block}{Poza platformą}
 Facebook, Instagram\\[2pt]
-\textbf{ridge} na $\log$ lajków i komentarzy\\[2pt]
+\textbf{ridge} na 2 polach:\\
+{\scriptsize\texttt{log(1+lajki)}, \texttt{log(1+komentarze)} (jedyne, które ma każda platforma)}\\[2pt]
 uczony \alert{tylko na X + YouTube}
 \end{block}
 \column{.31\textwidth}
@@ -183,6 +185,7 @@ inna platforma: Stack Exchange
 \end{columns}
 \vspace{8pt}
 \centering\small
+Cel: $\log_{10}$(wyświetlenia). Nie używamy tekstu, etykiet AI, kraju ani czasu (nie poprawiały wyniku).\\
 Błąd: \alert{typowy błąd $10^{\text{MAE}}$} (MAE na $\log_{10}$ wyświetleń); {\footnotesize \x{2} = oszacowanie zwykle 2 razy za duże albo za małe}
 \end{frame}
 
@@ -236,15 +239,15 @@ FB: tyle samo co ridge uczony na samym FB. IG: nieco gorzej; 72\% rolek niedosza
 Cel & Źródło & Regresja & Mnożnik lajków & Różnica MAE [95\% CI] & Mediana źródła \\
 \midrule
 TikTok & X + YT & \xb{2,05} & \x{2,22} & $-$0,034 [$-$0,038; $-$0,029] & \x{11,0} \\
-YouTube & pozostałe 4 & \x{4,08} & \x{4,03} & +0,004 [0,000; 0,009] & \x{8,9} \\
-X & pozostałe 4 & \x{4,37} & \xb{3,45} & +0,103 [0,084; 0,120] & \x{22,1} \\
+YouTube & TT + X & \x{4,09} & \xb{4,02} & +0,007 [0,002; 0,011] & \x{9,0} \\
+X & TT + YT & \x{4,47} & \xb{3,42} & +0,116 [0,094; 0,137] & \x{21,8} \\
 Facebook & X + YT & \x{2,43} & \x{2,42} & +0,002 [$-$0,017; 0,022] & \x{19,9} \\
 Instagram & X + YT & \xb{2,72} & \x{2,94} & $-$0,034 [$-$0,047; $-$0,020] & \x{8,7} \\
 Stack Exchange & X + YT & \x{3,14} & \x{5,33} & $-$0,229 [$-$0,240; $-$0,207] & \xb{2,1} \\
 \bottomrule
 \end{tabular}
 \vspace{10pt}
-\sub{Regresja lepsza na 3 celach, bez wyraźnej różnicy na 2 (FB, YT), gorsza na X (62\% postów bez lajka).}
+\sub{Trening tylko na platformach z eksportu (TT, YT, X), nigdy na FB/IG. Regresja lepsza na 3 celach, bez różnicy na FB, gorsza na YouTube (nieznacznie) i X (62\% postów bez lajka).}
 \end{frame}
 
 % 8 ------------------------------------------------------------
@@ -263,7 +266,7 @@ Stack Exchange & X + YT & \x{3,14} & \x{5,33} & $-$0,229 [$-$0,240; $-$0,207] & 
 \end{frame}
 
 % 11
-\begin{frame}{Co sprawdziliśmy i nie pomogło}
+\begin{frame}{Co testowaliśmy: ta sama platforma}
 \centering\tiny\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{0.85}
 \begin{tabular}{lccc}
 \toprule
@@ -299,6 +302,39 @@ Model (ta sama platforma, typowy błąd) & TikTok & YouTube & X \\
 \vspace{2pt}
 \sub{\scriptsize Ponad 20 dodatkowych źródeł (tekst, etykiety AI, grafy, Wikipedia) poprawia błąd najwyżej \x{1,04}.}
 \end{frame}
+
+% 11-oop
+\begin{frame}{Co testowaliśmy: poza platformą (FB, IG)}
+\centering\scriptsize\setlength{\tabcolsep}{6pt}\renewcommand{\arraystretch}{0.8}
+\begin{tabular}{lcc}
+\toprule
+Metoda (typowy błąd) & Facebook & Instagram \\
+\midrule
+\multicolumn{3}{l}{\textit{Proste reguły}} \\
+\quad mediana z X + YT & \x{19,87} & \x{8,69} \\
+\quad mnożnik lajków & \x{2,42} & \x{2,94} \\
+\midrule
+\multicolumn{3}{l}{\textit{Modele (trening X + YouTube)}} \\
+\quad \textbf{regresja ridge (nasz)} & \textbf{\x{2,43}} & \textbf{\x{2,72}} \\
+\quad MLP & \x{2,47} & \x{2,78} \\
+\quad CatBoost & \x{2,61} & \x{2,95} \\
+\midrule
+\multicolumn{3}{l}{\textit{Augmentacja}} \\
+\quad CatBoost + trend & \x{2,54} & \x{2,96} \\
+\quad MLP + trend & \x{2,46} & \x{2,79} \\
+\quad CatBoost + propensity & \x{2,49} & \x{2,89} \\
+\quad MLP + propensity & \x{2,42} & \x{2,75} \\
+\quad CatBoost + mixup & \x{2,58} & \x{2,95} \\
+\quad MLP + mixup & \x{2,46} & \x{2,76} \\
+\midrule
+\multicolumn{3}{l}{\textit{Odniesienie (używa etykiet platformy docelowej)}} \\
+\quad ridge uczony na samej platformie (CV po markach) & \x{2,42} & \x{2,41} \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\sub{Trening tylko na eksporcie X + YouTube, nigdy na FB/IG. Złożone modele i augmentacja nie dają wyraźnej poprawy względem prostej regresji na 2 polach (lajki, komentarze).}
+\end{frame}
+
 
 % 11a
 \begin{frame}{Dodatkowe dane: ile zmieniły błąd}
