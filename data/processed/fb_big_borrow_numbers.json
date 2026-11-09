@@ -1,0 +1,306 @@
+{
+ "E220": {
+  "FB posts per tier": {
+   "<10k": 50,
+   "10k-1M": 176,
+   ">1M": 70
+  },
+  "FB brands": 20,
+  "borrowed posts (>=1M followers)": {
+   "youtube": 114,
+   "twitter": 46,
+   "tiktok": 7
+  },
+  "borrowed median residual y - M": 0.301,
+  "FB >1M median residual y - M (all posts)": 0.3,
+  "delta (primary) median over splits": 0.004,
+  "FB >1M calibration posts per split, median": 15.0,
+  "reps": 20,
+  "band 90% (plain quantile, E145 protocol)": {
+   "global (E145)": {
+    "<10k": {
+     "coverage": 0.913,
+     "width log10": 2.317,
+     "width vs global": 1.0
+    },
+    "10k-1M": {
+     "coverage": 0.902,
+     "width log10": 1.896,
+     "width vs global": 1.0
+    },
+    ">1M": {
+     "coverage": 0.836,
+     "width log10": 1.553,
+     "width vs global": 1.0
+    }
+   },
+   "per-tier FB only (E145)": {
+    "<10k": {
+     "coverage": 0.913,
+     "width log10": 2.302,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.874,
+     "width log10": 1.782,
+     "width vs global": 0.94
+    },
+    ">1M": {
+     "coverage": 0.83,
+     "width log10": 1.582,
+     "width vs global": 1.02
+    }
+   },
+   "borrowed, delta from FB >1M cal (primary)": {
+    "<10k": {
+     "coverage": 0.913,
+     "width log10": 2.302,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.874,
+     "width log10": 1.782,
+     "width vs global": 0.94
+    },
+    ">1M": {
+     "coverage": 0.883,
+     "width log10": 1.833,
+     "width vs global": 1.18
+    }
+   },
+   "borrowed, delta from all FB cal": {
+    "<10k": {
+     "coverage": 0.913,
+     "width log10": 2.302,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.874,
+     "width log10": 1.782,
+     "width vs global": 0.94
+    },
+    ">1M": {
+     "coverage": 0.867,
+     "width log10": 1.586,
+     "width vs global": 1.02
+    }
+   },
+   "borrowed, unshifted": {
+    "<10k": {
+     "coverage": 0.913,
+     "width log10": 2.302,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.874,
+     "width log10": 1.782,
+     "width vs global": 0.94
+    },
+    ">1M": {
+     "coverage": 0.884,
+     "width log10": 1.728,
+     "width vs global": 1.11
+    }
+   },
+   "borrowed only, delta from FB >1M cal": {
+    "<10k": {
+     "coverage": 0.913,
+     "width log10": 2.302,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.874,
+     "width log10": 1.782,
+     "width vs global": 0.94
+    },
+    ">1M": {
+     "coverage": 0.877,
+     "width log10": 1.793,
+     "width vs global": 1.15
+    }
+   }
+  },
+  "band 90% (finite-sample n+1 quantile, sensitivity)": {
+   "global (E145)": {
+    "<10k": {
+     "coverage": 0.927,
+     "width log10": 2.512,
+     "width vs global": 1.0
+    },
+    "10k-1M": {
+     "coverage": 0.924,
+     "width log10": 2.091,
+     "width vs global": 1.0
+    },
+    ">1M": {
+     "coverage": 0.859,
+     "width log10": 1.748,
+     "width vs global": 1.0
+    }
+   },
+   "per-tier FB only (E145)": {
+    "<10k": {
+     "coverage": 0.927,
+     "width log10": 2.498,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.904,
+     "width log10": 2.057,
+     "width vs global": 0.98
+    },
+    ">1M": {
+     "coverage": 0.855,
+     "width log10": 1.836,
+     "width vs global": 1.05
+    }
+   },
+   "borrowed, delta from FB >1M cal (primary)": {
+    "<10k": {
+     "coverage": 0.927,
+     "width log10": 2.498,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.904,
+     "width log10": 2.057,
+     "width vs global": 0.98
+    },
+    ">1M": {
+     "coverage": 0.888,
+     "width log10": 1.88,
+     "width vs global": 1.07
+    }
+   },
+   "borrowed, delta from all FB cal": {
+    "<10k": {
+     "coverage": 0.927,
+     "width log10": 2.498,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.904,
+     "width log10": 2.057,
+     "width vs global": 0.98
+    },
+    ">1M": {
+     "coverage": 0.869,
+     "width log10": 1.629,
+     "width vs global": 0.93
+    }
+   },
+   "borrowed, unshifted": {
+    "<10k": {
+     "coverage": 0.927,
+     "width log10": 2.498,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.904,
+     "width log10": 2.057,
+     "width vs global": 0.98
+    },
+    ">1M": {
+     "coverage": 0.891,
+     "width log10": 1.785,
+     "width vs global": 1.02
+    }
+   },
+   "borrowed only, delta from FB >1M cal": {
+    "<10k": {
+     "coverage": 0.927,
+     "width log10": 2.498,
+     "width vs global": 0.99
+    },
+    "10k-1M": {
+     "coverage": 0.904,
+     "width log10": 2.057,
+     "width vs global": 0.98
+    },
+    ">1M": {
+     "coverage": 0.889,
+     "width log10": 1.87,
+     "width vs global": 1.07
+    }
+   }
+  },
+  "E150 point model on FB >1M": {
+   "posts": 70,
+   "brands": 11,
+   "source >=1M posts export X + YT": 191,
+   "export X + YouTube, all pages (global)": {
+    "MAE": 0.41,
+    "factor": 2.57,
+    "CI": [
+     0.302,
+     0.566
+    ],
+    "mean bias (+ = under)": 0.331
+   },
+   "export X + YouTube, >=1M pages (E150)": {
+    "MAE": 0.368,
+    "factor": 2.33,
+    "CI": [
+     0.301,
+     0.476
+    ],
+    "mean bias (+ = under)": -0.057,
+    "paired diff vs global": {
+     "diff": -0.042,
+     "CI": [
+      -0.177,
+      0.08
+     ]
+    }
+   },
+   "re-read X + YouTube, >=1M pages": {
+    "MAE": 0.412,
+    "factor": 2.58,
+    "CI": [
+     0.312,
+     0.561
+    ],
+    "mean bias (+ = under)": -0.072,
+    "paired diff vs global": {
+     "diff": 0.003,
+     "CI": [
+      -0.115,
+      0.114
+     ]
+    }
+   },
+   "re-read TikTok + YouTube + X, >=1M pages": {
+    "MAE": 0.402,
+    "factor": 2.52,
+    "CI": [
+     0.3,
+     0.555
+    ],
+    "mean bias (+ = under)": -0.055,
+    "paired diff vs global": {
+     "diff": -0.008,
+     "CI": [
+      -0.121,
+      0.103
+     ]
+    }
+   },
+   "re-read X + YouTube, all pages": {
+    "MAE": 0.38,
+    "factor": 2.4,
+    "CI": [
+     0.273,
+     0.556
+    ],
+    "mean bias (+ = under)": 0.122,
+    "paired diff vs global": {
+     "diff": -0.03,
+     "CI": [
+      -0.099,
+      0.039
+     ]
+    }
+   }
+  }
+ }
+}

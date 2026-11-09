@@ -1,0 +1,189 @@
+{
+ "preprint bins": {
+  "tiktok": {
+   "n": 2491,
+   "accuracy": 0.78,
+   "within one range": 0.998,
+   "two ranges off": 0.002,
+   "majority baseline": 0.586,
+   "balanced accuracy": 0.778,
+   "macro F1": 0.767,
+   "recall per range": [
+    0.797,
+    0.728,
+    0.808
+   ],
+   "balanced accuracy, majority baseline": 0.333,
+   "true share per range": [
+    0.586,
+    0.276,
+    0.138
+   ],
+   "confusion (rows true)": [
+    [
+     1164,
+     295,
+     1
+    ],
+    [
+     119,
+     500,
+     68
+    ],
+    [
+     3,
+     63,
+     278
+    ]
+   ]
+  },
+  "youtube": {
+   "n": 2441,
+   "accuracy": 0.786,
+   "within one range": 0.981,
+   "two ranges off": 0.019,
+   "majority baseline": 0.626,
+   "balanced accuracy": 0.696,
+   "macro F1": 0.726,
+   "recall per range": [
+    0.919,
+    0.53,
+    0.639
+   ],
+   "balanced accuracy, majority baseline": 0.333,
+   "true share per range": [
+    0.626,
+    0.256,
+    0.118
+   ],
+   "confusion (rows true)": [
+    [
+     1404,
+     124,
+     0
+    ],
+    [
+     261,
+     331,
+     33
+    ],
+    [
+     46,
+     58,
+     184
+    ]
+   ]
+  },
+  "twitter": {
+   "n": 1803,
+   "accuracy": 0.956,
+   "within one range": 0.997,
+   "two ranges off": 0.003,
+   "majority baseline": 0.946,
+   "balanced accuracy": 0.464,
+   "macro F1": 0.521,
+   "recall per range": [
+    0.998,
+    0.25,
+    0.143
+   ],
+   "balanced accuracy, majority baseline": 0.333,
+   "true share per range": [
+    0.946,
+    0.047,
+    0.008
+   ],
+   "confusion (rows true)": [
+    [
+     1701,
+     4,
+     0
+    ],
+    [
+     61,
+     21,
+     2
+    ],
+    [
+     5,
+     7,
+     2
+    ]
+   ]
+  },
+  "facebook": {
+   "n": 402,
+   "accuracy": 0.794,
+   "within one range": 0.983,
+   "two ranges off": 0.017,
+   "majority baseline": 0.453,
+   "balanced accuracy": 0.762,
+   "macro F1": 0.781,
+   "recall per range": [
+    0.956,
+    0.634,
+    0.697
+   ],
+   "balanced accuracy, majority baseline": 0.333,
+   "true share per range": [
+    0.453,
+    0.326,
+    0.221
+   ],
+   "confusion (rows true)": [
+    [
+     174,
+     8,
+     0
+    ],
+    [
+     45,
+     83,
+     3
+    ],
+    [
+     7,
+     20,
+     62
+    ]
+   ]
+  },
+  "instagram": {
+   "n": 642,
+   "accuracy": 0.807,
+   "within one range": 0.994,
+   "two ranges off": 0.006,
+   "majority baseline": 0.65,
+   "balanced accuracy": 0.654,
+   "macro F1": 0.705,
+   "recall per range": [
+    0.974,
+    0.503,
+    0.485
+   ],
+   "balanced accuracy, majority baseline": 0.333,
+   "true share per range": [
+    0.65,
+    0.245,
+    0.106
+   ],
+   "confusion (rows true)": [
+    [
+     406,
+     11,
+     0
+    ],
+    [
+     77,
+     79,
+     1
+    ],
+    [
+     4,
+     31,
+     33
+    ]
+   ]
+  }
+ }
+}

@@ -5,54 +5,54 @@
    "brands": 266,
    "MAE": 0.273,
    "CI": [
-    0.263,
-    0.286
+    0.262,
+    0.284
    ],
-   "factor": 1.88,
-   "median bias (+ = under)": -0.002,
-   "within x2": 0.664,
-   "within x3": 0.846,
-   "under-predicted": 0.496,
-   "over-predicted": 0.504,
-   "90% coverage": 0.889,
-   "90% median width (log10)": 1.14,
-   "90% median width (factor, top/bottom)": 13.9
+   "factor": 1.87,
+   "median bias (+ = under)": 0.001,
+   "within x2": 0.665,
+   "within x3": 0.843,
+   "under-predicted": 0.502,
+   "over-predicted": 0.498,
+   "90% coverage": 0.902,
+   "90% median width (log10)": 1.21,
+   "90% median width (factor, top/bottom)": 16.1
   },
   "youtube": {
    "n": 2441,
    "brands": 273,
-   "MAE": 0.46,
+   "MAE": 0.462,
    "CI": [
-    0.438,
-    0.483
+    0.441,
+    0.485
    ],
-   "factor": 2.88,
-   "median bias (+ = under)": -0.001,
-   "within x2": 0.437,
-   "within x3": 0.646,
-   "under-predicted": 0.499,
-   "over-predicted": 0.501,
-   "90% coverage": 0.902,
-   "90% median width (log10)": 1.7,
-   "90% median width (factor, top/bottom)": 50.6
+   "factor": 2.9,
+   "median bias (+ = under)": -0.017,
+   "within x2": 0.432,
+   "within x3": 0.635,
+   "under-predicted": 0.486,
+   "over-predicted": 0.514,
+   "90% coverage": 0.907,
+   "90% median width (log10)": 1.78,
+   "90% median width (factor, top/bottom)": 60.2
   },
   "twitter": {
    "n": 1803,
    "brands": 252,
-   "MAE": 0.47,
+   "MAE": 0.482,
    "CI": [
-    0.45,
-    0.491
+    0.461,
+    0.504
    ],
-   "factor": 2.95,
-   "median bias (+ = under)": -0.006,
-   "within x2": 0.404,
-   "within x3": 0.595,
-   "under-predicted": 0.495,
-   "over-predicted": 0.505,
-   "90% coverage": 0.891,
-   "90% median width (log10)": 2.07,
-   "90% median width (factor, top/bottom)": 117.3
+   "factor": 3.03,
+   "median bias (+ = under)": 0.001,
+   "within x2": 0.397,
+   "within x3": 0.585,
+   "under-predicted": 0.501,
+   "over-predicted": 0.499,
+   "90% coverage": 0.873,
+   "90% median width (log10)": 1.98,
+   "90% median width (factor, top/bottom)": 95.5
   }
  }
 }

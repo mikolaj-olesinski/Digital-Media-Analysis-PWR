@@ -69,6 +69,12 @@
    "spearman": 0.893,
    "median_old": 7.0,
    "median_new": 14.0
+  },
+  "reactions": {
+   "missing_likes": 289,
+   "missing_comments": 877,
+   "likes_hidden": "unknown for the missing ones; a 10-row page check found a visible like count, so the gap is in yt-dlp, not hidden likes",
+   "comments_off": "unknown for the missing ones; a 10-row page check found comments not disabled and no commentCount in the page data, so the gap is in yt-dlp"
   }
  },
  "twitter": {
