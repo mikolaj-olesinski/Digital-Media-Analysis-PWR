@@ -1,0 +1,4156 @@
+{
+ "fewshot": [
+  {
+   "platform": "tiktok",
+   "k": 0,
+   "method": "zero-shot ridge",
+   "MAE": 0.3119280745354289,
+   "tau2": 0.08084418758983555,
+   "tau2 all pairs": 0.06054056480248815,
+   "sigma2": 0.611843827345118,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 5,
+   "method": "median shift",
+   "MAE": 0.3468102703805664,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.31157788656234,
+   "p90": 0.3904290481048782,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 5,
+   "method": "mean shift",
+   "MAE": 0.3409021686081167,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3115155109125838,
+   "p90": 0.38534145820707855,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 5,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.3159431530456632,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.310947061698262,
+   "p90": 0.3243075740370501,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 5,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.3171248815795648,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.31081652354950845,
+   "p90": 0.32625381628140415,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 5,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.3153702308960373,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3106715433314588,
+   "p90": 0.3225138048345788,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 5,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.3587700352301147,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3113422692160758,
+   "p90": 0.4272463979709657,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 5,
+   "method": "biased ridge to source weights",
+   "MAE": 0.347653328047382,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.30988893443420124,
+   "p90": 0.41555647754754604,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 5,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.7709774709585906,
+   "half-width (\u00d7)": 3.4996076222131536
+  },
+  {
+   "platform": "tiktok",
+   "k": 5,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.989966087158648,
+   "half-width (\u00d7)": 18.063963268268612
+  },
+  {
+   "platform": "tiktok",
+   "k": 10,
+   "method": "median shift",
+   "MAE": 0.33219803268247033,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.31159066483189213,
+   "p90": 0.3686142042694476,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 10,
+   "method": "mean shift",
+   "MAE": 0.3311565059836344,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.311497021400357,
+   "p90": 0.36318393118872394,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 10,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.31736914248703957,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.31077444730855236,
+   "p90": 0.3274927336447437,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 10,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.3180529141887176,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3108694732458522,
+   "p90": 0.330512143235164,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 10,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.31646277612796553,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3108669068599613,
+   "p90": 0.3255933288244659,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 10,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.334260436389133,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.306643450658279,
+   "p90": 0.37121148956092637,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 10,
+   "method": "biased ridge to source weights",
+   "MAE": 0.3263346251956863,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.30775673777253587,
+   "p90": 0.36220760376609873,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 10,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8935860406739223,
+   "half-width (\u00d7)": 5.411579869673607
+  },
+  {
+   "platform": "tiktok",
+   "k": 10,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.9899655901521381,
+   "half-width (\u00d7)": 18.063963268268612
+  },
+  {
+   "platform": "tiktok",
+   "k": 25,
+   "method": "median shift",
+   "MAE": 0.32113663758593747,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.31075894463542153,
+   "p90": 0.33619797100944504,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 25,
+   "method": "mean shift",
+   "MAE": 0.31961833708669274,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3107813801672901,
+   "p90": 0.33401190030575706,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 25,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.3157060730783408,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.31052569258723106,
+   "p90": 0.3237303897290102,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 25,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.31685014600943673,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.31057721208091926,
+   "p90": 0.32609198657823996,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 25,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.31601209256922647,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3105451640888714,
+   "p90": 0.32430934555018076,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 25,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.3169188943003427,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3034038861788694,
+   "p90": 0.3341323105833759,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 25,
+   "method": "biased ridge to source weights",
+   "MAE": 0.3134754278580642,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3013377574423565,
+   "p90": 0.32492047810498026,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 25,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.9157513326462626,
+   "half-width (\u00d7)": 5.6957668463021545
+  },
+  {
+   "platform": "tiktok",
+   "k": 25,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.9899602233697142,
+   "half-width (\u00d7)": 18.063963268268612
+  },
+  {
+   "platform": "tiktok",
+   "k": 50,
+   "method": "median shift",
+   "MAE": 0.31522937798834016,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.30971059095308634,
+   "p90": 0.32262654111864514,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 50,
+   "method": "mean shift",
+   "MAE": 0.3147933331293262,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3097088039734414,
+   "p90": 0.3218148490882548,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 50,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.31371473272037115,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3092721947739854,
+   "p90": 0.31954811282647005,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 50,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.31427588708260956,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3095994930312849,
+   "p90": 0.32057487697980813,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 50,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.31403673068615584,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3094926459020311,
+   "p90": 0.31995176071980275,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 50,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.30925453530138464,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.30149688286581094,
+   "p90": 0.3188659669593492,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 50,
+   "method": "biased ridge to source weights",
+   "MAE": 0.3074852679172297,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.2997101771197178,
+   "p90": 0.31559271023011,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 50,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8943540427610324,
+   "half-width (\u00d7)": 4.47895273753657
+  },
+  {
+   "platform": "tiktok",
+   "k": 50,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.9898782127520014,
+   "half-width (\u00d7)": 18.063963268268612
+  },
+  {
+   "platform": "tiktok",
+   "k": 100,
+   "method": "median shift",
+   "MAE": 0.3138737683389312,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.30868080551470917,
+   "p90": 0.31899946987509786,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 100,
+   "method": "mean shift",
+   "MAE": 0.3137004495098236,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.30886296139645675,
+   "p90": 0.31810793923311437,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 100,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.313225244787671,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.30872578503520554,
+   "p90": 0.3174751309765464,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 100,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.31350482431319315,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.3085879791956751,
+   "p90": 0.3180999050208054,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 100,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.3133987302045682,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.30855210303351865,
+   "p90": 0.31803641167223384,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 100,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.30618692930214886,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.30007962245953634,
+   "p90": 0.3132754093689449,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 100,
+   "method": "biased ridge to source weights",
+   "MAE": 0.3043678409397515,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.29868383986129243,
+   "p90": 0.3108009371273106,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "tiktok",
+   "k": 100,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8942613934127932,
+   "half-width (\u00d7)": 4.44255365974081
+  },
+  {
+   "platform": "tiktok",
+   "k": 100,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.9900621491642175,
+   "half-width (\u00d7)": 18.063963268268612
+  },
+  {
+   "platform": "youtube",
+   "k": 0,
+   "method": "zero-shot ridge",
+   "MAE": 0.6041394426880363,
+   "tau2": 0.09824511202586472,
+   "tau2 all pairs": 0.06054056480248815,
+   "sigma2": 0.29194757978223024,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 5,
+   "method": "median shift",
+   "MAE": 0.6791757608923332,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6048852554628295,
+   "p90": 0.7896970426044095,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 5,
+   "method": "mean shift",
+   "MAE": 0.6879930052533968,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6058717475412274,
+   "p90": 0.8117664275611566,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 5,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.6396562270458995,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6045418251200365,
+   "p90": 0.6909815503746424,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 5,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.6362964692164509,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6036425331568425,
+   "p90": 0.6864181345706585,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 5,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.6258096421228112,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6034135918491083,
+   "p90": 0.661535765361475,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 5,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.7125417448088305,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6058665223962416,
+   "p90": 0.8913818331735062,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 5,
+   "method": "biased ridge to source weights",
+   "MAE": 0.6806735700820468,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6011117317842628,
+   "p90": 0.8475190915731982,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 5,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.76466637567448,
+   "half-width (\u00d7)": 11.89596173724662
+  },
+  {
+   "platform": "youtube",
+   "k": 5,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.7868926925795754,
+   "half-width (\u00d7)": 7.817318015058876
+  },
+  {
+   "platform": "youtube",
+   "k": 10,
+   "method": "median shift",
+   "MAE": 0.6405017892407825,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.603686732416584,
+   "p90": 0.7004524850744273,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 10,
+   "method": "mean shift",
+   "MAE": 0.66362065912298,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6052515148467058,
+   "p90": 0.7831300930556581,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 10,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.6401561181980224,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6046154376959885,
+   "p90": 0.7114286329047025,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 10,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.6262991797596977,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6027993594194445,
+   "p90": 0.6618844083322742,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 10,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.621210453181765,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6024974816792293,
+   "p90": 0.6495005699752248,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 10,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.668604565682854,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6049309856377787,
+   "p90": 0.7715871202744106,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 10,
+   "method": "biased ridge to source weights",
+   "MAE": 0.63054541148965,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5991072002542706,
+   "p90": 0.6824363614547254,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 10,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8977707444828209,
+   "half-width (\u00d7)": 48.51999348705714
+  },
+  {
+   "platform": "youtube",
+   "k": 10,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.7870937388499328,
+   "half-width (\u00d7)": 7.817318015058876
+  },
+  {
+   "platform": "youtube",
+   "k": 25,
+   "method": "median shift",
+   "MAE": 0.6180393996423365,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6020013339402641,
+   "p90": 0.6408843903082168,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 25,
+   "method": "mean shift",
+   "MAE": 0.6305417420342138,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6051329320709692,
+   "p90": 0.6784585520064618,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 25,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.6250295915392976,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6045257395151994,
+   "p90": 0.6630620843375469,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 25,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.615350749677673,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6016921605772102,
+   "p90": 0.6344477750490787,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 25,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.6140562941470228,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6016863661475277,
+   "p90": 0.6308032593107034,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 25,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.6290282650290112,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6031321133480415,
+   "p90": 0.6670145705741946,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 25,
+   "method": "biased ridge to source weights",
+   "MAE": 0.6163462833826897,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5972496244633444,
+   "p90": 0.6485204074422835,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 25,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.9120790056514991,
+   "half-width (\u00d7)": 49.24493862322742
+  },
+  {
+   "platform": "youtube",
+   "k": 25,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.7867660639871482,
+   "half-width (\u00d7)": 7.817318015058876
+  },
+  {
+   "platform": "youtube",
+   "k": 50,
+   "method": "median shift",
+   "MAE": 0.6092852901791602,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5980916436350467,
+   "p90": 0.6218999628550087,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 50,
+   "method": "mean shift",
+   "MAE": 0.6262044416772833,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6047209104015732,
+   "p90": 0.658626402343027,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 50,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.6235319669714824,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6041710138309093,
+   "p90": 0.652161715276661,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 50,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.6086570061498598,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5980724496212788,
+   "p90": 0.6209344230684131,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 50,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.6083155961972715,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5980635452403533,
+   "p90": 0.6205079214190009,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 50,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.6186744560690445,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5999439716292911,
+   "p90": 0.6509254632245133,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 50,
+   "method": "biased ridge to source weights",
+   "MAE": 0.6059406400282591,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5936260283578665,
+   "p90": 0.6238283871373718,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 50,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.9012048822291863,
+   "half-width (\u00d7)": 29.989943201598567
+  },
+  {
+   "platform": "youtube",
+   "k": 50,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.7872331104040393,
+   "half-width (\u00d7)": 7.817318015058876
+  },
+  {
+   "platform": "youtube",
+   "k": 100,
+   "method": "median shift",
+   "MAE": 0.6071072621728966,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5949044302291966,
+   "p90": 0.6199021708435798,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 100,
+   "method": "mean shift",
+   "MAE": 0.6196048816227682,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6037449786157302,
+   "p90": 0.6416457226317864,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 100,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.618586350312222,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6033020985850244,
+   "p90": 0.6392875119543912,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 100,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.6069369609553347,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5949031867409685,
+   "p90": 0.6196811464124242,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 100,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.606838131634262,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5949040636673788,
+   "p90": 0.6195607438486577,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 100,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.6099780537098128,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5975257104571758,
+   "p90": 0.6255591418023027,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 100,
+   "method": "biased ridge to source weights",
+   "MAE": 0.6016643229655034,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5904022989775566,
+   "p90": 0.6133632101241521,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "youtube",
+   "k": 100,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8946718615811118,
+   "half-width (\u00d7)": 28.15931989124572
+  },
+  {
+   "platform": "youtube",
+   "k": 100,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.7868626514642793,
+   "half-width (\u00d7)": 7.817318015058876
+  },
+  {
+   "platform": "twitter",
+   "k": 0,
+   "method": "zero-shot ridge",
+   "MAE": 0.6424028846235558,
+   "tau2": 0.002532394791764165,
+   "tau2 all pairs": 0.06054056480248815,
+   "sigma2": 0.41368261785820093,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 5,
+   "method": "median shift",
+   "MAE": 0.6205832050589295,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5466080802411305,
+   "p90": 0.7724634701872182,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 5,
+   "method": "mean shift",
+   "MAE": 0.6030098078258728,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5462325186223188,
+   "p90": 0.702300739546887,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 5,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.6373566703792699,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.631335937915806,
+   "p90": 0.6441445862115729,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 5,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.6366997062101677,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6304539865891376,
+   "p90": 0.6447675832454254,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 5,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.5879495655802074,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5470726070643274,
+   "p90": 0.658647645855682,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 5,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.5984926809664806,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5329872072370004,
+   "p90": 0.6894895924443911,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 5,
+   "method": "biased ridge to source weights",
+   "MAE": 0.6036517137587534,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.531310242614755,
+   "p90": 0.661927187637133,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 5,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.7725980239159966,
+   "half-width (\u00d7)": 10.012579043081091
+  },
+  {
+   "platform": "twitter",
+   "k": 5,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8074986268631298,
+   "half-width (\u00d7)": 10.556304026287519
+  },
+  {
+   "platform": "twitter",
+   "k": 10,
+   "method": "median shift",
+   "MAE": 0.5845535929228959,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5461391061449201,
+   "p90": 0.648484459827374,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 10,
+   "method": "mean shift",
+   "MAE": 0.5744240224334785,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.546329248833714,
+   "p90": 0.6252790161736684,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 10,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.6321632007420507,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6243588500662134,
+   "p90": 0.6402186235682685,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 10,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.6317940781425697,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6215713567458484,
+   "p90": 0.6417281608623606,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 10,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.5740276048459427,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5457383796959752,
+   "p90": 0.6225351438112354,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 10,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.5667520203156147,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5269422011469842,
+   "p90": 0.6184820306408566,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 10,
+   "method": "biased ridge to source weights",
+   "MAE": 0.5792673734841963,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5297613403627964,
+   "p90": 0.6409105079814434,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 10,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8731390716282794,
+   "half-width (\u00d7)": 16.332722832207057
+  },
+  {
+   "platform": "twitter",
+   "k": 10,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8076463412316344,
+   "half-width (\u00d7)": 10.556304026287519
+  },
+  {
+   "platform": "twitter",
+   "k": 25,
+   "method": "median shift",
+   "MAE": 0.5603132490702439,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5455716838306269,
+   "p90": 0.5846087992029074,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 25,
+   "method": "mean shift",
+   "MAE": 0.5560330171396888,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5442842611476264,
+   "p90": 0.5753799731725664,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 25,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.6203219187025891,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6081808811326506,
+   "p90": 0.6317547452156392,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 25,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.6185827102395588,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.6059264047118043,
+   "p90": 0.6309272912886226,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 25,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.5578223878053019,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.543745746034963,
+   "p90": 0.5818946241806967,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 25,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.5421220820870265,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5208493377421938,
+   "p90": 0.5683846572003762,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 25,
+   "method": "biased ridge to source weights",
+   "MAE": 0.5501375654932289,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5237428572850317,
+   "p90": 0.5994121393140055,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 25,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.9166616923127177,
+   "half-width (\u00d7)": 18.370119132735898
+  },
+  {
+   "platform": "twitter",
+   "k": 25,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.807620695705493,
+   "half-width (\u00d7)": 10.556304026287519
+  },
+  {
+   "platform": "twitter",
+   "k": 50,
+   "method": "median shift",
+   "MAE": 0.5552847954801312,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5430696123798228,
+   "p90": 0.5710683407905349,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 50,
+   "method": "mean shift",
+   "MAE": 0.5507258122587682,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5421940402546372,
+   "p90": 0.5610494751839743,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 50,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.6039636927400595,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5917185180159795,
+   "p90": 0.6170211646920686,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 50,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.6018498716283296,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5852953958450905,
+   "p90": 0.6187667307818294,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 50,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.5532405207104492,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5431685799871151,
+   "p90": 0.5677378719713554,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 50,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.53349493846702,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5207894346845394,
+   "p90": 0.5478110429111418,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 50,
+   "method": "biased ridge to source weights",
+   "MAE": 0.5323071288968559,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5198353675273196,
+   "p90": 0.5480408052370173,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 50,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.9025064480805767,
+   "half-width (\u00d7)": 15.13163177005436
+  },
+  {
+   "platform": "twitter",
+   "k": 50,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.807685706939911,
+   "half-width (\u00d7)": 10.556304026287519
+  },
+  {
+   "platform": "twitter",
+   "k": 100,
+   "method": "median shift",
+   "MAE": 0.5496260481941374,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5386205741764731,
+   "p90": 0.5605174202877159,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 100,
+   "method": "mean shift",
+   "MAE": 0.54720570069887,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5378819285361449,
+   "p90": 0.5556762504750917,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 100,
+   "method": "shrunk mean shift (EB)",
+   "MAE": 0.584223237798004,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5704873605585704,
+   "p90": 0.5977545772595034,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 100,
+   "method": "shrunk median shift (EB)",
+   "MAE": 0.5808670350661949,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5646940979491318,
+   "p90": 0.5979726300097271,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 100,
+   "method": "shrunk median shift (EB, tau2 from all six pairs)",
+   "MAE": 0.5487594900043884,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5394087864527025,
+   "p90": 0.5583918830818183,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 100,
+   "method": "intercept + slope (slope shrunk to 1)",
+   "MAE": 0.5278195664536437,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5165435575758669,
+   "p90": 0.5379688553016179,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 100,
+   "method": "biased ridge to source weights",
+   "MAE": 0.5254080550500765,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": 0.5144512901451269,
+   "p90": 0.5369151493055947,
+   "coverage": NaN,
+   "half-width (\u00d7)": NaN
+  },
+  {
+   "platform": "twitter",
+   "k": 100,
+   "method": "90% interval: few-shot conformal",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8982432681164871,
+   "half-width (\u00d7)": 14.247230906328129
+  },
+  {
+   "platform": "twitter",
+   "k": 100,
+   "method": "90% interval: source conformal, no shift",
+   "MAE": NaN,
+   "tau2": NaN,
+   "tau2 all pairs": NaN,
+   "sigma2": NaN,
+   "p10": NaN,
+   "p90": NaN,
+   "coverage": 0.8080411426164708,
+   "half-width (\u00d7)": 10.556304026287519
+  }
+ ],
+ "anchor_dro_models": [
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=0",
+   "posts": 2491,
+   "MAE": 2.2662953228755023,
+   "CI low": 2.245228212114905,
+   "CI high": 2.288008433697024,
+   "bias": -2.2662953228755023
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=0.5",
+   "posts": 2491,
+   "MAE": 0.3073924729387425,
+   "CI low": 0.29492952073426537,
+   "CI high": 0.31902100401111094,
+   "bias": -0.07891120458108628
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=1",
+   "posts": 2491,
+   "MAE": 0.3121683003987344,
+   "CI low": 0.29995809381797295,
+   "CI high": 0.3243919674942714,
+   "bias": -0.05221174592060631
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=2",
+   "posts": 2491,
+   "MAE": 0.32540834869454,
+   "CI low": 0.3134512020969468,
+   "CI high": 0.33770673531468154,
+   "bias": -0.013118189521382202
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=5",
+   "posts": 2491,
+   "MAE": 0.3597992357939691,
+   "CI low": 0.3475873549626682,
+   "CI high": 0.3723994691695864,
+   "bias": 0.04962616089976848
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=10",
+   "posts": 2491,
+   "MAE": 0.3895150370201128,
+   "CI low": 0.3779037441987333,
+   "CI high": 0.40306234904504834,
+   "bias": 0.09270953815082635
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=100",
+   "posts": 2491,
+   "MAE": 0.4402881315522846,
+   "CI low": 0.42583929172113943,
+   "CI high": 0.45557777761415247,
+   "bias": 0.15714625432035442
+  },
+  {
+   "platform": "tiktok",
+   "model": "group DRO (squared loss)",
+   "posts": 2491,
+   "MAE": 0.3023050274215428,
+   "CI low": 0.2908891889178102,
+   "CI high": 0.31523888666614575,
+   "bias": -0.008846289415908672
+  },
+  {
+   "platform": "tiktok",
+   "model": "weights: classifier (E88)",
+   "posts": 2491,
+   "MAE": 0.3850082880498508,
+   "CI low": 0.3718364085410885,
+   "CI high": 0.39829533598795097,
+   "bias": 0.08270103678779402
+  },
+  {
+   "platform": "tiktok",
+   "model": "weights: flattened ^0.5",
+   "posts": 2491,
+   "MAE": 0.33186166484068114,
+   "CI low": 0.32010543518641005,
+   "CI high": 0.3447186307758229,
+   "bias": 0.019611571699115225
+  },
+  {
+   "platform": "tiktok",
+   "model": "weights: flattened ^0.25",
+   "posts": 2491,
+   "MAE": 0.3160449398930989,
+   "CI low": 0.3039731221594481,
+   "CI high": 0.3286310368279595,
+   "bias": -0.021382726831067785
+  },
+  {
+   "platform": "tiktok",
+   "model": "weights: truncated at p95",
+   "posts": 2491,
+   "MAE": 0.3699975115571856,
+   "CI low": 0.35701668291445837,
+   "CI high": 0.3833833265948977,
+   "bias": 0.058814350778001706
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=0",
+   "posts": 2441,
+   "MAE": 2.6102373454374743,
+   "CI low": 2.5579338999435746,
+   "CI high": 2.656718557034556,
+   "bias": -2.6102373454374743
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=0.5",
+   "posts": 2441,
+   "MAE": 0.6021291374668172,
+   "CI low": 0.5716099825020314,
+   "CI high": 0.6346704129281049,
+   "bias": -0.20729822128498349
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=1",
+   "posts": 2441,
+   "MAE": 0.6044553551690554,
+   "CI low": 0.5727772707788212,
+   "CI high": 0.6372852175686086,
+   "bias": -0.20613242657444422
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=2",
+   "posts": 2441,
+   "MAE": 0.6091098674849001,
+   "CI low": 0.5765777432354712,
+   "CI high": 0.642161447982469,
+   "bias": -0.20486455220915747
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=5",
+   "posts": 2441,
+   "MAE": 0.615897342639913,
+   "CI low": 0.5829149435071748,
+   "CI high": 0.6491559838947795,
+   "bias": -0.20348046001658693
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=10",
+   "posts": 2441,
+   "MAE": 0.6200020340603776,
+   "CI low": 0.5864702240311293,
+   "CI high": 0.6534896994577742,
+   "bias": -0.20280845631384609
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=100",
+   "posts": 2441,
+   "MAE": 0.6251196483029444,
+   "CI low": 0.591006945309694,
+   "CI high": 0.658947801983588,
+   "bias": -0.20205745158867194
+  },
+  {
+   "platform": "youtube",
+   "model": "group DRO (squared loss)",
+   "posts": 2441,
+   "MAE": 0.7213188217515267,
+   "CI low": 0.68782218409905,
+   "CI high": 0.7592127184554636,
+   "bias": -0.04443476369327526
+  },
+  {
+   "platform": "youtube",
+   "model": "weights: classifier (E88)",
+   "posts": 2441,
+   "MAE": 0.6019838982467559,
+   "CI low": 0.5773689594418224,
+   "CI high": 0.6323965372775774,
+   "bias": -0.09214122448505155
+  },
+  {
+   "platform": "youtube",
+   "model": "weights: flattened ^0.5",
+   "posts": 2441,
+   "MAE": 0.5995681756343539,
+   "CI low": 0.5712231010964688,
+   "CI high": 0.6314067960072222,
+   "bias": -0.15154743403483764
+  },
+  {
+   "platform": "youtube",
+   "model": "weights: flattened ^0.25",
+   "posts": 2441,
+   "MAE": 0.6021358716474847,
+   "CI low": 0.5717463227760077,
+   "CI high": 0.6343570895945976,
+   "bias": -0.18441943465317512
+  },
+  {
+   "platform": "youtube",
+   "model": "weights: truncated at p95",
+   "posts": 2441,
+   "MAE": 0.5983302642091772,
+   "CI low": 0.5721008987416417,
+   "CI high": 0.6295046750988643,
+   "bias": -0.12870660569247017
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=0",
+   "posts": 1803,
+   "MAE": 2.449391478346172,
+   "CI low": 2.410390476468315,
+   "CI high": 2.494625384961616,
+   "bias": -2.449391478346172
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=0.5",
+   "posts": 1803,
+   "MAE": 0.6402469591648166,
+   "CI low": 0.6142124788951393,
+   "CI high": 0.6614603756686298,
+   "bias": 0.3808993320326241
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=1",
+   "posts": 1803,
+   "MAE": 0.6412020704082371,
+   "CI low": 0.615131750465456,
+   "CI high": 0.6623995436984963,
+   "bias": 0.38244319740392757
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=2",
+   "posts": 1803,
+   "MAE": 0.6428015199120916,
+   "CI low": 0.6166720928536416,
+   "CI high": 0.6639499841949105,
+   "bias": 0.3849787234458119
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=5",
+   "posts": 1803,
+   "MAE": 0.6459577016767757,
+   "CI low": 0.6197239406480924,
+   "CI high": 0.6672470893092064,
+   "bias": 0.38991366925931276
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=10",
+   "posts": 1803,
+   "MAE": 0.6486719834562455,
+   "CI low": 0.6223465662884227,
+   "CI high": 0.6700787281496213,
+   "bias": 0.3941240332551577
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=100",
+   "posts": 1803,
+   "MAE": 0.6539591235233565,
+   "CI low": 0.6274624825814207,
+   "CI high": 0.675578880009694,
+   "bias": 0.4022392854776184
+  },
+  {
+   "platform": "twitter",
+   "model": "group DRO (squared loss)",
+   "posts": 1803,
+   "MAE": 0.6536207726497759,
+   "CI low": 0.6267926916011477,
+   "CI high": 0.67509052203123,
+   "bias": 0.3990696863481307
+  },
+  {
+   "platform": "twitter",
+   "model": "weights: classifier (E88)",
+   "posts": 1803,
+   "MAE": 0.6183071781722397,
+   "CI low": 0.5935879638328028,
+   "CI high": 0.6388028220016406,
+   "bias": 0.3349104110044691
+  },
+  {
+   "platform": "twitter",
+   "model": "weights: flattened ^0.5",
+   "posts": 1803,
+   "MAE": 0.6440389977687848,
+   "CI low": 0.6176887600986791,
+   "CI high": 0.6653720929759286,
+   "bias": 0.3885726232645545
+  },
+  {
+   "platform": "twitter",
+   "model": "weights: flattened ^0.25",
+   "posts": 1803,
+   "MAE": 0.6476676462127707,
+   "CI low": 0.6211353624005657,
+   "CI high": 0.6688254023004863,
+   "bias": 0.3953254241381509
+  },
+  {
+   "platform": "twitter",
+   "model": "weights: truncated at p95",
+   "posts": 1803,
+   "MAE": 0.6419055132160078,
+   "CI low": 0.6159567539740707,
+   "CI high": 0.6632771026541321,
+   "bias": 0.38601882395490433
+  }
+ ],
+ "anchor_dro_gains": [
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=0",
+   "gain": -1.9541270224767682,
+   "CI low": -1.9739229654977508,
+   "CI high": -1.935875495756441
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=0.5",
+   "gain": 0.004775827459991892,
+   "CI low": 0.002800349379507768,
+   "CI high": 0.006886528241457532
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=2",
+   "gain": -0.0132400482958056,
+   "CI low": -0.016074308447635313,
+   "CI high": -0.010554442745962575
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=5",
+   "gain": -0.04763093539523475,
+   "CI low": -0.054314439586090196,
+   "CI high": -0.041533723006161434
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=10",
+   "gain": -0.07734673662137845,
+   "CI low": -0.08615387105661576,
+   "CI high": -0.06852982856220187
+  },
+  {
+   "platform": "tiktok",
+   "model": "anchor gamma=100",
+   "gain": -0.1281198311535502,
+   "CI low": -0.1406506535812811,
+   "CI high": -0.11637327065449897
+  },
+  {
+   "platform": "tiktok",
+   "model": "group DRO (squared loss)",
+   "gain": 0.00986327297719153,
+   "CI low": 0.004720238840354416,
+   "CI high": 0.015580337734927533
+  },
+  {
+   "platform": "tiktok",
+   "model": "weights: classifier (E88)",
+   "gain": -0.07283998765111646,
+   "CI low": -0.08185445577357923,
+   "CI high": -0.06363754937583577
+  },
+  {
+   "platform": "tiktok",
+   "model": "weights: flattened ^0.5",
+   "gain": -0.019693364441946738,
+   "CI low": -0.02474375623375682,
+   "CI high": -0.014735360310164229
+  },
+  {
+   "platform": "tiktok",
+   "model": "weights: flattened ^0.25",
+   "gain": -0.003876639494364487,
+   "CI low": -0.006237625656285777,
+   "CI high": -0.0015113183315133773
+  },
+  {
+   "platform": "tiktok",
+   "model": "weights: truncated at p95",
+   "gain": -0.05782921115845117,
+   "CI low": -0.06586296930685155,
+   "CI high": -0.0493645206508254
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=0",
+   "gain": -2.005781990268419,
+   "CI low": -2.039836678253579,
+   "CI high": -1.967824261017288
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=0.5",
+   "gain": 0.0023262177022381554,
+   "CI low": 0.0010011222835215748,
+   "CI high": 0.0037469320614422104
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=2",
+   "gain": -0.004654512315844724,
+   "CI low": -0.006231472876095456,
+   "CI high": -0.0031223775036898775
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=5",
+   "gain": -0.01144198747085768,
+   "CI low": -0.014526144315268242,
+   "CI high": -0.008126817661460896
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=10",
+   "gain": -0.015546678891322092,
+   "CI low": -0.019325224732209514,
+   "CI high": -0.011434146171819431
+  },
+  {
+   "platform": "youtube",
+   "model": "anchor gamma=100",
+   "gain": -0.020664293133889053,
+   "CI low": -0.02522192387872018,
+   "CI high": -0.015615031280178385
+  },
+  {
+   "platform": "youtube",
+   "model": "group DRO (squared loss)",
+   "gain": -0.11686346658247129,
+   "CI low": -0.1304121360378482,
+   "CI high": -0.10136179090095518
+  },
+  {
+   "platform": "youtube",
+   "model": "weights: classifier (E88)",
+   "gain": 0.002471456922299564,
+   "CI low": -0.00625333433342256,
+   "CI high": 0.010305566557409563
+  },
+  {
+   "platform": "youtube",
+   "model": "weights: flattened ^0.5",
+   "gain": 0.004887179534701438,
+   "CI low": 0.001334469342818449,
+   "CI high": 0.008277809151519828
+  },
+  {
+   "platform": "youtube",
+   "model": "weights: flattened ^0.25",
+   "gain": 0.0023194835215706857,
+   "CI low": 0.0008885515821696943,
+   "CI high": 0.0036599181938323745
+  },
+  {
+   "platform": "youtube",
+   "model": "weights: truncated at p95",
+   "gain": 0.00612509095987815,
+   "CI low": 0.00037880317273377356,
+   "CI high": 0.011111746764228474
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=0",
+   "gain": -1.8081894079379353,
+   "CI low": -1.869247533918806,
+   "CI high": -1.7548392586472394
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=0.5",
+   "gain": 0.0009551112434203771,
+   "CI low": 0.000827589510905916,
+   "CI high": 0.0010726214819025421
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=2",
+   "gain": -0.0015994495038545897,
+   "CI low": -0.001798340730992124,
+   "CI high": -0.0013938766221668068
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=5",
+   "gain": -0.004755631268538662,
+   "CI low": -0.005325126506247551,
+   "CI high": -0.00414490733149565
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=10",
+   "gain": -0.0074699130480083906,
+   "CI low": -0.0083443412009792,
+   "CI high": -0.006513480613064725
+  },
+  {
+   "platform": "twitter",
+   "model": "anchor gamma=100",
+   "gain": -0.012757053115119587,
+   "CI low": -0.014290058308061852,
+   "CI high": -0.011151658477558841
+  },
+  {
+   "platform": "twitter",
+   "model": "group DRO (squared loss)",
+   "gain": -0.012418702241538895,
+   "CI low": -0.014045134964204346,
+   "CI high": -0.010612663427697653
+  },
+  {
+   "platform": "twitter",
+   "model": "weights: classifier (E88)",
+   "gain": 0.022894892235997385,
+   "CI low": 0.0196351849539479,
+   "CI high": 0.025917710428775626
+  },
+  {
+   "platform": "twitter",
+   "model": "weights: flattened ^0.5",
+   "gain": -0.002836927360547658,
+   "CI low": -0.0037841926356913928,
+   "CI high": -0.0017863460701166946
+  },
+  {
+   "platform": "twitter",
+   "model": "weights: flattened ^0.25",
+   "gain": -0.00646557580453361,
+   "CI low": -0.007263091850969456,
+   "CI high": -0.005698189808903671
+  },
+  {
+   "platform": "twitter",
+   "model": "weights: truncated at p95",
+   "gain": -0.0007034428077706783,
+   "CI low": -0.0021603779719011145,
+   "CI high": 0.0007448214899371171
+  }
+ ],
+ "subsets": [
+  {
+   "platform": "tiktok",
+   "subset": "log_likes",
+   "n features": 1,
+   "source-to-source MAE": 0.6985233402149296,
+   "target MAE": 0.3122530157080502,
+   "target bias": 0.004567554124153363
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments",
+   "n features": 1,
+   "source-to-source MAE": 0.8167228948947596,
+   "target MAE": 0.6167063922987723,
+   "target bias": 0.46159466967768104
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_shares",
+   "n features": 1,
+   "source-to-source MAE": 1.5357875424995058,
+   "target MAE": 0.8535674004512052,
+   "target bias": 0.7604293233333792
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_followers",
+   "n features": 1,
+   "source-to-source MAE": 0.819340959065944,
+   "target MAE": 1.1842484975037706,
+   "target bias": 1.1364725923059298
+  },
+  {
+   "platform": "tiktok",
+   "subset": "cpl",
+   "n features": 1,
+   "source-to-source MAE": 1.0828978335172532,
+   "target MAE": 0.5238784374850105,
+   "target bias": 0.2617263487708072
+  },
+  {
+   "platform": "tiktok",
+   "subset": "lpf",
+   "n features": 1,
+   "source-to-source MAE": 1.210423702379031,
+   "target MAE": 1.207868675193905,
+   "target bias": 1.1450011972959395
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments",
+   "n features": 2,
+   "source-to-source MAE": 0.6956473118175432,
+   "target MAE": 0.3119280745354289,
+   "target bias": 0.05255813942499051
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_shares",
+   "n features": 2,
+   "source-to-source MAE": 0.8330013679116137,
+   "target MAE": 0.4791236956303845,
+   "target bias": -0.3016862391206693
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_followers",
+   "n features": 2,
+   "source-to-source MAE": 0.6092654454165358,
+   "target MAE": 0.4443167949536153,
+   "target bias": 0.33301413778696703
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.6920609911642052,
+   "target MAE": 0.3164835133889878,
+   "target bias": 0.08161203720386759
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.629253303466798,
+   "target MAE": 0.42478118544645316,
+   "target bias": 0.31331655022710775
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_shares",
+   "n features": 2,
+   "source-to-source MAE": 1.0762111882375596,
+   "target MAE": 0.49557810403933156,
+   "target bias": 0.17014513824429078
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_followers",
+   "n features": 2,
+   "source-to-source MAE": 0.6406860082582176,
+   "target MAE": 0.8155703342926448,
+   "target bias": 0.7472707349540281
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.6731009709522171,
+   "target MAE": 0.30507175303613426,
+   "target bias": 0.05198298478747428
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.7510773158793955,
+   "target MAE": 0.8135760738266693,
+   "target bias": 0.7192331296289165
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_shares+log_followers",
+   "n features": 2,
+   "source-to-source MAE": 0.9660010983355218,
+   "target MAE": 0.8639109577909835,
+   "target bias": 0.791757562217387
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_shares+cpl",
+   "n features": 2,
+   "source-to-source MAE": 1.403428911497568,
+   "target MAE": 0.41815348155119647,
+   "target bias": 0.005102002955305333
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_shares+lpf",
+   "n features": 2,
+   "source-to-source MAE": 1.5025885280404088,
+   "target MAE": 1.0905217141718335,
+   "target bias": 1.023666279526107
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_followers+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.7361012573527267,
+   "target MAE": 0.7850462017950945,
+   "target bias": 0.7017987818138809
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_followers+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.6026576006484721,
+   "target MAE": 0.6057082687233448,
+   "target bias": 0.5442591120380802
+  },
+  {
+   "platform": "tiktok",
+   "subset": "cpl+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.9674586685030295,
+   "target MAE": 0.7007878976251449,
+   "target bias": 0.5631132773116309
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_shares",
+   "n features": 3,
+   "source-to-source MAE": 0.8283618043849702,
+   "target MAE": 0.4586718709281841,
+   "target bias": -0.2615768235563474
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.6132207453440998,
+   "target MAE": 0.4552319629040816,
+   "target bias": 0.35203929467231676
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.6821330766630809,
+   "target MAE": 0.3164685040138287,
+   "target bias": 0.07908117475637662
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.6314676707198077,
+   "target MAE": 0.4391032664352218,
+   "target bias": 0.33645520211386437
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_shares+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.7058661075837838,
+   "target MAE": 0.47745067688286463,
+   "target bias": -0.04748858335810825
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_shares+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.8223182921797239,
+   "target MAE": 0.4307954875967679,
+   "target bias": -0.2118094173572701
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_shares+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.7463082100385063,
+   "target MAE": 0.42041375685508026,
+   "target bias": -0.00766255264921746
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_followers+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.6057940845454286,
+   "target MAE": 0.47347274225670294,
+   "target bias": 0.37845162950150985
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_followers+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.6089712521226828,
+   "target MAE": 0.4453087351794489,
+   "target bias": 0.3347627051678834
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.6266168028144841,
+   "target MAE": 0.4463054808581756,
+   "target bias": 0.34843370234724536
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_shares+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.7854486485391364,
+   "target MAE": 0.5827068740893973,
+   "target bias": 0.3615440059921695
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_shares+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.7550929049615854,
+   "target MAE": 0.5005558903390651,
+   "target bias": -0.33683280025934137
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_shares+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.9828034472180655,
+   "target MAE": 0.6056416364055736,
+   "target bias": 0.4204134060592885
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_followers+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.603128291489242,
+   "target MAE": 0.47038311838881647,
+   "target bias": 0.372391886312477
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_followers+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.6052870901862362,
+   "target MAE": 0.6099482017656539,
+   "target bias": 0.5377351773527683
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.6145189304247549,
+   "target MAE": 0.43322191851530334,
+   "target bias": 0.32654350493974155
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_shares+log_followers+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.9135468190797896,
+   "target MAE": 0.540980130425228,
+   "target bias": 0.2858910379530653
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_shares+log_followers+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.6547842962887129,
+   "target MAE": 0.5387883394187832,
+   "target bias": 0.003870541646073831
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_shares+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 1.2775989080590218,
+   "target MAE": 0.5177173643362413,
+   "target bias": 0.28005663002376585
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_followers+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.6033222530922537,
+   "target MAE": 0.5834668896364272,
+   "target bias": 0.5157516182897145
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_shares+log_followers",
+   "n features": 4,
+   "source-to-source MAE": 0.7060291124054687,
+   "target MAE": 0.4756820343895375,
+   "target bias": -0.03077174743744142
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_shares+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.8104053774724757,
+   "target MAE": 0.44210669711971673,
+   "target bias": -0.2304978674440385
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_shares+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.7430603136644919,
+   "target MAE": 0.42218692717434586,
+   "target bias": 0.010963529912913456
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.597179148337317,
+   "target MAE": 0.4769341865426863,
+   "target bias": 0.3838746883223117
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_followers+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6129075104577957,
+   "target MAE": 0.4565272121881821,
+   "target bias": 0.3541966454857242
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6189497506914121,
+   "target MAE": 0.44450352840428486,
+   "target bias": 0.3448697805718421
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_shares+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.6989364813275323,
+   "target MAE": 0.46705117036645744,
+   "target bias": 0.00504944389684172
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_shares+log_followers+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.7033364848641053,
+   "target MAE": 0.4841652762833153,
+   "target bias": -0.05776872431398027
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_shares+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.7411464068160933,
+   "target MAE": 0.41448157106306194,
+   "target bias": 0.033460746036429054
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_followers+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6048120321391952,
+   "target MAE": 0.47346191494142364,
+   "target bias": 0.37842627083193014
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_shares+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.5852530880506306,
+   "target MAE": 0.49721230926698623,
+   "target bias": -0.07782240405458751
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_shares+log_followers+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6085600320655051,
+   "target MAE": 0.5324259211614029,
+   "target bias": 0.037421075300098146
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_shares+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6160956246969163,
+   "target MAE": 0.45009706550412254,
+   "target bias": -0.08216360001523734
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_followers+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6231456068601662,
+   "target MAE": 0.4709991244497386,
+   "target bias": 0.37329070527219294
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_shares+log_followers+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6572626249441365,
+   "target MAE": 0.5418058988498407,
+   "target bias": -0.02173352339393821
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_shares+log_followers+cpl",
+   "n features": 5,
+   "source-to-source MAE": 0.6882700855602628,
+   "target MAE": 0.46744962827788983,
+   "target bias": 0.00368253254381793
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_shares+log_followers+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.703760864570852,
+   "target MAE": 0.48129285783983594,
+   "target bias": -0.04004995269711105
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_shares+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.7213902411346962,
+   "target MAE": 0.4223549225465765,
+   "target bias": 0.010239488471400597
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_followers+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.59639921967599,
+   "target MAE": 0.4771709823612894,
+   "target bias": 0.38411936783297473
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_shares+log_followers+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.6951798860938546,
+   "target MAE": 0.47658884158688164,
+   "target bias": -0.009445270185591244
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_shares+log_followers+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.6146982180032345,
+   "target MAE": 0.512220639266542,
+   "target bias": -0.09171238645587328
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_shares+log_followers+cpl+lpf",
+   "n features": 6,
+   "source-to-source MAE": 0.6868035706430786,
+   "target MAE": 0.4759028120353953,
+   "target bias": -0.006083965575575352
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes",
+   "n features": 1,
+   "source-to-source MAE": 0.5673820071475443,
+   "target MAE": 0.6052107140087716,
+   "target bias": 0.2154106049071797
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments",
+   "n features": 1,
+   "source-to-source MAE": 0.9349321977319578,
+   "target MAE": 0.7477969944232007,
+   "target bias": -0.06786127453110892
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_shares",
+   "n features": 1,
+   "source-to-source MAE": 0.9857283200260173,
+   "target MAE": 1.1660845342800066,
+   "target bias": 0.9056953939361687
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_followers",
+   "n features": 1,
+   "source-to-source MAE": 1.4129131409854894,
+   "target MAE": 0.8385341691904384,
+   "target bias": -0.30555402708869633
+  },
+  {
+   "platform": "youtube",
+   "subset": "cpl",
+   "n features": 1,
+   "source-to-source MAE": 0.9683616571615854,
+   "target MAE": 0.9282415264813955,
+   "target bias": 0.47337312964903355
+  },
+  {
+   "platform": "youtube",
+   "subset": "lpf",
+   "n features": 1,
+   "source-to-source MAE": 1.5476740610989577,
+   "target MAE": 1.0888016788044252,
+   "target bias": 0.5435646158309008
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments",
+   "n features": 2,
+   "source-to-source MAE": 0.569578813744059,
+   "target MAE": 0.6041394426880363,
+   "target bias": 0.20620286065079182
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_shares",
+   "n features": 2,
+   "source-to-source MAE": 0.5907098082528961,
+   "target MAE": 0.6033393560139546,
+   "target bias": 0.24213495063750337
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_followers",
+   "n features": 2,
+   "source-to-source MAE": 0.5360026478609483,
+   "target MAE": 0.5860379855366348,
+   "target bias": 0.07844890121677173
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.5499680488228631,
+   "target MAE": 0.6042501107295836,
+   "target bias": 0.19965040752718752
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.5352002448758392,
+   "target MAE": 0.5885514525773565,
+   "target bias": 0.08117521526817269
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_shares",
+   "n features": 2,
+   "source-to-source MAE": 0.8514412979479109,
+   "target MAE": 0.7591464018682067,
+   "target bias": 0.3966562814790899
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_followers",
+   "n features": 2,
+   "source-to-source MAE": 0.9292444610546378,
+   "target MAE": 0.7485455798858854,
+   "target bias": -0.2985678107853416
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.5282859585835263,
+   "target MAE": 0.6144640729373699,
+   "target bias": 0.1836062524003382
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+lpf",
+   "n features": 2,
+   "source-to-source MAE": 1.0052547523595514,
+   "target MAE": 0.7472870416041654,
+   "target bias": -0.039982283557629256
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_shares+log_followers",
+   "n features": 2,
+   "source-to-source MAE": 0.9491316982882347,
+   "target MAE": 0.9266168569089042,
+   "target bias": 0.5507098568973777
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_shares+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.8099591940025505,
+   "target MAE": 1.0270808613625673,
+   "target bias": 0.8102447059472836
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_shares+lpf",
+   "n features": 2,
+   "source-to-source MAE": 1.0257379420700352,
+   "target MAE": 1.1797465239039011,
+   "target bias": 0.9262175393492883
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_followers+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.9330950102929075,
+   "target MAE": 0.8084574301514006,
+   "target bias": 0.1481259458360816
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_followers+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.5388251633854924,
+   "target MAE": 0.668297564373015,
+   "target bias": 0.05511434664406302
+  },
+  {
+   "platform": "youtube",
+   "subset": "cpl+lpf",
+   "n features": 2,
+   "source-to-source MAE": 1.0236376969322265,
+   "target MAE": 0.9284084206848601,
+   "target bias": 0.47381611493016584
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_shares",
+   "n features": 3,
+   "source-to-source MAE": 0.5951243255189261,
+   "target MAE": 0.601977936253476,
+   "target bias": 0.2315665043918704
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.5369718611155402,
+   "target MAE": 0.5868643962914362,
+   "target bias": 0.07089433490037812
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.5368114778496259,
+   "target MAE": 0.6059540420938143,
+   "target bias": 0.2060142037389115
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5361197434720538,
+   "target MAE": 0.589426703624488,
+   "target bias": 0.07359003218596008
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_shares+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.5619950903487239,
+   "target MAE": 0.576622417666023,
+   "target bias": 0.10757643115599373
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_shares+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.5745248157821754,
+   "target MAE": 0.6013904969386863,
+   "target bias": 0.21930239312478877
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_shares+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5612371192240758,
+   "target MAE": 0.578575926486592,
+   "target bias": 0.11018982074944017
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_followers+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.5268572475130945,
+   "target MAE": 0.5878390809068267,
+   "target bias": 0.06786834938330304
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_followers+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5365182112184668,
+   "target MAE": 0.5869108992545091,
+   "target bias": 0.07779884677061685
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5262973410310192,
+   "target MAE": 0.5906346745430553,
+   "target bias": 0.07068652299571711
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_shares+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.8360032057169975,
+   "target MAE": 0.650980380127171,
+   "target bias": 0.1614120689027213
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_shares+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.5771751499825246,
+   "target MAE": 0.6204745059423594,
+   "target bias": 0.268157119099865
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_shares+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.8884284661308747,
+   "target MAE": 0.7506630346577635,
+   "target bias": 0.37856622303322096
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_followers+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.5138762493808395,
+   "target MAE": 0.5976903900178092,
+   "target bias": 0.027168303600747287
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_followers+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5298986423439356,
+   "target MAE": 0.6582029284694899,
+   "target bias": -0.005259780862465689
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5111168211943244,
+   "target MAE": 0.5962676675704508,
+   "target bias": 0.048773971698942854
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_shares+log_followers+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.7797809109982842,
+   "target MAE": 0.8467877278431699,
+   "target bias": 0.537136044374663
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_shares+log_followers+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5972530296953869,
+   "target MAE": 0.6736440745597554,
+   "target bias": 0.2111455802318547
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_shares+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.8344403753903886,
+   "target MAE": 0.9844369347635459,
+   "target bias": 0.7498322479115562
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_followers+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5302161325944772,
+   "target MAE": 0.6737447597715782,
+   "target bias": 0.09526652286519187
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_shares+log_followers",
+   "n features": 4,
+   "source-to-source MAE": 0.565605794168936,
+   "target MAE": 0.577412119163223,
+   "target bias": 0.09992309908328302
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_shares+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.5606398240494446,
+   "target MAE": 0.6031025360754498,
+   "target bias": 0.22662742815904585
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_shares+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5647406767572066,
+   "target MAE": 0.579480812876254,
+   "target bias": 0.10247027973778537
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.5185578840297982,
+   "target MAE": 0.58827882773463,
+   "target bias": 0.07334602778586957
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_followers+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5375436209875373,
+   "target MAE": 0.5877835527653631,
+   "target bias": 0.07025396350770273
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5183120911230995,
+   "target MAE": 0.5915424967800256,
+   "target bias": 0.07605217739436623
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_shares+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.5540757452116014,
+   "target MAE": 0.5788746555949782,
+   "target bias": 0.09294539516332768
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_shares+log_followers+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5624995696384649,
+   "target MAE": 0.5770382741775503,
+   "target bias": 0.10689812176872364
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_shares+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5534499237152553,
+   "target MAE": 0.5812165374537791,
+   "target bias": 0.09569016576732588
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_followers+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5273034298807688,
+   "target MAE": 0.5889048290066748,
+   "target bias": 0.06732121306001794
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_shares+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.5554493665164129,
+   "target MAE": 0.5805485326391935,
+   "target bias": 0.111095205453109
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_shares+log_followers+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5905591326389581,
+   "target MAE": 0.6360248609423504,
+   "target bias": 0.12645521686745972
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_shares+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5600948153069192,
+   "target MAE": 0.5813584975421161,
+   "target bias": 0.13626720783665625
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_followers+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5237216922421346,
+   "target MAE": 0.6057132019466677,
+   "target bias": 0.03647094171367611
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_shares+log_followers+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.588843321843133,
+   "target MAE": 0.6906129341694002,
+   "target bias": 0.26683288101365893
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_shares+log_followers+cpl",
+   "n features": 5,
+   "source-to-source MAE": 0.5454320106392037,
+   "target MAE": 0.5792623186215364,
+   "target bias": 0.09903457719637745
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_shares+log_followers+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.5661459319935125,
+   "target MAE": 0.5779116469305767,
+   "target bias": 0.0992550556241291
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_shares+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.5451591803268185,
+   "target MAE": 0.5820617536999956,
+   "target bias": 0.10165205267380575
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_followers+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.5190854219434891,
+   "target MAE": 0.5895460264533882,
+   "target bias": 0.07269581572031163
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_shares+log_followers+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.5544775593946978,
+   "target MAE": 0.5795516615492396,
+   "target bias": 0.09243715157681565
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+log_shares+log_followers+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.5537785172333111,
+   "target MAE": 0.5902406084414158,
+   "target bias": 0.11151355108463347
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_shares+log_followers+cpl+lpf",
+   "n features": 6,
+   "source-to-source MAE": 0.5457605774847901,
+   "target MAE": 0.5801441310847225,
+   "target bias": 0.09841171530858132
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes",
+   "n features": 1,
+   "source-to-source MAE": 0.45504457712880597,
+   "target MAE": 0.648782439240587,
+   "target bias": -0.40421513432946926
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments",
+   "n features": 1,
+   "source-to-source MAE": 0.6514384122011759,
+   "target MAE": 0.8297530741647212,
+   "target bias": -0.5799866893629009
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_shares",
+   "n features": 1,
+   "source-to-source MAE": 0.8849101054020638,
+   "target MAE": 1.244275720100971,
+   "target bias": -1.1792057483933542
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_followers",
+   "n features": 1,
+   "source-to-source MAE": 1.102001975058478,
+   "target MAE": 1.1153477213957435,
+   "target bias": -1.0271522034770393
+  },
+  {
+   "platform": "twitter",
+   "subset": "cpl",
+   "n features": 1,
+   "source-to-source MAE": 0.6842807341955242,
+   "target MAE": 0.9972694311862882,
+   "target bias": -0.8501412079107298
+  },
+  {
+   "platform": "twitter",
+   "subset": "lpf",
+   "n features": 1,
+   "source-to-source MAE": 0.8438290423533552,
+   "target MAE": 1.3845163920800403,
+   "target bias": -1.2935019898189515
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments",
+   "n features": 2,
+   "source-to-source MAE": 0.45233948928311085,
+   "target MAE": 0.6424028846235558,
+   "target bias": -0.385212720125002
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_shares",
+   "n features": 2,
+   "source-to-source MAE": 0.9115295534122358,
+   "target MAE": 0.6737484182604844,
+   "target bias": -0.4524970443992701
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_followers",
+   "n features": 2,
+   "source-to-source MAE": 0.5458071524669418,
+   "target MAE": 0.5843815742927821,
+   "target bias": -0.3216411016548927
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.4532123754496291,
+   "target MAE": 0.6452496347917515,
+   "target bias": -0.40110335055965884
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.5080207875935604,
+   "target MAE": 0.592578910335287,
+   "target bias": -0.3366728981041822
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_shares",
+   "n features": 2,
+   "source-to-source MAE": 0.7576743637837089,
+   "target MAE": 0.8502284568673089,
+   "target bias": -0.65422322247107
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_followers",
+   "n features": 2,
+   "source-to-source MAE": 0.8204808977052794,
+   "target MAE": 0.7578332417922652,
+   "target bias": -0.5059223627051914
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.4598725703343969,
+   "target MAE": 0.6583996090394257,
+   "target bias": -0.3289096707708547
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.7261284974478999,
+   "target MAE": 0.8356652473875199,
+   "target bias": -0.5852666565167138
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_shares+log_followers",
+   "n features": 2,
+   "source-to-source MAE": 0.7306859297352545,
+   "target MAE": 0.9595374084372097,
+   "target bias": -0.8685097650519175
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_shares+cpl",
+   "n features": 2,
+   "source-to-source MAE": 1.1438900348546461,
+   "target MAE": 1.014746240260531,
+   "target bias": -0.9041773252591948
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_shares+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.9239531631471893,
+   "target MAE": 1.2377387261782618,
+   "target bias": -1.1763195062723208
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_followers+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.807692387307728,
+   "target MAE": 0.7993186075482892,
+   "target bias": -0.6172189984256089
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_followers+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.7148098499695268,
+   "target MAE": 0.6390360534230618,
+   "target bias": -0.4130107286492876
+  },
+  {
+   "platform": "twitter",
+   "subset": "cpl+lpf",
+   "n features": 2,
+   "source-to-source MAE": 0.7020522986583095,
+   "target MAE": 0.9731642843735867,
+   "target bias": -0.8254673870544028
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_shares",
+   "n features": 3,
+   "source-to-source MAE": 0.88403963612069,
+   "target MAE": 0.6667687541215961,
+   "target bias": -0.4336748276689627
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.5578628396061689,
+   "target MAE": 0.5832815066471987,
+   "target bias": -0.3141684518913766
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.45554687103373914,
+   "target MAE": 0.6439777965240159,
+   "target bias": -0.3959560085765421
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5222326712661394,
+   "target MAE": 0.5908250914710772,
+   "target bias": -0.3281048347810363
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_shares+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.7074949982222924,
+   "target MAE": 0.6063569451256862,
+   "target bias": -0.37506331934269665
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_shares+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.8782459279377748,
+   "target MAE": 0.6712702177716533,
+   "target bias": -0.45142110139537694
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_shares+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.7015572759795834,
+   "target MAE": 0.6180938782843396,
+   "target bias": -0.39493189003898344
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_followers+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.5618306264543198,
+   "target MAE": 0.5849738718366847,
+   "target bias": -0.32369477960043114
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_followers+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5433328509026871,
+   "target MAE": 0.5897978215559809,
+   "target bias": -0.3319384695299227
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5170668107775274,
+   "target MAE": 0.5929795700926003,
+   "target bias": -0.3381772881639626
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_shares+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.6632414262765562,
+   "target MAE": 0.750376653862329,
+   "target bias": -0.5567950837069385
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_shares+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.8758904420919731,
+   "target MAE": 0.6801595135003444,
+   "target bias": -0.3863144256032758
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_shares+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.6791888987239838,
+   "target MAE": 0.8359812754256589,
+   "target bias": -0.646828818136852
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_followers+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.573647476260249,
+   "target MAE": 0.5979578378434515,
+   "target bias": -0.25411796148615723
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_followers+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.6983540019276642,
+   "target MAE": 0.6239553813211743,
+   "target bias": -0.35156132286768904
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5351194281188175,
+   "target MAE": 0.6068514804907628,
+   "target bias": -0.2539406563938641
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_shares+log_followers+cpl",
+   "n features": 3,
+   "source-to-source MAE": 0.7675815101598279,
+   "target MAE": 0.7955084519158927,
+   "target bias": -0.649301440639321
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_shares+log_followers+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.8089685192984577,
+   "target MAE": 0.6744360622830683,
+   "target bias": -0.490719850987472
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_shares+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 1.0188186276573423,
+   "target MAE": 0.9631683164279995,
+   "target bias": -0.8540487393928559
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_followers+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.7020514993820701,
+   "target MAE": 0.6350853188081826,
+   "target bias": -0.4011586698398652
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_shares+log_followers",
+   "n features": 4,
+   "source-to-source MAE": 0.6953661782922878,
+   "target MAE": 0.6045272495276764,
+   "target bias": -0.3678191251204215
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_shares+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.8809956060407065,
+   "target MAE": 0.6716544347229669,
+   "target bias": -0.4526046021703454
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_shares+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6828488031836983,
+   "target MAE": 0.6155715820142446,
+   "target bias": -0.3865718483102906
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.5638738470969247,
+   "target MAE": 0.584041093322231,
+   "target bias": -0.319336969217654
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_followers+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5554901728211746,
+   "target MAE": 0.5886346451341666,
+   "target bias": -0.3244665418611637
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5237979862740514,
+   "target MAE": 0.5893450694087989,
+   "target bias": -0.31671894824174246
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_shares+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.6917445676676741,
+   "target MAE": 0.6070784247435165,
+   "target bias": -0.3774610916954947
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_shares+log_followers+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.7156899541059233,
+   "target MAE": 0.6135569496278194,
+   "target bias": -0.38775132389897415
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_shares+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6906495675031725,
+   "target MAE": 0.6185047192380871,
+   "target bias": -0.39655006520593433
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_followers+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.559963116304163,
+   "target MAE": 0.589690749610251,
+   "target bias": -0.3326278153187642
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_shares+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.6841445801217424,
+   "target MAE": 0.6140792456227249,
+   "target bias": -0.3203707562927871
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_shares+log_followers+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.7305460078301782,
+   "target MAE": 0.6518943885547273,
+   "target bias": -0.430059937992122
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_shares+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.6654691393448298,
+   "target MAE": 0.6258600954849465,
+   "target bias": -0.32223660029454887
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_followers+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.5668649342390542,
+   "target MAE": 0.6091431702698913,
+   "target bias": -0.2553354427112901
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_shares+log_followers+cpl+lpf",
+   "n features": 4,
+   "source-to-source MAE": 0.8314874139109805,
+   "target MAE": 0.6694406820990788,
+   "target bias": -0.47854101237081004
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_shares+log_followers+cpl",
+   "n features": 5,
+   "source-to-source MAE": 0.6944572670988779,
+   "target MAE": 0.608663586704825,
+   "target bias": -0.3826781166834919
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_shares+log_followers+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.7027073908175222,
+   "target MAE": 0.611684370423496,
+   "target bias": -0.3805056349218648
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_shares+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.6841189661963339,
+   "target MAE": 0.6141726200201728,
+   "target bias": -0.3807352946223466
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_followers+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.5605169150218017,
+   "target MAE": 0.588439063037273,
+   "target bias": -0.3163067312470553
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_shares+log_followers+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.7016184939179422,
+   "target MAE": 0.6134730545909237,
+   "target bias": -0.3885842303821966
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_comments+log_shares+log_followers+cpl+lpf",
+   "n features": 5,
+   "source-to-source MAE": 0.6872345707812966,
+   "target MAE": 0.6249559257705778,
+   "target bias": -0.3217700339278521
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_shares+log_followers+cpl+lpf",
+   "n features": 6,
+   "source-to-source MAE": 0.7107839333287046,
+   "target MAE": 0.6115627101112724,
+   "target bias": -0.3797439429642025
+  }
+ ],
+ "subset_choice": [
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments",
+   "n features": 2,
+   "source-to-source MAE": 0.6956473118175432,
+   "target MAE": 0.3119280745354289,
+   "target bias": 0.05255813942499051,
+   "pick": "likes + comments"
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments",
+   "n features": 2,
+   "source-to-source MAE": 0.569578813744059,
+   "target MAE": 0.6041394426880363,
+   "target bias": 0.20620286065079182,
+   "pick": "likes + comments"
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments",
+   "n features": 2,
+   "source-to-source MAE": 0.45233948928311085,
+   "target MAE": 0.6424028846235558,
+   "target bias": -0.385212720125002,
+   "pick": "likes + comments"
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+log_shares+log_followers+cpl",
+   "n features": 4,
+   "source-to-source MAE": 0.5852530880506306,
+   "target MAE": 0.49721230926698623,
+   "target bias": -0.07782240405458751,
+   "pick": "chosen by sources"
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments",
+   "n features": 2,
+   "source-to-source MAE": 0.45233948928311085,
+   "target MAE": 0.6424028846235558,
+   "target bias": -0.385212720125002,
+   "pick": "chosen by sources"
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_comments+cpl+lpf",
+   "n features": 3,
+   "source-to-source MAE": 0.5111168211943244,
+   "target MAE": 0.5962676675704508,
+   "target bias": 0.048773971698942854,
+   "pick": "chosen by sources"
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_comments+cpl",
+   "n features": 2,
+   "source-to-source MAE": 0.6731009709522171,
+   "target MAE": 0.30507175303613426,
+   "target bias": 0.05198298478747428,
+   "pick": "best on target (oracle)"
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.5578628396061689,
+   "target MAE": 0.5832815066471987,
+   "target bias": -0.3141684518913766,
+   "pick": "best on target (oracle)"
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_shares+log_followers",
+   "n features": 3,
+   "source-to-source MAE": 0.5619950903487239,
+   "target MAE": 0.576622417666023,
+   "target bias": 0.10757643115599373,
+   "pick": "best on target (oracle)"
+  },
+  {
+   "platform": "tiktok",
+   "subset": "log_likes+log_comments+log_shares+log_followers+cpl+lpf",
+   "n features": 6,
+   "source-to-source MAE": 0.6868035706430786,
+   "target MAE": 0.4759028120353953,
+   "target bias": -0.006083965575575352,
+   "pick": "all six"
+  },
+  {
+   "platform": "youtube",
+   "subset": "log_likes+log_comments+log_shares+log_followers+cpl+lpf",
+   "n features": 6,
+   "source-to-source MAE": 0.5457605774847901,
+   "target MAE": 0.5801441310847225,
+   "target bias": 0.09841171530858132,
+   "pick": "all six"
+  },
+  {
+   "platform": "twitter",
+   "subset": "log_likes+log_comments+log_shares+log_followers+cpl+lpf",
+   "n features": 6,
+   "source-to-source MAE": 0.7107839333287046,
+   "target MAE": 0.6115627101112724,
+   "target bias": -0.3797439429642025,
+   "pick": "all six"
+  }
+ ],
+ "brand_carry_models": [
+  {
+   "platform": "tiktok",
+   "model": "ridge, brands kept",
+   "posts": 2491,
+   "MAE": 0.3119280745354289,
+   "CI low": 0.299612219094472,
+   "CI high": 0.32416234434434393,
+   "bias": -0.05255813942499051
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ brand effect from sources, shrink k=1",
+   "posts": 2491,
+   "MAE": 0.3770173256552489,
+   "CI low": 0.35732566022600565,
+   "CI high": 0.3967410675508763,
+   "bias": -0.05164902443061387
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ brand effect from sources, shrink k=3",
+   "posts": 2491,
+   "MAE": 0.359816090126709,
+   "CI low": 0.34268035883067577,
+   "CI high": 0.37731382785949785,
+   "bias": -0.04788794599841985
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ brand effect from sources, shrink k=10",
+   "posts": 2491,
+   "MAE": 0.33482473286985875,
+   "CI low": 0.3207922588105323,
+   "CI high": 0.3503194440243097,
+   "bias": -0.045003997584290543
+  },
+  {
+   "platform": "youtube",
+   "model": "ridge, brands kept",
+   "posts": 2441,
+   "MAE": 0.6041394426880363,
+   "CI low": 0.5725136416185472,
+   "CI high": 0.6368916632706225,
+   "bias": -0.20620286065079182
+  },
+  {
+   "platform": "youtube",
+   "model": "+ brand effect from sources, shrink k=1",
+   "posts": 2441,
+   "MAE": 0.6119207708180459,
+   "CI low": 0.5812738198895899,
+   "CI high": 0.6462781011358129,
+   "bias": -0.2056196310692728
+  },
+  {
+   "platform": "youtube",
+   "model": "+ brand effect from sources, shrink k=3",
+   "posts": 2441,
+   "MAE": 0.6074432134219141,
+   "CI low": 0.5771178580829239,
+   "CI high": 0.6412744088195169,
+   "bias": -0.20531940903592533
+  },
+  {
+   "platform": "youtube",
+   "model": "+ brand effect from sources, shrink k=10",
+   "posts": 2441,
+   "MAE": 0.6035198725978743,
+   "CI low": 0.5721143359779597,
+   "CI high": 0.637161955883952,
+   "bias": -0.20501481766500332
+  },
+  {
+   "platform": "twitter",
+   "model": "ridge, brands kept",
+   "posts": 1803,
+   "MAE": 0.6424028846235558,
+   "CI low": 0.6158796783979039,
+   "CI high": 0.6637592467036493,
+   "bias": 0.385212720125002
+  },
+  {
+   "platform": "twitter",
+   "model": "+ brand effect from sources, shrink k=1",
+   "posts": 1803,
+   "MAE": 0.6640613497444934,
+   "CI low": 0.6317199935259784,
+   "CI high": 0.6927387416244895,
+   "bias": 0.38089437282526956
+  },
+  {
+   "platform": "twitter",
+   "model": "+ brand effect from sources, shrink k=3",
+   "posts": 1803,
+   "MAE": 0.6574983623619367,
+   "CI low": 0.627741421830451,
+   "CI high": 0.6851004587625588,
+   "bias": 0.3829921550067411
+  },
+  {
+   "platform": "twitter",
+   "model": "+ brand effect from sources, shrink k=10",
+   "posts": 1803,
+   "MAE": 0.6490780972265128,
+   "CI low": 0.6210207506234687,
+   "CI high": 0.673413561214761,
+   "bias": 0.38562386932397813
+  }
+ ],
+ "brand_carry_gains": [
+  {
+   "platform": "tiktok",
+   "model": "+ brand effect from sources, shrink k=1",
+   "gain": -0.06508925111981996,
+   "CI low": -0.08261366647095955,
+   "CI high": -0.04818196204116014
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ brand effect from sources, shrink k=3",
+   "gain": -0.04788801559128006,
+   "CI low": -0.06245701481957244,
+   "CI high": -0.034042776704474
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ brand effect from sources, shrink k=10",
+   "gain": -0.022896658334429724,
+   "CI low": -0.03239200070243524,
+   "CI high": -0.01425044442210547
+  },
+  {
+   "platform": "youtube",
+   "model": "+ brand effect from sources, shrink k=1",
+   "gain": -0.0077813281300095445,
+   "CI low": -0.015940820693348144,
+   "CI high": 7.1316763501057e-05
+  },
+  {
+   "platform": "youtube",
+   "model": "+ brand effect from sources, shrink k=3",
+   "gain": -0.0033037707338777643,
+   "CI low": -0.010303045261631043,
+   "CI high": 0.0034434177849744342
+  },
+  {
+   "platform": "youtube",
+   "model": "+ brand effect from sources, shrink k=10",
+   "gain": 0.0006195700901619747,
+   "CI low": -0.004497105640107715,
+   "CI high": 0.005604404042267416
+  },
+  {
+   "platform": "twitter",
+   "model": "+ brand effect from sources, shrink k=1",
+   "gain": -0.021658465120937498,
+   "CI low": -0.04384022354448677,
+   "CI high": -0.0017774644727640465
+  },
+  {
+   "platform": "twitter",
+   "model": "+ brand effect from sources, shrink k=3",
+   "gain": -0.015095477738380894,
+   "CI low": -0.03284171051361897,
+   "CI high": 0.0012961597611072407
+  },
+  {
+   "platform": "twitter",
+   "model": "+ brand effect from sources, shrink k=10",
+   "gain": -0.006675212602957037,
+   "CI low": -0.017025979497656888,
+   "CI high": 0.004251869263669996
+  }
+ ]
+}
