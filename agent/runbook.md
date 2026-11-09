@@ -34,12 +34,15 @@ kubectl -n amc wait --for=condition=complete job/<job> --timeout=1800s
 - `amc` share: 6 CPU / 7 GiB nominal, can borrow idle capacity, never preempted. Ask for what you use: CPU requests equal limits.
 - New package: install in `.venv`, then rebuild the image (`~/claude-sessions/homelab-kueue/README.md`).
 - Set `thread_count` / `n_jobs` to the CPU you requested.
+- Model weights (TabPFN v2 regressor, TabICL) live in `~/claude-sessions/homelab-kueue/amc/models`, mounted read-only at `/models` with `HF_HUB_OFFLINE=1`; jobs never download. Use only the TabPFN **v2** weights (2.5+ are non-commercial) and pass `ignore_pretraining_limits=True` on CPU with > 1,000 rows. Outputs that use TabPFN must credit "Built with PriorLabs-TabPFN".
+- `kubectl wait --for=condition=complete` does not return on a failed job; poll `.status.succeeded` / `.status.failed` instead.
 
 ## Typical costs (homelab3)
 | Run | Time |
 |---|---|
 | notebook 15 | 10 s |
 | notebook 16 (history, CatBoost on 6,735 posts × 5 folds × 4 sets) | 35 s on 4 CPU |
+| notebook 19 (TabPFN v2 + TabICL, 3 seeds × 5 folds × 3 platforms) | about 17 min on 6 CPU |
 | nested tuning over ten families (notebook 07) | not timed here yet; record it when you run it |
 
 ## Before a commit

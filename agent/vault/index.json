@@ -582,5 +582,207 @@
   "paths": [
    "notebooks/models/18_rolling_window.ipynb"
   ]
+ },
+ {
+  "id": "E47",
+  "date": "2026-11-04",
+  "question": "Do tabular foundation models (TabPFN v2, TabICL) beat or add to the final model?",
+  "setup": "TabPFN v2 regressor (median output) and TabICL v2, 8 estimators, seeds 0/1/2, same ENG features and brand folds as the final CatBoost (2,491 / 2,441 / 1,803 posts); plain means; CPU, 2-4 min per model and platform",
+  "result": "TabPFN vs CatBoost +0.005 (0.003-0.008) / +0.010 (0.004-0.017) / +0.002 (-0.003-0.007); mean of all three +0.004 (0.002-0.006) / +0.010 (0.006-0.014) / +0.003 (-0.000-0.006). YouTube gain is not only zero-reaction posts (+0.009 with reactions); TikTok gain sits in posts with > 1,000 reactions (+0.026). Small",
+  "type": "small",
+  "where": "`19_tabular_foundation`",
+  "paths": [
+   "notebooks/models/19_tabular_foundation.ipynb"
+  ]
+ },
+ {
+  "id": "E48",
+  "date": "2026-11-04",
+  "question": "Classification: viral top 10%, and posts without a view count",
+  "setup": "Top 10% of views per platform on held-out brands: followers, Brand24 reach (X only; equals views on TikTok/YouTube), final regression, CatBoost classifier. Missing/zero views (9 / 59 / 697 posts) vs present: classifier on date, age at check, reactions",
+  "result": "Regression ranks viral posts as well as a classifier: AUC 0.983 / 0.935 / 0.894, precision in top 10% 83% / 71% / 63% vs followers 36% / 44% / 43%. On X, 2025 posts almost never have views (12 of 170); missing/zero is predictable (AUC 0.95 YouTube, 0.91 X): a collection artefact. Zero-view posts get 9-15 predicted views on YouTube and X",
+  "type": "finding",
+  "where": "`20_classification`",
+  "paths": [
+   "notebooks/models/20_classification.ipynb"
+  ]
+ },
+ {
+  "id": "E49",
+  "date": "2026-11-04",
+  "question": "Context from other posts of the same author, hashtag and brand (no view counts used)",
+  "setup": "Leave-self-out features from all 12,500 mentions: author, hashtags, brand on platform and other platforms, text copies; added to the final model, and to a followers-only model",
+  "result": "Next to reactions nothing ≥ 0.01; brand context worse on YouTube (-0.014, CI -0.019 to -0.008); author +0.003 (CI incl. 0). Without reactions all context +0.007 / +0.054 / +0.009",
+  "type": "none",
+  "where": "`21_context_text`",
+  "paths": [
+   "notebooks/models/21_context_text.ipynb"
+  ]
+ },
+ {
+  "id": "E50",
+  "date": "2026-11-04",
+  "question": "Text: local sentence embeddings (multilingual-e5-small) and TF-IDF",
+  "setup": "PCA 16 of embeddings and TF-IDF SVD 16, unsupervised; added to the final model and to followers only",
+  "result": "With reactions: embeddings +0.003 / -0.009 / +0.011 (X CI 0.002-0.020); TF-IDF about 0. Without reactions: embeddings +0.009 / +0.051 / +0.018, TF-IDF +0.005 / +0.051 / +0.010",
+  "type": "small",
+  "where": "`21_context_text`",
+  "paths": [
+   "notebooks/models/21_context_text.ipynb"
+  ]
+ },
+ {
+  "id": "E51",
+  "date": "2026-11-04",
+  "question": "Offset target: learn views per like",
+  "setup": "CatBoost on log10(views) - log10(likes+1), offset added back; same features and folds",
+  "result": "+0.001 / +0.007 (0.003-0.010) / +0.000; bias of extreme fifths narrows only 0.01-0.03. Compression is regression to the mean, not tree extrapolation",
+  "type": "small",
+  "where": "`21_context_text`",
+  "paths": [
+   "notebooks/models/21_context_text.ipynb"
+  ]
+ },
+ {
+  "id": "E52",
+  "date": "2026-11-04",
+  "question": "Posting-time estimate with sentence embeddings and context from other posts",
+  "setup": "E43 posting-time columns + e5 embeddings (PCA 16), TF-IDF replaced by embeddings, + E49 context without own likes, + both; same folds",
+  "result": "Context +0.004 / +0.020 (0.011-0.027) / +0.008; embeddings ≤ +0.009; both +0.008 / +0.017 / +0.010. Best posting-time MAE 0.566 / 0.664 / 0.540. Context uses later posts too: upper bound",
+  "type": "small",
+  "where": "`22_posting_time_text`",
+  "paths": [
+   "notebooks/models/22_posting_time_text.ipynb"
+  ]
+ },
+ {
+  "id": "E55",
+  "date": "2026-11-04",
+  "question": "Leakage audit: folds that also separate authors and copied texts",
+  "setup": "Final model on brand folds, brand ∪ author ∪ identical-text components, and random folds",
+  "result": "Strict folds +0.002 / -0.001 / -0.011 (X CI -0.020 to -0.003); random folds +0.003 / +0.009 / -0.002. Headline holds; X slightly optimistic (0.47 → 0.48); seen brands help little",
+  "type": "finding",
+  "where": "`25_limits`",
+  "paths": [
+   "notebooks/models/25_limits.ipynb"
+  ]
+ },
+ {
+  "id": "E56",
+  "date": "2026-11-04",
+  "question": "Noise ceiling: posts with almost the same inputs",
+  "setup": "Pairs of different-brand posts with all four log inputs within 0.05; best MAE ≥ ½ mean \\",
+  "result": "Δ\\",
+  "type": "",
+  "where": "Lower bound 0.223 / 0.388 / 0.333 vs final model 0.325 / 0.578 / 0.471 on the same posts; near-identical posts differ ×2.8 / ×6.0 / ×4.6 in views",
+  "paths": []
+ },
+ {
+  "id": "E57",
+  "date": "2026-11-04",
+  "question": "Quantile models and tail weighting",
+  "setup": "CatBoost MultiQuantile 10/50/90%; final model with weight 2 on the outer fifths",
+  "result": "10-90% covers 73-74% (top fifth 44-54%); median ×5.4 / ×14.1 / ×28.9; q50 +0.007 on YouTube; tail weighting ≤ 0.002, extremes unchanged",
+  "type": "small",
+  "where": "`25_limits`",
+  "paths": [
+   "notebooks/models/25_limits.ipynb"
+  ]
+ },
+ {
+  "id": "E58",
+  "date": "2026-11-04",
+  "question": "Abstention: error on the posts kept",
+  "setup": "Final model errors ranked by quantile width, tier width, random, oracle",
+  "result": "Keeping the 50% narrowest: -10% / -27% / -6% MAE (0.246 / 0.334 / 0.439); quantile width slightly better than tier width",
+  "type": "finding",
+  "where": "`25_limits`",
+  "paths": [
+   "notebooks/models/25_limits.ipynb"
+  ]
+ },
+ {
+  "id": "E59",
+  "date": "2026-11-04",
+  "question": "Forecast horizon curve; training on every pair of checks",
+  "setup": "E40 CatBoost on growth, first-last pairs vs all 3,218 pairs; error by gap and by age of the first check",
+  "result": "All pairs -0.020 / 0.000 / +0.008 (worse on TikTok). TikTok error grows with the gap (0.10 < 12 h → 0.18 at 7-30 d); a first check < 12 h is 2-4× harder (0.23 / 0.43 / 0.28)",
+  "type": "finding",
+  "where": "`26_history_more`",
+  "paths": [
+   "notebooks/models/26_history_more.ipynb"
+  ]
+ },
+ {
+  "id": "E60",
+  "date": "2026-11-04",
+  "question": "Early-reaction forecast without views (FB/IG setting)",
+  "setup": "TikTok / X: later likes from early likes; chain forecast reactions → now-cast model; vs E41",
+  "result": "Likes +0.068 over persistence on TikTok, none on X. Chain beats E41: +0.034 (0.012-0.058) TikTok, +0.033 (-0.010-0.077) X; upper bound with true later reactions +0.076 / +0.110",
+  "type": "gain",
+  "where": "`26_history_more`",
+  "paths": [
+   "notebooks/models/26_history_more.ipynb"
+  ]
+ },
+ {
+  "id": "E61",
+  "date": "2026-11-04",
+  "question": "One pooled model for three platforms, monotone constraints",
+  "setup": "Joint brand folds; per platform vs pooled (platform category), ± monotone on followers and reactions; LOPO CatBoost vs ridge",
+  "result": "Pooled -0.001 / -0.012 / -0.004; monotone -0.004 / -0.026 / -0.011; LOPO CatBoost 0.41 / 0.63 / 0.71 vs ridge 0.31 / 0.61 / 0.65",
+  "type": "worse",
+  "where": "`27_more_models`",
+  "paths": [
+   "notebooks/models/27_more_models.ipynb"
+  ]
+ },
+ {
+  "id": "E62",
+  "date": "2026-11-04",
+  "question": "Why YouTube views per like fell in Jul-Aug",
+  "setup": "Median age at check, views per like and monthly bias, ± age column",
+  "result": "Age at check fell from 78-100 days (Apr-May) to 0.6-8 days (Aug) on all platforms; YouTube views per like fell 1.57 → 1.13, TikTok/X flat; age column does not remove the monthly bias",
+  "type": "finding",
+  "where": "`27_more_models`",
+  "paths": [
+   "notebooks/models/27_more_models.ipynb"
+  ]
+ },
+ {
+  "id": "E63",
+  "date": "2026-11-04",
+  "question": "Copy-paste campaigns",
+  "setup": "Same normalised text elsewhere in the data; views per like, reach share, model error",
+  "result": "Copies 1-6% of posts; more views per like (1.62 vs 1.38 TikTok); model 2× worse on them and underestimates YouTube copies by 0.26; 6 YouTube and 7 X brands get > 50% of reach from copies",
+  "type": "finding",
+  "where": "`27_more_models`",
+  "paths": [
+   "notebooks/models/27_more_models.ipynb"
+  ]
+ },
+ {
+  "id": "E64",
+  "date": "2026-11-04",
+  "question": "Separate model for posts without likes and comments",
+  "setup": "YouTube 665 / X 991 such posts; final model vs all-post model + text and context vs zero-only model",
+  "result": "All-post + text and context +0.030 (0.016-0.045) on X, -0.005 on YouTube; zero-only model no gain",
+  "type": "small",
+  "where": "`27_more_models`",
+  "paths": [
+   "notebooks/models/27_more_models.ipynb"
+  ]
+ },
+ {
+  "id": "E65",
+  "date": "2026-11-04",
+  "question": "GraphSAGE on the text-similarity graph",
+  "setup": "10-NN e5 graph per platform, 2-layer GraphSAGE vs same MLP without graph vs CatBoost; means with CatBoost; ENG + embedding PCA 16",
+  "result": "GraphSAGE vs MLP -0.006 / -0.011 / -0.006: the graph hurts. Control: mean CatBoost + MLP +0.008 / +0.016 / +0.016 (CIs above 0), same as with GraphSAGE: an ensemble effect, not a graph effect",
+  "type": "finding",
+  "where": "`28_gnn`",
+  "paths": [
+   "notebooks/models/28_gnn.ipynb"
+  ]
  }
 ]

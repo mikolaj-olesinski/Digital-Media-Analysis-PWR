@@ -1,0 +1,884 @@
+{
+ "models": [
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "posts": 2491,
+   "MAE": 0.27320826409670573,
+   "CI low": 0.2630100447037697,
+   "CI high": 0.2850344142269184,
+   "bias": -0.019827385610592774
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ author",
+   "posts": 2491,
+   "MAE": 0.27390659738898415,
+   "CI low": 0.2629341257496794,
+   "CI high": 0.2856697430548663,
+   "bias": -0.02021496241065127
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ hashtags",
+   "posts": 2491,
+   "MAE": 0.2753935996431012,
+   "CI low": 0.26477840896825416,
+   "CI high": 0.2867324137873006,
+   "bias": -0.021506052326105918
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ brand",
+   "posts": 2491,
+   "MAE": 0.2742820626127435,
+   "CI low": 0.26416987107081524,
+   "CI high": 0.2850199825764793,
+   "bias": -0.018148647351703073
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ copies",
+   "posts": 2491,
+   "MAE": 0.2720681528769531,
+   "CI low": 0.26177063542212964,
+   "CI high": 0.28312994683363346,
+   "bias": -0.022523966765039777
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ all context",
+   "posts": 2491,
+   "MAE": 0.27356149831392995,
+   "CI low": 0.2633302310910894,
+   "CI high": 0.2847574189611629,
+   "bias": -0.021261718233332366
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ embeddings",
+   "posts": 2491,
+   "MAE": 0.270320024502238,
+   "CI low": 0.2602471528348775,
+   "CI high": 0.2808396666407785,
+   "bias": -0.017483673036472233
+  },
+  {
+   "platform": "tiktok",
+   "model": "+ TF-IDF",
+   "posts": 2491,
+   "MAE": 0.2762061858929577,
+   "CI low": 0.2659007777982648,
+   "CI high": 0.2879891570901713,
+   "bias": -0.024927933736267303
+  },
+  {
+   "platform": "tiktok",
+   "model": "offset target",
+   "posts": 2491,
+   "MAE": 0.2721244960279618,
+   "CI low": 0.2617362660768518,
+   "CI high": 0.2843063447109134,
+   "bias": -0.02141312155332311
+  },
+  {
+   "platform": "tiktok",
+   "model": "offset target + all context",
+   "posts": 2491,
+   "MAE": 0.2754385452396984,
+   "CI low": 0.2652641419518517,
+   "CI high": 0.28670022876049206,
+   "bias": -0.025434297366717536
+  },
+  {
+   "platform": "tiktok",
+   "model": "no reactions: followers",
+   "posts": 2491,
+   "MAE": 0.5831808195672363,
+   "CI low": 0.556102621808173,
+   "CI high": 0.6101329056007511,
+   "bias": -0.10607321224267377
+  },
+  {
+   "platform": "tiktok",
+   "model": "no reactions: + embeddings",
+   "posts": 2491,
+   "MAE": 0.5742819705467708,
+   "CI low": 0.548063732086075,
+   "CI high": 0.5985276662046624,
+   "bias": -0.10890785999580989
+  },
+  {
+   "platform": "tiktok",
+   "model": "no reactions: + TF-IDF",
+   "posts": 2491,
+   "MAE": 0.5780567247821461,
+   "CI low": 0.5531972962251263,
+   "CI high": 0.6022889913813962,
+   "bias": -0.107652417041598
+  },
+  {
+   "platform": "tiktok",
+   "model": "no reactions: + all context",
+   "posts": 2491,
+   "MAE": 0.5762919360365665,
+   "CI low": 0.551060963199731,
+   "CI high": 0.6003710984324667,
+   "bias": -0.10154296526867157
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "posts": 2441,
+   "MAE": 0.45566381424531344,
+   "CI low": 0.4338608409710372,
+   "CI high": 0.47998070194971004,
+   "bias": -0.03947747034891239
+  },
+  {
+   "platform": "youtube",
+   "model": "+ author",
+   "posts": 2441,
+   "MAE": 0.4523003692155069,
+   "CI low": 0.43008097793673333,
+   "CI high": 0.4779550978068187,
+   "bias": -0.04310697252349351
+  },
+  {
+   "platform": "youtube",
+   "model": "+ hashtags",
+   "posts": 2441,
+   "MAE": 0.45890266046543143,
+   "CI low": 0.43785475941543184,
+   "CI high": 0.48095727790709575,
+   "bias": -0.043661238920475916
+  },
+  {
+   "platform": "youtube",
+   "model": "+ brand",
+   "posts": 2441,
+   "MAE": 0.46920972918514425,
+   "CI low": 0.448904158160378,
+   "CI high": 0.49375268079422757,
+   "bias": -0.043085966522742235
+  },
+  {
+   "platform": "youtube",
+   "model": "+ copies",
+   "posts": 2441,
+   "MAE": 0.4583371767605307,
+   "CI low": 0.4359973031664902,
+   "CI high": 0.4833561225981035,
+   "bias": -0.042389502894917906
+  },
+  {
+   "platform": "youtube",
+   "model": "+ all context",
+   "posts": 2441,
+   "MAE": 0.46387442640967075,
+   "CI low": 0.44265140755427507,
+   "CI high": 0.48869595538375576,
+   "bias": -0.043836576658500916
+  },
+  {
+   "platform": "youtube",
+   "model": "+ embeddings",
+   "posts": 2441,
+   "MAE": 0.4646173544195242,
+   "CI low": 0.4431610358339351,
+   "CI high": 0.4904184461558021,
+   "bias": -0.045641160906026164
+  },
+  {
+   "platform": "youtube",
+   "model": "+ TF-IDF",
+   "posts": 2441,
+   "MAE": 0.46167692195386584,
+   "CI low": 0.4416985103698068,
+   "CI high": 0.4849939162446884,
+   "bias": -0.04139741915422404
+  },
+  {
+   "platform": "youtube",
+   "model": "offset target",
+   "posts": 2441,
+   "MAE": 0.44909177572960324,
+   "CI low": 0.4277565006541428,
+   "CI high": 0.4724740342677711,
+   "bias": -0.04619167866863746
+  },
+  {
+   "platform": "youtube",
+   "model": "offset target + all context",
+   "posts": 2441,
+   "MAE": 0.45360504667983415,
+   "CI low": 0.43198678303319277,
+   "CI high": 0.4804719702616194,
+   "bias": -0.06002667913615833
+  },
+  {
+   "platform": "youtube",
+   "model": "no reactions: followers",
+   "posts": 2441,
+   "MAE": 0.767073344549781,
+   "CI low": 0.7407741398455638,
+   "CI high": 0.7943819602550356,
+   "bias": 0.03370247173073052
+  },
+  {
+   "platform": "youtube",
+   "model": "no reactions: + embeddings",
+   "posts": 2441,
+   "MAE": 0.7161461079279654,
+   "CI low": 0.6920258608303591,
+   "CI high": 0.7416518446933701,
+   "bias": -0.009094214555579452
+  },
+  {
+   "platform": "youtube",
+   "model": "no reactions: + TF-IDF",
+   "posts": 2441,
+   "MAE": 0.7162075120105144,
+   "CI low": 0.6905307341576408,
+   "CI high": 0.740069094910672,
+   "bias": 0.004386565586516551
+  },
+  {
+   "platform": "youtube",
+   "model": "no reactions: + all context",
+   "posts": 2441,
+   "MAE": 0.7126857412189814,
+   "CI low": 0.6844601572938596,
+   "CI high": 0.7409971875461402,
+   "bias": -0.004790063561951737
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "posts": 1803,
+   "MAE": 0.4664935387737166,
+   "CI low": 0.44590739419947656,
+   "CI high": 0.48941888359655045,
+   "bias": -0.03933904364434193
+  },
+  {
+   "platform": "twitter",
+   "model": "+ author",
+   "posts": 1803,
+   "MAE": 0.46308142112942424,
+   "CI low": 0.4417798151460133,
+   "CI high": 0.48576398751162636,
+   "bias": -0.037767839847304814
+  },
+  {
+   "platform": "twitter",
+   "model": "+ hashtags",
+   "posts": 1803,
+   "MAE": 0.4679134526245485,
+   "CI low": 0.4494119080847748,
+   "CI high": 0.4905142365684738,
+   "bias": -0.03059486996355233
+  },
+  {
+   "platform": "twitter",
+   "model": "+ brand",
+   "posts": 1803,
+   "MAE": 0.4741795103630108,
+   "CI low": 0.45417215868744804,
+   "CI high": 0.49489450224461856,
+   "bias": -0.04537990394982415
+  },
+  {
+   "platform": "twitter",
+   "model": "+ copies",
+   "posts": 1803,
+   "MAE": 0.4676770261073927,
+   "CI low": 0.4468152357374177,
+   "CI high": 0.490364080935519,
+   "bias": -0.042438921920091806
+  },
+  {
+   "platform": "twitter",
+   "model": "+ all context",
+   "posts": 1803,
+   "MAE": 0.4686782656201121,
+   "CI low": 0.44908218942550915,
+   "CI high": 0.4895359242685073,
+   "bias": -0.04066606048720189
+  },
+  {
+   "platform": "twitter",
+   "model": "+ embeddings",
+   "posts": 1803,
+   "MAE": 0.4553268781917752,
+   "CI low": 0.4370963464453751,
+   "CI high": 0.47293725730643077,
+   "bias": -0.0349251397307351
+  },
+  {
+   "platform": "twitter",
+   "model": "+ TF-IDF",
+   "posts": 1803,
+   "MAE": 0.4642158940499443,
+   "CI low": 0.4460772344635831,
+   "CI high": 0.4852037009807372,
+   "bias": -0.04357148256682293
+  },
+  {
+   "platform": "twitter",
+   "model": "offset target",
+   "posts": 1803,
+   "MAE": 0.4662920313023951,
+   "CI low": 0.4465278777417638,
+   "CI high": 0.48903177530234176,
+   "bias": -0.036486986714785404
+  },
+  {
+   "platform": "twitter",
+   "model": "offset target + all context",
+   "posts": 1803,
+   "MAE": 0.4705801372669214,
+   "CI low": 0.45051902997979354,
+   "CI high": 0.49220960450872986,
+   "bias": -0.03837795343441905
+  },
+  {
+   "platform": "twitter",
+   "model": "no reactions: followers",
+   "posts": 1803,
+   "MAE": 0.5748933989661694,
+   "CI low": 0.553318911860921,
+   "CI high": 0.5969895352183846,
+   "bias": -0.057846634470842304
+  },
+  {
+   "platform": "twitter",
+   "model": "no reactions: + embeddings",
+   "posts": 1803,
+   "MAE": 0.5568867200243394,
+   "CI low": 0.5357485818128723,
+   "CI high": 0.5796073079730344,
+   "bias": -0.05968317157533035
+  },
+  {
+   "platform": "twitter",
+   "model": "no reactions: + TF-IDF",
+   "posts": 1803,
+   "MAE": 0.565317956731365,
+   "CI low": 0.5438165520611915,
+   "CI high": 0.5908524341886728,
+   "bias": -0.057495532155062576
+  },
+  {
+   "platform": "twitter",
+   "model": "no reactions: + all context",
+   "posts": 1803,
+   "MAE": 0.5659853649512536,
+   "CI low": 0.5441234060719992,
+   "CI high": 0.5894492041329052,
+   "bias": -0.06004566090127549
+  }
+ ],
+ "gains": [
+  {
+   "platform": "tiktok",
+   "base": "final model",
+   "model": "+ author",
+   "gain": -0.000698333292278406,
+   "CI low": -0.0034270916143660257,
+   "CI high": 0.00210109124060006
+  },
+  {
+   "platform": "tiktok",
+   "base": "final model",
+   "model": "+ hashtags",
+   "gain": -0.0021853355463954333,
+   "CI low": -0.004419097855573054,
+   "CI high": -0.00013188302043770116
+  },
+  {
+   "platform": "tiktok",
+   "base": "final model",
+   "model": "+ brand",
+   "gain": -0.001073798516037746,
+   "CI low": -0.004195928623496628,
+   "CI high": 0.0018296297776115664
+  },
+  {
+   "platform": "tiktok",
+   "base": "final model",
+   "model": "+ copies",
+   "gain": 0.0011401112197526664,
+   "CI low": -0.0007059740413851971,
+   "CI high": 0.0032853571523019376
+  },
+  {
+   "platform": "tiktok",
+   "base": "final model",
+   "model": "+ all context",
+   "gain": -0.0003532342172242311,
+   "CI low": -0.0035015742197074605,
+   "CI high": 0.0028472344870535426
+  },
+  {
+   "platform": "tiktok",
+   "base": "final model",
+   "model": "+ embeddings",
+   "gain": 0.0028882395944677054,
+   "CI low": -0.0009101339380536138,
+   "CI high": 0.006915551964405558
+  },
+  {
+   "platform": "tiktok",
+   "base": "final model",
+   "model": "+ TF-IDF",
+   "gain": -0.002997921796251949,
+   "CI low": -0.006236989020571135,
+   "CI high": 0.0004947829382445587
+  },
+  {
+   "platform": "tiktok",
+   "base": "final model",
+   "model": "offset target",
+   "gain": 0.0010837680687439683,
+   "CI low": -0.0016155366767272355,
+   "CI high": 0.004153376317347401
+  },
+  {
+   "platform": "tiktok",
+   "base": "final model",
+   "model": "offset target + all context",
+   "gain": -0.002230281142992666,
+   "CI low": -0.0067258623856410625,
+   "CI high": 0.002664283890733317
+  },
+  {
+   "platform": "tiktok",
+   "base": "no reactions: followers",
+   "model": "no reactions: + embeddings",
+   "gain": 0.008898849020465473,
+   "CI low": 0.002585355066470603,
+   "CI high": 0.015962091751827886
+  },
+  {
+   "platform": "tiktok",
+   "base": "no reactions: followers",
+   "model": "no reactions: + TF-IDF",
+   "gain": 0.005124094785090158,
+   "CI low": -0.0009365853130455929,
+   "CI high": 0.012267906952902705
+  },
+  {
+   "platform": "tiktok",
+   "base": "no reactions: followers",
+   "model": "no reactions: + all context",
+   "gain": 0.006888883530669792,
+   "CI low": -0.00015968675585385957,
+   "CI high": 0.013814855827181885
+  },
+  {
+   "platform": "youtube",
+   "base": "final model",
+   "model": "+ author",
+   "gain": 0.003363445029806486,
+   "CI low": -0.0014152437264264776,
+   "CI high": 0.00892170946395515
+  },
+  {
+   "platform": "youtube",
+   "base": "final model",
+   "model": "+ hashtags",
+   "gain": -0.003238846220118073,
+   "CI low": -0.008616731277131725,
+   "CI high": 0.0022400273734670298
+  },
+  {
+   "platform": "youtube",
+   "base": "final model",
+   "model": "+ brand",
+   "gain": -0.013545914939830804,
+   "CI low": -0.018858445260538117,
+   "CI high": -0.0075154048553838166
+  },
+  {
+   "platform": "youtube",
+   "base": "final model",
+   "model": "+ copies",
+   "gain": -0.002673362515217298,
+   "CI low": -0.005286587017075212,
+   "CI high": -0.00027042035707008477
+  },
+  {
+   "platform": "youtube",
+   "base": "final model",
+   "model": "+ all context",
+   "gain": -0.00821061216435735,
+   "CI low": -0.01585651464305803,
+   "CI high": -0.0011365992334970373
+  },
+  {
+   "platform": "youtube",
+   "base": "final model",
+   "model": "+ embeddings",
+   "gain": -0.008953540174210805,
+   "CI low": -0.01717001869516921,
+   "CI high": -0.0011709637941129463
+  },
+  {
+   "platform": "youtube",
+   "base": "final model",
+   "model": "+ TF-IDF",
+   "gain": -0.006013107708552502,
+   "CI low": -0.013523952528464842,
+   "CI high": 0.0009769705854014866
+  },
+  {
+   "platform": "youtube",
+   "base": "final model",
+   "model": "offset target",
+   "gain": 0.006572038515710086,
+   "CI low": 0.0028365655752080362,
+   "CI high": 0.010337916756535533
+  },
+  {
+   "platform": "youtube",
+   "base": "final model",
+   "model": "offset target + all context",
+   "gain": 0.002058767565479163,
+   "CI low": -0.006202447340231095,
+   "CI high": 0.010817005109735142
+  },
+  {
+   "platform": "youtube",
+   "base": "no reactions: followers",
+   "model": "no reactions: + embeddings",
+   "gain": 0.05092723662181567,
+   "CI low": 0.035853796208897386,
+   "CI high": 0.06419233645925211
+  },
+  {
+   "platform": "youtube",
+   "base": "no reactions: followers",
+   "model": "no reactions: + TF-IDF",
+   "gain": 0.05086583253926668,
+   "CI low": 0.03575108206888671,
+   "CI high": 0.06491755144329882
+  },
+  {
+   "platform": "youtube",
+   "base": "no reactions: followers",
+   "model": "no reactions: + all context",
+   "gain": 0.05438760333079961,
+   "CI low": 0.04063345587603738,
+   "CI high": 0.06714900944650994
+  },
+  {
+   "platform": "twitter",
+   "base": "final model",
+   "model": "+ author",
+   "gain": 0.003412117644292371,
+   "CI low": -0.0014429245671726148,
+   "CI high": 0.007738654604114451
+  },
+  {
+   "platform": "twitter",
+   "base": "final model",
+   "model": "+ hashtags",
+   "gain": -0.0014199138508318812,
+   "CI low": -0.005472124652902564,
+   "CI high": 0.0026976984161582373
+  },
+  {
+   "platform": "twitter",
+   "base": "final model",
+   "model": "+ brand",
+   "gain": -0.0076859715892942495,
+   "CI low": -0.01601866272129212,
+   "CI high": 0.0008428047683459953
+  },
+  {
+   "platform": "twitter",
+   "base": "final model",
+   "model": "+ copies",
+   "gain": -0.0011834873336761397,
+   "CI low": -0.0039050418899257452,
+   "CI high": 0.001509730834556477
+  },
+  {
+   "platform": "twitter",
+   "base": "final model",
+   "model": "+ all context",
+   "gain": -0.002184726846395477,
+   "CI low": -0.011354592690550837,
+   "CI high": 0.005903997591689185
+  },
+  {
+   "platform": "twitter",
+   "base": "final model",
+   "model": "+ embeddings",
+   "gain": 0.011166660581941396,
+   "CI low": 0.001953485398110816,
+   "CI high": 0.020047789387066972
+  },
+  {
+   "platform": "twitter",
+   "base": "final model",
+   "model": "+ TF-IDF",
+   "gain": 0.0022776447237723113,
+   "CI low": -0.005093946511145318,
+   "CI high": 0.009402944319921397
+  },
+  {
+   "platform": "twitter",
+   "base": "final model",
+   "model": "offset target",
+   "gain": 0.00020150747132150233,
+   "CI low": -0.0029504133454249133,
+   "CI high": 0.0035046416813742437
+  },
+  {
+   "platform": "twitter",
+   "base": "final model",
+   "model": "offset target + all context",
+   "gain": -0.004086598493204846,
+   "CI low": -0.011101629761325508,
+   "CI high": 0.0024057836984379215
+  },
+  {
+   "platform": "twitter",
+   "base": "no reactions: followers",
+   "model": "no reactions: + embeddings",
+   "gain": 0.018006678941829966,
+   "CI low": 0.00758428825740878,
+   "CI high": 0.028470314371312592
+  },
+  {
+   "platform": "twitter",
+   "base": "no reactions: followers",
+   "model": "no reactions: + TF-IDF",
+   "gain": 0.009575442234804341,
+   "CI low": -0.002908829569894627,
+   "CI high": 0.021098170906938465
+  },
+  {
+   "platform": "twitter",
+   "base": "no reactions: followers",
+   "model": "no reactions: + all context",
+   "gain": 0.008908034014915663,
+   "CI low": 0.001399244117568262,
+   "CI high": 0.016600603815180578
+  }
+ ],
+ "fifths": [
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "fifth": "lowest",
+   "bias": 0.2746766466381011,
+   "MAE": 0.32054247687266535
+  },
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "fifth": "2",
+   "bias": 0.03949155487958177,
+   "MAE": 0.17761446512815357
+  },
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "fifth": "3",
+   "bias": -0.05817949425277742,
+   "MAE": 0.21020025786920485
+  },
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "fifth": "4",
+   "bias": -0.1330559227720192,
+   "MAE": 0.29437956470339166
+  },
+  {
+   "platform": "tiktok",
+   "model": "final model",
+   "fifth": "highest",
+   "bias": -0.22266108610458252,
+   "MAE": 0.36320950729008133
+  },
+  {
+   "platform": "tiktok",
+   "model": "offset target",
+   "fifth": "lowest",
+   "bias": 0.2462599593758777,
+   "MAE": 0.3192060613486261
+  },
+  {
+   "platform": "tiktok",
+   "model": "offset target",
+   "fifth": "2",
+   "bias": 0.04164233278864618,
+   "MAE": 0.18173224856078551
+  },
+  {
+   "platform": "tiktok",
+   "model": "offset target",
+   "fifth": "3",
+   "bias": -0.05596876223514764,
+   "MAE": 0.21111914087559208
+  },
+  {
+   "platform": "tiktok",
+   "model": "offset target",
+   "fifth": "4",
+   "bias": -0.12946969459088076,
+   "MAE": 0.29310603446852485
+  },
+  {
+   "platform": "tiktok",
+   "model": "offset target",
+   "fifth": "highest",
+   "bias": -0.21006693925155517,
+   "MAE": 0.3553644535904557
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "fifth": "lowest",
+   "bias": 0.4905870040839202,
+   "MAE": 0.5863582550632583
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "fifth": "2",
+   "bias": 0.057095354026178206,
+   "MAE": 0.3774411128732189
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "fifth": "3",
+   "bias": -0.04816760197329749,
+   "MAE": 0.3383897676393176
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "fifth": "4",
+   "bias": -0.24183954874035032,
+   "MAE": 0.41421361101373505
+  },
+  {
+   "platform": "youtube",
+   "model": "final model",
+   "fifth": "highest",
+   "bias": -0.4561487568345224,
+   "MAE": 0.561648508159951
+  },
+  {
+   "platform": "youtube",
+   "model": "offset target",
+   "fifth": "lowest",
+   "bias": 0.4574759010432968,
+   "MAE": 0.5705620043799489
+  },
+  {
+   "platform": "youtube",
+   "model": "offset target",
+   "fifth": "2",
+   "bias": 0.04347770937017649,
+   "MAE": 0.37033206177929834
+  },
+  {
+   "platform": "youtube",
+   "model": "offset target",
+   "fifth": "3",
+   "bias": -0.05513718349432672,
+   "MAE": 0.33963291754414576
+  },
+  {
+   "platform": "youtube",
+   "model": "offset target",
+   "fifth": "4",
+   "bias": -0.23678361797745956,
+   "MAE": 0.41364633623604397
+  },
+  {
+   "platform": "youtube",
+   "model": "offset target",
+   "fifth": "highest",
+   "bias": -0.4410233079810053,
+   "MAE": 0.5510366443056077
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "fifth": "lowest",
+   "bias": 0.6294154537657434,
+   "MAE": 0.6390789907223203
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "fifth": "2",
+   "bias": 0.20630988709511844,
+   "MAE": 0.26495215268313854
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "fifth": "3",
+   "bias": -0.07878549958153706,
+   "MAE": 0.2686852369431278
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "fifth": "4",
+   "bias": -0.3686883302967974,
+   "MAE": 0.48258229159488225
+  },
+  {
+   "platform": "twitter",
+   "model": "final model",
+   "fifth": "highest",
+   "bias": -0.5851785861458244,
+   "MAE": 0.6766553027193817
+  },
+  {
+   "platform": "twitter",
+   "model": "offset target",
+   "fifth": "lowest",
+   "bias": 0.6219124048243166,
+   "MAE": 0.6341291948760038
+  },
+  {
+   "platform": "twitter",
+   "model": "offset target",
+   "fifth": "2",
+   "bias": 0.20680165264713293,
+   "MAE": 0.26746641819515904
+  },
+  {
+   "platform": "twitter",
+   "model": "offset target",
+   "fifth": "3",
+   "bias": -0.0772104088643289,
+   "MAE": 0.28185126675022787
+  },
+  {
+   "platform": "twitter",
+   "model": "offset target",
+   "fifth": "4",
+   "bias": -0.3647450049108953,
+   "MAE": 0.4745712825258555
+  },
+  {
+   "platform": "twitter",
+   "model": "offset target",
+   "fifth": "highest",
+   "bias": -0.5694289495106903,
+   "MAE": 0.6729141649074335
+  }
+ ]
+}
