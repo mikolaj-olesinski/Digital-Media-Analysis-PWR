@@ -1,0 +1,72 @@
+{
+ "results B": {
+  "facebook": {
+   "MAE": 0.385,
+   "CI": [
+    0.312,
+    0.482
+   ],
+   "bias": 0.14,
+   "factor": 2.43,
+   "Spearman": 0.909,
+   "posts": 402,
+   "within x2": 0.525,
+   "under-predicted": 0.595,
+   "median bias (+ = under)": 0.076,
+   "brands": 20,
+   "25-post median shift": {
+    "MAE": 0.388,
+    "factor": 2.44
+   },
+   "own platform ridge, brand CV": {
+    "MAE": 0.384,
+    "factor": 2.42
+   },
+   "comments only (X + YouTube ridge)": {
+    "MAE": 0.87,
+    "CI": [
+     0.734,
+     0.994
+    ],
+    "bias": 0.484,
+    "factor": 7.41,
+    "Spearman": 0.68,
+    "posts": 402
+   }
+  },
+  "instagram": {
+   "MAE": 0.435,
+   "CI": [
+    0.396,
+    0.484
+   ],
+   "bias": 0.232,
+   "factor": 2.72,
+   "Spearman": 0.861,
+   "posts": 642,
+   "within x2": 0.4,
+   "under-predicted": 0.718,
+   "median bias (+ = under)": 0.281,
+   "brands": 11,
+   "25-post median shift": {
+    "MAE": 0.383,
+    "factor": 2.41
+   },
+   "own platform ridge, brand CV": {
+    "MAE": 0.381,
+    "factor": 2.41
+   },
+   "comments only (X + YouTube ridge)": {
+    "MAE": 0.798,
+    "CI": [
+     0.733,
+     0.869
+    ],
+    "bias": 0.616,
+    "factor": 6.29,
+    "Spearman": 0.616,
+    "posts": 642
+   }
+  }
+ }
+}
