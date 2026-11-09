@@ -186,64 +186,40 @@ inna platforma: Stack Exchange
 Błąd: \alert{typowy błąd $10^{\text{MAE}}$} (MAE na $\log_{10}$ wyświetleń); {\footnotesize \x{2} = oszacowanie zwykle 2 razy za duże albo za małe}
 \end{frame}
 
-% 3b
-\begin{frame}{Kto uczy się na czym}
-\vspace{-8pt}\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.85}
-\begin{tabular}{rcll}
-\multicolumn{1}{c}{\colorbox{acc!22}{trening}} & & \colorbox{orange!40}{test} & typowy błąd \\
-\midrule
-\multicolumn{4}{l}{\textbf{Ta sama platforma} \textit{(CatBoost, nowe marki i autorzy)}} \\
-\colorbox{acc!22}{TikTok} & $\rightarrow$ & \colorbox{orange!40}{TikTok} & \x{1,87} \\
-\colorbox{acc!22}{YouTube} & $\rightarrow$ & \colorbox{orange!40}{YouTube} & \x{2,90} \\
-\colorbox{acc!22}{X} & $\rightarrow$ & \colorbox{orange!40}{X} & \x{3,03} \\
-\midrule
-\multicolumn{4}{l}{\textbf{Poza platformą, wynik główny} \textit{(ridge, 0 postów celu)}} \\
-\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{Facebook} & \xb{2,43} \\
-\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{Instagram} & \xb{2,72} \\
-\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{TikTok} & \x{2,05} \\
-\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{Stack Exchange} & \x{3,14} \\
-\midrule
-\multicolumn{4}{l}{\textbf{Sprawdzenie wszystkich zestawów} \textit{(każda platforma ukryta po kolei)}} \\
-\colorbox{acc!22}{pozostałe 4} & $\rightarrow$ & \colorbox{orange!40}{YouTube} & \x{4,08} \\
-\colorbox{acc!22}{pozostałe 4} & $\rightarrow$ & \colorbox{orange!40}{X} & \x{4,37} \\
-\colorbox{acc!22}{TikTok + YouTube + X} & $\rightarrow$ & \colorbox{orange!40}{Facebook} & \x{2,49} \\
-\colorbox{acc!22}{TikTok + YouTube + X} & $\rightarrow$ & \colorbox{orange!40}{Instagram} & \x{2,69} \\
-\end{tabular}
-\vspace{2pt}
-\sub{\scriptsize Dodanie TikToka do treningu prawie nie zmienia FB/IG: X + YouTube dają \x{2,43} / \x{2,72}.}
-\end{frame}
-
 % 4 ------------------------------------------------------------
 \begin{frame}{Wyniki: ta sama platforma}
-\centering
-\begin{tabular}{lcccc}
+\centering\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccc}
 \toprule
- & \textbf{CatBoost} (MAE) & W granicach \x{2} & Stała mediana & Mnożnik lajków \\
+ & \textbf{CatBoost} (MAE) & W granicach \x{2} & Stała mediana & Mnożnik lajków & Zasięg Brand24 \\
 \midrule
-TikTok  & \xb{1,87} (0,273) & 67\% & \x{4,60} & \x{2,23} \\
-YouTube & \xb{2,90} (0,462) & 43\% & \x{8,77} & \x{4,06} \\
-X       & \xb{3,03} (0,482) & 40\% & \x{4,63} & \x{3,63} \\
+TikTok  & \xb{1,87} (0,273) & 67\% & \x{4,60} & \x{2,23} & = wyświetlenia \\
+YouTube & \xb{2,90} (0,462) & 43\% & \x{8,77} & \x{4,06} & = wyświetlenia \\
+X       & \xb{3,03} (0,482) & 40\% & \x{4,63} & \x{3,63} & \x{11,47} \\
 \bottomrule
 \end{tabular}
 \vspace{12pt}
 \sub{Test na markach i autorach, których model nie widział.\\
-CatBoost lepszy od mnożnika lajków o 0,075--0,147 MAE; przedziały ufności wykluczają zero.}
+CatBoost lepszy od mnożnika lajków o 0,075--0,147 MAE; przedziały ufności wykluczają zero.\\
+{\footnotesize Zasięg Brand24: kolumna zasięgu z eksportu porównana z prawdziwymi wyświetleniami na tych samych postach.}}
 \end{frame}
 
 % 5 ------------------------------------------------------------
 \begin{frame}{Wyniki: poza platformą}
-\centering\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lcccc}
+\centering\small\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lccccc}
 \toprule
- & \textbf{Ridge X + YT} (MAE) & W granicach \x{2} & Mediana X + YT & Ridge na celu \\
+ & \textbf{Ridge X+YT} (MAE) & W granicach \x{2} & Mediana X+YT & Ridge na celu & Zasięg Brand24 \\
 \midrule
-Facebook  & \xb{2,43} (0,385) & 53\% & \x{19,87} & \x{2,42} \\
-Instagram & \xb{2,72} (0,435) & 40\% & \x{8,69}  & \x{2,41} \\
+Facebook  & \xb{2,43} (0,385) & 53\% & \x{19,87} & \x{2,42} & \x{13,14} \\
+Instagram & \xb{2,72} (0,435) & 40\% & \x{8,69}  & \x{2,41} & \x{26,44} \\
 \bottomrule
 \end{tabular}
 \vspace{12pt}
 \sub{Model uczony tylko na X + YouTube, 0 postów z FB/IG w treningu.\\
-FB: tyle samo co ridge uczony na samym FB. IG: nieco gorzej; 72\% rolek niedoszacowanych.}
+FB: tyle samo co ridge uczony na samym FB. IG: nieco gorzej; 72\% rolek niedoszacowanych.\\
+{\footnotesize Zasięg Brand24: kolumna zasięgu z eksportu porównana\\z prawdziwymi wyświetleniami na tych samych postach.}\\[3pt]
+{\scriptsize Zestaw X + YouTube ustaliliśmy z góry: reakcje na IG są podobne do X i YouTube,\\a nie do TikToka. Z TikTokiem (TT + YT + X): FB \x{2,49}, IG \x{2,69}, czyli prawie bez zmian;\\TikTok zostaje też jako dodatkowy test (\x{2,05}).}}
 \end{frame}
 
 % 6 ------------------------------------------------------------
@@ -322,6 +298,12 @@ Model (ta sama platforma, typowy błąd) & TikTok & YouTube & X \\
 \end{tabular}
 \vspace{2pt}
 \sub{\scriptsize Ponad 20 dodatkowych źródeł (tekst, etykiety AI, grafy, Wikipedia) poprawia błąd najwyżej \x{1,04}.}
+\end{frame}
+
+% 11a
+\begin{frame}{Dodatkowe dane: ile zmieniły błąd}
+\centering
+\includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{fig/preprint_methods_pl.png}
 \end{frame}
 
 % 11b
