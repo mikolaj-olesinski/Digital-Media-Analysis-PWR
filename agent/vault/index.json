@@ -1,0 +1,586 @@
+[
+ {
+  "id": "L1",
+  "date": "2026-10",
+  "question": "Can AI label type and sentiment?",
+  "setup": "3 Haiku coders, Sonnet on disputes, 12,500 mentions",
+  "result": "Kappa 0.77-0.79 type, 0.71-0.73 sentiment. No human gold standard",
+  "type": "finding",
+  "where": "`eda/03_labels`, `mention_labels.csv`",
+  "paths": [
+   "notebooks/eda/03_labels.ipynb",
+   "data/processed/mention_labels.csv"
+  ]
+ },
+ {
+  "id": "E01",
+  "date": "2026-11",
+  "question": "Which column groups matter?",
+  "setup": "Boosting on cumulative groups, against median and constant × followers",
+  "result": "Constant 0.92 / 0.86 / 0.88; with reactions 0.29 / 0.46 / 0.50",
+  "type": "gain",
+  "where": "`01_first_models`, `results_numbers.json`",
+  "paths": [
+   "notebooks/models/01_first_models.ipynb",
+   "data/processed/results_numbers.json"
+  ]
+ },
+ {
+  "id": "E02",
+  "date": "2026-11",
+  "question": "Do intervals hold? Does a model transfer?",
+  "setup": "Split conformal; ridge and boosting on likes + comments, leave one platform out",
+  "result": "90% coverage 0.89-0.90, width ×16 / ×104 / ×133 in total; transfer 0.31 / 0.61 / 0.65",
+  "type": "finding",
+  "where": "`02_transfer_and_intervals`",
+  "paths": [
+   "notebooks/models/02_transfer_and_intervals.ipynb"
+  ]
+ },
+ {
+  "id": "E03",
+  "date": "2026-11",
+  "question": "Do other models or first graph features help?",
+  "setup": "6 families + blend on fixed settings; author and text-neighbour features; strata",
+  "result": "Best 0.28 / 0.45 / 0.48. Graph at most about 0.009. Models per follower tier worse",
+  "type": "none",
+  "where": "`03_zoo_strata_graph`, `zoo_numbers.json`",
+  "paths": [
+   "notebooks/models/03_zoo_strata_graph.ipynb",
+   "data/processed/zoo_numbers.json"
+  ]
+ },
+ {
+  "id": "E04",
+  "date": "2026-11",
+  "question": "Labels vs views",
+  "setup": "Residual after reactions, by type",
+  "result": "Moves views at most about 0.1; only TikTok promo clearly above zero (+0.08)",
+  "type": "small",
+  "where": "`03_zoo_strata_graph`",
+  "paths": [
+   "notebooks/models/03_zoo_strata_graph.ipynb"
+  ]
+ },
+ {
+  "id": "E05",
+  "date": "2026-11",
+  "question": "Do extra columns help?",
+  "setup": "Extra trees; text stats, VADER, TF-IDF, calendar, ratios, brand size",
+  "result": "Text +0.011-0.016 on YouTube and X; the rest about zero",
+  "type": "small",
+  "where": "`04_extra_features`, `extra_numbers.json`",
+  "paths": [
+   "notebooks/models/04_extra_features.ipynb",
+   "data/processed/extra_numbers.json"
+  ]
+ },
+ {
+  "id": "E06",
+  "date": "2026-11",
+  "question": "Brand graph, predicting reactions",
+  "setup": "Brand similarity graph; targets from other columns",
+  "result": "Brand graph small on X only; reactions predictable (R² up to 0.76), followers less",
+  "type": "small",
+  "where": "`04_extra_features`",
+  "paths": [
+   "notebooks/models/04_extra_features.ipynb"
+  ]
+ },
+ {
+  "id": "E07",
+  "date": "2026-11",
+  "question": "Graph lab",
+  "setup": "Louvain, PageRank, spectral, author-brand, hashtags, time, duplicates, encodings",
+  "result": "At most about 0.007; label propagation worse (X -0.021)",
+  "type": "none",
+  "where": "`05_graph_lab`, `graphlab_numbers.json`",
+  "paths": [
+   "notebooks/models/05_graph_lab.ipynb",
+   "data/processed/graphlab_numbers.json"
+  ]
+ },
+ {
+  "id": "E08",
+  "date": "2026-11",
+  "question": "What does the text graph find?",
+  "setup": "Homophily, duplicates, type from text",
+  "result": "Duplicates 6-14% of posts; on X 38% spam against 9%; pair view correlation 0.66-0.82",
+  "type": "finding",
+  "where": "`05_graph_lab`",
+  "paths": [
+   "notebooks/models/05_graph_lab.ipynb"
+  ]
+ },
+ {
+  "id": "E09",
+  "date": "2026-11",
+  "question": "Do reactions transfer to FB/IG? Two-stage reactions then views",
+  "setup": "Followers + text to reactions across 5 platforms",
+  "result": "Spearman 0.3-0.47 inside a platform; two-stage no gain",
+  "type": "none",
+  "where": "`06_engagement_transfer`",
+  "paths": [
+   "notebooks/models/06_engagement_transfer.ipynb"
+  ]
+ },
+ {
+  "id": "E10",
+  "date": "2026-11-02",
+  "question": "Default model vs baselines",
+  "setup": "scikit-learn boosting with defaults",
+  "result": "With reactions 0.29 / 0.53 / 0.49",
+  "type": "gain",
+  "where": "`07_tuning`, `tuning_numbers.json`",
+  "paths": [
+   "notebooks/models/07_tuning.ipynb",
+   "data/processed/tuning_numbers.json"
+  ]
+ },
+ {
+  "id": "E11",
+  "date": "2026-11-02",
+  "question": "Does tuning change the ranking?",
+  "setup": "10 families, nested search, 40 settings per fold",
+  "result": "Best 0.27 (SVR) / 0.45 / 0.47 (CatBoost); ridge 0.55 on YouTube",
+  "type": "small",
+  "where": "`07_tuning`",
+  "paths": [
+   "notebooks/models/07_tuning.ipynb"
+  ]
+ },
+ {
+  "id": "E12",
+  "date": "2026-11-02",
+  "question": "Tuned boosters with text",
+  "setup": "CatBoost, LightGBM + text stats and TF-IDF",
+  "result": "At most +0.013",
+  "type": "small",
+  "where": "`07_tuning`",
+  "paths": [
+   "notebooks/models/07_tuning.ipynb"
+  ]
+ },
+ {
+  "id": "E13",
+  "date": "2026-11-02",
+  "question": "Full transfer matrix",
+  "setup": "6 models, 3 column sets, 12 pairings, test brands removed",
+  "result": "Ridge on likes + comments best: 0.31 / 0.61 / 0.65, bias +0.03 / +0.21 / -0.40; order kept",
+  "type": "finding",
+  "where": "`08_transfer_matrix`, `transfer_numbers.json`",
+  "paths": [
+   "notebooks/models/08_transfer_matrix.ipynb",
+   "data/processed/transfer_numbers.json"
+  ]
+ },
+ {
+  "id": "E14",
+  "date": "2026-11-02",
+  "question": "Tuning for transfer, label correction",
+  "setup": "Across-source tuning; reweighting; type as a feature",
+  "result": "No consistent gain",
+  "type": "none",
+  "where": "`08_transfer_matrix`",
+  "paths": [
+   "notebooks/models/08_transfer_matrix.ipynb"
+  ]
+ },
+ {
+  "id": "E15",
+  "date": "2026-11-02",
+  "question": "Calibration with few posts",
+  "setup": "Shift by median error of n target posts",
+  "result": "On X 25-50 posts bring 0.65 to about 0.55; ideal 0.54. Not checked on FB/IG",
+  "type": "gain",
+  "where": "`08_transfer_matrix`",
+  "paths": [
+   "notebooks/models/08_transfer_matrix.ipynb"
+  ]
+ },
+ {
+  "id": "E16",
+  "date": "2026-11-02",
+  "question": "FB/IG sensitivity to source",
+  "setup": "Median estimate per source set",
+  "result": "Spread ×1.7 and ×2.4. Not a measured error",
+  "type": "finding",
+  "where": "`08_transfer_matrix`",
+  "paths": [
+   "notebooks/models/08_transfer_matrix.ipynb"
+  ]
+ },
+ {
+  "id": "E17",
+  "date": "2026-11-02",
+  "question": "Three-way ablation with labels",
+  "setup": "Alone, added, removed; second learner",
+  "result": "Removing likes +0.09 / +0.13 / +0.05; labels at most +0.005",
+  "type": "finding",
+  "where": "`09_ablation_labels_bias`, `ablation_numbers.json`",
+  "paths": [
+   "notebooks/models/09_ablation_labels_bias.ipynb",
+   "data/processed/ablation_numbers.json"
+  ]
+ },
+ {
+  "id": "E18",
+  "date": "2026-11-02",
+  "question": "Systematic errors",
+  "setup": "Signed error by subgroup",
+  "result": "Lowest fifth overestimated 0.23 / 0.51 / 0.67, top fifth underestimated 0.20 / 0.42 / 0.56",
+  "type": "finding",
+  "where": "`09_ablation_labels_bias`",
+  "paths": [
+   "notebooks/models/09_ablation_labels_bias.ipynb"
+  ]
+ },
+ {
+  "id": "E19",
+  "date": "2026-11-02",
+  "question": "Promo vs views per reaction",
+  "setup": "Line per type",
+  "result": "Promo ×1.5-1.9 at equal likes and comments on TikTok and YouTube",
+  "type": "finding",
+  "where": "`09_ablation_labels_bias`",
+  "paths": [
+   "notebooks/models/09_ablation_labels_bias.ipynb"
+  ]
+ },
+ {
+  "id": "E20",
+  "date": "2026-11-02",
+  "question": "Dropping spam from training",
+  "setup": "Extra trees",
+  "result": "At most 0.002",
+  "type": "none",
+  "where": "`09_ablation_labels_bias`",
+  "paths": [
+   "notebooks/models/09_ablation_labels_bias.ipynb"
+  ]
+ },
+ {
+  "id": "E21",
+  "date": "2026-11-02",
+  "question": "Community detection",
+  "setup": "Louvain on text kNN, no views or labels",
+  "result": "NMI with brand 0.49-0.65, type 0.04-0.08; ARI 0.61-0.71",
+  "type": "finding",
+  "where": "`09_ablation_labels_bias`",
+  "paths": [
+   "notebooks/models/09_ablation_labels_bias.ipynb"
+  ]
+ },
+ {
+  "id": "E22",
+  "date": "2026-11-02",
+  "question": "False brand matches",
+  "setup": "Keyword check of one community",
+  "result": "Cricket Wireless 0 of 20 about the company. One example; frequency unknown",
+  "type": "finding",
+  "where": "`09_ablation_labels_bias`",
+  "paths": [
+   "notebooks/models/09_ablation_labels_bias.ipynb"
+  ]
+ },
+ {
+  "id": "E23",
+  "date": "2026-11-02",
+  "question": "YouTube transcripts",
+  "setup": "Flag for mentions starting with a time stamp",
+  "result": "21% of mentions; flag +0.008",
+  "type": "small",
+  "where": "`09_ablation_labels_bias`",
+  "paths": [
+   "notebooks/models/09_ablation_labels_bias.ipynb"
+  ]
+ },
+ {
+  "id": "E24",
+  "date": "2026-11-02",
+  "question": "Brand24 rule",
+  "setup": "Reconstruct from data",
+  "result": "Reproduces 98% / 96% / 98% of X, FB, IG; unconfirmed. Real views per reaction 21 / 20 / 27; rule on X 700",
+  "type": "finding",
+  "where": "`10_brand24_rule`, `rule_numbers.json`",
+  "paths": [
+   "notebooks/models/10_brand24_rule.ipynb",
+   "data/processed/rule_numbers.json"
+  ]
+ },
+ {
+  "id": "E25",
+  "date": "2026-11-02",
+  "question": "Rule vs model on X",
+  "setup": "Same rows",
+  "result": "Rule 1.08, simple rule with learned constants 0.68, extra trees 0.47",
+  "type": "gain",
+  "where": "`07_tuning`, `10_brand24_rule`",
+  "paths": [
+   "notebooks/models/07_tuning.ipynb",
+   "notebooks/models/10_brand24_rule.ipynb"
+  ]
+ },
+ {
+  "id": "E26",
+  "date": "2026-11-02",
+  "question": "One is-promo column",
+  "setup": "3 learners, 2 column sets",
+  "result": "At most +0.006 with followers and reactions; up to +0.012 on likes + comments",
+  "type": "small",
+  "where": "`11_promo_flag`, `promo_numbers.json`",
+  "paths": [
+   "notebooks/models/11_promo_flag.ipynb",
+   "data/processed/promo_numbers.json"
+  ]
+ },
+ {
+  "id": "E27",
+  "date": "2026-11-02",
+  "question": "Is promo behind YouTube errors?",
+  "setup": "Error by reaction state and promo share",
+  "result": "Mostly no. Zero likes and comments: 23% of posts, 35% of error. Possible missing data, unconfirmed",
+  "type": "finding",
+  "where": "`11_promo_flag`",
+  "paths": [
+   "notebooks/models/11_promo_flag.ipynb"
+  ]
+ },
+ {
+  "id": "E28",
+  "date": "2026-11-02",
+  "question": "Removing zero-reaction posts",
+  "setup": "From test, and from training",
+  "result": "Test 0.27 / 0.38 / 0.45 because it is easier; training gain at most 0.002",
+  "type": "none",
+  "where": "`11_promo_flag`, `zero_numbers.json`",
+  "paths": [
+   "notebooks/models/11_promo_flag.ipynb",
+   "data/processed/zero_numbers.json"
+  ]
+ },
+ {
+  "id": "E29",
+  "date": "2026-11-02",
+  "question": "Second graph round",
+  "setup": "Fixed aggregation, cross-platform neighbours, community shrinkage",
+  "result": "Only cross-platform on YouTube +0.009; a hint given many tests. Slopes differ by community on TikTok and YouTube",
+  "type": "small",
+  "where": "`12_graph_more`, `graph_more_numbers.json`",
+  "paths": [
+   "notebooks/models/12_graph_more.ipynb",
+   "data/processed/graph_more_numbers.json"
+  ]
+ },
+ {
+  "id": "E30",
+  "date": "2026-11-02",
+  "question": "Graph bridge across platforms",
+  "setup": "Neighbours from other platforms, leave one out",
+  "result": "Level shift unchanged; ridge on zero-reaction posts only +0.018-0.022",
+  "type": "none",
+  "where": "`12_graph_more`",
+  "paths": [
+   "notebooks/models/12_graph_more.ipynb"
+  ]
+ },
+ {
+  "id": "E31",
+  "date": "2026-11-02",
+  "question": "Two-stage models",
+  "setup": "Tier classifier, routing, residuals, hurdle, promo, community",
+  "result": "No clear gain; residual stacking worse",
+  "type": "none",
+  "where": "`13_stacked_models`, `stacked_numbers.json`",
+  "paths": [
+   "notebooks/models/13_stacked_models.ipynb",
+   "data/processed/stacked_numbers.json"
+  ]
+ },
+ {
+  "id": "E32",
+  "date": "2026-11-02",
+  "question": "MAE loss",
+  "setup": "Default CatBoost, RMSE to MAE",
+  "result": "+0.011 / +0.007 / +0.022",
+  "type": "gain",
+  "where": "`13_stacked_models`",
+  "paths": [
+   "notebooks/models/13_stacked_models.ipynb"
+  ]
+ },
+ {
+  "id": "E33",
+  "date": "2026-11-02",
+  "question": "Error by reaction tier",
+  "setup": "CatBoost MAE; ridge out of platform",
+  "result": "YouTube ×4.6 to ×1.8; X ×3.1 to ×2.5; TikTok flat after the first reaction",
+  "type": "finding",
+  "where": "`14_reaction_tiers`, `tiers_numbers.json`",
+  "paths": [
+   "notebooks/models/14_reaction_tiers.ipynb",
+   "data/processed/tiers_numbers.json"
+  ]
+ },
+ {
+  "id": "E34",
+  "date": "2026-11-02",
+  "question": "Interval per reaction tier",
+  "setup": "Mondrian conformal",
+  "result": "One width covers 67-87% at zero reactions; per tier about 90%, except TikTok at zero",
+  "type": "gain",
+  "where": "`14_reaction_tiers`",
+  "paths": [
+   "notebooks/models/14_reaction_tiers.ipynb"
+  ]
+ },
+ {
+  "id": "E35",
+  "date": "2026-11-03",
+  "question": "False match seen in the text graph",
+  "setup": "TikTok TF-IDF 10-NN graph, Louvain; Cricket Wireless against six mobile-network brands",
+  "result": "All 20 Cricket Wireless mentions in one group with cricket posts (Aon); 4 edges to the 28 mobile-network posts",
+  "type": "finding",
+  "where": "`pitchdeck/class_build.py`, `src/slide_graph.py`, `cricket_graph_numbers.json`",
+  "paths": [
+   "pitchdeck/class_build.py",
+   "src/slide_graph.py",
+   "data/processed/cricket_graph_numbers.json"
+  ]
+ },
+ {
+  "id": "E36",
+  "date": "2026-11-03",
+  "question": "Brand industry labels",
+  "setup": "Haiku agent, general knowledge, 348 brands",
+  "result": "20 industries; 83 names flagged as having another meaning; 2 low confidence",
+  "type": "instrument, unchecked",
+  "where": "`data/processed/brand_industry.csv`",
+  "paths": [
+   "data/processed/brand_industry.csv"
+  ]
+ },
+ {
+  "id": "E37",
+  "date": "2026-11-03",
+  "question": "Brand away from its industry in the text graph",
+  "setup": "Share of other-brand neighbours from the same industry vs chance, 5 platforms",
+  "result": "Lowest include Frontier (X, AI), Gap (YouTube, AI), Guardian Life (Minecraft), Wrangler (Jeep); some are other languages; Cricket Wireless not low (lift 1.4 on TikTok); AUC vs name flag 0.62 (0.55-0.69)",
+  "type": "finding, needs hand check",
+  "where": "`15_brand_mismatch`, `mismatch_numbers.json`",
+  "paths": [
+   "notebooks/models/15_brand_mismatch.ipynb",
+   "data/processed/mismatch_numbers.json"
+  ]
+ },
+ {
+  "id": "E38",
+  "date": "2026-11-04",
+  "question": "What is in the second Brand24 file?",
+  "setup": "`reach_samples_students_with_history.csv`: same 12,500 mentions, 23 new columns",
+  "result": "History (up to 3 earlier checks) only on TikTok 341 and X 349 posts, almost all from 2026-08; latest check (`current_*`) for 1,230 posts incl. 512 YouTube. Old 19 columns unchanged; views never fall between checks; history and current times are Polish local time (+2 h), converted to UTC",
+  "type": "finding",
+  "where": "`16_history_forecast`",
+  "paths": [
+   "notebooks/models/16_history_forecast.ipynb"
+  ]
+ },
+ {
+  "id": "E39",
+  "date": "2026-11-04",
+  "question": "How fast do views grow?",
+  "setup": "Power law views ~ age^b between first and last check, brand bootstrap",
+  "result": "b 0.35 (0.29-0.39) / 0.58 (0.50-0.66) / 1.17 (0.76-1.93); median growth ×1.3 / ×1.2 / ×2.4 from 30 h / 102 h / 7.5 h to 222 h / 706 h / 14 h. X checks in this subset cover only the first day",
+  "type": "finding",
+  "where": "`16_history_forecast`, `history_numbers.json`",
+  "paths": [
+   "notebooks/models/16_history_forecast.ipynb",
+   "data/processed/history_numbers.json"
+  ]
+ },
+ {
+  "id": "E40",
+  "date": "2026-11-04",
+  "question": "Forecast later views from the first check",
+  "setup": "CatBoost (MAE loss) on growth with first-check views, reactions, ages; against persistence and power law",
+  "result": "0.165 / 0.188 / 0.269 against persistence 0.248 / 0.352 / 0.481; gain over power law +0.029 (0.013-0.046) / +0.045 (0.014-0.077) / +0.076 (0.020-0.163). 289-336 posts per platform, one month",
+  "type": "gain",
+  "where": "`16_history_forecast`",
+  "paths": [
+   "notebooks/models/16_history_forecast.ipynb"
+  ]
+ },
+ {
+  "id": "E41",
+  "date": "2026-11-04",
+  "question": "Forecast without views at the first check",
+  "setup": "Same CatBoost, first-check reactions + followers + ages only",
+  "result": "0.368 / 0.444 / 0.544; the early view count is worth 0.20-0.28 of MAE",
+  "type": "finding",
+  "where": "`16_history_forecast`",
+  "paths": [
+   "notebooks/models/16_history_forecast.ipynb"
+  ]
+ },
+ {
+  "id": "E42",
+  "date": "2026-11-04",
+  "question": "Interval of the forecast",
+  "setup": "Leave-brand-out residual quantile, 90%",
+  "result": "Coverage 0.90 / 0.90 / 0.90, width ×2.4 / ×3.8 / ×4.1",
+  "type": "finding",
+  "where": "`16_history_forecast`",
+  "paths": [
+   "notebooks/models/16_history_forecast.ipynb"
+  ]
+ },
+ {
+  "id": "E43",
+  "date": "2026-11-04",
+  "question": "Estimate at posting time (no reactions)",
+  "setup": "CatBoost on followers, text stats, VADER, TF-IDF SVD, AI labels, calendar, horizon, brand size; + author history from training fold",
+  "result": "0.575 / 0.684 / 0.550 against constant × followers 0.912 / 0.860 / 0.880 and followers-only CatBoost 0.591 / 0.775 / 0.584; author history +0.001 / -0.002 / +0.004 (CI includes zero); 90% interval ×20 / ×27 / ×14; with reactions 0.27 / 0.45 / 0.45",
+  "type": "gain",
+  "where": "`16_history_forecast`",
+  "paths": [
+   "notebooks/models/16_history_forecast.ipynb"
+  ]
+ },
+ {
+  "id": "E44",
+  "date": "2026-11-04",
+  "question": "Does the age of the view check help the final model?",
+  "setup": "Final CatBoost (MAE loss, followers + reactions + flags) + log10 hours from posting to the check; error by age of the check",
+  "result": "Gain +0.000 (-0.002-0.003) / +0.003 (-0.001-0.008) / +0.012 (0.005-0.019). Checks younger than a day: bias +0.23 → +0.07 on TikTok, +0.10 → -0.01 on YouTube; MAE 0.385 → 0.341 / 0.414 → 0.391 / 0.458 → 0.410",
+  "type": "small",
+  "where": "`17_check_age`, `check_age_numbers.json`",
+  "paths": [
+   "notebooks/models/17_check_age.ipynb",
+   "data/processed/check_age_numbers.json"
+  ]
+ },
+ {
+  "id": "E45",
+  "date": "2026-11-04",
+  "question": "Are the newer checks more predictable?",
+  "setup": "Views, reactions and age replaced by the latest check (`current_*`) for 348 / 503 / 342 posts; same model, folds and posts",
+  "result": "On the refreshed posts -0.010 (-0.017 to -0.002) / +0.006 (-0.011-0.020) / -0.046 (-0.066 to -0.027): not better, worse on X, where views grew in 10% of these posts while reactions changed in 1%",
+  "type": "worse",
+  "where": "`17_check_age`",
+  "paths": [
+   "notebooks/models/17_check_age.ipynb"
+  ]
+ },
+ {
+  "id": "E46",
+  "date": "2026-11-04",
+  "question": "Rolling window: does the final model hold up when trained only on earlier months?",
+  "setup": "Final model trained on all months before M, tested on M = 2026-05 … 08 (1,949 / 2,000 / 1,685 posts); against brand CV on the same posts; also without the test month's brands, and previous month only",
+  "result": "Expanding window vs brand CV -0.001 (-0.004-0.002) / -0.011 (-0.018 to -0.004) / -0.026 (-0.036 to -0.017); most of the gap is May (X 0.552 vs 0.480), from June on within 0.02. Unseen brands cost ≤ 0.005 more; previous month only is worse (-0.013 / -0.023 / -0.032). No drift in error; YouTube views per like fell in Jul-Aug without raising the error",
+  "type": "finding",
+  "where": "`18_rolling_window`",
+  "paths": [
+   "notebooks/models/18_rolling_window.ipynb"
+  ]
+ }
+]
