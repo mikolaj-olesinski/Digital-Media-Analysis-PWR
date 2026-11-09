@@ -1,0 +1,274 @@
+{
+ "config": {
+  "hidden": 64,
+  "dropout": 0.2,
+  "lr": 0.003,
+  "weight_decay": 0.0001,
+  "epochs": 400,
+  "k": 10,
+  "seeds": [
+   0,
+   1,
+   2
+  ]
+ },
+ "models": [
+  {
+   "platform": "tiktok",
+   "model": "CatBoost (final model)",
+   "posts": 2491,
+   "MAE": 0.27320826409670573,
+   "CI low": 0.2630100447037697,
+   "CI high": 0.2850344142269184,
+   "bias": -0.019827385610592774
+  },
+  {
+   "platform": "tiktok",
+   "model": "MLP (same features, no graph)",
+   "posts": 2491,
+   "MAE": 0.27352514753046964,
+   "CI low": 0.2627614099683288,
+   "CI high": 0.28490939495364476,
+   "bias": -0.01076466660190731
+  },
+  {
+   "platform": "tiktok",
+   "model": "GraphSAGE (text graph)",
+   "posts": 2491,
+   "MAE": 0.27931169623859564,
+   "CI low": 0.26884358649208606,
+   "CI high": 0.2894594278306599,
+   "bias": -0.0074952801181407515
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + GraphSAGE",
+   "posts": 2491,
+   "MAE": 0.2662486836290523,
+   "CI low": 0.2561065309219988,
+   "CI high": 0.2771766827754269,
+   "bias": -0.013661332864366766
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + MLP (control)",
+   "posts": 2491,
+   "MAE": 0.2653149005433818,
+   "CI low": 0.25530965504342273,
+   "CI high": 0.2765794175807375,
+   "bias": -0.015296026106250044
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost (final model)",
+   "posts": 2441,
+   "MAE": 0.45566381424531344,
+   "CI low": 0.4338608409710372,
+   "CI high": 0.47998070194971004,
+   "bias": -0.03947747034891239
+  },
+  {
+   "platform": "youtube",
+   "model": "MLP (same features, no graph)",
+   "posts": 2441,
+   "MAE": 0.45574384228143283,
+   "CI low": 0.4328579084268909,
+   "CI high": 0.4804393558658081,
+   "bias": -0.02033430423674502
+  },
+  {
+   "platform": "youtube",
+   "model": "GraphSAGE (text graph)",
+   "posts": 2441,
+   "MAE": 0.46699777117663616,
+   "CI low": 0.44457282209096555,
+   "CI high": 0.4926770253869103,
+   "bias": -0.031057618335459645
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + GraphSAGE",
+   "posts": 2441,
+   "MAE": 0.44036574683194946,
+   "CI low": 0.4188621318396001,
+   "CI high": 0.46451077075451414,
+   "bias": -0.03526754434218601
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + MLP (control)",
+   "posts": 2441,
+   "MAE": 0.440018791436709,
+   "CI low": 0.4190643053064703,
+   "CI high": 0.46260780115376826,
+   "bias": -0.0299058872928287
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost (final model)",
+   "posts": 1803,
+   "MAE": 0.4664935387737166,
+   "CI low": 0.44590739419947656,
+   "CI high": 0.48941888359655045,
+   "bias": -0.03933904364434193
+  },
+  {
+   "platform": "twitter",
+   "model": "MLP (same features, no graph)",
+   "posts": 1803,
+   "MAE": 0.4674440090006005,
+   "CI low": 0.4493911478924404,
+   "CI high": 0.48765649104045916,
+   "bias": -0.014309378399929963
+  },
+  {
+   "platform": "twitter",
+   "model": "GraphSAGE (text graph)",
+   "posts": 1803,
+   "MAE": 0.47352457439865375,
+   "CI low": 0.4537303249263304,
+   "CI high": 0.49538293194299604,
+   "bias": 0.0005489958040983989
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + GraphSAGE",
+   "posts": 1803,
+   "MAE": 0.4506300315084658,
+   "CI low": 0.4331006033050557,
+   "CI high": 0.4684325785533425,
+   "bias": -0.019395023920121764
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + MLP (control)",
+   "posts": 1803,
+   "MAE": 0.4509308915129864,
+   "CI low": 0.4333458050757232,
+   "CI high": 0.47076842913779005,
+   "bias": -0.026824211022135953
+  }
+ ],
+ "gains": [
+  {
+   "platform": "tiktok",
+   "base": "MLP (same features, no graph)",
+   "model": "GraphSAGE (text graph)",
+   "gain": -0.005786548708125993,
+   "CI low": -0.010515114162256395,
+   "CI high": -0.0007950368108593657
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "GraphSAGE (text graph)",
+   "gain": -0.006103432141889915,
+   "CI low": -0.012191596957409108,
+   "CI high": 0.0014060026571829577
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "mean CatBoost + GraphSAGE",
+   "gain": 0.006959580467653458,
+   "CI low": 0.003936637174907871,
+   "CI high": 0.010546743457942246
+  },
+  {
+   "platform": "tiktok",
+   "base": "CatBoost (final model)",
+   "model": "mean CatBoost + MLP (control)",
+   "gain": 0.00789336355332391,
+   "CI low": 0.004937552093679948,
+   "CI high": 0.011131696690136476
+  },
+  {
+   "platform": "tiktok",
+   "base": "mean CatBoost + MLP (control)",
+   "model": "mean CatBoost + GraphSAGE",
+   "gain": -0.0009337830856704525,
+   "CI low": -0.0031435870723601164,
+   "CI high": 0.0017319890214600104
+  },
+  {
+   "platform": "youtube",
+   "base": "MLP (same features, no graph)",
+   "model": "GraphSAGE (text graph)",
+   "gain": -0.01125392889520341,
+   "CI low": -0.019938526117290755,
+   "CI high": -0.00222204584596401
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "GraphSAGE (text graph)",
+   "gain": -0.011333956931322749,
+   "CI low": -0.023783586462210956,
+   "CI high": 0.0004995748537333654
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "mean CatBoost + GraphSAGE",
+   "gain": 0.015298067413363902,
+   "CI low": 0.008165424046119186,
+   "CI high": 0.02197137171279334
+  },
+  {
+   "platform": "youtube",
+   "base": "CatBoost (final model)",
+   "model": "mean CatBoost + MLP (control)",
+   "gain": 0.015645022808604414,
+   "CI low": 0.009463283024551149,
+   "CI high": 0.02136036108483533
+  },
+  {
+   "platform": "youtube",
+   "base": "mean CatBoost + MLP (control)",
+   "model": "mean CatBoost + GraphSAGE",
+   "gain": -0.0003469553952405094,
+   "CI low": -0.005242780518939319,
+   "CI high": 0.0048858076047634475
+  },
+  {
+   "platform": "twitter",
+   "base": "MLP (same features, no graph)",
+   "model": "GraphSAGE (text graph)",
+   "gain": -0.006080565398053219,
+   "CI low": -0.015215560190150036,
+   "CI high": 0.002592500626106336
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "GraphSAGE (text graph)",
+   "gain": -0.007031035624937114,
+   "CI low": -0.025062549890511064,
+   "CI high": 0.007596882699331186
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "mean CatBoost + GraphSAGE",
+   "gain": 0.01586350726525081,
+   "CI low": 0.007175405636607802,
+   "CI high": 0.024131976075737933
+  },
+  {
+   "platform": "twitter",
+   "base": "CatBoost (final model)",
+   "model": "mean CatBoost + MLP (control)",
+   "gain": 0.015562647260730205,
+   "CI low": 0.008208753218107186,
+   "CI high": 0.022345761130499228
+  },
+  {
+   "platform": "twitter",
+   "base": "mean CatBoost + MLP (control)",
+   "model": "mean CatBoost + GraphSAGE",
+   "gain": 0.00030086000452060434,
+   "CI low": -0.004864841961288163,
+   "CI high": 0.004986605870933644
+  }
+ ]
+}

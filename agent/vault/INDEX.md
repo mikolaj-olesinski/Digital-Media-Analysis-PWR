@@ -51,3 +51,20 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E44 | small | Does the age of the view check help the final model? | [E44](E44.md) |
 | E45 | worse | Are the newer checks more predictable? | [E45](E45.md) |
 | E46 | finding | Rolling window: does the final model hold up when trained only on earlier months? | [E46](E46.md) |
+| E47 | small | Do tabular foundation models (TabPFN v2, TabICL) beat or add to the final model? | [E47](E47.md) |
+| E48 | finding | Classification: viral top 10%, and posts without a view count | [E48](E48.md) |
+| E49 | none | Context from other posts of the same author, hashtag and brand (no view counts used) | [E49](E49.md) |
+| E50 | small | Text: local sentence embeddings (multilingual-e5-small) and TF-IDF | [E50](E50.md) |
+| E51 | small | Offset target: learn views per like | [E51](E51.md) |
+| E52 | small | Posting-time estimate with sentence embeddings and context from other posts | [E52](E52.md) |
+| E55 | finding | Leakage audit: folds that also separate authors and copied texts | [E55](E55.md) |
+| E56 |  | Noise ceiling: posts with almost the same inputs | [E56](E56.md) |
+| E57 | small | Quantile models and tail weighting | [E57](E57.md) |
+| E58 | finding | Abstention: error on the posts kept | [E58](E58.md) |
+| E59 | finding | Forecast horizon curve; training on every pair of checks | [E59](E59.md) |
+| E60 | gain | Early-reaction forecast without views (FB/IG setting) | [E60](E60.md) |
+| E61 | worse | One pooled model for three platforms, monotone constraints | [E61](E61.md) |
+| E62 | finding | Why YouTube views per like fell in Jul-Aug | [E62](E62.md) |
+| E63 | finding | Copy-paste campaigns | [E63](E63.md) |
+| E64 | small | Separate model for posts without likes and comments | [E64](E64.md) |
+| E65 | finding | GraphSAGE on the text-similarity graph | [E65](E65.md) |

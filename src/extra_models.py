@@ -235,3 +235,19 @@ def labels_figure(ls, lang, path):
         a.set_xticks(range(3)); a.set_xticklabels([f"{eu.NAMES[p]}\n(n={int(ls[ls.platform == eu.NAMES[p]].n.sum())})" for p in mo.PLATS]); a.set_ylabel(yl); a.set_xlabel(T["x"]); a.set_title(title, fontweight="bold")
     fig.subplots_adjust(wspace=.4); ax[1].axhline(0, color="grey", lw=1); ax[1].legend(loc="center left", bbox_to_anchor=(1, .5), frameon=False, title=T["leg"])
     fig.savefig(path, dpi=200, bbox_inches="tight"); plt.show()
+
+
+def summary_figure_pl(root, path):
+    """Polish twin of zoo_summary_en.png, drawn from the stored numbers (zoo_numbers.json, results_numbers.json) so notebook 03 need not be re-run."""
+    import json
+    z = json.load(open(root / "data" / "processed" / "zoo_numbers.json"))["summary"]
+    b24 = json.load(open(root / "data" / "processed" / "results_numbers.json"))["ladder"]["twitter"]["Brand24 reach as-is"][0]
+    fig, ax = plt.subplots(figsize=(9, 4.4)); labels = ["mediana wyświetleń", "najlepszy model (reakcje)", "najlepszy wariant grafowy"]; w = .25
+    for j, p in enumerate(mo.PLATS):
+        vals = [z[p]["median"], z[p]["zoo_best"], z[p]["graph_best"]]
+        ax.bar(np.arange(3) + (j - 1) * w, vals, w, color=eu.PCOL[p], label=eu.NAMES[p])
+        for i, v in enumerate(vals): ax.text(i + (j - 1) * w, v + .01, f"{v:.2f}".replace(".", ","), ha="center", fontsize=8)
+    ax.axhline(b24, color="grey", ls="--", lw=1); ax.text(2.45, b24 + .012, f"zasięg Brand24 na X: {b24:.2f}".replace(".", ","), ha="right", fontsize=8, color="dimgrey")
+    ax.set_xticks(range(3)); ax.set_xticklabels(labels); ax.set_ylabel("MAE log10(wyświetleń), CV po markach"); ax.set_xlabel("krok modelowania")
+    ax.set_title("Więcej modeli i cechy grafowe nie biją samych reakcji", fontweight="bold")
+    ax.legend(loc="center left", bbox_to_anchor=(1, .5), frameon=False, title="platforma"); fig.savefig(path, dpi=200, bbox_inches="tight"); plt.close(fig)
