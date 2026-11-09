@@ -168,7 +168,7 @@ Instagram & właściciele rolek & 627 rolek (541 autorów) & autorzy w walidacji
 \begin{block}{Ta sama platforma}
 TikTok, YouTube, X\\[2pt]
 \textbf{CatBoost} na 8 polach:\\
-{\scriptsize\texttt{log(1+obserwujący)}, \texttt{log(1+lajki)}, \texttt{log(1+komentarze)}, \texttt{log(1+udostępnienia)} + 4 flagi ,,pole puste''}\\[2pt]
+{\scriptsize\texttt{log(1+obserwujący)}, \texttt{log(1+lajki)}, \texttt{log(1+komentarze)}, \texttt{log(1+udostępnienia)} + 4 flagi ,,pole puste'' (obserwujący, lajki, komentarze, udostępnienia)}\\[2pt]
 test na \alert{markach i autorach}, których model nie widział
 \end{block}
 \column{.31\textwidth}
@@ -177,7 +177,7 @@ Facebook, Instagram\\[2pt]
 \textbf{ridge} na 2 polach:\\
 {\scriptsize\texttt{log(1+lajki)}, \texttt{log(1+komentarze)} (jedyne, które ma każda platforma)}\\[2pt]
 uczony \alert{tylko na X + YouTube}\\[2pt]
-{\tiny Inne metody (MLP, CatBoost, augmentacje, mapowanie skal, wagi, anchor, group DRO; E87--E92) nie pobiły ridge (slajd ,,poza platformą'')}
+{\tiny Inne metody (MLP, CatBoost, augmentacje, mapowanie skal, wagi, anchor, group DRO) nie pobiły ridge (slajd ,,poza platformą'')}
 \end{block}
 \column{.31\textwidth}
 \begin{block}{Dane zewnętrzne}
@@ -257,7 +257,7 @@ Stack Exchange & X + YT & \x{3,14} & \x{5,33} & $-$0,229 [$-$0,240; $-$0,207] & 
 \centering\footnotesize
 \scriptsize\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{0.72}
 \input{combos_tabular}
-\sub{Typowy błąd (\x{}); szare = trening. Mediana po 15 zestawach bez celu: FB \x{2,58}, IG \x{2,65}, czyli nie zależy od wyboru X + YT.\\ \scriptsize Stack Exchange (538 pytań) nigdy nie jest w treningu: najlepszy z samego YouTube \x{1,87}, własny ridge SE \x{1,77}; każdy zestaw z X daje \x{3}--\x{5} (E201).}
+\sub{Typowy błąd (\x{}); szare = trening. Mediana po 15 zestawach bez celu: FB \x{2,58}, IG \x{2,65}, czyli nie zależy od wyboru X + YT.\\ \scriptsize Stack Exchange (538 pytań) nigdy nie jest w treningu: najlepszy z samego YouTube \x{1,87}, własny ridge SE \x{1,77}; każdy zestaw z X daje \x{3}--\x{5}.}
 \end{frame}
 
 % 10 ------------------------------------------------------------
@@ -345,47 +345,17 @@ Metoda (typowy błąd) & Facebook & Instagram \\
 \end{frame}
 
 % time
-\begin{frame}{Dane w czasie i historia autora}
-\centering\footnotesize\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.0}
-\begin{tabular}{p{4.7cm}p{6.3cm}c}
-\toprule
-Pytanie & Wynik & Exp. \\
-\midrule
-Powtórne odczyty wyświetleń (ok. 340 TikTok, 350 X, głównie 2026-08) & trening na nowszych odczytach nie pomaga; X gorszy o 0,046 (wyświetlenia odczytane na nowo, reakcje nie) & E38, E45 \\
-Trening na wcześniejszych miesiącach, test na późniejszych & jak CV po markach: różnica $-$0,001 / $-$0,011 / $-$0,026, brak dryfu & E46 \\
-Okno kroczące (TikTok / YouTube / X) & MAE 0,270 / 0,450 / 0,473 & E136 \\
-Wagi świeżości próbek & bez zysku & E133 \\
-\midrule
-Ponowny odczyt X + YT w tej samej chwili: IG & \x{2,72} $\to$ \xb{2,41} & E210 \\
-\quad YouTube jako cel & \x{4,1} $\to$ \xb{2,2} & E211 \\
-\quad X jako cel & \x{4,4} $\to$ \xb{3,0} & E213 \\
-\bottomrule
-\end{tabular}
-\vspace{8pt}
-\sub{Czas sam w sobie nie psuje modelu. Ważne, żeby wyświetlenia i reakcje były odczytane razem: część ,,X i YouTube nie przenoszą się'' to przestarzałe etykiety eksportu.}
+\begin{frame}{Dane w czasie: ważne, kiedy odczytano wyświetlenia}
+\centering
+\includegraphics[width=\textwidth,height=.68\textheight,keepaspectratio]{fig/deck_reread_pl.png}
+\sub{Trening na wcześniejszych miesiącach i test na późniejszych daje ten sam błąd co walidacja po markach: brak dryfu w czasie. Liczy się, żeby wyświetlenia i reakcje były odczytane razem.}
 \end{frame}
 
 % author
-\begin{frame}{Dane w czasie i historia autora: historia autora}
+\begin{frame}{Historia autora: gdy ją znamy, błąd wyraźnie spada}
 \centering
-\includegraphics[width=\textwidth,height=.42\textheight,keepaspectratio]{fig/author_history_pl.png}\\[4pt]
-\begin{columns}[T]
-\column{.48\textwidth}
-\begin{block}{Co daje historia}\scriptsize
-\begin{itemize}
-\item stały poziom wyświetleń autora (Spearman 0,68--0,70), poprawka +0,10--0,16 MAE na postach z wcześniejszym postem (E68)
-\item jeden wcześniejszy post daje większość zysku; pomagają tylko jego wyświetlenia, nie reakcje innych postów (E78)
-\end{itemize}
-\end{block}
-\column{.48\textwidth}
-\begin{block}{Co z tego wynika}\scriptsize
-\begin{itemize}
-\item ok. 2/3 reszty błędu TT/YT to poziom autora (ICC 0,74 / 0,63) (E70--72)
-\item X: 0,530 $\to$ 0,430 na znanych autorach, ale to 1--8\% postów (E68, E119)
-\item historia marki nie zastępuje historii autora (E169)
-\end{itemize}
-\end{block}
-\end{columns}
+\includegraphics[width=\textwidth,height=.68\textheight,keepaspectratio]{fig/deck_author_pl.png}
+\sub{Autorzy mają stały poziom wyświetleń, którego nie widać z reakcji. Wystarczy jeden wcześniejszy post z wyświetleniami. Ale w danych taką historię ma tylko 3--16\% postów.}
 \end{frame}
 
 % errors
@@ -396,20 +366,20 @@ Ponowny odczyt X + YT w tej samej chwili: IG & \x{2,72} $\to$ \xb{2,41} & E210 \
 {\scriptsize Błąd ze znakiem wg kwintyli prawdziwych wyświetleń (+ = model zaniża).}
 \column{.56\textwidth}
 \centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
-\begin{tabular}{p{2.7cm}p{3.4cm}c}
+\begin{tabular}{p{2.9cm}p{3.6cm}}
 \toprule
-Próba & Efekt & Exp. \\
+Próba & Efekt \\
 \midrule
-cel log(wyśw./lajki) & +0,001 / +0,007 / +0,000 & E51 \\
-ważenie ogonów ($\times$2) & $\le$ 0,002, bias bez zmian & E57 \\
-inne funkcje straty & ogon nadal \x{9}--\x{14} za nisko (YT, X) & E180 \\
-izotoniczna / shift per kwantyl & bez poprawy; bias w decylach $\pm$0,11 & E114 \\
-osobny model dla 0 reakcji & bez zysku & E64 \\
+cel log(wyśw./lajki) & +0,001 / +0,007 / +0,000 \\
+ważenie ogonów ($\times$2) & $\le$ 0,002, bias bez zmian \\
+inne funkcje straty & ogon nadal \x{9}--\x{14} za nisko (YT, X) \\
+izotoniczna / shift per kwantyl & bez poprawy; bias w decylach $\pm$0,11 \\
+osobny model dla 0 reakcji & bez zysku \\
 \bottomrule
 \end{tabular}
 \end{columns}
 \vspace{3pt}
-\sub{\scriptsize Dół: posty bez reakcji najtrudniejsze (E76--80), bez wyświetleń ok. \x{1,8} mniejsze (E181). Góra: top 1\% to 60--74\% wyświetleń (E96); surowe lajki biją model MAE na top 1\%: 0,64 vs 0,56 TT, 0,64 vs 0,48 YT, 0,47 vs 0,26 X (E104).}
+\sub{\scriptsize Dół: posty bez reakcji najtrudniejsze, bez wyświetleń ok. \x{1,8} mniejsze. Góra: top 1\% to 60--74\% wyświetleń; surowe lajki biją model MAE na top 1\%: 0,64 vs 0,56 TT, 0,64 vs 0,48 YT, 0,47 vs 0,26 X.}
 \end{frame}
 
 % 11b
@@ -444,22 +414,22 @@ Przedział 90\% obejmuje 87--91\% postów na tej samej platformie.
 \begin{columns}[T]
 \column{.57\textwidth}
 \centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
-\begin{tabular}{>{\raggedright}p{2.6cm}>{\raggedright}p{3.6cm}l}
+\begin{tabular}{>{\raggedright}p{2.6cm}>{\raggedright\arraybackslash}p{3.9cm}}
 \toprule
-Co & Wynik & Exp. \\
+Co & Wynik \\
 \midrule
-CQR 90\% (TT / YT / X) & pokrycie 0,889 / 0,902 / 0,891; szerokość 1,14 / 1,71 / 2,07 log$_{10}$; surowe kwantyle tylko 74\% & E118 \\
-routing wg wzorca braków & pokrycie 0,884--0,900 (pełny model z brakami: 0,46 / 0,56 / 0,83) & E176 \\
-izotoniczna / shift per kwantyl & bez poprawy; bias w decylach $\pm$0,11 & E114 \\
-CQR poza platformą (25\% postów celu) & pokrycie ok. 0,91, szerokie pasma & E131 \\
-FB: górny kwartyl & pokrycie 0,782 & E132 \\
-sumy marek (1 liczba) & \x{1,7} / \x{2,0} / \x{2,1}; X 80\%: 79,3\% & E73, E109 \\
+CQR 90\% (TT / YT / X) & pokrycie 0,889 / 0,902 / 0,891; szerokość 1,14 / 1,71 / 2,07 log$_{10}$; surowe kwantyle tylko 74\% \\
+routing wg wzorca braków & pokrycie 0,884--0,900 (pełny model z brakami: 0,46 / 0,56 / 0,83) \\
+izotoniczna / shift per kwantyl & bez poprawy; bias w decylach $\pm$0,11 \\
+CQR poza platformą (25\% postów celu) & pokrycie ok. 0,91, szerokie pasma \\
+FB: górny kwartyl & pokrycie 0,782 \\
+sumy marek (1 liczba) & \x{1,7} / \x{2,0} / \x{2,1}; X 80\%: 79,3\% \\
 \bottomrule
 \end{tabular}
 \column{.43\textwidth}
 \centering
 \includegraphics[width=\textwidth,height=.55\textheight,keepaspectratio]{fig/calibration_curve_pl.png}\\
-{\scriptsize Kalibracja na postach celu: shift już z 5--10 postów, intercept + nachylenie z 25--50 (E89, E115).}
+{\scriptsize Kalibracja na postach celu: shift już z 5--10 postów, intercept + nachylenie z 25--50.}
 \end{columns}
 \end{frame}
 
