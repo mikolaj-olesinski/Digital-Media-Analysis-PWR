@@ -1,4 +1,4 @@
-# Stan projektu, 2026-11-07
+# Stan projektu, 2026-11-08
 
 Wewnętrzne podsumowanie dla zespołu. Nie tekst preprintu. Pełne dowody: `docs/pl/evidence_map.md`,
 `agent/findings.md`.
@@ -22,6 +22,16 @@ Instagram nie ma publicznych wyświetleń.
 - **Przy publikacji (bez reakcji):** MAE 0,60-0,76, pasmo 2,4-3,0 (×260-900); na reakcje warto poczekać.
 - **Walidacja:** CV po markach, powtórzone CV, rolling-origin, mocniejsze grupowanie autor/kopie; wszystko spójne.
 - **Sufit szumu:** ~0,22 / 0,39 / 0,33; model jest blisko na TikToku i 0,06-0,14 nad nim na YouTube/X.
+
+
+
+
+**Kontrole zewnętrzne (2026-11-08).** Trzy niezależne próbki YouTube pobrane przez `yt-dlp`: filmy marek (53),
+zróżnicowana próbka 131 filmów (od popularnych do małych) i 47 filmów trzecich stron o marce z wyłączonymi kanałami marek.
+Na populacji wzmiankowej — tej, którą model ma obsługiwać — błąd jest blisko eksportu (MAE 0,690 małe, 0,441 średnie),
+zawodzi tylko warstwa popularna (1,569, ~×30 za nisko); przesunięcie ×5 na filmach marek to efekt próbki, nie modelu.
+Filmy z zerem są osiągalne wśród małych wzmianek trzecich stron, ale nie przez kanały marek. X, TikTok i Instagram nadal
+wymagają API, loginu albo próbki ręcznej (E189-E191).
 
 ## Główne wnioski
 
@@ -70,7 +80,7 @@ Pozostałe trzy wymagają decyzji, ręcznych etykiet albo klienta.
 
 ## Reprodukowalność
 
-- 169 kart eksperymentów (170 eksperymentów z eksploracją M1); każdy plik `numbers:` i notebook wskazany przez kartę istnieje.
+- 198 kart eksperymentów (199 eksperymentów z eksploracją M1); każdy plik `numbers:` i notebook wskazany przez kartę istnieje.
 - Ponowne uruchomienie `src/fb_rule_vs_model.py` i `src/cqr_50.py`: pliki JSON są bajtowo identyczne z zapisanymi
   (stałe ziarna).
 - Wszystkie skrypty się kompilują (`python -m py_compile src/*.py`).

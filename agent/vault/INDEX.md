@@ -193,3 +193,13 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E186 | finding | Monthly brand ranking within an industry | [E186](E186.md) |
 | E187 | finding | Negative posts | [E187](E187.md) |
 | E188 | small | Earned media value | [E188](E188.md) |
+| E189 | finding | Can we fetch an external YouTube/X/TikTok sample, and does the model hold on it? | [E189](E189.md) |
+| E190 | finding | Can a YouTube sample span small, large and zero-view videos, and how does the model do per stratum? | [E190](E190.md) |
+| E191 | finding | Can third-party mention videos (not brand channels) be sampled, including tiny/zero-view ones, and does the model hold on them? | [E191](E191.md) |
+| E192 | finding | Do the export TikTok views match the public counts today? | [E192](E192.md) |
+| E193 | finding | Does the third-party mention result hold on 20 brands? | [E193](E193.md) |
+| E194 | finding | How stale are the export YouTube views? | [E194](E194.md) |
+| E195 | finding | Does the mention-population result tighten with 40 brands? | [E195](E195.md) |
+| E196 | finding | Do Facebook public view counts move over three days? | [E196](E196.md) |
+| E197 | finding | Does the mention result hold at 60 brands? | [E197](E197.md) |
+| E198 | finding | Can a cheap pay-per-use X sample be fetched, and does the model hold on it? | [E198](E198.md) |

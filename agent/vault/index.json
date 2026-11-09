@@ -2287,5 +2287,130 @@
   "paths": [
    "src/critical_review.py"
   ]
+ },
+ {
+  "id": "E189",
+  "date": "2026-11-08",
+  "question": "Can we fetch an external YouTube/X/TikTok sample, and does the model hold on it?",
+  "setup": "yt-dlp: YouTube search works, TikTok broken, X blocked; 53 brand videos (recent, 2025+); model trained on Brand24 YouTube",
+  "result": "Median views 6,697 vs 433; MAE 0.726, bias +0.706 (x5 low); bias-corrected 0.540; slope 0.83; TikTok/X/IG need API or login",
+  "type": "finding",
+  "where": "`src/external_youtube.py`, `src/external_validate.py`",
+  "paths": [
+   "src/external_youtube.py",
+   "src/external_validate.py"
+  ]
+ },
+ {
+  "id": "E190",
+  "date": "2026-11-08",
+  "question": "Can a YouTube sample span small, large and zero-view videos, and how does the model do per stratum?",
+  "setup": "4 strata per brand (popular/recent from search, small/newest from the brand channel); 131 videos, 12 brands",
+  "result": "0 zero-view videos reachable (min 71); model MAE 0.289 on small, 0.620 recent, 0.601 newest, 1.480 popular (x30 low)",
+  "type": "finding",
+  "where": "`src/external_youtube_diverse.py`",
+  "paths": [
+   "src/external_youtube_diverse.py"
+  ]
+ },
+ {
+  "id": "E191",
+  "date": "2026-11-08",
+  "question": "Can third-party mention videos (not brand channels) be sampled, including tiny/zero-view ones, and does the model hold on them?",
+  "setup": "4 mention-like queries per brand, brand-owned channel excluded, top/mid/low strata, 47 videos 2025+",
+  "result": "1 zero-view, 17 below 100, median 362 (vs 433); MAE 0.690 low, 0.441 mid, 1.569 top; overall 0.791 (bias +0.39)",
+  "type": "finding",
+  "where": "`src/external_youtube_mentions.py`",
+  "paths": [
+   "src/external_youtube_mentions.py"
+  ]
+ },
+ {
+  "id": "E192",
+  "date": "2026-11-08",
+  "question": "Do the export TikTok views match the public counts today?",
+  "setup": "Re-read 60 random TikTok posts with headless Chromium; compare playCount with the export",
+  "result": "40/60 readable; median ratio 1.068, p90 3.07, 45% within 5%; Spearman 0.918",
+  "type": "finding",
+  "where": "`data/processed/tiktok_refetch_numbers.json`",
+  "paths": [
+   "data/processed/tiktok_refetch_numbers.json"
+  ]
+ },
+ {
+  "id": "E193",
+  "date": "2026-11-08",
+  "question": "Does the third-party mention result hold on 20 brands?",
+  "setup": "Same mention collector, 20 brands; 73 videos; model scored externally",
+  "result": "73 videos, 4 zero-view, 30 below 100; MAE 0.737, bias +0.42; low/mid/top 0.574/0.581/1.385",
+  "type": "finding",
+  "where": "`src/external_youtube_mentions.py`, `src/external_validate.py`",
+  "paths": [
+   "src/external_youtube_mentions.py",
+   "src/external_validate.py"
+  ]
+ },
+ {
+  "id": "E194",
+  "date": "2026-11-08",
+  "question": "How stale are the export YouTube views?",
+  "setup": "Re-read 60 random YouTube mentions with yt-dlp and compare with the export",
+  "result": "58/60; median ratio 1.516, p90 25.3, 19% within 5%; Spearman 0.857",
+  "type": "finding",
+  "where": "`src/youtube_refetch.py`",
+  "paths": [
+   "src/youtube_refetch.py"
+  ]
+ },
+ {
+  "id": "E195",
+  "date": "2026-11-08",
+  "question": "Does the mention-population result tighten with 40 brands?",
+  "setup": "Same mention collector, 40 brands, 144 videos; model scored externally",
+  "result": "144 videos, 4 zero, 49 below 100; MAE 0.638, bias +0.35; low/mid/top 0.558/0.553/1.047",
+  "type": "finding",
+  "where": "`src/external_youtube_mentions.py`, `src/external_validate.py`",
+  "paths": [
+   "src/external_youtube_mentions.py",
+   "src/external_validate.py"
+  ]
+ },
+ {
+  "id": "E196",
+  "date": "2026-11-08",
+  "question": "Do Facebook public view counts move over three days?",
+  "setup": "Re-read 60 fetched FB videos' public watch pages and compare with 2026-11-05",
+  "result": "60/60 readable; ratio 1.000 on every post (no drift); FB counter is static or cached",
+  "type": "finding",
+  "where": "`src/fb_refetch.py`",
+  "paths": [
+   "src/fb_refetch.py"
+  ]
+ },
+ {
+  "id": "E197",
+  "date": "2026-11-08",
+  "question": "Does the mention result hold at 60 brands?",
+  "setup": "Same collector, 60 brands, 203 videos; model scored externally",
+  "result": "203 videos, 10 zero, 83 below 100; MAE 0.606, bias +0.28; low/mid/top 0.536/0.555/1.044",
+  "type": "finding",
+  "where": "`src/external_youtube_mentions.py`, `src/external_validate.py`",
+  "paths": [
+   "src/external_youtube_mentions.py",
+   "src/external_validate.py"
+  ]
+ },
+ {
+  "id": "E198",
+  "date": "2026-11-08",
+  "question": "Can a cheap pay-per-use X sample be fetched, and does the model hold on it?",
+  "setup": "Bearer token, recent search 7 days, 10 brands x 10 posts; impression_count as views; model trained on Brand24 X",
+  "result": "98 posts for $1.47; median 8 views vs 27; MAE 0.565, bias -0.29 (x2 high); baseline 0.747",
+  "type": "finding",
+  "where": "`src/external_x.py`, `src/external_x_validate.py`",
+  "paths": [
+   "src/external_x.py",
+   "src/external_x_validate.py"
+  ]
  }
 ]

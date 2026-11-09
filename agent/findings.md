@@ -202,6 +202,48 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
   reproduces **97%** of IG rows, **62%** of X, **49%** of FB; on TikTok/YouTube the column is the view count, so the
   near-0 reproduction is correct, not a failure. **likely**
 
+## External sample (2026-11-08)
+
+- **An independent YouTube sample is feasible; TikTok, X and Instagram are not** (E189). `yt-dlp` search fetches 53
+  brand-related videos (recent, 2025+), but TikTok reports "No working app info", x.com answers HTTP 520 and Instagram has
+  no public views; those need an API, a login or a provider (`docs/en/external_sample.md`). **solid** (for feasibility)
+- **The model is calibrated to the Brand24 mention population, not to brand videos in general** (E189): on the external
+  sample the relation survives (Spearman 0.93, calibration slope 0.83) but the level does not - median 6,697 views against
+  433 in the export, bias +0.71 (x5 low), MAE 0.726; after removing the level shift MAE is 0.540 against 0.456 inside.
+  External use needs a small recalibration set (E115). **likely**
+
+## External sample, diverse strata (2026-11-08)
+
+- **Zero-view public videos are not reachable through brand channels or search** (E190: 0 in 131, minimum 71), but
+  obscure third-party mentions do include them (E191: 1 zero, several 1-view, 17 below 100). A zero in platform data can
+  therefore be hidden/not collected, but real zeros exist among tiny posts. **solid** (reachability)
+- **The model is a small-post model** (E190): on the small external stratum MAE 0.289 (bias +0.17), on popular videos
+  MAE 1.480 (bias +1.48, ~x30 low); recent 0.620, newest 0.601. The mention population is small posts, so the model works
+  there and needs recalibration above it (E115, E132). **likely**
+
+## Third-party mention sample (2026-11-08)
+
+- **The mention-like population is reachable and the model works there** (E191, expanded in E193, E195, E197): 203
+  third-party videos from 60 brands (brand channels excluded), median 437 views, 10 zero-view; model MAE **0.536 low /
+  0.555 mid / 1.044 top**, overall **0.606** with bias +0.28 (189 validation rows). The earlier x5 shift (E189/E190) came from
+  brand-owned and popular videos, not from the model; the remaining boundary is video size. **likely**
+- **YouTube export views are much staler than TikTok's** (E194): re-reading 60 posts gives 58 readable, median new/old
+  1.516, p90 25.3, only 19% within 5%, Spearman 0.857. Level comparisons need an age correction (E101); the export
+  understates current popular videos. **solid**
+- **Facebook public view counts are frozen over three days** (E196): 60/60 posts re-read, ratio exactly 1.000 on every
+  post, unlike TikTok (+7% median) and YouTube (+52%). The public counter is static or cached, so the FB sample is a valid
+  single-time snapshot and drift is not a source of error there. **solid**
+- **TikTok export views are stale but rank-stable** (E192): re-reading 60 posts gives 40 readable, median new/old 1.068,
+  p90 3.07, only 45% within 5%, but Spearman 0.918. Level comparisons need a common check date or an age correction
+  (E101); a third of the posts cannot be read anonymously. **solid**
+
+## External X sample (2026-11-08)
+
+- **The X API route works and is cheap; the 7-day stream is dominated by tiny posts** (E198): 98 posts for **$1.47**
+  (2,500 would be ~$37.50), median **8 views** against 27 in the export. Model MAE **0.565**, bias **-0.29** (over-predicts
+  the small posts by ~x2), median baseline 0.747. For a representative X sample we need several weekly windows, not a
+  bigger one-off budget. **solid** (feasibility), **likely** (error)
+
 ## Open items (state 2026-11-07)
 
 - **Instagram**: no public views (0/160 anonymous); a manual sample, a login or a provider is needed. Everything else in

@@ -1,4 +1,4 @@
-# Reproduction map: experiments E95-E169
+# Reproduction map: experiments E95-E198
 
 Internal index for the team: which experiment is reproduced by which script, and which numbers file it writes. Generated from the vault cards. Not preprint text.
 
@@ -79,3 +79,32 @@ Internal index for the team: which experiment is reproduced by which script, and
 | E167 | `src/platform_law.py` | `platform_law_numbers.json` |
 | E168 | `src/rule_law.py` | `rule_law_numbers.json` |
 | E169 | `src/brand_prior.py` | `brand_prior_numbers.json` |
+| E170 | — | `external_brand_numbers.json`, `brand_wiki_daily.csv` |
+| E171 | — | `external_brand_numbers.json`, `brand_wikidata.csv` |
+| E172 | — | `time_momentum_numbers.json` |
+| E173 | — | `time_momentum_numbers.json` |
+| E174 | — | `time_momentum_numbers.json`, `platform_wiki_daily.csv` |
+| E175 | — | `time_momentum_numbers.json` |
+| E176 | — | `fallback_estimator_numbers.json` |
+| E177 | — | `fallback_estimator_numbers.json` |
+| E178 | — | `critical_review_numbers.json` |
+| E179 | — | `critical_review_numbers.json` |
+| E180 | — | `critical_review_numbers.json` |
+| E181 | — | `critical_review_numbers.json` |
+| E182 | — | `critical_review_numbers.json` |
+| E183 | — | `critical_review_numbers.json` |
+| E184 | — | `critical_review_numbers.json` |
+| E185 | — | `critical_review_numbers.json` |
+| E186 | — | `critical_review_numbers.json` |
+| E187 | — | `critical_review_numbers.json` |
+| E188 | — | `critical_review_numbers.json` |
+| E189 | `src/external_youtube.py`, `src/external_validate.py` | `external_youtube_numbers.json`, `external_youtube_validation.json` |
+| E190 | `src/external_youtube_diverse.py`, `src/external_validate.py` | `external_youtube_diverse_numbers.json`, `external_youtube_diverse_validation.json` |
+| E191 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |
+| E192 | — | `tiktok_refetch_numbers.json` |
+| E193 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |
+| E194 | `src/youtube_refetch.py` | `youtube_refetch_numbers.json` |
+| E195 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |
+| E196 | `src/fb_refetch.py` | `fb_refetch_numbers.json` |
+| E197 | `src/external_youtube_mentions.py`, `src/external_validate.py` | `external_youtube_mentions_numbers.json`, `external_youtube_mentions_validation.json` |
+| E198 | `src/external_x.py`, `src/external_x_validate.py` | `external_x_numbers.json`, `external_x_validation.json` |

@@ -10,3 +10,9 @@ catboost_info/
 data/manual/
 data/processed/*fetched*.csv
 .tools/
+data/processed/*external*fetched*.csv
+data/processed/external_youtube_diverse_fetched.csv
+data/processed/external_youtube_mentions_fetched.csv
+browser-screenshots/
+data/processed/external_x_fetched.csv
+.tools/x_token.txt

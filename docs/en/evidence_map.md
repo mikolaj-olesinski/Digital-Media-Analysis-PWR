@@ -27,11 +27,18 @@ validations; **likely** = one validation, consistent with the rest; **open** = n
 | 20 | The visible distribution differs by platform: follower elasticity 0.044 / 0.303 / 0.164 (TT/YT/X), reaction elasticity 0.82 / 0.66 / 1.06; 43% / 5% / 14% of posts beat the follower count | likely | E167 |
 | 21 | A simple reverse-engineered Brand24 rule reproduces 97% of IG, 62% of X and 49% of FB rows; on TikTok/YouTube reach is the view count | likely | E168 |
 | 22 | Brand history does not substitute for a missing author history: temporal split, brand prior -0.005 (TikTok), -0.035 (YouTube), +0.006 (X, CI includes 0); 35-52% of test posts have a known brand | likely | E169 |
+| 23 | The model is calibrated to the Brand24 mention population: on 53 independently fetched YouTube brand videos the relation holds (Spearman 0.93, slope 0.83) but the level is x5 low (MAE 0.726, bias +0.71; 0.540 after removing the shift) | likely | E189 |
 | 23 | The noise ceiling is not a check-age artefact: with age matched the bound is unchanged; a 30-day target changes MAE <= 0.007 | likely | E179 |
+| 24 | Zero-view videos are not reachable through brand channels or search (0/131, minimum 71 views), but third-party mentions do include them (1 zero, 17 below 100); the model on brand videos fails above small posts (MAE 0.289 small vs 1.480 popular) | likely | E190 |
 | 24 | The FB transfer rests on 20 brands; without the 3 largest it is 0.46; non-English FB posts are ~x2.2 underestimated; on Brand24's own FB counts it is 0.83 | likely | E177, E178, E182 |
-| 25 | The honest X error over the whole stream (incl. posts without views) is ~0.49 | likely | E181 |
+| 25 | On third-party mention videos (203 videos, 60 brands) the model is close to the export (MAE 0.536 low, 0.555 mid) and fails only on the popular stratum (1.044); the earlier x5 shift came from brand-owned videos | likely | E191, E193, E195, E197 |
+| 25 | On third-party mention videos (203 videos, 60 brands) the model is close to the export (MAE 0.536 low, 0.555 mid) and fails only on the popular stratum (1.044); the earlier x5 shift came from brand-owned videos | likely | E191, E193, E195, E197 |
+| 26 | TikTok export views are stale but rank-stable: 40/60 readable, median new/old 1.068, p90 3.07, Spearman 0.918 | solid | E192 |
 | 26 | An early view read is the alerting signal: top-5% precision 0.82 / 0.86 / 0.71 vs 0.71 / 0.64 / 0.35 from reactions | likely | E185 |
+| 27 | YouTube export views are stale: median new/old 1.516, p90 25.3, 19% within 5%, Spearman 0.857; TikTok 1.068 and 0.918 | solid | E194, E192 |
 | 27 | Routing by available fields keeps 90% bands at 0.88-0.90; the full model with missing reactions covers 0.46-0.83 | likely | E176 |
+| 28 | Facebook public view counts are static over three days (60/60 identical), while TikTok grew 7% and YouTube 52%; FB is a single-time snapshot | solid | E196 |
+| 29 | The X pay-per-use API costs $1.47 for 98 posts; the 7-day stream has median 8 views vs 27 in the export, and the model over-predicts it by x2 (MAE 0.565, bias -0.29) | likely | E198 |
 
 ## Unknown / open
 

@@ -6,7 +6,7 @@ the experiment that measured it.
 
 ## At a glance: current vs historical
 
-| current (state 2026-11-07) | historical |
+| current (state 2026-11-08) | historical |
 |---|---|
 | model card, estimator spec, reporting guide | register rows and experiment cards |
 | evidence map, status, one-pager, client Q&A, slides | what is new, early sections of analysis overview |

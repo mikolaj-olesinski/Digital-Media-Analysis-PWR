@@ -1,0 +1,36 @@
+{
+ "n_external": 131,
+ "brands": 12,
+ "bias_corrected_MAE": 0.572,
+ "calibration_slope": 1.141,
+ "calibration_intercept": 0.195,
+ "MAE": 0.761,
+ "bias": 0.717,
+ "median_baseline_MAE": 1.86,
+ "median_baseline_bias": 1.774,
+ "internal_cv_reference": 0.456,
+ "median_external_views": 11488.999999999993,
+ "median_internal_views": 433.0000000000001,
+ "by_stratum": {
+  "newest": {
+   "n": 32,
+   "MAE": 0.601,
+   "bias": 0.563
+  },
+  "popular": {
+   "n": 36,
+   "MAE": 1.48,
+   "bias": 1.48
+  },
+  "recent": {
+   "n": 27,
+   "MAE": 0.62,
+   "bias": 0.617
+  },
+  "small": {
+   "n": 36,
+   "MAE": 0.289,
+   "bias": 0.167
+  }
+ }
+}
