@@ -1,0 +1,245 @@
+{
+ "config": {
+  "epochs": 3,
+  "batch": 32,
+  "max_len": 128,
+  "lr": 5e-05,
+  "lr_head": 0.001,
+  "seed": 0
+ },
+ "models": [
+  {
+   "platform": "twitter",
+   "model": "CatBoost (final model)",
+   "posts": 1803,
+   "MAE": 0.46653342212530347,
+   "CI low": 0.4456795885233234,
+   "CI high": 0.48847661626202443,
+   "bias": -0.0365350484421503
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost (final model)",
+   "posts": 2441,
+   "MAE": 0.4530425808762341,
+   "CI low": 0.43067876983121006,
+   "CI high": 0.47690901092367094,
+   "bias": -0.03636846599830696
+  },
+  {
+   "platform": "tiktok",
+   "model": "CatBoost (final model)",
+   "posts": 2491,
+   "MAE": 0.2706885855616326,
+   "CI low": 0.2603727310561609,
+   "CI high": 0.28243212046184996,
+   "bias": -0.020761206431801595
+  },
+  {
+   "platform": "twitter",
+   "model": "row as text",
+   "posts": 1803,
+   "MAE": 0.48972854813064487,
+   "CI low": 0.4658366505147034,
+   "CI high": 0.5147556024459063,
+   "bias": -0.17025878980152878
+  },
+  {
+   "platform": "youtube",
+   "model": "row as text",
+   "posts": 2441,
+   "MAE": 0.45449183964615586,
+   "CI low": 0.4330601784038029,
+   "CI high": 0.4786791723721682,
+   "bias": -0.017945281797503987
+  },
+  {
+   "platform": "tiktok",
+   "model": "row as text",
+   "posts": 2491,
+   "MAE": 0.28894115900337397,
+   "CI low": 0.278589934889359,
+   "CI high": 0.2989308596736503,
+   "bias": 0.005742473095718327
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + row as text",
+   "posts": 1803,
+   "MAE": 0.4659136440361891,
+   "CI low": 0.4458221709745481,
+   "CI high": 0.49038097310847156,
+   "bias": -0.10339691912183951
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + row as text",
+   "posts": 2441,
+   "MAE": 0.43427098076291,
+   "CI low": 0.4134342046786481,
+   "CI high": 0.4579169686949399,
+   "bias": -0.027156873897905477
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + row as text",
+   "posts": 2491,
+   "MAE": 0.2719368184657514,
+   "CI low": 0.26254554514811723,
+   "CI high": 0.28258536006966295,
+   "bias": -0.007509366668041628
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost + text correction",
+   "posts": 1803,
+   "MAE": 0.46386432982836256,
+   "CI low": 0.44747015401792994,
+   "CI high": 0.4840102598466401,
+   "bias": -0.027760003543206128
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost + text correction",
+   "posts": 2441,
+   "MAE": 0.4441634223939927,
+   "CI low": 0.4239107480272798,
+   "CI high": 0.4685038757655473,
+   "bias": -0.03485138449023968
+  },
+  {
+   "platform": "tiktok",
+   "model": "CatBoost + text correction",
+   "posts": 2491,
+   "MAE": 0.2752948911029125,
+   "CI low": 0.2637782396140304,
+   "CI high": 0.28611248851813836,
+   "bias": -0.00018292459227648475
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost + half text correction",
+   "posts": 1803,
+   "MAE": 0.4584111549344122,
+   "CI low": 0.43996462997974534,
+   "CI high": 0.4770740861682446,
+   "bias": -0.032147525992678214
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost + half text correction",
+   "posts": 2441,
+   "MAE": 0.4406312456741073,
+   "CI low": 0.4198129305933849,
+   "CI high": 0.4635769446872273,
+   "bias": -0.03560992524427332
+  },
+  {
+   "platform": "tiktok",
+   "model": "CatBoost + half text correction",
+   "posts": 2491,
+   "MAE": 0.2632238600310353,
+   "CI low": 0.2525733650390439,
+   "CI high": 0.2746393988260224,
+   "bias": -0.01047206551203904
+  }
+ ],
+ "gains": [
+  {
+   "platform": "tiktok",
+   "model": "row as text",
+   "gain": -0.018252573441741388,
+   "CI low": -0.024758775385553697,
+   "CI high": -0.012431667175662745
+  },
+  {
+   "platform": "tiktok",
+   "model": "mean CatBoost + row as text",
+   "gain": -0.0012482329041187891,
+   "CI low": -0.004418808734662016,
+   "CI high": 0.0017915524230730732
+  },
+  {
+   "platform": "tiktok",
+   "model": "CatBoost + text correction",
+   "gain": -0.004606305541279913,
+   "CI low": -0.010617693929298063,
+   "CI high": 0.001558790992165105
+  },
+  {
+   "platform": "tiktok",
+   "model": "CatBoost + half text correction",
+   "gain": 0.007464725530597284,
+   "CI low": 0.004228055043149062,
+   "CI high": 0.010733952142671989
+  },
+  {
+   "platform": "youtube",
+   "model": "row as text",
+   "gain": -0.0014492587699217682,
+   "CI low": -0.01540588582386876,
+   "CI high": 0.013349241124380412
+  },
+  {
+   "platform": "youtube",
+   "model": "mean CatBoost + row as text",
+   "gain": 0.018771600113324103,
+   "CI low": 0.011652690760393318,
+   "CI high": 0.026556942044991986
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost + text correction",
+   "gain": 0.008879158482241386,
+   "CI low": 0.0014853282583959532,
+   "CI high": 0.016719009433257704
+  },
+  {
+   "platform": "youtube",
+   "model": "CatBoost + half text correction",
+   "gain": 0.012411335202126879,
+   "CI low": 0.00849128735072046,
+   "CI high": 0.016474773833421903
+  },
+  {
+   "platform": "twitter",
+   "model": "row as text",
+   "gain": -0.02319512600534141,
+   "CI low": -0.035675174671933756,
+   "CI high": -0.009814017624278599
+  },
+  {
+   "platform": "twitter",
+   "model": "mean CatBoost + row as text",
+   "gain": 0.0006197780891143025,
+   "CI low": -0.006213159637408557,
+   "CI high": 0.007050406247922771
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost + text correction",
+   "gain": 0.0026690922969408227,
+   "CI low": -0.007424308717729374,
+   "CI high": 0.012459288290215404
+  },
+  {
+   "platform": "twitter",
+   "model": "CatBoost + half text correction",
+   "gain": 0.008122267190891267,
+   "CI low": 0.0029496843819535458,
+   "CI high": 0.01304234431349859
+  }
+ ],
+ "seconds": {
+  "row as text fold 0": 1271.3374075889587,
+  "row as text fold 1": 1384.4675533771515,
+  "row as text fold 2": 1231.1474268436432,
+  "row as text fold 3": 1206.9064717292786,
+  "row as text fold 4": 1204.1813385486603,
+  "text correction fold 0": 1204.6460509300232,
+  "text correction fold 1": 1204.2132697105408,
+  "text correction fold 2": 1204.7648656368256,
+  "text correction fold 3": 1206.1997666358948,
+  "text correction fold 4": 1206.6488587856293
+ }
+}
