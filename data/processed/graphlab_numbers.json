@@ -1,0 +1,1431 @@
+{
+ "variants": [
+  {
+   "platform": "TikTok",
+   "model": "base: followers + engagement",
+   "MAE": 0.2773590701161697,
+   "CI low": 0.2673227158382562,
+   "CI high": 0.28762388641965264,
+   "gain vs base": 0.0,
+   "gain low": 0.0,
+   "gain high": 0.0
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ structure",
+   "MAE": 0.2782099303670182,
+   "CI low": 0.2685054090359967,
+   "CI high": 0.28927177653551883,
+   "gain vs base": -0.0008508602508484504,
+   "gain low": -0.0031451520181231315,
+   "gain high": 0.001334591361710615
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ spectral",
+   "MAE": 0.2776319794244683,
+   "CI low": 0.26687062982985055,
+   "CI high": 0.2888223781990498,
+   "gain vs base": -0.00027290930829861114,
+   "gain low": -0.001852746006640906,
+   "gain high": 0.0014233771930593341
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ author graph",
+   "MAE": 0.27860187018012683,
+   "CI low": 0.26811081773295675,
+   "CI high": 0.28939991341057947,
+   "gain vs base": -0.0012428000639570583,
+   "gain low": -0.00240188591126097,
+   "gain high": -9.640442059534635e-05
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ all label-free graph features",
+   "MAE": 0.2781586710407546,
+   "CI low": 0.2683667829098861,
+   "CI high": 0.28964097759532603,
+   "gain vs base": -0.000799600924584895,
+   "gain low": -0.003112917564952747,
+   "gain high": 0.0014048759474518241
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ community mean residual",
+   "MAE": 0.2779588890711652,
+   "CI low": 0.2671899671292568,
+   "CI high": 0.2888464935112542,
+   "gain vs base": -0.0005998189549955182,
+   "gain low": -0.0024123252409652554,
+   "gain high": 0.001251290336567618
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ brand-community mean residual",
+   "MAE": 0.278536963962269,
+   "CI low": 0.26819674136757515,
+   "CI high": 0.2890811050933145,
+   "gain vs base": -0.0011778938460992926,
+   "gain low": -0.002753883888602228,
+   "gain high": 0.00031801534989230236
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ hashtag graph",
+   "MAE": 0.2770609174200455,
+   "CI low": 0.2669258141506739,
+   "CI high": 0.2874806991669393,
+   "gain vs base": 0.00029815269612425095,
+   "gain low": -0.0010057352286999546,
+   "gain high": 0.001649198292692797
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ time graph (+-3 days)",
+   "MAE": 0.277075765001099,
+   "CI low": 0.2665511700612767,
+   "CI high": 0.2871646446261118,
+   "gain vs base": 0.00028330511507072544,
+   "gain low": -0.0008246515971422496,
+   "gain high": 0.0013708819045201656
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ near-duplicate graph (cosine > 0.8)",
+   "MAE": 0.2776811947201177,
+   "CI low": 0.26717517240688743,
+   "CI high": 0.2880229880628871,
+   "gain vs base": -0.0003221246039479932,
+   "gain low": -0.0011278848677483036,
+   "gain high": 0.0004077125593574999
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ label propagation (2 hops)",
+   "MAE": 0.2812890639274424,
+   "CI low": 0.27142402430184354,
+   "CI high": 0.2910124033488815,
+   "gain vs base": -0.00392999381127267,
+   "gain low": -0.010429803041515515,
+   "gain high": 0.002501185021068614
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ category encodings (language, country, hour, weekday, month)",
+   "MAE": 0.27074697686107396,
+   "CI low": 0.2615146386197375,
+   "CI high": 0.2805825906942908,
+   "gain vs base": 0.006612093255095748,
+   "gain low": 0.003923230907671642,
+   "gain high": 0.00922692447428849
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ every target-based encoding",
+   "MAE": 0.27414295533197086,
+   "CI low": 0.2643354755592251,
+   "CI high": 0.28404489667233046,
+   "gain vs base": 0.0032161147841988117,
+   "gain low": -0.002663709161200518,
+   "gain high": 0.009237908982256581
+  },
+  {
+   "platform": "TikTok",
+   "model": "+ everything",
+   "MAE": 0.27429001042830575,
+   "CI low": 0.26437477247074415,
+   "CI high": 0.2843466316096338,
+   "gain vs base": 0.003069059687863973,
+   "gain low": -0.002722427871499069,
+   "gain high": 0.008863138681602212
+  },
+  {
+   "platform": "YouTube",
+   "model": "base: followers + engagement",
+   "MAE": 0.4550134638965752,
+   "CI low": 0.4354878059883335,
+   "CI high": 0.4786289709487076,
+   "gain vs base": 0.0,
+   "gain low": 0.0,
+   "gain high": 0.0
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ structure",
+   "MAE": 0.4534407692853657,
+   "CI low": 0.43385391763288306,
+   "CI high": 0.47728020313242936,
+   "gain vs base": 0.001572694611209432,
+   "gain low": -0.004103187523608241,
+   "gain high": 0.007290749272442041
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ spectral",
+   "MAE": 0.44855652644047667,
+   "CI low": 0.42734112139237834,
+   "CI high": 0.47112074854362446,
+   "gain vs base": 0.00645693745609853,
+   "gain low": 0.0007128245255241646,
+   "gain high": 0.012019777678836796
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ author graph",
+   "MAE": 0.45839976707854774,
+   "CI low": 0.43606161069498023,
+   "CI high": 0.4861390235600086,
+   "gain vs base": -0.0033863031819725917,
+   "gain low": -0.008943615675701426,
+   "gain high": 0.0020520050194687027
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ all label-free graph features",
+   "MAE": 0.4524600515771026,
+   "CI low": 0.43289549927827026,
+   "CI high": 0.4772208427471072,
+   "gain vs base": 0.0025534123194725436,
+   "gain low": -0.003863370554189767,
+   "gain high": 0.009143576171410395
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ community mean residual",
+   "MAE": 0.45547447364138993,
+   "CI low": 0.4350507521059418,
+   "CI high": 0.4785432862203996,
+   "gain vs base": -0.0004610097448147276,
+   "gain low": -0.0042853798261112,
+   "gain high": 0.0032932588808947463
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ brand-community mean residual",
+   "MAE": 0.4559444724934627,
+   "CI low": 0.4365978419694525,
+   "CI high": 0.47854257000523975,
+   "gain vs base": -0.0009310085968875153,
+   "gain low": -0.004459603990154451,
+   "gain high": 0.0026908245859711337
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ hashtag graph",
+   "MAE": 0.4527627752826534,
+   "CI low": 0.43191059344195887,
+   "CI high": 0.47572783211079356,
+   "gain vs base": 0.0022506886139218,
+   "gain low": -0.0009902331548876338,
+   "gain high": 0.005651812436977137
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ time graph (+-3 days)",
+   "MAE": 0.4581126662343893,
+   "CI low": 0.43765158414884603,
+   "CI high": 0.4820184120300889,
+   "gain vs base": -0.0030992023378141336,
+   "gain low": -0.006337729732333892,
+   "gain high": -0.00018360193803031104
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ near-duplicate graph (cosine > 0.8)",
+   "MAE": 0.45413641350931105,
+   "CI low": 0.43481569399915926,
+   "CI high": 0.4763213118291097,
+   "gain vs base": 0.0008770503872641467,
+   "gain low": -0.002135781815183782,
+   "gain high": 0.004161872851271483
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ label propagation (2 hops)",
+   "MAE": 0.4590586900628734,
+   "CI low": 0.4368749981165544,
+   "CI high": 0.48511092061483685,
+   "gain vs base": -0.004045226166298245,
+   "gain low": -0.01625960811169277,
+   "gain high": 0.008580439452796872
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ category encodings (language, country, hour, weekday, month)",
+   "MAE": 0.45588415216356737,
+   "CI low": 0.4351524366280624,
+   "CI high": 0.4792100812155996,
+   "gain vs base": -0.0008706882669921952,
+   "gain low": -0.005403542108153491,
+   "gain high": 0.0036357350197665766
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ every target-based encoding",
+   "MAE": 0.4510807219707958,
+   "CI low": 0.4307389135114971,
+   "CI high": 0.4764922438262011,
+   "gain vs base": 0.003932741925779377,
+   "gain low": -0.004880344208670944,
+   "gain high": 0.012603239088248015
+  },
+  {
+   "platform": "YouTube",
+   "model": "+ everything",
+   "MAE": 0.45230811560888873,
+   "CI low": 0.4315522454057999,
+   "CI high": 0.4785618613875983,
+   "gain vs base": 0.002705348287686497,
+   "gain low": -0.006257673845291094,
+   "gain high": 0.012037338471932923
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "base: followers + engagement",
+   "MAE": 0.4814985640321803,
+   "CI low": 0.4625209594558262,
+   "CI high": 0.5035944108736438,
+   "gain vs base": 0.0,
+   "gain low": 0.0,
+   "gain high": 0.0
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ structure",
+   "MAE": 0.48316376149939394,
+   "CI low": 0.4632542923199846,
+   "CI high": 0.5047403904900042,
+   "gain vs base": -0.0016651974672136313,
+   "gain low": -0.007609109482522178,
+   "gain high": 0.003967683189152354
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ spectral",
+   "MAE": 0.47654924464811027,
+   "CI low": 0.4565779788194973,
+   "CI high": 0.4985377278726864,
+   "gain vs base": 0.004949319384069996,
+   "gain low": -0.0005002755779500598,
+   "gain high": 0.01038108418389975
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ author graph",
+   "MAE": 0.48643564051587806,
+   "CI low": 0.4679872123340087,
+   "CI high": 0.5070537316809772,
+   "gain vs base": -0.004937076483697668,
+   "gain low": -0.009120645552216007,
+   "gain high": -0.0009156013292913005
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ all label-free graph features",
+   "MAE": 0.47883053869684733,
+   "CI low": 0.4589442047300373,
+   "CI high": 0.49975020441011103,
+   "gain vs base": 0.0026680253353329924,
+   "gain low": -0.0037737454772376715,
+   "gain high": 0.009197471865655655
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ community mean residual",
+   "MAE": 0.47650220141309757,
+   "CI low": 0.4581622897629027,
+   "CI high": 0.4997879845814933,
+   "gain vs base": 0.004996362619082736,
+   "gain low": 0.00027624931412236186,
+   "gain high": 0.01000572642285975
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ brand-community mean residual",
+   "MAE": 0.4768887572718463,
+   "CI low": 0.45798619883143954,
+   "CI high": 0.4983603624699683,
+   "gain vs base": 0.004609806760333981,
+   "gain low": -0.0007851096022613947,
+   "gain high": 0.010055008229210663
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ hashtag graph",
+   "MAE": 0.4781159546918228,
+   "CI low": 0.4594705903961366,
+   "CI high": 0.4986109967859727,
+   "gain vs base": 0.003382609340357549,
+   "gain low": 0.001195282994504999,
+   "gain high": 0.005973997599298368
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ time graph (+-3 days)",
+   "MAE": 0.4798862405253953,
+   "CI low": 0.46220680230861644,
+   "CI high": 0.5012491695025504,
+   "gain vs base": 0.001612323506785054,
+   "gain low": -0.0011710915070852353,
+   "gain high": 0.004471484261554757
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ near-duplicate graph (cosine > 0.8)",
+   "MAE": 0.48110801300477424,
+   "CI low": 0.4623859293211224,
+   "CI high": 0.5033165365792179,
+   "gain vs base": 0.0003905510274060268,
+   "gain low": -0.0017450960910448548,
+   "gain high": 0.0027314761777298105
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ label propagation (2 hops)",
+   "MAE": 0.5022534836166599,
+   "CI low": 0.4804296929252299,
+   "CI high": 0.5241872810750242,
+   "gain vs base": -0.02075491958447956,
+   "gain low": -0.03509260649274962,
+   "gain high": -0.006209439651714761
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ category encodings (language, country, hour, weekday, month)",
+   "MAE": 0.4823876825510249,
+   "CI low": 0.4626222651632155,
+   "CI high": 0.5041713888151692,
+   "gain vs base": -0.0008891185188445666,
+   "gain low": -0.01051130849170001,
+   "gain high": 0.007430647945949472
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ every target-based encoding",
+   "MAE": 0.47892654020507386,
+   "CI low": 0.45909467162067336,
+   "CI high": 0.5008897562343427,
+   "gain vs base": 0.0025720238271064785,
+   "gain low": -0.006169492316122329,
+   "gain high": 0.011535478557682824
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "+ everything",
+   "MAE": 0.4798504864397778,
+   "CI low": 0.46014907577776887,
+   "CI high": 0.5025359250197626,
+   "gain vs base": 0.0016480775924025337,
+   "gain low": -0.007698016008290434,
+   "gain high": 0.010951248921170335
+  }
+ ],
+ "homophily": [
+  {
+   "platform": "TikTok",
+   "same-type edges": 0.46050410384772106,
+   "expected by chance": 0.3594968381556985,
+   "assortativity": 0.16249842835279055
+  },
+  {
+   "platform": "YouTube",
+   "same-type edges": 0.4514612596284549,
+   "expected by chance": 0.3089755593749481,
+   "assortativity": 0.20495754361661606
+  },
+  {
+   "platform": "X (Twitter)",
+   "same-type edges": 0.6543535620052771,
+   "expected by chance": 0.5227280347753437,
+   "assortativity": 0.26250892948397725
+  }
+ ],
+ "duplicates": [
+  {
+   "platform": "TikTok",
+   "share with near-duplicate": 0.056202328382175835,
+   "spam share, duplicates": 0.2571428571428571,
+   "spam share, others": 0.12547851977881752,
+   "pairs": 92,
+   "corr of log views, duplicate pairs": 0.664929802214629,
+   "corr of log views, random pairs": -0.20529865304167738
+  },
+  {
+   "platform": "YouTube",
+   "share with near-duplicate": 0.13723883654240066,
+   "spam share, duplicates": 0.24477611940298508,
+   "spam share, others": 0.13675213675213677,
+   "pairs": 337,
+   "corr of log views, duplicate pairs": 0.8183924331502674,
+   "corr of log views, random pairs": 0.07717329830567182
+  },
+  {
+   "platform": "X (Twitter)",
+   "share with near-duplicate": 0.08985024958402663,
+   "spam share, duplicates": 0.38271604938271603,
+   "spam share, others": 0.09140767824497258,
+   "pairs": 129,
+   "corr of log views, duplicate pairs": 0.7849430636738165,
+   "corr of log views, random pairs": 0.08181678904570396
+  }
+ ],
+ "type_prediction": [
+  {
+   "platform": "TikTok",
+   "model": "text only",
+   "macro F1": 0.5674617308548134,
+   "accuracy": 0.6499575191163977,
+   "mentions": 2354
+  },
+  {
+   "platform": "TikTok",
+   "model": "text + graph vote",
+   "macro F1": 0.5456774147177061,
+   "accuracy": 0.6134239592183517,
+   "mentions": 2354
+  },
+  {
+   "platform": "TikTok",
+   "model": "graph vote only",
+   "macro F1": 0.4734605754295469,
+   "accuracy": 0.6057774001699235,
+   "mentions": 2354
+  },
+  {
+   "platform": "YouTube",
+   "model": "text only",
+   "macro F1": 0.6145123364314399,
+   "accuracy": 0.6721158337225596,
+   "mentions": 2141
+  },
+  {
+   "platform": "YouTube",
+   "model": "text + graph vote",
+   "macro F1": 0.5937104671667678,
+   "accuracy": 0.6464269033162073,
+   "mentions": 2141
+  },
+  {
+   "platform": "YouTube",
+   "model": "graph vote only",
+   "macro F1": 0.5449250381573234,
+   "accuracy": 0.6296123306865951,
+   "mentions": 2141
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "text only",
+   "macro F1": 0.629528878844451,
+   "accuracy": 0.7874720357941835,
+   "mentions": 1788
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "text + graph vote",
+   "macro F1": 0.570005383565637,
+   "accuracy": 0.7348993288590604,
+   "mentions": 1788
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "graph vote only",
+   "macro F1": 0.5026280761045784,
+   "accuracy": 0.7416107382550335,
+   "mentions": 1788
+  }
+ ],
+ "communities": [
+  {
+   "platform": "TikTok",
+   "community": 29,
+   "size": 250,
+   "top terms": "lexus, car, toyota, cars, ford",
+   "organic": 0.348,
+   "promo": 0.468,
+   "spam": 0.124,
+   "median log10 views": 2.860632362943807,
+   "brands": 59
+  },
+  {
+   "platform": "TikTok",
+   "community": 24,
+   "size": 182,
+   "top terms": "hotel, whirlpool, inn, airbnb, hyatt",
+   "organic": 0.4230769230769231,
+   "promo": 0.46703296703296704,
+   "spam": 0.08791208791208792,
+   "median log10 views": 2.76155182578813,
+   "brands": 54
+  },
+  {
+   "platform": "TikTok",
+   "community": 17,
+   "size": 138,
+   "top terms": "com, https, www, fedex, twitch",
+   "organic": 0.2753623188405797,
+   "promo": 0.4782608695652174,
+   "spam": 0.2391304347826087,
+   "median log10 views": 2.5734483383681743,
+   "brands": 51
+  },
+  {
+   "platform": "TikTok",
+   "community": 1,
+   "size": 137,
+   "top terms": "airlines, delta, shoprite, alaska, kayak",
+   "organic": 0.5693430656934306,
+   "promo": 0.24817518248175183,
+   "spam": 0.12408759124087591,
+   "median log10 views": 2.9656719712201065,
+   "brands": 33
+  },
+  {
+   "platform": "TikTok",
+   "community": 32,
+   "size": 127,
+   "top terms": "samsung, asus, galaxy, ram, laptop",
+   "organic": 0.25984251968503935,
+   "promo": 0.5275590551181102,
+   "spam": 0.16535433070866143,
+   "median log10 views": 3.0199466816788423,
+   "brands": 30
+  },
+  {
+   "platform": "TikTok",
+   "community": 34,
+   "size": 106,
+   "top terms": "priceline, hertz, skincare, body, australia",
+   "organic": 0.39622641509433965,
+   "promo": 0.46226415094339623,
+   "spam": 0.09433962264150944,
+   "median log10 views": 2.733607902833948,
+   "brands": 32
+  },
+  {
+   "platform": "TikTok",
+   "community": 33,
+   "size": 93,
+   "top terms": "kfc, mcdonalds, fyp, mcdonald, viral",
+   "organic": 0.6774193548387096,
+   "promo": 0.13978494623655913,
+   "spam": 0.053763440860215055,
+   "median log10 views": 2.937517892017347,
+   "brands": 18
+  },
+  {
+   "platform": "TikTok",
+   "community": 13,
+   "size": 93,
+   "top terms": "la, anydesk, accenture, en, el",
+   "organic": 0.3655913978494624,
+   "promo": 0.44086021505376344,
+   "spam": 0.15053763440860216,
+   "median log10 views": 2.9400181550076634,
+   "brands": 32
+  },
+  {
+   "platform": "TikTok",
+   "community": 8,
+   "size": 84,
+   "top terms": "dunkin, dunkindonuts, reebok, meijer, coffee",
+   "organic": 0.6428571428571429,
+   "promo": 0.2619047619047619,
+   "spam": 0.07142857142857142,
+   "median log10 views": 2.9258248245504523,
+   "brands": 23
+  },
+  {
+   "platform": "TikTok",
+   "community": 10,
+   "size": 84,
+   "top terms": "seo, semrush, just, starlink, marketing",
+   "organic": 0.4642857142857143,
+   "promo": 0.34523809523809523,
+   "spam": 0.17857142857142858,
+   "median log10 views": 2.525035132183719,
+   "brands": 45
+  },
+  {
+   "platform": "TikTok",
+   "community": 6,
+   "size": 79,
+   "top terms": "adidas, newbalance, shoes, sneakers, new",
+   "organic": 0.45569620253164556,
+   "promo": 0.4177215189873418,
+   "spam": 0.11392405063291139,
+   "median log10 views": 3.345765693114488,
+   "brands": 12
+  },
+  {
+   "platform": "TikTok",
+   "community": 7,
+   "size": 74,
+   "top terms": "kroger, menards, tyson, depot, home",
+   "organic": 0.6891891891891891,
+   "promo": 0.16216216216216217,
+   "spam": 0.08108108108108109,
+   "median log10 views": 2.791654375536635,
+   "brands": 16
+  },
+  {
+   "platform": "TikTok",
+   "community": 20,
+   "size": 69,
+   "top terms": "kohls, snapchat, pepper, dillards, funny",
+   "organic": 0.6811594202898551,
+   "promo": 0.14492753623188406,
+   "spam": 0.10144927536231885,
+   "median log10 views": 2.8808135922807914,
+   "brands": 14
+  },
+  {
+   "platform": "TikTok",
+   "community": 9,
+   "size": 66,
+   "top terms": "prime, amazon, video, netflix, caesars",
+   "organic": 0.5757575757575758,
+   "promo": 0.3333333333333333,
+   "spam": 0.06060606060606061,
+   "median log10 views": 2.893484257558896,
+   "brands": 14
+  },
+  {
+   "platform": "TikTok",
+   "community": 30,
+   "size": 56,
+   "top terms": "stadium, metlife, fifa, bts, world",
+   "organic": 0.375,
+   "promo": 0.375,
+   "spam": 0.14285714285714285,
+   "median log10 views": 2.779523977699835,
+   "brands": 19
+  },
+  {
+   "platform": "TikTok",
+   "community": 0,
+   "size": 54,
+   "top terms": "aetna, health, cigna, insurance, mobile",
+   "organic": 0.3333333333333333,
+   "promo": 0.42592592592592593,
+   "spam": 0.18518518518518517,
+   "median log10 views": 2.711914455983515,
+   "brands": 14
+  },
+  {
+   "platform": "TikTok",
+   "community": 23,
+   "size": 52,
+   "top terms": "cadillac, sonic, quot, texas, summer",
+   "organic": 0.5961538461538461,
+   "promo": 0.25,
+   "spam": 0.15384615384615385,
+   "median log10 views": 3.0398514049698986,
+   "brands": 22
+  },
+  {
+   "platform": "TikTok",
+   "community": 18,
+   "size": 51,
+   "top terms": "bank, fargo, wells, citizens, lululemon",
+   "organic": 0.43137254901960786,
+   "promo": 0.45098039215686275,
+   "spam": 0.09803921568627451,
+   "median log10 views": 2.7024305364455254,
+   "brands": 13
+  },
+  {
+   "platform": "TikTok",
+   "community": 26,
+   "size": 48,
+   "top terms": "quaker, petsmart, petco, pet, dog",
+   "organic": 0.7083333333333334,
+   "promo": 0.14583333333333334,
+   "spam": 0.125,
+   "median log10 views": 2.676447088830115,
+   "brands": 13
+  },
+  {
+   "platform": "TikTok",
+   "community": 31,
+   "size": 47,
+   "top terms": "raising, 039, canes, panera, trivago",
+   "organic": 0.6595744680851063,
+   "promo": 0.19148936170212766,
+   "spam": 0.0851063829787234,
+   "median log10 views": 2.8981764834976764,
+   "brands": 12
+  },
+  {
+   "platform": "TikTok",
+   "community": 2,
+   "size": 46,
+   "top terms": "aldi, sams, club, wegmans, uk",
+   "organic": 0.6739130434782609,
+   "promo": 0.2608695652173913,
+   "spam": 0.043478260869565216,
+   "median log10 views": 2.911940472604002,
+   "brands": 10
+  },
+  {
+   "platform": "TikTok",
+   "community": 3,
+   "size": 46,
+   "top terms": "johns, papa, pizza, papajohns, jcpenney",
+   "organic": 0.4782608695652174,
+   "promo": 0.32608695652173914,
+   "spam": 0.10869565217391304,
+   "median log10 views": 2.9696412862617807,
+   "brands": 15
+  },
+  {
+   "platform": "TikTok",
+   "community": 12,
+   "size": 46,
+   "top terms": "aaa, cheesecake, factory, walmart, fyp",
+   "organic": 0.5869565217391305,
+   "promo": 0.21739130434782608,
+   "spam": 0.08695652173913043,
+   "median log10 views": 2.872592066271173,
+   "brands": 20
+  },
+  {
+   "platform": "TikTok",
+   "community": 4,
+   "size": 44,
+   "top terms": "uber, ubereats, lyft, eats, longhorn",
+   "organic": 0.5909090909090909,
+   "promo": 0.20454545454545456,
+   "spam": 0.11363636363636363,
+   "median log10 views": 2.8579248215039748,
+   "brands": 6
+  },
+  {
+   "platform": "TikTok",
+   "community": 5,
+   "size": 43,
+   "top terms": "mollie, target, temu, code, mills",
+   "organic": 0.3023255813953488,
+   "promo": 0.3488372093023256,
+   "spam": 0.3023255813953488,
+   "median log10 views": 2.900913067737669,
+   "brands": 8
+  },
+  {
+   "platform": "TikTok",
+   "community": 27,
+   "size": 42,
+   "top terms": "peacock, pinterest, fyp, thenorthface, marsh",
+   "organic": 0.5,
+   "promo": 0.23809523809523808,
+   "spam": 0.19047619047619047,
+   "median log10 views": 3.011749690774006,
+   "brands": 7
+  },
+  {
+   "platform": "TikTok",
+   "community": 28,
+   "size": 39,
+   "top terms": "blizzard, gamestop, outback, dairyqueen, camping",
+   "organic": 0.6153846153846154,
+   "promo": 0.1282051282051282,
+   "spam": 0.15384615384615385,
+   "median log10 views": 2.673020907128896,
+   "brands": 6
+  },
+  {
+   "platform": "TikTok",
+   "community": 16,
+   "size": 38,
+   "top terms": "wingstop, wings, buffalo, wild, popeyes",
+   "organic": 0.7105263157894737,
+   "promo": 0.10526315789473684,
+   "spam": 0.05263157894736842,
+   "median log10 views": 2.8937018964550756,
+   "brands": 9
+  },
+  {
+   "platform": "TikTok",
+   "community": 35,
+   "size": 35,
+   "top terms": "tesla, farm, bureau, county, model",
+   "organic": 0.37142857142857144,
+   "promo": 0.5142857142857142,
+   "spam": 0.11428571428571428,
+   "median log10 views": 2.6334684555795866,
+   "brands": 7
+  },
+  {
+   "platform": "TikTok",
+   "community": 11,
+   "size": 35,
+   "top terms": "trader, bell, taco, joes, tacobell",
+   "organic": 0.8857142857142857,
+   "promo": 0.08571428571428572,
+   "spam": 0.02857142857142857,
+   "median log10 views": 2.866877814337499,
+   "brands": 10
+  },
+  {
+   "platform": "TikTok",
+   "community": 21,
+   "size": 34,
+   "top terms": "cricket, aon, viral, fyp, foryou",
+   "organic": 0.23529411764705882,
+   "promo": 0.08823529411764706,
+   "spam": 0.5294117647058824,
+   "median log10 views": 3.8357582885658426,
+   "brands": 6
+  },
+  {
+   "platform": "TikTok",
+   "community": 19,
+   "size": 28,
+   "top terms": "klein, calvin, jungkook, calvinklein, macys",
+   "organic": 0.42857142857142855,
+   "promo": 0.35714285714285715,
+   "spam": 0.07142857142857142,
+   "median log10 views": 2.53638404701322,
+   "brands": 7
+  },
+  {
+   "platform": "TikTok",
+   "community": 36,
+   "size": 27,
+   "top terms": "chipotle, bluesky, food, pov, fyp",
+   "organic": 0.5555555555555556,
+   "promo": 0.1111111111111111,
+   "spam": 0.18518518518518517,
+   "median log10 views": 2.967079734144497,
+   "brands": 5
+  },
+  {
+   "platform": "TikTok",
+   "community": 14,
+   "size": 26,
+   "top terms": "coca, cola, cocacola, coke, labubu",
+   "organic": 0.46153846153846156,
+   "promo": 0.34615384615384615,
+   "spam": 0.11538461538461539,
+   "median log10 views": 2.8997302404460736,
+   "brands": 3
+  },
+  {
+   "platform": "TikTok",
+   "community": 15,
+   "size": 26,
+   "top terms": "electrolux, avanza, thanh, mas, mobil",
+   "organic": 0.19230769230769232,
+   "promo": 0.5384615384615384,
+   "spam": 0.19230769230769232,
+   "median log10 views": 2.7029505210041105,
+   "brands": 7
+  },
+  {
+   "platform": "YouTube",
+   "community": 13,
+   "size": 369,
+   "top terms": "https, com, www, instagram, facebook",
+   "organic": 0.24390243902439024,
+   "promo": 0.5067750677506775,
+   "spam": 0.24119241192411925,
+   "median log10 views": 2.979092900638326,
+   "brands": 121
+  },
+  {
+   "platform": "YouTube",
+   "community": 15,
+   "size": 307,
+   "top terms": "gt, 039, costco, little, chipotle",
+   "organic": 0.46254071661237783,
+   "promo": 0.09771986970684039,
+   "spam": 0.035830618892508145,
+   "median log10 views": 2.509202522331103,
+   "brands": 83
+  },
+  {
+   "platform": "YouTube",
+   "community": 6,
+   "size": 169,
+   "top terms": "https, com, www, amazon, shop",
+   "organic": 0.3254437869822485,
+   "promo": 0.514792899408284,
+   "spam": 0.10650887573964497,
+   "median log10 views": 2.9479236198317262,
+   "brands": 73
+  },
+  {
+   "platform": "YouTube",
+   "community": 11,
+   "size": 150,
+   "top terms": "jobs, https, ai, 2025, com",
+   "organic": 0.12,
+   "promo": 0.5733333333333334,
+   "spam": 0.26,
+   "median log10 views": 2.1218414036785966,
+   "brands": 52
+  },
+  {
+   "platform": "YouTube",
+   "community": 10,
+   "size": 127,
+   "top terms": "car, jeep, vehicle, honda, new",
+   "organic": 0.2125984251968504,
+   "promo": 0.6377952755905512,
+   "spam": 0.11023622047244094,
+   "median log10 views": 2.45484486000851,
+   "brands": 40
+  },
+  {
+   "platform": "YouTube",
+   "community": 4,
+   "size": 121,
+   "top terms": "00, united, airlines, postal, service",
+   "organic": 0.45454545454545453,
+   "promo": 0.3140495867768595,
+   "spam": 0.10743801652892562,
+   "median log10 views": 2.8686444383948255,
+   "brands": 63
+  },
+  {
+   "platform": "YouTube",
+   "community": 7,
+   "size": 111,
+   "top terms": "gaming, asus, cpu, ssd, pro",
+   "organic": 0.45045045045045046,
+   "promo": 0.3063063063063063,
+   "spam": 0.22522522522522523,
+   "median log10 views": 2.3541084391474008,
+   "brands": 29
+  },
+  {
+   "platform": "YouTube",
+   "community": 20,
+   "size": 101,
+   "top terms": "amzn, https, bit, ly, http",
+   "organic": 0.2079207920792079,
+   "promo": 0.6237623762376238,
+   "spam": 0.16831683168316833,
+   "median log10 views": 3.0989896394011773,
+   "brands": 55
+  },
+  {
+   "platform": "YouTube",
+   "community": 9,
+   "size": 99,
+   "top terms": "cadillac, starbucks, comedy, depot, lowes",
+   "organic": 0.3434343434343434,
+   "promo": 0.2828282828282828,
+   "spam": 0.1414141414141414,
+   "median log10 views": 2.531478917042255,
+   "brands": 41
+  },
+  {
+   "platform": "YouTube",
+   "community": 19,
+   "size": 92,
+   "top terms": "lululemon, ulta, shopmy, https, sephora",
+   "organic": 0.33695652173913043,
+   "promo": 0.4673913043478261,
+   "spam": 0.08695652173913043,
+   "median log10 views": 3.0870675704785344,
+   "brands": 28
+  },
+  {
+   "platform": "YouTube",
+   "community": 1,
+   "size": 91,
+   "top terms": "copyright, aon, music, use, song",
+   "organic": 0.2087912087912088,
+   "promo": 0.32967032967032966,
+   "spam": 0.42857142857142855,
+   "median log10 views": 2.833784374656479,
+   "brands": 47
+  },
+  {
+   "platform": "YouTube",
+   "community": 27,
+   "size": 86,
+   "top terms": "burger, king, tractor, peacock, petsmart",
+   "organic": 0.5,
+   "promo": 0.1744186046511628,
+   "spam": 0.11627906976744186,
+   "median log10 views": 2.5885257176527285,
+   "brands": 26
+  },
+  {
+   "platform": "YouTube",
+   "community": 12,
+   "size": 77,
+   "top terms": "nike, balance, na, gothic, pl",
+   "organic": 0.3246753246753247,
+   "promo": 0.45454545454545453,
+   "spam": 0.12987012987012986,
+   "median log10 views": 2.271841606536499,
+   "brands": 17
+  },
+  {
+   "platform": "YouTube",
+   "community": 18,
+   "size": 70,
+   "top terms": "coors, highlights, 2026, metlife, field",
+   "organic": 0.3142857142857143,
+   "promo": 0.4714285714285714,
+   "spam": 0.02857142857142857,
+   "median log10 views": 2.4838207820415055,
+   "brands": 25
+  },
+  {
+   "platform": "YouTube",
+   "community": 3,
+   "size": 64,
+   "top terms": "mollie, hotel, booking, marriott, inn",
+   "organic": 0.328125,
+   "promo": 0.375,
+   "spam": 0.09375,
+   "median log10 views": 1.7592569699389438,
+   "brands": 21
+  },
+  {
+   "platform": "YouTube",
+   "community": 26,
+   "size": 60,
+   "top terms": "insurance, usaa, prudential, convention, 36th",
+   "organic": 0.18333333333333332,
+   "promo": 0.6,
+   "spam": 0.05,
+   "median log10 views": 1.8720682262006236,
+   "brands": 18
+  },
+  {
+   "platform": "YouTube",
+   "community": 22,
+   "size": 53,
+   "top terms": "trading, crypto, https, bmo, lafc",
+   "organic": 0.09433962264150944,
+   "promo": 0.6792452830188679,
+   "spam": 0.18867924528301888,
+   "median log10 views": 2.617000341120899,
+   "brands": 23
+  },
+  {
+   "platform": "YouTube",
+   "community": 24,
+   "size": 51,
+   "top terms": "uber, doordash, lyft, eats, grubhub",
+   "organic": 0.23529411764705882,
+   "promo": 0.39215686274509803,
+   "spam": 0.17647058823529413,
+   "median log10 views": 2.4533183400470375,
+   "brands": 11
+  },
+  {
+   "platform": "YouTube",
+   "community": 2,
+   "size": 36,
+   "top terms": "whhitv, sc, ch, county, whhi",
+   "organic": 0.08333333333333333,
+   "promo": 0.8611111111111112,
+   "spam": 0.05555555555555555,
+   "median log10 views": 2.3692118916488774,
+   "brands": 14
+  },
+  {
+   "platform": "YouTube",
+   "community": 28,
+   "size": 35,
+   "top terms": "kgw, oregon, hilton, list, watch",
+   "organic": 0.42857142857142855,
+   "promo": 0.37142857142857144,
+   "spam": 0.11428571428571428,
+   "median log10 views": 2.806179973983887,
+   "brands": 18
+  },
+  {
+   "platform": "YouTube",
+   "community": 25,
+   "size": 35,
+   "top terms": "burlington, guardian, angeles, los, maximotv",
+   "organic": 0.2,
+   "promo": 0.4857142857142857,
+   "spam": 0.2,
+   "median log10 views": 2.2624510897304293,
+   "brands": 14
+  },
+  {
+   "platform": "YouTube",
+   "community": 21,
+   "size": 26,
+   "top terms": "lg, tcl, buffalo, wings, wild",
+   "organic": 0.23076923076923078,
+   "promo": 0.4230769230769231,
+   "spam": 0.0,
+   "median log10 views": 1.9009075842907186,
+   "brands": 6
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 17,
+   "size": 208,
+   "top terms": "status, com, https, twitter, photo",
+   "organic": 0.7067307692307693,
+   "promo": 0.18269230769230768,
+   "spam": 0.08653846153846154,
+   "median log10 views": 1.5314789170422551,
+   "brands": 96
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 12,
+   "size": 147,
+   "top terms": "quot, reebok, temu, like, zales",
+   "organic": 0.7074829931972789,
+   "promo": 0.1292517006802721,
+   "spam": 0.16326530612244897,
+   "median log10 views": 1.5797835966168101,
+   "brands": 64
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 23,
+   "size": 122,
+   "top terms": "bank, td, target, fargo, wells",
+   "organic": 0.5573770491803278,
+   "promo": 0.30327868852459017,
+   "spam": 0.13934426229508196,
+   "median log10 views": 1.702758553488188,
+   "brands": 41
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 13,
+   "size": 110,
+   "top terms": "hertz, car, toyota, bmw, https",
+   "organic": 0.7363636363636363,
+   "promo": 0.13636363636363635,
+   "spam": 0.1,
+   "median log10 views": 1.4313637641589874,
+   "brands": 43
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 18,
+   "size": 107,
+   "top terms": "kfc, taco, bell, wendys, burger",
+   "organic": 0.8785046728971962,
+   "promo": 0.037383177570093455,
+   "spam": 0.08411214953271028,
+   "median log10 views": 1.414973347970818,
+   "brands": 34
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 9,
+   "size": 104,
+   "top terms": "bath, aldi, bed, ihop, panera",
+   "organic": 0.8653846153846154,
+   "promo": 0.0673076923076923,
+   "spam": 0.0673076923076923,
+   "median log10 views": 1.3520752584198994,
+   "brands": 40
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 4,
+   "size": 76,
+   "top terms": "locker, foot, balance, new, https",
+   "organic": 0.5,
+   "promo": 0.3815789473684211,
+   "spam": 0.11842105263157894,
+   "median log10 views": 1.7558748556724915,
+   "brands": 17
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 3,
+   "size": 76,
+   "top terms": "starlink, xfinity, petco, good, service",
+   "organic": 0.8289473684210527,
+   "promo": 0.13157894736842105,
+   "spam": 0.039473684210526314,
+   "median log10 views": 1.2670130530280674,
+   "brands": 32
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 25,
+   "size": 75,
+   "top terms": "amp, hardware, ace, utm_source, utm_campaign",
+   "organic": 0.49333333333333335,
+   "promo": 0.4666666666666667,
+   "spam": 0.02666666666666667,
+   "median log10 views": 1.462397997898956,
+   "brands": 32
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 16,
+   "size": 72,
+   "top terms": "tv, hulu, streaming, netflix, disney",
+   "organic": 0.8194444444444444,
+   "promo": 0.06944444444444445,
+   "spam": 0.1111111111111111,
+   "median log10 views": 1.6269112193540365,
+   "brands": 26
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 1,
+   "size": 66,
+   "top terms": "uber, ubereats, eats, lyft, doordash",
+   "organic": 0.8636363636363636,
+   "promo": 0.07575757575757576,
+   "spam": 0.06060606060606061,
+   "median log10 views": 1.1901056208558032,
+   "brands": 13
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 10,
+   "size": 56,
+   "top terms": "teamviewer, hack, instagram, https, anydesk",
+   "organic": 0.375,
+   "promo": 0.19642857142857142,
+   "spam": 0.42857142857142855,
+   "median log10 views": 1.3323209877780626,
+   "brands": 20
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 21,
+   "size": 56,
+   "top terms": "airlines, united, acer, airbnb, com",
+   "organic": 0.6607142857142857,
+   "promo": 0.19642857142857142,
+   "spam": 0.14285714285714285,
+   "median log10 views": 1.2428607132407898,
+   "brands": 16
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 24,
+   "size": 53,
+   "top terms": "costco, publix, club, kroger, walmart",
+   "organic": 1.0,
+   "promo": 0.0,
+   "spam": 0.0,
+   "median log10 views": 1.462397997898956,
+   "brands": 17
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 7,
+   "size": 51,
+   "top terms": "mobile, boost, youtube, si, phone",
+   "organic": 0.6078431372549019,
+   "promo": 0.21568627450980393,
+   "spam": 0.13725490196078433,
+   "median log10 views": 1.414973347970818,
+   "brands": 19
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 0,
+   "size": 50,
+   "top terms": "039, papa, johns, john, arby",
+   "organic": 0.82,
+   "promo": 0.18,
+   "spam": 0.0,
+   "median log10 views": 1.3617278360175928,
+   "brands": 20
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 26,
+   "size": 48,
+   "top terms": "field, philadelphia, tickets, lincoln, tour",
+   "organic": 0.22916666666666666,
+   "promo": 0.6041666666666666,
+   "spam": 0.16666666666666666,
+   "median log10 views": 1.8542104500673564,
+   "brands": 20
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 20,
+   "size": 47,
+   "top terms": "slim, gt, jim, amp, id",
+   "organic": 0.6170212765957447,
+   "promo": 0.1276595744680851,
+   "spam": 0.2127659574468085,
+   "median log10 views": 1.4313637641589874,
+   "brands": 20
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 6,
+   "size": 45,
+   "top terms": "samsung, hisense, tcl, sony, haier",
+   "organic": 0.6888888888888889,
+   "promo": 0.3111111111111111,
+   "spam": 0.0,
+   "median log10 views": 1.3979400086720377,
+   "brands": 17
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 15,
+   "size": 44,
+   "top terms": "subaru, outback, corral, golden, fact",
+   "organic": 0.9090909090909091,
+   "promo": 0.045454545454545456,
+   "spam": 0.045454545454545456,
+   "median log10 views": 1.2296962438796153,
+   "brands": 11
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 11,
+   "size": 44,
+   "top terms": "corona, ulta, ke, amp, budweiser",
+   "organic": 0.7272727272727273,
+   "promo": 0.22727272727272727,
+   "spam": 0.045454545454545456,
+   "median log10 views": 1.5602869656029248,
+   "brands": 21
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 5,
+   "size": 36,
+   "top terms": "chicken, fried, wild, buffalo, kentucky",
+   "organic": 0.8888888888888888,
+   "promo": 0.05555555555555555,
+   "spam": 0.05555555555555555,
+   "median log10 views": 1.3617278360175928,
+   "brands": 15
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 19,
+   "size": 30,
+   "top terms": "kayak, dunkin, coffee, days, limit",
+   "organic": 0.6666666666666666,
+   "promo": 0.06666666666666667,
+   "spam": 0.23333333333333334,
+   "median log10 views": 1.1276362525516532,
+   "brands": 14
+  },
+  {
+   "platform": "X (Twitter)",
+   "community": 8,
+   "size": 25,
+   "top terms": "decathlon, le, te, en, construction",
+   "organic": 0.56,
+   "promo": 0.24,
+   "spam": 0.16,
+   "median log10 views": 1.0,
+   "brands": 6
+  }
+ ]
+}

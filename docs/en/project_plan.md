@@ -15,6 +15,9 @@ Key caveat: on Facebook and Instagram there is no ground truth and `b24_estimate
 - [ ] Ask Brand24 to confirm the reconstructed rules
 
 ## Session 4: first result on the full data
+
+_Done 2026-11-02:_ notebook `03_zoo_strata_graph` (model zoo, graph features, strata, labels vs views): none beats followers + engagement; see `logs/2026-11-02_mikolaj_claude.md`.
+
 Model ladder, all evaluated with the same validation, per platform:
 1. Baselines: constant × followers, the reconstructed Brand24 rule
 2. Log-log regression, splines, quantile regression, Ridge/Lasso

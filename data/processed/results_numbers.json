@@ -1,0 +1,229 @@
+{
+ "views_known_pct": {
+  "tiktok": 100,
+  "youtube": 99,
+  "twitter": 75,
+  "facebook": 0,
+  "instagram": 0
+ },
+ "ladder": {
+  "tiktok": {
+   "median views": [
+    0.663,
+    0.634,
+    0.691
+   ],
+   "constant x followers": [
+    0.919,
+    0.89,
+    0.952
+   ],
+   "gradient model: + followers": [
+    0.607,
+    0.583,
+    0.63
+   ],
+   "gradient model: + engagement": [
+    0.293,
+    0.282,
+    0.305
+   ],
+   "gradient model: + missing flags": [
+    0.293,
+    0.282,
+    0.305
+   ],
+   "gradient model: + text": [
+    0.294,
+    0.283,
+    0.306
+   ],
+   "gradient model: + our labels": [
+    0.287,
+    0.276,
+    0.299
+   ],
+   "gradient model: + time": [
+    0.288,
+    0.277,
+    0.299
+   ],
+   "ridge: followers + engagement": [
+    0.278,
+    0.268,
+    0.288
+   ]
+  },
+  "youtube": {
+   "median views": [
+    0.944,
+    0.91,
+    0.978
+   ],
+   "constant x followers": [
+    0.855,
+    0.821,
+    0.895
+   ],
+   "gradient model: + followers": [
+    0.783,
+    0.756,
+    0.808
+   ],
+   "gradient model: + engagement": [
+    0.466,
+    0.444,
+    0.49
+   ],
+   "gradient model: + missing flags": [
+    0.466,
+    0.444,
+    0.49
+   ],
+   "gradient model: + text": [
+    0.459,
+    0.435,
+    0.483
+   ],
+   "gradient model: + our labels": [
+    0.463,
+    0.44,
+    0.485
+   ],
+   "gradient model: + time": [
+    0.458,
+    0.438,
+    0.48
+   ],
+   "ridge: followers + engagement": [
+    0.566,
+    0.542,
+    0.592
+   ]
+  },
+  "twitter": {
+   "median views": [
+    0.667,
+    0.64,
+    0.695
+   ],
+   "constant x followers": [
+    0.879,
+    0.838,
+    0.925
+   ],
+   "Brand24 reach as-is": [
+    1.083,
+    1.043,
+    1.119
+   ],
+   "gradient model: + followers": [
+    0.597,
+    0.576,
+    0.622
+   ],
+   "gradient model: + engagement": [
+    0.497,
+    0.48,
+    0.515
+   ],
+   "gradient model: + missing flags": [
+    0.497,
+    0.48,
+    0.515
+   ],
+   "gradient model: + text": [
+    0.501,
+    0.483,
+    0.522
+   ],
+   "gradient model: + our labels": [
+    0.496,
+    0.477,
+    0.516
+   ],
+   "gradient model: + time": [
+    0.5,
+    0.48,
+    0.519
+   ],
+   "ridge: followers + engagement": [
+    0.486,
+    0.464,
+    0.51
+   ]
+  }
+ },
+ "importance": {
+  "TikTok": {
+   "followers": 0.016,
+   "engagement": 0.606,
+   "missing flags": 0.0,
+   "text": -0.0,
+   "our labels": 0.01,
+   "time": 0.003
+  },
+  "YouTube": {
+   "followers": 0.109,
+   "engagement": 0.611,
+   "missing flags": 0.0,
+   "text": 0.018,
+   "our labels": 0.003,
+   "time": 0.031
+  },
+  "X (Twitter)": {
+   "followers": 0.083,
+   "engagement": 0.214,
+   "missing flags": 0.0,
+   "text": -0.001,
+   "our labels": 0.012,
+   "time": 0.001
+  }
+ },
+ "transfer": {
+  "TikTok": {
+   "transfer MAE": 0.313,
+   "CI low": 0.301,
+   "CI high": 0.325,
+   "bias (mean error)": 0.029,
+   "in-platform MAE": 0.299,
+   "rows": 2491.0
+  },
+  "YouTube": {
+   "transfer MAE": 0.612,
+   "CI low": 0.581,
+   "CI high": 0.644,
+   "bias (mean error)": 0.209,
+   "in-platform MAE": 0.618,
+   "rows": 2441.0
+  },
+  "X (Twitter)": {
+   "transfer MAE": 0.65,
+   "CI low": 0.623,
+   "CI high": 0.671,
+   "bias (mean error)": -0.404,
+   "in-platform MAE": 0.519,
+   "rows": 1803.0
+  }
+ },
+ "cross_platform_coverage": {
+  "TikTok": 0.993,
+  "YouTube": 0.817,
+  "X (Twitter)": 0.82
+ },
+ "unknown": {
+  "half_width_log10": 1.142,
+  "Facebook": {
+   "our_median": 2.14,
+   "brand24_median": 3.46,
+   "brand24_inside_pct": 61,
+   "n": 2278
+  },
+  "Instagram": {
+   "our_median": 2.14,
+   "brand24_median": 1.9,
+   "brand24_inside_pct": 100,
+   "n": 1415
+  }
+ }
+}
