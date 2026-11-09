@@ -268,6 +268,11 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
   `commentCount` is absent from the page data. The rows carry `likes_hidden`/`comments_off` = `unknown` where the value is
   missing; no zero is written for a missing value. **likely**
 
+- **The export understates X views and its YouTube zeros are often missing data** (E233): on 50 X posts FxTwitter and the
+  paid API are 98% identical (median ratio 1.000), while the export is 1.79x lower (Spearman 0.926); on 20 YouTube posts
+  with `likes = 0` in the export, 10 have positive likes on the page, 6 are true zeros and 4 are unknown. Treat export
+  zeros as missing, not as zero. **solid**
+
 ## Open items (state 2026-11-07)
 
 - **Instagram**: no public views (0/160 anonymous); a manual sample, a login or a provider is needed. Everything else in

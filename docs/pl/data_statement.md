@@ -63,3 +63,4 @@ dotknięte agregaty — i tak mówimy.
   usunięciu jednego duplikatu (2 501 -> 2 500; `views`, `likes`, `replies`, `retweets`). Wiersze mają `status` i
   `source_field`; pliki są git-ignored, bez URL-i i nazw autorów.
 - Wiersze YouTube mają też `likes_hidden` i `comments_off`: `false` gdy licznik istnieje, `unknown` gdy go brak; kontrola 10 wierszy pokazała, że brakujące lajki/komentarze to luka yt-dlp, a nie ukryte lajki czy wyłączone komentarze.
+- **Niezależna kontrola (2026-11-09).** 50 postów X: FxTwitter i płatne API zgadzają się w 98% wierszy (mediana 1,000), eksport jest 1,79× niższy (Spearman 0,926). Z 20 postów YouTube z `likes = 0` w eksporcie 10 ma dodatnie lajki na stronie, 6 to prawdziwe zera, a 4 są nieznane — zera w eksporcie traktujemy jako braki (E233).

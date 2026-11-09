@@ -229,5 +229,9 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E229 | finding | Instagram owner followers | [E229](E229.md) |
 | E230 | finding | Transfer with more fields | [E230](E230.md) |
 | E231 | finding | Confidence model | [E231](E231.md) |
+| E232 | finding | Viral and outlier posts without views | [E232](E232.md) |
+| E234 | finding | Are view-model outliers off-brand mentions, and can the detector reach AUC 0.75? | [E234](E234.md) |
+| E235 | finding | Spikes of small accounts | [E235](E235.md) |
+| E233 | finding | Are the export X views or our read wrong, and are YouTube zero likes real? | [E233](E233.md) |
 | E223 | finding | Do our FB / IG post owners have the same account on YouTube or X? | [E223](E223.md) |
 | E224 | finding | Is a mention really about its brand? | [E224](E224.md) |
