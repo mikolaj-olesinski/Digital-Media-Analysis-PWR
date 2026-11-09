@@ -48,10 +48,10 @@ def preds():
 
 def fig_main(D, lang):
     T = {"pl": ("Uczony na tej samej platformie (TikTok, YouTube, X) i na innych (Facebook, Instagram)",
-                "Każda kropka to post z marki, której model nie widział. Pas: w granicach ×2. Liczba: typowy błąd.",
+                "Każda kropka to jeden post (marki i autora, których model nie widział, albo z platformy spoza treningu). Pas: w granicach ×2. Liczba: typowy błąd.",
                 "prawdziwe wyświetlenia", "oszacowane", "NA TEJ SAMEJ PLATFORMIE (nowe marki i autorzy)", "POZA PLATFORMĄ (uczony tylko na X + YouTube)"),
          "en": ("Trained on the same platform (TikTok, YouTube, X) and on others (Facebook, Instagram)",
-                "Each dot is a post from a brand the model did not see. Band: within ×2. Number: typical error.",
+                "Each dot is one post (from a brand and author the model did not see, or from a platform outside training). Band: within ×2. Number: typical error.",
                 "true views", "predicted", "SAME PLATFORM (new brands and authors)", "OUT OF PLATFORM (trained only on X + YouTube)")}[lang]
     fig, ax = plt.subplots(1, 5, figsize=(12, 3.3), sharex=True, sharey=True, gridspec_kw={"wspace": .06}); fig.patch.set_facecolor(SURF)
     xx = np.array([-.5, 8]); box = dict(boxstyle="round,pad=0.2", fc=SURF, ec="none", alpha=.85)
@@ -204,8 +204,8 @@ PLN = {"models": "modele", "text": "tekst", "AI labels": "etykiety AI", "graphs"
 
 def fig_methods(lang):
     tr = (lambda t: PLN.get(t, t)) if lang == "pl" else (lambda t: t)
-    T = {"pl": ("Żadne dodatkowe dane nie zmieniają błędu o więcej niż ×1,04", "zmiana błędu (dodatnia = lepiej)"),
-         "en": ("No extra data changes the error by more than ×1.04", "change in error (positive = better)")}[lang]
+    T = {"pl": ("Żadne dodatkowe dane nie poprawiają błędu o więcej niż ×1,04", "zmiana błędu (dodatnia = lepiej)"),
+         "en": ("No extra data improves the error by more than ×1.04", "change in error (positive = better)")}[lang]
     rows, ylab, ys, groups, pos = [], [], [], [], 0
     for g, items in METHODS:
         groups.append((pos, tr(g))); pos += 1

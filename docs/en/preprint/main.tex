@@ -50,10 +50,13 @@ transferring a view model across platforms in this way.
 We ask whether the views of a Facebook or Instagram post can be estimated from its reactions by a model trained only on
 other platforms, and with what uncertainty. Our contributions:
 \begin{itemize}
-  \item a model trained only on X and YouTube estimates the views of Facebook videos with a typical error of \x{2.4}
-        and of Instagram reels with \x{2.72}, almost as well as a model trained on the target platform itself;
-  \item we show when this transfer works (reactions read together with views) and when it fails;
-  \item we give an uncertainty interval for every post, valid also when data are missing;
+    \item we show that the ratio of views to likes, estimated only on X and YouTube, transfers to other platforms: the
+        model estimates the views of Facebook videos with a typical error (factor $10^{\text{MAE}}$,
+        Section~\ref{sec:met}) of \x{2.43}, the same as a model trained on Facebook itself, and of Instagram reels with
+        \x{2.72} (model trained on Instagram: \x{2.41}); the simplest rule that knows no views from the target platform
+        is off by \x{9}--\x{20};
+  \item we show when this transfer works (reactions read together with views) and when it fails (X, Stack Exchange);
+  \item we give an uncertainty interval for every post, on the same platform valid also when data are missing;
   \item we show applications: a breakout alert, a brand ranking and media value.
 \end{itemize}
 
@@ -61,18 +64,22 @@ other platforms, and with what uncertainty. Our contributions:
 
 We use 12\,500 mentions of 348 brands from five platforms, provided by Brand24 (2\,500 per platform; 85\% were
 published between April and August 2026, and 85\% are in English). For TikTok, YouTube and X the views are in the export.
-For Facebook and Instagram they are not, so we read them ourselves, together with reactions from the same moment: 402
-videos from 20 brands on Facebook and 642 reels from 11 brands on Instagram. Ordinary posts on these platforms have no
-view counter, so the results apply only to videos and reels. Mention type and sentiment were labelled by language models
+For Facebook and Instagram they are not, so we read them in November 2026 from the public post pages, without logging
+in, together with likes and comments from the same moment. On Facebook a script read the view counter of the video
+player (5 November): 402 of 470 videos (68 removed or unavailable) from 20 of 22 brands. On Instagram a browser agent
+read the reel pages (6--8 November): of 976 reels, 261 were removed, 19 had no counter and 54 had hidden likes, leaving
+642 reels from 11 brands. The Instagram sample thus covers only reels with visible likes. Ordinary posts on these
+platforms have no view counter, so the results apply only to videos and reels. Mention type and sentiment were labelled by language models
 and then checked and corrected by a team member.
 
 \begin{table}[!htb]
 \centering\small
 \caption{Data by platform.}
 \label{tab:data}
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lrrlrrr}
 \toprule
-Platform & Brands & Authors & Source of views & Posts with views & Median views & Views per like \\
+Platform & Brands & Authors & Source of views & Posts w/ views & Median views & Views/like \\
 \midrule
 TikTok    & 266 & 2\,411 & Brand24 export       & 2\,491 & 729    & 25 \\
 YouTube   & 273 & 2\,041 & Brand24 export       & 2\,441 & 433    & 26 \\
@@ -81,13 +88,14 @@ Facebook  & 20  & $\geq$182\textsuperscript{a} & own read (videos) & 402    & 1\
 Instagram & 11  & ?\textsuperscript{b} & own read (reels) & 642    & 504    & 53 \\
 \bottomrule
 \end{tabular}
-\par\footnotesize a: author known for 74\% of videos. b: author known for only 11\% of reels (59 authors among 72).\par
+\par\footnotesize a: author known for 74\% of videos. b: author known for only 11\% of reels (59 authors among 72).
+Views/like: median ratio over posts with at least one like.\par
 \end{table}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\textwidth]{fig/data_overview_en.png}
-\caption{Views versus likes, separately for each platform.
+\caption{Views versus likes, separately for each platform. On every platform 10 times more likes means 6--11 times more views.
 \capdet{Both axes on a log scale; posts without likes at zero. Line: fit on posts with at least one like; number: how
 many times more views a post with 10 times more likes has. TikTok, YouTube, X: Brand24 export; Facebook (videos),
 Instagram (reels): our read.}}
@@ -96,13 +104,17 @@ Instagram (reels): our read.}}
 
 \section{Method}\label{sec:met}
 
-We predict $y=\log_{10}(\text{views})$. We report the error as MAE on this scale and as the factor
-$10^{\text{MAE}}$ (MAE 0.30 $\approx$ \x{2}). The final model is evaluated with five-fold cross-validation in which the
+We predict $y=\log_{10}(\text{views})$. We report the error as MAE on this scale and as the \emph{typical error}, the
+factor $10^{\text{MAE}}$ (MAE 0.30 $\approx$ \x{2}). Agreement in ordering is measured by Spearman's rank correlation
+between estimated and true views. Every model is compared with two rules: the median views and a \emph{fixed likes
+multiplier} (views $=k\cdot$likes, $k$ the median ratio of views to likes in the training data, about 25). The gain over
+the median is reported as $1-\text{MAE}/\text{MAE}_\text{median}$, because platforms differ greatly in the spread of
+views. The final model is evaluated with five-fold cross-validation in which the
 same brand, the same author or an identical text never appears in both training and test: one author may write about
 several brands (1--9\% of posts), and the same text is sometimes pasted on different accounts. Every evaluation is thus
-on a brand and an author the model has not seen. Confidence intervals come from a bootstrap over brands. Method
-comparisons (Section~\ref{sec:nie}, same platform only) use a simpler split by brand alone; the stricter split changes
-the error by at most 0.002 on TikTok and YouTube and by 0.012 on X, equally for all methods.
+on a brand and an author the model has not seen. Confidence intervals come from a bootstrap over brands. Method comparisons (Section~\ref{sec:nie} and Fig.~\ref{fig:needs}B, same platform only) use a simpler split by brand
+alone, so their numbers differ from Fig.~\ref{fig:main} by 0.01--0.03 (e.g.\ CatBoost on X: \x{2.95} by brand against
+\x{3.03} by brand, author and text); the ordering of methods does not change.
 \begin{tcolorbox}[colback=black!3,colframe=black!25,boxrule=.4pt,left=4pt,right=4pt,top=2pt,bottom=2pt]\small
 \textbf{Two scenarios, marked in every figure.} \emph{Same platform}: the model is trained on posts from the given
 platform (TikTok, YouTube, X) and evaluated on brands and authors it has not seen. \emph{Out of platform}: the model sees
@@ -110,39 +122,47 @@ not a single post from the target platform in training (Facebook, Instagram, Sta
 each platform in turn), and its views are used only for evaluation.
 \end{tcolorbox}
 
-On TikTok, YouTube and X we use CatBoost~\cite{catboost} on followers, reactions and missingness flags. For the transfer
+On TikTok, YouTube and X we use CatBoost~\cite{catboost} on followers, reactions and missingness flags (a separate
+feature says whether a field was empty, because missing is not zero). For the transfer
 to Facebook and Instagram we use ridge regression on $\log(1+\text{likes})$ and $\log(1+\text{comments})$, the two
-fields every platform has, trained on X and YouTube together; with the target platform left out it transfers better
-than CatBoost. Per-post 50\% and 90\% intervals come from conformalized quantile regression~\cite{romano2019}.
+fields every platform has, trained on X and YouTube together~\cite{hoerl1970}; with the target platform left out it transfers better than
+CatBoost and MLPs (by 0.014--0.062 MAE on each of the five platforms). Per-post 50\% and 90\% intervals come from
+conformalized quantile regression (CQR)~\cite{romano2019}: a quantile model gives a preliminary interval, and its width
+is corrected on a held-out part of the training data so that coverage matches the target. For Facebook and Instagram all
+main numbers use the Brand24 export for X and YouTube; the variant with re-read source data (Section~\ref{sec:transfer})
+is reported separately, because it was tested after part of the Instagram reels had been seen.
 % E55, E222 (results_a on brand+author+text split). E114, E124, E61/E131 (ridge > CatBoost with platform left out), E118, E137.
 
 \section{Results}\label{sec:wyniki}
 
 \paragraph{Main result.} Fig.~\ref{fig:main} shows both scenarios. On TikTok, YouTube and X, where the model is trained
-on the same platform, the typical error is \x{1.9}, \x{2.9} and \x{3.0}. On Facebook and Instagram the model has not
-seen a single post from these platforms, and its error is \x{2.43} (confidence interval \x{2.05}--\x{3.03}) and
-\x{2.72} (\x{2.49}--\x{3.05}). On Facebook this equals the same model trained on the target platform itself
-(\x{2.42}); on Instagram it is slightly worse than training on Instagram alone (\x{2.41}; 72\% of reels are
-underestimated), so the relation between reactions and views transfers across platforms almost without loss. The
-ordering of posts is preserved very well (Spearman 0.91 and 0.86).
+on the same platform, the typical error is \x{1.9}, \x{2.9} and \x{3.0}. A fixed likes multiplier gives \x{2.2}, \x{4.1} and \x{3.6} here, so CatBoost beats it on every platform
+(by 0.08--0.15 MAE, confidence intervals exclude zero). On Facebook and Instagram the model has not seen a single post
+from these platforms, and its error is \x{2.43} (confidence interval \x{2.05}--\x{3.03}) and \x{2.72}
+(\x{2.49}--\x{3.05}). The median views of X and YouTube are off there by \x{20} and \x{9}, and even the median of the
+target platform itself by \x{11} and \x{6}. On Facebook this equals the same model trained on Facebook itself
+(\x{2.42}; difference 0.001, interval $-$0.03--0.03). On Instagram it is clearly worse than training on Instagram alone
+(\x{2.41}; difference 0.054, interval 0.021--0.093), and 72\% of reels are underestimated. The transfer is in practice a
+transfer of the views-to-likes ratio: a fixed likes multiplier from X and YouTube gives \x{2.42} on Facebook and
+\x{2.94} on Instagram, 0.034 worse than ridge. The ordering of posts is preserved well (Spearman 0.91 and 0.86, and
+0.80 and 0.83 within a single brand). A typical brand, however, has a larger error than the whole: the median over
+brands is \x{2.7} on Facebook and \x{2.9} on Instagram.
 % results_a/results_b_numbers.json; CI MAE 0.312-0.482 and 0.396-0.484.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\textwidth]{fig/preprint_main_en.png}
 \caption{Estimated versus true views.
-\capdet{Each dot is one post, estimated by a model that has not seen its brand (brand-grouped cross-validation).
-TikTok, YouTube, X: CatBoost on followers, reactions and missingness flags, trained on the same platform; truth from the
-Brand24 export. Facebook (402 videos, 20 brands), Instagram (642 reels, 11 brands): ridge on $\log$ likes and comments
-trained only on X and YouTube; truth from our read. Grey band: estimate within \x{2}. Number: typical error
+\capdet{Each dot is one post. TikTok, YouTube, X: CatBoost on followers, reactions and missingness flags, trained on
+the same platform, cross-validation with no shared brands, authors or texts; truth from the Brand24 export. Facebook (402 videos, 20 brands), Instagram (642 reels, 11 brands): ridge on $\log$ likes and comments
+trained only on X and YouTube, without any post from the target platform; truth from our read. Grey band: estimate within \x{2}. Number: typical error
 $10^{\text{MAE}}$.}}
 \label{fig:main}
 \end{figure}
 
 \paragraph{Who is estimated badly.} On every platform, also after transfer, the model overestimates posts with few views
 (about \x{2} below 100 views) and underestimates large ones (Fig.~\ref{fig:size}). This is the usual regression to the
-mean: reactions do not separate a post that broke out from an ordinary one well. It is strongest on X, where posts above
-10\,000 views are underestimated more than tenfold; after transfer, Instagram underestimates large reels by about \x{3}.
+mean: reactions do not separate a post that broke out from an ordinary one well. It is strongest on X, where posts above 10\,000 views are underestimated about tenfold; after transfer, Instagram underestimates large reels by about \x{3}.
 
 \begin{figure}[!htb]
 \centering
@@ -155,10 +175,10 @@ Fig.~\ref{fig:main}.}}
 \end{figure}
 
 
-\paragraph{Intervals.} The 90\% interval covers 87--91\% of posts on TikTok, YouTube and X, also on months outside
-training (0.90--0.93). On Facebook it covers 93\% of videos from accounts below one million followers, but only 80--86\%
-for the largest accounts. If instead of a number we report one of three ranges (<1\,000, 1\,000--10\,000, >10\,000), we
-are right for 78--82\% of posts on TikTok, YouTube, Facebook and Instagram.
+\paragraph{Intervals.} On the same platform the 90\% interval covers 87--91\% of posts on TikTok, YouTube and X, also
+on months outside training (0.90--0.93). Out of platform, on Facebook, an interval calibrated on 25\% of the Facebook
+brands covers 92\% of videos: 94\% of videos from accounts below one million followers, but only about 85\% for the 70
+videos from the largest accounts ($\pm$8 percentage points at this size).
 % E118, E142, E123, E151, E199.
 
 \section{Transfer across platforms}\label{sec:transfer}
@@ -176,8 +196,11 @@ Three things stand out. First, Facebook and Instagram can be estimated from almo
 exception in both directions: a model trained on X has an error of \x{5.5} on YouTube, and no set gets below \x{3.6} on
 X, against \x{3.3} when trained on X. On X most posts have zero or one like (Fig.~\ref{fig:data}), so the relation of
 views to likes looks different there. Third, YouTube is hard even for a model trained on it (\x{4.1} for ridge against
-\x{2.8} for CatBoost), because many videos have views without any reactions. More platforms in training do not always
-help: what matters is which platforms are in the set and in what proportions.
+\x{2.9} for CatBoost on all fields). This is mainly due to the export labels: on YouTube views re-read together with
+reactions, the same ridge from the other platforms is off by \x{2.2}. More platforms in training do not always
+help: what matters is which platforms are in the set and in what proportions. Confidence intervals (brand bootstrap) are
+about $\pm$0.013--0.032 MAE on TikTok, YouTube and X, $\pm$0.04 on Instagram and $\pm$0.07 on Facebook, so differences
+between sets below about \x{1.1}--\x{1.2} on Facebook and Instagram are within noise.
 % E201 (train_combos_numbers.json, pooled). Best: TT from YT 2.0; YT from TT+FB 4.06; X from FB 3.60; FB from YT+X+IG 2.39; IG from FB 2.47.
 
 \input{combos_table}
@@ -187,15 +210,15 @@ one to ten thousand, or more than ten thousand views. Fig.~\ref{fig:bins} shows 
 platforms: a model trained on the other four, without any post from the target platform. Accuracy is 78--81\%, but the
 ranges differ greatly in size, so balanced accuracy (mean recall over ranges) matters more: 78\% on TikTok, 76\% on
 Facebook, 70\% on YouTube and 65\% on Instagram, against 33\% for guessing; macro F1 0.70--0.78. We are off by two ranges
-for 0.2--1.9\% of posts. The middle range (1--10 thousand views, recall 50--73\%) is the weakest; its posts are usually
-underestimated by one range.
+for 0.2--1.9\% of posts. The middle range (1--10 thousand views, recall 50--73\%) is usually the weakest; its posts are underestimated by one
+range. On Instagram the top range is the weakest (49\%).
 
 X looks different: accuracy 96\%, but balanced accuracy only 46\% and macro F1 0.52. On X 95\% of posts have fewer than a
 thousand views (median 27), so a model that almost always says ``below a thousand'' gets high accuracy for free. Of 98
-posts above a thousand it gets only 23 right. There are two reasons. First, 62\% of posts on X have no like at all, so
-the model sees only a zero there and cannot tell a small post from a large one. Second, views in the X export are read
-early and are about two times lower than in our re-read, and the same model has an error of 0.49 on re-read X instead
-of 0.64 (E219). Large posts on X thus look small to the model.
+posts above a thousand it gets only 23 right. We see two reasons. First, 62\% of posts on X have no like at all, so the
+model sees only a zero there and cannot tell a small post from a large one; removing such posts from the training data
+lowers the error on X by 0.08. Second, views in the X export are read early, about two times lower than in our re-read;
+on re-read X posts (partly different posts) the same model has an error of 0.49 instead of 0.64.
 % preprint_bins_numbers.json (ridge E201, other four); E204, E219.
 
 \begin{figure}[!htb]
@@ -233,27 +256,30 @@ reads several months later. When the same model is trained on re-read X and YouT
 moment, the error on Instagram drops from \x{2.72} to \x{2.41} (as much as a model trained on Instagram alone), and on
 Facebook it stays at \x{2.44}. The underestimation of large posts and of brand totals roughly halves. Merely shifting
 export views to a later age does not achieve this, so what matters is that views and reactions come from the same
-moment. For the same reason X does badly as a test platform mainly because of stale labels: the same model has an error
-of 0.64 on export X and 0.49 on re-read X. X posts without likes are not the cause here.
+moment. This variant does not replace the main result, because the Instagram gain was checked after part of the
+reels had been seen.
 % E210, E211, E213, E218, E219. Main numbers in the text still on the Brand24 export.
 
 \paragraph{A sixth platform.} To test the transfer outside social media, we fetched through the public API 538
 questions from Stack Exchange sites (among others Stack Overflow, Super User, Android, Apple, Mechanics) about 48 brands
 from our data, from the same period (April--August 2026). We treat an upvote as a like, and answers and comments as
-comments; this mapping was fixed before evaluation. A model trained on X and YouTube has an error of \x{3.14} here, and
-the same ridge trained on Stack Exchange alone \x{1.77}. The ordering of questions transfers equally well (Spearman 0.57
-in both cases), but 96\% of questions are underestimated: question views accumulate over months and an upvote is not a
-like, so the whole level is shifted. YouTube alone transfers best (\x{1.87}), X alone worst (\x{4.50}), as on Facebook
-and Instagram.
+comments; this mapping was fixed before evaluation. Here the transfer fails. A model trained on X and YouTube is off by \x{3.14}, worse than a constant median from
+Stack Exchange itself (\x{1.96}) and even than the median of X and YouTube (\x{2.10}). 96\% of questions are
+underestimated: question views accumulate over months and an upvote is not a like, so the whole level is shifted. The
+ordering transfers only moderately (Spearman 0.57, within brand 0.43). Question views also have a small spread (standard
+deviation 0.40 against 1.21 on Facebook), so even a ridge trained on Stack Exchange alone (\x{1.77}) is only 15\% better
+than the median. A fixed likes multiplier transfers even worse (\x{5.33}). Conclusion: the views-to-reactions ratio
+transfers between social video services, but not to a question-and-answer site, where reactions mean something
+else.
 % E225 (stackexchange_numbers.json).
 
 \section{Comparison of methods}\label{sec:nie}
 
 \paragraph{Model families.} Table~\ref{tab:models} compares models on the same inputs. After tuning, almost all
 families give the same error: \x{1.85}--\x{1.92} on TikTok, \x{2.8}--\x{2.9} on YouTube and \x{2.9}--\x{3.1} on X.
-Only the simple baselines (\x{4.6}--\x{8.8}) and linear regression and kNN on YouTube (\x{3.0}--\x{3.5}) are clearly
-worse. The best single model is TabPFN v2, but it beats CatBoost by only 0.002--0.010, within the run-to-run noise, and
-takes about 150 times longer. The graph network and a transformer reading the post as text are worse than CatBoost.
+Only the simple rules (\x{2.2}--\x{8.8}) and linear regression and kNN on YouTube (\x{3.0}--\x{3.5}) are clearly
+worse. The best single model is TabPFN v2~\cite{tabpfn}, but it beats CatBoost by only 0.002--0.010, less than the
+width of the confidence interval ($\pm$0.012--0.021), and takes about 150 times longer. The graph network and a transformer reading the post as text are worse than CatBoost.
 
 \paragraph{Why not an ensemble.} An ensemble combines the estimates of several models, e.g.\ by averaging them (``mean
 of top 3'') or with a second-level model that learns how to weight the estimates of all families (``stack''). Errors of
@@ -261,13 +287,13 @@ different models partly cancel, so an ensemble is usually slightly better than e
 result by 0.011--0.028 (\x{1.03}--\x{1.07}). We keep a single model for three reasons: (1) the gain is small against the
 typical error of \x{1.9}--\x{3.0}; (2) a stack requires training and maintaining over a dozen models, while the
 uncertainty intervals (CQR) and the transfer to other platforms are built on one model; (3) in the transfer the simplest
-linear model wins anyway (Section~\ref{sec:met}), so complexity does not carry over to the main result.
+linear model wins anyway (by 0.014--0.062 MAE, Section~\ref{sec:met}), so complexity does not carry over to the main result.
 % E11, E47 (TabPFN 136-176 s vs CatBoost 1 s), E54, E61/E131.
 
 \begin{table}[!htb]
 \centering\small
 \caption{Comparison of model families: MAE on the $\log_{10}$ scale and typical error (\x{}).
-\capdet{All models on followers, reactions and missingness flags, brand-grouped cross-validation. Tree, linear, kernel and MLP models after hyperparameter tuning (40 settings per fold, nested tuning). TabPFN, TabICL, GraphSAGE, transformer and stack come from separate runs on the same data; CatBoost in those runs stayed within 0.271--0.273 / 0.452--0.456 / 0.466--0.470, so differences below about 0.005 are within noise. Bold: best single model in the column. Ensembles shown for comparison only.}}
+\capdet{All models on followers, reactions and missingness flags, brand-grouped cross-validation. Tree, linear, kernel and MLP models after hyperparameter tuning (40 settings per fold, nested tuning). TabPFN, TabICL, GraphSAGE, transformer and stack come from separate runs on the same data; CatBoost in those runs stayed within 0.271--0.273 / 0.452--0.456 / 0.466--0.470, so differences below about 0.005 are within noise. 95\% confidence interval (brand bootstrap) for CatBoost: $\pm$0.012 / $\pm$0.021 / $\pm$0.021. Bold: best single model in the column. Ensembles shown for comparison only. *: split with no shared brands, authors or texts.}}
 \label{tab:models}
 \begin{tabular}{lccc}
 \toprule
@@ -276,6 +302,7 @@ Model & TikTok & YouTube & X \\
 \multicolumn{4}{l}{\textit{Simple baselines}} \\
 \quad platform median views & 0.663 (\x{4.60}) & 0.944 (\x{8.79}) & 0.667 (\x{4.65}) \\
 \quad fixed multiple of followers & 0.919 (\x{8.30}) & 0.855 (\x{7.16}) & 0.879 (\x{7.57}) \\
+\quad fixed likes multiplier\textsuperscript{*} & 0.348 (\x{2.23}) & 0.609 (\x{4.06}) & 0.560 (\x{3.63}) \\
 \multicolumn{4}{l}{\textit{Linear and kernel models}} \\
 \quad linear regression (ridge) & 0.277 (\x{1.89}) & 0.545 (\x{3.51}) & 0.487 (\x{3.07}) \\
 \quad k nearest neighbours (kNN) & 0.283 (\x{1.92}) & 0.483 (\x{3.04}) & 0.490 (\x{3.09}) \\
@@ -284,16 +311,16 @@ Model & TikTok & YouTube & X \\
 \quad random forest & 0.275 (\x{1.88}) & 0.463 (\x{2.90}) & 0.473 (\x{2.97}) \\
 \quad extra trees & 0.275 (\x{1.88}) & 0.459 (\x{2.88}) & 0.475 (\x{2.99}) \\
 \quad gradient boosting (scikit-learn) & 0.276 (\x{1.89}) & 0.453 (\x{2.84}) & 0.474 (\x{2.98}) \\
-\quad LightGBM & 0.275 (\x{1.88}) & 0.457 (\x{2.86}) & 0.475 (\x{2.99}) \\
-\quad XGBoost & 0.273 (\x{1.87}) & 0.450 (\x{2.82}) & 0.467 (\x{2.93}) \\
+\quad LightGBM~\cite{lightgbm} & 0.275 (\x{1.88}) & 0.457 (\x{2.86}) & 0.475 (\x{2.99}) \\
+\quad XGBoost~\cite{xgboost} & 0.273 (\x{1.87}) & 0.450 (\x{2.82}) & 0.467 (\x{2.93}) \\
 \quad CatBoost (final model) & 0.272 (\x{1.87}) & 0.452 (\x{2.83}) & 0.470 (\x{2.95}) \\
 \multicolumn{4}{l}{\textit{Neural networks}} \\
 \quad multilayer perceptron (MLP) & 0.276 (\x{1.89}) & 0.454 (\x{2.84}) & 0.477 (\x{3.00}) \\
-\quad GraphSAGE graph network (similar-text graph) & 0.279 (\x{1.90}) & 0.467 (\x{2.93}) & 0.474 (\x{2.98}) \\
+\quad GraphSAGE~\cite{graphsage} (similar-text graph) & 0.279 (\x{1.90}) & 0.467 (\x{2.93}) & 0.474 (\x{2.98}) \\
 \quad fine-tuned transformer (row as text) & 0.289 (\x{1.95}) & 0.454 (\x{2.84}) & 0.490 (\x{3.09}) \\
 \multicolumn{4}{l}{\textit{Pretrained tabular models}} \\
 \quad TabPFN v2 & \textbf{0.268 (\x{1.85})} & \textbf{0.443 (\x{2.77})} & \textbf{0.465 (\x{2.92})} \\
-\quad TabICL & 0.272 (\x{1.87}) & 0.445 (\x{2.79}) & 0.466 (\x{2.92}) \\
+\quad TabICL~\cite{tabicl} & 0.272 (\x{1.87}) & 0.445 (\x{2.79}) & 0.466 (\x{2.92}) \\
 \midrule
 \multicolumn{4}{l}{\textit{Ensembles (for comparison)}} \\
 \quad mean of top 3 families & 0.270 (\x{1.86}) & 0.446 (\x{2.79}) & 0.469 (\x{2.94}) \\
@@ -304,17 +331,17 @@ Model & TikTok & YouTube & X \\
 % E11 (tuning_numbers.json), E47, E53, E54, E65; blend = tuning_numbers.json blend.
 
 \paragraph{Extra data.} We also tested more than twenty additional signal sources (Fig.~\ref{fig:methods}): text (from
-TF-IDF to sentence embeddings), AI labels, author and brand graphs, and external brand data. None changes the error by
-more than \x{1.04}, and most by less than \x{1.02} or make it worse. Text helps slightly on YouTube and X, graphs and
+TF-IDF to e5 sentence embeddings~\cite{e5} and the VADER sentiment lexicon~\cite{vader}), AI labels, author and brand graphs, and external brand data. None improves the error by
+more than \x{1.04}, most improve it by less than \x{1.02}, and some make it worse by up to \x{1.06}. Text helps slightly on YouTube and X, graphs and
 external data hurt. On Facebook text worsens the transfer (MAE 0.385 $\to$ 0.436). Author history is described
 separately below.
 % E50, E65, E127, E170-E175, ablation; E100 (FB text); E68/E70 (author).
 
 \paragraph{More data without new labels.} We also tested methods that add data or learn its structure without views.
-Synthetic large posts (SMOTER/SMOGN) reduce the underestimation of the most popular tenth of posts, but only by
+Synthetic large posts (SMOTER/SMOGN~\cite{smogn}) reduce the underestimation of the most popular tenth of posts, but only by
 stretching the scale of the estimates, and raise the error by 0.006--0.019. Random perturbation along the trend and mixup
 do not let CatBoost or an MLP transfer as well as ridge (they stay 0.014--0.062 behind on each of the five platforms).
-A representation learned without labels (denoising autoencoder, SCARF) changes the error by at most 0.005, and
+A representation learned without labels (denoising autoencoder, SCARF~\cite{scarf}) changes the error by at most 0.005, and
 pseudo-labels for posts without views by at most 0.008. The final model therefore stays without augmentation.
 % E214 smoter_tail, E215 aug_transfer, E216 ssl_repr, E217 pseudo_label.
 
@@ -327,7 +354,7 @@ data) or relative to the model on followers and reactions (TF-IDF, text statisti
 size). Right: better, left: worse; \x{1.02} is a change in MAE of about 0.01. \emph{Transformer as correction}: a
 fine-tuned language model predicts the CatBoost error from the post text. \emph{e5 embeddings}: a multilingual sentence
 model. \emph{LLM labels}: mention type and sentiment from a language model. \emph{GraphSAGE}: a graph network on the
-similar-text graph; \emph{metapath2vec}: embeddings of the author--brand--hashtag graph. \emph{Wikipedia, Wikidata}:
+similar-text graph; \emph{metapath2vec}~\cite{metapath2vec}: embeddings of the author--brand--hashtag graph. \emph{Wikipedia, Wikidata}:
 interest in the brand and company data. All with brand-grouped validation.}}
 \label{fig:methods}
 \end{figure}
@@ -340,9 +367,9 @@ we add the mean surplus of the author's earlier posts, shrunk towards zero when 
 divided by the number of posts plus a constant tuned on other brands). On posts by authors with history the error drops
 from 0.37 to 0.26 on TikTok, from 0.50 to 0.35 on YouTube and from 0.53 to 0.43 on X (\x{1.3}--\x{1.4}); most of the
 gain comes from a single earlier post. Such history, however, exists for only 3--16\% of posts in our sample, so the gain
-vanishes in the mean error ($\le$0.003). We also checked the same author on another platform: with exact name matching
-0--0.1\% of posts overlap, too few to evaluate. After normalising names (lower case, no special characters or suffixes
-such as ``official'') and handles from profile URLs, only 56 of 8\,332 posts with views (0.67\%) have a post by the same
+vanishes in the mean error ($\le$0.003). We also checked the same author on another
+platform. After normalising names (lower case, no special characters or suffixes
+such as ``official'') and handles from profile URLs, only 56 of 8\,332 posts with views (0.67\%; including re-read X and YouTube posts) have a post by the same
 author on another platform, so this signal cannot be used on monitoring data.
 % E68, E70, E119, E120, E221.
 
@@ -377,8 +404,11 @@ alerts it catches 82--100\% of breakout posts.
 
 \section{Limitations and recommendations}
 
-The Facebook result rests on 20 brands (\x{2.9} without the three largest), and the Instagram result on 11 (\x{2.96}).
-Viral posts are underestimated \x{9}--\x{14}, so brand totals are off by more than \x{2} for 29--47\% of brands. Almost
+The Facebook result rests on 20 brands and the Instagram result on 11; the three largest brands hold 39\% and 44\% of
+posts, and without them the error rises to \x{2.89} and \x{2.96}. With so few brands the brand-bootstrap confidence
+intervals may be too narrow. On Instagram we measure only reels with visible likes. On the same platform the most
+popular 1\% of posts on YouTube and X is underestimated \x{9}--\x{14}, so brand totals are off by more than \x{2} for
+29--47\% of brands (Fig.~\ref{fig:final} shows that the reach column in the export is off even more). Almost
 every post has a different author (2\,411 authors for 2\,491 posts on TikTok, 2\,041 for 2\,441 on YouTube, 1\,658 for
 1\,803 on X), so author history cannot be used for most posts, and on Instagram the author is usually unknown. The
 results describe associations, not causes. We recommend to the monitoring provider: read reactions together with views,
@@ -402,7 +432,7 @@ draft of the text; language models labelled mention type and sentiment, and the 
 the agents' session logs are in \texttt{logs/}. Every result has an experiment card, a row in the register
 (\texttt{docs/en/experiments.md}, 220 entries), a script in \texttt{src/} and numbers in \texttt{data/processed/}.
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 \bibitem{tatar2014} A.~Tatar, M.~D. de~Amorim, S.~Fdida, P.~Antoniadis. A survey on predicting the popularity of web
   content. \emph{Journal of Internet Services and Applications}, 5:8, 2014.
 \bibitem{shulman2016} B.~Shulman, A.~Sharma, D.~Cosley. Predictability of popularity: gaps between prediction and
@@ -412,6 +442,25 @@ the agents' session logs are in \texttt{logs/}. Every result has an experiment c
 \bibitem{catboost} L.~Prokhorenkova, G.~Gusev, A.~Vorobev, A.~V. Dorogush, A.~Gulin. CatBoost: unbiased boosting with
   categorical features. \emph{NeurIPS}, 2018.
 \bibitem{romano2019} Y.~Romano, E.~Patterson, E.~Cand\`es. Conformalized quantile regression. \emph{NeurIPS}, 2019.
+\bibitem{hoerl1970} A.~E. Hoerl, R.~W. Kennard. Ridge regression: biased estimation for nonorthogonal problems.
+  \emph{Technometrics}, 12(1), 1970.
+\bibitem{xgboost} T.~Chen, C.~Guestrin. XGBoost: a scalable tree boosting system. \emph{KDD}, 2016.
+\bibitem{lightgbm} G.~Ke et al. LightGBM: a highly efficient gradient boosting decision tree. \emph{NeurIPS}, 2017.
+\bibitem{tabpfn} N.~Hollmann et al. Accurate predictions on small data with a tabular foundation model. \emph{Nature},
+  637, 2025.
+\bibitem{tabicl} J.~Qu, D.~Holzm\"uller, G.~Varoquaux, M.~Le~Morvan. TabICL: a tabular foundation model for in-context
+  learning on large data. \emph{ICML}, 2025.
+\bibitem{graphsage} W.~L. Hamilton, R.~Ying, J.~Leskovec. Inductive representation learning on large graphs.
+  \emph{NeurIPS}, 2017.
+\bibitem{metapath2vec} Y.~Dong, N.~V. Chawla, A.~Swami. metapath2vec: scalable representation learning for
+  heterogeneous networks. \emph{KDD}, 2017.
+\bibitem{smogn} P.~Branco, L.~Torgo, R.~P. Ribeiro. SMOGN: a pre-processing approach for imbalanced regression.
+  \emph{LIDTA}, PMLR 74, 2017.
+\bibitem{scarf} D.~Bahri, H.~Jiang, Y.~Tay, D.~Metzler. SCARF: self-supervised contrastive learning using random
+  feature corruption. \emph{ICLR}, 2022.
+\bibitem{e5} L.~Wang et al. Text embeddings by weakly-supervised contrastive pre-training. arXiv:2212.03533, 2022.
+\bibitem{vader} C.~J. Hutto, E.~Gilbert. VADER: a parsimonious rule-based model for sentiment analysis of social media
+  text. \emph{ICWSM}, 2014.
 \end{thebibliography}
 
 \end{document}

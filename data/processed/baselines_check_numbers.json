@@ -1,0 +1,450 @@
+{
+ "same platform": {
+  "tiktok": {
+   "posts": 2491,
+   "median": {
+    "MAE": 0.663,
+    "factor": 4.6,
+    "CI": [
+     0.636,
+     0.69
+    ],
+    "within x2": 0.344,
+    "skill vs median": 0.0
+   },
+   "likes multiplier": {
+    "MAE": 0.347,
+    "factor": 2.23,
+    "CI": [
+     0.334,
+     0.362
+    ],
+    "within x2": 0.522,
+    "skill vs median": 0.476
+   },
+   "CatBoost (final)": {
+    "MAE": 0.273,
+    "factor": 1.87,
+    "CI": [
+     0.261,
+     0.285
+    ],
+    "within x2": 0.665,
+    "skill vs median": 0.589
+   },
+   "CatBoost - multiplier": {
+    "diff": -0.075,
+    "CI": [
+     -0.086,
+     -0.064
+    ]
+   }
+  },
+  "youtube": {
+   "posts": 2441,
+   "median": {
+    "MAE": 0.943,
+    "factor": 8.77,
+    "CI": [
+     0.909,
+     0.978
+    ],
+    "within x2": 0.206,
+    "skill vs median": 0.0
+   },
+   "likes multiplier": {
+    "MAE": 0.609,
+    "factor": 4.06,
+    "CI": [
+     0.576,
+     0.643
+    ],
+    "within x2": 0.394,
+    "skill vs median": 0.354
+   },
+   "CatBoost (final)": {
+    "MAE": 0.462,
+    "factor": 2.9,
+    "CI": [
+     0.442,
+     0.484
+    ],
+    "within x2": 0.432,
+    "skill vs median": 0.51
+   },
+   "CatBoost - multiplier": {
+    "diff": -0.147,
+    "CI": [
+     -0.176,
+     -0.12
+    ]
+   }
+  },
+  "twitter": {
+   "posts": 1803,
+   "median": {
+    "MAE": 0.666,
+    "factor": 4.63,
+    "CI": [
+     0.638,
+     0.695
+    ],
+    "within x2": 0.293,
+    "skill vs median": 0.0
+   },
+   "likes multiplier": {
+    "MAE": 0.56,
+    "factor": 3.63,
+    "CI": [
+     0.536,
+     0.583
+    ],
+    "within x2": 0.336,
+    "skill vs median": 0.159
+   },
+   "CatBoost (final)": {
+    "MAE": 0.482,
+    "factor": 3.03,
+    "CI": [
+     0.461,
+     0.503
+    ],
+    "within x2": 0.397,
+    "skill vs median": 0.276
+   },
+   "CatBoost - multiplier": {
+    "diff": -0.078,
+    "CI": [
+     -0.098,
+     -0.057
+    ]
+   }
+  }
+ },
+ "out of platform": {
+  "likes multiplier k (log10 views per like)": 1.393,
+  "facebook": {
+   "posts": 402,
+   "brands": 20,
+   "sd of y": 1.212,
+   "target median, brand CV (uses target labels)": {
+    "MAE": 1.025,
+    "factor": 10.58,
+    "CI": [
+     0.818,
+     1.228
+    ],
+    "within x2": 0.179,
+    "skill vs median": 0.0
+   },
+   "source median (X + YT)": {
+    "MAE": 1.298,
+    "factor": 19.87,
+    "CI": [
+     0.956,
+     1.613
+    ],
+    "within x2": 0.157,
+    "skill vs median": -0.267
+   },
+   "ridge X + YT (ours)": {
+    "MAE": 0.385,
+    "factor": 2.43,
+    "CI": [
+     0.318,
+     0.475
+    ],
+    "within x2": 0.525,
+    "skill vs median": 0.624
+   },
+   "likes multiplier X + YT": {
+    "MAE": 0.384,
+    "factor": 2.42,
+    "CI": [
+     0.317,
+     0.48
+    ],
+    "within x2": 0.54,
+    "skill vs median": 0.625
+   },
+   "own-platform ridge, brand CV": {
+    "MAE": 0.384,
+    "factor": 2.42,
+    "CI": [
+     0.322,
+     0.466
+    ],
+    "within x2": 0.51,
+    "skill vs median": 0.625
+   },
+   "ours - own platform": {
+    "diff": 0.001,
+    "CI": [
+     -0.028,
+     0.028
+    ]
+   },
+   "ours - likes multiplier": {
+    "diff": 0.002,
+    "CI": [
+     -0.017,
+     0.022
+    ]
+   },
+   "per brand (ours)": {
+    "median brand MAE": 0.431,
+    "median brand factor": 2.7,
+    "brand factor range": [
+     1.53,
+     6.19
+    ],
+    "share of posts in 3 largest brands": 0.388,
+    "without 3 largest brands": {
+     "MAE": 0.461,
+     "factor": 2.89,
+     "CI": [
+      0.396,
+      0.542
+     ],
+     "within x2": 0.435
+    }
+   },
+   "Spearman": {
+    "all posts": 0.909,
+    "within brand, mean (brands >= 10 posts)": 0.801,
+    "brands": 14
+   }
+  },
+  "instagram": {
+   "posts": 642,
+   "brands": 11,
+   "sd of y": 0.991,
+   "target median, brand CV (uses target labels)": {
+    "MAE": 0.746,
+    "factor": 5.58,
+    "CI": [
+     0.709,
+     0.784
+    ],
+    "within x2": 0.288,
+    "skill vs median": 0.0
+   },
+   "source median (X + YT)": {
+    "MAE": 0.939,
+    "factor": 8.69,
+    "CI": [
+     0.815,
+     1.043
+    ],
+    "within x2": 0.232,
+    "skill vs median": -0.258
+   },
+   "ridge X + YT (ours)": {
+    "MAE": 0.435,
+    "factor": 2.72,
+    "CI": [
+     0.394,
+     0.482
+    ],
+    "within x2": 0.4,
+    "skill vs median": 0.417
+   },
+   "likes multiplier X + YT": {
+    "MAE": 0.469,
+    "factor": 2.94,
+    "CI": [
+     0.422,
+     0.525
+    ],
+    "within x2": 0.38,
+    "skill vs median": 0.372
+   },
+   "own-platform ridge, brand CV": {
+    "MAE": 0.381,
+    "factor": 2.41,
+    "CI": [
+     0.348,
+     0.421
+    ],
+    "within x2": 0.488,
+    "skill vs median": 0.489
+   },
+   "ours - own platform": {
+    "diff": 0.054,
+    "CI": [
+     0.021,
+     0.093
+    ]
+   },
+   "ours - likes multiplier": {
+    "diff": -0.034,
+    "CI": [
+     -0.047,
+     -0.02
+    ]
+   },
+   "per brand (ours)": {
+    "median brand MAE": 0.464,
+    "median brand factor": 2.91,
+    "brand factor range": [
+     2.22,
+     4.26
+    ],
+    "share of posts in 3 largest brands": 0.436,
+    "without 3 largest brands": {
+     "MAE": 0.472,
+     "factor": 2.96,
+     "CI": [
+      0.428,
+      0.516
+     ],
+     "within x2": 0.343
+    }
+   },
+   "Spearman": {
+    "all posts": 0.861,
+    "within brand, mean (brands >= 10 posts)": 0.83,
+    "brands": 11
+   }
+  },
+  "stackexchange": {
+   "posts": 538,
+   "brands": 48,
+   "sd of y": 0.404,
+   "target median, brand CV (uses target labels)": {
+    "MAE": 0.292,
+    "factor": 1.96,
+    "CI": [
+     0.258,
+     0.31
+    ],
+    "within x2": 0.647,
+    "skill vs median": 0.0
+   },
+   "source median (X + YT)": {
+    "MAE": 0.322,
+    "factor": 2.1,
+    "CI": [
+     0.273,
+     0.348
+    ],
+    "within x2": 0.634,
+    "skill vs median": -0.103
+   },
+   "ridge X + YT (ours)": {
+    "MAE": 0.498,
+    "factor": 3.14,
+    "CI": [
+     0.454,
+     0.521
+    ],
+    "within x2": 0.284,
+    "skill vs median": -0.706
+   },
+   "likes multiplier X + YT": {
+    "MAE": 0.727,
+    "factor": 5.33,
+    "CI": [
+     0.67,
+     0.756
+    ],
+    "within x2": 0.071,
+    "skill vs median": -1.492
+   },
+   "own-platform ridge, brand CV": {
+    "MAE": 0.248,
+    "factor": 1.77,
+    "CI": [
+     0.222,
+     0.273
+    ],
+    "within x2": 0.706,
+    "skill vs median": 0.15
+   },
+   "ours - own platform": {
+    "diff": 0.25,
+    "CI": [
+     0.205,
+     0.279
+    ]
+   },
+   "ours - likes multiplier": {
+    "diff": -0.229,
+    "CI": [
+     -0.24,
+     -0.207
+    ]
+   },
+   "per brand (ours)": {
+    "median brand MAE": 0.458,
+    "median brand factor": 2.87,
+    "brand factor range": [
+     1.23,
+     9.38
+    ],
+    "share of posts in 3 largest brands": 0.559,
+    "without 3 largest brands": {
+     "MAE": 0.476,
+     "factor": 2.99,
+     "CI": [
+      0.422,
+      0.528
+     ],
+     "within x2": 0.283
+    }
+   },
+   "Spearman": {
+    "all posts": 0.571,
+    "within brand, mean (brands >= 10 posts)": 0.431,
+    "brands": 11
+   }
+  }
+ },
+ "combos: other four platforms": {
+  "tiktok": {
+   "MAE": 0.327,
+   "factor": 2.12,
+   "CI": [
+    0.314,
+    0.34
+   ],
+   "within x2": 0.545
+  },
+  "youtube": {
+   "MAE": 0.61,
+   "factor": 4.08,
+   "CI": [
+    0.579,
+    0.643
+   ],
+   "within x2": 0.384
+  },
+  "twitter": {
+   "MAE": 0.64,
+   "factor": 4.37,
+   "CI": [
+    0.615,
+    0.665
+   ],
+   "within x2": 0.281
+  },
+  "facebook": {
+   "MAE": 0.391,
+   "factor": 2.46,
+   "CI": [
+    0.331,
+    0.474
+   ],
+   "within x2": 0.505
+  },
+  "instagram": {
+   "MAE": 0.425,
+   "factor": 2.66,
+   "CI": [
+    0.385,
+    0.471
+   ],
+   "within x2": 0.419
+  }
+ }
+}
