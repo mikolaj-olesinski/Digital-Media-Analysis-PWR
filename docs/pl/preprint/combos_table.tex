@@ -1,0 +1,50 @@
+\begin{table}[!htb]
+\centering\scriptsize
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.05}
+\caption{Typowy błąd (\x{}) dla wszystkich 31 zestawów platform treningowych.
+\capdet{Ridge na $\log$ lajków i komentarzy, posty z platform treningowych połączone w jeden zbiór. Wiersz: platformy
+w treningu (TT TikTok, YT YouTube, X, FB Facebook, IG Instagram), w grupach po 1, 2, 3 i 4 platformy, w grupie od
+najlepszego średnio. Kolumna: platforma testowa, której nie było w treningu. Pierwszy wiersz: ten sam model uczony na
+platformie testowej (walidacja po markach). Pogrubione: najlepszy wynik w kolumnie. Ciemniej: większy błąd.}}
+\label{tab:combos}
+\begin{tabular}{l|ccccc}
+\toprule
+Trening na & TikTok & YouTube & X & Facebook & Instagram \\
+\midrule
+\textit{ta sama platforma (CV po markach)} & \cellcolor[HTML]{DDEBFC}2,0 & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{A3C8F2}3,3 & \cellcolor[HTML]{DDEBFC}2,4 & \cellcolor[HTML]{DDEBFC}2,4 \\ \midrule
+YT & \cellcolor[HTML]{DDEBFC}\textbf{2,0} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{3779CF}\textcolor{white}{4,6} & \cellcolor[HTML]{C3DCF8}2,7 & \cellcolor[HTML]{C3DCF8}2,6 \\
+FB & \cellcolor[HTML]{DDEBFC}2,3 & \cellcolor[HTML]{3779CF}\textcolor{white}{4,3} & \cellcolor[HTML]{7FB0EA}\textbf{3,6} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}\textbf{2,5} \\
+IG & \cellcolor[HTML]{C3DCF8}2,5 & \cellcolor[HTML]{3779CF}\textcolor{white}{4,5} & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{C3DCF8}2,5 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+TT & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{C3DCF8}2,6 & \cellcolor[HTML]{C3DCF8}2,6 \\
+X & \cellcolor[HTML]{7FB0EA}3,4 & \cellcolor[HTML]{184A8C}\textcolor{white}{5,5} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{A3C8F2}3,1 & \cellcolor[HTML]{C3DCF8}2,7 \\
+\midrule
+YT + X & \cellcolor[HTML]{DDEBFC}2,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{DDEBFC}2,4 & \cellcolor[HTML]{C3DCF8}2,7 \\
+YT + FB & \cellcolor[HTML]{DDEBFC}2,0 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{3779CF}\textcolor{white}{4,5} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,5 \\
+YT + IG & \cellcolor[HTML]{DDEBFC}2,0 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{3779CF}\textcolor{white}{4,6} & \cellcolor[HTML]{C3DCF8}2,6 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+TT + X & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,6 & \cellcolor[HTML]{C3DCF8}2,8 \\
+TT + YT & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{3779CF}\textcolor{white}{4,5} & \cellcolor[HTML]{C3DCF8}2,6 & \cellcolor[HTML]{C3DCF8}2,6 \\
+X + FB & \cellcolor[HTML]{C3DCF8}2,5 & \cellcolor[HTML]{3779CF}\textcolor{white}{4,5} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,7 \\
+X + IG & \cellcolor[HTML]{C3DCF8}2,8 & \cellcolor[HTML]{235FB0}\textcolor{white}{4,7} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,6 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+FB + IG & \cellcolor[HTML]{DDEBFC}2,4 & \cellcolor[HTML]{3779CF}\textcolor{white}{4,4} & \cellcolor[HTML]{7FB0EA}3,9 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+TT + FB & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{5A95DF}\textbf{4,1} & \cellcolor[HTML]{5A95DF}4,0 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,6 \\
+TT + IG & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{5A95DF}4,2 & \cellcolor[HTML]{C3DCF8}2,6 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+\midrule
+YT + X + IG & \cellcolor[HTML]{DDEBFC}2,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{DDEBFC}\textbf{2,4} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+YT + X + FB & \cellcolor[HTML]{DDEBFC}2,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,6 \\
+TT + YT + X & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,5 & \cellcolor[HTML]{C3DCF8}2,7 \\
+YT + FB + IG & \cellcolor[HTML]{DDEBFC}2,0 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{3779CF}\textcolor{white}{4,4} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+TT + X + IG & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,5 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+TT + YT + FB & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{3779CF}\textcolor{white}{4,4} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,6 \\
+TT + X + FB & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,8 \\
+TT + YT + IG & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{3779CF}\textcolor{white}{4,4} & \cellcolor[HTML]{C3DCF8}2,6 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+X + FB + IG & \cellcolor[HTML]{C3DCF8}2,6 & \cellcolor[HTML]{3779CF}\textcolor{white}{4,5} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+TT + FB + IG & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+\midrule
+YT + X + FB + IG & \cellcolor[HTML]{DDEBFC}2,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+TT + YT + X + IG & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,5 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+TT + YT + X + FB & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{C3DCF8}2,7 \\
+TT + X + FB + IG & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{5A95DF}4,1 & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+TT + YT + FB + IG & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{3779CF}\textcolor{white}{4,4} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} & \cellcolor[HTML]{EEEDEA}{\color{black!35}trening} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,110 @@
+{
+ "tiktok": {
+  "attempted": 500,
+  "ok": 426,
+  "gone": 71,
+  "private": 0,
+  "error": 0,
+  "no_views": 0,
+  "blocked": 3,
+  "views": {
+   "n": 426,
+   "median_ratio": 1.085,
+   "p90": 2.35,
+   "within5": 0.383,
+   "spearman": 0.953,
+   "median_old": 782.0,
+   "median_new": 999.0
+  },
+  "likes": {
+   "n": 411,
+   "median_ratio": 1.028,
+   "p90": 1.735,
+   "within5": 0.555,
+   "spearman": 0.975,
+   "median_old": 33.0,
+   "median_new": 40.0
+  },
+  "comments": {
+   "n": 284,
+   "median_ratio": 1.0,
+   "p90": 1.55,
+   "within5": 0.669,
+   "spearman": 0.962,
+   "median_old": 4.0,
+   "median_new": 4.0
+  }
+ },
+ "youtube": {
+  "attempted": 2500,
+  "ok": 2297,
+  "gone": 93,
+  "private": 37,
+  "error": 73,
+  "no_views": 0,
+  "blocked": 0,
+  "views": {
+   "n": 2249,
+   "median_ratio": 1.35,
+   "p90": 20.684,
+   "within5": 0.232,
+   "spearman": 0.856,
+   "median_old": 463.0,
+   "median_new": 1220.0
+  },
+  "likes": {
+   "n": 1623,
+   "median_ratio": 1.077,
+   "p90": 6.0,
+   "within5": 0.449,
+   "spearman": 0.919,
+   "median_old": 25.0,
+   "median_new": 43.0
+  },
+  "comments": {
+   "n": 1129,
+   "median_ratio": 1.0,
+   "p90": 5.0,
+   "within5": 0.565,
+   "spearman": 0.893,
+   "median_old": 7.0,
+   "median_new": 14.0
+  }
+ },
+ "twitter": {
+  "attempted": 2500,
+  "ok": 2013,
+  "gone": 438,
+  "private": 0,
+  "error": 24,
+  "no_views": 25,
+  "blocked": 0,
+  "views": {
+   "n": 1508,
+   "median_ratio": 2.0,
+   "p90": 6.017,
+   "within5": 0.062,
+   "spearman": 0.905,
+   "median_old": 30.0,
+   "median_new": 72.0
+  },
+  "likes": {
+   "n": 594,
+   "median_ratio": 1.0,
+   "p90": 2.996,
+   "within5": 0.473,
+   "spearman": 0.9,
+   "median_old": 2.0,
+   "median_new": 2.0
+  },
+  "comments": {
+   "n": 327,
+   "median_ratio": 1.0,
+   "p90": 2.0,
+   "within5": 0.749,
+   "spearman": 0.862,
+   "median_old": 1.0,
+   "median_new": 1.0
+  }
+ }
+}

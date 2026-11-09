@@ -54,6 +54,7 @@ line. When a line cites a legacy card, a re-run with a JSON is preferred over re
 - View ranges (E199): cutting the regression into bins beats a direct classifier on every platform and scheme; accuracy is set by bin width (3 ranges ~0.8, decades ~0.6, half decades ~0.35; X 3 ranges 0.95 = majority). Bins are presentation, not a better model. **likely**
 - Training-platform grid (E201): with likes + comments only, FB and IG are predicted at x2.4-3.1 from any mix of other platforms, close to their own x2.4; X is the target and the source that does not transfer; pooled rows beat equal platform weighting. IG re-run on 338 reels: x2.4-2.8. **likely**
 - Instagram (E202, 338 reels, 11 brands): X + YouTube ridge on fresh likes + comments x2.65 zero-shot, x2.41 after a 25-post shift, vs x2.36 trained on IG itself; under-predicts ~x1.8; without likes x6-11. Same picture as Facebook. **likely**
+- Cross-domain ideas (E203): brand prominence on other platforms hurts the FB / IG transfer; post age at read is inconsistent (IG better, FB worse) and extrapolated (reads at ~1 year vs 23 days in training). Don't retry brand-level cross-platform priors. **likely**
 - Mapping reaction scales between platforms (quantile matching, z-score, ratios) without target views makes out-of-platform estimates much worse (TikTok 0.31 -> 0.76-1.04, X 0.64 -> 1.28-1.43): absolute likes carry the view level across platforms better than within-platform rank. With 25-50 calibration posts a mapped CatBoost gains about +0.03 on X only. (E87)
 - Adapting the out-of-platform model to the target's reaction structure without target views (importance weights, per-source mixture, views per like) helps only on X (+0.02 to +0.03) and hurts on TikTok; ridge on raw likes + comments stays the robust default. FB / IG estimates of these variants are pre-registered (`fbig_preregistered_v2.csv`). (E88)
 - Literature-based transfer methods (anchor regression, group DRO, stabilised weights, invariant subsets, brand carry-over) do not beat ridge on likes + comments, as the shift benchmarks predict (E90-E92). What helps is a few target posts: with 5-10, a shift shrunk toward zero (τ² from platform pairs) beats the raw median (0.315 / 0.626 / 0.588 vs 0.347 / 0.679 / 0.621); from 25-50, intercept + slope; a few-shot conformal 90% interval is calibrated from about 10 posts. (E89)
@@ -253,6 +254,13 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
   (2,500 would be ~$37.50), median **8 views** against 27 in the export. Model MAE **0.565**, bias **-0.29** (over-predicts
   the small posts by ~x2), median baseline 0.747. For a representative X sample we need several weekly windows, not a
   bigger one-off budget. **solid** (feasibility), **likely** (error)
+
+## Same-moment re-read (2026-11-08)
+
+- **Views and reactions are now from one request on TikTok, YouTube and X** (E204): TikTok 426/500 readable, YouTube
+  2,297/2,500, X 2,013/2,500. Fresh/export views: median x1.085 (TikTok), x1.350 (YouTube), x2.00 (X); p90 x2.35 / x20.7 /
+  x6.0; rank correlations 0.953 / 0.856 / 0.905. The export is stale in level but stable in rank, so the re-read files are
+  the ground truth for transfer scoring. X was free via FxTwitter (matched the paid API on 9/10 posts). **solid**
 
 ## Open items (state 2026-11-07)
 

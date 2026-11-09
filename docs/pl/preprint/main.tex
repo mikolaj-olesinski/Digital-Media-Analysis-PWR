@@ -1,0 +1,346 @@
+% Wersja robocza wygenerowana przez Claude (2026-11-08) na prośbę zespołu; do przepisania własnymi słowami.
+% Użycie AI ujawnić w preprincie. Odwołania do eksperymentów (E##) są tylko w komentarzach.
+\documentclass[10pt,a4paper]{article}
+\usepackage{iftex}
+\ifXeTeX
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+\usepackage[polish]{babel}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[table]{xcolor}
+\usepackage{graphicx,booktabs,amsmath,enumitem,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage[font=small,labelfont=bf]{caption}
+\newcommand{\capdet}[1]{\par\footnotesize\color{black!75}#1}
+\setlist{nosep,leftmargin=1.4em}
+\newcommand{\x}[1]{$\times$#1}
+\newcommand{\todo}[1]{\textcolor{red!70!black}{\textbf{TODO:} #1}}
+
+\title{Szacowanie ukrytych wyświetleń postów z reakcji:\\przeniesienie modelu między platformami}
+\author{Zespół projektu AMC, Politechnika Wrocławska}
+\date{wersja robocza, \today}
+
+\begin{document}
+\maketitle
+
+% ---------- roboczy spis treści: usunąć przed oddaniem ----------
+\begin{tcolorbox}[colback=yellow!8,colframe=yellow!50!black,title={Roboczy spis treści (usunąć przed oddaniem)},fonttitle=\bfseries\small,fontupper=\small]
+\begin{enumerate}[leftmargin=1.6em]
+  \item \textbf{Wstęp} --- problem, literatura, pytanie, wkład.
+  \item \textbf{Dane} --- skąd prawda na każdej platformie; Tabela~1, Rys.~1.
+  \item \textbf{Metoda} --- miara błędu, walidacja po markach, dwa modele, przedziały.
+  \item \textbf{Wyniki} --- Rys.~2 (wynik główny), Rys.~3 (kto jest źle szacowany), przedziały.
+  \item \textbf{Przeniesienie między platformami} --- gdzie jest prawda, Tabela~2 (wszystkie 31 zestawów treningowych), Rys.~4 (czego model potrzebuje).
+  \item \textbf{Porównanie metod} --- Tabela~2: rodziny modeli (regresja, lasy, boosting, sieci, grafy, transformery); Rys.~6: dodatkowe dane.
+  \item \textbf{Zastosowania} (1 str.) --- Rys.~7: alert, ranking marek, EMV, posty odstające.
+  \item \textbf{Ograniczenia i rekomendacje}.
+\end{enumerate}
+\end{tcolorbox}
+% ----------------------------------------------------------------
+
+\section{Wstęp}
+
+Firmy monitorujące media, takie jak Brand24, raportują klientom, ile osób mogło zobaczyć wzmiankę o ich marce.
+Najprostsza miara zasięgu, liczba wyświetleń, często nie jest jednak widoczna: platformy ograniczają to, co pokazują
+publicznie, a zakres tych danych zmienia się między platformami, formatami postów i w czasie. W praktyce zasięg
+przybliża się więc stałym mnożnikiem liczby obserwujących lub reakcji, który nie mówi, jak bardzo może się mylić.
+
+Przewidywanie popularności treści jest szeroko badane~\cite{tatar2014}, także między serwisami:
+Shulman i in.~\cite{shulman2016} przenoszą model między zbiorami muzyki, książek, zdjęć i linków, a Roy
+i in.~\cite{roy2013} wiedzę z Twittera na filmy z YouTube. Prace te przewidują jednak przyszłą popularność
+i mają dane o popularności z platformy docelowej, na których model się uczy lub kalibruje. Nasze zadanie jest inne:
+szacujemy bieżące wyświetlenia z widocznych reakcji na platformie, z której model nie dostaje w treningu ani jednej
+wartości wyświetleń. Wyświetlenia z tej platformy zbieramy osobno i używamy ich tylko do oceny. Nie znaleźliśmy pracy,
+która tak sprawdza przeniesienie modelu wyświetleń między platformami.
+
+Pytamy, czy wyświetlenia posta na Facebooku i Instagramie da się oszacować z jego reakcji modelem uczonym wyłącznie na
+innych platformach, i z jaką niepewnością. Nasz wkład:
+\begin{itemize}
+  \item model uczony tylko na X i YouTube szacuje wyświetlenia filmów na Facebooku z typowym błędem \x{2,4}, a rolek na
+        Instagramie \x{2,72}, prawie tak samo dobrze jak model uczony na samej platformie docelowej;
+  \item pokazujemy, kiedy to przeniesienie działa (reakcje odczytane razem z wyświetleniami) i kiedy zawodzi;
+  \item dla każdego posta podajemy przedział niepewności, trafny także przy brakujących danych;
+  \item pokazujemy zastosowania: alert o wybiciu, ranking marek i wartość medialną.
+\end{itemize}
+
+\section{Dane}
+
+Korzystamy z 12\,500 wzmianek o 348 markach z pięciu platform, udostępnionych przez Brand24 (po 2\,500 na platformę,
+85\% z nich opublikowano między kwietniem a sierpniem 2026 r., a 85\% jest po angielsku). Dla TikToka, YouTube i X wyświetlenia są w eksporcie. Dla Facebooka
+i Instagrama ich nie ma, więc pobraliśmy je własnym sposobem razem z reakcjami z tego samego momentu: 402 filmy z 20
+marek na Facebooku i 642 rolki z 11 marek na Instagramie. Zwykłe posty na tych platformach nie
+mają licznika wyświetleń, więc wyniki dotyczą tylko filmów i rolek. Typ i sentyment wzmianek oznaczyły modele językowe,
+a następnie członek zespołu je sprawdził i poprawił.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Dane według platformy.}
+\label{tab:data}
+\begin{tabular}{lrlrrr}
+\toprule
+Platforma & Marki & Źródło wyświetleń & Posty z wyświetleniami & Mediana wyśw. & Wyśw. na lajk \\
+\midrule
+TikTok    & 266 & eksport Brand24       & 2\,491 & 729    & 25 \\
+YouTube   & 273 & eksport Brand24       & 2\,441 & 433    & 26 \\
+X         & 252 & eksport Brand24       & 1\,803 & 27     & 22 \\
+Facebook  & 20  & własny odczyt (filmy) & 402    & 1\,413 & 35 \\
+Instagram & 11  & własny odczyt (rolki) & 642    & 504    & 53 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{fig/data_overview_pl.png}
+\caption{Wyświetlenia a lajki, osobno dla każdej platformy.
+\capdet{Obie osie w skali logarytmicznej; posty bez lajków przy zerze. Linia: prosta dopasowana na postach z co najmniej
+jednym lajkiem; liczba: ile razy więcej wyświetleń ma post z 10 razy większą liczbą lajków. TikTok, YouTube, X: eksport
+Brand24; Facebook (filmy), Instagram (rolki): nasz odczyt.}}
+\label{fig:data}
+\end{figure}
+
+\section{Metoda}\label{sec:met}
+
+Przewidujemy $y=\log_{10}(\text{wyświetlenia})$. Błąd podajemy jako MAE w tej skali i jako mnożnik
+$10^{\text{MAE}}$ (MAE 0,30 $\approx$ \x{2}). Wszystkie modele oceniamy pięciokrotną walidacją krzyżową z podziałem po
+markach, więc każda ocena dotyczy marki, której model nie widział; przedziały ufności liczymy bootstrapem po markach. Jeden autor może pisać o kilku markach (1--9\% postów), więc sprawdziliśmy też podział, w którym ten sam autor ani identyczny tekst nie trafia do treningu i testu jednocześnie: błąd zmienia się o najwyżej 0,002 na TikToku i YouTube, a na X rośnie z 0,47 do 0,48.
+Na TikToku, YouTube i X używamy CatBoost~\cite{catboost} na obserwujących, reakcjach i flagach braków. Do przeniesienia
+na Facebooka i Instagram używamy regresji ridge na $\log(1+\text{lajki})$ i $\log(1+\text{komentarze})$, czyli dwóch
+polach, które ma każda platforma, uczonej na X i YouTube razem; przy pominiętej platformie przenosi się ona lepiej niż
+CatBoost. Przedziały 50\% i 90\% dla każdego posta dają konformalna regresja kwantylowa~\cite{romano2019}.
+% E114, E124, E61/E131 (ridge > CatBoost przy pominiętej platformie), E118, E137.
+
+\section{Wyniki}\label{sec:wyniki}
+
+\paragraph{Wynik główny.} Rys.~\ref{fig:main} zestawia oba scenariusze. Na TikToku, YouTube i X, gdzie model uczy
+się na tej samej platformie, typowy błąd wynosi \x{1,9}, \x{2,9} i \x{3,0}. Na Facebooku i Instagramie model nie widział
+ani jednego posta z tych platform, a myli się \x{2,43} (przedział ufności \x{2,05}--\x{3,03}) i \x{2,72}
+(\x{2,49}--\x{3,05}). Na Facebooku to tyle samo, co ten sam model uczony na samej platformie docelowej (\x{2,42}),
+a na Instagramie trochę więcej niż przy uczeniu na samym Instagramie (\x{2,41}; 72\% rolek jest niedoszacowanych), więc
+zależność między reakcjami a wyświetleniami przenosi się między platformami prawie bez straty. Kolejność postów jest
+zachowana bardzo dobrze (Spearman 0,91 i 0,86).
+% results_a/results_b_numbers.json; CI MAE 0,312-0,482 i 0,396-0,484.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{fig/preprint_main_pl.png}
+\caption{Oszacowane a prawdziwe wyświetlenia.
+\capdet{Każda kropka to jeden post, oszacowany przez model, który nie widział jego marki (walidacja krzyżowa po
+markach). TikTok, YouTube, X: CatBoost na obserwujących, reakcjach i flagach braków, uczony na tej samej platformie;
+prawda z eksportu Brand24. Facebook (402 filmy, 20 marek), Instagram (642 rolki, 11 marek): ridge na $\log$ lajków
+i komentarzy uczony tylko na X i YouTube; prawda z naszego odczytu. Szary pas: oszacowanie w granicach \x{2}. Liczba:
+typowy błąd $10^{\text{MAE}}$.}}
+\label{fig:main}
+\end{figure}
+
+\paragraph{Kto jest źle szacowany.} Na każdej platformie, także po przeniesieniu, model zawyża posty z małą liczbą
+wyświetleń (ok. \x{2} poniżej 100 wyświetleń) i zaniża duże (Rys.~\ref{fig:size}). To typowe ściąganie do średniej:
+reakcje nie odróżniają dobrze postu, który się wybił, od zwykłego. Najsilniej widać to na X, gdzie posty powyżej 10\,000
+wyświetleń są zaniżone kilkanaście razy; po przeniesieniu Instagram zaniża duże rolki około \x{3}.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=.78\textwidth]{fig/preprint_size_pl.png}
+\caption{Błąd według wielkości posta.
+\capdet{Mediana stosunku prawdziwych do oszacowanych wyświetleń w przedziałach prawdziwych wyświetleń (pokazane
+przedziały z co najmniej 10 postami). Powyżej 1: model zaniża. Szary pas: w granicach \x{2}. Modele jak na
+Rys.~\ref{fig:main}.}}
+\label{fig:size}
+\end{figure}
+
+\paragraph{Przedziały.} Przedział 90\% trafia w 89--90\% postów na TikToku, YouTube i X, także na miesiącach spoza
+treningu (0,90--0,93). Na Facebooku trafia w 93\% filmów kont poniżej miliona obserwujących, ale dla największych kont
+tylko w 80--86\%. Jeśli zamiast liczby podamy jeden z trzech przedziałów (<1\,000, 1\,000--10\,000, >10\,000), trafiamy
+w 78--82\% postów na TikToku, YouTube, Facebooku i Instagramie.
+% E118, E142, E123, E151, E199.
+
+\section{Przeniesienie między platformami}\label{sec:transfer}
+
+\paragraph{Gdzie znamy prawdę.} Prawdziwe wyświetlenia mamy na wszystkich pięciu platformach (Tabela~\ref{tab:data}):
+na TikToku, YouTube i X z eksportu Brand24, na Facebooku (filmy) i Instagramie (rolki) z naszego odczytu, razem
+z lajkami i komentarzami z tej samej chwili. Dzięki temu każdą platformę możemy potraktować jak ,,ukrytą'': uczymy model
+na pozostałych i sprawdzamy na niej. Używamy tylko dwóch pól, które ma każda platforma, lajków i komentarzy, i prostej
+regresji ridge, bo przy pominiętej platformie przenosi się ona lepiej niż CatBoost. W praktyce ważne są Facebook
+i Instagram, bo tam wyświetleń w danych monitoringu nie ma; pozostałe platformy pokazują, jak ogólny jest ten wynik.
+
+\paragraph{Wszystkie kombinacje.} Tabela~\ref{tab:combos} pokazuje błąd dla każdego z 31 zestawów platform treningowych.
+Widać trzy rzeczy. Po pierwsze, Facebook i Instagram dają się oszacować z prawie dowolnego zestawu z błędem
+\x{2,4}--\x{3,1}, czyli blisko modelu uczonego na nich samych (\x{2,4}); najgorszy jest trening na samym X. Po drugie,
+X jest wyjątkiem w obie strony: model uczony na X myli się na YouTube \x{5,5}, a żaden zestaw nie schodzi na X poniżej
+\x{3,6}, wobec \x{3,3} przy uczeniu na X. Na X większość postów ma zero lub jeden lajk (Rys.~\ref{fig:data}), więc
+zależność wyświetleń od lajków wygląda tam inaczej. Po trzecie, YouTube jest trudny nawet dla modelu uczonego na nim
+samym (\x{4,1} dla ridge wobec \x{2,8} dla CatBoost), bo dużo filmów ma wyświetlenia bez żadnych reakcji. Więcej
+platform w treningu nie zawsze pomaga: liczy się, które platformy są w zestawie i w jakich proporcjach.
+% E201 (train_combos_numbers.json, pooled). Najlepsze: TT z YT 2,0; YT z TT+FB 4,06; X z FB 3,60; FB z YT+X+IG 2,39; IG z FB 2,47.
+
+\input{combos_table}
+
+\paragraph{Czego model potrzebuje.} Przeniesienie działa tylko z lajkami odczytanymi razem z wyświetleniami
+(Rys.~\ref{fig:needs}A). Same komentarze dają \x{6,2}--\x{7,4}, a lajki i komentarze z eksportu, odczytane w innym
+momencie niż wyświetlenia, \x{6,8}. Na platformach ze znanymi wyświetleniami (Rys.~\ref{fig:needs}B) brak obserwujących
+prawie nie szkodzi, a brak reakcji podnosi błąd do \x{3,8}--\x{5,2}. Dla każdego układu dostępnych pól uczymy osobny
+model z osobnym przedziałem, dzięki czemu przedział 90\% trafia w 88--90\% postów w każdym przypadku; model uczony na
+pełnych danych i karmiony niepełnymi trafiałby tylko w 46--83\%.
+% E177, E176, results_b (comments only).
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{fig/preprint_needs_pl.png}
+\caption{Typowy błąd przy różnych danych wejściowych.
+\capdet{A: Facebook i Instagram, ridge uczony na X i YouTube. ,,Lajki + komentarze'': nasze pola odczytane razem
+z wyświetleniami; ,,tylko komentarze'': model na samych komentarzach; ,,reakcje z eksportu'': lajki i komentarze
+z eksportu Brand24, odczytane w innym momencie niż wyświetlenia (dla Instagramu brak). B: TikTok, YouTube, X, osobny
+CatBoost dla każdego układu dostępnych pól, walidacja po markach.}}
+\label{fig:needs}
+\end{figure}
+
+\todo{później: szósta platforma z publicznymi wyświetleniami (backlog B30).}
+
+\section{Porównanie metod}\label{sec:nie}
+
+\paragraph{Rodziny modeli.} Tabela~\ref{tab:models} porównuje modele na tych samych danych wejściowych. Po dostrojeniu
+prawie wszystkie rodziny dają ten sam błąd: \x{1,85}--\x{1,92} na TikToku, \x{2,8}--\x{2,9} na YouTube i \x{2,9}--\x{3,1}
+na X. Wyraźnie gorsze są tylko proste odniesienia (\x{4,6}--\x{8,8}) oraz regresja liniowa i kNN na YouTube
+(\x{3,0}--\x{3,5}). Najlepszym pojedynczym modelem jest TabPFN v2, ale wyprzedza CatBoost tylko o 0,002--0,010, czyli
+w granicach szumu między przebiegami, a liczy się około 150 razy dłużej. Sieć grafowa i transformer czytający post jako
+tekst są gorsze od CatBoost.
+
+\paragraph{Dlaczego nie zespół.} Zespół łączy oszacowania kilku modeli, np. przez ich średnią (,,średnia 3 najlepszych'')
+albo przez model drugiego poziomu, który uczy się, jak ważyć oszacowania wszystkich rodzin (,,stos''). Błędy różnych
+modeli częściowo się znoszą, więc zespół jest zwykle trochę lepszy od każdego członka. U nas stos poprawia wynik
+o 0,011--0,028 (\x{1,03}--\x{1,07}). Zostajemy przy jednym modelu z trzech powodów: (1) zysk jest mały wobec typowego
+błędu \x{1,9}--\x{3,0}; (2) stos wymaga trenowania i utrzymania kilkunastu modeli, a przedziały niepewności (CQR)
+i przeniesienie na inne platformy budujemy na jednym modelu; (3) przy przeniesieniu i tak wygrywa najprostszy model
+liniowy (rozdział~\ref{sec:met}), więc złożoność nie przekłada się na główny wynik.
+% E11, E47 (TabPFN 136-176 s vs CatBoost 1 s), E54, E61/E131.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Porównanie rodzin modeli: MAE w skali $\log_{10}$ i typowy błąd (\x{}).
+\capdet{Wszystkie modele na obserwujących, reakcjach i flagach braków, walidacja krzyżowa po markach. Modele z drzew, liniowe, jądrowe i MLP po strojeniu hiperparametrów (40 ustawień na fałd, strojenie zagnieżdżone). TabPFN, TabICL, GraphSAGE, transformer i stos pochodzą z osobnych przebiegów na tych samych danych; CatBoost w tych przebiegach mieścił się w 0,271--0,273 / 0,452--0,456 / 0,466--0,470, więc różnice poniżej około 0,005 są w granicach szumu. Pogrubione: najlepszy pojedynczy model w kolumnie. Zespoły pokazujemy tylko dla porównania.}}
+\label{tab:models}
+\begin{tabular}{lccc}
+\toprule
+Model & TikTok & YouTube & X \\
+\midrule
+\multicolumn{4}{l}{\textit{Proste odniesienia}} \\
+\quad mediana wyświetleń platformy & 0,663 (\x{4,60}) & 0,944 (\x{8,79}) & 0,667 (\x{4,65}) \\
+\quad stały mnożnik liczby obserwujących & 0,919 (\x{8,30}) & 0,855 (\x{7,16}) & 0,879 (\x{7,57}) \\
+\multicolumn{4}{l}{\textit{Modele liniowe i jądrowe}} \\
+\quad regresja liniowa (ridge) & 0,277 (\x{1,89}) & 0,545 (\x{3,51}) & 0,487 (\x{3,07}) \\
+\quad k najbliższych sąsiadów (kNN) & 0,283 (\x{1,92}) & 0,483 (\x{3,04}) & 0,490 (\x{3,09}) \\
+\quad SVR z jądrem RBF & 0,271 (\x{1,87}) & 0,463 (\x{2,90}) & 0,480 (\x{3,02}) \\
+\multicolumn{4}{l}{\textit{Drzewa decyzyjne}} \\
+\quad las losowy (random forest) & 0,275 (\x{1,88}) & 0,463 (\x{2,90}) & 0,473 (\x{2,97}) \\
+\quad extra trees & 0,275 (\x{1,88}) & 0,459 (\x{2,88}) & 0,475 (\x{2,99}) \\
+\quad gradient boosting (scikit-learn) & 0,276 (\x{1,89}) & 0,453 (\x{2,84}) & 0,474 (\x{2,98}) \\
+\quad LightGBM & 0,275 (\x{1,88}) & 0,457 (\x{2,86}) & 0,475 (\x{2,99}) \\
+\quad XGBoost & 0,273 (\x{1,87}) & 0,450 (\x{2,82}) & 0,467 (\x{2,93}) \\
+\quad CatBoost (model końcowy) & 0,272 (\x{1,87}) & 0,452 (\x{2,83}) & 0,470 (\x{2,95}) \\
+\multicolumn{4}{l}{\textit{Sieci neuronowe}} \\
+\quad perceptron wielowarstwowy (MLP) & 0,276 (\x{1,89}) & 0,454 (\x{2,84}) & 0,477 (\x{3,00}) \\
+\quad sieć grafowa GraphSAGE (graf podobnych tekstów) & 0,279 (\x{1,90}) & 0,467 (\x{2,93}) & 0,474 (\x{2,98}) \\
+\quad dostrojony transformer (wiersz jako tekst) & 0,289 (\x{1,95}) & 0,454 (\x{2,84}) & 0,490 (\x{3,09}) \\
+\multicolumn{4}{l}{\textit{Modele wstępnie wytrenowane dla tabel}} \\
+\quad TabPFN v2 & \textbf{0,268 (\x{1,85})} & \textbf{0,443 (\x{2,77})} & \textbf{0,465 (\x{2,92})} \\
+\quad TabICL & 0,272 (\x{1,87}) & 0,445 (\x{2,79}) & 0,466 (\x{2,92}) \\
+\midrule
+\multicolumn{4}{l}{\textit{Zespoły modeli (dla porównania)}} \\
+\quad średnia 3 najlepszych rodzin & 0,270 (\x{1,86}) & 0,446 (\x{2,79}) & 0,469 (\x{2,94}) \\
+\quad stos wszystkich rodzin & 0,260 (\x{1,82}) & 0,425 (\x{2,66}) & 0,441 (\x{2,76}) \\
+\bottomrule
+\end{tabular}
+\end{table}
+% E11 (tuning_numbers.json), E47, E53, E54, E65; blend = tuning_numbers.json blend.
+
+\paragraph{Dodatkowe dane.} Sprawdziliśmy też ponad dwadzieścia dodatkowych źródeł sygnału (Rys.~\ref{fig:methods}):
+tekst (od TF-IDF po osadzenia zdań), etykiety AI, grafy autorów i marek oraz dane zewnętrzne o markach. Żadne nie zmienia
+błędu o więcej niż \x{1,04}, a większość mniej niż \x{1,02} albo pogarsza wynik. Tekst pomaga trochę na YouTube i X,
+grafy i dane zewnętrzne szkodzą. Na Facebooku tekst pogarsza przeniesienie (MAE 0,385 $\to$ 0,436). Historię autora opisujemy osobno poniżej.
+% E50, E65, E127, E170-E175, ablacja; E100 (FB tekst); E68/E70 (autor).
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=.85\textwidth]{fig/preprint_methods_pl.png}
+\caption{Dodatkowe dane i cechy.
+\capdet{Zmiana typowego błędu względem modelu końcowego (transformer jako korekta, osadzenia, grafy, dane zewnętrzne)
+albo względem modelu na obserwujących i reakcjach (TF-IDF, statystyki tekstu, VADER, etykiety AI, kalendarz, wielkość
+marki). W prawo: lepiej, w lewo: gorzej; \x{1,02} to zmiana MAE o około 0,01. \emph{Transformer jako korekta}: dostrojony
+model językowy przewiduje błąd CatBoost z tekstu posta. \emph{Osadzenia e5}: wielojęzyczny model zdań. \emph{Etykiety
+LLM}: typ i sentyment wzmianki z modelu językowego. \emph{GraphSAGE}: sieć grafowa na grafie podobnych tekstów;
+\emph{metapath2vec}: osadzenia grafu autor--marka--hashtag. \emph{Wikipedia, Wikidata}: zainteresowanie marką i dane
+o firmie. Wszystko z walidacją po markach.}}
+\label{fig:methods}
+\end{figure}
+
+\paragraph{Historia autora.} Jedynym sygnałem, który pomaga wyraźnie, jest historia autora. Ten sam autor ma
+podobną liczbę wyświetleń w kolejnych postach, niezależnie od reakcji: korelacja nadwyżki wyświetleń (prawda minus
+oszacowanie) między pierwszym a późniejszymi postami autora wynosi 0,68--0,70 na wszystkich trzech platformach,
+a autorzy z górnej jednej trzeciej mają przy tym samym oszacowaniu 4--9 razy więcej wyświetleń niż autorzy z dolnej.
+Wykorzystujemy to prosto: do oszacowania nowego posta dodajemy średnią nadwyżkę wcześniejszych postów tego autora,
+ściągniętą do zera, gdy postów jest mało (suma nadwyżek podzielona przez liczbę postów plus stała dobrana na innych
+markach). Na postach autorów z historią błąd spada z 0,37 do 0,26 na TikToku, z 0,50 do 0,35 na YouTube i z 0,53 do
+0,43 na X (\x{1,3}--\x{1,4}); większość zysku daje już jeden wcześniejszy post. Taka historia jest jednak tylko dla
+3--16\% postów w naszej próbie, więc w średnim błędzie zysk znika ($\le$0,003). Sprawdziliśmy też tego samego autora na
+innej platformie: po dokładnym dopasowaniu nazwy pokrywa się 0--0,1\% postów, za mało, żeby to ocenić.
+\todo{dopasowanie autorów między platformami po znormalizowanej nazwie konta, nie tylko dokładnej (pomysł do sprawdzenia).}
+% E68, E70, E119, E120.
+
+
+\section{Zastosowania}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{fig/preprint_side_pl.png}
+\caption{Zastosowania oszacowania na TikToku, YouTube i X.
+\capdet{Alert: z postów odczytanych po raz pierwszy model wskazuje 5\%, które będą miały najwięcej wyświetleń; słupek
+to odsetek trafnych wskazań (289--336 postów na platformę, jeden miesiąc). Ranking: średni współczynnik Kendalla między
+oszacowaną a prawdziwą kolejnością marek w parach branża--miesiąc (52 / 51 / 42 par). EMV: wyświetlenia przeliczone na pieniądze
+stawką za tysiąc; odsetek marek, dla których oszacowane EMV mieści się w $\pm$50\% prawdziwego (238 / 213 / 189 marek).}}
+\label{fig:side}
+\end{figure}
+
+\paragraph{Alert o wybiciu.} Z pierwszym odczytem wyświetleń model wskazuje 5\% postów, które się wybiją, z trafnością
+0,82 / 0,86 / 0,71; same reakcje dają 0,71 / 0,64 / 0,35 (Rys.~\ref{fig:side}). Przy trzy razy większej liczbie
+alertów łapie 82--100\% wybijających się postów.
+
+\paragraph{Ranking marek.} Sumując oszacowane wyświetlenia marek w branży i miesiącu, odtwarzamy ich kolejność
+(Kendall 0,73 / 0,70 / 0,60).
+
+\paragraph{Wartość medialna.} EMV marki liczone z oszacowanych wyświetleń mieści się w $\pm$50\% prawdziwego dla 61\% /
+57\% / 47\% marek.
+
+\paragraph{Posty odstające.} Na TikToku posty z dużo większą liczbą wyświetleń niż wynika z reakcji to częściej
+promocja (51\% wobec 34\%), a z dużo mniejszą częściej spam (26\% wobec 13\%).
+% E185, E186, E188, E184.
+\todo{dobić do pełnej strony: np. krzywa trafności alertu od liczby alertów, przykład rankingu jednej branży.}
+
+\section{Ograniczenia i rekomendacje}
+
+Wynik dla Facebooka opiera się na 20 markach (bez trzech największych \x{2,9}), a dla Instagramu na 11 (\x{2,96}).
+Posty wiralowe są zaniżane \x{9}--\x{14}, więc sumy marek mylą się o więcej niż \x{2} dla 29--47\% marek. Wyniki
+opisują zależności, nie przyczyny. Dostawcy monitoringu rekomendujemy: odczytywać reakcje razem z wyświetleniami,
+zapisywać braki jako brak, a nie zero, robić drugi odczyt wyświetleń i przechowywać historię autorów.
+% E178, E180, E202.
+
+\todo{jeden wykres końcowy: nasz model a stały mnożnik Brand24.}
+\todo{opis użycia AI zgodnie z wymaganiami kursu; odtwarzalność: repozytorium, skrypty, rejestr eksperymentów.}
+
+\begin{thebibliography}{9}
+\bibitem{tatar2014} A.~Tatar, M.~D. de~Amorim, S.~Fdida, P.~Antoniadis. A survey on predicting the popularity of web
+  content. \emph{Journal of Internet Services and Applications}, 5:8, 2014.
+\bibitem{shulman2016} B.~Shulman, A.~Sharma, D.~Cosley. Predictability of popularity: gaps between prediction and
+  understanding. \emph{ICWSM}, 2016.
+\bibitem{roy2013} S.~D. Roy, T.~Mei, W.~Zeng, S.~Li. Towards cross-domain learning for social video popularity
+  prediction. \emph{IEEE Transactions on Multimedia}, 15(6), 2013.
+\bibitem{catboost} L.~Prokhorenkova, G.~Gusev, A.~Vorobev, A.~V. Dorogush, A.~Gulin. CatBoost: unbiased boosting with
+  categorical features. \emph{NeurIPS}, 2018.
+\bibitem{romano2019} Y.~Romano, E.~Patterson, E.~Cand\`es. Conformalized quantile regression. \emph{NeurIPS}, 2019.
+\end{thebibliography}
+
+\end{document}
