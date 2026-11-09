@@ -112,7 +112,7 @@ Instagram & 11  & 541       & \alert{nasz odczyt}, rolki & 642 & 504    & 53 \\
 \end{frame}
 
 % 2b
-\begin{frame}{Jakie dane dodaliśmy sami}
+\begin{frame}{Jakie dane dodaliśmy sami: pozyskane}
 \footnotesize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.05}\centering
 \begin{tabular}{l>{\raggedright\arraybackslash}p{.24\textwidth}>{\raggedright\arraybackslash}p{.3\textwidth}>{\raggedright\arraybackslash}p{.2\textwidth}}
 \toprule
@@ -129,6 +129,35 @@ Instagram & właściciele rolek & 627 rolek (541 autorów) & autorzy w walidacji
 \end{tabular}
 \vspace{6pt}
 \sub{Eksport Brand24 jest nieaktualny w poziomie, stabilny w rankingu; ponowne odczyty to punkt odniesienia.}
+\end{frame}
+
+% 2c
+\begin{frame}{Jakie dane dodaliśmy sami: wyprowadzone i próbowane}
+\small
+\begin{columns}[T]
+\column{.48\textwidth}
+\begin{block}{Wyprowadzone z tekstu i metadanych}
+\footnotesize
+\begin{itemize}
+\item typ wzmianki i sentyment z modelu językowego (etykiety AI): zgodność 3 przebiegów $\kappa$ 0,77--0,79 (typ), 0,71--0,73 (sentyment); brak ludzkiego wzorca
+\item czy wzmianka jest o marce: 6,7\% bez nazwy marki w tekście
+\item tekst: TF-IDF, osadzenia zdań e5, statystyki tekstu, sentyment VADER
+\item grafy: podobieństwo tekstów (GraphSAGE), autor--marka--hashtag (metapath2vec)
+\end{itemize}
+\end{block}
+\column{.48\textwidth}
+\begin{block}{Próbowaliśmy dociągnąć z zewnątrz}
+\footnotesize
+\begin{itemize}
+\item Wikipedia (zainteresowanie marką), Wikidata (dane o firmie), szum wokół marki w strumieniu, kalendarz, wielkość marki
+\item ponowne odczyty wyświetleń i reakcji (X, YouTube, TikTok), brakujące lajki YouTube
+\item konta tych samych autorów na innych platformach: za mało dopasowań (5--17 postów, potrzeba 40)
+\item TikTok Research API: wymaga wniosku akademickiego, nie użyte
+\end{itemize}
+\end{block}
+\end{columns}
+\vspace{6pt}\centering
+Żadne dodatkowe źródło nie poprawia błędu o więcej niż \alert{\x{1,04}}.
 \end{frame}
 
 % 3
