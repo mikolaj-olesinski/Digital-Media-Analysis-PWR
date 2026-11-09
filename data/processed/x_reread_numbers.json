@@ -1,0 +1,273 @@
+{
+ "E218": {
+  "posts": 2013,
+  "new posts (no export views)": 505,
+  "old posts": 1508,
+  "brands": 270,
+  "median log10 views new / old": [
+   1.672,
+   1.857
+  ],
+  "zero-like share new / old": [
+   0.547,
+   0.513
+  ],
+  "in-platform CatBoost, brand CV": {
+   "all re-read X (primary)": {
+    "with new posts": {
+     "n": 2013,
+     "MAE": 0.44,
+     "factor": 2.75,
+     "CI": [
+      0.424,
+      0.458
+     ],
+     "median bias (+ = under)": 0.009
+    },
+    "without new posts": {
+     "n": 2013,
+     "MAE": 0.444,
+     "factor": 2.78,
+     "CI": [
+      0.429,
+      0.461
+     ],
+     "median bias (+ = under)": -0.034
+    },
+    "paired diff with - without": {
+     "diff": -0.005,
+     "CI": [
+      -0.009,
+      0.0
+     ]
+    }
+   },
+   "new posts": {
+    "with new posts": {
+     "n": 505,
+     "MAE": 0.46,
+     "factor": 2.88,
+     "CI": [
+      0.426,
+      0.498
+     ],
+     "median bias (+ = under)": -0.075
+    },
+    "without new posts": {
+     "n": 505,
+     "MAE": 0.474,
+     "factor": 2.98,
+     "CI": [
+      0.439,
+      0.514
+     ],
+     "median bias (+ = under)": -0.142
+    },
+    "paired diff with - without": {
+     "diff": -0.014,
+     "CI": [
+      -0.028,
+      -0.001
+     ]
+    }
+   },
+   "old posts": {
+    "with new posts": {
+     "n": 1508,
+     "MAE": 0.433,
+     "factor": 2.71,
+     "CI": [
+      0.415,
+      0.452
+     ],
+     "median bias (+ = under)": 0.038
+    },
+    "without new posts": {
+     "n": 1508,
+     "MAE": 0.435,
+     "factor": 2.72,
+     "CI": [
+      0.416,
+      0.453
+     ],
+     "median bias (+ = under)": 0.011
+    },
+    "paired diff with - without": {
+     "diff": -0.002,
+     "CI": [
+      -0.005,
+      0.002
+     ]
+    }
+   }
+  },
+  "transfer ridge C2 -> FB / IG": {
+   "facebook": {
+    "X export": {
+     "n": 402,
+     "MAE": 0.487,
+     "factor": 3.07,
+     "CI": [
+      0.42,
+      0.536
+     ],
+     "median bias (+ = under)": -0.225
+    },
+    "X re-read (all)": {
+     "n": 402,
+     "MAE": 0.52,
+     "factor": 3.31,
+     "CI": [
+      0.464,
+      0.57
+     ],
+     "median bias (+ = under)": -0.39
+    },
+    "X re-read (old only)": {
+     "n": 402,
+     "MAE": 0.509,
+     "factor": 3.23,
+     "CI": [
+      0.459,
+      0.551
+     ],
+     "median bias (+ = under)": -0.384
+    },
+    "X export + YouTube export": {
+     "n": 402,
+     "MAE": 0.385,
+     "factor": 2.43,
+     "CI": [
+      0.312,
+      0.482
+     ],
+     "median bias (+ = under)": 0.076
+    },
+    "X re-read (all) + YouTube export": {
+     "n": 402,
+     "MAE": 0.397,
+     "factor": 2.49,
+     "CI": [
+      0.33,
+      0.479
+     ],
+     "median bias (+ = under)": 0.016
+    },
+    "X re-read (old only) + YouTube export": {
+     "n": 402,
+     "MAE": 0.406,
+     "factor": 2.54,
+     "CI": [
+      0.339,
+      0.486
+     ],
+     "median bias (+ = under)": 0.024
+    },
+    "paired: X re-read (all) - X export": {
+     "diff": 0.034,
+     "CI": [
+      -0.007,
+      0.076
+     ]
+    },
+    "paired: X re-read (all) - X re-read (old only)": {
+     "diff": 0.011,
+     "CI": [
+      -0.002,
+      0.023
+     ]
+    },
+    "paired: X re-read (all) + YT - X export + YT": {
+     "diff": 0.011,
+     "CI": [
+      -0.011,
+      0.033
+     ]
+    }
+   },
+   "instagram": {
+    "X export": {
+     "n": 642,
+     "MAE": 0.438,
+     "factor": 2.74,
+     "CI": [
+      0.402,
+      0.473
+     ],
+     "median bias (+ = under)": 0.087
+    },
+    "X re-read (all)": {
+     "n": 642,
+     "MAE": 0.406,
+     "factor": 2.55,
+     "CI": [
+      0.37,
+      0.442
+     ],
+     "median bias (+ = under)": -0.068
+    },
+    "X re-read (old only)": {
+     "n": 642,
+     "MAE": 0.4,
+     "factor": 2.51,
+     "CI": [
+      0.363,
+      0.436
+     ],
+     "median bias (+ = under)": -0.068
+    },
+    "X export + YouTube export": {
+     "n": 642,
+     "MAE": 0.435,
+     "factor": 2.72,
+     "CI": [
+      0.396,
+      0.484
+     ],
+     "median bias (+ = under)": 0.281
+    },
+    "X re-read (all) + YouTube export": {
+     "n": 642,
+     "MAE": 0.404,
+     "factor": 2.54,
+     "CI": [
+      0.37,
+      0.451
+     ],
+     "median bias (+ = under)": 0.185
+    },
+    "X re-read (old only) + YouTube export": {
+     "n": 642,
+     "MAE": 0.406,
+     "factor": 2.55,
+     "CI": [
+      0.372,
+      0.451
+     ],
+     "median bias (+ = under)": 0.18
+    },
+    "paired: X re-read (all) - X export": {
+     "diff": -0.031,
+     "CI": [
+      -0.057,
+      -0.01
+     ]
+    },
+    "paired: X re-read (all) - X re-read (old only)": {
+     "diff": 0.006,
+     "CI": [
+      0.002,
+      0.01
+     ]
+    },
+    "paired: X re-read (all) + YT - X export + YT": {
+     "diff": -0.03,
+     "CI": [
+      -0.043,
+      -0.019
+     ]
+    }
+   }
+  }
+ }
+}

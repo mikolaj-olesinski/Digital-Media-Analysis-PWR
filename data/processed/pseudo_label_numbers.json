@@ -1,0 +1,533 @@
+{
+ "note": "MAE of log10 views; gain = MAE(base) - MAE(variant), + = better, brand bootstrap 300 draws.",
+ "(a) transductive, re-read X + YouTube teacher (primary)": {
+  "source rows": 3389,
+  "facebook": {
+   "teacher ridge (base)": {
+    "n": 402,
+    "MAE": 0.3874,
+    "CI": [
+     0.3253,
+     0.4569
+    ],
+    "factor": 2.44,
+    "median bias (+ = under)": -0.0506,
+    "within x2": 0.483,
+    "top fifth bias by true y": 0.2036,
+    "top fifth bias by predicted y": -0.0536,
+    "top tenth bias by true y": 0.3025,
+    "top tenth bias by predicted y": -0.1068
+   },
+   "CatBoost without pseudo-labels": {
+    "n": 402,
+    "MAE": 0.3814,
+    "CI": [
+     0.3276,
+     0.4448
+    ],
+    "factor": 2.407,
+    "median bias (+ = under)": -0.0246,
+    "within x2": 0.488,
+    "top fifth bias by true y": 0.3015,
+    "top fifth bias by predicted y": 0.0328,
+    "top tenth bias by true y": 0.4206,
+    "top tenth bias by predicted y": 0.0065,
+    "gain vs teacher": {
+     "gain": 0.006,
+     "CI": [
+      -0.0081,
+      0.0282
+     ]
+    }
+   },
+   "(a) student, hard pseudo-labels (primary)": {
+    "n": 402,
+    "MAE": 0.3835,
+    "CI": [
+     0.3264,
+     0.4444
+    ],
+    "factor": 2.418,
+    "median bias (+ = under)": -0.0392,
+    "within x2": 0.49,
+    "top fifth bias by true y": 0.2465,
+    "top fifth bias by predicted y": -0.0178,
+    "top tenth bias by true y": 0.3639,
+    "top tenth bias by predicted y": -0.0624,
+    "gain vs teacher": {
+     "gain": 0.0039,
+     "CI": [
+      -0.0052,
+      0.0127
+     ]
+    }
+   },
+   "(a) noisy student, sigma 0.1": {
+    "n": 402,
+    "MAE": 0.3795,
+    "CI": [
+     0.3207,
+     0.4431
+    ],
+    "factor": 2.396,
+    "median bias (+ = under)": -0.0332,
+    "within x2": 0.493,
+    "top fifth bias by true y": 0.2555,
+    "top fifth bias by predicted y": 0.0099,
+    "top tenth bias by true y": 0.3728,
+    "top tenth bias by predicted y": -0.0454,
+    "gain vs teacher": {
+     "gain": 0.0079,
+     "CI": [
+      -0.0032,
+      0.0207
+     ]
+    }
+   },
+   "(a) student on pseudo-labelled target rows only": {
+    "n": 402,
+    "MAE": 0.3907,
+    "CI": [
+     0.3303,
+     0.4596
+    ],
+    "factor": 2.459,
+    "median bias (+ = under)": -0.0461,
+    "within x2": 0.478,
+    "top fifth bias by true y": 0.2422,
+    "top fifth bias by predicted y": -0.0172,
+    "top tenth bias by true y": 0.3747,
+    "top tenth bias by predicted y": -0.0091,
+    "gain vs teacher": {
+     "gain": -0.0033,
+     "CI": [
+      -0.0077,
+      0.001
+     ]
+    }
+   }
+  },
+  "instagram": {
+   "teacher ridge (base)": {
+    "n": 642,
+    "MAE": 0.3817,
+    "CI": [
+     0.3481,
+     0.4201
+    ],
+    "factor": 2.408,
+    "median bias (+ = under)": 0.0717,
+    "within x2": 0.481,
+    "top fifth bias by true y": 0.2863,
+    "top fifth bias by predicted y": 0.0587,
+    "top tenth bias by true y": 0.2732,
+    "top tenth bias by predicted y": 0.0727
+   },
+   "CatBoost without pseudo-labels": {
+    "n": 642,
+    "MAE": 0.391,
+    "CI": [
+     0.3533,
+     0.4338
+    ],
+    "factor": 2.46,
+    "median bias (+ = under)": 0.0906,
+    "within x2": 0.474,
+    "top fifth bias by true y": 0.3938,
+    "top fifth bias by predicted y": 0.1975,
+    "top tenth bias by true y": 0.4146,
+    "top tenth bias by predicted y": 0.2327,
+    "gain vs teacher": {
+     "gain": -0.0093,
+     "CI": [
+      -0.0154,
+      -0.0039
+     ]
+    }
+   },
+   "(a) student, hard pseudo-labels (primary)": {
+    "n": 642,
+    "MAE": 0.384,
+    "CI": [
+     0.3487,
+     0.4226
+    ],
+    "factor": 2.421,
+    "median bias (+ = under)": 0.0878,
+    "within x2": 0.48,
+    "top fifth bias by true y": 0.3274,
+    "top fifth bias by predicted y": 0.1051,
+    "top tenth bias by true y": 0.3343,
+    "top tenth bias by predicted y": 0.1285,
+    "gain vs teacher": {
+     "gain": -0.0024,
+     "CI": [
+      -0.0047,
+      -0.0003
+     ]
+    }
+   },
+   "(a) noisy student, sigma 0.1": {
+    "n": 642,
+    "MAE": 0.3868,
+    "CI": [
+     0.3506,
+     0.4275
+    ],
+    "factor": 2.437,
+    "median bias (+ = under)": 0.0942,
+    "within x2": 0.477,
+    "top fifth bias by true y": 0.346,
+    "top fifth bias by predicted y": 0.124,
+    "top tenth bias by true y": 0.36,
+    "top tenth bias by predicted y": 0.1744,
+    "gain vs teacher": {
+     "gain": -0.0051,
+     "CI": [
+      -0.0094,
+      -0.0011
+     ]
+    }
+   },
+   "(a) student on pseudo-labelled target rows only": {
+    "n": 642,
+    "MAE": 0.3835,
+    "CI": [
+     0.3525,
+     0.4199
+    ],
+    "factor": 2.418,
+    "median bias (+ = under)": 0.082,
+    "within x2": 0.483,
+    "top fifth bias by true y": 0.3186,
+    "top fifth bias by predicted y": 0.0835,
+    "top tenth bias by true y": 0.3362,
+    "top tenth bias by predicted y": 0.1224,
+    "gain vs teacher": {
+     "gain": -0.0018,
+     "CI": [
+      -0.005,
+      0.0013
+     ]
+    }
+   }
+  }
+ },
+ "(a) transductive, export X + YouTube teacher (sensitivity)": {
+  "source rows": 4244,
+  "facebook": {
+   "teacher ridge (base)": {
+    "n": 402,
+    "MAE": 0.3853,
+    "CI": [
+     0.3123,
+     0.4817
+    ],
+    "factor": 2.428,
+    "median bias (+ = under)": 0.0761,
+    "within x2": 0.525,
+    "top fifth bias by true y": 0.4352,
+    "top fifth bias by predicted y": 0.1629,
+    "top tenth bias by true y": 0.5435,
+    "top tenth bias by predicted y": 0.1296
+   },
+   "CatBoost without pseudo-labels": {
+    "n": 402,
+    "MAE": 0.4174,
+    "CI": [
+     0.3672,
+     0.4897
+    ],
+    "factor": 2.614,
+    "median bias (+ = under)": 0.1786,
+    "within x2": 0.455,
+    "top fifth bias by true y": 0.4725,
+    "top fifth bias by predicted y": 0.2026,
+    "top tenth bias by true y": 0.604,
+    "top tenth bias by predicted y": 0.1754,
+    "gain vs teacher": {
+     "gain": -0.032,
+     "CI": [
+      -0.0657,
+      0.0051
+     ]
+    }
+   },
+   "(a) student, hard pseudo-labels (primary)": {
+    "n": 402,
+    "MAE": 0.3867,
+    "CI": [
+     0.3154,
+     0.4767
+    ],
+    "factor": 2.436,
+    "median bias (+ = under)": 0.1377,
+    "within x2": 0.532,
+    "top fifth bias by true y": 0.4536,
+    "top fifth bias by predicted y": 0.185,
+    "top tenth bias by true y": 0.5816,
+    "top tenth bias by predicted y": 0.1671,
+    "gain vs teacher": {
+     "gain": -0.0014,
+     "CI": [
+      -0.013,
+      0.014
+     ]
+    }
+   },
+   "(a) noisy student, sigma 0.1": {
+    "n": 402,
+    "MAE": 0.3926,
+    "CI": [
+     0.3238,
+     0.4816
+    ],
+    "factor": 2.469,
+    "median bias (+ = under)": 0.1313,
+    "within x2": 0.515,
+    "top fifth bias by true y": 0.484,
+    "top fifth bias by predicted y": 0.2144,
+    "top tenth bias by true y": 0.6278,
+    "top tenth bias by predicted y": 0.2227,
+    "gain vs teacher": {
+     "gain": -0.0073,
+     "CI": [
+      -0.0228,
+      0.0112
+     ]
+    }
+   },
+   "(a) student on pseudo-labelled target rows only": {
+    "n": 402,
+    "MAE": 0.3915,
+    "CI": [
+     0.3183,
+     0.483
+    ],
+    "factor": 2.463,
+    "median bias (+ = under)": 0.0764,
+    "within x2": 0.517,
+    "top fifth bias by true y": 0.4634,
+    "top fifth bias by predicted y": 0.1866,
+    "top tenth bias by true y": 0.5977,
+    "top tenth bias by predicted y": 0.1917,
+    "gain vs teacher": {
+     "gain": -0.0062,
+     "CI": [
+      -0.0139,
+      0.0008
+     ]
+    }
+   }
+  },
+  "instagram": {
+   "teacher ridge (base)": {
+    "n": 642,
+    "MAE": 0.4348,
+    "CI": [
+     0.3964,
+     0.4836
+    ],
+    "factor": 2.722,
+    "median bias (+ = under)": 0.281,
+    "within x2": 0.4,
+    "top fifth bias by true y": 0.531,
+    "top fifth bias by predicted y": 0.3197,
+    "top tenth bias by true y": 0.5286,
+    "top tenth bias by predicted y": 0.3377
+   },
+   "CatBoost without pseudo-labels": {
+    "n": 642,
+    "MAE": 0.4691,
+    "CI": [
+     0.425,
+     0.5273
+    ],
+    "factor": 2.945,
+    "median bias (+ = under)": 0.3289,
+    "within x2": 0.372,
+    "top fifth bias by true y": 0.5757,
+    "top fifth bias by predicted y": 0.3378,
+    "top tenth bias by true y": 0.5747,
+    "top tenth bias by predicted y": 0.3704,
+    "gain vs teacher": {
+     "gain": -0.0343,
+     "CI": [
+      -0.0468,
+      -0.0166
+     ]
+    }
+   },
+   "(a) student, hard pseudo-labels (primary)": {
+    "n": 642,
+    "MAE": 0.4547,
+    "CI": [
+     0.4126,
+     0.5098
+    ],
+    "factor": 2.849,
+    "median bias (+ = under)": 0.3064,
+    "within x2": 0.388,
+    "top fifth bias by true y": 0.5553,
+    "top fifth bias by predicted y": 0.3309,
+    "top tenth bias by true y": 0.5559,
+    "top tenth bias by predicted y": 0.3687,
+    "gain vs teacher": {
+     "gain": -0.0199,
+     "CI": [
+      -0.0271,
+      -0.011
+     ]
+    }
+   },
+   "(a) noisy student, sigma 0.1": {
+    "n": 642,
+    "MAE": 0.4587,
+    "CI": [
+     0.418,
+     0.5126
+    ],
+    "factor": 2.876,
+    "median bias (+ = under)": 0.3097,
+    "within x2": 0.391,
+    "top fifth bias by true y": 0.5718,
+    "top fifth bias by predicted y": 0.3501,
+    "top tenth bias by true y": 0.5866,
+    "top tenth bias by predicted y": 0.3903,
+    "gain vs teacher": {
+     "gain": -0.0239,
+     "CI": [
+      -0.0336,
+      -0.0125
+     ]
+    }
+   },
+   "(a) student on pseudo-labelled target rows only": {
+    "n": 642,
+    "MAE": 0.4382,
+    "CI": [
+     0.4018,
+     0.4837
+    ],
+    "factor": 2.743,
+    "median bias (+ = under)": 0.278,
+    "within x2": 0.402,
+    "top fifth bias by true y": 0.554,
+    "top fifth bias by predicted y": 0.3328,
+    "top tenth bias by true y": 0.5739,
+    "top tenth bias by predicted y": 0.3865,
+    "gain vs teacher": {
+     "gain": -0.0034,
+     "CI": [
+      -0.0072,
+      0.0001
+     ]
+    }
+   }
+  }
+ },
+ "(b) in-platform X": {
+  "labelled X posts": 1803,
+  "unlabelled X posts (missing export views)": 634,
+  "unlabelled rows used per fold": [
+   538,
+   509,
+   515,
+   518,
+   552
+  ],
+  "base (labelled only)": {
+   "n": 1803,
+   "MAE": 0.4665,
+   "CI": [
+    0.4459,
+    0.4894
+   ],
+   "factor": 2.927,
+   "median bias (+ = under)": 0.0044,
+   "within x2": 0.413,
+   "top fifth bias by true y": 0.5852,
+   "top fifth bias by predicted y": 0.0578,
+   "top tenth bias by true y": 0.667,
+   "top tenth bias by predicted y": 0.0908
+  },
+  "(b) hard pseudo-labels (primary)": {
+   "n": 1803,
+   "MAE": 0.4696,
+   "CI": [
+    0.4496,
+    0.4924
+   ],
+   "factor": 2.948,
+   "median bias (+ = under)": 0.0014,
+   "within x2": 0.407,
+   "top fifth bias by true y": 0.5931,
+   "top fifth bias by predicted y": 0.0623,
+   "top tenth bias by true y": 0.681,
+   "top tenth bias by predicted y": 0.0784,
+   "gain vs base": {
+    "gain": -0.0031,
+    "CI": [
+     -0.0048,
+     -0.0012
+    ]
+   }
+  },
+  "(b) noisy pseudo rows, sigma 0.1": {
+   "n": 1803,
+   "MAE": 0.4705,
+   "CI": [
+    0.4491,
+    0.4937
+   ],
+   "factor": 2.955,
+   "median bias (+ = under)": 0.0018,
+   "within x2": 0.413,
+   "top fifth bias by true y": 0.5828,
+   "top fifth bias by predicted y": 0.0334,
+   "top tenth bias by true y": 0.6653,
+   "top tenth bias by predicted y": 0.0155,
+   "gain vs base": {
+    "gain": -0.0041,
+    "CI": [
+     -0.007,
+     -0.0013
+    ]
+   }
+  },
+  "(b) pseudo rows at weight 0.5": {
+   "n": 1803,
+   "MAE": 0.4691,
+   "CI": [
+    0.4488,
+    0.4919
+   ],
+   "factor": 2.945,
+   "median bias (+ = under)": 0.003,
+   "within x2": 0.408,
+   "top fifth bias by true y": 0.5913,
+   "top fifth bias by predicted y": 0.0666,
+   "top tenth bias by true y": 0.6753,
+   "top tenth bias by predicted y": 0.0674,
+   "gain vs base": {
+    "gain": -0.0026,
+    "CI": [
+     -0.0045,
+     -0.0009
+    ]
+   }
+  },
+  "pseudo-label check against re-read views": {
+   "unlabelled posts with a re-read": 473,
+   "MAE vs re-read": 0.6575,
+   "median bias vs re-read (+ = under)": 0.3671,
+   "reference: labelled posts with a re-read (out-of-fold teacher)": 1508,
+   "reference MAE vs re-read": 0.5627,
+   "reference median bias vs re-read": 0.3893
+  }
+ },
+ "verdict": {
+  "variants with gain >= 0.01 and CI above zero": [],
+  "refuted": true
+ }
+}

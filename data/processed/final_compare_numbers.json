@@ -1,0 +1,82 @@
+{
+ "final compare": {
+  "twitter": {
+   "ours": {
+    "posts": 1803,
+    "MAE": 0.482,
+    "CI": [
+     0.461,
+     0.504
+    ],
+    "factor": 3.03,
+    "median bias (+ = under)": 0.001,
+    "within x2": 0.397,
+    "over-estimated": 0.499
+   },
+   "Brand24 reach": {
+    "posts": 1803,
+    "MAE": 1.06,
+    "CI": [
+     1.024,
+     1.095
+    ],
+    "factor": 11.47,
+    "median bias (+ = under)": -0.854,
+    "within x2": 0.135,
+    "over-estimated": 0.742
+   }
+  },
+  "facebook": {
+   "ours": {
+    "posts": 402,
+    "MAE": 0.385,
+    "CI": [
+     0.312,
+     0.482
+    ],
+    "factor": 2.43,
+    "median bias (+ = under)": 0.076,
+    "within x2": 0.525,
+    "over-estimated": 0.405
+   },
+   "Brand24 reach": {
+    "posts": 402,
+    "MAE": 1.119,
+    "CI": [
+     0.845,
+     1.419
+    ],
+    "factor": 13.14,
+    "median bias (+ = under)": -0.45,
+    "within x2": 0.162,
+    "over-estimated": 0.669
+   }
+  },
+  "instagram": {
+   "ours": {
+    "posts": 642,
+    "MAE": 0.435,
+    "CI": [
+     0.396,
+     0.484
+    ],
+    "factor": 2.72,
+    "median bias (+ = under)": 0.281,
+    "within x2": 0.4,
+    "over-estimated": 0.282
+   },
+   "Brand24 reach": {
+    "posts": 642,
+    "MAE": 1.422,
+    "CI": [
+     1.244,
+     1.612
+    ],
+    "factor": 26.44,
+    "median bias (+ = under)": 1.175,
+    "within x2": 0.1,
+    "over-estimated": 0.031
+   }
+  }
+ }
+}

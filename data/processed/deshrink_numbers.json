@@ -1,0 +1,769 @@
+{
+ "X + YT re-read -> FB / IG": {
+  "fit": {
+   "paired posts": 2879,
+   "OLS slopes (likes, comments)": [
+    0.447,
+    -0.042
+   ],
+   "2SLS slopes": [
+    0.432,
+    -0.03
+   ],
+   "reliability \u03bb": [
+    0.778,
+    0.806
+   ],
+   "reliability-corrected slopes": [
+    0.574,
+    -0.052
+   ],
+   "2SLS / OLS likes slope": 0.968,
+   "variance-matching factor": 1.119
+  },
+  "facebook": {
+   "ridge, re-read (base)": {
+    "MAE": 0.387,
+    "CI": [
+     0.325,
+     0.457
+    ],
+    "bias": -0.034,
+    "factor": 2.44,
+    "Spearman": 0.906,
+    "posts": 402,
+    "median bias (+ = under)": -0.051,
+    "within x2": 0.483,
+    "top 20% by true y, mean bias": 0.204,
+    "top 20% by predicted y, mean bias": -0.054,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": -0.065,
+     "share off >x2": 0.474,
+     "Kendall": 0.778
+    }
+   },
+   "OLS on paired posts": {
+    "MAE": 0.39,
+    "CI": [
+     0.327,
+     0.462
+    ],
+    "bias": -0.042,
+    "factor": 2.45,
+    "Spearman": 0.906,
+    "posts": 402,
+    "median bias (+ = under)": -0.058,
+    "within x2": 0.478,
+    "top 20% by true y, mean bias": 0.224,
+    "top 20% by predicted y, mean bias": -0.031,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": -0.059,
+     "share off >x2": 0.421,
+     "Kendall": 0.778
+    },
+    "paired diff vs base": {
+     "diff": 0.002,
+     "CI": [
+      -0.001,
+      0.007
+     ]
+    }
+   },
+   "2SLS on paired posts (primary)": {
+    "MAE": 0.389,
+    "CI": [
+     0.324,
+     0.462
+    ],
+    "bias": -0.03,
+    "factor": 2.45,
+    "Spearman": 0.907,
+    "posts": 402,
+    "median bias (+ = under)": -0.045,
+    "within x2": 0.493,
+    "top 20% by true y, mean bias": 0.263,
+    "top 20% by predicted y, mean bias": 0.01,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": -0.096,
+     "share off >x2": 0.474,
+     "Kendall": 0.778
+    },
+    "paired diff vs base": {
+     "diff": 0.001,
+     "CI": [
+      -0.004,
+      0.007
+     ]
+    }
+   },
+   "reliability-corrected OLS": {
+    "MAE": 0.466,
+    "CI": [
+     0.407,
+     0.52
+    ],
+    "bias": -0.168,
+    "factor": 2.92,
+    "Spearman": 0.906,
+    "posts": 402,
+    "median bias (+ = under)": -0.234,
+    "within x2": 0.371,
+    "top 20% by true y, mean bias": -0.33,
+    "top 20% by predicted y, mean bias": -0.618,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": 0.335,
+     "share off >x2": 0.737,
+     "Kendall": 0.754
+    },
+    "paired diff vs base": {
+     "diff": 0.079,
+     "CI": [
+      -0.001,
+      0.15
+     ]
+    }
+   },
+   "variance matching": {
+    "MAE": 0.394,
+    "CI": [
+     0.338,
+     0.459
+    ],
+    "bias": -0.034,
+    "factor": 2.48,
+    "Spearman": 0.906,
+    "posts": 402,
+    "median bias (+ = under)": -0.066,
+    "within x2": 0.47,
+    "top 20% by true y, mean bias": 0.023,
+    "top 20% by predicted y, mean bias": -0.248,
+    "brand totals (>=5 posts)": {
+     "brands": 19,
+     "median log10 ratio": 0.073,
+     "share off >x2": 0.526,
+     "Kendall": 0.743
+    },
+    "paired diff vs base": {
+     "diff": 0.007,
+     "CI": [
+      -0.02,
+      0.026
+     ]
+    }
+   }
+  },
+  "instagram": {
+   "ridge, re-read (base)": {
+    "MAE": 0.382,
+    "CI": [
+     0.348,
+     0.42
+    ],
+    "bias": 0.05,
+    "factor": 2.41,
+    "Spearman": 0.86,
+    "posts": 642,
+    "median bias (+ = under)": 0.072,
+    "within x2": 0.481,
+    "top 20% by true y, mean bias": 0.286,
+    "top 20% by predicted y, mean bias": 0.059,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.245,
+     "share off >x2": 0.545,
+     "Kendall": 0.745
+    }
+   },
+   "OLS on paired posts": {
+    "MAE": 0.379,
+    "CI": [
+     0.345,
+     0.419
+    ],
+    "bias": 0.033,
+    "factor": 2.39,
+    "Spearman": 0.86,
+    "posts": 642,
+    "median bias (+ = under)": 0.058,
+    "within x2": 0.492,
+    "top 20% by true y, mean bias": 0.293,
+    "top 20% by predicted y, mean bias": 0.067,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.263,
+     "share off >x2": 0.545,
+     "Kendall": 0.745
+    },
+    "paired diff vs base": {
+     "diff": -0.003,
+     "CI": [
+      -0.005,
+      0.0
+     ]
+    }
+   },
+   "2SLS on paired posts (primary)": {
+    "MAE": 0.379,
+    "CI": [
+     0.345,
+     0.419
+    ],
+    "bias": 0.041,
+    "factor": 2.39,
+    "Spearman": 0.86,
+    "posts": 642,
+    "median bias (+ = under)": 0.069,
+    "within x2": 0.491,
+    "top 20% by true y, mean bias": 0.324,
+    "top 20% by predicted y, mean bias": 0.099,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.328,
+     "share off >x2": 0.545,
+     "Kendall": 0.745
+    },
+    "paired diff vs base": {
+     "diff": -0.003,
+     "CI": [
+      -0.006,
+      0.001
+     ]
+    }
+   },
+   "reliability-corrected OLS": {
+    "MAE": 0.422,
+    "CI": [
+     0.381,
+     0.454
+    ],
+    "bias": 0.031,
+    "factor": 2.64,
+    "Spearman": 0.86,
+    "posts": 642,
+    "median bias (+ = under)": 0.025,
+    "within x2": 0.455,
+    "top 20% by true y, mean bias": -0.047,
+    "top 20% by predicted y, mean bias": -0.304,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": 0.12,
+     "share off >x2": 0.636,
+     "Kendall": 0.709
+    },
+    "paired diff vs base": {
+     "diff": 0.04,
+     "CI": [
+      0.006,
+      0.071
+     ]
+    }
+   },
+   "variance matching": {
+    "MAE": 0.393,
+    "CI": [
+     0.359,
+     0.425
+    ],
+    "bias": 0.05,
+    "factor": 2.47,
+    "Spearman": 0.86,
+    "posts": 642,
+    "median bias (+ = under)": 0.066,
+    "within x2": 0.481,
+    "top 20% by true y, mean bias": 0.144,
+    "top 20% by predicted y, mean bias": -0.097,
+    "brand totals (>=5 posts)": {
+     "brands": 11,
+     "median log10 ratio": -0.128,
+     "share off >x2": 0.364,
+     "Kendall": 0.709
+    },
+    "paired diff vs base": {
+     "diff": 0.011,
+     "CI": [
+      -0.002,
+      0.024
+     ]
+    }
+   }
+  }
+ },
+ "leave-one-platform-out, target tiktok (re-read)": {
+  "fit": {
+   "paired posts": 2879,
+   "OLS slopes (likes, comments)": [
+    0.447,
+    -0.042
+   ],
+   "2SLS slopes": [
+    0.432,
+    -0.03
+   ],
+   "reliability \u03bb": [
+    0.778,
+    0.806
+   ],
+   "reliability-corrected slopes": [
+    0.574,
+    -0.052
+   ],
+   "2SLS / OLS likes slope": 0.968,
+   "variance-matching factor": 1.119
+  },
+  "tiktok": {
+   "ridge, re-read (base)": {
+    "MAE": 0.359,
+    "CI": [
+     0.336,
+     0.39
+    ],
+    "bias": -0.123,
+    "factor": 2.29,
+    "Spearman": 0.851,
+    "posts": 426,
+    "median bias (+ = under)": -0.158,
+    "within x2": 0.491,
+    "top 20% by true y, mean bias": -0.032,
+    "top 20% by predicted y, mean bias": -0.302,
+    "brand totals (>=5 posts)": {
+     "brands": 10,
+     "median log10 ratio": 0.169,
+     "share off >x2": 0.5,
+     "Kendall": 0.822
+    }
+   },
+   "OLS on paired posts": {
+    "MAE": 0.356,
+    "CI": [
+     0.332,
+     0.387
+    ],
+    "bias": -0.128,
+    "factor": 2.27,
+    "Spearman": 0.851,
+    "posts": 426,
+    "median bias (+ = under)": -0.164,
+    "within x2": 0.495,
+    "top 20% by true y, mean bias": -0.014,
+    "top 20% by predicted y, mean bias": -0.281,
+    "brand totals (>=5 posts)": {
+     "brands": 10,
+     "median log10 ratio": 0.15,
+     "share off >x2": 0.5,
+     "Kendall": 0.822
+    },
+    "paired diff vs base": {
+     "diff": -0.003,
+     "CI": [
+      -0.005,
+      -0.001
+     ]
+    }
+   },
+   "2SLS on paired posts (primary)": {
+    "MAE": 0.346,
+    "CI": [
+     0.322,
+     0.376
+    ],
+    "bias": -0.108,
+    "factor": 2.22,
+    "Spearman": 0.851,
+    "posts": 426,
+    "median bias (+ = under)": -0.148,
+    "within x2": 0.509,
+    "top 20% by true y, mean bias": 0.029,
+    "top 20% by predicted y, mean bias": -0.223,
+    "brand totals (>=5 posts)": {
+     "brands": 10,
+     "median log10 ratio": 0.097,
+     "share off >x2": 0.5,
+     "Kendall": 0.778
+    },
+    "paired diff vs base": {
+     "diff": -0.014,
+     "CI": [
+      -0.017,
+      -0.01
+     ]
+    }
+   },
+   "reliability-corrected OLS": {
+    "MAE": 0.509,
+    "CI": [
+     0.475,
+     0.547
+    ],
+    "bias": -0.293,
+    "factor": 3.23,
+    "Spearman": 0.851,
+    "posts": 426,
+    "median bias (+ = under)": -0.329,
+    "within x2": 0.331,
+    "top 20% by true y, mean bias": -0.536,
+    "top 20% by predicted y, mean bias": -0.839,
+    "brand totals (>=5 posts)": {
+     "brands": 10,
+     "median log10 ratio": 0.701,
+     "share off >x2": 0.9,
+     "Kendall": 0.822
+    },
+    "paired diff vs base": {
+     "diff": 0.15,
+     "CI": [
+      0.125,
+      0.177
+     ]
+    }
+   },
+   "variance matching": {
+    "MAE": 0.399,
+    "CI": [
+     0.371,
+     0.43
+    ],
+    "bias": -0.123,
+    "factor": 2.5,
+    "Spearman": 0.851,
+    "posts": 426,
+    "median bias (+ = under)": -0.176,
+    "within x2": 0.43,
+    "top 20% by true y, mean bias": -0.183,
+    "top 20% by predicted y, mean bias": -0.468,
+    "brand totals (>=5 posts)": {
+     "brands": 10,
+     "median log10 ratio": 0.331,
+     "share off >x2": 0.7,
+     "Kendall": 0.822
+    },
+    "paired diff vs base": {
+     "diff": 0.039,
+     "CI": [
+      0.029,
+      0.05
+     ]
+    }
+   }
+  }
+ },
+ "leave-one-platform-out, target youtube (re-read)": {
+  "fit": {
+   "paired posts": 1934,
+   "OLS slopes (likes, comments)": [
+    0.407,
+    0.018
+   ],
+   "2SLS slopes": [
+    0.414,
+    -0.016
+   ],
+   "reliability \u03bb": [
+    0.932,
+    0.884
+   ],
+   "reliability-corrected slopes": [
+    0.437,
+    0.02
+   ],
+   "2SLS / OLS likes slope": 1.017,
+   "variance-matching factor": 1.243
+  },
+  "youtube": {
+   "ridge, re-read (base)": {
+    "MAE": 0.331,
+    "CI": [
+     0.315,
+     0.344
+    ],
+    "bias": -0.041,
+    "factor": 2.14,
+    "Spearman": 0.89,
+    "posts": 1376,
+    "median bias (+ = under)": -0.078,
+    "within x2": 0.529,
+    "top 20% by true y, mean bias": 0.144,
+    "top 20% by predicted y, mean bias": -0.072,
+    "brand totals (>=5 posts)": {
+     "brands": 130,
+     "median log10 ratio": 0.015,
+     "share off >x2": 0.285,
+     "Kendall": 0.726
+    }
+   },
+   "OLS on paired posts": {
+    "MAE": 0.325,
+    "CI": [
+     0.308,
+     0.339
+    ],
+    "bias": -0.015,
+    "factor": 2.11,
+    "Spearman": 0.89,
+    "posts": 1376,
+    "median bias (+ = under)": -0.048,
+    "within x2": 0.549,
+    "top 20% by true y, mean bias": 0.213,
+    "top 20% by predicted y, mean bias": 0.001,
+    "brand totals (>=5 posts)": {
+     "brands": 130,
+     "median log10 ratio": -0.042,
+     "share off >x2": 0.246,
+     "Kendall": 0.728
+    },
+    "paired diff vs base": {
+     "diff": -0.006,
+     "CI": [
+      -0.008,
+      -0.003
+     ]
+    }
+   },
+   "2SLS on paired posts (primary)": {
+    "MAE": 0.321,
+    "CI": [
+     0.305,
+     0.336
+    ],
+    "bias": 0.038,
+    "factor": 2.1,
+    "Spearman": 0.892,
+    "posts": 1376,
+    "median bias (+ = under)": 0.015,
+    "within x2": 0.549,
+    "top 20% by true y, mean bias": 0.315,
+    "top 20% by predicted y, mean bias": 0.111,
+    "brand totals (>=5 posts)": {
+     "brands": 130,
+     "median log10 ratio": -0.145,
+     "share off >x2": 0.338,
+     "Kendall": 0.73
+    },
+    "paired diff vs base": {
+     "diff": -0.009,
+     "CI": [
+      -0.016,
+      -0.003
+     ]
+    }
+   },
+   "reliability-corrected OLS": {
+    "MAE": 0.352,
+    "CI": [
+     0.336,
+     0.366
+    ],
+    "bias": -0.116,
+    "factor": 2.25,
+    "Spearman": 0.89,
+    "posts": 1376,
+    "median bias (+ = under)": -0.156,
+    "within x2": 0.483,
+    "top 20% by true y, mean bias": 0.026,
+    "top 20% by predicted y, mean bias": -0.194,
+    "brand totals (>=5 posts)": {
+     "brands": 130,
+     "median log10 ratio": 0.137,
+     "share off >x2": 0.338,
+     "Kendall": 0.725
+    },
+    "paired diff vs base": {
+     "diff": 0.021,
+     "CI": [
+      0.016,
+      0.026
+     ]
+    }
+   },
+   "variance matching": {
+    "MAE": 0.394,
+    "CI": [
+     0.378,
+     0.411
+    ],
+    "bias": -0.041,
+    "factor": 2.48,
+    "Spearman": 0.89,
+    "posts": 1376,
+    "median bias (+ = under)": -0.085,
+    "within x2": 0.44,
+    "top 20% by true y, mean bias": -0.146,
+    "top 20% by predicted y, mean bias": -0.388,
+    "brand totals (>=5 posts)": {
+     "brands": 130,
+     "median log10 ratio": 0.269,
+     "share off >x2": 0.569,
+     "Kendall": 0.724
+    },
+    "paired diff vs base": {
+     "diff": 0.064,
+     "CI": [
+      0.053,
+      0.074
+     ]
+    }
+   }
+  }
+ },
+ "leave-one-platform-out, target twitter (re-read)": {
+  "fit": {
+   "paired posts": 1797,
+   "OLS slopes (likes, comments)": [
+    0.414,
+    -0.01
+   ],
+   "2SLS slopes": [
+    0.363,
+    0.024
+   ],
+   "reliability \u03bb": [
+    0.814,
+    0.847
+   ],
+   "reliability-corrected slopes": [
+    0.508,
+    -0.011
+   ],
+   "2SLS / OLS likes slope": 0.878,
+   "variance-matching factor": 1.117
+  },
+  "twitter": {
+   "ridge, re-read (base)": {
+    "MAE": 0.479,
+    "CI": [
+     0.46,
+     0.498
+    ],
+    "bias": -0.025,
+    "factor": 3.01,
+    "Spearman": 0.554,
+    "posts": 2013,
+    "median bias (+ = under)": -0.053,
+    "within x2": 0.394,
+    "top 20% by true y, mean bias": 0.65,
+    "top 20% by predicted y, mean bias": 0.219,
+    "brand totals (>=5 posts)": {
+     "brands": 190,
+     "median log10 ratio": -0.261,
+     "share off >x2": 0.511,
+     "Kendall": 0.608
+    }
+   },
+   "OLS on paired posts": {
+    "MAE": 0.479,
+    "CI": [
+     0.46,
+     0.498
+    ],
+    "bias": -0.023,
+    "factor": 3.01,
+    "Spearman": 0.554,
+    "posts": 2013,
+    "median bias (+ = under)": -0.051,
+    "within x2": 0.401,
+    "top 20% by true y, mean bias": 0.651,
+    "top 20% by predicted y, mean bias": 0.22,
+    "brand totals (>=5 posts)": {
+     "brands": 190,
+     "median log10 ratio": -0.263,
+     "share off >x2": 0.511,
+     "Kendall": 0.608
+    },
+    "paired diff vs base": {
+     "diff": -0.0,
+     "CI": [
+      -0.0,
+      -0.0
+     ]
+    }
+   },
+   "2SLS on paired posts (primary)": {
+    "MAE": 0.503,
+    "CI": [
+     0.484,
+     0.522
+    ],
+    "bias": -0.143,
+    "factor": 3.19,
+    "Spearman": 0.597,
+    "posts": 2013,
+    "median bias (+ = under)": -0.168,
+    "within x2": 0.37,
+    "top 20% by true y, mean bias": 0.588,
+    "top 20% by predicted y, mean bias": 0.18,
+    "brand totals (>=5 posts)": {
+     "brands": 190,
+     "median log10 ratio": -0.189,
+     "share off >x2": 0.474,
+     "Kendall": 0.611
+    },
+    "paired diff vs base": {
+     "diff": 0.024,
+     "CI": [
+      0.017,
+      0.031
+     ]
+    }
+   },
+   "reliability-corrected OLS": {
+    "MAE": 0.531,
+    "CI": [
+     0.507,
+     0.551
+    ],
+    "bias": 0.328,
+    "factor": 3.39,
+    "Spearman": 0.554,
+    "posts": 2013,
+    "median bias (+ = under)": 0.292,
+    "within x2": 0.379,
+    "top 20% by true y, mean bias": 0.866,
+    "top 20% by predicted y, mean bias": 0.394,
+    "brand totals (>=5 posts)": {
+     "brands": 190,
+     "median log10 ratio": -0.507,
+     "share off >x2": 0.726,
+     "Kendall": 0.61
+    },
+    "paired diff vs base": {
+     "diff": 0.051,
+     "CI": [
+      0.033,
+      0.07
+     ]
+    }
+   },
+   "variance matching": {
+    "MAE": 0.474,
+    "CI": [
+     0.454,
+     0.492
+    ],
+    "bias": -0.025,
+    "factor": 2.98,
+    "Spearman": 0.554,
+    "posts": 2013,
+    "median bias (+ = under)": -0.056,
+    "within x2": 0.397,
+    "top 20% by true y, mean bias": 0.58,
+    "top 20% by predicted y, mean bias": 0.129,
+    "brand totals (>=5 posts)": {
+     "brands": 190,
+     "median log10 ratio": -0.211,
+     "share off >x2": 0.453,
+     "Kendall": 0.611
+    },
+    "paired diff vs base": {
+     "diff": -0.005,
+     "CI": [
+      -0.008,
+      -0.003
+     ]
+    }
+   }
+  }
+ }
+}

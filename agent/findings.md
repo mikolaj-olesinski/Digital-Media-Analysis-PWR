@@ -257,13 +257,29 @@ Rows citing E01-E37 are legacy (no JSON); they are kept for the record, not as m
 
 ## Same-moment re-read (2026-11-08)
 
-- **Views and reactions are now from one request on TikTok, YouTube and X** (E204): TikTok 426/500 readable, YouTube
-  2,297/2,500, X 2,013/2,500. Fresh/export views: median x1.085 (TikTok), x1.350 (YouTube), x2.00 (X); p90 x2.35 / x20.7 /
-  x6.0; rank correlations 0.953 / 0.856 / 0.905. The export is stale in level but stable in rank, so the re-read files are
-  the ground truth for transfer scoring. X was free via FxTwitter (matched the paid API on 9/10 posts). **solid**
+- **Views and reactions are now from one request on YouTube and X, and on the first 500 TikTok posts** (E204): TikTok
+  426/500 (logged-in headless browser; the remaining 2,000 are on hold until the team decides on the terms), YouTube
+  2,297/2,500, X 2,013/2,500 after removing one duplicate row. Fresh/export views: median x1.085 (TikTok), x1.350
+  (YouTube, 463 -> 1,220), x2.00 (X, 30 -> 72); rank correlations 0.953 / 0.856 / 0.905. The export is stale in level but
+  stable in rank, so the re-read files are the ground truth for transfer scoring. X was free via FxTwitter (matched the
+  paid API on 9/10 posts). **solid**
+- **The missing YouTube reactions are a yt-dlp extraction gap, not hidden likes or disabled comments** (E204): 289 ok rows
+  have no likes and 877 no comments; a 10-row page check shows the like count visible and `commentsDisabled` false, while
+  `commentCount` is absent from the page data. The rows carry `likes_hidden`/`comments_off` = `unknown` where the value is
+  missing; no zero is written for a missing value. **likely**
 
 ## Open items (state 2026-11-07)
 
 - **Instagram**: no public views (0/160 anonymous); a manual sample, a login or a provider is needed. Everything else in
   the plan was run (see `docs/en/plan_status.md`).
 - **False brand matches**: documented on examples only; a detector needs 100-200 hand labels (backlog B15).
+- E222: the headline in-platform result now uses folds that keep authors and copied texts apart; X is 0.482 (x3.03) instead of 0.470, TikTok and YouTube unchanged.
+- E210/E211/E213: train the transfer on views and reactions read together at an age close to the target's. Re-read X + YouTube brings IG from x2.72 to x2.41 (= IG's own ridge) with no target posts; FB stays x2.44; under-prediction of large posts and brand totals halved. Moving export views alone to the later age does not reproduce it and breaks FB (+0.10). With re-read labels YouTube as a target goes x4.1 -> x2.2 and X x4.4 -> x3.0, so much of "X / YouTube don't transfer" was stale export labels. likely
+- E212: tail under-prediction is not attenuation from noisy likes (2SLS slope = OLS, 0.97); errors-in-variables corrections cost MAE; variance matching fixes brand totals but hurts TikTok / YouTube out of platform. likely
+- E218/E219: X as a transfer target is mostly a label problem, not a zero-reaction problem: the same training sets score re-read X at 0.49 vs 0.64 on export X. Dropping or splitting zero-like X posts does not fix X as a source (<=0.036, CI incl. 0); the 505 previously view-less X posts change the X model by 0.005. likely
+- E220: pooling calibration residuals from re-read >=1M-follower TikTok / YouTube / X posts brings FB >1M coverage 0.836 -> 0.883 at 1.18x width; large accounts are under-predicted by the same +0.30 on every platform. 11 FB brands, no CI. tentative
+- E221: authors do not repeat across platforms even with normalised names and handles (0.67% of labelled posts); confirms E120. likely
+- E214-E217: augmentation (SMOTER / SMOGN, trend randomization, mixup), self-supervised codes (DAE / SCARF) and pseudo-labels give no MAE gain; SMOTER cuts top-decile bias 0.10-0.15 only by stretching predictions at MAE cost 0.006-0.019; nonlinear transfer stays 0.014-0.062 behind ridge on all five targets. likely
+- E223: only 11 of 65 checkable IG owners (17 scored posts) could be tied to a YouTube channel by a bio link; X has no public profile source and the 181 FB author URLs are numeric page ids, so cross-platform audience profiles stay out of reach. Gate 40 not passed, verdict provisional for FB. tentative
+- E225: Stack Exchange as a sixth evaluation-only platform (538 questions, 48 brands): the X + YouTube ridge on up votes and answers + comments gives x3.14 vs x1.77 for the own-platform ridge; the gap is a level shift (96% under-predicted, Spearman 0.57 equal to own); YouTube alone transfers best (x1.87), X worst (x4.50). likely
+- E226: likes carry most of the signal on every platform: followers alone x3.8-6.0, + likes x1.9-3.2, comments and shares add little except on YouTube; out of platform the source median is x8.7-19.9 off and likes alone bring it to x2.5-2.7. likely

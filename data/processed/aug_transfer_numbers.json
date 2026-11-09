@@ -1,0 +1,1235 @@
+{
+ "note": "MAE of log10 views. diff vs ridge = MAE(model) - MAE(ridge), positive = worse than ridge (reported as -gain); gain vs plain = MAE(plain) - MAE(variant). Brand bootstrap 300 draws.",
+ "tiktok": {
+  "ridge": {
+   "n": 2491,
+   "MAE": 0.3126,
+   "CI": [
+    0.3011,
+    0.3253
+   ],
+   "factor": 2.054,
+   "median bias (+ = under)": -0.0009,
+   "within x2": 0.574,
+   "top fifth bias by true y": 0.1545,
+   "top fifth bias by predicted y": -0.0579,
+   "top tenth bias by true y": 0.1107,
+   "top tenth bias by predicted y": -0.1036
+  },
+  "CatBoost": {
+   "n": 2491,
+   "MAE": 0.3305,
+   "CI": [
+    0.3181,
+    0.3446
+   ],
+   "factor": 2.141,
+   "median bias (+ = under)": 0.0498,
+   "within x2": 0.56,
+   "top fifth bias by true y": 0.2242,
+   "top fifth bias by predicted y": 0.0106,
+   "top tenth bias by true y": 0.2063,
+   "top tenth bias by predicted y": 0.0019,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.018,
+    "CI": [
+     0.0136,
+     0.0233
+    ]
+   }
+  },
+  "MLP": {
+   "n": 2491,
+   "MAE": 0.3349,
+   "CI": [
+    0.3231,
+    0.3481
+   ],
+   "factor": 2.162,
+   "median bias (+ = under)": -0.0047,
+   "within x2": 0.54,
+   "top fifth bias by true y": 0.1092,
+   "top fifth bias by predicted y": -0.1137,
+   "top tenth bias by true y": 0.0415,
+   "top tenth bias by predicted y": -0.1933,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0223,
+    "CI": [
+     0.0183,
+     0.0269
+    ]
+   }
+  },
+  "CatBoost + (a) trend": {
+   "n": 2491,
+   "MAE": 0.3268,
+   "CI": [
+    0.3149,
+    0.3412
+   ],
+   "factor": 2.122,
+   "median bias (+ = under)": 0.0539,
+   "within x2": 0.554,
+   "top fifth bias by true y": 0.2253,
+   "top fifth bias by predicted y": 0.0128,
+   "top tenth bias by true y": 0.1893,
+   "top tenth bias by predicted y": -0.027,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0142,
+    "CI": [
+     0.0102,
+     0.0192
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": 0.0037,
+    "CI": [
+     0.001,
+     0.0065
+    ]
+   }
+  },
+  "MLP + (a) trend": {
+   "n": 2491,
+   "MAE": 0.3279,
+   "CI": [
+    0.316,
+    0.3411
+   ],
+   "factor": 2.128,
+   "median bias (+ = under)": 0.0081,
+   "within x2": 0.55,
+   "top fifth bias by true y": 0.1149,
+   "top fifth bias by predicted y": -0.1048,
+   "top tenth bias by true y": 0.0329,
+   "top tenth bias by predicted y": -0.2017,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0153,
+    "CI": [
+     0.0117,
+     0.0193
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": 0.007,
+    "CI": [
+     0.005,
+     0.0097
+    ]
+   }
+  },
+  "CatBoost + (b) propensity": {
+   "n": 2491,
+   "MAE": 0.3348,
+   "CI": [
+    0.3225,
+    0.3498
+   ],
+   "factor": 2.162,
+   "median bias (+ = under)": 0.0212,
+   "within x2": 0.548,
+   "top fifth bias by true y": 0.2356,
+   "top fifth bias by predicted y": 0.0187,
+   "top tenth bias by true y": 0.257,
+   "top tenth bias by predicted y": 0.038,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0222,
+    "CI": [
+     0.0177,
+     0.0275
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": -0.0043,
+    "CI": [
+     -0.0075,
+     -0.001
+    ]
+   }
+  },
+  "MLP + (b) propensity": {
+   "n": 2491,
+   "MAE": 0.343,
+   "CI": [
+    0.3313,
+    0.357
+   ],
+   "factor": 2.203,
+   "median bias (+ = under)": -0.0495,
+   "within x2": 0.533,
+   "top fifth bias by true y": 0.1061,
+   "top fifth bias by predicted y": -0.1108,
+   "top tenth bias by true y": 0.0919,
+   "top tenth bias by predicted y": -0.1367,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0304,
+    "CI": [
+     0.0259,
+     0.0359
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": -0.0081,
+    "CI": [
+     -0.0121,
+     -0.0041
+    ]
+   }
+  },
+  "CatBoost + (c) mixup": {
+   "n": 2491,
+   "MAE": 0.3347,
+   "CI": [
+    0.3231,
+    0.3491
+   ],
+   "factor": 2.161,
+   "median bias (+ = under)": 0.0576,
+   "within x2": 0.55,
+   "top fifth bias by true y": 0.2918,
+   "top fifth bias by predicted y": 0.0743,
+   "top tenth bias by true y": 0.3172,
+   "top tenth bias by predicted y": 0.0914,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0222,
+    "CI": [
+     0.0167,
+     0.0278
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": -0.0042,
+    "CI": [
+     -0.0075,
+     -0.001
+    ]
+   }
+  },
+  "MLP + (c) mixup": {
+   "n": 2491,
+   "MAE": 0.3456,
+   "CI": [
+    0.3335,
+    0.3588
+   ],
+   "factor": 2.216,
+   "median bias (+ = under)": -0.0282,
+   "within x2": 0.528,
+   "top fifth bias by true y": 0.0486,
+   "top fifth bias by predicted y": -0.1886,
+   "top tenth bias by true y": -0.0269,
+   "top tenth bias by predicted y": -0.2761,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.033,
+    "CI": [
+     0.0279,
+     0.0384
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": -0.0107,
+    "CI": [
+     -0.0126,
+     -0.0088
+    ]
+   }
+  }
+ },
+ "youtube": {
+  "ridge": {
+   "n": 2441,
+   "MAE": 0.6116,
+   "CI": [
+    0.5811,
+    0.6435
+   ],
+   "factor": 4.089,
+   "median bias (+ = under)": 0.0562,
+   "within x2": 0.388,
+   "top fifth bias by true y": 0.7452,
+   "top fifth bias by predicted y": 0.0955,
+   "top tenth bias by true y": 0.8203,
+   "top tenth bias by predicted y": 0.1634
+  },
+  "CatBoost": {
+   "n": 2441,
+   "MAE": 0.6311,
+   "CI": [
+    0.6006,
+    0.6671
+   ],
+   "factor": 4.277,
+   "median bias (+ = under)": 0.023,
+   "within x2": 0.373,
+   "top fifth bias by true y": 0.7301,
+   "top fifth bias by predicted y": 0.0687,
+   "top tenth bias by true y": 0.7687,
+   "top tenth bias by predicted y": 0.0468,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0195,
+    "CI": [
+     0.0129,
+     0.0265
+    ]
+   }
+  },
+  "MLP": {
+   "n": 2441,
+   "MAE": 0.6255,
+   "CI": [
+    0.5956,
+    0.6623
+   ],
+   "factor": 4.222,
+   "median bias (+ = under)": 0.0297,
+   "within x2": 0.382,
+   "top fifth bias by true y": 0.7885,
+   "top fifth bias by predicted y": 0.1418,
+   "top tenth bias by true y": 0.8697,
+   "top tenth bias by predicted y": 0.2152,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0139,
+    "CI": [
+     0.0062,
+     0.0209
+    ]
+   }
+  },
+  "CatBoost + (a) trend": {
+   "n": 2441,
+   "MAE": 0.6349,
+   "CI": [
+    0.6048,
+    0.6705
+   ],
+   "factor": 4.314,
+   "median bias (+ = under)": 0.0192,
+   "within x2": 0.374,
+   "top fifth bias by true y": 0.7457,
+   "top fifth bias by predicted y": 0.0931,
+   "top tenth bias by true y": 0.784,
+   "top tenth bias by predicted y": 0.0759,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0233,
+    "CI": [
+     0.0157,
+     0.0305
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": -0.0038,
+    "CI": [
+     -0.0062,
+     -0.001
+    ]
+   }
+  },
+  "MLP + (a) trend": {
+   "n": 2441,
+   "MAE": 0.6292,
+   "CI": [
+    0.5998,
+    0.6654
+   ],
+   "factor": 4.258,
+   "median bias (+ = under)": 0.0136,
+   "within x2": 0.374,
+   "top fifth bias by true y": 0.7629,
+   "top fifth bias by predicted y": 0.1206,
+   "top tenth bias by true y": 0.8279,
+   "top tenth bias by predicted y": 0.1534,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0176,
+    "CI": [
+     0.0101,
+     0.0252
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": -0.0037,
+    "CI": [
+     -0.0061,
+     -0.0012
+    ]
+   }
+  },
+  "CatBoost + (b) propensity": {
+   "n": 2441,
+   "MAE": 0.643,
+   "CI": [
+    0.6105,
+    0.679
+   ],
+   "factor": 4.396,
+   "median bias (+ = under)": -0.0087,
+   "within x2": 0.368,
+   "top fifth bias by true y": 0.7,
+   "top fifth bias by predicted y": -0.0028,
+   "top tenth bias by true y": 0.7426,
+   "top tenth bias by predicted y": -0.0318,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0314,
+    "CI": [
+     0.0239,
+     0.0397
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": -0.0119,
+    "CI": [
+     -0.0157,
+     -0.008
+    ]
+   }
+  },
+  "MLP + (b) propensity": {
+   "n": 2441,
+   "MAE": 0.632,
+   "CI": [
+    0.6007,
+    0.6682
+   ],
+   "factor": 4.286,
+   "median bias (+ = under)": -0.0115,
+   "within x2": 0.381,
+   "top fifth bias by true y": 0.7013,
+   "top fifth bias by predicted y": 0.0291,
+   "top tenth bias by true y": 0.7508,
+   "top tenth bias by predicted y": 0.0372,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0204,
+    "CI": [
+     0.013,
+     0.0282
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": -0.0066,
+    "CI": [
+     -0.0109,
+     -0.0028
+    ]
+   }
+  },
+  "CatBoost + (c) mixup": {
+   "n": 2441,
+   "MAE": 0.6308,
+   "CI": [
+    0.5997,
+    0.6657
+   ],
+   "factor": 4.274,
+   "median bias (+ = under)": 0.0268,
+   "within x2": 0.384,
+   "top fifth bias by true y": 0.7435,
+   "top fifth bias by predicted y": 0.0533,
+   "top tenth bias by true y": 0.8178,
+   "top tenth bias by predicted y": 0.0822,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0192,
+    "CI": [
+     0.0119,
+     0.0262
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": 0.0003,
+    "CI": [
+     -0.0025,
+     0.0037
+    ]
+   }
+  },
+  "MLP + (c) mixup": {
+   "n": 2441,
+   "MAE": 0.6203,
+   "CI": [
+    0.5895,
+    0.6558
+   ],
+   "factor": 4.172,
+   "median bias (+ = under)": 0.0372,
+   "within x2": 0.384,
+   "top fifth bias by true y": 0.755,
+   "top fifth bias by predicted y": 0.1002,
+   "top tenth bias by true y": 0.8244,
+   "top tenth bias by predicted y": 0.1532,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0087,
+    "CI": [
+     0.0021,
+     0.0151
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": 0.0052,
+    "CI": [
+     0.0035,
+     0.0068
+    ]
+   }
+  }
+ },
+ "twitter": {
+  "ridge": {
+   "n": 1803,
+   "MAE": 0.6502,
+   "CI": [
+    0.6235,
+    0.6712
+   ],
+   "factor": 4.469,
+   "median bias (+ = under)": -0.4364,
+   "within x2": 0.27,
+   "top fifth bias by true y": 0.4876,
+   "top fifth bias by predicted y": 0.0057,
+   "top tenth bias by true y": 0.683,
+   "top tenth bias by predicted y": 0.149
+  },
+  "CatBoost": {
+   "n": 1803,
+   "MAE": 0.7191,
+   "CI": [
+    0.6895,
+    0.7416
+   ],
+   "factor": 5.237,
+   "median bias (+ = under)": -0.4986,
+   "within x2": 0.245,
+   "top fifth bias by true y": 0.5078,
+   "top fifth bias by predicted y": 0.1085,
+   "top tenth bias by true y": 0.7324,
+   "top tenth bias by predicted y": 0.2207,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0688,
+    "CI": [
+     0.0627,
+     0.0745
+    ]
+   }
+  },
+  "MLP": {
+   "n": 1803,
+   "MAE": 0.727,
+   "CI": [
+    0.697,
+    0.7504
+   ],
+   "factor": 5.334,
+   "median bias (+ = under)": -0.5078,
+   "within x2": 0.241,
+   "top fifth bias by true y": 0.5113,
+   "top fifth bias by predicted y": -0.0428,
+   "top tenth bias by true y": 0.7262,
+   "top tenth bias by predicted y": 0.2177,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0768,
+    "CI": [
+     0.0696,
+     0.0833
+    ]
+   }
+  },
+  "CatBoost + (a) trend": {
+   "n": 1803,
+   "MAE": 0.7124,
+   "CI": [
+    0.6827,
+    0.7345
+   ],
+   "factor": 5.157,
+   "median bias (+ = under)": -0.474,
+   "within x2": 0.245,
+   "top fifth bias by true y": 0.515,
+   "top fifth bias by predicted y": 0.0633,
+   "top tenth bias by true y": 0.7324,
+   "top tenth bias by predicted y": 0.1996,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0622,
+    "CI": [
+     0.0547,
+     0.0693
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": 0.0067,
+    "CI": [
+     0.0034,
+     0.0095
+    ]
+   }
+  },
+  "MLP + (a) trend": {
+   "n": 1803,
+   "MAE": 0.721,
+   "CI": [
+    0.6912,
+    0.7436
+   ],
+   "factor": 5.26,
+   "median bias (+ = under)": -0.4868,
+   "within x2": 0.247,
+   "top fifth bias by true y": 0.5055,
+   "top fifth bias by predicted y": -0.0706,
+   "top tenth bias by true y": 0.7179,
+   "top tenth bias by predicted y": 0.1677,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0708,
+    "CI": [
+     0.062,
+     0.0788
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": 0.006,
+    "CI": [
+     0.0034,
+     0.0089
+    ]
+   }
+  },
+  "CatBoost + (b) propensity": {
+   "n": 1803,
+   "MAE": 0.7147,
+   "CI": [
+    0.6854,
+    0.737
+   ],
+   "factor": 5.185,
+   "median bias (+ = under)": -0.4723,
+   "within x2": 0.248,
+   "top fifth bias by true y": 0.5186,
+   "top fifth bias by predicted y": -0.5587,
+   "top tenth bias by true y": 0.7364,
+   "top tenth bias by predicted y": 0.2,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0645,
+    "CI": [
+     0.0563,
+     0.0719
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": 0.0043,
+    "CI": [
+     0.0003,
+     0.0086
+    ]
+   }
+  },
+  "MLP + (b) propensity": {
+   "n": 1803,
+   "MAE": 0.7186,
+   "CI": [
+    0.6888,
+    0.7413
+   ],
+   "factor": 5.231,
+   "median bias (+ = under)": -0.4814,
+   "within x2": 0.25,
+   "top fifth bias by true y": 0.5162,
+   "top fifth bias by predicted y": -0.571,
+   "top tenth bias by true y": 0.7264,
+   "top tenth bias by predicted y": 0.1812,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0684,
+    "CI": [
+     0.0589,
+     0.0763
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": 0.0084,
+    "CI": [
+     0.0051,
+     0.0122
+    ]
+   }
+  },
+  "CatBoost + (c) mixup": {
+   "n": 1803,
+   "MAE": 0.7158,
+   "CI": [
+    0.6862,
+    0.7382
+   ],
+   "factor": 5.197,
+   "median bias (+ = under)": -0.4823,
+   "within x2": 0.246,
+   "top fifth bias by true y": 0.5064,
+   "top fifth bias by predicted y": 0.0767,
+   "top tenth bias by true y": 0.7286,
+   "top tenth bias by predicted y": 0.2207,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0656,
+    "CI": [
+     0.0578,
+     0.0716
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": 0.0033,
+    "CI": [
+     0.0009,
+     0.0061
+    ]
+   }
+  },
+  "MLP + (c) mixup": {
+   "n": 1803,
+   "MAE": 0.7393,
+   "CI": [
+    0.7093,
+    0.7627
+   ],
+   "factor": 5.486,
+   "median bias (+ = under)": -0.5339,
+   "within x2": 0.231,
+   "top fifth bias by true y": 0.4785,
+   "top fifth bias by predicted y": -0.0806,
+   "top tenth bias by true y": 0.695,
+   "top tenth bias by predicted y": 0.1919,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0891,
+    "CI": [
+     0.0814,
+     0.0962
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": -0.0122,
+    "CI": [
+     -0.0139,
+     -0.0104
+    ]
+   }
+  }
+ },
+ "facebook": {
+  "ridge": {
+   "n": 402,
+   "MAE": 0.3853,
+   "CI": [
+    0.3123,
+    0.4817
+   ],
+   "factor": 2.428,
+   "median bias (+ = under)": 0.0761,
+   "within x2": 0.525,
+   "top fifth bias by true y": 0.4352,
+   "top fifth bias by predicted y": 0.1629,
+   "top tenth bias by true y": 0.5435,
+   "top tenth bias by predicted y": 0.1296
+  },
+  "CatBoost": {
+   "n": 402,
+   "MAE": 0.4174,
+   "CI": [
+    0.3672,
+    0.4897
+   ],
+   "factor": 2.614,
+   "median bias (+ = under)": 0.1786,
+   "within x2": 0.455,
+   "top fifth bias by true y": 0.4725,
+   "top fifth bias by predicted y": 0.2026,
+   "top tenth bias by true y": 0.604,
+   "top tenth bias by predicted y": 0.1754,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.032,
+    "CI": [
+     -0.0051,
+     0.0657
+    ]
+   }
+  },
+  "MLP": {
+   "n": 402,
+   "MAE": 0.3921,
+   "CI": [
+    0.3325,
+    0.4771
+   ],
+   "factor": 2.467,
+   "median bias (+ = under)": 0.0743,
+   "within x2": 0.5,
+   "top fifth bias by true y": 0.3757,
+   "top fifth bias by predicted y": 0.1287,
+   "top tenth bias by true y": 0.4827,
+   "top tenth bias by predicted y": 0.0467,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0068,
+    "CI": [
+     -0.0096,
+     0.0207
+    ]
+   }
+  },
+  "CatBoost + (a) trend": {
+   "n": 402,
+   "MAE": 0.4055,
+   "CI": [
+    0.3416,
+    0.4938
+   ],
+   "factor": 2.544,
+   "median bias (+ = under)": 0.1722,
+   "within x2": 0.488,
+   "top fifth bias by true y": 0.5014,
+   "top fifth bias by predicted y": 0.2349,
+   "top tenth bias by true y": 0.6104,
+   "top tenth bias by predicted y": 0.2103,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0201,
+    "CI": [
+     -0.0047,
+     0.036
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": 0.0119,
+    "CI": [
+     -0.0117,
+     0.035
+    ]
+   }
+  },
+  "MLP + (a) trend": {
+   "n": 402,
+   "MAE": 0.3907,
+   "CI": [
+    0.3279,
+    0.4889
+   ],
+   "factor": 2.459,
+   "median bias (+ = under)": 0.1049,
+   "within x2": 0.495,
+   "top fifth bias by true y": 0.3984,
+   "top fifth bias by predicted y": 0.1339,
+   "top tenth bias by true y": 0.4706,
+   "top tenth bias by predicted y": 0.0783,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0054,
+    "CI": [
+     -0.011,
+     0.0218
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": 0.0014,
+    "CI": [
+     -0.0103,
+     0.0121
+    ]
+   }
+  },
+  "CatBoost + (b) propensity": {
+   "n": 402,
+   "MAE": 0.3969,
+   "CI": [
+    0.3332,
+    0.4769
+   ],
+   "factor": 2.494,
+   "median bias (+ = under)": 0.1469,
+   "within x2": 0.49,
+   "top fifth bias by true y": 0.4943,
+   "top fifth bias by predicted y": 0.2298,
+   "top tenth bias by true y": 0.6302,
+   "top tenth bias by predicted y": 0.2028,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0116,
+    "CI": [
+     -0.0153,
+     0.0337
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": 0.0204,
+    "CI": [
+     -0.0019,
+     0.0535
+    ]
+   }
+  },
+  "MLP + (b) propensity": {
+   "n": 402,
+   "MAE": 0.3845,
+   "CI": [
+    0.3254,
+    0.4644
+   ],
+   "factor": 2.424,
+   "median bias (+ = under)": 0.1036,
+   "within x2": 0.532,
+   "top fifth bias by true y": 0.397,
+   "top fifth bias by predicted y": 0.1351,
+   "top tenth bias by true y": 0.4805,
+   "top tenth bias by predicted y": 0.1086,
+   "diff vs ridge (+ = worse)": {
+    "diff": -0.0008,
+    "CI": [
+     -0.0226,
+     0.0155
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": 0.0076,
+    "CI": [
+     -0.0045,
+     0.0256
+    ]
+   }
+  },
+  "CatBoost + (c) mixup": {
+   "n": 402,
+   "MAE": 0.411,
+   "CI": [
+    0.3476,
+    0.4899
+   ],
+   "factor": 2.576,
+   "median bias (+ = under)": 0.1683,
+   "within x2": 0.48,
+   "top fifth bias by true y": 0.5348,
+   "top fifth bias by predicted y": 0.2806,
+   "top tenth bias by true y": 0.6688,
+   "top tenth bias by predicted y": 0.2581,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0257,
+    "CI": [
+     -0.0056,
+     0.0511
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": 0.0063,
+    "CI": [
+     -0.0144,
+     0.0401
+    ]
+   }
+  },
+  "MLP + (c) mixup": {
+   "n": 402,
+   "MAE": 0.39,
+   "CI": [
+    0.3304,
+    0.4738
+   ],
+   "factor": 2.455,
+   "median bias (+ = under)": 0.0522,
+   "within x2": 0.51,
+   "top fifth bias by true y": 0.3175,
+   "top fifth bias by predicted y": 0.0578,
+   "top tenth bias by true y": 0.4317,
+   "top tenth bias by predicted y": -0.0204,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0047,
+    "CI": [
+     -0.0133,
+     0.0208
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": 0.0021,
+    "CI": [
+     -0.0023,
+     0.0058
+    ]
+   }
+  }
+ },
+ "instagram": {
+  "ridge": {
+   "n": 642,
+   "MAE": 0.4348,
+   "CI": [
+    0.3964,
+    0.4836
+   ],
+   "factor": 2.722,
+   "median bias (+ = under)": 0.281,
+   "within x2": 0.4,
+   "top fifth bias by true y": 0.531,
+   "top fifth bias by predicted y": 0.3197,
+   "top tenth bias by true y": 0.5286,
+   "top tenth bias by predicted y": 0.3377
+  },
+  "CatBoost": {
+   "n": 642,
+   "MAE": 0.4691,
+   "CI": [
+    0.425,
+    0.5273
+   ],
+   "factor": 2.945,
+   "median bias (+ = under)": 0.3289,
+   "within x2": 0.372,
+   "top fifth bias by true y": 0.5757,
+   "top fifth bias by predicted y": 0.3378,
+   "top tenth bias by true y": 0.5747,
+   "top tenth bias by predicted y": 0.3704,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0343,
+    "CI": [
+     0.0166,
+     0.0468
+    ]
+   }
+  },
+  "MLP": {
+   "n": 642,
+   "MAE": 0.444,
+   "CI": [
+    0.4049,
+    0.4966
+   ],
+   "factor": 2.78,
+   "median bias (+ = under)": 0.2712,
+   "within x2": 0.397,
+   "top fifth bias by true y": 0.4945,
+   "top fifth bias by predicted y": 0.2522,
+   "top tenth bias by true y": 0.4826,
+   "top tenth bias by predicted y": 0.2585,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0091,
+    "CI": [
+     -0.0019,
+     0.0189
+    ]
+   }
+  },
+  "CatBoost + (a) trend": {
+   "n": 642,
+   "MAE": 0.4706,
+   "CI": [
+    0.4286,
+    0.5261
+   ],
+   "factor": 2.955,
+   "median bias (+ = under)": 0.3262,
+   "within x2": 0.364,
+   "top fifth bias by true y": 0.585,
+   "top fifth bias by predicted y": 0.3711,
+   "top tenth bias by true y": 0.5939,
+   "top tenth bias by predicted y": 0.3873,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0358,
+    "CI": [
+     0.0202,
+     0.0458
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": -0.0015,
+    "CI": [
+     -0.0054,
+     0.0026
+    ]
+   }
+  },
+  "MLP + (a) trend": {
+   "n": 642,
+   "MAE": 0.4455,
+   "CI": [
+    0.4082,
+    0.4966
+   ],
+   "factor": 2.789,
+   "median bias (+ = under)": 0.2995,
+   "within x2": 0.379,
+   "top fifth bias by true y": 0.5125,
+   "top fifth bias by predicted y": 0.2851,
+   "top tenth bias by true y": 0.4969,
+   "top tenth bias by predicted y": 0.2874,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0107,
+    "CI": [
+     0.0036,
+     0.0175
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": -0.0015,
+    "CI": [
+     -0.0091,
+     0.0054
+    ]
+   }
+  },
+  "CatBoost + (b) propensity": {
+   "n": 642,
+   "MAE": 0.461,
+   "CI": [
+    0.4178,
+    0.5201
+   ],
+   "factor": 2.891,
+   "median bias (+ = under)": 0.3089,
+   "within x2": 0.383,
+   "top fifth bias by true y": 0.5364,
+   "top fifth bias by predicted y": 0.2981,
+   "top tenth bias by true y": 0.5625,
+   "top tenth bias by predicted y": 0.3551,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0262,
+    "CI": [
+     0.0048,
+     0.0435
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": 0.0081,
+    "CI": [
+     -0.0012,
+     0.0183
+    ]
+   }
+  },
+  "MLP + (b) propensity": {
+   "n": 642,
+   "MAE": 0.4394,
+   "CI": [
+    0.3999,
+    0.4922
+   ],
+   "factor": 2.75,
+   "median bias (+ = under)": 0.2427,
+   "within x2": 0.41,
+   "top fifth bias by true y": 0.4467,
+   "top fifth bias by predicted y": 0.1956,
+   "top tenth bias by true y": 0.4505,
+   "top tenth bias by predicted y": 0.2286,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0045,
+    "CI": [
+     -0.0155,
+     0.0203
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": 0.0046,
+    "CI": [
+     -0.0072,
+     0.0152
+    ]
+   }
+  },
+  "CatBoost + (c) mixup": {
+   "n": 642,
+   "MAE": 0.4703,
+   "CI": [
+    0.4302,
+    0.5241
+   ],
+   "factor": 2.953,
+   "median bias (+ = under)": 0.3227,
+   "within x2": 0.372,
+   "top fifth bias by true y": 0.5859,
+   "top fifth bias by predicted y": 0.3444,
+   "top tenth bias by true y": 0.6225,
+   "top tenth bias by predicted y": 0.4034,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0355,
+    "CI": [
+     0.0161,
+     0.0478
+    ]
+   },
+   "gain vs plain CatBoost": {
+    "gain": -0.0012,
+    "CI": [
+     -0.0073,
+     0.0047
+    ]
+   }
+  },
+  "MLP + (c) mixup": {
+   "n": 642,
+   "MAE": 0.4401,
+   "CI": [
+    0.4025,
+    0.4908
+   ],
+   "factor": 2.755,
+   "median bias (+ = under)": 0.2531,
+   "within x2": 0.41,
+   "top fifth bias by true y": 0.445,
+   "top fifth bias by predicted y": 0.2019,
+   "top tenth bias by true y": 0.4232,
+   "top tenth bias by predicted y": 0.1967,
+   "diff vs ridge (+ = worse)": {
+    "diff": 0.0053,
+    "CI": [
+     -0.0067,
+     0.0156
+    ]
+   },
+   "gain vs plain MLP": {
+    "gain": 0.0039,
+    "CI": [
+     0.002,
+     0.0063
+    ]
+   }
+  }
+ },
+ "MAE minus ridge, all models": {
+  "tiktok": {
+   "CatBoost": 0.0179,
+   "MLP": 0.0223,
+   "CatBoost + (a) trend": 0.0142,
+   "MLP + (a) trend": 0.0153,
+   "CatBoost + (b) propensity": 0.0222,
+   "MLP + (b) propensity": 0.0304,
+   "CatBoost + (c) mixup": 0.0221,
+   "MLP + (c) mixup": 0.033
+  },
+  "youtube": {
+   "CatBoost": 0.0195,
+   "MLP": 0.0139,
+   "CatBoost + (a) trend": 0.0233,
+   "MLP + (a) trend": 0.0176,
+   "CatBoost + (b) propensity": 0.0314,
+   "MLP + (b) propensity": 0.0204,
+   "CatBoost + (c) mixup": 0.0192,
+   "MLP + (c) mixup": 0.0087
+  },
+  "twitter": {
+   "CatBoost": 0.0689,
+   "MLP": 0.0768,
+   "CatBoost + (a) trend": 0.0622,
+   "MLP + (a) trend": 0.0708,
+   "CatBoost + (b) propensity": 0.0645,
+   "MLP + (b) propensity": 0.0684,
+   "CatBoost + (c) mixup": 0.0656,
+   "MLP + (c) mixup": 0.0891
+  },
+  "facebook": {
+   "CatBoost": 0.0321,
+   "MLP": 0.0068,
+   "CatBoost + (a) trend": 0.0202,
+   "MLP + (a) trend": 0.0054,
+   "CatBoost + (b) propensity": 0.0116,
+   "MLP + (b) propensity": -0.0008,
+   "CatBoost + (c) mixup": 0.0257,
+   "MLP + (c) mixup": 0.0047
+  },
+  "instagram": {
+   "CatBoost": 0.0343,
+   "MLP": 0.0092,
+   "CatBoost + (a) trend": 0.0358,
+   "MLP + (a) trend": 0.0107,
+   "CatBoost + (b) propensity": 0.0262,
+   "MLP + (b) propensity": 0.0046,
+   "CatBoost + (c) mixup": 0.0355,
+   "MLP + (c) mixup": 0.0053
+  }
+ },
+ "verdict": {
+  "primary": "CatBoost + (a) trend",
+  "targets where primary is >= 0.03 worse than ridge": 2,
+  "refuted (>= 3 of 5)": false
+ }
+}
