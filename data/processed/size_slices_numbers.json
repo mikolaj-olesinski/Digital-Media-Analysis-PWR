@@ -1,0 +1,89 @@
+{
+ "tiktok": {
+  "posts": 2491,
+  "cut by true views (not known in use)": {
+   "all": 1.87,
+   "without smallest 20%": 1.82,
+   "without largest 20%": 1.78,
+   "middle 60%": 1.69
+  },
+  "cut by the estimate (usable)": {
+   "all": 1.87,
+   "without smallest 20%": 1.81,
+   "without largest 20%": 1.85,
+   "middle 60%": 1.77
+  },
+  "three ranges": {
+   "accuracy": 0.819,
+   "balanced accuracy": 0.772,
+   "majority baseline": 0.586,
+   "true share per range": [
+    0.586,
+    0.276,
+    0.138
+   ]
+  },
+  "AUC": {
+   "large post (top 20%)": 0.966,
+   "small post (bottom 20%)": 0.932
+  }
+ },
+ "twitter": {
+  "posts": 1803,
+  "cut by true views (not known in use)": {
+   "all": 3.03,
+   "without smallest 20%": 2.75,
+   "without largest 20%": 2.71,
+   "middle 60%": 2.29
+  },
+  "cut by the estimate (usable)": {
+   "all": 3.03,
+   "without smallest 20%": 2.99,
+   "without largest 20%": 3.0,
+   "middle 60%": 2.93
+  },
+  "three ranges": {
+   "accuracy": 0.954,
+   "balanced accuracy": 0.434,
+   "majority baseline": 0.946,
+   "true share per range": [
+    0.946,
+    0.047,
+    0.008
+   ]
+  },
+  "AUC": {
+   "large post (top 20%)": 0.841,
+   "small post (bottom 20%)": 0.793
+  }
+ },
+ "youtube": {
+  "posts": 2441,
+  "cut by true views (not known in use)": {
+   "all": 2.9,
+   "without smallest 20%": 2.7,
+   "without largest 20%": 2.73,
+   "middle 60%": 2.43
+  },
+  "cut by the estimate (usable)": {
+   "all": 2.9,
+   "without smallest 20%": 2.75,
+   "without largest 20%": 3.1,
+   "middle 60%": 2.95
+  },
+  "three ranges": {
+   "accuracy": 0.801,
+   "balanced accuracy": 0.715,
+   "majority baseline": 0.626,
+   "true share per range": [
+    0.626,
+    0.256,
+    0.118
+   ]
+  },
+  "AUC": {
+   "large post (top 20%)": 0.924,
+   "small post (bottom 20%)": 0.923
+  }
+ }
+}

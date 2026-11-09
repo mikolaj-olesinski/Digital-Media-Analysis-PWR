@@ -2679,6 +2679,18 @@
   ]
  },
  {
+  "id": "E228",
+  "date": "2026-11-09",
+  "question": "Result without extreme posts, as classification, as probability",
+  "setup": "Final CatBoost predictions (same platform); error without bottom / top 20% cut by true views vs by the estimate; three ranges; AUC for top / bottom 20%",
+  "result": "Oracle middle 60% x1.69 / x2.43 / x2.29, by the estimate x1.77 / x2.95 / x2.93 (all x1.87 / x2.90 / x3.03); ranges balanced accuracy 0.77 / 0.72 / 0.43 (X accuracy 0.95 = majority); AUC large post 0.97 / 0.92 / 0.84",
+  "type": "finding",
+  "where": "`src/size_slices.py`",
+  "paths": [
+   "src/size_slices.py"
+  ]
+ },
+ {
   "id": "E223",
   "date": "2026-11-08",
   "question": "Do our FB / IG post owners have the same account on YouTube or X?",

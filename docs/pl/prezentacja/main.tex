@@ -377,6 +377,47 @@ Metoda (typowy błąd) & Facebook & Instagram \\
 \end{columns}
 \end{frame}
 
+% slices
+\begin{frame}{Inne spojrzenie na wynik: bez skrajnych postów i jako klasyfikacja}
+\begin{columns}[T]
+\column{.52\textwidth}
+\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.0}
+{\small Typowy błąd (\x{}), ta sama platforma}\\[3pt]
+\begin{tabular}{lccc}
+\toprule
+ & TikTok & YouTube & X \\
+\midrule
+wszystkie posty & \xb{1,87} & \xb{2,90} & \xb{3,03} \\
+\midrule \multicolumn{4}{l}{\textit{pomijamy wg prawdziwych wyświetleń (nieznane w praktyce)}} \\
+bez 20\% najmniejszych & \x{1,82} & \x{2,70} & \x{2,75} \\
+bez 20\% największych & \x{1,78} & \x{2,73} & \x{2,71} \\
+tylko środek (60\%) & \x{1,69} & \x{2,43} & \x{2,29} \\
+\midrule \multicolumn{4}{l}{\textit{pomijamy wg oszacowania modelu (da się zrobić)}} \\
+bez 20\% najmniejszych & \x{1,81} & \x{2,75} & \x{2,99} \\
+bez 20\% największych & \x{1,85} & \x{3,10} & \x{3,00} \\
+tylko środek (60\%) & \x{1,77} & \x{2,95} & \x{2,93} \\
+\bottomrule
+\end{tabular}
+\column{.46\textwidth}
+\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.0}
+{\small Klasyfikacja: $<$1k / 1--10k / $>$10k}\\[3pt]
+\begin{tabular}{lccc}
+\toprule
+ & TT & YT & X \\
+\midrule
+trafny przedział & 82\% & 80\% & 95\% \\
+zgadywanie najczęstszego & 59\% & 63\% & 95\% \\
+trafność zrównoważona & 77\% & 72\% & 43\% \\
+\midrule \multicolumn{4}{l}{\textit{prawdopodobieństwo (AUC; 0,5 = losowo, 1 = idealnie)}} \\
+czy to duży post (top 20\%) & 0,97 & 0,92 & 0,84 \\
+czy to mały post (dół 20\%) & 0,93 & 0,92 & 0,79 \\
+\bottomrule
+\end{tabular}
+\end{columns}
+\vspace{6pt}
+\sub{Bez skrajnych postów błąd spada (X \x{3,03} $\to$ \x{2,29}), ale tylko gdy wiemy, które są skrajne. Po oszacowaniu modelu prawie nic to nie daje. Klasyfikacja działa na TikToku i YouTube; na X 95\% postów ma $<$1 tys., więc ,,trafność'' 95\% to zgadywanie. Model dobrze odróżnia duże posty od reszty (AUC 0,84--0,97), ale nie podaje ich dokładnej liczby.}
+\end{frame}
+
 % 11b
 \begin{frame}{Walidacja: dlaczego ufamy wynikom}
 \small
