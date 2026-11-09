@@ -1,0 +1,1723 @@
+{
+ "baseline": [
+  {
+   "platform": "TikTok",
+   "model": "median views",
+   "MAE": 0.6629971388474246,
+   "low": 0.6339087654563839,
+   "high": 0.6910034373110029,
+   "rows": 2491
+  },
+  {
+   "platform": "TikTok",
+   "model": "constant x followers",
+   "MAE": 0.9187175458318387,
+   "low": 0.8902375066992582,
+   "high": 0.9520549560291767,
+   "rows": 2439
+  },
+  {
+   "platform": "TikTok",
+   "model": "default model: followers",
+   "MAE": 0.6071441226925478,
+   "low": 0.5847843540608366,
+   "high": 0.6312799378809159,
+   "rows": 2491
+  },
+  {
+   "platform": "TikTok",
+   "model": "default model: followers + reactions",
+   "MAE": 0.2924993833497779,
+   "low": 0.28188214004296197,
+   "high": 0.30405324918455157,
+   "rows": 2491
+  },
+  {
+   "platform": "YouTube",
+   "model": "median views",
+   "MAE": 0.9438466245579523,
+   "low": 0.9097621112250982,
+   "high": 0.9779509278158488,
+   "rows": 2441
+  },
+  {
+   "platform": "YouTube",
+   "model": "constant x followers",
+   "MAE": 0.8553793320994652,
+   "low": 0.8213456605126401,
+   "high": 0.8950619482995662,
+   "rows": 2428
+  },
+  {
+   "platform": "YouTube",
+   "model": "default model: followers",
+   "MAE": 0.7869881077601041,
+   "low": 0.7594552324003115,
+   "high": 0.8116387890617066,
+   "rows": 2441
+  },
+  {
+   "platform": "YouTube",
+   "model": "default model: followers + reactions",
+   "MAE": 0.5257366322765475,
+   "low": 0.5060857433581145,
+   "high": 0.5470847654137607,
+   "rows": 2441
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "median views",
+   "MAE": 0.6665826074552527,
+   "low": 0.6398437644146617,
+   "high": 0.6950278325349376,
+   "rows": 1803
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "constant x followers",
+   "MAE": 0.8794262428910621,
+   "low": 0.8375422236574249,
+   "high": 0.92515519784604,
+   "rows": 1746
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "default model: followers",
+   "MAE": 0.5977892096225558,
+   "low": 0.5768881511348461,
+   "high": 0.6215910629730294,
+   "rows": 1803
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "default model: followers + reactions",
+   "MAE": 0.49203667186075434,
+   "low": 0.47327279743741457,
+   "high": 0.5110234997043019,
+   "rows": 1803
+  }
+ ],
+ "x_rule": {
+  "rows": 1639,
+  "zero reach share": 0.09095951192457016,
+  "share exactly 0.1 x followers": 0.2129783693843594,
+  "Brand24 MAE": 1.0828435556783087,
+  "Brand24 low": 1.0430724028993825,
+  "Brand24 high": 1.118520464669312,
+  "model MAE": 0.4738426865591159,
+  "model low": 0.4532876361907046,
+  "model high": 0.4962075695121333,
+  "gain": 0.6090008691191928,
+  "gain low": 0.5653407919726924,
+  "gain high": 0.6522123076472975,
+  "Brand24 bias": -0.8415152015262158,
+  "model bias": 0.00039570913308897046
+ },
+ "families": [
+  {
+   "platform": "TikTok",
+   "model": "ridge",
+   "default MAE": 0.27835980456809883,
+   "default low": 0.26801460684268846,
+   "default high": 0.2881395129310641,
+   "tuned MAE": 0.27699374025196827,
+   "tuned low": 0.2667947290276876,
+   "tuned high": 0.28713070375347566,
+   "gain": 0.001366064316130569,
+   "gain low": 0.0002496946744745068,
+   "gain high": 0.002552863319461151,
+   "inner MAE": 0.27823711265311163,
+   "picks": [
+    {
+     "alpha": 51.41097
+    },
+    {
+     "alpha": 51.41097
+    },
+    {
+     "alpha": 51.41097
+    },
+    {
+     "alpha": 51.41097
+    },
+    {
+     "alpha": 51.41097
+    }
+   ]
+  },
+  {
+   "platform": "TikTok",
+   "model": "kNN",
+   "default MAE": 0.30419040161811034,
+   "default low": 0.2926526185235441,
+   "default high": 0.31551440440788275,
+   "tuned MAE": 0.2834810485994109,
+   "tuned low": 0.2731466804593541,
+   "tuned high": 0.2950821881528761,
+   "gain": 0.02070935301869942,
+   "gain low": 0.014184205148310569,
+   "gain high": 0.026475880561466287,
+   "inner MAE": 0.2876983304740815,
+   "picks": [
+    {
+     "n_neighbors": 26,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 26,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 26,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 26,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 26,
+     "p": 2,
+     "weights": "uniform"
+    }
+   ]
+  },
+  {
+   "platform": "TikTok",
+   "model": "SVR (RBF)",
+   "default MAE": 0.27466574607355265,
+   "default low": 0.2640068538767376,
+   "default high": 0.28553324812388126,
+   "tuned MAE": 0.2712382307221238,
+   "tuned low": 0.2606702430192908,
+   "tuned high": 0.2822944373087923,
+   "gain": 0.0034275153514288685,
+   "gain low": 0.0006307655300246649,
+   "gain high": 0.0063696491847995895,
+   "inner MAE": 0.2730751891502179,
+   "picks": [
+    {
+     "C": 31.42881,
+     "epsilon": 0.11617,
+     "gamma": 0.00351
+    },
+    {
+     "C": 2.0915,
+     "epsilon": 0.07102,
+     "gamma": 0.03059
+    },
+    {
+     "C": 31.42881,
+     "epsilon": 0.11617,
+     "gamma": 0.00351
+    },
+    {
+     "C": 9.71778,
+     "epsilon": 0.16586,
+     "gamma": 0.03632
+    },
+    {
+     "C": 31.42881,
+     "epsilon": 0.11617,
+     "gamma": 0.00351
+    }
+   ]
+  },
+  {
+   "platform": "TikTok",
+   "model": "MLP",
+   "default MAE": 0.27551328566572625,
+   "default low": 0.2647128626660563,
+   "default high": 0.2844992647052692,
+   "tuned MAE": 0.2758987449273255,
+   "tuned low": 0.26528068233468494,
+   "tuned high": 0.2859172530255287,
+   "gain": -0.0003854592615992988,
+   "gain low": -0.0026141373600409193,
+   "gain high": 0.0020219383356752454,
+   "inner MAE": 0.2767654474491472,
+   "picks": [
+    {
+     "alpha": 0.00176,
+     "hidden_layer_sizes": "(128,)",
+     "learning_rate_init": 0.00111
+    },
+    {
+     "alpha": 0.01315,
+     "hidden_layer_sizes": "(128, 64)",
+     "learning_rate_init": 0.00021
+    },
+    {
+     "alpha": 0.00015,
+     "hidden_layer_sizes": "(128,)",
+     "learning_rate_init": 0.00063
+    },
+    {
+     "alpha": 0.00108,
+     "hidden_layer_sizes": "(128, 64)",
+     "learning_rate_init": 0.00032
+    },
+    {
+     "alpha": 0.00447,
+     "hidden_layer_sizes": "(64,)",
+     "learning_rate_init": 0.00071
+    }
+   ]
+  },
+  {
+   "platform": "TikTok",
+   "model": "random forest",
+   "default MAE": 0.30042834943540886,
+   "default low": 0.2897288806007032,
+   "default high": 0.31177869355189325,
+   "tuned MAE": 0.2751552254790705,
+   "tuned low": 0.26558771235573514,
+   "tuned high": 0.2863762548852547,
+   "gain": 0.025273123956338288,
+   "gain low": 0.020400608099413887,
+   "gain high": 0.030487925174876328,
+   "inner MAE": 0.27826963363064394,
+   "picks": [
+    {
+     "max_depth": 6,
+     "max_features": 0.69948,
+     "min_samples_leaf": 6,
+     "n_estimators": 383
+    },
+    {
+     "max_depth": 6,
+     "max_features": 0.69948,
+     "min_samples_leaf": 6,
+     "n_estimators": 383
+    },
+    {
+     "max_depth": 6,
+     "max_features": 0.69948,
+     "min_samples_leaf": 6,
+     "n_estimators": 383
+    },
+    {
+     "max_depth": 6,
+     "max_features": 0.69948,
+     "min_samples_leaf": 6,
+     "n_estimators": 383
+    },
+    {
+     "max_depth": 6,
+     "max_features": 0.69948,
+     "min_samples_leaf": 6,
+     "n_estimators": 383
+    }
+   ]
+  },
+  {
+   "platform": "TikTok",
+   "model": "extra trees",
+   "default MAE": 0.3169213283030767,
+   "default low": 0.3059950434852785,
+   "default high": 0.32904870669138336,
+   "tuned MAE": 0.2745699690292748,
+   "tuned low": 0.2644551941426723,
+   "tuned high": 0.2854767199595284,
+   "gain": 0.04235135927380184,
+   "gain low": 0.03522014888355912,
+   "gain high": 0.04974008251755714,
+   "inner MAE": 0.2780672227359455,
+   "picks": [
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    }
+   ]
+  },
+  {
+   "platform": "TikTok",
+   "model": "boosting (sklearn)",
+   "default MAE": 0.2924993833497779,
+   "default low": 0.28188214004296197,
+   "default high": 0.30405324918455157,
+   "tuned MAE": 0.2759594734964554,
+   "tuned low": 0.2670710359867291,
+   "tuned high": 0.2867643610215622,
+   "gain": 0.01653990985332253,
+   "gain low": 0.012137594336913908,
+   "gain high": 0.021572369578535693,
+   "inner MAE": 0.27841194550891835,
+   "picks": [
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    },
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    },
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    },
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    },
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    }
+   ]
+  },
+  {
+   "platform": "TikTok",
+   "model": "LightGBM",
+   "default MAE": 0.2936582805335203,
+   "default low": 0.2829781568819694,
+   "default high": 0.3052451057370569,
+   "tuned MAE": 0.27542553127759634,
+   "tuned low": 0.2656820538074997,
+   "tuned high": 0.28655812803314434,
+   "gain": 0.018232749255923927,
+   "gain low": 0.013612818137933998,
+   "gain high": 0.022965228070040433,
+   "inner MAE": 0.279282385649888,
+   "picks": [
+    {
+     "colsample_bytree": 0.99503,
+     "learning_rate": 0.0161,
+     "min_child_samples": 31,
+     "n_estimators": 539,
+     "num_leaves": 5,
+     "objective": "l1",
+     "reg_lambda": 0.50564,
+     "subsample": 0.84851,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.99503,
+     "learning_rate": 0.0161,
+     "min_child_samples": 31,
+     "n_estimators": 539,
+     "num_leaves": 5,
+     "objective": "l1",
+     "reg_lambda": 0.50564,
+     "subsample": 0.84851,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.99503,
+     "learning_rate": 0.0161,
+     "min_child_samples": 31,
+     "n_estimators": 539,
+     "num_leaves": 5,
+     "objective": "l1",
+     "reg_lambda": 0.50564,
+     "subsample": 0.84851,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.99503,
+     "learning_rate": 0.0161,
+     "min_child_samples": 31,
+     "n_estimators": 539,
+     "num_leaves": 5,
+     "objective": "l1",
+     "reg_lambda": 0.50564,
+     "subsample": 0.84851,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.99503,
+     "learning_rate": 0.0161,
+     "min_child_samples": 31,
+     "n_estimators": 539,
+     "num_leaves": 5,
+     "objective": "l1",
+     "reg_lambda": 0.50564,
+     "subsample": 0.84851,
+     "subsample_freq": 1
+    }
+   ]
+  },
+  {
+   "platform": "TikTok",
+   "model": "XGBoost",
+   "default MAE": 0.3170560893431527,
+   "default low": 0.30686307348790953,
+   "default high": 0.3296331282589668,
+   "tuned MAE": 0.2726925560104737,
+   "tuned low": 0.26234266655286986,
+   "tuned high": 0.2834877044233287,
+   "gain": 0.044363533332679034,
+   "gain low": 0.03740653540511016,
+   "gain high": 0.05142879445091426,
+   "inner MAE": 0.2746226290153577,
+   "picks": [
+    {
+     "colsample_bytree": 0.82259,
+     "learning_rate": 0.0181,
+     "max_depth": 2,
+     "min_child_weight": 2.54632,
+     "n_estimators": 387,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00355,
+     "subsample": 0.67053
+    },
+    {
+     "colsample_bytree": 0.82259,
+     "learning_rate": 0.0181,
+     "max_depth": 2,
+     "min_child_weight": 2.54632,
+     "n_estimators": 387,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00355,
+     "subsample": 0.67053
+    },
+    {
+     "colsample_bytree": 0.82259,
+     "learning_rate": 0.0181,
+     "max_depth": 2,
+     "min_child_weight": 2.54632,
+     "n_estimators": 387,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00355,
+     "subsample": 0.67053
+    },
+    {
+     "colsample_bytree": 0.82259,
+     "learning_rate": 0.0181,
+     "max_depth": 2,
+     "min_child_weight": 2.54632,
+     "n_estimators": 387,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00355,
+     "subsample": 0.67053
+    },
+    {
+     "colsample_bytree": 0.82259,
+     "learning_rate": 0.0181,
+     "max_depth": 2,
+     "min_child_weight": 2.54632,
+     "n_estimators": 387,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00355,
+     "subsample": 0.67053
+    }
+   ]
+  },
+  {
+   "platform": "TikTok",
+   "model": "CatBoost",
+   "default MAE": 0.2846099966930905,
+   "default low": 0.27489866382124656,
+   "default high": 0.29688938370452617,
+   "tuned MAE": 0.27160579823348935,
+   "tuned low": 0.26099514521525163,
+   "tuned high": 0.2831610058047421,
+   "gain": 0.013004198459601152,
+   "gain low": 0.00866089813155744,
+   "gain high": 0.01729490170104061,
+   "inner MAE": 0.27335129142178066,
+   "picks": [
+    {
+     "depth": 3,
+     "iterations": 443,
+     "l2_leaf_reg": 11.53616,
+     "learning_rate": 0.02059,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 3,
+     "iterations": 459,
+     "l2_leaf_reg": 7.43228,
+     "learning_rate": 0.04246,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 4,
+     "iterations": 406,
+     "l2_leaf_reg": 4.844,
+     "learning_rate": 0.04629,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 3,
+     "iterations": 459,
+     "l2_leaf_reg": 7.43228,
+     "learning_rate": 0.04246,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 3,
+     "iterations": 443,
+     "l2_leaf_reg": 11.53616,
+     "learning_rate": 0.02059,
+     "loss_function": "MAE"
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "ridge",
+   "default MAE": 0.5446889786412926,
+   "default low": 0.5197862304806001,
+   "default high": 0.5675892930146408,
+   "tuned MAE": 0.5447581209949655,
+   "tuned low": 0.5194094784946373,
+   "tuned high": 0.5676175580389148,
+   "gain": -6.914235367279553e-05,
+   "gain low": -0.0014115562600274798,
+   "gain high": 0.0013413713317652837,
+   "inner MAE": 0.5442177658508706,
+   "picks": [
+    {
+     "alpha": 51.41097
+    },
+    {
+     "alpha": 24.65833
+    },
+    {
+     "alpha": 70.85722
+    },
+    {
+     "alpha": 51.41097
+    },
+    {
+     "alpha": 98.777
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "kNN",
+   "default MAE": 0.4977598520387577,
+   "default low": 0.47527637474018775,
+   "default high": 0.5205149844105801,
+   "tuned MAE": 0.48290059514247535,
+   "tuned low": 0.4578121398397677,
+   "tuned high": 0.5073636256366737,
+   "gain": 0.01485925689628243,
+   "gain low": 0.004868831472497369,
+   "gain high": 0.02468134510933333,
+   "inner MAE": 0.48429996806369024,
+   "picks": [
+    {
+     "n_neighbors": 11,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 11,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 24,
+     "p": 1,
+     "weights": "distance"
+    },
+    {
+     "n_neighbors": 11,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 11,
+     "p": 2,
+     "weights": "uniform"
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "SVR (RBF)",
+   "default MAE": 0.4615636342069375,
+   "default low": 0.44016994395161047,
+   "default high": 0.4860022660488478,
+   "tuned MAE": 0.4625622465431253,
+   "tuned low": 0.44134559741000345,
+   "tuned high": 0.4864272861669753,
+   "gain": -0.000998612336187717,
+   "gain low": -0.004931631595080563,
+   "gain high": 0.002851470243686399,
+   "inner MAE": 0.4615213347399701,
+   "picks": [
+    {
+     "C": 1.46566,
+     "epsilon": 0.14567,
+     "gamma": 0.30635
+    },
+    {
+     "C": 1.46566,
+     "epsilon": 0.14567,
+     "gamma": 0.30635
+    },
+    {
+     "C": 9.71778,
+     "epsilon": 0.16586,
+     "gamma": 0.03632
+    },
+    {
+     "C": 1.18959,
+     "epsilon": 0.06793,
+     "gamma": 0.38843
+    },
+    {
+     "C": 1.46566,
+     "epsilon": 0.14567,
+     "gamma": 0.30635
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "MLP",
+   "default MAE": 0.46303521752662885,
+   "default low": 0.4410074102078629,
+   "default high": 0.48577846964644966,
+   "tuned MAE": 0.4544323696786394,
+   "tuned low": 0.43214676494154386,
+   "tuned high": 0.4761446070644358,
+   "gain": 0.008602847847989373,
+   "gain low": 0.0035710888414275973,
+   "gain high": 0.014046955091531749,
+   "inner MAE": 0.45620317219052237,
+   "picks": [
+    {
+     "alpha": 0.07579,
+     "hidden_layer_sizes": "(64, 32)",
+     "learning_rate_init": 0.00754
+    },
+    {
+     "alpha": 0.07579,
+     "hidden_layer_sizes": "(64, 32)",
+     "learning_rate_init": 0.00754
+    },
+    {
+     "alpha": 2e-05,
+     "hidden_layer_sizes": "(128, 64)",
+     "learning_rate_init": 0.00288
+    },
+    {
+     "alpha": 0.07579,
+     "hidden_layer_sizes": "(64, 32)",
+     "learning_rate_init": 0.00754
+    },
+    {
+     "alpha": 3e-05,
+     "hidden_layer_sizes": "(128, 64)",
+     "learning_rate_init": 0.00464
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "random forest",
+   "default MAE": 0.5046735809806376,
+   "default low": 0.4829541871885139,
+   "default high": 0.5276463324767245,
+   "tuned MAE": 0.4634420493384473,
+   "tuned low": 0.4428702173678202,
+   "tuned high": 0.48571853252652714,
+   "gain": 0.04123153164219029,
+   "gain low": 0.03072409808364339,
+   "gain high": 0.05223549802407974,
+   "inner MAE": 0.4602076074534427,
+   "picks": [
+    {
+     "max_depth": 16,
+     "max_features": 0.38622,
+     "min_samples_leaf": 3,
+     "n_estimators": 406
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 16,
+     "max_features": 0.38622,
+     "min_samples_leaf": 3,
+     "n_estimators": 406
+    },
+    {
+     "max_depth": 16,
+     "max_features": 0.55212,
+     "min_samples_leaf": 7,
+     "n_estimators": 363
+    },
+    {
+     "max_depth": 16,
+     "max_features": 0.55212,
+     "min_samples_leaf": 7,
+     "n_estimators": 363
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "extra trees",
+   "default MAE": 0.531635785853775,
+   "default low": 0.5091733792553893,
+   "default high": 0.5585017000467897,
+   "tuned MAE": 0.4589923122023162,
+   "tuned low": 0.4379580296749175,
+   "tuned high": 0.48194596028265446,
+   "gain": 0.0726434736514588,
+   "gain low": 0.05579986009766619,
+   "gain high": 0.09034020047536649,
+   "inner MAE": 0.462732242639576,
+   "picks": [
+    {
+     "max_depth": 16,
+     "max_features": 0.80429,
+     "min_samples_leaf": 6,
+     "n_estimators": 153
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 16,
+     "max_features": 0.80429,
+     "min_samples_leaf": 6,
+     "n_estimators": 153
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "boosting (sklearn)",
+   "default MAE": 0.46946644210402977,
+   "default low": 0.4496639501159877,
+   "default high": 0.49251602949962847,
+   "tuned MAE": 0.45307266644865796,
+   "tuned low": 0.4319780187302683,
+   "tuned high": 0.47492497162825553,
+   "gain": 0.016393775655371708,
+   "gain low": 0.007613040955896471,
+   "gain high": 0.024818736711281663,
+   "inner MAE": 0.4589086814000375,
+   "picks": [
+    {
+     "l2_regularization": 0.22091,
+     "learning_rate": 0.0963,
+     "loss": "absolute_error",
+     "max_iter": 596,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 51
+    },
+    {
+     "l2_regularization": 1.50146,
+     "learning_rate": 0.02977,
+     "loss": "absolute_error",
+     "max_iter": 513,
+     "max_leaf_nodes": 32,
+     "min_samples_leaf": 7
+    },
+    {
+     "l2_regularization": 0.001,
+     "learning_rate": 0.05749,
+     "loss": "absolute_error",
+     "max_iter": 554,
+     "max_leaf_nodes": 6,
+     "min_samples_leaf": 55
+    },
+    {
+     "l2_regularization": 1.50146,
+     "learning_rate": 0.02977,
+     "loss": "absolute_error",
+     "max_iter": 513,
+     "max_leaf_nodes": 32,
+     "min_samples_leaf": 7
+    },
+    {
+     "l2_regularization": 1.50146,
+     "learning_rate": 0.02977,
+     "loss": "absolute_error",
+     "max_iter": 513,
+     "max_leaf_nodes": 32,
+     "min_samples_leaf": 7
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "LightGBM",
+   "default MAE": 0.4692166993987272,
+   "default low": 0.4495451397285721,
+   "default high": 0.49240731824337525,
+   "tuned MAE": 0.456878159152307,
+   "tuned low": 0.4354866157409215,
+   "tuned high": 0.4785279491221646,
+   "gain": 0.012338540246420171,
+   "gain low": 0.003404846297840636,
+   "gain high": 0.020887931694925737,
+   "inner MAE": 0.45948631574074483,
+   "picks": [
+    {
+     "colsample_bytree": 0.60454,
+     "learning_rate": 0.06306,
+     "min_child_samples": 46,
+     "n_estimators": 312,
+     "num_leaves": 63,
+     "objective": "l1",
+     "reg_lambda": 1.2193,
+     "subsample": 0.7776,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.59112,
+     "learning_rate": 0.13055,
+     "min_child_samples": 10,
+     "n_estimators": 155,
+     "num_leaves": 7,
+     "objective": "l1",
+     "reg_lambda": 0.00014,
+     "subsample": 0.92114,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.72488,
+     "learning_rate": 0.03834,
+     "min_child_samples": 18,
+     "n_estimators": 320,
+     "num_leaves": 11,
+     "objective": "l1",
+     "reg_lambda": 0.00095,
+     "subsample": 0.52261,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.64561,
+     "learning_rate": 0.08013,
+     "min_child_samples": 46,
+     "n_estimators": 525,
+     "num_leaves": 63,
+     "objective": "l1",
+     "reg_lambda": 0.00146,
+     "subsample": 0.5453,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.72488,
+     "learning_rate": 0.03834,
+     "min_child_samples": 18,
+     "n_estimators": 320,
+     "num_leaves": 11,
+     "objective": "l1",
+     "reg_lambda": 0.00095,
+     "subsample": 0.52261,
+     "subsample_freq": 1
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "XGBoost",
+   "default MAE": 0.5025109787528833,
+   "default low": 0.4799052841765295,
+   "default high": 0.5245094225332195,
+   "tuned MAE": 0.4504657452503659,
+   "tuned low": 0.4293661126157345,
+   "tuned high": 0.47223220032930635,
+   "gain": 0.05204523350251739,
+   "gain low": 0.03931162728768234,
+   "gain high": 0.06503065531138429,
+   "inner MAE": 0.45472136392024015,
+   "picks": [
+    {
+     "colsample_bytree": 0.98688,
+     "learning_rate": 0.02207,
+     "max_depth": 7,
+     "min_child_weight": 12.44892,
+     "n_estimators": 293,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.07363,
+     "subsample": 0.92997
+    },
+    {
+     "colsample_bytree": 0.98688,
+     "learning_rate": 0.02207,
+     "max_depth": 7,
+     "min_child_weight": 12.44892,
+     "n_estimators": 293,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.07363,
+     "subsample": 0.92997
+    },
+    {
+     "colsample_bytree": 0.98688,
+     "learning_rate": 0.02207,
+     "max_depth": 7,
+     "min_child_weight": 12.44892,
+     "n_estimators": 293,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.07363,
+     "subsample": 0.92997
+    },
+    {
+     "colsample_bytree": 0.98688,
+     "learning_rate": 0.02207,
+     "max_depth": 7,
+     "min_child_weight": 12.44892,
+     "n_estimators": 293,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.07363,
+     "subsample": 0.92997
+    },
+    {
+     "colsample_bytree": 0.98688,
+     "learning_rate": 0.02207,
+     "max_depth": 7,
+     "min_child_weight": 12.44892,
+     "n_estimators": 293,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.07363,
+     "subsample": 0.92997
+    }
+   ]
+  },
+  {
+   "platform": "YouTube",
+   "model": "CatBoost",
+   "default MAE": 0.4625920935082285,
+   "default low": 0.4421820103731635,
+   "default high": 0.48702422649035904,
+   "tuned MAE": 0.4522908776666068,
+   "tuned low": 0.4310089332054901,
+   "tuned high": 0.4747914815314358,
+   "gain": 0.010301215841621745,
+   "gain low": 0.0032382144233553158,
+   "gain high": 0.01736729147800573,
+   "inner MAE": 0.45460857224071527,
+   "picks": [
+    {
+     "depth": 5,
+     "iterations": 444,
+     "l2_leaf_reg": 0.52651,
+     "learning_rate": 0.08013,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 4,
+     "iterations": 406,
+     "l2_leaf_reg": 4.844,
+     "learning_rate": 0.04629,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 5,
+     "iterations": 444,
+     "l2_leaf_reg": 0.52651,
+     "learning_rate": 0.08013,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 3,
+     "iterations": 459,
+     "l2_leaf_reg": 7.43228,
+     "learning_rate": 0.04246,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 8,
+     "iterations": 445,
+     "l2_leaf_reg": 0.1156,
+     "learning_rate": 0.01443,
+     "loss_function": "RMSE"
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "ridge",
+   "default MAE": 0.4868225100049765,
+   "default low": 0.4647686565563211,
+   "default high": 0.5100592978191393,
+   "tuned MAE": 0.4867777794099347,
+   "tuned low": 0.464762126704177,
+   "tuned high": 0.509981299333417,
+   "gain": 4.4730595041773884e-05,
+   "gain low": -2.29621291991838e-05,
+   "gain high": 0.00011512949188442507,
+   "inner MAE": 0.49010363977515825,
+   "picks": [
+    {
+     "alpha": 0.00133
+    },
+    {
+     "alpha": 4.6894
+    },
+    {
+     "alpha": 4.6894
+    },
+    {
+     "alpha": 4.6894
+    },
+    {
+     "alpha": 0.00133
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "kNN",
+   "default MAE": 0.5189629616969332,
+   "default low": 0.49893175964794706,
+   "default high": 0.54013490144509,
+   "tuned MAE": 0.4899066562798473,
+   "tuned low": 0.47077230354316485,
+   "tuned high": 0.5099324628597436,
+   "gain": 0.029056305417085898,
+   "gain low": 0.01991349092633186,
+   "gain high": 0.0375535411350889,
+   "inner MAE": 0.49475190945267283,
+   "picks": [
+    {
+     "n_neighbors": 11,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 26,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 11,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 11,
+     "p": 2,
+     "weights": "uniform"
+    },
+    {
+     "n_neighbors": 26,
+     "p": 2,
+     "weights": "uniform"
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "SVR (RBF)",
+   "default MAE": 0.47338616510174736,
+   "default low": 0.4537003731897069,
+   "default high": 0.49573629171656697,
+   "tuned MAE": 0.4803380401295555,
+   "tuned low": 0.4601345926094074,
+   "tuned high": 0.5039475602499668,
+   "gain": -0.006951875027808136,
+   "gain low": -0.01224350700568321,
+   "gain high": -0.0013976229227795308,
+   "inner MAE": 0.4799964840363641,
+   "picks": [
+    {
+     "C": 9.71778,
+     "epsilon": 0.16586,
+     "gamma": 0.03632
+    },
+    {
+     "C": 7.94715,
+     "epsilon": 0.44573,
+     "gamma": 0.25764
+    },
+    {
+     "C": 9.71778,
+     "epsilon": 0.16586,
+     "gamma": 0.03632
+    },
+    {
+     "C": 1.32929,
+     "epsilon": 0.48536,
+     "gamma": 0.15703
+    },
+    {
+     "C": 0.85693,
+     "epsilon": 0.17259,
+     "gamma": 0.15446
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "MLP",
+   "default MAE": 0.47885281112490946,
+   "default low": 0.45841256907961603,
+   "default high": 0.5026950079081997,
+   "tuned MAE": 0.4769182269693501,
+   "tuned low": 0.45775822739867494,
+   "tuned high": 0.49821509425140975,
+   "gain": 0.0019345841555593575,
+   "gain low": -0.002925458690757542,
+   "gain high": 0.006206347908733625,
+   "inner MAE": 0.482878529468932,
+   "picks": [
+    {
+     "alpha": 0.07579,
+     "hidden_layer_sizes": "(64, 32)",
+     "learning_rate_init": 0.00754
+    },
+    {
+     "alpha": 0.07579,
+     "hidden_layer_sizes": "(64, 32)",
+     "learning_rate_init": 0.00754
+    },
+    {
+     "alpha": 3e-05,
+     "hidden_layer_sizes": "(128, 64)",
+     "learning_rate_init": 0.00464
+    },
+    {
+     "alpha": 0.00016,
+     "hidden_layer_sizes": "(128, 64)",
+     "learning_rate_init": 0.00073
+    },
+    {
+     "alpha": 2e-05,
+     "hidden_layer_sizes": "(128, 64)",
+     "learning_rate_init": 0.00288
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "random forest",
+   "default MAE": 0.5392060066305772,
+   "default low": 0.517669663933984,
+   "default high": 0.5615534598801164,
+   "tuned MAE": 0.473267511188477,
+   "tuned low": 0.45418723400318056,
+   "tuned high": 0.4950722249056891,
+   "gain": 0.06593849544210018,
+   "gain low": 0.053304703773624784,
+   "gain high": 0.07852039679855842,
+   "inner MAE": 0.47765570233652765,
+   "picks": [
+    {
+     "max_depth": 6,
+     "max_features": 0.69948,
+     "min_samples_leaf": 6,
+     "n_estimators": 383
+    },
+    {
+     "max_depth": 6,
+     "max_features": 0.69948,
+     "min_samples_leaf": 6,
+     "n_estimators": 383
+    },
+    {
+     "max_depth": 6,
+     "max_features": 0.44369,
+     "min_samples_leaf": 2,
+     "n_estimators": 439
+    },
+    {
+     "max_depth": 6,
+     "max_features": 0.69948,
+     "min_samples_leaf": 6,
+     "n_estimators": 383
+    },
+    {
+     "max_depth": 6,
+     "max_features": 0.69948,
+     "min_samples_leaf": 6,
+     "n_estimators": 383
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "extra trees",
+   "default MAE": 0.5846349787177336,
+   "default low": 0.5627131170609073,
+   "default high": 0.6093685803781196,
+   "tuned MAE": 0.47520822546767677,
+   "tuned low": 0.45647427385756284,
+   "tuned high": 0.4977284969418484,
+   "gain": 0.10942675325005681,
+   "gain low": 0.09335729387587376,
+   "gain high": 0.12549678437217276,
+   "inner MAE": 0.4816105961167523,
+   "picks": [
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    },
+    {
+     "max_depth": 10,
+     "max_features": 0.81702,
+     "min_samples_leaf": 5,
+     "n_estimators": 330
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "boosting (sklearn)",
+   "default MAE": 0.4973434753828831,
+   "default low": 0.4792783948795941,
+   "default high": 0.5171552906477832,
+   "tuned MAE": 0.4736185891114343,
+   "tuned low": 0.4524867797955277,
+   "tuned high": 0.4953428578271237,
+   "gain": 0.02372488627144883,
+   "gain low": 0.013958757766992732,
+   "gain high": 0.032915167427835554,
+   "inner MAE": 0.47662368695698804,
+   "picks": [
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    },
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    },
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    },
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    },
+    {
+     "l2_regularization": 0.00067,
+     "learning_rate": 0.01055,
+     "loss": "squared_error",
+     "max_iter": 393,
+     "max_leaf_nodes": 4,
+     "min_samples_leaf": 12
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "LightGBM",
+   "default MAE": 0.494608058186633,
+   "default low": 0.477394766780378,
+   "default high": 0.5144781037027436,
+   "tuned MAE": 0.475372609298422,
+   "tuned low": 0.4558605120612879,
+   "tuned high": 0.4957991066794118,
+   "gain": 0.019235448888211007,
+   "gain low": 0.012185137942768862,
+   "gain high": 0.026094918839483505,
+   "inner MAE": 0.482190869714154,
+   "picks": [
+    {
+     "colsample_bytree": 0.55074,
+     "learning_rate": 0.09552,
+     "min_child_samples": 22,
+     "n_estimators": 387,
+     "num_leaves": 5,
+     "objective": "l1",
+     "reg_lambda": 0.01746,
+     "subsample": 0.99723,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.58796,
+     "learning_rate": 0.01063,
+     "min_child_samples": 18,
+     "n_estimators": 326,
+     "num_leaves": 51,
+     "objective": "l1",
+     "reg_lambda": 0.0068,
+     "subsample": 0.87209,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.59112,
+     "learning_rate": 0.13055,
+     "min_child_samples": 10,
+     "n_estimators": 155,
+     "num_leaves": 7,
+     "objective": "l1",
+     "reg_lambda": 0.00014,
+     "subsample": 0.92114,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.62803,
+     "learning_rate": 0.01147,
+     "min_child_samples": 19,
+     "n_estimators": 510,
+     "num_leaves": 54,
+     "objective": "l2",
+     "reg_lambda": 3.01174,
+     "subsample": 0.73769,
+     "subsample_freq": 1
+    },
+    {
+     "colsample_bytree": 0.59112,
+     "learning_rate": 0.13055,
+     "min_child_samples": 10,
+     "n_estimators": 155,
+     "num_leaves": 7,
+     "objective": "l1",
+     "reg_lambda": 0.00014,
+     "subsample": 0.92114,
+     "subsample_freq": 1
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "XGBoost",
+   "default MAE": 0.5362825700868349,
+   "default low": 0.5168178089658039,
+   "default high": 0.5601357710581724,
+   "tuned MAE": 0.4673743932024992,
+   "tuned low": 0.445771834397037,
+   "tuned high": 0.49105314969186165,
+   "gain": 0.06890817688433558,
+   "gain low": 0.05466264148082243,
+   "gain high": 0.08303605156117955,
+   "inner MAE": 0.4745211340596553,
+   "picks": [
+    {
+     "colsample_bytree": 0.82259,
+     "learning_rate": 0.0181,
+     "max_depth": 2,
+     "min_child_weight": 2.54632,
+     "n_estimators": 387,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00355,
+     "subsample": 0.67053
+    },
+    {
+     "colsample_bytree": 0.82259,
+     "learning_rate": 0.0181,
+     "max_depth": 2,
+     "min_child_weight": 2.54632,
+     "n_estimators": 387,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00355,
+     "subsample": 0.67053
+    },
+    {
+     "colsample_bytree": 0.82259,
+     "learning_rate": 0.0181,
+     "max_depth": 2,
+     "min_child_weight": 2.54632,
+     "n_estimators": 387,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00355,
+     "subsample": 0.67053
+    },
+    {
+     "colsample_bytree": 0.64196,
+     "learning_rate": 0.02825,
+     "max_depth": 3,
+     "min_child_weight": 8.49697,
+     "n_estimators": 210,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00889,
+     "subsample": 0.6627
+    },
+    {
+     "colsample_bytree": 0.64196,
+     "learning_rate": 0.02825,
+     "max_depth": 3,
+     "min_child_weight": 8.49697,
+     "n_estimators": 210,
+     "objective": "reg:absoluteerror",
+     "reg_lambda": 0.00889,
+     "subsample": 0.6627
+    }
+   ]
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "CatBoost",
+   "default MAE": 0.48830883006579123,
+   "default low": 0.4697586414270413,
+   "default high": 0.5086907575162429,
+   "tuned MAE": 0.4699536332663113,
+   "tuned low": 0.44808265813800097,
+   "tuned high": 0.49207855500044867,
+   "gain": 0.01835519679947996,
+   "gain low": 0.010258803334633922,
+   "gain high": 0.02626905256684478,
+   "inner MAE": 0.47391923215553466,
+   "picks": [
+    {
+     "depth": 3,
+     "iterations": 459,
+     "l2_leaf_reg": 7.43228,
+     "learning_rate": 0.04246,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 5,
+     "iterations": 332,
+     "l2_leaf_reg": 0.56883,
+     "learning_rate": 0.01751,
+     "loss_function": "RMSE"
+    },
+    {
+     "depth": 2,
+     "iterations": 286,
+     "l2_leaf_reg": 3.23567,
+     "learning_rate": 0.05527,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 3,
+     "iterations": 269,
+     "l2_leaf_reg": 10.04181,
+     "learning_rate": 0.08622,
+     "loss_function": "MAE"
+    },
+    {
+     "depth": 2,
+     "iterations": 147,
+     "l2_leaf_reg": 0.82901,
+     "learning_rate": 0.09727,
+     "loss_function": "RMSE"
+    }
+   ]
+  }
+ ],
+ "blend": [
+  {
+   "platform": "TikTok",
+   "members": [
+    "SVR (RBF)",
+    "CatBoost",
+    "XGBoost"
+   ],
+   "MAE": 0.2697446498920019,
+   "low": 0.25929756926862235,
+   "high": 0.2807265507716699
+  },
+  {
+   "platform": "YouTube",
+   "members": [
+    "CatBoost",
+    "XGBoost",
+    "MLP"
+   ],
+   "MAE": 0.4464164170142609,
+   "low": 0.4251019440344287,
+   "high": 0.4688667255443938
+  },
+  {
+   "platform": "X (Twitter)",
+   "members": [
+    "CatBoost",
+    "XGBoost",
+    "boosting (sklearn)"
+   ],
+   "MAE": 0.4685218810269598,
+   "low": 0.44679717486650034,
+   "high": 0.49096060778897177
+  }
+ ],
+ "versus": [
+  {
+   "platform": "TikTok",
+   "picked by inner CV": "SVR (RBF)",
+   "MAE": 0.2712382307221238,
+   "ridge MAE": 0.27699374025196827,
+   "gain over ridge": 0.005755509529844486,
+   "low": 0.002982783990208275,
+   "high": 0.00847938628344282,
+   "blend of top 3": 0.2697446498920019,
+   "blend gain over ridge": 0.007249090359966359,
+   "blend low": 0.0038456356677703534,
+   "blend high": 0.010192242817123387,
+   "blend members": "SVR (RBF), CatBoost, XGBoost"
+  },
+  {
+   "platform": "YouTube",
+   "picked by inner CV": "CatBoost",
+   "MAE": 0.4522908776666068,
+   "ridge MAE": 0.5447581209949655,
+   "gain over ridge": 0.09246724332835862,
+   "low": 0.0772306246838649,
+   "high": 0.10808821997092952,
+   "blend of top 3": 0.4464164170142609,
+   "blend gain over ridge": 0.09834170398070452,
+   "blend low": 0.08287485513394688,
+   "blend high": 0.11350035050455456,
+   "blend members": "CatBoost, XGBoost, MLP"
+  },
+  {
+   "platform": "X (Twitter)",
+   "picked by inner CV": "CatBoost",
+   "MAE": 0.4699536332663113,
+   "ridge MAE": 0.4867777794099347,
+   "gain over ridge": 0.016824146143623413,
+   "low": 0.008601466527324962,
+   "high": 0.025459066112887705,
+   "blend of top 3": 0.4685218810269598,
+   "blend gain over ridge": 0.018255898382974936,
+   "blend low": 0.010247894160455212,
+   "blend high": 0.026542033954771636,
+   "blend members": "CatBoost, XGBoost, boosting (sklearn)"
+  }
+ ],
+ "text_gain": [
+  {
+   "platform": "TikTok",
+   "model": "CatBoost",
+   "no text": 0.27160579823348935,
+   "with text": 0.27348125307629845,
+   "gain": -0.0018754548428090575,
+   "low": -0.0048353324278562525,
+   "high": 0.0011680592685974
+  },
+  {
+   "platform": "TikTok",
+   "model": "LightGBM",
+   "no text": 0.27542553127759634,
+   "with text": 0.2739723414401132,
+   "gain": 0.0014531898374831505,
+   "low": -0.0014388692557500942,
+   "high": 0.00447488756884567
+  },
+  {
+   "platform": "YouTube",
+   "model": "CatBoost",
+   "no text": 0.4522908776666068,
+   "with text": 0.4442359635925066,
+   "gain": 0.008054914074100306,
+   "low": -0.00177648348249704,
+   "high": 0.018407453274716573
+  },
+  {
+   "platform": "YouTube",
+   "model": "LightGBM",
+   "no text": 0.456878159152307,
+   "with text": 0.44738956487374465,
+   "gain": 0.00948859427856239,
+   "low": 0.00011315858557888734,
+   "high": 0.019102514018890317
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "CatBoost",
+   "no text": 0.4699536332663113,
+   "with text": 0.46438871877378646,
+   "gain": 0.005564914492524757,
+   "low": -0.002881626169581889,
+   "high": 0.013879046469041069
+  },
+  {
+   "platform": "X (Twitter)",
+   "model": "LightGBM",
+   "no text": 0.475372609298422,
+   "with text": 0.4621058316190106,
+   "gain": 0.01326677767941138,
+   "low": 0.00267010924836766,
+   "high": 0.022680639984588115
+  }
+ ]
+}

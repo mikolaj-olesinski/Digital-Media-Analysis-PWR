@@ -1,0 +1,261 @@
+{
+ "gains": [
+  {
+   "platform": "TikTok",
+   "columns": "likes + comments",
+   "model": "ridge",
+   "without": 0.2994091684842854,
+   "with is_promo": 0.2913329568481057,
+   "gain": 0.008076211636179668,
+   "low": 0.004577333511624528,
+   "high": 0.011275203130941294
+  },
+  {
+   "platform": "TikTok",
+   "columns": "likes + comments",
+   "model": "boosting (sklearn)",
+   "without": 0.3055692845914745,
+   "with is_promo": 0.29828842867075966,
+   "gain": 0.0072808559207148925,
+   "low": 0.0037724968945031102,
+   "high": 0.010928019037470699
+  },
+  {
+   "platform": "TikTok",
+   "columns": "likes + comments",
+   "model": "extra trees",
+   "without": 0.2945766064309256,
+   "with is_promo": 0.2891519222851898,
+   "gain": 0.005424684145735781,
+   "low": 0.0018609605016390643,
+   "high": 0.009014792123524476
+  },
+  {
+   "platform": "TikTok",
+   "columns": "followers + reactions + flags",
+   "model": "ridge",
+   "without": 0.27835980456809883,
+   "with is_promo": 0.27394844043352323,
+   "gain": 0.0044113641345756086,
+   "low": 0.002200866550203757,
+   "high": 0.006705757022966404
+  },
+  {
+   "platform": "TikTok",
+   "columns": "followers + reactions + flags",
+   "model": "boosting (sklearn)",
+   "without": 0.2924993833497779,
+   "with is_promo": 0.28819785082809185,
+   "gain": 0.004301532521686026,
+   "low": 0.0015657049206027095,
+   "high": 0.0074036971411891046
+  },
+  {
+   "platform": "TikTok",
+   "columns": "followers + reactions + flags",
+   "model": "extra trees",
+   "without": 0.2773590701161697,
+   "with is_promo": 0.27497912012012515,
+   "gain": 0.0023799499960445863,
+   "low": -0.0004768791479594395,
+   "high": 0.0052659942954909585
+  },
+  {
+   "platform": "YouTube",
+   "columns": "likes + comments",
+   "model": "ridge",
+   "without": 0.6178506710997581,
+   "with is_promo": 0.6063188562950665,
+   "gain": 0.011531814804691731,
+   "low": 0.004823575109645769,
+   "high": 0.017690677909717456
+  },
+  {
+   "platform": "YouTube",
+   "columns": "likes + comments",
+   "model": "boosting (sklearn)",
+   "without": 0.5811557062221744,
+   "with is_promo": 0.5756963042065104,
+   "gain": 0.005459402015663968,
+   "low": -3.6791105002351385e-05,
+   "high": 0.011103412128893795
+  },
+  {
+   "platform": "YouTube",
+   "columns": "likes + comments",
+   "model": "extra trees",
+   "without": 0.5755037374692368,
+   "with is_promo": 0.567973673956025,
+   "gain": 0.007530063513211818,
+   "low": 0.001925274708799347,
+   "high": 0.013243016274504898
+  },
+  {
+   "platform": "YouTube",
+   "columns": "followers + reactions + flags",
+   "model": "ridge",
+   "without": 0.5446889786412926,
+   "with is_promo": 0.5424083338196917,
+   "gain": 0.0022806448216009714,
+   "low": 0.0004746000488026104,
+   "high": 0.00411054270810376
+  },
+  {
+   "platform": "YouTube",
+   "columns": "followers + reactions + flags",
+   "model": "boosting (sklearn)",
+   "without": 0.46946644210402977,
+   "with is_promo": 0.4631056394921788,
+   "gain": 0.006360802611850913,
+   "low": 0.0017249191677851166,
+   "high": 0.011409576362957185
+  },
+  {
+   "platform": "YouTube",
+   "columns": "followers + reactions + flags",
+   "model": "extra trees",
+   "without": 0.4550134638965752,
+   "with is_promo": 0.45330088141395536,
+   "gain": 0.0017125824826198335,
+   "low": -0.0032588512505353543,
+   "high": 0.0065445941961787095
+  },
+  {
+   "platform": "X (Twitter)",
+   "columns": "likes + comments",
+   "model": "ridge",
+   "without": 0.5185201288196735,
+   "with is_promo": 0.5166286636682441,
+   "gain": 0.0018914651514292942,
+   "low": -0.00179747864261581,
+   "high": 0.005366992059786629
+  },
+  {
+   "platform": "X (Twitter)",
+   "columns": "likes + comments",
+   "model": "boosting (sklearn)",
+   "without": 0.5189692283794537,
+   "with is_promo": 0.5156376870248387,
+   "gain": 0.00333154135461505,
+   "low": -0.0007452841521424978,
+   "high": 0.007341017620820958
+  },
+  {
+   "platform": "X (Twitter)",
+   "columns": "likes + comments",
+   "model": "extra trees",
+   "without": 0.5156485337699895,
+   "with is_promo": 0.5129428852907344,
+   "gain": 0.0027056484792551843,
+   "low": -0.0014048467706000304,
+   "high": 0.006755158740497079
+  },
+  {
+   "platform": "X (Twitter)",
+   "columns": "followers + reactions + flags",
+   "model": "ridge",
+   "without": 0.4868225100049765,
+   "with is_promo": 0.48642031894711124,
+   "gain": 0.00040219105786515585,
+   "low": -0.0016126254279699153,
+   "high": 0.0025485826743939567
+  },
+  {
+   "platform": "X (Twitter)",
+   "columns": "followers + reactions + flags",
+   "model": "boosting (sklearn)",
+   "without": 0.4973434753828831,
+   "with is_promo": 0.4942375143371269,
+   "gain": 0.0031059610457561614,
+   "low": -0.002018152129111737,
+   "high": 0.008100838781022622
+  },
+  {
+   "platform": "X (Twitter)",
+   "columns": "followers + reactions + flags",
+   "model": "extra trees",
+   "without": 0.48149856403218033,
+   "with is_promo": 0.47802842006951024,
+   "gain": 0.0034701439626700532,
+   "low": -0.0015869592013558575,
+   "high": 0.007823498457739263
+  }
+ ],
+ "authors": [
+  {
+   "platform": "TikTok",
+   "share promo": 0.33881975110397433,
+   "median followers, not promo": 1356.5,
+   "median followers, promo": 1855.0
+  },
+  {
+   "platform": "YouTube",
+   "share promo": 0.4248258910282671,
+   "median followers, not promo": 25100.0,
+   "median followers, promo": 39400.0
+  },
+  {
+   "platform": "X (Twitter)",
+   "share promo": 0.18524681087077094,
+   "median followers, not promo": 373.0,
+   "median followers, promo": 1524.0
+  }
+ ],
+ "youtube": {
+  "by_state": [
+   {
+    "state": "has reactions",
+    "n": 1769,
+    "MAE": 0.377817216467757,
+    "bias": 0.0012738493723529535,
+    "promo": 0.395703787450537,
+    "median_views": 590.0,
+    "share of error": 0.6017520104155339
+   },
+   {
+    "state": "likes hidden",
+    "n": 106,
+    "MAE": 0.5469607992026849,
+    "bias": 0.007289428141242171,
+    "promo": 0.5,
+    "median_views": 9.0,
+    "share of error": 0.05219994430756676
+   },
+   {
+    "state": "zero likes and comments",
+    "n": 566,
+    "MAE": 0.6790660154144756,
+    "bias": 0.00166901638285913,
+    "promo": 0.5017667844522968,
+    "median_views": 230.99999999999994,
+    "share of error": 0.3460480452768992
+   }
+  ],
+  "by_error": [
+   {
+    "error": "overestimated over x3",
+    "n": 409,
+    "promo": 0.39119804400978,
+    "zero": 0.3960880195599022
+   },
+   {
+    "error": "within x3",
+    "n": 1630,
+    "promo": 0.4251533742331288,
+    "zero": 0.1521472392638037
+   },
+   {
+    "error": "underestimated over x3",
+    "n": 402,
+    "promo": 0.4577114427860697,
+    "zero": 0.3880597014925373
+   }
+  ],
+  "zero_posts": {
+   "n": 566,
+   "share 1k+ views": 0.2862190812720848,
+   "n 10k+ views": 30,
+   "max views": 407071.9999999999
+  }
+ }
+}
