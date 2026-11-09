@@ -15,5 +15,13 @@
  "covered_posts_instagram": 5,
  "gate_min_posts": 40,
  "gate_passed": false,
- "note": "independent second pass; the 182 Facebook author URLs are numeric page ids, so their handles cannot be matched against a bio link"
+ "note": "independent second pass; the 182 Facebook author URLs are numeric page ids, so their handles cannot be matched against a bio link",
+ "second_attempt": {
+  "method": "same handle, YouTube /about tab and FxTwitter user bio",
+  "owners_checked": 65,
+  "yt_bio_link": 5,
+  "x_bio_link": 0,
+  "matched_owners": 5,
+  "covered_posts": 5
+ }
 }
