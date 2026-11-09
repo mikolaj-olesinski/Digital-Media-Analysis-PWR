@@ -1,0 +1,61 @@
+{
+ "tiktok": {
+  "median": 729.0,
+  "mean": 29264.015656362906,
+  "top1_share": 61.6,
+  "top10_share": 94.3
+ },
+ "youtube": {
+  "median": 433.0,
+  "mean": 24668.542810323637,
+  "top1_share": 71.9,
+  "top10_share": 95.0
+ },
+ "twitter": {
+  "median": 27.0,
+  "mean": 496.2518025513034,
+  "top1_share": 59.6,
+  "top10_share": 89.3
+ },
+ "facebook": {
+  "median": 2861.0,
+  "mean": 21918.399912203688,
+  "top1_share": 42.5,
+  "top10_share": 76.9
+ },
+ "instagram": {
+  "median": 80.0,
+  "mean": 4885.254416961131,
+  "top1_share": 80.3,
+  "top10_share": 97.1
+ },
+ "extra_features_mae": {
+  "tiktok": {
+   "base": 0.286,
+   "+ metrics age": 0.286,
+   "+ hour, weekday": 0.284,
+   "+ language": 0.285,
+   "+ content length": 0.288,
+   "+ sentiment": 0.285,
+   "all": 0.286
+  },
+  "youtube": {
+   "base": 0.502,
+   "+ metrics age": 0.463,
+   "+ hour, weekday": 0.5,
+   "+ language": 0.503,
+   "+ content length": 0.476,
+   "+ sentiment": 0.501,
+   "all": 0.461
+  },
+  "twitter": {
+   "base": 0.47,
+   "+ metrics age": 0.457,
+   "+ hour, weekday": 0.469,
+   "+ language": 0.47,
+   "+ content length": 0.467,
+   "+ sentiment": 0.466,
+   "all": 0.455
+  }
+ }
+}
