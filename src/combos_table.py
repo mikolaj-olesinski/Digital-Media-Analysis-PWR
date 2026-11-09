@@ -16,7 +16,7 @@ LANG = "pl"
 
 
 def cell(v, bold=False):
-    k = int(np.searchsorted(EDGES, v)); t = f"{v:.1f}".replace(".", "," if LANG == "pl" else ".")
+    k = int(np.searchsorted(EDGES, v)); t = f"{v:.2f}".replace(".", "," if LANG == "pl" else ".")
     t = rf"\textbf{{{t}}}" if bold else t
     return rf"\cellcolor[HTML]{{{COLS[k]}}}" + (rf"\textcolor{{white}}{{{t}}}" if k >= 5 else t)
 
@@ -35,19 +35,20 @@ def main():
             tr = a.split(" + ")
             lab = " + ".join(AB[q] for q in sorted(tr, key=lambda q: [c[a].get(b, {"MAE": 0})["MAE"] for b in P] and P.index(q)))
             cells = [TRAIN[LANG] if b in tr else cell(c[a][b]["factor"], round(c[a][b]["factor"], 2) == round(best[b], 2)) for b in P]
+            lab = {"YT + X": "X + YT"}.get(lab, lab)
             rows.append(lab + " & " + " & ".join(cells) + r" \\")
         rows.append(r"\midrule")
     rows = [r for i, r in enumerate(rows) if not (r == r"\midrule" and i and rows[i - 1] == r"\midrule")][:-1]
     if LANG == "pl":
         head = r"""\begin{table}[!htb]
-\centering\scriptsize
+\centering\small
 \setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.05}
 \caption{Typowy błąd (\x{}) regresji na lajkach i komentarzach przy różnych platformach treningowych.
 \capdet{Ridge na $\log$ lajków i komentarzy, posty z platform treningowych połączone w jeden zbiór. Wiersz: platformy
 w treningu (TT TikTok, YT YouTube, X, FB Facebook, IG Instagram): pojedyncze, X + YouTube (zestaw główny), TikTok + YouTube + X
 i wszystkie z czterema platformami; pełna tabela 30 zestawów jest w repozytorium. Kolumna: platforma testowa, której nie było
 w treningu. Pierwszy wiersz: ten sam ridge uczony na platformie testowej (walidacja po markach), a nie CatBoost
-z Rys.~\ref{fig:main}. Pogrubione: najlepszy wynik w kolumnie wśród pokazanych. Ciemniej: większy błąd.}}
+z Rys.~\ref{fig:main}. Pogrubione: najlepszy wynik w kolumnie wśród pokazanych zestawów (bez pierwszego wiersza). Ciemniej: większy błąd.}}
 \label{tab:combos}
 \begin{tabular}{l|ccccc}
 \toprule
@@ -56,14 +57,14 @@ Trening na & TikTok & YouTube & X & Facebook & Instagram \\
 \textit{ridge, ta sama platforma} & """ + " & ".join(cell(own[b]["factor"]) for b in P) + r" \\ \midrule" + "\n"
     if LANG == "en":
         head = r"""\begin{table}[!htb]
-\centering\scriptsize
+\centering\small
 \setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.05}
 \caption{Typical error (\x{}) of the regression on likes and comments with different training platforms.
 \capdet{Ridge on $\log$ likes and comments, posts from the training platforms pooled into one set. Row: platforms in
 training (TT TikTok, YT YouTube, X, FB Facebook, IG Instagram): single ones, X + YouTube (the main set), TikTok + YouTube + X
 and all sets of four platforms; the full table of 30 sets is in the repository. Column: test platform, absent from training. First row:
-the same ridge trained on the test platform itself (brand-grouped CV), not the CatBoost of Fig.~\ref{fig:main}. Bold:
-best result in the column among those shown. Darker: larger error.}}
+the same ridge trained on the test platform itself (brand-grouped validation), not the CatBoost of Fig.~\ref{fig:main}. Bold:
+best result in the column among the training sets shown (first row excluded). Darker: larger error.}}
 \label{tab:combos}
 \begin{tabular}{l|ccccc}
 \toprule

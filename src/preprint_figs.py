@@ -30,7 +30,7 @@ def dec(v, lang, k=1): return f"{v:.{k}f}".replace(".", "," if lang == "pl" else
 
 def style(a):
     a.set_facecolor(SURF); a.grid(color=GRID, lw=.7); a.set_axisbelow(True)
-    [a.spines[q].set_visible(False) for q in a.spines]; a.tick_params(length=0, labelsize=8.5, colors=MUTED)
+    [a.spines[q].set_visible(False) for q in a.spines]; a.tick_params(length=0, labelsize=9.5, colors=MUTED)
 
 
 def head(fig, title, sub, x=.08, y=1.1):
@@ -52,7 +52,7 @@ def fig_main(D, lang):
                 "prawdziwe wyświetlenia", "oszacowane", "NA TEJ SAMEJ PLATFORMIE (nowe marki i autorzy)", "POZA PLATFORMĄ (uczony tylko na X + YouTube)"),
          "en": ("Trained on the same platform (TikTok, YouTube, X) and on others (Facebook, Instagram)",
                 "Each dot is one post (from a brand and author the model did not see, or from a platform outside training). Band: within ×2. Number: typical error.",
-                "true views", "predicted", "SAME PLATFORM (new brands and authors)", "OUT OF PLATFORM (trained only on X + YouTube)")}[lang]
+                "true views", "estimated", "SAME PLATFORM (new brands and authors)", "OUT OF PLATFORM (trained only on X + YouTube)")}[lang]
     fig, ax = plt.subplots(1, 5, figsize=(12, 3.3), sharex=True, sharey=True, gridspec_kw={"wspace": .06}); fig.patch.set_facecolor(SURF)
     xx = np.array([-.5, 8]); box = dict(boxstyle="round,pad=0.2", fc=SURF, ec="none", alpha=.85)
     for a, p in zip(ax, P5):
@@ -63,8 +63,8 @@ def fig_main(D, lang):
         a.text(.96, .06, "×" + dec(10 ** np.abs(e).mean(), lang, 2), transform=a.transAxes, ha="right", fontsize=15, fontweight="bold", color=COL[p], bbox=box)
     lab = ["1", "10", "100", "1k", "10k", "100k", "1M", "10M"]
     ax[0].set_xticks(range(0, 8, 2)); ax[0].set_xticklabels(lab[::2]); ax[0].set_yticks(range(0, 8, 2)); ax[0].set_yticklabels(lab[::2])
-    ax[0].set_xlim(-.3, 7.5); ax[0].set_ylim(-.3, 7.5); ax[0].set_ylabel(T[3], fontsize=9, color=MUTED)
-    fig.supxlabel(T[2], fontsize=9, color=MUTED, y=-.04)
+    ax[0].set_xlim(-.3, 7.5); ax[0].set_ylim(-.3, 7.5); ax[0].set_ylabel(T[3], fontsize=10.5, color=MUTED)
+    fig.supxlabel(T[2], fontsize=10.5, color=MUTED, y=.0)
     for a0, a1, t in ((ax[0], ax[2], T[4]), (ax[3], ax[4], T[5])):
         x0, x1 = a0.get_position().x0, a1.get_position().x1
         fig.add_artist(plt.Line2D([x0, x1], [.99, .99], color=MUTED, lw=1)); fig.text((x0 + x1) / 2, 1.0, t, ha="center", fontsize=9, color=MUTED)
@@ -146,7 +146,7 @@ def fig_side(lang):
     emv = {"tiktok": .61, "youtube": .57, "twitter": .47}          # E188 card (no numbers file)
     T = {"pl": ("Zastosowania: alert o wybiciu, ranking marek i wartość medialna",
                 "Wszystko na markach, których model nie widział.",
-                ("Alert: trafność wśród 5% postów\nwskazanych jako wybijające się", "z pierwszym odczytem wyświetleń", "same reakcje"),
+                ("Alert: precyzja wśród 5% postów\nwskazanych jako wybijające się", "z pierwszym odczytem wyświetleń", "same reakcje"),
                 ("Ranking marek w branży i miesiącu\n(Kendall: 1 = idealna kolejność)",),
                 ("Wartość medialna marki (EMV):\nudział marek w granicach ±50%",)),
          "en": ("Uses: early viral alert, brand ranking and media value",
@@ -157,16 +157,17 @@ def fig_side(lang):
     fig, ax = plt.subplots(1, 3, figsize=(11, 3.2), gridspec_kw={"wspace": .25}); fig.patch.set_facecolor(SURF)
     P3 = ["tiktok", "youtube", "twitter"]; x = np.arange(3)
     a = ax[0]; style(a); a.grid(axis="x", visible=False)
-    a.bar(x - .18, [al[p][0] for p in P3], .34, color=[COL[p] for p in P3], label=T[2][1])
-    a.bar(x + .18, [al[p][1] for p in P3], .34, color=[COL[p] for p in P3], alpha=.35, label=T[2][2])
+    a.bar(x - .18, [al[p][0] for p in P3], .34, color=[COL[p] for p in P3])
+    a.bar(x + .18, [al[p][1] for p in P3], .34, color=[COL[p] for p in P3], alpha=.35)
+    a.bar([0], [0], color="#6f6e69", label=T[2][1]); a.bar([0], [0], color="#6f6e69", alpha=.35, label=T[2][2])
     for i, p in enumerate(P3):
-        a.text(i - .18, al[p][0] + .02, dec(al[p][0], lang, 2), ha="center", fontsize=8, color=INK); a.text(i + .18, al[p][1] + .02, dec(al[p][1], lang, 2), ha="center", fontsize=8, color=MUTED)
-    a.set_title(T[2][0], fontsize=9.5, color=INK, loc="left"); a.legend(frameon=False, fontsize=7.5, loc="upper left", ncol=1)
+        a.text(i - .18, al[p][0] + .02, dec(al[p][0], lang, 2), ha="center", fontsize=9, color=INK); a.text(i + .18, al[p][1] + .02, dec(al[p][1], lang, 2), ha="center", fontsize=9, color=MUTED)
+    a.set_title(T[2][0], fontsize=10, color=INK, loc="left"); a.legend(frameon=False, fontsize=8.5, loc="upper left", ncol=1)
     for a, vals, t in ((ax[1], kendall, T[3][0]), (ax[2], emv, T[4][0])):
         style(a); a.grid(axis="x", visible=False); a.bar(x, [vals[p] for p in P3], .5, color=[COL[p] for p in P3])
-        for i, p in enumerate(P3): a.text(i, vals[p] + .02, dec(vals[p], lang, 2) if a is ax[1] else f"{vals[p]:.0%}", ha="center", fontsize=8.5, color=INK)
-        a.set_title(t, fontsize=9.5, color=INK, loc="left")
-    for a in ax: a.set_xticks(x); a.set_xticklabels([LAB[p] for p in P3]); a.set_ylim(0, 1.18); a.set_yticks([0, .5, 1]); a.set_yticklabels(["0", dec(.5, lang), "1"])
+        for i, p in enumerate(P3): a.text(i, vals[p] + .02, dec(vals[p], lang, 2) if a is ax[1] else f"{vals[p]:.0%}", ha="center", fontsize=9.5, color=INK)
+        a.set_title(t, fontsize=10, color=INK, loc="left")
+    for a in ax: a.set_xticks(x); a.set_xticklabels([LAB[p] for p in P3]); a.set_ylim(0, 1.18); a.set_yticks([0, .5, 1]); a.set_yticklabels(["0%", "50%", "100%"] if a is ax[2] else ["0", dec(.5, lang), "1"])
     head(fig, T[0], T[1], x=.125); save(fig, "side", lang)
 
 
@@ -230,14 +231,14 @@ def fig_needs(lang):
     st = json.loads((ROOT / "data/processed/fallback_estimator_numbers.json").read_text())["E177"]["Brand24 likes + comments"]["factor"]
     d = json.loads((ROOT / "data/processed/fallback_estimator_numbers.json").read_text())["E176"]
     T = {"pl": ("Najważniejsze są lajki odczytane razem z wyświetleniami",
-                ("A. Poza platformą: Facebook i Instagram (model z X + YouTube)", ["lajki + komentarze", "tylko komentarze", "reakcje z eksportu\n(inny moment)"]),
+                ("A. Poza platformą: FB i IG (model z X + YT)", ["lajki + komentarze", "tylko komentarze", "reakcje z eksportu\n(inny moment)"]),
                 ("B. Na tej samej platformie: TikTok, YouTube, X, gdy brakuje pól", ["pełne dane", "bez\nobserwujących", "bez reakcji", "bez reakcji\ni obserwujących"]),
                 "typowy błąd (×)"),
          "en": ("What matters most: likes read together with the views",
-                ("A. Out of platform: Facebook and Instagram (model from X + YouTube)", ["likes + comments", "comments only", "export reactions\n(another time)"]),
+                ("A. Out of platform: FB and IG (model from X + YT)", ["likes + comments", "comments only", "export reactions\n(another time)"]),
                 ("B. Same platform: TikTok, YouTube, X, when fields are missing", ["all fields", "no\nfollowers", "no reactions", "no reactions\nor followers"]),
                 "typical error (×)")}[lang]
-    fig, ax = plt.subplots(1, 2, figsize=(11, 3.4), gridspec_kw={"wspace": .18, "width_ratios": [1, 1.3]}); fig.patch.set_facecolor(SURF)
+    fig, ax = plt.subplots(1, 2, figsize=(11, 3.4), gridspec_kw={"wspace": .28, "width_ratios": [1, 1.3]}); fig.patch.set_facecolor(SURF)
     a = ax[0]; style(a); a.grid(axis="x", visible=False)
     vals = {"facebook": [b["facebook"]["factor"], b["facebook"]["comments only (X + YouTube ridge)"]["factor"], st],
             "instagram": [b["instagram"]["factor"], b["instagram"]["comments only (X + YouTube ridge)"]["factor"], np.nan]}
@@ -246,15 +247,15 @@ def fig_needs(lang):
         for xi, v in zip(x, vals[p]):
             if np.isnan(v): a.text(xi, 1.15, "—", ha="center", fontsize=9, color=MUTED); continue
             a.bar(xi, v - 1, bottom=1, width=.34, color=COL[p], label=LAB[p] if xi == x[0] else None)
-            a.text(xi, v + .1, dec(v, lang), ha="center", fontsize=8, color=INK)
-    a.set_xticks(range(3)); a.set_xticklabels(T[1][1], fontsize=8.5); a.set_title(T[1][0], fontsize=9.5, loc="left", color=INK)
+            a.text(xi, v + .1, "×" + dec(v, lang, 2), ha="center", fontsize=8.5, color=INK)
+    a.set_xticks(range(3)); a.set_xticklabels(T[1][1], fontsize=9.5); a.set_title(T[1][0], fontsize=10.5, loc="left", color=INK)
     a.legend(frameon=False, fontsize=8.5, loc="upper left"); a.set_ylim(1, 9); a.set_ylabel(T[3], fontsize=9, color=MUTED)
     a = ax[1]; style(a); a.grid(axis="x", visible=False); K = ["full", "no followers", "no reactions", "nothing"]
     for k, p in enumerate(["tiktok", "youtube", "twitter"]):
         v = [10 ** d[p][q]["MAE"] for q in K]; x = np.arange(4) + (k - 1) * .26
         a.bar(x, np.array(v) - 1, bottom=1, width=.24, color=COL[p], label=LAB[p])
-        for xi, vi in zip(x, v): a.text(xi, vi + .1, dec(vi, lang), ha="center", fontsize=7.5, color=INK)
-    a.set_xticks(range(4)); a.set_xticklabels(T[2][1], fontsize=8.5); a.set_title(T[2][0], fontsize=9.5, loc="left", color=INK)
+        for xi, vi in zip(x, v): a.text(xi, vi + .1, "×" + dec(vi, lang, 1), ha="center", fontsize=8.5, color=INK)
+    a.set_xticks(range(4)); a.set_xticklabels(T[2][1], fontsize=9.5); a.set_title(T[2][0], fontsize=10.5, loc="left", color=INK)
     a.legend(frameon=False, fontsize=8.5, loc="upper left"); a.set_ylim(1, 9)
     fig.text(.125, 1.03, T[0], fontsize=13, fontweight="bold", color=INK); save(fig, "needs", lang)
 

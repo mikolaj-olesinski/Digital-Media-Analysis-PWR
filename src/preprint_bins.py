@@ -44,35 +44,35 @@ def main():
     for f in Path("/usr/share/fonts/truetype/liberation").glob("LiberationSans-*.ttf"): fm.fontManager.addfont(str(f))
     plt.rcParams.update({"font.family": "Liberation Sans" if any(f.name == "Liberation Sans" for f in fm.fontManager.ttflist) else "DejaVu Sans"})
     for lang in ["en", "pl"]:
-        T = {"en": ("Out of platform, three ranges: balanced accuracy {lo}-{hi}% (X: {x}%), guessing 33%",
+        T = {"en": ("Out of platform, three ranges: balanced accuracy {lo}–{hi}% (X: {x}%), guessing 33%",
                     "The model never saw the target platform: ridge trained on the other four. Rows: true range; columns: estimated; diagonal = recall.",
-                    ["<1k", "1k-10k", ">10k"], "true", "estimated", "accuracy", "baseline", "balanced acc."),
-             "pl": ("Poza platformą, trzy przedziały: balanced accuracy {lo}–{hi}% (X: {x}%), zgadywanie 33%",
+                    ["<1k", "1k–10k", ">10k"], "true", "estimated", "accuracy", "guessing", "balanced"),
+             "pl": ("Poza platformą, trzy przedziały: trafność zrównoważona {lo}–{hi}% (X: {x}%), zgadywanie 33%",
                     "Model nie widział platformy docelowej: ridge uczony na pozostałych czterech. Wiersze: prawdziwy przedział, kolumny: oszacowany; przekątna = recall.",
-                    ["<1 tys.", "1–10 tys.", ">10 tys."], "prawdziwe", "oszacowane", "accuracy", "zgadywanie", "balanced acc.")}[lang]
+                    ["<1 tys.", "1–10 tys.", ">10 tys."], "prawdziwe", "oszacowane", "trafność", "zgadywanie", "zrównoważona")}[lang]
         acc = [out[p]["balanced accuracy"] for p in P if p != "twitter"]; xa = round(out["twitter"]["balanced accuracy"] * 100)
-        fig, ax = plt.subplots(1, 5, figsize=(15, 3.6), gridspec_kw={"wspace": .12}); fig.patch.set_facecolor(SURF)
+        fig, ax = plt.subplots(1, 5, figsize=(11.5, 3.9), gridspec_kw={"wspace": .14}); fig.patch.set_facecolor(SURF)
         for a, p in zip(ax, P):
             C = M[p]; R = C / C.sum(1, keepdims=True).clip(1)
             cmap = LinearSegmentedColormap.from_list("c", ["#f4f3ef", COL[p]])
             a.imshow(R, cmap=cmap, vmin=0, vmax=1)
             for i in range(3):
                 for j in range(3):
-                    a.text(j, i, f"{R[i, j]:.0%}" + f"\n({C[i, j]})", ha="center", va="center", fontsize=8.5, color="white" if R[i, j] > .55 else INK,
+                    a.text(j, i, f"{R[i, j]:.0%}" + f"\n({C[i, j]})", ha="center", va="center", fontsize=10, color="white" if R[i, j] > .55 else INK,
                            fontweight="bold" if i == j else "normal")
-            a.set_xticks(range(3)); a.set_xticklabels(T[2], fontsize=8, color=MUTED); a.set_yticks(range(3))
-            a.set_yticklabels(T[2] if p == "tiktok" else [], fontsize=8, color=MUTED); a.tick_params(length=0)
+            a.set_xticks(range(3)); a.set_xticklabels(T[2], fontsize=9.5, color=MUTED); a.set_yticks(range(3))
+            a.set_yticklabels(T[2] if p == "tiktok" else [], fontsize=9.5, color=MUTED); a.tick_params(length=0)
             [a.spines[s].set_visible(False) for s in a.spines]
-            a.set_xlabel(T[4], fontsize=8, color=MUTED)
-            if p == "tiktok": a.set_ylabel(T[3], fontsize=8, color=MUTED)
+            a.set_xlabel(T[4], fontsize=9.5, color=MUTED)
+            if p == "tiktok": a.set_ylabel(T[3], fontsize=9.5, color=MUTED)
             s = out[p]; dec = (lambda v: f"{v:.0%}")
             tag = {"pl": "uczony na pozostałych czterech", "en": "trained on the other four"}[lang]
             f1 = f"{s['macro F1']:.2f}".replace(".", "," if lang == "pl" else ".")
-            a.text(0, 1.25, LAB[p], transform=a.transAxes, fontsize=12, color=COL[p], fontweight="bold")
-            a.text(0, 1.14, f"{T[5]} {dec(s['accuracy'])} · {T[7]} {dec(s['balanced accuracy'])}", transform=a.transAxes, fontsize=8.5, color=INK)
-            a.text(0, 1.04, f"macro F1 {f1} · {T[6]}: {dec(s['majority baseline'])} / {dec(s['balanced accuracy, majority baseline'])}", transform=a.transAxes, fontsize=8, color="#8a8984")
+            a.text(0, 1.30, LAB[p], transform=a.transAxes, fontsize=13, color=COL[p], fontweight="bold")
+            a.text(0, 1.17, f"{T[5]} {dec(s['accuracy'])} · {T[7]} {dec(s['balanced accuracy'])}", transform=a.transAxes, fontsize=9.5, color=INK)
+            a.text(0, 1.05, f"F1 {f1} · {T[6]}: {dec(s['majority baseline'])} / {dec(s['balanced accuracy, majority baseline'])}", transform=a.transAxes, fontsize=9, color="#6f6e69")
         title = T[0].format(lo=round(min(acc) * 100), hi=round(max(acc) * 100), x=xa)
-        fig.text(.125, 1.2, title, fontsize=13.5, fontweight="bold", color=INK); fig.text(.125, 1.13, T[1], fontsize=9.5, color=MUTED)
+        fig.text(.125, 1.13, title, fontsize=13.5, fontweight="bold", color=INK); fig.text(.125, 1.07, T[1], fontsize=9.5, color=MUTED)
         fig.savefig(ROOT / "figures" / f"preprint_bins_{lang}.png", dpi=170, bbox_inches="tight", facecolor=SURF); plt.close(fig)
     print(json.dumps({p: {k: out[p][k] for k in ["n", "accuracy", "within one range", "majority baseline", "true share per range"]} for p in P}, indent=0))
 

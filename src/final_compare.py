@@ -21,7 +21,7 @@ PLOT = ["twitter"]  # figure: X only
 LAB = {"twitter": "X", "facebook": "Facebook", "instagram": "Instagram"}
 SUB = {"pl": {"twitter": "nowe marki i autorzy", "facebook": "bez danych z FB", "instagram": "bez danych z IG"},
        "en": {"twitter": "new brands and authors", "facebook": "no FB data", "instagram": "no IG data"}}
-INK, MUTED, SURF, OURS, B24 = "#0b0b0b", "#52514e", "#fcfcfb", "#2a78d6", "#a8a6a0"
+INK, MUTED, SURF, OURS, B24 = "#0b0b0b", "#52514e", "#fcfcfb", "#3d3c39", "#c4c2bb"
 
 
 def stats(y, p, g):
@@ -60,12 +60,12 @@ def main():
         pl = lang == "pl"; dec = lambda v, k=1: f"{v:.{k}f}".replace(".", "," if pl else ".")
         T = ("Kolumna zasięgu w eksporcie jest daleko od liczby wyświetleń" if pl else "The reach column in the export is far from the view count",
              "Te same posty z X (1 803). Model uczony na X, oceniany na markach i autorach, których nie widział." if pl else
-             "The same X posts (1,803). Model trained on X, scored on brands and authors it has not seen.",
+             "The same X posts (1 803). Model trained on X, evaluated on brands and authors it has not seen.",
              "nasz model" if pl else "our model", "zasięg Brand24" if pl else "Brand24 reach", "typowy błąd (×)" if pl else "typical error (×)",
              "w granicach ×2" if pl else "within ×2")
         fig, ax = plt.subplots(1, 2, figsize=(10, 1.5), gridspec_kw={"wspace": .35}); fig.patch.set_facecolor(SURF)
         yy = np.arange(len(PLOT))[::-1]
-        for a, key, fmt in [(ax[0], "factor", lambda v: "×" + dec(v)), (ax[1], "within x2", lambda v: f"{v:.0%}")]:
+        for a, key, fmt in [(ax[0], "factor", lambda v: "×" + dec(v, 2)), (ax[1], "within x2", lambda v: f"{v:.0%}")]:
             a.set_facecolor(SURF)
             for k, (who, c) in enumerate([("ours", OURS), ("Brand24 reach", B24)]):
                 v = [res[p][who][key] for p in PLOT]; pos = yy + (.18 if k == 0 else -.18)
@@ -74,7 +74,7 @@ def main():
             a.set_yticks(yy); a.set_yticklabels([] if a is not ax[0] else [LAB[p] for p in PLOT], fontsize=10, color=INK, fontweight="bold")
             if a is ax[0]:
                 for yv, p in zip(yy, PLOT):
-                    a.text(-.03, yv - .32, SUB[lang][p], transform=a.get_yaxis_transform(), ha="right", va="center", fontsize=7.5, color=MUTED)
+                    a.text(-.03, yv - .32, SUB[lang][p], transform=a.get_yaxis_transform(), ha="right", va="center", fontsize=9, color=MUTED)
             a.tick_params(length=0, labelsize=8, colors=MUTED); [a.spines[s].set_visible(False) for s in a.spines]
             a.grid(axis="x", color="#ebeae6", lw=.7, zorder=0); a.set_title(T[4] if key == "factor" else T[5], fontsize=10, color=MUTED, loc="left")
         ax[0].set_xscale("log"); ax[0].minorticks_off(); ax[0].set_xlim(1, 60); ax[0].set_xticks([1, 2, 5, 10, 20, 50]); ax[0].set_xticklabels(["1", "2", "5", "10", "20", "50"])

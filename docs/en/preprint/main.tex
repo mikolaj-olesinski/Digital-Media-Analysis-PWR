@@ -21,6 +21,8 @@
 \newcommand{\capdet}[1]{\par\footnotesize\color{black!75}#1}
 \setlist{nosep,leftmargin=1.4em}
 \newcommand{\x}[1]{$\times$#1}
+\newcommand{\xb}[1]{\textbf{$\boldsymbol{\times}$#1}}
+\widowpenalty=10000 \clubpenalty=10000
 \newcommand{\todo}[1]{\textcolor{red!70!black}{\textbf{TODO:} #1}}
 
 \title{Estimating hidden post views from reactions:\\transferring a model across platforms}
@@ -32,12 +34,10 @@
 
 \begin{abstract}
 On Facebook and Instagram, media-monitoring data contain no view counts. We test whether views can be estimated from
-likes and comments by a model that has never seen a view count from these platforms. A linear regression on likes and
-comments, trained only on X and YouTube, estimates the views of 402 Facebook videos with a typical error of \x{2.43}
-(MAE 0.385 on the $\log_{10}$ scale), the same as the same model trained on Facebook, and of 642 Instagram reels with
-\x{2.72}, worse than the same model trained on Instagram (\x{2.41}). The median views of the source platforms are off by
+likes and comments by a model that has never seen a view count from these platforms. A linear (ridge) regression on likes and comments, trained only on X and YouTube, estimates the views of 402 Facebook videos with a typical error of \x{2.43}
+(MAE 0.385 on the $\log_{10}$ scale), matching the same model trained on Facebook, and of 642 Instagram reels with \x{2.72} (MAE 0.435), worse than the same model trained on Instagram (\x{2.41}). The median views of the source platforms are off by
 \x{9}--\x{20} there. In practice the model transfers the ratio of views to likes: it beats a fixed likes multiplier on
-three of six target platforms, is not worse on two and is worse on X. The transfer needs reactions read at the same
+three of six target platforms, is not clearly different on two (the confidence interval reaches zero) and is worse on X. The transfer needs reactions read at the same
 moment as the views; on Stack Exchange only the ordering transfers, and the level is worse than a constant median. The
 results rest on 20 and 11 brands respectively, and source and target views were read at different post ages (23 against
 over 300 days), which may partly mask differences.
@@ -81,8 +81,7 @@ from reactions and followers (according to our reconstruction) and which replace
 Facebook and Instagram we collected the views ourselves in November 2026, together with likes and comments from the
 same moment. Of 470 Facebook videos, 68 had been removed, leaving 402 from 20 brands. Of 976 Instagram reels, 261 had
 been removed, 19 had no view counter and 54 had hidden likes, leaving 642 from 11 brands. Ordinary posts on these
-platforms have no view counter, so the results apply only to videos and reels. We also re-read the views and reactions
-of 2\,013 X posts, 1\,376 YouTube posts and 426 TikTok posts (Section~\ref{sec:transfer}).
+platforms have no view counter, so the results apply only to videos and reels (Table~\ref{tab:data}, Fig.~\ref{fig:data}). We also re-read the views and reactions of 2\,013 X posts (including ones without views in the export), 1\,376 YouTube posts and 426 TikTok posts (Section~\ref{sec:transfer}).
 
 \begin{table}[!htb]
 \centering\small
@@ -91,13 +90,13 @@ of 2\,013 X posts, 1\,376 YouTube posts and 426 TikTok posts (Section~\ref{sec:t
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{lrrlrrr}
 \toprule
-Platform & Brands & Authors & Source of views & Posts w/ views & Median views & Views/like \\
+Platform & Brands & Authors & Source of views & Posts with views & Median views & Views/like \\
 \midrule
 TikTok    & 266 & 2\,411 & Brand24 export       & 2\,491 & 729    & 25 \\
 YouTube   & 273 & 2\,041 & Brand24 export       & 2\,441 & 433    & 26 \\
 X         & 252 & 1\,658 & Brand24 export       & 1\,803 & 27     & 22 \\
-Facebook  & 20  & $\geq$182\textsuperscript{a} & own read (videos) & 402    & 1\,413 & 35 \\
-Instagram & 11  & ?\textsuperscript{b} & own read (reels) & 642    & 504    & 53 \\
+Facebook  & 20  & $\geq$182\textsuperscript{a} & our read (videos) & 402    & 1\,413 & 35 \\
+Instagram & 11  & ?\textsuperscript{b} & our read (reels) & 642    & 504    & 53 \\
 \bottomrule
 \end{tabular}
 \par\footnotesize a: author known for 74\% of videos. b: author known for only 11\% of reels (59 authors among 72).
@@ -116,32 +115,29 @@ many times more views a post with 10 times more likes has (6--12). TikTok, YouTu
 
 \section{Method}\label{sec:met}
 
-We predict $y=\log_{10}(\text{views})$. We report the error as MAE on this scale and as the \emph{typical error}, the
+We predict $y=\log_{10}(\text{views})$. We report the error as the mean absolute error (MAE) on this scale and as the \emph{typical error}, the
 factor $10^{\text{MAE}}$ (MAE 0.30 $\approx$ \x{2}; the geometric mean ratio of estimate to truth). Agreement in ordering
 is measured by Spearman's rank correlation between estimated and true views. Every model is compared with two rules:
 the median views and a \emph{fixed likes multiplier} (views $=k\cdot$likes, $k$ the median ratio of views to likes in
-the training data, about 25). Confidence intervals come from a bootstrap over brands, and differences between models on
+the training data, about 25). 95\% confidence intervals (CI) come from a bootstrap over brands, and differences between models on
 the same posts from a paired bootstrap over brands.
 
 \textbf{Validation.} We join posts into groups if they share a brand, an author or an identical text (an author
 sometimes writes about several brands, and the same text is sometimes pasted on different accounts), and split whole
-groups into five folds. Every evaluation is thus on a brand and an author the model has not seen. Method comparisons
-(Table~\ref{tab:models} and Fig.~\ref{fig:needs}B) use a simpler split by brand alone; their numbers differ from
-Fig.~\ref{fig:main} by at most 0.012 (CatBoost on X: \x{2.95} against \x{3.03}), and the ordering of methods does not
+groups into five folds. Every evaluation is thus on a brand and an author the model has not seen. The method comparisons (Section~\ref{sec:nie} and the missing-field test in Section~\ref{sec:transfer}) use a simpler split by brand alone; their numbers differ from the main results by at most 0.012 (CatBoost on X: \x{2.95} against \x{3.03}), and the ordering of methods does not
 change.
 
 \begin{tcolorbox}[colback=black!3,colframe=black!25,boxrule=.4pt,left=4pt,right=4pt,top=2pt,bottom=2pt]\small
 \textbf{Two scenarios, marked in every figure.} \emph{Same platform}: CatBoost trained on posts from the given platform
 (TikTok, YouTube, X), evaluated on brands and authors it has not seen. \emph{Out of platform}: ridge regression that sees
-not a single post from the target platform in training (Facebook, Instagram, Stack Exchange; in
-Tables~\ref{tab:rules} and~\ref{tab:combos} also TikTok, YouTube and X in turn); target views are used only for
+not a single post from the target platform in training (Facebook, Instagram, Stack Exchange; in the comparisons of training sets also TikTok, YouTube and X in turn); target views are used only for
 evaluation.
 \end{tcolorbox}
 
 \textbf{Models.} On the same platform we use CatBoost~\cite{catboost} on followers, reactions and missingness flags (a
 separate feature says whether a field was empty, because missing is not zero). Out of platform we use ridge
 regression~\cite{hoerl1970} on $\log(1+\text{likes})$ and $\log(1+\text{comments})$, the two fields every platform has,
-trained on X and YouTube together. With the target platform left out it transfers better than CatBoost and MLPs (by
+trained on X and YouTube together. With the target platform left out it transfers better than CatBoost and multilayer perceptrons (MLP; by
 0.014--0.062 MAE on each of the five platforms, also after data augmentation). The main Facebook and Instagram numbers
 use the Brand24 export for X and YouTube; the variant with a re-read source (Section~\ref{sec:transfer}) is reported
 separately, because it was tested after part of the reels had been seen. Per-post 50\% and 90\% intervals come from
@@ -155,14 +151,14 @@ is corrected on a held-out part of the data so that coverage matches the target.
   title={\textbf{Main results: how far off we are on a single post}},fonttitle=\small,coltitle=white,colbacktitle=blue!45!black]
 \centering\small
 \begin{tabular}{lllccc}
- & & Posts / brands & \textbf{Our error} & Within \x{2} & Constant median \\
+  & & Posts / brands & \textbf{Our error} (MAE) & Within \x{2} & Constant median \\
 \midrule
-\multirow{3}{*}{\shortstack[l]{Same\\platform}} & TikTok & 2,491 / 266 & \textbf{\x{1.87}} & 67\% & \x{4.6} \\
- & YouTube & 2,441 / 273 & \textbf{\x{2.90}} & 43\% & \x{8.8} \\
- & X & 1,803 / 252 & \textbf{\x{3.03}} & 40\% & \x{4.6} \\
+\multirow{3}{*}{\shortstack[l]{Same\\platform}} & TikTok & 2\,491 / 266 & \xb{1.87} (0.273) & 67\% & \x{4.60} \\
+ & YouTube & 2\,441 / 273 & \xb{2.90} (0.462) & 43\% & \x{8.77} \\
+ & X & 1\,803 / 252 & \xb{3.03} (0.482) & 40\% & \x{4.63} \\
 \midrule
-\multirow{2}{*}{\shortstack[l]{Out of platform\\(0 target posts)}} & Facebook & 402 / 20 & \textbf{\x{2.43}} & 53\% & \x{19.9} \\
- & Instagram & 642 / 11 & \textbf{\x{2.72}} & 40\% & \x{8.7} \\
+\multirow{2}{*}{\shortstack[l]{Out of platform\\(0 target posts)}} & Facebook & 402 / 20 & \xb{2.43} (0.385) & 53\% & \x{19.87} \\
+ & Instagram & 642 / 11 & \xb{2.72} (0.435) & 40\% & \x{8.69} \\
 \end{tabular}
 
 \smallskip\raggedright\footnotesize Our error: typical error $10^{\text{MAE}}$, e.g.\ \x{2.43} means the estimate is usually 2.43 times
@@ -173,11 +169,10 @@ the median of X and YouTube).
 
 \paragraph{Same platform.} On TikTok, YouTube and X the typical error is \x{1.87}, \x{2.90} and \x{3.03}
 (MAE 0.273 / 0.462 / 0.482; Fig.~\ref{fig:main}). A fixed likes multiplier gives \x{2.23}, \x{4.06} and \x{3.63} here,
-so CatBoost beats it on every platform by 0.075--0.15 MAE (the confidence intervals of the differences exclude zero).
+so CatBoost beats it on every platform by 0.075--0.147 MAE (the confidence intervals of the differences exclude zero).
 
 \paragraph{Out of platform.} On Facebook and Instagram the model has not seen a single post from these platforms, and
-its error is MAE 0.385 (\x{2.43}, 95\% CI \x{2.05}--\x{3.03}) and 0.435 (\x{2.72}, \x{2.49}--\x{3.05}). On Facebook the error is the same as when the same model is
-trained on Facebook (\x{2.42}; difference 0.001, 95\% CI [$-$0.03, 0.03], i.e.\ at most \x{1.07} either way). On
+its error is MAE 0.385 (\x{2.43}, 95\% CI \x{2.05}--\x{3.03}) and 0.435 (\x{2.72}, \x{2.49}--\x{3.05}). On Facebook the error is the same as for a ridge trained on Facebook itself (\x{2.42}; difference 0.001, 95\% CI [$-$0.028, 0.028], i.e.\ at most \x{1.07} either way). On
 Instagram it is clearly worse than a ridge trained on Instagram itself (\x{2.41}; difference 0.054, 95\% CI [0.021, 0.093]), and 72\%
 of reels are underestimated, because the median reel has 53 views per like, against about 25 on X and YouTube
 (Table~\ref{tab:data}). The result does not depend on choosing X and YouTube: the median over all 15 training sets
@@ -201,16 +196,14 @@ $10^{\text{MAE}}$.}}
 
 \paragraph{Regression versus a fixed multiplier.} In practice the regression transfers the ratio of views to likes, so
 it must be compared with the multiplier alone, fitted on the same data (Table~\ref{tab:rules}). The regression is better
-on TikTok, Instagram and Stack Exchange, not better on Facebook and YouTube (the confidence intervals reach zero), and
-worse on X, where 62\% of posts have no like
-and comments pull the estimate the wrong way. Both are 2--8 times more accurate than the median of the source platforms
+on TikTok, Instagram and Stack Exchange, not clearly different on Facebook and YouTube (the confidence intervals reach zero), and worse on X, where 62\% of posts have no like, and comments pull the estimate the wrong way. Both are 2--8 times more accurate than the median of the source platforms
 on every video platform, but on Stack Exchange the median beats both.
 
 \begin{table}[!htb]
 \centering\small
 \caption{Out of platform: the regression versus simple rules fitted on the same source platforms.
 \capdet{Typical error (\x{}); MAE difference regression $-$ multiplier with a paired brand-bootstrap 95\% CI (negative:
-regression better). Source: X + YouTube; for X and YouTube as targets, the other four platforms. Median: one number for
+regression better). YT: YouTube. Source: X + YouTube; for X and YouTube as targets, the other four platforms. Median: one number for
 all posts, the median views of the source.}}
 \label{tab:rules}
 \begin{tabular}{llcccc}
@@ -231,10 +224,10 @@ Stack Exchange & X + YT & \x{3.14} & \x{5.33} & $-$0.229 [$-$0.240, $-$0.207] & 
 \paragraph{Who is estimated badly.} On every platform, also out of platform, the model overestimates posts with few
 views (about \x{2} below 100 views) and underestimates large ones. This is regression to the mean: reactions do not
 separate a post that broke out from an ordinary one well. It is strongest on X, where posts above 10\,000 views are
-underestimated about tenfold; out of platform, Instagram underestimates large reels by about \x{3}.
+underestimated by about \x{10}; out of platform, Instagram underestimates large reels by about \x{3}.
 
 \paragraph{Intervals.} On the same platform the 90\% interval covers 87--91\% of posts on TikTok, YouTube and X, also
-when the model is trained on earlier months and tested on a later one (0.90--0.93). Out of platform the spread of the X
+when the model is trained on earlier months and tested on a later one (90--93\%). Out of platform the spread of the X
 and YouTube errors alone gives too wide an interval (it covers 96\% of Facebook videos). A well-calibrated interval needs
 calibration on a few brands from the target platform, i.e.\ a few dozen posts with known views: calibrated on 25\% of
 the brands it covers 89\% of Facebook videos, but only 84\% for the 70 videos from accounts above one million followers
@@ -245,11 +238,10 @@ the brands it covers 89\% of Facebook videos, but only 84\% for the 70 videos fr
 
 \paragraph{Different training sets.} We have true views on all five platforms, so each can be treated as ``hidden''
 (Table~\ref{tab:combos}). Facebook and Instagram can be estimated from almost any set with an error of
-\x{2.4}--\x{3.1}: on Facebook as well as a ridge trained on it (\x{2.4}), on Instagram \x{2.5}--\x{2.8} against
-\x{2.4}. Training on X alone is the worst. X is an exception in both directions: a model trained on X is off by \x{5.5}
+\x{2.4}--\x{3.1}: on Facebook as well as a ridge trained on it (\x{2.4}), on Instagram \x{2.5}--\x{2.8} against \x{2.4} (ranges over all 15 sets, of which Table~\ref{tab:combos} shows a part; the full table is in the repository). Training on X alone is the worst. X is an exception in both directions: a model trained on X is off by \x{5.5}
 on YouTube, and no set reaches an error below \x{3.6} on X, against \x{3.3} when trained on X. Part of this gap is the
 early read of views in the export: on re-read data X as the target has \x{3.0} instead of \x{4.4}, and YouTube \x{2.2}
-instead of \x{4.1} (medians over sets). Confidence intervals are about $\pm$0.013--0.032 MAE on TikTok, YouTube and X,
+instead of \x{4.1} (medians over the re-read sets). Confidence intervals are about $\pm$0.013--0.032 MAE on TikTok, YouTube and X,
 $\pm$0.04 on Instagram and $\pm$0.07 on Facebook, so differences between sets below about \x{1.1}--\x{1.2} on Facebook
 and Instagram are within noise.
 % E201 (train_combos_numbers.json); E210 grid; E227 CIs.
@@ -258,14 +250,13 @@ and Instagram are within noise.
 
 \paragraph{Three ranges instead of a number.} This test is entirely out of platform, also for TikTok, YouTube and X,
 so the model differs from the one in Fig.~\ref{fig:main}. We cut views into three ranges: below 1\,000, 1\,000--10\,000
-and above 10\,000 (Fig.~\ref{fig:bins}). Accuracy is 78--81\%, but the ranges differ greatly in size, so balanced
+and above 10\,000 (Fig.~\ref{fig:bins}). Accuracy is 78--81\% (excluding X), but the ranges differ greatly in size, so balanced
 accuracy (mean recall over ranges) matters more: 78\% on TikTok, 76\% on Facebook, 70\% on YouTube and 65\% on
-Instagram, against 33\% for guessing; macro F1 0.70--0.78. We are off by two ranges for 0.2--1.9\% of posts. The middle
+Instagram, against 33\% for guessing; macro F1 (mean F1 over ranges) 0.70--0.78. We are off by two ranges for 0.2--1.9\% of posts. The middle
 range is usually the weakest (recall 50--73\%), on Instagram the top one (49\%). On X the model practically fails: the
-96\% accuracy comes from 95\% of posts having fewer than a thousand views, and balanced accuracy is only 46\% (of 98
+96\% accuracy comes from 95\% of posts having fewer than a thousand views, and balanced accuracy is only 46\% (macro F1 0.52; of 98
 posts above a thousand it gets 23 right). We see two reasons: 62\% of X posts have no like (removing them from the
-training data lowers the error on X by 0.08), and views in the X export are read early, about two times lower than in
-our re-read.
+training data lowers the error on X by 0.08), and views in the X export are read early, about half as high as in our re-read.
 % preprint_bins_numbers.json; E204, E219.
 
 \begin{figure}[!htb]
@@ -304,15 +295,14 @@ moment. This variant does not replace the main result, because the Instagram gai
 had been seen.
 % E210, E211, E213, E218, E219.
 
-\paragraph{A sixth platform.} We fetched through the public API 538 questions from Stack Exchange sites (among others
-Stack Overflow, Super User, Android) about 48 brands from our data, from April--August 2026. We treat an upvote as a
+\paragraph{A sixth platform.} Through the public API we fetched 538 questions from Stack Exchange sites (among others
+Stack Overflow, Super User, Android) about 48 brands from our data, from April to August 2026. We treat an upvote as a
 like, and answers and comments as comments; this mapping was fixed before evaluation. The ordering transfers but the
 level does not: the X and YouTube model is off by \x{3.14}, worse than a constant median from Stack Exchange itself
-(\x{1.96}) and than the median of X and YouTube (\x{2.10}), because 96\% of questions are underestimated (question views
+(\x{1.96}) and than the median of X and YouTube (\x{2.1}), because 96\% of questions are underestimated (question views
 accumulate over months and an upvote is not a like). It keeps the ordering of questions as well as a ridge trained on
 Stack Exchange (Spearman 0.57 in both cases). Question views have a small spread (standard deviation 0.40 against 1.21
-on Facebook), so even a ridge trained on Stack Exchange (\x{1.77}) is only 15\% better than the median. The views to
-reactions ratio thus transfers between video services, and to a question-and-answer site only the ordering does.
+on Facebook), so even a ridge trained on Stack Exchange (\x{1.77}) is only 15\% better than the median. The views-to-reactions ratio thus transfers between video services, and to a question-and-answer site only the ordering does.
 % E225, E227.
 
 \section{Comparison of methods}\label{sec:nie}
@@ -339,12 +329,12 @@ Model & TikTok & YouTube & X \\
 \midrule
 \multicolumn{4}{l}{\textit{Simple baselines}} \\
 \quad platform median views & 0.663 (\x{4.60}) & 0.944 (\x{8.79}) & 0.667 (\x{4.65}) \\
-\quad fixed multiple of followers & 0.919 (\x{8.30}) & 0.855 (\x{7.16}) & 0.879 (\x{7.57}) \\
+\quad fixed followers multiplier & 0.919 (\x{8.30}) & 0.855 (\x{7.16}) & 0.879 (\x{7.57}) \\
 \quad fixed likes multiplier\textsuperscript{*} & 0.348 (\x{2.23}) & 0.609 (\x{4.06}) & 0.560 (\x{3.63}) \\
 \multicolumn{4}{l}{\textit{Linear and kernel models}} \\
 \quad linear regression (ridge) & 0.277 (\x{1.89}) & 0.545 (\x{3.51}) & 0.487 (\x{3.07}) \\
 \quad k nearest neighbours (kNN) & 0.283 (\x{1.92}) & 0.483 (\x{3.04}) & 0.490 (\x{3.09}) \\
-\quad SVR with RBF kernel & 0.271 (\x{1.87}) & 0.463 (\x{2.90}) & 0.480 (\x{3.02}) \\
+\quad support vector regression (SVR, RBF kernel) & 0.271 (\x{1.87}) & 0.463 (\x{2.90}) & 0.480 (\x{3.02}) \\
 \multicolumn{4}{l}{\textit{Decision trees}} \\
 \quad random forest & 0.275 (\x{1.88}) & 0.463 (\x{2.90}) & 0.473 (\x{2.97}) \\
 \quad extra trees & 0.275 (\x{1.88}) & 0.459 (\x{2.88}) & 0.475 (\x{2.99}) \\
@@ -373,18 +363,19 @@ sentence embeddings~\cite{e5} and the VADER sentiment lexicon~\cite{vader}), men
 language model, author and brand graphs (GraphSAGE~\cite{graphsage}, metapath2vec~\cite{metapath2vec}), brand data from
 Wikipedia and Wikidata, synthetic large posts (SMOTER/SMOGN~\cite{smogn}), representations learned without labels
 (SCARF~\cite{scarf}) and pseudo-labels. None improves the error by more than \x{1.04}, most by less than \x{1.02}, and
-some make it worse by up to \x{1.06}. On Facebook text worsens the transfer (MAE 0.385 $\to$ 0.436).
+some make it worse by up to \x{1.06}. On Facebook text worsens the transfer (MAE 0.385 $\to$ 0.436, \x{2.43} $\to$ \x{2.73}).
 % E50, E65, E100, E127, E170-E175, E214-E217.
 
 \paragraph{Author history.} The same author has a similar view surplus (truth minus estimate) on successive posts: the
 correlation between the first and later posts is 0.68--0.70. Adding the mean surplus of the author's earlier posts to
 the estimate, shrunk towards zero when there are few posts, lowers the error on those posts by \x{1.3}--\x{1.4}. This
 is, however, a different task, because it needs known views of the author on the same platform, and such history exists
-for only 3--16\% of posts ($\le$0.003 in the mean error). The same author on another platform appears for 0.67\% of
+for only 3--16\% of posts (improving the overall MAE by $\le$0.003). The same author on another platform appears for 0.67\% of
 posts.
 % E68, E70, E119, E120, E221.
 
 
+\FloatBarrier
 \section{Applications}
 
 \begin{figure}[!htb]
@@ -417,16 +408,6 @@ labels).
 
 \section{Limitations and recommendations}\label{sec:lim}
 
-\begin{figure}[!tb]
-\centering
-\includegraphics[width=.9\textwidth]{fig/final_compare_en.png}
-\caption{Our estimate versus the reach column in the Brand24 export, on the same 1,803 X posts.
-\capdet{Reach is a different measure from views, so the figure shows how far from the views the number a client gets
-today is, not a comparison of two models. Model trained on X, evaluated on new brands and authors (not seen in
-training); truth from the export.}}
-\label{fig:final}
-\end{figure}
-% final_compare_numbers.json: X 3.03 vs 11.47; FB 2.43 vs 13.14; IG 2.72 vs 26.44.
 
 \paragraph{Few brands.} The Facebook result rests on 20 brands and the Instagram result on 11; the three largest brands
 hold 39\% and 44\% of posts, and without them the error rises to \x{2.89} and \x{2.96}. The error of a single brand
@@ -459,6 +440,17 @@ missing values as missing rather than zero, take a second read of views, and kee
 Fig.~\ref{fig:final} shows what this gives today: the reach column in the export, read by clients as the number of
 people reached, is further from the views than our estimate.
 % E178, E180, E202.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=.9\textwidth]{fig/final_compare_en.png}
+\caption{Our estimate versus the reach column in the Brand24 export, on the same 1\,803 X posts.
+\capdet{Reach is a different measure from views, so the figure shows how far from the views the number a client gets
+today is, not a comparison of two models. Model trained on X, evaluated on new brands and authors (not seen in
+training); truth from the export.}}
+\label{fig:final}
+\end{figure}
+% final_compare_numbers.json: X 3.03 vs 11.47; FB 2.43 vs 13.14; IG 2.72 vs 26.44.
 
 
 \paragraph{Use of AI and reproducibility.} \todo{to be written by the team in their own words.} Facts to include:
