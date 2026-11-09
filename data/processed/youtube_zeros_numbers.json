@@ -1,0 +1,31 @@
+{
+ "posts": 2441,
+ "zero_share": 0.272,
+ "variants": {
+  "base (0 is 0)": {
+   "MAE_all": 0.456,
+   "MAE_zero_reaction": 0.661,
+   "MAE_nonzero": 0.379
+  },
+  "0 -> NaN": {
+   "MAE_all": 0.454,
+   "MAE_zero_reaction": 0.659,
+   "MAE_nonzero": 0.376
+  },
+  "0 -> NaN + flag": {
+   "MAE_all": 0.453,
+   "MAE_zero_reaction": 0.659,
+   "MAE_nonzero": 0.375
+  },
+  "0 -> 0.5": {
+   "MAE_all": 0.454,
+   "MAE_zero_reaction": 0.659,
+   "MAE_nonzero": 0.377
+  },
+  "drop zero posts from training": {
+   "MAE_all": 0.499,
+   "MAE_zero_reaction": 0.845,
+   "MAE_nonzero": 0.37
+  }
+ }
+}

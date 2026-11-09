@@ -1,0 +1,14 @@
+{
+ "brands": 19,
+ "uncorrected": {
+  "median_ratio": 0.31,
+  "share_off_2x": 0.53,
+  "kendall": 0.801
+ },
+ "calibrated": {
+  "median_ratio": -0.01,
+  "share_off_2x": 0.47,
+  "kendall": 0.789
+ },
+ "interval80_coverage": 0.737
+}

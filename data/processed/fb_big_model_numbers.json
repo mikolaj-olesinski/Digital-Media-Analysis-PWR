@@ -1,0 +1,12 @@
+{
+ "source_big_posts": 191,
+ "target_big_posts": 70,
+ "all sources": {
+  "MAE_big": 0.41,
+  "bias": 0.331
+ },
+ "big sources": {
+  "MAE_big": 0.368,
+  "bias": -0.057
+ }
+}

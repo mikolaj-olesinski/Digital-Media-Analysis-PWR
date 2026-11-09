@@ -21,7 +21,11 @@ T = {
                fb="Facebook (Brand24 reach)", ig="Instagram (Brand24 reach)"),
 }[lang]
 
-d = pd.read_csv(ROOT / "data" / "raw" / "reach_samples_students.csv", parse_dates=["created_at", "metrics_updated_at"])
+p = ROOT / "data" / "raw" / "reach_samples_students.csv"
+if not p.exists():
+    raise SystemExit(f"Missing data file: {p}\n"
+                         "See docs/en/reproduce.md, section 'If a data file is missing'.")
+d = pd.read_csv(p, parse_dates=["created_at", "metrics_updated_at"])
 d["eng"] = d[["likes", "comments", "shares"]].fillna(0).sum(axis=1)
 names = {"tiktok": "TikTok", "youtube": "YouTube", "twitter": "X", "facebook": T["fb"], "instagram": T["ig"]}
 col = {"tiktok": "#3f2a6b", "youtube": "#2a9d8f", "twitter": "#e4572e", "facebook": "#9a9aa8", "instagram": "#c9a227"}

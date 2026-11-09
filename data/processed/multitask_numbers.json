@@ -1,0 +1,20 @@
+{
+ "tiktok": {
+  "multi": 0.314,
+  "single": 0.314,
+  "cat": 0.315,
+  "posts": 2491
+ },
+ "youtube": {
+  "multi": 0.538,
+  "single": 0.523,
+  "cat": 0.518,
+  "posts": 2441
+ },
+ "twitter": {
+  "multi": 0.504,
+  "single": 0.488,
+  "cat": 0.485,
+  "posts": 1803
+ }
+}

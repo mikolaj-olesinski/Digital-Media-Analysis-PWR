@@ -155,3 +155,24 @@ Tested in E89-E92 (`36_transfer_lit`).
 - **Benchmarks are inconsistent.** Vendor benchmarks (Socialinsider, Rival IQ, OverseerOS) cover brand accounts, mix means and medians, and disagree with each other (for example, two Rival IQ TikTok follower ERs, 1.73% vs 5.69%, appear in secondary sources). Use them only as order-of-magnitude priors: IG about 10, TikTok about 15-30, YouTube about 25-50 and X about 30-200 views per like.
 - **The literature agrees with our results.** Reactions beat followers within posts. The relationship is sub-linear or concave. Past author performance is the strongest extra signal, and vendors (Rival IQ) use it too. Large per-post noise remains.
 - **Meta's metric is usable for Reels and video.** Since Nov 2024 (FB) and Apr 2025 (IG API), Meta's "views" are plays or on-screen counts that include repeats. Public Reels and FB video play counts are therefore a legitimate, definition-compatible validation target. This is the best available route to test transfer to Meta.
+
+## Scan 2026-11-06 (new batch, search only)
+
+- *A Data-Driven Study on Instagram Reach Prediction*, IEEE abstract page. [Link](https://ieeexplore.ieee.org/abstract/document/11469564) — an Instagram reach prediction study; to read before claiming anything about IG. Search only, not opened.
+- *Predictability of Extreme Events in Social Media*, PLOS ONE. [Link](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111506) — early attention above a threshold flags extreme events; close to our E96 tail result (top 1% of posts = 60-74% of views). Search only.
+- *Adapting prediction sets to distribution shifts without labels*, UAI 2025. [Link](https://dl.acm.org/doi/10.5555/3762387.3762475) — conformal sets under shift without target labels; candidate for the FB/IG interval problem (E98) where the target labels are scarce. Search only.
+- *Wasserstein-Regularized Conformal Prediction under General Distribution Shift*, ICLR 2025. [Link](https://proceedings.iclr.cc/paper_files/paper/2025/hash/283066055b0256ca8e3e0c8c96019357-Abstract-Conference.html) — conformal under general shift; same use case. Search only.
+- CreatorIQ, *Estimate performance with greater accuracy* (vendor page). [Link](https://www.creatoriq.com/whats-new-in-creatoriq/estimate-performance-with-accuracy) — a competitor product that estimates performance; useful for the Brand24 product framing, not evidence. Search only.
+
+## Graph methods scan 2026-11-06 (search only)
+
+- Dong, Chawla, Swami, 2017, *metapath2vec: Scalable Representation Learning for Heterogeneous Networks*, KDD. [Link](https://www.kdd.org/kdd2017/papers/view/metapath2vec-scalable-representation-learning-for-heterogeneous-networks) — random walks guided by metapaths (author-brand-author) plus skip-gram; the standard way to embed a heterogeneous graph with several node types. Basis for E127.
+- *A Deep Prediction Framework for Multi-Source Information via Heterogeneous GNN*, KDD 2024. [Link](https://dl.acm.org/doi/abs/10.1145/3637528.3671966) — heterogeneous GNN combining multi-source signals; argues that source nodes and typed edges matter. Search only; task differs.
+- *Link prediction of heterogeneous complex networks based on an improved embedding learning algorithm* (SW-Metapath2vec), PLOS ONE 2024. [Link](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0315507) — weighted metapath walks; suggests degree-aware walks. Search only.
+- *Temporal graph* survey-ish preprint, arXiv 2208.08606. [Link](http://export.arxiv.org/pdf/2208.08606) — dynamic graphs where edges carry timestamps; candidate for a post-author timeline graph. Search only.
+
+Our graph experiments so far: hand-built features (E03/E06/E12/E29) <= +0.009; GraphSAGE on the text graph worse (E65); spectral author-brand embeddings worse (E122). E127 tests whether a metapath2vec embedding of author-brand-hashtag does better.
+
+Result of the graph test (E127): metapath2vec embeddings of author-brand-hashtag made MAE worse on all three platforms
+(0.278/0.480/0.480 vs 0.273/0.456/0.467). The methods above remain the reference for a dataset with real interaction
+edges; our graph has only co-posting edges, which do not carry extra signal.

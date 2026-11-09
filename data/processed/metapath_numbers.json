@@ -1,0 +1,14 @@
+{
+ "tiktok": {
+  "base": 0.273,
+  "+metapath": 0.278
+ },
+ "youtube": {
+  "base": 0.456,
+  "+metapath": 0.48
+ },
+ "twitter": {
+  "base": 0.467,
+  "+metapath": 0.48
+ }
+}

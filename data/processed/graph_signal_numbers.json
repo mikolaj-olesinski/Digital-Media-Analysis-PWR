@@ -1,0 +1,53 @@
+{
+ "tiktok": {
+  "author": {
+   "spearman": 0.069,
+   "mean_abs_error_reduction": -0.005,
+   "folds": 5
+  },
+  "brand": {
+   "spearman": 0.0,
+   "mean_abs_error_reduction": -0.025,
+   "folds": 5
+  },
+  "hashtag": {
+   "spearman": 0.015,
+   "mean_abs_error_reduction": -0.021,
+   "folds": 5
+  }
+ },
+ "youtube": {
+  "author": {
+   "spearman": 0.01,
+   "mean_abs_error_reduction": -0.002,
+   "folds": 5
+  },
+  "brand": {
+   "spearman": 0.001,
+   "mean_abs_error_reduction": -0.019,
+   "folds": 5
+  },
+  "hashtag": {
+   "spearman": 0.003,
+   "mean_abs_error_reduction": -0.016,
+   "folds": 5
+  }
+ },
+ "twitter": {
+  "author": {
+   "spearman": -0.015,
+   "mean_abs_error_reduction": -0.039,
+   "folds": 3
+  },
+  "brand": {
+   "spearman": 0.009,
+   "mean_abs_error_reduction": -0.053,
+   "folds": 5
+  },
+  "hashtag": {
+   "spearman": -0.029,
+   "mean_abs_error_reduction": -0.066,
+   "folds": 5
+  }
+ }
+}

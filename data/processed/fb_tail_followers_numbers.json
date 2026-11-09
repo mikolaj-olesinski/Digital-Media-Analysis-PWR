@@ -1,0 +1,15 @@
+{
+ "likes+comments": {
+  "MAE_big": 0.41,
+  "MAE_small": 0.38,
+  "bias_big": 0.331
+ },
+ "+followers": {
+  "MAE_big": 0.343,
+  "MAE_small": 0.727,
+  "bias_big": -0.058
+ },
+ "coverage_excl_1M": 0.94,
+ "width_excl_1M": 1.99,
+ "n_big": 70
+}

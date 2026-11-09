@@ -1,0 +1,107 @@
+{
+ "tiktok": {
+  "positives": 25,
+  "budget": {
+   "10": {
+    "model": 0.36,
+    "likes": 0.4,
+    "brand24": 0.4
+   },
+   "25": {
+    "model": 0.56,
+    "likes": 0.64,
+    "brand24": 1.0
+   },
+   "50": {
+    "model": 0.72,
+    "likes": 0.88,
+    "brand24": 1.0
+   },
+   "100": {
+    "model": 0.88,
+    "likes": 0.96,
+    "brand24": 1.0
+   },
+   "200": {
+    "model": 1.0,
+    "likes": 1.0,
+    "brand24": 1.0
+   }
+  },
+  "alerts_for_50pct_recall": {
+   "model": 20,
+   "likes": 16,
+   "brand24": 13
+  }
+ },
+ "youtube": {
+  "positives": 25,
+  "budget": {
+   "10": {
+    "model": 0.36,
+    "likes": 0.36,
+    "brand24": 0.4
+   },
+   "25": {
+    "model": 0.48,
+    "likes": 0.64,
+    "brand24": 1.0
+   },
+   "50": {
+    "model": 0.64,
+    "likes": 0.64,
+    "brand24": 1.0
+   },
+   "100": {
+    "model": 0.72,
+    "likes": 0.68,
+    "brand24": 1.0
+   },
+   "200": {
+    "model": 0.76,
+    "likes": 0.68,
+    "brand24": 1.0
+   }
+  },
+  "alerts_for_50pct_recall": {
+   "model": 26,
+   "likes": 17,
+   "brand24": 13
+  }
+ },
+ "twitter": {
+  "positives": 19,
+  "budget": {
+   "10": {
+    "model": 0.211,
+    "likes": 0.263,
+    "brand24": 0.211
+   },
+   "25": {
+    "model": 0.263,
+    "likes": 0.526,
+    "brand24": 0.526
+   },
+   "50": {
+    "model": 0.368,
+    "likes": 0.632,
+    "brand24": 0.737
+   },
+   "100": {
+    "model": 0.474,
+    "likes": 0.684,
+    "brand24": 0.842
+   },
+   "200": {
+    "model": 0.684,
+    "likes": 0.895,
+    "brand24": 0.947
+   }
+  },
+  "alerts_for_50pct_recall": {
+   "model": 117,
+   "likes": 22,
+   "brand24": 25
+  }
+ }
+}

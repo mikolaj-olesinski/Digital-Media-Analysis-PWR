@@ -2,6 +2,9 @@
 
 Status after M1: question, hypotheses H1–H3, reconstructed Brand24 rules and a preliminary feasibility test are done (see `m1_exploration_card.pdf`).
 
+**What happened to these items:** `plan_status.md` maps every idea (A-I) to its outcome. This plan is the plan as of
+session 3 and is not updated.
+
 Key caveat: on Facebook and Instagram there is no ground truth and `b24_estimated_reach` is Brand24's own rule. We therefore (1) learn views ~ engagement on TikTok, YouTube and X, (2) measure how much that relation differs between platforms, and (3) use that difference as the uncertainty of transferring to FB/IG. An honest negative result is acceptable.
 
 ## Session 3: codebook, gold standard, instrument validation

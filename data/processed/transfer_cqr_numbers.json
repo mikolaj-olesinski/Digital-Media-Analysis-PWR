@@ -1,0 +1,29 @@
+{
+ "tiktok": {
+  "source": [
+   "youtube",
+   "twitter"
+  ],
+  "MAE": 0.351,
+  "coverage90": 0.905,
+  "median_width": 1.51
+ },
+ "youtube": {
+  "source": [
+   "tiktok",
+   "twitter"
+  ],
+  "MAE": 0.658,
+  "coverage90": 0.912,
+  "median_width": 2.84
+ },
+ "twitter": {
+  "source": [
+   "tiktok",
+   "youtube"
+  ],
+  "MAE": 0.716,
+  "coverage90": 0.908,
+  "median_width": 3.69
+ }
+}

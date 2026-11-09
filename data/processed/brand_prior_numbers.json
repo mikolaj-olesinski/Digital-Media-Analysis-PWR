@@ -1,0 +1,38 @@
+{
+ "tiktok": {
+  "n_train": 1069,
+  "n_test": 1422,
+  "base_MAE": 0.276,
+  "plus_MAE": 0.281,
+  "gain": -0.005,
+  "gain_ci": [
+   -0.011,
+   -0.002
+  ],
+  "brand_known_share": 0.517
+ },
+ "youtube": {
+  "n_train": 853,
+  "n_test": 1588,
+  "base_MAE": 0.481,
+  "plus_MAE": 0.517,
+  "gain": -0.035,
+  "gain_ci": [
+   -0.054,
+   -0.017
+  ],
+  "brand_known_share": 0.475
+ },
+ "twitter": {
+  "n_train": 550,
+  "n_test": 1253,
+  "base_MAE": 0.52,
+  "plus_MAE": 0.514,
+  "gain": 0.006,
+  "gain_ci": [
+   -0.01,
+   0.024
+  ],
+  "brand_known_share": 0.349
+ }
+}

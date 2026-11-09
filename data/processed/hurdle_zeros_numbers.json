@@ -1,0 +1,17 @@
+{
+ "tiktok": {
+  "zeros_in_raw": 9,
+  "single_MAE": 0.273,
+  "hurdle_MAE": 0.273
+ },
+ "youtube": {
+  "zeros_in_raw": 32,
+  "single_MAE": 0.456,
+  "hurdle_MAE": 0.456
+ },
+ "twitter": {
+  "zeros_in_raw": 63,
+  "single_MAE": 0.467,
+  "hurdle_MAE": 0.467
+ }
+}

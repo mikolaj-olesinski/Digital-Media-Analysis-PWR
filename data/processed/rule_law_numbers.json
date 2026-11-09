@@ -1,0 +1,181 @@
+{
+ "tiktok": {
+  "rows": 2491,
+  "median_k": 21.31578947368421,
+  "k_by_reactions": {
+   "1-10": {
+    "n": 547,
+    "median_k": 48.3
+   },
+   "11-100": {
+    "n": 1101,
+    "median_k": 18.8
+   },
+   "101+": {
+    "n": 759,
+    "median_k": 15.7
+   }
+  },
+  "steps_without_reactions": [
+   {
+    "followers": "0-1000",
+    "n": 57,
+    "median_ratio": 1.073
+   }
+  ],
+  "reproduced_within_1pct": 0.012
+ },
+ "youtube": {
+  "rows": 2462,
+  "median_k": 19.841907666076466,
+  "k_by_reactions": {
+   "1-10": {
+    "n": 636,
+    "median_k": 23.0
+   },
+   "11-100": {
+    "n": 611,
+    "median_k": 18.5
+   },
+   "101+": {
+    "n": 531,
+    "median_k": 18.2
+   }
+  },
+  "steps_without_reactions": [
+   {
+    "followers": "0-1000",
+    "n": 106,
+    "median_ratio": 0.096
+   },
+   {
+    "followers": "1000-10000",
+    "n": 177,
+    "median_ratio": 0.017
+   },
+   {
+    "followers": "10000-100000",
+    "n": 237,
+    "median_ratio": 0.006
+   },
+   {
+    "followers": "100000-1000000",
+    "n": 123,
+    "median_ratio": 0.003
+   },
+   {
+    "followers": "1000000-inf",
+    "n": 29,
+    "median_ratio": 0.002
+   }
+  ],
+  "reproduced_within_1pct": 0.01
+ },
+ "twitter": {
+  "rows": 2221,
+  "median_k": 700.0,
+  "k_by_reactions": {
+   "1-10": {
+    "n": 782,
+    "median_k": 700.0
+   },
+   "11-100": {
+    "n": 114,
+    "median_k": 300.0
+   },
+   "101+": {
+    "n": 21,
+    "median_k": 300.0
+   }
+  },
+  "steps_without_reactions": [
+   {
+    "followers": "0-1000",
+    "n": 900,
+    "median_ratio": 0.098
+   },
+   {
+    "followers": "1000-10000",
+    "n": 320,
+    "median_ratio": 0.1
+   },
+   {
+    "followers": "10000-100000",
+    "n": 66,
+    "median_ratio": 0.09
+   },
+   {
+    "followers": "100000-1000000",
+    "n": 17,
+    "median_ratio": 0.05
+   }
+  ],
+  "reproduced_within_1pct": 0.619
+ },
+ "facebook": {
+  "rows": 2278,
+  "median_k": 108.0,
+  "k_by_reactions": {
+   "1-10": {
+    "n": 956,
+    "median_k": 273.6
+   },
+   "11-100": {
+    "n": 577,
+    "median_k": 100.0
+   },
+   "101+": {
+    "n": 302,
+    "median_k": 100.0
+   }
+  },
+  "steps_without_reactions": [
+   {
+    "followers": "0-1000",
+    "n": 62,
+    "median_ratio": 0.099
+   },
+   {
+    "followers": "1000-10000",
+    "n": 152,
+    "median_ratio": 0.1
+   },
+   {
+    "followers": "10000-100000",
+    "n": 130,
+    "median_ratio": 0.06
+   },
+   {
+    "followers": "100000-1000000",
+    "n": 87,
+    "median_ratio": 0.04
+   },
+   {
+    "followers": "1000000-inf",
+    "n": 12,
+    "median_ratio": 0.02
+   }
+  ],
+  "reproduced_within_1pct": 0.486
+ },
+ "instagram": {
+  "rows": 1415,
+  "median_k": 20.0,
+  "k_by_reactions": {
+   "1-10": {
+    "n": 963,
+    "median_k": 20.0
+   },
+   "11-100": {
+    "n": 376,
+    "median_k": 20.0
+   },
+   "101+": {
+    "n": 76,
+    "median_k": 45.0
+   }
+  },
+  "steps_without_reactions": [],
+  "reproduced_within_1pct": 0.97
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "posts": 359,
+ "rule": {
+  "median_ratio": 0.61,
+  "MAE": 0.93,
+  "share_off_2x": 0.82
+ },
+ "model": {
+  "MAE": 0.41,
+  "bias": 0.16
+ },
+ "by_followers": [
+  {
+   "followers_bin": "1k-10k",
+   "posts": 35,
+   "median_ratio": 0.57,
+   "MAE": 0.96,
+   "share_off_2x": 0.83
+  },
+  {
+   "followers_bin": "10k-100k",
+   "posts": 90,
+   "median_ratio": 0.84,
+   "MAE": 1.0,
+   "share_off_2x": 0.87
+  },
+  {
+   "followers_bin": "100k-1M",
+   "posts": 86,
+   "median_ratio": 0.74,
+   "MAE": 1.01,
+   "share_off_2x": 0.86
+  },
+  {
+   "followers_bin": ">1M",
+   "posts": 70,
+   "median_ratio": 0.76,
+   "MAE": 0.99,
+   "share_off_2x": 0.84
+  }
+ ],
+ "by_views": [
+  {
+   "views_bin": "Q1 small",
+   "posts": 91,
+   "median_ratio": 1.53,
+   "MAE": 1.49,
+   "share_off_2x": 0.97
+  },
+  {
+   "views_bin": "Q2",
+   "posts": 89,
+   "median_ratio": 0.68,
+   "MAE": 0.88,
+   "share_off_2x": 0.88
+  },
+  {
+   "views_bin": "Q3",
+   "posts": 89,
+   "median_ratio": 0.57,
+   "MAE": 0.73,
+   "share_off_2x": 0.8
+  },
+  {
+   "views_bin": "Q4 large",
+   "posts": 90,
+   "median_ratio": -0.3,
+   "MAE": 0.62,
+   "share_off_2x": 0.62
+  }
+ ],
+ "by_kind": [
+  {
+   "kind": "reel",
+   "posts": 262,
+   "median_ratio": 0.68,
+   "MAE": 0.97,
+   "share_off_2x": 0.84
+  },
+  {
+   "kind": "videos",
+   "posts": 97,
+   "median_ratio": 0.23,
+   "MAE": 0.83,
+   "share_off_2x": 0.74
+  }
+ ]
+}

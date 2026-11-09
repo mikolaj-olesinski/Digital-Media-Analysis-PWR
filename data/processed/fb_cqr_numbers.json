@@ -1,0 +1,11 @@
+{
+ "cqr": {
+  "coverage": 0.925,
+  "median_width": 1.99
+ },
+ "split": {
+  "coverage": 0.932,
+  "median_width": 2.07
+ },
+ "posts": 402
+}

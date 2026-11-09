@@ -1,0 +1,79 @@
+{
+ "main_check": {
+  "tiktok": {
+   "zero_share": 0.04,
+   "n": 99,
+   "share_gt0": 0.909,
+   "share_gt100": 0.343,
+   "share_gt1k": 0.0,
+   "share_gt10k": 0.0,
+   "median": 69.0,
+   "p90": 245.6
+  },
+  "youtube": {
+   "zero_share": 0.289,
+   "n": 697,
+   "share_gt0": 0.954,
+   "share_gt100": 0.472,
+   "share_gt1k": 0.234,
+   "share_gt10k": 0.043,
+   "median": 79.0,
+   "p90": 3383.2
+  },
+  "twitter": {
+   "zero_share": 0.642,
+   "n": 1030,
+   "share_gt0": 0.962,
+   "share_gt100": 0.12,
+   "share_gt1k": 0.006,
+   "share_gt10k": 0.0,
+   "median": 13.0,
+   "p90": 124.2
+  }
+ },
+ "first_check": {
+  "rows": 690,
+  "zero_share": 0.372,
+  "median_age_h": 11.7,
+  "zero_views_at_first_check": {
+   "n": 257,
+   "share_gt0": 0.856,
+   "share_gt100": 0.062,
+   "share_gt1k": 0.004,
+   "share_gt10k": 0.0,
+   "median": 5.0,
+   "p90": 70.0
+  },
+  "zero_current_views": {
+   "n": 257,
+   "share_gt0": 0.93,
+   "share_gt100": 0.202,
+   "share_gt1k": 0.035,
+   "share_gt10k": 0.004,
+   "median": 18.0,
+   "p90": 263.0
+  },
+  "by_platform": {
+   "tiktok": {
+    "n": 18,
+    "share_gt0": 0.889,
+    "share_gt100": 0.333,
+    "share_gt1k": 0.0,
+    "share_gt10k": 0.0,
+    "median": 60.5,
+    "p90": 179.4,
+    "current_median": 107.0
+   },
+   "twitter": {
+    "n": 239,
+    "share_gt0": 0.854,
+    "share_gt100": 0.042,
+    "share_gt1k": 0.004,
+    "share_gt10k": 0.0,
+    "median": 5.0,
+    "p90": 49.0,
+    "current_median": 17.0
+   }
+  }
+ }
+}
