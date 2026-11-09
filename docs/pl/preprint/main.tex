@@ -15,6 +15,7 @@
 \usepackage{graphicx,booktabs,amsmath,enumitem,microtype}
 \usepackage[hidelinks]{hyperref}
 \usepackage[most]{tcolorbox}
+\usepackage{multirow}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage[section]{placeins}
 \newcommand{\capdet}[1]{\par\footnotesize\color{black!75}#1}
@@ -150,13 +151,32 @@ danych tak, żeby pokrycie było zgodne z założonym.
 
 \section{Wyniki}\label{sec:wyniki}
 
+\begin{tcolorbox}[colback=blue!4,colframe=blue!45!black,boxrule=.6pt,left=4pt,right=4pt,top=3pt,bottom=3pt,
+  title={\textbf{Główne wyniki: o ile mylimy się na pojedynczym poście}},fonttitle=\small,coltitle=white,colbacktitle=blue!45!black]
+\centering\small
+\begin{tabular}{lllccc}
+ & & Posty / marki & \textbf{Nasz błąd} & W granicach \x{2} & Stała mediana \\
+\midrule
+\multirow{3}{*}{\shortstack[l]{Na tej samej\\platformie}} & TikTok & 2\,491 / 266 & \textbf{\x{1,87}} & 67\% & \x{4,6} \\
+ & YouTube & 2\,441 / 273 & \textbf{\x{2,90}} & 43\% & \x{8,8} \\
+ & X & 1\,803 / 252 & \textbf{\x{3,03}} & 40\% & \x{4,6} \\
+\midrule
+\multirow{2}{*}{\shortstack[l]{Poza platformą\\(0 postów celu)}} & Facebook & 402 / 20 & \textbf{\x{2,43}} & 53\% & \x{19,9} \\
+ & Instagram & 642 / 11 & \textbf{\x{2,72}} & 40\% & \x{8,7} \\
+\end{tabular}
+
+\smallskip\raggedright\footnotesize Nasz błąd: typowy błąd $10^{\text{MAE}}$, np.\ \x{2,43} to oszacowanie zwykle 2,43 razy za duże
+albo za małe. Stała mediana: jedna liczba dla wszystkich postów (mediana tej samej platformy, a poza platformą mediana
+X i YouTube).
+\end{tcolorbox}
+% results_a/results_b_numbers.json; baselines_check_numbers.json (E227).
+
 \paragraph{Na tej samej platformie.} Na TikToku, YouTube i X typowy błąd wynosi \x{1,87}, \x{2,90} i \x{3,03}
 (MAE 0,273 / 0,462 / 0,482; Rys.~\ref{fig:main}). Stały mnożnik lajków daje tu \x{2,23}, \x{4,06} i \x{3,63}, więc
 CatBoost jest od niego lepszy na każdej platformie o 0,075--0,15 MAE (przedziały ufności różnic nie obejmują zera).
 
 \paragraph{Poza platformą.} Na Facebooku i Instagramie model nie widział ani jednego posta z tych platform, a myli się
-o MAE 0,385 (\x{2,43}, 95\% CI \x{2,05}--\x{3,03}) i 0,435 (\x{2,72}, \x{2,49}--\x{3,05}). Mediana wyświetleń z X
-i YouTube myli się tam \x{20} i \x{9}. Na Facebooku błąd jest taki sam jak przy uczeniu tego samego modelu na
+o MAE 0,385 (\x{2,43}, 95\% CI \x{2,05}--\x{3,03}) i 0,435 (\x{2,72}, \x{2,49}--\x{3,05}). Na Facebooku błąd jest taki sam jak przy uczeniu tego samego modelu na
 Facebooku (\x{2,42}; różnica 0,001, 95\% CI [$-$0,03; 0,03], czyli różnica co najwyżej \x{1,07} w którąkolwiek
 stronę). Na Instagramie jest wyraźnie gorzej niż przy uczeniu ridge na samym Instagramie (\x{2,41}; różnica 0,054, 95\% CI
 [0,021; 0,093]), a 72\% rolek jest niedoszacowanych, bo mediana rolki to 53 wyświetlenia na lajk, a na X i YouTube

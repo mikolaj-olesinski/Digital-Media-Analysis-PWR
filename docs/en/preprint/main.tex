@@ -15,8 +15,9 @@
 \usepackage{graphicx,booktabs,amsmath,enumitem,microtype}
 \usepackage[hidelinks]{hyperref}
 \usepackage[most]{tcolorbox}
+\usepackage{multirow}
 \usepackage[font=small,labelfont=bf]{caption}
-\usepackage[section]{placeins}
+\usepackage{placeins}
 \newcommand{\capdet}[1]{\par\footnotesize\color{black!75}#1}
 \setlist{nosep,leftmargin=1.4em}
 \newcommand{\x}[1]{$\times$#1}
@@ -150,13 +151,32 @@ is corrected on a held-out part of the data so that coverage matches the target.
 
 \section{Results}\label{sec:wyniki}
 
+\begin{tcolorbox}[colback=blue!4,colframe=blue!45!black,boxrule=.6pt,left=4pt,right=4pt,top=3pt,bottom=3pt,
+  title={\textbf{Main results: how far off we are on a single post}},fonttitle=\small,coltitle=white,colbacktitle=blue!45!black]
+\centering\small
+\begin{tabular}{lllccc}
+ & & Posts / brands & \textbf{Our error} & Within \x{2} & Constant median \\
+\midrule
+\multirow{3}{*}{\shortstack[l]{Same\\platform}} & TikTok & 2,491 / 266 & \textbf{\x{1.87}} & 67\% & \x{4.6} \\
+ & YouTube & 2,441 / 273 & \textbf{\x{2.90}} & 43\% & \x{8.8} \\
+ & X & 1,803 / 252 & \textbf{\x{3.03}} & 40\% & \x{4.6} \\
+\midrule
+\multirow{2}{*}{\shortstack[l]{Out of platform\\(0 target posts)}} & Facebook & 402 / 20 & \textbf{\x{2.43}} & 53\% & \x{19.9} \\
+ & Instagram & 642 / 11 & \textbf{\x{2.72}} & 40\% & \x{8.7} \\
+\end{tabular}
+
+\smallskip\raggedright\footnotesize Our error: typical error $10^{\text{MAE}}$, e.g.\ \x{2.43} means the estimate is usually 2.43 times
+too high or too low. Constant median: one number for every post (the median of the same platform, and out of platform
+the median of X and YouTube).
+\end{tcolorbox}
+% results_a/results_b_numbers.json; baselines_check_numbers.json (E227).
+
 \paragraph{Same platform.} On TikTok, YouTube and X the typical error is \x{1.87}, \x{2.90} and \x{3.03}
 (MAE 0.273 / 0.462 / 0.482; Fig.~\ref{fig:main}). A fixed likes multiplier gives \x{2.23}, \x{4.06} and \x{3.63} here,
 so CatBoost beats it on every platform by 0.075--0.15 MAE (the confidence intervals of the differences exclude zero).
 
 \paragraph{Out of platform.} On Facebook and Instagram the model has not seen a single post from these platforms, and
-its error is MAE 0.385 (\x{2.43}, 95\% CI \x{2.05}--\x{3.03}) and 0.435 (\x{2.72}, \x{2.49}--\x{3.05}). The median
-views of X and YouTube are off there by \x{20} and \x{9}. On Facebook the error is the same as when the same model is
+its error is MAE 0.385 (\x{2.43}, 95\% CI \x{2.05}--\x{3.03}) and 0.435 (\x{2.72}, \x{2.49}--\x{3.05}). On Facebook the error is the same as when the same model is
 trained on Facebook (\x{2.42}; difference 0.001, 95\% CI [$-$0.03, 0.03], i.e.\ at most \x{1.07} either way). On
 Instagram it is clearly worse than a ridge trained on Instagram itself (\x{2.41}; difference 0.054, 95\% CI [0.021, 0.093]), and 72\%
 of reels are underestimated, because the median reel has 53 views per like, against about 25 on X and YouTube
@@ -384,6 +404,18 @@ labels).
 
 \section{Limitations and recommendations}\label{sec:lim}
 
+\begin{figure}[!tb]
+\centering
+\includegraphics[width=.9\textwidth]{fig/final_compare_en.png}
+\caption{Our estimate versus the reach column in the Brand24 export, on the same posts.
+\capdet{Only platforms where reach is not the view count. Reach is a different measure from views, so the figure shows
+how far from the views the number a client gets today is, not a comparison of two models. X (1\,803 posts): model
+trained on X, evaluated on brands and authors it has not seen; truth from the export. Facebook (402 videos) and
+Instagram (642 reels): out-of-platform model trained only on X and YouTube; truth from our read.}}
+\label{fig:final}
+\end{figure}
+% final_compare_numbers.json: X 3.03 vs 11.47; FB 2.43 vs 13.14; IG 2.72 vs 26.44.
+
 \paragraph{Few brands.} The Facebook result rests on 20 brands and the Instagram result on 11; the three largest brands
 hold 39\% and 44\% of posts, and without them the error rises to \x{2.89} and \x{2.96}. The error of a single brand
 ranges from \x{1.5} to \x{6.2} on Facebook and from \x{2.2} to \x{4.3} on Instagram. With so few brands the
@@ -416,17 +448,6 @@ Fig.~\ref{fig:final} shows what this gives today: the reach column in the export
 people reached, is further from the views than our estimate.
 % E178, E180, E202.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=.9\textwidth]{fig/final_compare_en.png}
-\caption{Our estimate versus the reach column in the Brand24 export, on the same posts.
-\capdet{Only platforms where reach is not the view count. Reach is a different measure from views, so the figure shows
-how far from the views the number a client gets today is, not a comparison of two models. X (1\,803 posts): model
-trained on X, evaluated on brands and authors it has not seen; truth from the export. Facebook (402 videos) and
-Instagram (642 reels): out-of-platform model trained only on X and YouTube; truth from our read.}}
-\label{fig:final}
-\end{figure}
-% final_compare_numbers.json: X 3.03 vs 11.47; FB 2.43 vs 13.14; IG 2.72 vs 26.44.
 
 \paragraph{Use of AI and reproducibility.} \todo{to be written by the team in their own words.} Facts to include:
 AI agents (Claude Code, DeepSeek) wrote the analysis and data-reading code, ran the experiments, made the figures and a
