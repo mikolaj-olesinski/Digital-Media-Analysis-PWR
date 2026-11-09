@@ -148,6 +148,13 @@ Przykład: $k\approx 25$ (X + YT); 40 lajków $\to$ 1\,000 wyświetleń.
 \end{columns}
 \end{frame}
 
+\begin{frame}{Oszacowania FB i IG podążają za prawdziwymi wyświetleniami}
+\centering
+\includegraphics[width=\textwidth,height=.76\textheight,keepaspectratio]{fig/preprint_main_pl.png}
+\vfill
+{\footnotesize\color{mut} Kropka = post; szary pas = w granicach \x{2}. IG: 72\% rolek niedoszacowanych.}
+\end{frame}
+
 \begin{frame}{Mnożnik lajków to punkt odniesienia dla modeli}
 \begin{columns}[T]
 \column{.31\textwidth}
@@ -236,84 +243,6 @@ X       & \xb{3,03} & \x{3,30} & \x{3,63} \\
 \end{alertblock}
 \vfill
 {\footnotesize\color{mut} Typowy błąd, walidacja po markach i autorach. Przedziały ufności i udział w granicach \x{2}: zapas.}
-\end{frame}
-
-\begin{frame}{Dane z tekstu i z zewnątrz nie poprawiły błędu o więcej niż \x{1,04}}
-\small
-\begin{columns}[T]
-\column{.48\textwidth}
-\begin{block}{Wyprowadzone z tekstu i metadanych}
-\footnotesize
-\begin{itemize}
-\item typ wzmianki i sentyment z modelu językowego (etykiety AI): zgodność 3 przebiegów $\kappa$ 0,77--0,79 (typ), 0,71--0,73 (sentyment); brak ludzkiego wzorca
-\item czy wzmianka jest o marce: 6,7\% bez nazwy marki w tekście
-\item tekst: TF-IDF, osadzenia zdań e5, statystyki tekstu, sentyment VADER
-\item grafy: podobieństwo tekstów (GraphSAGE), autor--marka--hashtag (metapath2vec)
-\end{itemize}
-\end{block}
-\column{.48\textwidth}
-\begin{block}{Próbowaliśmy dociągnąć z zewnątrz}
-\footnotesize
-\begin{itemize}
-\item Wikipedia (zainteresowanie marką), Wikidata (dane o firmie), szum wokół marki w strumieniu, kalendarz, wielkość marki
-\item ponowne odczyty wyświetleń i reakcji (X, YouTube, TikTok), brakujące lajki YouTube
-\item konta tych samych autorów na innych platformach: za mało dopasowań (5--17 postów, potrzeba 40)
-\item TikTok Research API: wymaga wniosku akademickiego, nie użyte
-\end{itemize}
-\end{block}
-\end{columns}
-\vspace{6pt}\centering
-Żadne dodatkowe źródło nie poprawia błędu o więcej niż \alert{\x{1,04}}.
-\end{frame}
-
-\begin{frame}{Historia autora pomaga tylko tam, gdzie istnieje}
-\centering
-\includegraphics[width=\textwidth,height=.65\textheight,keepaspectratio]{fig/deck_author_pl.png}\\[2pt]
-{\normalsize Typowy błąd bez i z historią autora (jego wcześniejsze posty), TT, YT, X. Pomaga tylko tam, gdzie historia istnieje (3--16\% postów).}
-\end{frame}
-
-\begin{frame}{Mało reakcji, duży błąd; model ściąga oszacowania do środka}
-\begin{columns}[T]
-\column{.50\textwidth}\centering
-\includegraphics[width=\textwidth,height=.7\textheight,keepaspectratio]{fig/deck_tails_pl.png}
-\column{.48\textwidth}\centering
-\footnotesize\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.25}
-\vspace{10pt}
-Typowy błąd wg liczby reakcji\\[4pt]
-\begin{tabular}{@{}lccc@{}}
-\toprule
- & TT & YT & X \\
-\midrule
-0 reakcji & \x{3,23} {\scriptsize\color{mut}3\%} & \x{4,59} {\scriptsize\color{mut}27\%} & \x{3,19} {\scriptsize\color{mut}54\%} \\
-6--100 reak. & \x{1,75} {\scriptsize\color{mut}53\%} & \x{2,45} {\scriptsize\color{mut}32\%} & \x{2,57} {\scriptsize\color{mut}9\%} \\
-\midrule
-wszystkie & \x{1,87} & \x{2,90} & \x{3,03} \\
-bez $\le$5 reak. & \xb{1,81} {\scriptsize\color{mut}83\%} & \xb{2,29} {\scriptsize\color{mut}54\%} & \xb{2,56} {\scriptsize\color{mut}10\%} \\
-\bottomrule
-\end{tabular}\\[3pt]
-{\footnotesize\color{mut} szare: udział postów}
-\end{columns}
-\vfill
-{\footnotesize\color{mut} Na X 62\% ocenianych postów bez lajka. Reakcje = lajki + komentarze + udostępnienia. Mało reakcji = za mało danych.}
-\end{frame}
-
-\begin{frame}{Klasyfikacja działa na TT i YT; na X to zgadywanie}
-\begin{columns}[T]
-\column{.6\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=.55\textheight,keepaspectratio]{fig/deck_class_pl.png}\\[2pt]
-{\scriptsize\color{mut} Na X 95\% postów ma $<$1k wyświetleń, więc 95\% trafności to zgadywanie najczęstszego przedziału (trafność zrównoważona 43\%).}
-\column{.37\textwidth}
-\begin{block}{Jak próbowaliśmy poprawić duże i małe posty}\scriptsize
-\begin{itemize}\setlength\itemsep{3pt}
-\item cel ,,wyświetlenia na lajk'' $\to$ \textbf{prawie bez zmian}
-\item większa waga skrajnych postów $\to$ \textbf{bez zmian}
-\item inne funkcje błędu (RMSE, kwantyl) $\to$ duże posty \textbf{nadal zaniżone}
-\item osobny model dla postów bez reakcji $\to$ \textbf{bez zysku}
-\item korekta wyniku po fakcie $\to$ \textbf{bez poprawy}
-\end{itemize}
-\end{block}
-\end{columns}
 \end{frame}
 
 \begin{frame}{Poza platformą wystarcza stosunek wyświetleń do lajków}
@@ -409,24 +338,6 @@ Pytania i odpowiedzi, nie wideo (Stack Exchange) & nie przenosić & stała media
 {\footnotesize\color{mut} CatBoost przeniesiony z X + YT: FB \x{2,61}, IG \x{2,95}, gorzej niż ridge. CatBoost wygrywa tylko w platformie; poza nią wygrywa najprostszy model.}
 \end{frame}
 
-\begin{frame}{Oszacowania FB i IG podążają za prawdziwymi wyświetleniami}
-\centering
-\includegraphics[width=\textwidth,height=.76\textheight,keepaspectratio]{fig/preprint_main_pl.png}
-\vfill
-{\footnotesize\color{mut} Kropka = post; szary pas = w granicach \x{2}. IG: 72\% rolek niedoszacowanych.}
-\end{frame}
-
-\begin{frame}{FB i IG: liczby i zastrzeżenia}
-\small
-\begin{itemize}\setlength\itemsep{4pt}
-\item Ridge FB \x{2,43} (MAE 0,385), IG \x{2,72} (MAE 0,435); ridge i $k$ z X + YT, bez FB/IG w treningu; przedział: bootstrap po markach (FB 402 posty, IG 642)
-\item Mnożnik vs ridge: FB \x{2,42} vs \x{2,43}; IG \x{2,94} vs \x{2,72}
-\item Stała mediana z X + YT: FB \x{19,87}, IG \x{8,69}
-\item $k$ z X+YT $\approx$ 25 wyśw./lajk, a na FB 35, na IG 53; IG: 72\% rolek niedoszacowanych
-\item Wiek odczytu: 23 vs 310--334 dni. Po odczycie X+YT w wieku bliższym celom (mediana 137 dni): IG \x{2,41}, FB \x{2,44}
-\end{itemize}
-\end{frame}
-
 \begin{frame}{Odczyt reakcji razem z wyświetleniami zmniejsza błąd (poza TikTokiem)}
 \centering
 \includegraphics[width=\textwidth,height=.62\textheight,keepaspectratio]{fig/deck_reread_pl.png}
@@ -458,18 +369,6 @@ Pytania i odpowiedzi, nie wideo (Stack Exchange) & nie przenosić & stała media
 \end{alertblock}
 \end{frame}
 
-\begin{frame}{Model pewności prawie nie wie, które posty trafi}
-\centering
-\includegraphics[width=\textwidth,height=.38\textheight,keepaspectratio]{fig/deck_conf_pl.png}\\[0pt]
-\footnotesize\raggedright
-\begin{itemize}\setlength\itemsep{2pt}
-\item Najpewniejsze 80\% postów: błąd \x{1,83} / \x{2,62} / \x{2,92} wobec \x{1,87} / \x{2,90} / \x{3,03} dla wszystkich (TT / YT / X); ze znajomością prawdziwego błędu byłoby \x{1,47} / \x{1,98} / \x{2,10}.
-\item Zysk widać tylko na YouTube, a tam sama liczba reakcji daje to samo (szara linia = ciemna). AUC ,,błąd $>$ \x{2}'': 0,54 / 0,62 / 0,53.
-\item Posty z $\geq$80\% pewności to 8\% / 2\% / 0,4\% próby, a trafia w nich tylko 70\% / 56\% / 63\%: pewność jest zawyżona.
-\end{itemize}
-{\scriptsize\color{mut} Błąd siedzi głównie w poziomie autora, widocznym tylko w jego historii. Walidacja po markach i autorach.}
-\end{frame}
-
 \begin{frame}{Poza Brand24 model działa}
 \centering\small\setlength{\tabcolsep}{6pt}\renewcommand{\arraystretch}{1.4}
 \begin{tabular}{L{.27\textwidth}cL{.52\textwidth}}
@@ -489,6 +388,132 @@ Stack Exchange (pytania o marki) & 538 & przenoszenie zawodzi: ridge \x{3,14}, s
 \centering
 \includegraphics[width=\textwidth,height=.6\textheight,keepaspectratio]{fig/deck_b24_pl.png}\\[4pt]
 {\normalsize Te same 1\,803 posty z X. Nawet model, który nigdy nie widział X (uczony na TikToku i YouTube), jest bliżej niż zasięg Brand24: \alert{\x{4,47}} wobec \alert{\x{11,47}}.}
+\end{frame}
+
+\begin{frame}{Dane z tekstu i z zewnątrz nie poprawiły błędu o więcej niż \x{1,04}}
+\small
+\begin{columns}[T]
+\column{.48\textwidth}
+\begin{block}{Wyprowadzone z tekstu i metadanych}
+\footnotesize
+\begin{itemize}
+\item typ wzmianki i sentyment z modelu językowego (etykiety AI): zgodność 3 przebiegów $\kappa$ 0,77--0,79 (typ), 0,71--0,73 (sentyment); brak ludzkiego wzorca
+\item czy wzmianka jest o marce: 6,7\% bez nazwy marki w tekście
+\item tekst: TF-IDF, osadzenia zdań e5, statystyki tekstu, sentyment VADER
+\item grafy: podobieństwo tekstów (GraphSAGE), autor--marka--hashtag (metapath2vec)
+\end{itemize}
+\end{block}
+\column{.48\textwidth}
+\begin{block}{Próbowaliśmy dociągnąć z zewnątrz}
+\footnotesize
+\begin{itemize}
+\item Wikipedia (zainteresowanie marką), Wikidata (dane o firmie), szum wokół marki w strumieniu, kalendarz, wielkość marki
+\item ponowne odczyty wyświetleń i reakcji (X, YouTube, TikTok), brakujące lajki YouTube
+\item konta tych samych autorów na innych platformach: za mało dopasowań (5--17 postów, potrzeba 40)
+\item TikTok Research API: wymaga wniosku akademickiego, nie użyte
+\end{itemize}
+\end{block}
+\end{columns}
+\vspace{6pt}\centering
+Żadne dodatkowe źródło nie poprawia błędu o więcej niż \alert{\x{1,04}}.
+\end{frame}
+
+\begin{frame}{Historia autora pomaga tylko tam, gdzie istnieje}
+\centering
+\includegraphics[width=\textwidth,height=.65\textheight,keepaspectratio]{fig/deck_author_pl.png}\\[2pt]
+{\normalsize Typowy błąd bez i z historią autora (jego wcześniejsze posty), TT, YT, X. Pomaga tylko tam, gdzie historia istnieje (3--16\% postów).}
+\end{frame}
+
+\begin{frame}{Mało reakcji, duży błąd; model ściąga oszacowania do środka}
+\begin{columns}[T]
+\column{.50\textwidth}\centering
+\includegraphics[width=\textwidth,height=.7\textheight,keepaspectratio]{fig/deck_tails_pl.png}
+\column{.48\textwidth}\centering
+\footnotesize\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.25}
+\vspace{10pt}
+Typowy błąd wg liczby reakcji\\[4pt]
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & TT & YT & X \\
+\midrule
+0 reakcji & \x{3,23} {\scriptsize\color{mut}3\%} & \x{4,59} {\scriptsize\color{mut}27\%} & \x{3,19} {\scriptsize\color{mut}54\%} \\
+6--100 reak. & \x{1,75} {\scriptsize\color{mut}53\%} & \x{2,45} {\scriptsize\color{mut}32\%} & \x{2,57} {\scriptsize\color{mut}9\%} \\
+\midrule
+wszystkie & \x{1,87} & \x{2,90} & \x{3,03} \\
+bez $\le$5 reak. & \xb{1,81} {\scriptsize\color{mut}83\%} & \xb{2,29} {\scriptsize\color{mut}54\%} & \xb{2,56} {\scriptsize\color{mut}10\%} \\
+\bottomrule
+\end{tabular}\\[3pt]
+{\footnotesize\color{mut} szare: udział postów}
+\end{columns}
+\vfill
+{\footnotesize\color{mut} Na X 62\% ocenianych postów bez lajka. Reakcje = lajki + komentarze + udostępnienia. Mało reakcji = za mało danych.}
+\end{frame}
+
+\begin{frame}{Inne metody: klasyfikacja działa na TT i YT, reszta nie poprawia wyniku}
+\begin{columns}[T]
+\column{.55\textwidth}
+\centering
+\includegraphics[width=\textwidth,height=.55\textheight,keepaspectratio]{fig/deck_class_pl.png}\\[2pt]
+{\scriptsize\color{mut} Na X 95\% postów ma $<$1k wyświetleń, więc 95\% trafności to zgadywanie najczęstszego przedziału (trafność zrównoważona 43\%).}
+\column{.42\textwidth}
+\begin{block}{Jak próbowaliśmy poprawić wynik}\scriptsize
+\begin{itemize}\setlength\itemsep{2pt}
+\item cel ,,wyświetlenia na lajk'' $\to$ \textbf{prawie bez zmian}
+\item większa waga skrajnych postów $\to$ \textbf{bez zmian}
+\item inne funkcje błędu (RMSE, kwantyl) $\to$ duże posty \textbf{nadal zaniżone}
+\item osobny model dla postów bez reakcji $\to$ \textbf{bez zysku}
+\item korekta wyniku po fakcie $\to$ \textbf{bez poprawy}
+\item model pewności (które posty trafimy): najpewniejsze 80\% daje \x{1,83} / \x{2,62} / \x{2,92} wobec \x{1,87} / \x{2,90} / \x{3,03} $\to$ \textbf{prawie bez zysku}
+\item wynik tylko dla postów z $\geq$5 reakcjami: \x{1,81} / \x{2,29} / \x{2,56}, ale zostaje 83\% / 54\% / 10\% postów $\to$ \textbf{lepiej, kosztem pokrycia}
+\end{itemize}
+\end{block}
+\end{columns}
+{\scriptsize\color{mut} Wartości dla TT / YT / X. Błąd siedzi głównie w poziomie autora, widocznym tylko w jego historii.}
+\end{frame}
+
+\begin{frame}{Ograniczenia: mało marek i niezweryfikowany odczyt; co dalej}
+\begin{columns}[T]
+\column{.52\textwidth}
+\begin{block}{Ograniczenia}
+\footnotesize
+\begin{itemize}\setlength\itemsep{0pt}
+\item prawda FB/IG = nasz odczyt publicznych stron, niezweryfikowany niezależnie
+\item usunięte posty (IG 27\%, FB 14\%), kierunek wpływu nieznany
+\item wiek odczytu: eksport 23 dni, FB/IG 310--334; z X + YT po 137 dniach: IG \x{2,41}, FB \x{2,44}
+\item mało marek (FB 20, IG 11), tylko dostępne filmy i rolki
+\item etykiety AI bez ludzkiego wzorca ($\kappa$ 0,71--0,79)
+\item wynik FB/IG z jednego zestawu treningowego (X + YT)
+\item na X ridge gorszy od mnożnika; na Stack Exchange przenoszenie zawodzi; korelacja, nie przyczynowość
+\end{itemize}
+\end{block}
+\column{.44\textwidth}
+\begin{block}{Co dalej}
+\footnotesize
+\begin{itemize}\setlength\itemsep{2pt}
+\item niezależna weryfikacja odczytu FB/IG
+\item więcej marek na FB i IG
+\item zwykłe posty FB/IG, nie tylko filmy i rolki
+\item inne platformy (Reddit, LinkedIn)
+\item ludzka weryfikacja etykiet AI
+\item praktyczny przykład sumy marki na FB/IG
+\end{itemize}
+\end{block}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Wnioski: FB i IG da się oszacować z lajków}
+\begin{block}{Trzy wnioski}
+\normalsize
+\begin{enumerate}\setlength\itemsep{3pt}
+\item Błąd ok. \x{2,4} (FB), \x{2,7} (IG); wystarcza stosunek wyświetleń do lajków z X + YT.
+\item Zastrzeżenie: 20 i 11 marek, niezweryfikowany odczyt, odczyt po 310--334 dniach; nie uogólniać.
+\item W tej samej platformie więcej pól pomaga (\x{1,87} vs \x{2,23} na TikToku); na Stack Exchange przenoszenie zawodzi.
+\item Wybór modelu zależy od sytuacji (slajd ,,Kiedy który model?''): CatBoost tylko w platformie, poza nią ridge albo mnożnik.
+\end{enumerate}
+\end{block}
+\begin{alertblock}{Rekomendacja}
+\normalsize Orientacyjnie: wyświetlenia $\approx 25\times$ lajki; IG zwykle zaniżony. Model z większą liczbą pól dodawaj dopiero przy danych tej samej platformy.
+\end{alertblock}
 \end{frame}
 
 \begin{frame}{Wirale i nagłe skoki małych kont widać w samych reakcjach}
@@ -527,12 +552,6 @@ trafne w top 5\% wyniku & 78\% & 51\% & 36\% \\
 \end{columns}
 \vfill
 {\scriptsize\color{mut} Norma = typowe wyświetlenia konta tej wielkości, nie jego historia (za mało wcześniejszych postów). \textbf{Odstający od modelu:} gdy mamy wyświetlenia (TT, YT, X), wystarczy porównać je z oszacowaniem; na TikToku nadwyżki to częściej promocja (51\% wobec 34\%), niedobory częściej spam (26\% wobec 13\%). Bez wyświetleń (FB, IG) nie da się go wskazać, bo oszacowanie pochodzi z reakcji (AUC 0,53--0,65).}
-\end{frame}
-
-\begin{frame}{Alert, ranking marek i wartość medialna (TT, YT, X)}
-\centering
-\includegraphics[width=\textwidth,height=.62\textheight,keepaspectratio]{fig/preprint_side_pl.png}
-\sub{\textbf{Alert:} z pierwszego odczytu model wskazuje 5\% postów, które trafią do top 5\%. \textbf{Ranking:} zgodność kolejności marek (Kendall). \textbf{Wartość medialna:} marki w $\pm$50\% prawdy.}
 \end{frame}
 
 \begin{frame}{Ranking marek w branży: dobry na TikToku i YouTube, na X bez przewagi}
@@ -598,53 +617,6 @@ Guardian Life & 5 & 6 & 6 & 6 \\
 \item \textbf{X, Tripadvisor:} ogólne podsumowanie opinii o parku rozrywki; marka to jedna z kilku wymienionych stron. 9 wyświetleń wobec oszacowania ok.\ 520.
 \end{itemize}
 \end{columns}
-\end{frame}
-
-\begin{frame}{Ograniczenia: mało marek i niezweryfikowany odczyt; co dalej}
-\begin{columns}[T]
-\column{.52\textwidth}
-\begin{block}{Ograniczenia}
-\footnotesize
-\begin{itemize}\setlength\itemsep{0pt}
-\item prawda FB/IG = nasz odczyt publicznych stron, niezweryfikowany niezależnie
-\item usunięte posty (IG 27\%, FB 14\%), kierunek wpływu nieznany
-\item wiek odczytu: eksport 23 dni, FB/IG 310--334 dni
-\item mało marek: FB 20, IG 11
-\item tylko dostępne filmy i rolki
-\item etykiety AI bez ludzkiego wzorca ($\kappa$ 0,71--0,79)
-\item wynik FB/IG z jednego zestawu treningowego (X + YT)
-\item na X ridge gorszy od mnożnika; na Stack Exchange przenoszenie zawodzi
-\item korelacja, nie przyczynowość
-\end{itemize}
-\end{block}
-\column{.44\textwidth}
-\begin{block}{Co dalej}
-\footnotesize
-\begin{itemize}\setlength\itemsep{2pt}
-\item niezależna weryfikacja odczytu FB/IG
-\item więcej marek na FB i IG
-\item zwykłe posty FB/IG, nie tylko filmy i rolki
-\item inne platformy (Reddit, LinkedIn)
-\item ludzka weryfikacja etykiet AI
-\item praktyczny przykład sumy marki na FB/IG
-\end{itemize}
-\end{block}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Wnioski: FB i IG da się oszacować z lajków}
-\begin{block}{Trzy wnioski}
-\normalsize
-\begin{enumerate}\setlength\itemsep{3pt}
-\item Błąd ok. \x{2,4} (FB), \x{2,7} (IG); wystarcza stosunek wyświetleń do lajków z X + YT.
-\item Zastrzeżenie: 20 i 11 marek, niezweryfikowany odczyt, odczyt po 310--334 dniach; nie uogólniać.
-\item W tej samej platformie więcej pól pomaga (\x{1,87} vs \x{2,23} na TikToku); na Stack Exchange przenoszenie zawodzi.
-\item Wybór modelu zależy od sytuacji (slajd ,,Kiedy który model?''): CatBoost tylko w platformie, poza nią ridge albo mnożnik.
-\end{enumerate}
-\end{block}
-\begin{alertblock}{Rekomendacja}
-\normalsize Orientacyjnie: wyświetlenia $\approx 25\times$ lajki; IG zwykle zaniżony. Model z większą liczbą pól dodawaj dopiero przy danych tej samej platformy.
-\end{alertblock}
 \end{frame}
 
 \end{document}
