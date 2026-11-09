@@ -1,0 +1,50 @@
+# Rejestr eksperymentów
+
+Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także nieudanym.** Szczegóły są w notebooku, a dokładne liczby w `data/processed/`. O ile nie napisano inaczej: cel log10(wyświetlenia) na TikToku / YouTube / X, 5 foldów po markach, MAE na log10 (0,3 to ok. ×2, 0,5 ok. ×3, 1,0 ×10). Zysk to spadek MAE względem podanej bazy. Rodzaj wyniku: **zysk** (przedział nad zerem i użyteczny), **mały** (przedział nad zerem, ale ok. 0,01 lub mniej albo pojedynczy wynik), **brak**, **gorzej**, **wniosek** (mówi coś o danych).
+
+| ID | Data | Pytanie | Ustawienia | Wynik | Rodzaj | Gdzie |
+|---|---|---|---|---|---|---|
+| L1 | 2026-10 | Czy AI oznaczy typ i sentyment? | 3 modele Haiku, Sonnet przy sporach, 12 500 wzmianek | Kappa 0,77–0,79 typ, 0,71–0,73 sentyment. Bez ludzkiego wzorca | wniosek | `eda/03_labels`, `mention_labels.csv` |
+| E01 | 2026-11 | Które grupy kolumn się liczą? | Boosting na kolejnych grupach, wobec mediany i stałej × obserwujący | Stała 0,92 / 0,86 / 0,88; z reakcjami 0,29 / 0,46 / 0,50 | zysk | `01_first_models`, `results_numbers.json` |
+| E02 | 2026-11 | Czy przedziały się trzymają? Czy model się przenosi? | Przedziały konforemne; ridge i boosting na lajkach i komentarzach, pominięta platforma | Pokrycie 0,89–0,90, szerokość łącznie ×16 / ×104 / ×133; transfer 0,31 / 0,61 / 0,65 | wniosek | `02_transfer_and_intervals` |
+| E03 | 2026-11 | Czy inne modele lub pierwsze grafy pomagają? | 6 rodzin + blend na stałych ustawieniach; cechy autora i sąsiadów; podgrupy | Najlepsze 0,28 / 0,45 / 0,48. Graf najwyżej ok. 0,009. Modele na grupy obserwujących gorsze | brak | `03_zoo_strata_graph`, `zoo_numbers.json` |
+| E04 | 2026-11 | Etykiety a wyświetlenia | Reszta po reakcjach, według typu | Najwyżej ok. 0,1; wyraźnie nad zerem tylko promo na TikToku (+0,08) | mały | `03_zoo_strata_graph` |
+| E05 | 2026-11 | Czy dodatkowe kolumny pomagają? | Extra trees; statystyki tekstu, VADER, TF-IDF, kalendarz, wskaźniki, wielkość marki | Tekst +0,011–0,016 na YouTube i X; reszta ok. zera | mały | `04_extra_features`, `extra_numbers.json` |
+| E06 | 2026-11 | Graf marek, przewidywanie reakcji | Graf podobieństwa marek; cele z innych kolumn | Graf marek mały zysk tylko na X; reakcje przewidywalne (R² do 0,76), obserwujący słabiej | mały | `04_extra_features` |
+| E07 | 2026-11 | Laboratorium grafowe | Louvain, PageRank, spektralne, autor–marka, hashtagi, czas, duplikaty, kodowania | Najwyżej ok. 0,007; propagacja etykiet gorzej (X −0,021) | brak | `05_graph_lab`, `graphlab_numbers.json` |
+| E08 | 2026-11 | Co znajduje graf tekstu? | Homofilia, duplikaty, typ z tekstu | Duplikaty 6–14% postów; na X 38% spamu wobec 9%; korelacja wyświetleń par 0,66–0,82 | wniosek | `05_graph_lab` |
+| E09 | 2026-11 | Czy reakcje przenoszą się na FB/IG? Najpierw reakcje, potem wyświetlenia | Obserwujący + tekst → reakcje na 5 platformach | Spearman 0,3–0,47 w obrębie platformy; dwa kroki bez zysku | brak | `06_engagement_transfer` |
+| E10 | 2026-11-02 | Model domyślny kontra punkty odniesienia | Boosting ze scikit-learn bez ustawień | Z reakcjami 0,29 / 0,53 / 0,49 | zysk | `07_tuning`, `tuning_numbers.json` |
+| E11 | 2026-11-02 | Czy strojenie zmienia ranking? | 10 rodzin, zagnieżdżone, 40 ustawień na fold | Najlepsze 0,27 (SVR) / 0,45 / 0,47 (CatBoost); ridge 0,55 na YouTube | mały | `07_tuning` |
+| E12 | 2026-11-02 | Strojone boostingi z tekstem | CatBoost, LightGBM + statystyki i TF-IDF | Najwyżej +0,013 | mały | `07_tuning` |
+| E13 | 2026-11-02 | Pełna macierz transferu | 6 modeli, 3 zestawy kolumn, 12 par, marki testowe usunięte | Najlepszy ridge na lajkach i komentarzach: 0,31 / 0,61 / 0,65, przesunięcie +0,03 / +0,21 / −0,40; kolejność zachowana | wniosek | `08_transfer_matrix`, `transfer_numbers.json` |
+| E14 | 2026-11-02 | Strojenie pod transfer, korekta etykietami | Strojenie między źródłami; przeważanie; typ jako cecha | Bez stałego zysku | brak | `08_transfer_matrix` |
+| E15 | 2026-11-02 | Kalibracja kilkoma postami | Przesunięcie o medianowy błąd n postów celu | Na X 25–50 postów: z 0,65 do ok. 0,55; ideał 0,54. Niesprawdzone na FB/IG | zysk | `08_transfer_matrix` |
+| E16 | 2026-11-02 | Wrażliwość FB/IG na źródło | Mediana szacunku dla każdego zestawu źródeł | Rozrzut ×1,7 i ×2,4. To nie jest zmierzony błąd | wniosek | `08_transfer_matrix` |
+| E17 | 2026-11-02 | Ablacja na trzy sposoby z etykietami | Sama, dodana, usunięta; drugi model | Usunięcie lajków +0,09 / +0,13 / +0,05; etykiety najwyżej +0,005 | wniosek | `09_ablation_labels_bias`, `ablation_numbers.json` |
+| E18 | 2026-11-02 | Błędy systematyczne | Błąd ze znakiem w podgrupach | Najniższa piąta zawyżana 0,23 / 0,51 / 0,67, najwyższa zaniżana 0,20 / 0,42 / 0,56 | wniosek | `09_ablation_labels_bias` |
+| E19 | 2026-11-02 | Promo a wyświetlenia na reakcję | Linia dla każdego typu | Promo ×1,5–1,9 przy tych samych lajkach i komentarzach na TikToku i YouTube | wniosek | `09_ablation_labels_bias` |
+| E20 | 2026-11-02 | Usunięcie spamu z uczenia | Extra trees | Najwyżej 0,002 | brak | `09_ablation_labels_bias` |
+| E21 | 2026-11-02 | Community detection | Louvain na grafie tekstu, bez wyświetleń i etykiet | NMI z marką 0,49–0,65, z typem 0,04–0,08; ARI 0,61–0,71 | wniosek | `09_ablation_labels_bias` |
+| E22 | 2026-11-02 | Fałszywe dopasowania marek | Słowa kluczowe w jednej społeczności | Cricket Wireless 0 z 20 o firmie. Jeden przykład, częstość nieznana | wniosek | `09_ablation_labels_bias` |
+| E23 | 2026-11-02 | Transkrypcje na YouTube | Znacznik wzmianek zaczynających się od czasu | 21% wzmianek; znacznik +0,008 | mały | `09_ablation_labels_bias` |
+| E24 | 2026-11-02 | Reguła Brand24 | Odtworzenie z danych | Odtwarza 98% / 96% / 98% X, FB, IG; niepotwierdzona. Prawdziwe wyświetlenia na reakcję 21 / 20 / 27; reguła na X 700 | wniosek | `10_brand24_rule`, `rule_numbers.json` |
+| E25 | 2026-11-02 | Reguła kontra model na X | Te same posty | Reguła 1,08, prosta reguła ze stałymi z danych 0,68, extra trees 0,47 | zysk | `07_tuning`, `10_brand24_rule` |
+| E26 | 2026-11-02 | Jedna kolumna „reklama” | 3 modele, 2 zestawy kolumn | Najwyżej +0,006 przy obserwujących i reakcjach; do +0,012 na lajkach i komentarzach | mały | `11_promo_flag`, `promo_numbers.json` |
+| E27 | 2026-11-02 | Czy reklamy psują YouTube? | Błąd według stanu reakcji i udziału reklam | Raczej nie. Zero lajków i komentarzy: 23% postów, 35% błędu. Możliwy brak danych, niepotwierdzony | wniosek | `11_promo_flag` |
+| E28 | 2026-11-02 | Usunięcie postów bez reakcji | Z testu oraz z uczenia | Test 0,27 / 0,38 / 0,45, bo jest łatwiejszy; uczenie najwyżej 0,002 | brak | `11_promo_flag`, `zero_numbers.json` |
+| E29 | 2026-11-02 | Druga runda grafów | Stałe agregacje, sąsiedzi z innych platform, korekta na społeczność | Tylko sąsiedzi na YouTube +0,009; wskazówka przy wielu testach. Nachylenia różnią się między społecznościami na TikToku i YouTube | mały | `12_graph_more`, `graph_more_numbers.json` |
+| E30 | 2026-11-02 | Most grafowy między platformami | Sąsiedzi z innych platform, pominięta platforma | Przesunięcie bez zmian; ridge na postach bez reakcji tylko +0,018–0,022 | brak | `12_graph_more` |
+| E31 | 2026-11-02 | Modele dwuetapowe | Klasyfikator poziomu, routing, reszty, ścieżka dla zera, reklama, społeczność | Bez wyraźnego zysku; poprawianie reszt gorzej | brak | `13_stacked_models`, `stacked_numbers.json` |
+| E32 | 2026-11-02 | Strata MAE | Domyślny CatBoost, RMSE na MAE | +0,011 / +0,007 / +0,022 | zysk | `13_stacked_models` |
+| E33 | 2026-11-02 | Błąd według poziomu reakcji | CatBoost MAE; ridge poza platformą | YouTube ×4,6 do ×1,8; X ×3,1 do ×2,5; TikTok stały po pierwszej reakcji | wniosek | `14_reaction_tiers`, `tiers_numbers.json` |
+| E34 | 2026-11-02 | Przedział na poziom reakcji | Konforemne w grupach | Jedna szerokość obejmuje 67–87% przy zerze reakcji; na poziom ok. 90%, oprócz TikToka przy zerze | zysk | `14_reaction_tiers` |
+| E35 | 2026-11-03 | Fałszywe dopasowanie widoczne w grafie tekstu | Graf TF-IDF 10-NN na TikToku, Louvain; Cricket Wireless wobec sześciu marek sieci komórkowych | Wszystkie 20 wzmianek Cricket Wireless w jednej grupie z postami o krykiecie (Aon); 4 krawędzie do 28 postów sieci komórkowych | wniosek | `pitchdeck/class_build.py`, `src/slide_graph.py`, `cricket_graph_numbers.json` |
+| E36 | 2026-11-03 | Branże marek | Agent Haiku, wiedza ogólna, 348 marek | 20 branż; 83 nazwy z innym znaczeniem; 2 o niskiej pewności | instrument, niesprawdzony | `data/processed/brand_industry.csv` |
+| E37 | 2026-11-03 | Marka z dala od swojej branży w grafie tekstu | Odsetek sąsiadów innych marek z tej samej branży wobec losowego, 5 platform | Najniżej m.in. Frontier (X, AI), Gap (YouTube, AI), Guardian Life (Minecraft), Wrangler (Jeep); część to inny język; Cricket Wireless nie wypada nisko (lift 1,4 na TikToku); AUC wobec flagi nazwy 0,62 (0,55–0,69) | wniosek, do sprawdzenia ręcznie | `15_brand_mismatch`, `mismatch_numbers.json` |
+
+## Zaplanowane, nieuruchomione
+Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.
+
+## Niezrobione
+Embeddingi zdaniowe, GCN i GraphSAGE, sieci wielozadaniowe, ludzki gold standard.

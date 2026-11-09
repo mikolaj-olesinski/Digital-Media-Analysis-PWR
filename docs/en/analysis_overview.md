@@ -1,5 +1,7 @@
 # Analysis overview
 
+Full list of experiments and results: `docs/en/experiments.md`.
+
 Internal map of what was tested, how and where. Not preprint text. Numbers come from `data/processed/*_numbers.json`; every number here can be rebuilt from the notebook named next to it.
 
 ## Shared setup
