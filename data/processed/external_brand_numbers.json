@@ -1,0 +1,260 @@
+{
+ "coverage": {
+  "attention": {
+   "tiktok": 0.855,
+   "twitter": 0.842,
+   "youtube": 0.825
+  },
+  "employees": {
+   "tiktok": 0.317,
+   "twitter": 0.307,
+   "youtube": 0.335
+  },
+  "inception": {
+   "tiktok": 0.826,
+   "twitter": 0.831,
+   "youtube": 0.801
+  }
+ },
+ "attention_quantiles": {
+  "0.1": -0.086,
+  "0.5": -0.004,
+  "0.9": 0.093,
+  "0.99": 0.411
+ },
+ "three_platforms": {
+  "+ Wikipedia attention (E170)": {
+   "MAE": {
+    "tiktok": {
+     "+ Wikipedia attention (E170)": 0.2736,
+     "final model": 0.2732
+    },
+    "twitter": {
+     "+ Wikipedia attention (E170)": 0.4737,
+     "final model": 0.4665
+    },
+    "youtube": {
+     "+ Wikipedia attention (E170)": 0.4666,
+     "final model": 0.4557
+    }
+   },
+   "gain": {
+    "tiktok": {
+     "gain": -0.0004200282486937455,
+     "CI low": -0.002507651172618871,
+     "CI high": 0.002012335672732804
+    },
+    "youtube": {
+     "gain": -0.010978988551053621,
+     "CI low": -0.015501884658476925,
+     "CI high": -0.006613452182167236
+    },
+    "twitter": {
+     "gain": -0.007183551387659548,
+     "CI low": -0.01244486601905659,
+     "CI high": -0.0022601447539805576
+    }
+   }
+  },
+  "+ Wikidata facts (E171)": {
+   "MAE": {
+    "tiktok": {
+     "+ Wikidata facts (E171)": 0.2755,
+     "final model": 0.2732
+    },
+    "twitter": {
+     "+ Wikidata facts (E171)": 0.4693,
+     "final model": 0.4665
+    },
+    "youtube": {
+     "+ Wikidata facts (E171)": 0.4623,
+     "final model": 0.4557
+    }
+   },
+   "gain": {
+    "tiktok": {
+     "gain": -0.0023315805450490213,
+     "CI low": -0.0046525073428917854,
+     "CI high": 7.584898729534819e-05
+    },
+    "youtube": {
+     "gain": -0.006683652053197875,
+     "CI low": -0.011373906444789935,
+     "CI high": -0.0017929045982015789
+    },
+    "twitter": {
+     "gain": -0.0027628296738489216,
+     "CI low": -0.007126875963638853,
+     "CI high": 0.0016498077542989192
+    }
+   }
+  },
+  "+ both": {
+   "MAE": {
+    "tiktok": {
+     "+ both": 0.276,
+     "final model": 0.2732
+    },
+    "twitter": {
+     "+ both": 0.4751,
+     "final model": 0.4665
+    },
+    "youtube": {
+     "+ both": 0.4699,
+     "final model": 0.4557
+    }
+   },
+   "gain": {
+    "tiktok": {
+     "gain": -0.002786642410301206,
+     "CI low": -0.005375697941559109,
+     "CI high": 0.00011449230524418957
+    },
+    "youtube": {
+     "gain": -0.01419756270088016,
+     "CI low": -0.019608422506227505,
+     "CI high": -0.008998671695618821
+    },
+    "twitter": {
+     "gain": -0.008638832690650484,
+     "CI low": -0.015621061424741973,
+     "CI high": -0.0029125509835256622
+    }
+   }
+  }
+ },
+ "facebook": {
+  "likes + comments": {
+   "transfer X+YouTube": {
+    "MAE": 0.385,
+    "CI": [
+     0.312,
+     0.482
+    ],
+    "bias": 0.14,
+    "factor": 2.43,
+    "Spearman": 0.909,
+    "posts": 402
+   },
+   "in-platform brand CV": {
+    "MAE": 0.384,
+    "CI": [
+     0.319,
+     0.459
+    ],
+    "bias": -0.012,
+    "factor": 2.42,
+    "Spearman": 0.905,
+    "posts": 402
+   }
+  },
+  "+ attention": {
+   "transfer X+YouTube": {
+    "MAE": 0.384,
+    "CI": [
+     0.312,
+     0.48
+    ],
+    "bias": 0.14,
+    "factor": 2.42,
+    "Spearman": 0.909,
+    "posts": 402
+   },
+   "in-platform brand CV": {
+    "MAE": 0.393,
+    "CI": [
+     0.329,
+     0.468
+    ],
+    "bias": -0.015,
+    "factor": 2.47,
+    "Spearman": 0.901,
+    "posts": 402
+   }
+  },
+  "+ facts": {
+   "transfer X+YouTube": {
+    "MAE": 0.388,
+    "CI": [
+     0.316,
+     0.486
+    ],
+    "bias": 0.142,
+    "factor": 2.44,
+    "Spearman": 0.907,
+    "posts": 402
+   },
+   "in-platform brand CV": {
+    "MAE": 0.383,
+    "CI": [
+     0.32,
+     0.486
+    ],
+    "bias": 0.017,
+    "factor": 2.42,
+    "Spearman": 0.903,
+    "posts": 402
+   }
+  },
+  "+ both": {
+   "transfer X+YouTube": {
+    "MAE": 0.387,
+    "CI": [
+     0.315,
+     0.485
+    ],
+    "bias": 0.145,
+    "factor": 2.44,
+    "Spearman": 0.908,
+    "posts": 402
+   },
+   "in-platform brand CV": {
+    "MAE": 0.386,
+    "CI": [
+     0.319,
+     0.489
+    ],
+    "bias": 0.015,
+    "factor": 2.43,
+    "Spearman": 0.902,
+    "posts": 402
+   }
+  }
+ },
+ "spearman_residual": {
+  "wiki_day_vs_base": {
+   "tiktok": 0.02,
+   "youtube": 0.025,
+   "twitter": -0.026
+  },
+  "wiki_week_vs_base": {
+   "tiktok": 0.035,
+   "youtube": -0.007,
+   "twitter": -0.031
+  },
+  "wiki_peak_vs_base": {
+   "tiktok": 0.031,
+   "youtube": 0.002,
+   "twitter": -0.023
+  },
+  "log_employees": {
+   "tiktok": -0.019,
+   "youtube": 0.047,
+   "twitter": 0.042
+  },
+  "log_revenue_usd": {
+   "tiktok": 0.004,
+   "youtube": -0.057,
+   "twitter": 0.133
+  },
+  "brand_age_years": {
+   "tiktok": -0.034,
+   "youtube": 0.034,
+   "twitter": -0.03
+  }
+ },
+ "facebook_coverage": {
+  "attention": 0.94,
+  "employees": 0.478
+ }
+}

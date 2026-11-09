@@ -1,0 +1,979 @@
+{
+ "E178": {
+  "brands": 20,
+  "posts": 402,
+  "MAE": 0.38532923622450055,
+  "share of posts in top 3 brands": 0.3880597014925373,
+  "MAE without top 3 brands": 0.46144749362543286,
+  "leave-one-brand-out MAE min / max": [
+   0.36291982850063903,
+   0.4144740813367101
+  ],
+  "per-brand MAE (brands with >= 5 posts) p10 / median / p90": [
+   0.218,
+   0.44,
+   0.574
+  ],
+  "brands with >= 5 posts": 19
+ },
+ "E179": {
+  "tiktok": {
+   "inputs only (E56)": {
+    "pairs": 183,
+    "lower bound on MAE": 0.22323551833098393,
+    "final model MAE on these posts": 0.323056723642844,
+    "x-factor between matched posts": 2.795574282976248
+   },
+   "inputs + check age": {
+    "pairs": 18,
+    "lower bound on MAE": 0.24345640438057092,
+    "final model MAE on these posts": 0.36994596392082674,
+    "x-factor between matched posts": 3.068405897281029
+   },
+   "target views at check (final)": 0.27320826409670573,
+   "target views at check, + log age": 0.271986118074031,
+   "target views at 30 days": 0.2716838010781471,
+   "check age days p10 / median / p90": [
+    7.0,
+    35.0,
+    91.0
+   ]
+  },
+  "youtube": {
+   "inputs only (E56)": {
+    "pairs": 639,
+    "lower bound on MAE": 0.3875333742648663,
+    "final model MAE on these posts": 0.5823359890404528,
+    "x-factor between matched posts": 5.95753700363183
+   },
+   "inputs + check age": {
+    "pairs": 249,
+    "lower bound on MAE": 0.38587898970437584,
+    "final model MAE on these posts": 0.5843305158808285,
+    "x-factor between matched posts": 5.912320646842153
+   },
+   "target views at check (final)": 0.45566381424531344,
+   "target views at check, + log age": 0.4548604207484783,
+   "target views at 30 days": 0.4490308385131506,
+   "check age days p10 / median / p90": [
+    0.1,
+    25.0,
+    95.0
+   ]
+  },
+  "twitter": {
+   "inputs only (E56)": {
+    "pairs": 999,
+    "lower bound on MAE": 0.3329458628033932,
+    "final model MAE on these posts": 0.4716070331789874,
+    "x-factor between matched posts": 4.633313917213371
+   },
+   "inputs + check age": {
+    "pairs": 528,
+    "lower bound on MAE": 0.33131895264461986,
+    "final model MAE on these posts": 0.4798722023971533,
+    "x-factor between matched posts": 4.598729928040435
+   },
+   "target views at check (final)": 0.4664935387737166,
+   "target views at check, + log age": 0.4704580828097253,
+   "target views at 30 days": 0.46609715365897303,
+   "check age days p10 / median / p90": [
+    0.1,
+    21.0,
+    79.0
+   ]
+  }
+ },
+ "E180": {
+  "models": {
+   "tiktok": {
+    "MAE (final)": {
+     "post MAE": 0.27320826409670573,
+     "top 1% MAE": 0.40264030157265507,
+     "top 1% bias (pred - true)": -0.3556425405909275,
+     "brand total |log ratio| median": 0.1915269880072118,
+     "brand totals off > x2": 0.28991596638655465,
+     "brand-month total |log ratio| median": 0.1774012716568179,
+     "brand-month off > x2": 0.2729591836734694,
+     "brands": 238,
+     "brand-months": 392
+    },
+    "RMSE": {
+     "post MAE": 0.2846099966930905,
+     "top 1% MAE": 0.37673865307435844,
+     "top 1% bias (pred - true)": -0.31718836872229283,
+     "brand total |log ratio| median": 0.1849887084754741,
+     "brand totals off > x2": 0.27310924369747897,
+     "brand-month total |log ratio| median": 0.18645469116112784,
+     "brand-month off > x2": 0.2627551020408163,
+     "brands": 238,
+     "brand-months": 392
+    },
+    "MAE, tail-weighted": {
+     "post MAE": 0.28564951624986845,
+     "top 1% MAE": 0.41658781134168976,
+     "top 1% bias (pred - true)": -0.34969936830786325,
+     "brand total |log ratio| median": 0.19490737994280533,
+     "brand totals off > x2": 0.2773109243697479,
+     "brand-month total |log ratio| median": 0.1820763095173238,
+     "brand-month off > x2": 0.28316326530612246,
+     "brands": 238,
+     "brand-months": 392
+    },
+    "quantile 0.7": {
+     "post MAE": 0.3065612164260362,
+     "top 1% MAE": 0.30712990629744225,
+     "top 1% bias (pred - true)": -0.2407383695265759,
+     "brand total |log ratio| median": 0.19928444895781408,
+     "brand totals off > x2": 0.2857142857142857,
+     "brand-month total |log ratio| median": 0.20788667520681114,
+     "brand-month off > x2": 0.29591836734693877,
+     "brands": 238,
+     "brand-months": 392
+    },
+    "Brand24 rule": {
+     "post MAE": 0.0,
+     "top 1% MAE": 0.0,
+     "top 1% bias (pred - true)": 0.0,
+     "brand total |log ratio| median": 0.0,
+     "brand totals off > x2": 0.0,
+     "brand-month total |log ratio| median": 0.0,
+     "brand-month off > x2": 0.0,
+     "brands": 238,
+     "brand-months": 392
+    }
+   },
+   "youtube": {
+    "MAE (final)": {
+     "post MAE": 0.45566381424531344,
+     "top 1% MAE": 1.169726897833826,
+     "top 1% bias (pred - true)": -1.1568644394715366,
+     "brand total |log ratio| median": 0.23105680897016986,
+     "brand totals off > x2": 0.36619718309859156,
+     "brand-month total |log ratio| median": 0.23147440821879697,
+     "brand-month off > x2": 0.38580246913580246,
+     "brands": 213,
+     "brand-months": 324
+    },
+    "RMSE": {
+     "post MAE": 0.4625920935082285,
+     "top 1% MAE": 1.0317024126937508,
+     "top 1% bias (pred - true)": -1.0034596225753054,
+     "brand total |log ratio| median": 0.2150300764590695,
+     "brand totals off > x2": 0.37089201877934275,
+     "brand-month total |log ratio| median": 0.21299188890824866,
+     "brand-month off > x2": 0.4012345679012346,
+     "brands": 213,
+     "brand-months": 324
+    },
+    "MAE, tail-weighted": {
+     "post MAE": 0.49642185086921464,
+     "top 1% MAE": 1.272390648880047,
+     "top 1% bias (pred - true)": -1.2665282230964727,
+     "brand total |log ratio| median": 0.22416321311857867,
+     "brand totals off > x2": 0.38028169014084506,
+     "brand-month total |log ratio| median": 0.24173710952898558,
+     "brand-month off > x2": 0.4074074074074074,
+     "brands": 213,
+     "brand-months": 324
+    },
+    "quantile 0.7": {
+     "post MAE": 0.5117558659226865,
+     "top 1% MAE": 1.0211177540565035,
+     "top 1% bias (pred - true)": -0.9698155790049411,
+     "brand total |log ratio| median": 0.21267859773653766,
+     "brand totals off > x2": 0.3474178403755869,
+     "brand-month total |log ratio| median": 0.2277102124878171,
+     "brand-month off > x2": 0.35802469135802467,
+     "brands": 213,
+     "brand-months": 324
+    },
+    "Brand24 rule": {
+     "post MAE": 0.0,
+     "top 1% MAE": 0.0,
+     "top 1% bias (pred - true)": 0.0,
+     "brand total |log ratio| median": 0.0,
+     "brand totals off > x2": 0.0,
+     "brand-month total |log ratio| median": 0.0,
+     "brand-month off > x2": 0.0,
+     "brands": 213,
+     "brand-months": 324
+    }
+   },
+   "twitter": {
+    "MAE (final)": {
+     "post MAE": 0.4664935387737166,
+     "top 1% MAE": 0.9859180615248021,
+     "top 1% bias (pred - true)": -0.9673242243750201,
+     "brand total |log ratio| median": 0.2855314725141978,
+     "brand totals off > x2": 0.4656084656084656,
+     "brand-month total |log ratio| median": 0.28806494301741925,
+     "brand-month off > x2": 0.47844827586206895,
+     "brands": 189,
+     "brand-months": 232
+    },
+    "RMSE": {
+     "post MAE": 0.48830883006579123,
+     "top 1% MAE": 0.98624163132597,
+     "top 1% bias (pred - true)": -0.98624163132597,
+     "brand total |log ratio| median": 0.29602959682333424,
+     "brand totals off > x2": 0.49206349206349204,
+     "brand-month total |log ratio| median": 0.29847505262410545,
+     "brand-month off > x2": 0.4956896551724138,
+     "brands": 189,
+     "brand-months": 232
+    },
+    "MAE, tail-weighted": {
+     "post MAE": 0.4784785289788675,
+     "top 1% MAE": 1.116312353605464,
+     "top 1% bias (pred - true)": -1.0964542458955866,
+     "brand total |log ratio| median": 0.29107850080586883,
+     "brand totals off > x2": 0.48677248677248675,
+     "brand-month total |log ratio| median": 0.2994075994848761,
+     "brand-month off > x2": 0.5,
+     "brands": 189,
+     "brand-months": 232
+    },
+    "quantile 0.7": {
+     "post MAE": 0.5296704870384684,
+     "top 1% MAE": 0.8677732585499838,
+     "top 1% bias (pred - true)": -0.8154889659814474,
+     "brand total |log ratio| median": 0.28174590432866914,
+     "brand totals off > x2": 0.47619047619047616,
+     "brand-month total |log ratio| median": 0.3388553743063508,
+     "brand-month off > x2": 0.5301724137931034,
+     "brands": 189,
+     "brand-months": 232
+    },
+    "Brand24 rule": {
+     "post MAE": 1.0596951537264019,
+     "top 1% MAE": 0.44423014451784226,
+     "top 1% bias (pred - true)": 0.21564053739001837,
+     "brand total |log ratio| median": 1.054590352877266,
+     "brand totals off > x2": 0.9629629629629629,
+     "brand-month total |log ratio| median": 1.0554641387404304,
+     "brand-month off > x2": 0.9267241379310345,
+     "brands": 189,
+     "brand-months": 232
+    }
+   }
+  },
+  "monthly industry ranking": {
+   "tiktok": {
+    "MAE (final)": {
+     "industry-months": 52,
+     "mean Kendall": 0.7333994185804141,
+     "share with Kendall >= 0.6": 0.7884615384615384
+    },
+    "MAE, tail-weighted": {
+     "industry-months": 52,
+     "mean Kendall": 0.732431231413132,
+     "share with Kendall >= 0.6": 0.7884615384615384
+    },
+    "rule": {
+     "industry-months": 52,
+     "mean Kendall": 1.0,
+     "share with Kendall >= 0.6": 1.0
+    }
+   },
+   "youtube": {
+    "MAE (final)": {
+     "industry-months": 51,
+     "mean Kendall": 0.7047279517867753,
+     "share with Kendall >= 0.6": 0.7450980392156863
+    },
+    "MAE, tail-weighted": {
+     "industry-months": 51,
+     "mean Kendall": 0.7052004640239935,
+     "share with Kendall >= 0.6": 0.7450980392156863
+    },
+    "rule": {
+     "industry-months": 51,
+     "mean Kendall": 1.0,
+     "share with Kendall >= 0.6": 1.0
+    }
+   },
+   "twitter": {
+    "MAE (final)": {
+     "industry-months": 42,
+     "mean Kendall": 0.5967026437614672,
+     "share with Kendall >= 0.6": 0.5952380952380952
+    },
+    "MAE, tail-weighted": {
+     "industry-months": 42,
+     "mean Kendall": 0.5544233544233546,
+     "share with Kendall >= 0.6": 0.5
+    },
+    "rule": {
+     "industry-months": 42,
+     "mean Kendall": 0.6336265663996756,
+     "share with Kendall >= 0.6": 0.6428571428571429
+    }
+   }
+  },
+  "earned media value": {
+   "tiktok": {
+    "assumed CPM USD": 5.0,
+    "brands": 238,
+    "median true EMV USD": 235.11000000000004,
+    "model: share of brands within +-50%": 0.6134453781512605,
+    "rule: share of brands within +-50%": 1.0,
+    "model: median abs error USD": 76.06123383287195,
+    "rule: median abs error USD": 0.0
+   },
+   "youtube": {
+    "assumed CPM USD": 5.0,
+    "brands": 213,
+    "median true EMV USD": 155.39000000000004,
+    "model: share of brands within +-50%": 0.5727699530516432,
+    "rule: share of brands within +-50%": 1.0,
+    "model: median abs error USD": 57.188999832208324,
+    "rule: median abs error USD": 0.0
+   },
+   "twitter": {
+    "assumed CPM USD": 5.0,
+    "brands": 189,
+    "median true EMV USD": 3.69,
+    "model: share of brands within +-50%": 0.4656084656084656,
+    "rule: share of brands within +-50%": 0.021164021164021163,
+    "model: median abs error USD": 1.4104758121998267,
+    "rule: median abs error USD": 41.575000000000045
+   }
+  }
+ },
+ "E181": {
+  "posts": 2500,
+  "observed share": 0.7212,
+  "selection AUC": 0.8838795694406978,
+  "effective sample share of weights": 0.4971596115819833,
+  "naive model: MAE (unweighted)": 0.46922689972340087,
+  "naive model: MAE weighted to all posts": 0.49352283406062913,
+  "weighted model: MAE (unweighted)": 0.47785133064223784,
+  "weighted model: MAE weighted to all posts": 0.5001446094235571,
+  "mean predicted log10 views on posts without views: naive / weighted": [
+   1.2738592511701194,
+   1.2797682923421227
+  ],
+  "mean log10 views observed": 1.5276015002462748
+ },
+ "E182": {
+  "three platforms": {
+   "tiktok": {
+    "English": {
+     "posts": 2343,
+     "MAE": 0.2712561271860487,
+     "MAE CI": [
+      0.2592415282327818,
+      0.2848912787742012
+     ],
+     "bias (true - pred)": 0.01891936890445873,
+     "bias CI": [
+      -0.0020219299708185783,
+      0.038268744160966005
+     ]
+    },
+    "other language": {
+     "posts": 148,
+     "MAE": 0.3041127018106884,
+     "MAE CI": [
+      0.2571711555581509,
+      0.3456247993272141
+     ],
+     "bias (true - pred)": 0.03420227170837697,
+     "bias CI": [
+      -0.04019265689531728,
+      0.11279740601595512
+     ]
+    },
+    "sentiment negative": {
+     "posts": 115,
+     "MAE": 0.24868329661029664,
+     "MAE CI": [
+      0.20807665687027244,
+      0.28875843245266014
+     ],
+     "bias (true - pred)": 0.022742763961358766,
+     "bias CI": [
+      -0.03780968023205011,
+      0.0839743291188436
+     ]
+    },
+    "sentiment neutral": {
+     "posts": 1257,
+     "MAE": 0.2748891807322644,
+     "MAE CI": [
+      0.2601908250671566,
+      0.292991671060125
+     ],
+     "bias (true - pred)": 0.027266692749550264,
+     "bias CI": [
+      -0.0015005971645188781,
+      0.051603714704240036
+     ]
+    },
+    "sentiment positive": {
+     "posts": 846,
+     "MAE": 0.27066010965810505,
+     "MAE CI": [
+      0.25301952357918495,
+      0.28818793879207294
+     ],
+     "bias (true - pred)": 0.009839007696670395,
+     "bias CI": [
+      -0.01585027153429863,
+      0.03627048853438718
+     ]
+    }
+   },
+   "youtube": {
+    "English": {
+     "posts": 2367,
+     "MAE": 0.45273264522280005,
+     "MAE CI": [
+      0.4323032111172283,
+      0.47808861306094114
+     ],
+     "bias (true - pred)": 0.03538968481264512,
+     "bias CI": [
+      0.002562346312750312,
+      0.06935699739964028
+     ]
+    },
+    "other language": {
+     "posts": 74,
+     "MAE": 0.5494216125735457,
+     "MAE CI": [
+      0.4576067814880932,
+      0.6494859258382962
+     ],
+     "bias (true - pred)": 0.1702313671643806,
+     "bias CI": [
+      -0.037154233085393694,
+      0.29799149394379043
+     ]
+    },
+    "sentiment negative": {
+     "posts": 40,
+     "MAE": 0.458098722578565,
+     "MAE CI": [
+      0.33071120950467453,
+      0.5779272439299145
+     ],
+     "bias (true - pred)": -0.03901205949018375,
+     "bias CI": [
+      -0.21000453014466666,
+      0.1277028954825752
+     ]
+    },
+    "sentiment neutral": {
+     "posts": 1886,
+     "MAE": 0.4375643345387199,
+     "MAE CI": [
+      0.414378900253409,
+      0.46243154121313346
+     ],
+     "bias (true - pred)": 0.020319162626289106,
+     "bias CI": [
+      -0.01066078014124141,
+      0.053504903979875916
+     ]
+    },
+    "sentiment positive": {
+     "posts": 265,
+     "MAE": 0.5232074817523209,
+     "MAE CI": [
+      0.4400072480706503,
+      0.6222688087368256
+     ],
+     "bias (true - pred)": 0.16573869301841657,
+     "bias CI": [
+      0.03457831303562148,
+      0.28798356625732974
+     ]
+    }
+   },
+   "twitter": {
+    "English": {
+     "posts": 1775,
+     "MAE": 0.4670056509005833,
+     "MAE CI": [
+      0.44942423638699497,
+      0.4848532700874537
+     ],
+     "bias (true - pred)": 0.04040751565003122,
+     "bias CI": [
+      0.002455799831885315,
+      0.07892880494529739
+     ]
+    },
+    "other language": {
+     "posts": 28
+    },
+    "sentiment negative": {
+     "posts": 478,
+     "MAE": 0.47278656196716484,
+     "MAE CI": [
+      0.43666139542350607,
+      0.5121196236093413
+     ],
+     "bias (true - pred)": 0.05577141667240183,
+     "bias CI": [
+      -0.007477796280720323,
+      0.11400894248068166
+     ]
+    },
+    "sentiment neutral": {
+     "posts": 950,
+     "MAE": 0.47070586746819704,
+     "MAE CI": [
+      0.4440688933561219,
+      0.49646888941448303
+     ],
+     "bias (true - pred)": 0.07171424271640418,
+     "bias CI": [
+      0.025199651924954082,
+      0.1198681316250712
+     ]
+    },
+    "sentiment positive": {
+     "posts": 302,
+     "MAE": 0.4374854432400588,
+     "MAE CI": [
+      0.40471843909052957,
+      0.47357747098009284
+     ],
+     "bias (true - pred)": -0.03936901443595334,
+     "bias CI": [
+      -0.1003460669608878,
+      0.03337306559785919
+     ]
+    }
+   }
+  },
+  "facebook": {
+   "English": {
+    "posts": 321,
+    "MAE": 0.34621236474503375,
+    "MAE CI": [
+     0.28197393882285304,
+     0.4350614024204011
+    ],
+    "bias (true - pred)": 0.08531616478800037,
+    "bias CI": [
+     -0.02786428659327767,
+     0.19252010072821454
+    ]
+   },
+   "other language": {
+    "posts": 81,
+    "MAE": 0.5403479491246096,
+    "MAE CI": [
+     0.35411584491683,
+     0.6606024814188037
+    ],
+    "bias (true - pred)": 0.35443014167446574,
+    "bias CI": [
+     -0.04267470928255691,
+     0.5665128278467355
+    ]
+   },
+   "languages": {
+    "en": 321,
+    "pl": 43,
+    "es": 17,
+    "fr": 12,
+    "it": 3,
+    "vi": 2
+   },
+   "sentiment negative": {
+    "posts": 5
+   },
+   "sentiment neutral": {
+    "posts": 23
+   },
+   "sentiment positive": {
+    "posts": 11
+   }
+  }
+ },
+ "E183": {
+  "tiktok": {
+   "authors": 2
+  },
+  "youtube": {
+   "authors with >= 4 posts": 23,
+   "posts covered": 127,
+   "Spearman first vs second half": 0.8112648221343874,
+   "same side of the median": 0.9130434782608695,
+   "top-20% list precision in the second half": 0.6,
+   "mean residual of first-half top 20% in second half": 0.7761428539726404
+  },
+  "twitter": {
+   "authors": 7
+  }
+ },
+ "E184": {
+  "tiktok": {
+   "all posts": {
+    "posts": 2491,
+    "promo": 0.33881975110397433,
+    "spam": 0.13287836210357287,
+    "duplicate text": 0.018867924528301886,
+    "median reactions": 32.0
+   },
+   "over-performers (top 5% residual)": {
+    "posts": 125,
+    "promo": 0.512,
+    "spam": 0.112,
+    "duplicate text": 0.072,
+    "median reactions": 56.999999999999986
+   },
+   "under-performers (bottom 5% residual)": {
+    "posts": 125,
+    "promo": 0.312,
+    "spam": 0.256,
+    "duplicate text": 0.056,
+    "median reactions": 5.0
+   }
+  },
+  "youtube": {
+   "all posts": {
+    "posts": 2441,
+    "promo": 0.4248258910282671,
+    "spam": 0.15157722244981564,
+    "duplicate text": 0.04956984842277755,
+    "median reactions": 5.999999999999999
+   },
+   "over-performers (top 5% residual)": {
+    "posts": 123,
+    "promo": 0.4715447154471545,
+    "spam": 0.1951219512195122,
+    "duplicate text": 0.06504065040650407,
+    "median reactions": 0.0
+   },
+   "under-performers (bottom 5% residual)": {
+    "posts": 123,
+    "promo": 0.4715447154471545,
+    "spam": 0.18699186991869918,
+    "duplicate text": 0.07317073170731707,
+    "median reactions": 0.0
+   }
+  },
+  "twitter": {
+   "all posts": {
+    "posts": 1803,
+    "promo": 0.18524681087077094,
+    "spam": 0.11758180809761509,
+    "duplicate text": 0.012201885745978924,
+    "median reactions": 0.0
+   },
+   "over-performers (top 5% residual)": {
+    "posts": 91,
+    "promo": 0.12087912087912088,
+    "spam": 0.17582417582417584,
+    "duplicate text": 0.03296703296703297,
+    "median reactions": 0.0
+   },
+   "under-performers (bottom 5% residual)": {
+    "posts": 91,
+    "promo": 0.12087912087912088,
+    "spam": 0.10989010989010989,
+    "duplicate text": 0.02197802197802198,
+    "median reactions": 0.0
+   }
+  }
+ },
+ "E185": {
+  "tiktok": {
+   "CatBoost without first-check views (reactions only)": {
+    "posts": 336,
+    "top 1%, alerts = target size": {
+     "precision": 0.3333333333333333,
+     "recall": 0.25
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.2222222222222222,
+     "recall": 0.5
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.7058823529411765,
+     "recall": 0.7058823529411765
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.27450980392156865,
+     "recall": 0.8235294117647058
+    }
+   },
+   "CatBoost: first check + reactions + ages": {
+    "posts": 336,
+    "top 1%, alerts = target size": {
+     "precision": 0.6666666666666666,
+     "recall": 0.5
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.4444444444444444,
+     "recall": 1.0
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.8235294117647058,
+     "recall": 0.8235294117647058
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.27450980392156865,
+     "recall": 0.8235294117647058
+    }
+   },
+   "first check as-is (persistence)": {
+    "posts": 336,
+    "top 1%, alerts = target size": {
+     "precision": 0.6666666666666666,
+     "recall": 0.5
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.4444444444444444,
+     "recall": 1.0
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.8235294117647058,
+     "recall": 0.8235294117647058
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.27450980392156865,
+     "recall": 0.8235294117647058
+    }
+   },
+   "first check x median growth": {
+    "posts": 336,
+    "top 1%, alerts = target size": {
+     "precision": 0.6666666666666666,
+     "recall": 0.5
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.4444444444444444,
+     "recall": 1.0
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.8235294117647058,
+     "recall": 0.8235294117647058
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.27450980392156865,
+     "recall": 0.8235294117647058
+    }
+   },
+   "first check x power law in age": {
+    "posts": 336,
+    "top 1%, alerts = target size": {
+     "precision": 0.6666666666666666,
+     "recall": 0.5
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.4444444444444444,
+     "recall": 1.0
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.8235294117647058,
+     "recall": 0.8235294117647058
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.27450980392156865,
+     "recall": 0.8235294117647058
+    }
+   }
+  },
+  "twitter": {
+   "CatBoost without first-check views (reactions only)": {
+    "posts": 331,
+    "top 1%, alerts = target size": {
+     "precision": 0.0,
+     "recall": 0.0
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.2222222222222222,
+     "recall": 0.5
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.35294117647058826,
+     "recall": 0.35294117647058826
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.23529411764705882,
+     "recall": 0.7058823529411765
+    }
+   },
+   "CatBoost: first check + reactions + ages": {
+    "posts": 331,
+    "top 1%, alerts = target size": {
+     "precision": 0.3333333333333333,
+     "recall": 0.25
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.2222222222222222,
+     "recall": 0.5
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.7058823529411765,
+     "recall": 0.7058823529411765
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.3137254901960784,
+     "recall": 0.9411764705882353
+    }
+   },
+   "first check as-is (persistence)": {
+    "posts": 331,
+    "top 1%, alerts = target size": {
+     "precision": 0.3333333333333333,
+     "recall": 0.25
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.3333333333333333,
+     "recall": 0.75
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.7058823529411765,
+     "recall": 0.7058823529411765
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.27450980392156865,
+     "recall": 0.8235294117647058
+    }
+   },
+   "first check x median growth": {
+    "posts": 331,
+    "top 1%, alerts = target size": {
+     "precision": 0.3333333333333333,
+     "recall": 0.25
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.2222222222222222,
+     "recall": 0.5
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.7058823529411765,
+     "recall": 0.7058823529411765
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.27450980392156865,
+     "recall": 0.8235294117647058
+    }
+   },
+   "first check x power law in age": {
+    "posts": 331,
+    "top 1%, alerts = target size": {
+     "precision": 0.3333333333333333,
+     "recall": 0.25
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.1111111111111111,
+     "recall": 0.25
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.5882352941176471,
+     "recall": 0.5882352941176471
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.27450980392156865,
+     "recall": 0.8235294117647058
+    }
+   }
+  },
+  "youtube": {
+   "CatBoost without first-check views (reactions only)": {
+    "posts": 289,
+    "top 1%, alerts = target size": {
+     "precision": 0.6666666666666666,
+     "recall": 0.6666666666666666
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.3333333333333333,
+     "recall": 1.0
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.6428571428571429,
+     "recall": 0.6
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.35714285714285715,
+     "recall": 1.0
+    }
+   },
+   "CatBoost: first check + reactions + ages": {
+    "posts": 289,
+    "top 1%, alerts = target size": {
+     "precision": 0.6666666666666666,
+     "recall": 0.6666666666666666
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.3333333333333333,
+     "recall": 1.0
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.8571428571428571,
+     "recall": 0.8
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.35714285714285715,
+     "recall": 1.0
+    }
+   },
+   "first check as-is (persistence)": {
+    "posts": 289,
+    "top 1%, alerts = target size": {
+     "precision": 0.6666666666666666,
+     "recall": 0.6666666666666666
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.3333333333333333,
+     "recall": 1.0
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.7857142857142857,
+     "recall": 0.7333333333333333
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.3333333333333333,
+     "recall": 0.9333333333333333
+    }
+   },
+   "first check x median growth": {
+    "posts": 289,
+    "top 1%, alerts = target size": {
+     "precision": 0.6666666666666666,
+     "recall": 0.6666666666666666
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.3333333333333333,
+     "recall": 1.0
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.7857142857142857,
+     "recall": 0.7333333333333333
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.3333333333333333,
+     "recall": 0.9333333333333333
+    }
+   },
+   "first check x power law in age": {
+    "posts": 289,
+    "top 1%, alerts = target size": {
+     "precision": 0.6666666666666666,
+     "recall": 0.6666666666666666
+    },
+    "top 1%, alerts = 3x target size": {
+     "precision": 0.3333333333333333,
+     "recall": 1.0
+    },
+    "top 5%, alerts = target size": {
+     "precision": 0.7142857142857143,
+     "recall": 0.6666666666666666
+    },
+    "top 5%, alerts = 3x target size": {
+     "precision": 0.35714285714285715,
+     "recall": 1.0
+    }
+   }
+  }
+ }
+}
