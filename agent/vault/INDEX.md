@@ -226,5 +226,6 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E226 | finding | Information ladder: what each input buys | [E226](E226.md) |
 | E227 | finding | Red-team baselines: likes multiplier, median skill, paired CIs | [E227](E227.md) |
 | E228 | finding | Result without extreme posts, as classification, as probability | [E228](E228.md) |
+| E229 | finding | Instagram owner followers | [E229](E229.md) |
 | E223 | finding | Do our FB / IG post owners have the same account on YouTube or X? | [E223](E223.md) |
 | E224 | finding | Is a mention really about its brand? | [E224](E224.md) |

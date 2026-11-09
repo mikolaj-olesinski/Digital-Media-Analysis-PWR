@@ -2691,6 +2691,18 @@
   ]
  },
  {
+  "id": "E229",
+  "date": "2026-11-09",
+  "question": "Instagram owner followers",
+  "setup": "Followers of 539 reel owners (public profiles); ridge transfer from export X + YT with / without log followers; own IG ridge, CV by owner and by brand",
+  "result": "Transfer x2.72 -> x4.58 with followers (+0.227, CI 0.155-0.294); own IG x2.40 -> x2.23 (-0.032, CI -0.038 to -0.025); followers alone x3.62",
+  "type": "finding",
+  "where": "`src/ig_followers.py`",
+  "paths": [
+   "src/ig_followers.py"
+  ]
+ },
+ {
   "id": "E223",
   "date": "2026-11-08",
   "question": "Do our FB / IG post owners have the same account on YouTube or X?",

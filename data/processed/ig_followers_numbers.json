@@ -1,0 +1,79 @@
+{
+ "reels scored": 642,
+ "reels with owner followers": 625,
+ "owners": 539,
+ "followers median / p10 / p90": [
+  1123,
+  28,
+  26000
+ ],
+ "Spearman log followers vs log views": 0.677,
+ "transfer X + YT": {
+  "likes + comments (ours)": {
+   "MAE": 0.434,
+   "factor": 2.72,
+   "within x2": 0.405
+  },
+  "+ followers": {
+   "MAE": 0.661,
+   "factor": 4.58,
+   "within x2": 0.238
+  },
+  "+ followers - ours": {
+   "diff": 0.227,
+   "CI": [
+    0.155,
+    0.294
+   ]
+  },
+  "source rows with followers": 4174
+ },
+ "own platform, grouped by owner": {
+  "likes + comments": {
+   "MAE": 0.376,
+   "factor": 2.38,
+   "within x2": 0.509
+  },
+  "+ followers": {
+   "MAE": 0.347,
+   "factor": 2.23,
+   "within x2": 0.573
+  },
+  "followers only": {
+   "MAE": 0.558,
+   "factor": 3.62,
+   "within x2": 0.349
+  },
+  "+ followers - likes + comments": {
+   "diff": -0.029,
+   "CI": [
+    -0.036,
+    -0.022
+   ]
+  }
+ },
+ "own platform, grouped by brand": {
+  "likes + comments": {
+   "MAE": 0.381,
+   "factor": 2.4,
+   "within x2": 0.488
+  },
+  "+ followers": {
+   "MAE": 0.349,
+   "factor": 2.23,
+   "within x2": 0.568
+  },
+  "followers only": {
+   "MAE": 0.559,
+   "factor": 3.62,
+   "within x2": 0.342
+  },
+  "+ followers - likes + comments": {
+   "diff": -0.032,
+   "CI": [
+    -0.038,
+    -0.025
+   ]
+  }
+ }
+}
