@@ -5,6 +5,7 @@ fresh reactions, taken from fb_extend.fb_frame for the brand column) and Instagr
 Model: ridge on log likes and log comments (the two fields every platform has), training rows pooled (as E93);
 sensitivity: each training platform weighted equally. For each of the 31 non-empty training sets, every platform not in it is scored: MAE in log10, factor 10^MAE,
 median bias (+ = under-predicts), share within x2. Reference: the same ridge in-platform with brand-grouped 5-fold CV.
+Stack Exchange (E227 follow-up) is scored as an extra test platform for every set, never used in training.
 Writes data/processed/train_combos_numbers.json and figures/train_combos_{en,pl}.png.
     python src/train_combos.py"""
 import itertools, json, sys
@@ -16,7 +17,7 @@ from matplotlib.colors import LinearSegmentedColormap
 from sklearn.model_selection import GroupKFold
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import eda_utils as eu, fb_extend as fe  # noqa: E402
+import eda_utils as eu, fb_extend as fe, stackexchange_transfer as se  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 P = ["tiktok", "youtube", "twitter", "facebook", "instagram"]
@@ -63,7 +64,12 @@ def run(d):
         for c in itertools.combinations(P, k):
             for store, flag in ((combos, False), (eq, True)):
                 m = fit(d, c, flag); store[" + ".join(c)] = {q: stats(d[d.platform == q].y.values, m.predict(d[d.platform == q][fe.C2])) for q in P if q not in c}
-    return {"combinations, platforms weighted equally": eq, "n per platform": d.platform.value_counts().to_dict(), "brands per platform": d.groupby("platform").brand.nunique().to_dict(), "own platform (brand CV)": own, "combinations": combos}
+    S = se.frame(); S = S[["y", "brand"] + fe.C2].reset_index(drop=True); pr = np.zeros(len(S))
+    for tr, te in GroupKFold(5).split(S, S.y, S.brand):
+        pr[te] = fe.ridge().fit(S.iloc[tr][fe.C2], S.y.iloc[tr]).predict(S.iloc[te][fe.C2])
+    sx = {"own platform (brand CV)": stats(S.y.values, pr),
+          "combinations": {" + ".join(c): stats(S.y.values, fit(d, c).predict(S[fe.C2])) for k in range(1, 6) for c in itertools.combinations(P, k)}}
+    return {"stackexchange (extra test platform, never in training)": sx, "combinations, platforms weighted equally": eq, "n per platform": d.platform.value_counts().to_dict(), "brands per platform": d.groupby("platform").brand.nunique().to_dict(), "own platform (brand CV)": own, "combinations": combos}
 
 
 def figure(out, lang):

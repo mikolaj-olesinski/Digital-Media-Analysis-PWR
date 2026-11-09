@@ -3,6 +3,7 @@
 \usepackage{fontspec}
 \usepackage[polish]{babel}
 \usepackage{booktabs,multirow,graphicx}
+\usepackage{array}
 \usepackage[table]{xcolor}
 \renewcommand{\x}[1]{$\times$#1}
 \newcommand{\xb}[1]{\textbf{$\boldsymbol{\times}$#1}}
@@ -166,14 +167,17 @@ Instagram & właściciele rolek & 627 rolek (541 autorów) & autorzy w walidacji
 \column{.31\textwidth}
 \begin{block}{Ta sama platforma}
 TikTok, YouTube, X\\[2pt]
-\textbf{CatBoost}\\[2pt]
+\textbf{CatBoost} na 8 polach:\\
+{\scriptsize\texttt{log(1+obserwujący)}, \texttt{log(1+lajki)}, \texttt{log(1+komentarze)}, \texttt{log(1+udostępnienia)} + 4 flagi ,,pole puste''}\\[2pt]
 test na \alert{markach i autorach}, których model nie widział
 \end{block}
 \column{.31\textwidth}
 \begin{block}{Poza platformą}
 Facebook, Instagram\\[2pt]
-\textbf{ridge} na $\log$ lajków i komentarzy\\[2pt]
-uczony \alert{tylko na X + YouTube}
+\textbf{ridge} na 2 polach:\\
+{\scriptsize\texttt{log(1+lajki)}, \texttt{log(1+komentarze)} (jedyne, które ma każda platforma)}\\[2pt]
+uczony \alert{tylko na X + YouTube}\\[2pt]
+{\tiny Inne metody (MLP, CatBoost, augmentacje, mapowanie skal, wagi, anchor, group DRO; E87--E92) nie pobiły ridge (slajd ,,poza platformą'')}
 \end{block}
 \column{.31\textwidth}
 \begin{block}{Dane zewnętrzne}
@@ -181,69 +185,46 @@ nasz odczyt wyświetleń FB/IG, \alert{nigdy w treningu}\\[2pt]
 inna platforma: Stack Exchange
 \end{block}
 \end{columns}
-\vspace{8pt}
+\vspace{0pt}
 \centering\small
+Cel: $\log_{10}$(wyświetlenia). Nie używamy tekstu, etykiet AI, kraju ani czasu (nie poprawiały wyniku).\\
 Błąd: \alert{typowy błąd $10^{\text{MAE}}$} (MAE na $\log_{10}$ wyświetleń); {\footnotesize \x{2} = oszacowanie zwykle 2 razy za duże albo za małe}
-\end{frame}
-
-% 3b
-\begin{frame}{Kto uczy się na czym}
-\vspace{-8pt}\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.85}
-\begin{tabular}{rcll}
-\multicolumn{1}{c}{\colorbox{acc!22}{trening}} & & \colorbox{orange!40}{test} & typowy błąd \\
-\midrule
-\multicolumn{4}{l}{\textbf{Ta sama platforma} \textit{(CatBoost, nowe marki i autorzy)}} \\
-\colorbox{acc!22}{TikTok} & $\rightarrow$ & \colorbox{orange!40}{TikTok} & \x{1,87} \\
-\colorbox{acc!22}{YouTube} & $\rightarrow$ & \colorbox{orange!40}{YouTube} & \x{2,90} \\
-\colorbox{acc!22}{X} & $\rightarrow$ & \colorbox{orange!40}{X} & \x{3,03} \\
-\midrule
-\multicolumn{4}{l}{\textbf{Poza platformą, wynik główny} \textit{(ridge, 0 postów celu)}} \\
-\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{Facebook} & \xb{2,43} \\
-\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{Instagram} & \xb{2,72} \\
-\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{TikTok} & \x{2,05} \\
-\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{Stack Exchange} & \x{3,14} \\
-\midrule
-\multicolumn{4}{l}{\textbf{Sprawdzenie wszystkich zestawów} \textit{(każda platforma ukryta po kolei)}} \\
-\colorbox{acc!22}{pozostałe 4} & $\rightarrow$ & \colorbox{orange!40}{YouTube} & \x{4,08} \\
-\colorbox{acc!22}{pozostałe 4} & $\rightarrow$ & \colorbox{orange!40}{X} & \x{4,37} \\
-\colorbox{acc!22}{TikTok + YouTube + X} & $\rightarrow$ & \colorbox{orange!40}{Facebook} & \x{2,49} \\
-\colorbox{acc!22}{TikTok + YouTube + X} & $\rightarrow$ & \colorbox{orange!40}{Instagram} & \x{2,69} \\
-\end{tabular}
-\vspace{2pt}
-\sub{\scriptsize Dodanie TikToka do treningu prawie nie zmienia FB/IG: X + YouTube dają \x{2,43} / \x{2,72}.}
 \end{frame}
 
 % 4 ------------------------------------------------------------
 \begin{frame}{Wyniki: ta sama platforma}
-\centering
-\begin{tabular}{lcccc}
+\centering\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccc}
 \toprule
- & \textbf{CatBoost} (MAE) & W granicach \x{2} & Stała mediana & Mnożnik lajków \\
+ & \textbf{CatBoost} (MAE) & W granicach \x{2} & Stała mediana & Mnożnik lajków & Zasięg Brand24 \\
 \midrule
-TikTok  & \xb{1,87} (0,273) & 67\% & \x{4,60} & \x{2,23} \\
-YouTube & \xb{2,90} (0,462) & 43\% & \x{8,77} & \x{4,06} \\
-X       & \xb{3,03} (0,482) & 40\% & \x{4,63} & \x{3,63} \\
+TikTok  & \xb{1,87} (0,273) & 67\% & \x{4,60} & \x{2,23} & = wyświetlenia \\
+YouTube & \xb{2,90} (0,462) & 43\% & \x{8,77} & \x{4,06} & = wyświetlenia \\
+X       & \xb{3,03} (0,482) & 40\% & \x{4,63} & \x{3,63} & \x{11,47} \\
 \bottomrule
 \end{tabular}
 \vspace{12pt}
 \sub{Test na markach i autorach, których model nie widział.\\
-CatBoost lepszy od mnożnika lajków o 0,075--0,147 MAE; przedziały ufności wykluczają zero.}
+CatBoost lepszy od mnożnika lajków o 0,075--0,147 MAE; przedziały ufności wykluczają zero.\\
+{\footnotesize Zasięg Brand24: kolumna zasięgu z eksportu porównana z prawdziwymi wyświetleniami na tych samych postach.}}
 \end{frame}
 
 % 5 ------------------------------------------------------------
 \begin{frame}{Wyniki: poza platformą}
-\centering\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lcccc}
+\centering\small\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lccccc}
 \toprule
- & \textbf{Ridge X + YT} (MAE) & W granicach \x{2} & Mediana X + YT & Ridge na celu \\
+ & \textbf{Ridge X+YT} (MAE) & W granicach \x{2} & Mediana X+YT & Ridge na celu & Zasięg Brand24 \\
 \midrule
-Facebook  & \xb{2,43} (0,385) & 53\% & \x{19,87} & \x{2,42} \\
-Instagram & \xb{2,72} (0,435) & 40\% & \x{8,69}  & \x{2,41} \\
+Facebook  & \xb{2,43} (0,385) & 53\% & \x{19,87} & \x{2,42} & \x{13,14} \\
+Instagram & \xb{2,72} (0,435) & 40\% & \x{8,69}  & \x{2,41} & \x{26,44} \\
 \bottomrule
 \end{tabular}
 \vspace{12pt}
 \sub{Model uczony tylko na X + YouTube, 0 postów z FB/IG w treningu.\\
-FB: tyle samo co ridge uczony na samym FB. IG: nieco gorzej; 72\% rolek niedoszacowanych.}
+FB: tyle samo co ridge uczony na samym FB. IG: nieco gorzej; 72\% rolek niedoszacowanych.\\
+{\footnotesize Zasięg Brand24: kolumna zasięgu z eksportu porównana\\z prawdziwymi wyświetleniami na tych samych postach.}\\[3pt]
+{\scriptsize Zestaw X + YouTube ustaliliśmy z góry: reakcje na IG są podobne do X i YouTube,\\a nie do TikToka. Z TikTokiem (TT + YT + X): FB \x{2,49}, IG \x{2,69}, czyli prawie bez zmian;\\TikTok zostaje też jako dodatkowy test (\x{2,05}).}}
 \end{frame}
 
 % 6 ------------------------------------------------------------
@@ -260,23 +241,23 @@ FB: tyle samo co ridge uczony na samym FB. IG: nieco gorzej; 72\% rolek niedosza
 Cel & Źródło & Regresja & Mnożnik lajków & Różnica MAE [95\% CI] & Mediana źródła \\
 \midrule
 TikTok & X + YT & \xb{2,05} & \x{2,22} & $-$0,034 [$-$0,038; $-$0,029] & \x{11,0} \\
-YouTube & pozostałe 4 & \x{4,08} & \x{4,03} & +0,004 [0,000; 0,009] & \x{8,9} \\
-X & pozostałe 4 & \x{4,37} & \xb{3,45} & +0,103 [0,084; 0,120] & \x{22,1} \\
+YouTube & TT + X & \x{4,09} & \xb{4,02} & +0,007 [0,002; 0,011] & \x{9,0} \\
+X & TT + YT & \x{4,47} & \xb{3,42} & +0,116 [0,094; 0,137] & \x{21,8} \\
 Facebook & X + YT & \x{2,43} & \x{2,42} & +0,002 [$-$0,017; 0,022] & \x{19,9} \\
 Instagram & X + YT & \xb{2,72} & \x{2,94} & $-$0,034 [$-$0,047; $-$0,020] & \x{8,7} \\
 Stack Exchange & X + YT & \x{3,14} & \x{5,33} & $-$0,229 [$-$0,240; $-$0,207] & \xb{2,1} \\
 \bottomrule
 \end{tabular}
 \vspace{10pt}
-\sub{Regresja lepsza na 3 celach, bez wyraźnej różnicy na 2 (FB, YT), gorsza na X (62\% postów bez lajka).}
+\sub{Trening tylko na platformach z eksportu (TT, YT, X), nigdy na FB/IG. Regresja lepsza na 3 celach, bez różnicy na FB, gorsza na YouTube (nieznacznie) i X (62\% postów bez lajka).}
 \end{frame}
 
 % 8 ------------------------------------------------------------
 \begin{frame}{Czy wynik zależy od wyboru platform treningowych?}
 \centering\footnotesize
-\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{0.74}
+\scriptsize\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{0.72}
 \input{combos_tabular}
-\sub{Typowy błąd (\x{}); szare = trening. Mediana po 15 zestawach bez celu: FB \x{2,58}, IG \x{2,65}, czyli nie zależy od wyboru X + YT.\\ \scriptsize Stack Exchange (538 pytań, 48 marek): ridge z X + YT \x{3,14}, mnożnik lajków \x{5,33}, mediana SE \x{1,96}; przenosi się kolejność (Spearman 0,57), nie poziom.}
+\sub{Typowy błąd (\x{}); szare = trening. Mediana po 15 zestawach bez celu: FB \x{2,58}, IG \x{2,65}, czyli nie zależy od wyboru X + YT.\\ \scriptsize Stack Exchange (538 pytań) nigdy nie jest w treningu: najlepszy z samego YouTube \x{1,87}, własny ridge SE \x{1,77}; każdy zestaw z X daje \x{3}--\x{5} (E201).}
 \end{frame}
 
 % 10 ------------------------------------------------------------
@@ -287,7 +268,7 @@ Stack Exchange & X + YT & \x{3,14} & \x{5,33} & $-$0,229 [$-$0,240; $-$0,207] & 
 \end{frame}
 
 % 11
-\begin{frame}{Co sprawdziliśmy i nie pomogło}
+\begin{frame}{Co testowaliśmy: ta sama platforma}
 \centering\tiny\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{0.85}
 \begin{tabular}{lccc}
 \toprule
@@ -324,6 +305,113 @@ Model (ta sama platforma, typowy błąd) & TikTok & YouTube & X \\
 \sub{\scriptsize Ponad 20 dodatkowych źródeł (tekst, etykiety AI, grafy, Wikipedia) poprawia błąd najwyżej \x{1,04}.}
 \end{frame}
 
+% 11-oop
+\begin{frame}{Co testowaliśmy: poza platformą (FB, IG)}
+\centering\scriptsize\setlength{\tabcolsep}{6pt}\renewcommand{\arraystretch}{0.8}
+\begin{tabular}{lcc}
+\toprule
+Metoda (typowy błąd) & Facebook & Instagram \\
+\midrule
+\multicolumn{3}{l}{\textit{Proste reguły}} \\
+\quad mediana z X + YT & \x{19,87} & \x{8,69} \\
+\quad mnożnik lajków & \x{2,42} & \x{2,94} \\
+\midrule
+\multicolumn{3}{l}{\textit{Modele (trening X + YouTube)}} \\
+\quad \textbf{regresja ridge (nasz)} & \textbf{\x{2,43}} & \textbf{\x{2,72}} \\
+\quad MLP & \x{2,47} & \x{2,78} \\
+\quad CatBoost & \x{2,61} & \x{2,95} \\
+\midrule
+\multicolumn{3}{l}{\textit{Augmentacja}} \\
+\quad CatBoost + trend & \x{2,54} & \x{2,96} \\
+\quad MLP + trend & \x{2,46} & \x{2,79} \\
+\quad CatBoost + propensity & \x{2,49} & \x{2,89} \\
+\quad MLP + propensity & \x{2,42} & \x{2,75} \\
+\quad CatBoost + mixup & \x{2,58} & \x{2,95} \\
+\quad MLP + mixup & \x{2,46} & \x{2,76} \\
+\midrule
+\multicolumn{3}{l}{\textit{Odniesienie (używa etykiet platformy docelowej)}} \\
+\quad ridge uczony na samej platformie (CV po markach) & \x{2,42} & \x{2,41} \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\sub{Trening tylko na eksporcie X + YouTube, nigdy na FB/IG. Złożone modele i augmentacja nie dają wyraźnej poprawy względem prostej regresji na 2 polach (lajki, komentarze).}
+\end{frame}
+
+
+% 11a
+\begin{frame}{Dodatkowe dane: ile zmieniły błąd}
+\centering
+\includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{fig/preprint_methods_pl.png}
+\end{frame}
+
+% time
+\begin{frame}{Dane w czasie i historia autora}
+\centering\footnotesize\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{p{4.7cm}p{6.3cm}c}
+\toprule
+Pytanie & Wynik & Exp. \\
+\midrule
+Powtórne odczyty wyświetleń (ok. 340 TikTok, 350 X, głównie 2026-08) & trening na nowszych odczytach nie pomaga; X gorszy o 0,046 (wyświetlenia odczytane na nowo, reakcje nie) & E38, E45 \\
+Trening na wcześniejszych miesiącach, test na późniejszych & jak CV po markach: różnica $-$0,001 / $-$0,011 / $-$0,026, brak dryfu & E46 \\
+Okno kroczące (TikTok / YouTube / X) & MAE 0,270 / 0,450 / 0,473 & E136 \\
+Wagi świeżości próbek & bez zysku & E133 \\
+\midrule
+Ponowny odczyt X + YT w tej samej chwili: IG & \x{2,72} $\to$ \xb{2,41} & E210 \\
+\quad YouTube jako cel & \x{4,1} $\to$ \xb{2,2} & E211 \\
+\quad X jako cel & \x{4,4} $\to$ \xb{3,0} & E213 \\
+\bottomrule
+\end{tabular}
+\vspace{8pt}
+\sub{Czas sam w sobie nie psuje modelu. Ważne, żeby wyświetlenia i reakcje były odczytane razem: część ,,X i YouTube nie przenoszą się'' to przestarzałe etykiety eksportu.}
+\end{frame}
+
+% author
+\begin{frame}{Dane w czasie i historia autora: historia autora}
+\centering
+\includegraphics[width=\textwidth,height=.42\textheight,keepaspectratio]{fig/author_history_pl.png}\\[4pt]
+\begin{columns}[T]
+\column{.48\textwidth}
+\begin{block}{Co daje historia}\scriptsize
+\begin{itemize}
+\item stały poziom wyświetleń autora (Spearman 0,68--0,70), poprawka +0,10--0,16 MAE na postach z wcześniejszym postem (E68)
+\item jeden wcześniejszy post daje większość zysku; pomagają tylko jego wyświetlenia, nie reakcje innych postów (E78)
+\end{itemize}
+\end{block}
+\column{.48\textwidth}
+\begin{block}{Co z tego wynika}\scriptsize
+\begin{itemize}
+\item ok. 2/3 reszty błędu TT/YT to poziom autora (ICC 0,74 / 0,63) (E70--72)
+\item X: 0,530 $\to$ 0,430 na znanych autorach, ale to 1--8\% postów (E68, E119)
+\item historia marki nie zastępuje historii autora (E169)
+\end{itemize}
+\end{block}
+\end{columns}
+\end{frame}
+
+% errors
+\begin{frame}{Gdzie są błędy: małe i duże posty}
+\begin{columns}[T]
+\column{.42\textwidth}
+\includegraphics[width=\textwidth,height=.66\textheight,keepaspectratio]{fig/bias_views_pl.png}
+{\scriptsize Błąd ze znakiem wg kwintyli prawdziwych wyświetleń (+ = model zaniża).}
+\column{.56\textwidth}
+\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{p{2.7cm}p{3.4cm}c}
+\toprule
+Próba & Efekt & Exp. \\
+\midrule
+cel log(wyśw./lajki) & +0,001 / +0,007 / +0,000 & E51 \\
+ważenie ogonów ($\times$2) & $\le$ 0,002, bias bez zmian & E57 \\
+inne funkcje straty & ogon nadal \x{9}--\x{14} za nisko (YT, X) & E180 \\
+izotoniczna / shift per kwantyl & bez poprawy; bias w decylach $\pm$0,11 & E114 \\
+osobny model dla 0 reakcji & bez zysku & E64 \\
+\bottomrule
+\end{tabular}
+\end{columns}
+\vspace{3pt}
+\sub{\scriptsize Dół: posty bez reakcji najtrudniejsze (E76--80), bez wyświetleń ok. \x{1,8} mniejsze (E181). Góra: top 1\% to 60--74\% wyświetleń (E96); surowe lajki biją model MAE na top 1\%: 0,64 vs 0,56 TT, 0,64 vs 0,48 YT, 0,47 vs 0,26 X (E104).}
+\end{frame}
+
 % 11b
 \begin{frame}{Walidacja: dlaczego ufamy wynikom}
 \small
@@ -348,6 +436,30 @@ Trening na wcześniejszych miesiącach, test na późniejszym: MAE TikTok 0,270,
 \begin{block}{Kalibracja}
 Przedział 90\% obejmuje 87--91\% postów na tej samej platformie.
 \end{block}
+\end{columns}
+\end{frame}
+
+% calib
+\begin{frame}{Kalibracja}
+\begin{columns}[T]
+\column{.57\textwidth}
+\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{>{\raggedright}p{2.6cm}>{\raggedright}p{3.6cm}l}
+\toprule
+Co & Wynik & Exp. \\
+\midrule
+CQR 90\% (TT / YT / X) & pokrycie 0,889 / 0,902 / 0,891; szerokość 1,14 / 1,71 / 2,07 log$_{10}$; surowe kwantyle tylko 74\% & E118 \\
+routing wg wzorca braków & pokrycie 0,884--0,900 (pełny model z brakami: 0,46 / 0,56 / 0,83) & E176 \\
+izotoniczna / shift per kwantyl & bez poprawy; bias w decylach $\pm$0,11 & E114 \\
+CQR poza platformą (25\% postów celu) & pokrycie ok. 0,91, szerokie pasma & E131 \\
+FB: górny kwartyl & pokrycie 0,782 & E132 \\
+sumy marek (1 liczba) & \x{1,7} / \x{2,0} / \x{2,1}; X 80\%: 79,3\% & E73, E109 \\
+\bottomrule
+\end{tabular}
+\column{.43\textwidth}
+\centering
+\includegraphics[width=\textwidth,height=.55\textheight,keepaspectratio]{fig/calibration_curve_pl.png}\\
+{\scriptsize Kalibracja na postach celu: shift już z 5--10 postów, intercept + nachylenie z 25--50 (E89, E115).}
 \end{columns}
 \end{frame}
 
