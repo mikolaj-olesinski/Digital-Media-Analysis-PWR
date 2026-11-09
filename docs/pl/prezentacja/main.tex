@@ -45,8 +45,54 @@ Czy model, który \alert{nigdy nie widział} wyświetleń z FB i IG, oszacuje je
 \end{columns}
 \end{frame}
 
+% 2a
+\begin{frame}{Eksport Brand24: co jest w danych i czego brakuje}
+\footnotesize
+12\,500 wzmianek, 2\,500 na platformę, 19 kolumn (tabela: 18 poza \texttt{platform}). \textbf{Puste wartości} w każdej kolumnie, udział na platformie; pomarańczowe: braki $\geq$ 25\%. \texttt{b24\_estimated\_reach} to ,,zasięg'' Brand24.
+\vspace{4pt}
+\begin{columns}[T]
+\column{.49\textwidth}
+\tiny\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+kolumna & TikTok & YouTube & X & Facebook & Instagram \\
+\midrule
+\texttt{mention\_id} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{url} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{created\_at} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{metrics\_updated\_at} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{brand} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{language} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{country} & 4\% & 19\% & \cellcolor{orange!35}\textbf{81\%} & \cellcolor{orange!35}\textbf{79\%} & \cellcolor{orange!35}\textbf{81\%} \\
+\texttt{title} & {\color{black!35}0\%} & {\color{black!35}0\%} & \cellcolor{orange!35}\textbf{100\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{content} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{author\_name} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & \cellcolor{orange!35}\textbf{27\%} & \cellcolor{orange!35}\textbf{92\%} \\
+\bottomrule
+\end{tabular}
+\column{.49\textwidth}
+\tiny\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+kolumna & TikTok & YouTube & X & Facebook & Instagram \\
+\midrule
+\texttt{author\_url} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & \cellcolor{orange!35}\textbf{27\%} & \cellcolor{orange!35}\textbf{92\%} \\
+\texttt{author\_followers} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & \cellcolor{orange!35}\textbf{27\%} & \cellcolor{orange!35}\textbf{92\%} \\
+\texttt{view\_count} & {\color{black!35}0\%} & 1\% & \cellcolor{orange!35}\textbf{25\%} & \cellcolor{orange!35}\textbf{100\%} & \cellcolor{orange!35}\textbf{100\%} \\
+\texttt{likes} & {\color{black!35}0\%} & 5\% & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{comments} & {\color{black!35}0\%} & 9\% & \cellcolor{orange!35}\textbf{69\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{shares} & {\color{black!35}0\%} & \cellcolor{orange!35}\textbf{41\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & \cellcolor{orange!35}\textbf{100\%} \\
+\texttt{sentiment} & 11\% & 11\% & 9\% & \cellcolor{orange!35}\textbf{90\%} & \cellcolor{orange!35}\textbf{90\%} \\
+\texttt{b24\_estimated\_reach} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} & {\color{black!35}0\%} \\
+\texttt{likes} = 0 & 4\% & \cellcolor{orange!35}\textbf{26\%} & \cellcolor{orange!35}\textbf{70\%} & \cellcolor{orange!35}\textbf{30\%} & \cellcolor{orange!35}\textbf{46\%} \\
+\bottomrule
+\end{tabular}
+\end{columns}
+\vspace{2pt}
+\sub{\scriptsize \texttt{likes} = 0: lajk wpisany jako zero (na X często brak, a nie prawdziwe zero).}
+\end{frame}
+
 % 2
-\begin{frame}{Dane: 12\,500 wzmianek, 348 marek, 5 platform}
+\begin{frame}{Dane: 348 marek, 5 platform}
 \centering\footnotesize
 \setlength{\tabcolsep}{2pt}
 \begin{tabular}{lrrlrrr}
@@ -59,17 +105,6 @@ X         & 252 & 1\,658 & eksport & 1\,803 & 27     & 22 \\
 \midrule
 Facebook  & 20  & $\geq$182 & \alert{nasz odczyt}, filmy & 402 & 1\,413 & 35 \\
 Instagram & 11  & 541       & \alert{nasz odczyt}, rolki & 642 & 504    & 53 \\
-\bottomrule
-\end{tabular}
-\par\vspace{3pt}
-{\normalsize\textbf{Braki w danych}}\par\vspace{4pt}
-\small\setlength{\tabcolsep}{6pt}
-\begin{tabular}{ll}
-\toprule
-X & 62\% postów bez lajka; 25,4\% bez wyświetleń \\
-YouTube & 289 postów bez lajków, 877 bez komentarzy \\
-Facebook (filmy) & 68 z 470 usuniętych \\
-Instagram (rolki) & 261 z 976 usuniętych, 19 bez licznika, 54 z ukrytymi lajkami \\
 \bottomrule
 \end{tabular}
 \vspace{2pt}
@@ -117,15 +152,36 @@ nasz odczyt wyświetleń FB/IG, \alert{nigdy w treningu}\\[2pt]
 inna platforma: Stack Exchange
 \end{block}
 \end{columns}
-\vspace{-2pt}
-\begin{alertblock}{Czym jest ridge i dlaczego on}
-\small Regresja liniowa z karą L2: ściąga współczynniki, stabilna przy kilku skorelowanych wejściach.
-Wybrana, bo poza platformą przenosi się lepiej niż CatBoost i MLP o \alert{0,014--0,062 MAE} na każdej z pięciu platform,
-i potrzebuje tylko $\log$ lajków i $\log$ komentarzy, które ma każda platforma.
-\end{alertblock}
-\vspace{-2pt}
+\vspace{8pt}
 \centering\small
 Błąd: \alert{typowy błąd $10^{\text{MAE}}$} (MAE na $\log_{10}$ wyświetleń); {\footnotesize \x{2} = oszacowanie zwykle 2 razy za duże albo za małe}
+\end{frame}
+
+% 3b
+\begin{frame}{Kto uczy się na czym}
+\vspace{-8pt}\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.85}
+\begin{tabular}{rcll}
+\multicolumn{1}{c}{\colorbox{acc!22}{trening}} & & \colorbox{orange!40}{test} & typowy błąd \\
+\midrule
+\multicolumn{4}{l}{\textbf{Ta sama platforma} \textit{(CatBoost, nowe marki i autorzy)}} \\
+\colorbox{acc!22}{TikTok} & $\rightarrow$ & \colorbox{orange!40}{TikTok} & \x{1,87} \\
+\colorbox{acc!22}{YouTube} & $\rightarrow$ & \colorbox{orange!40}{YouTube} & \x{2,90} \\
+\colorbox{acc!22}{X} & $\rightarrow$ & \colorbox{orange!40}{X} & \x{3,03} \\
+\midrule
+\multicolumn{4}{l}{\textbf{Poza platformą, wynik główny} \textit{(ridge, 0 postów celu)}} \\
+\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{Facebook} & \xb{2,43} \\
+\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{Instagram} & \xb{2,72} \\
+\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{TikTok} & \x{2,05} \\
+\colorbox{acc!22}{X + YouTube} & $\rightarrow$ & \colorbox{orange!40}{Stack Exchange} & \x{3,14} \\
+\midrule
+\multicolumn{4}{l}{\textbf{Sprawdzenie wszystkich zestawów} \textit{(każda platforma ukryta po kolei)}} \\
+\colorbox{acc!22}{pozostałe 4} & $\rightarrow$ & \colorbox{orange!40}{YouTube} & \x{4,08} \\
+\colorbox{acc!22}{pozostałe 4} & $\rightarrow$ & \colorbox{orange!40}{X} & \x{4,37} \\
+\colorbox{acc!22}{TikTok + YouTube + X} & $\rightarrow$ & \colorbox{orange!40}{Facebook} & \x{2,49} \\
+\colorbox{acc!22}{TikTok + YouTube + X} & $\rightarrow$ & \colorbox{orange!40}{Instagram} & \x{2,69} \\
+\end{tabular}
+\vspace{2pt}
+\sub{\scriptsize Dodanie TikToka do treningu prawie nie zmienia FB/IG: X + YouTube dają \x{2,43} / \x{2,72}.}
 \end{frame}
 
 % 4 ------------------------------------------------------------
@@ -267,16 +323,11 @@ Przedział 90\% obejmuje 87--91\% postów na tej samej platformie.
 \end{frame}
 
 % 12 ------------------------------------------------------------
-\begin{frame}{Zastosowania}
+\begin{frame}{Zastosowania i porównanie z kolumną zasięgu (X)}
 \centering
-\includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{fig/preprint_side_pl.png}
-\end{frame}
-
-% 13 ------------------------------------------------------------
-\begin{frame}{Kolumna zasięgu a nasze oszacowanie (X)}
-\centering
-\includegraphics[width=\textwidth,height=.78\textheight,keepaspectratio]{fig/final_compare_pl.png}
-\sub{Zasięg to inna miara niż wyświetlenia: pokazujemy, jak daleko od wyświetleń jest liczba, którą klient dostaje dziś.}
+\includegraphics[width=\textwidth,height=.44\textheight,keepaspectratio]{fig/preprint_side_pl.png}\\[2pt]
+\includegraphics[width=\textwidth,height=.30\textheight,keepaspectratio]{fig/final_compare_pl.png}
+\sub{\scriptsize Zasięg to inna miara niż wyświetlenia: pokazujemy, jak daleko od wyświetleń jest liczba, którą klient dostaje dziś.}
 \end{frame}
 
 % 14
