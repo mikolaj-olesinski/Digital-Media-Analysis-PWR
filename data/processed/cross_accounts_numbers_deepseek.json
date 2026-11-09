@@ -1,0 +1,27 @@
+{
+ "generated": "2026-11-09",
+ "method": "handle-based only (youtube.com/@handle + FxTwitter user), bio_link evidence only",
+ "owners_total": 247,
+ "owners_facebook": 182,
+ "owners_instagram": 65,
+ "posts_facebook": 296,
+ "posts_instagram": 79,
+ "yt_bio_link": 5,
+ "x_bio_link": 0,
+ "same_handle_and_name": 0,
+ "matched_owners": 5,
+ "covered_posts": 5,
+ "covered_posts_facebook": 0,
+ "covered_posts_instagram": 5,
+ "gate_min_posts": 40,
+ "gate_passed": false,
+ "note": "independent second pass; the 182 Facebook author URLs are numeric page ids, so their handles cannot be matched against a bio link",
+ "second_attempt": {
+  "method": "same handle, YouTube /about tab and FxTwitter user bio",
+  "owners_checked": 65,
+  "yt_bio_link": 5,
+  "x_bio_link": 0,
+  "matched_owners": 5,
+  "covered_posts": 5
+ }
+}
