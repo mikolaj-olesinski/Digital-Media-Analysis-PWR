@@ -1,5 +1,7 @@
 # Przegląd analiz
 
+Pełna lista eksperymentów i wyników: `docs/pl/experiments.md`.
+
 Wewnętrzna mapa tego, co, jak i gdzie sprawdziliśmy. To nie jest tekst preprintu. Liczby pochodzą z `data/processed/*_numbers.json`; każdą można odtworzyć z notebooka podanego obok.
 
 ## Wspólne ustawienia

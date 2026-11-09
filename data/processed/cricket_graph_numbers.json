@@ -1,0 +1,19 @@
+{
+ "cw_in_group": 20,
+ "cw_phone_edges": 4,
+ "group_brands": {
+  "Cricket Wireless": 20,
+  "Aon": 8,
+  "Snapchat": 8,
+  "Hootsuite": 2,
+  "Wyndham": 1,
+  "Kellogg's": 1,
+  "Gap": 1,
+  "Amazon": 1,
+  "Ulta Beauty": 1,
+  "Lowe's": 1
+ },
+ "cricket wireless mentions": 20,
+ "mobile network posts": 28,
+ "group size": 44
+}

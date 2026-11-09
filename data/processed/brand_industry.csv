@@ -1,0 +1,349 @@
+brand,industry,what_it_is,ambiguous_name,other_meanings,confidence
+AAA,other,"US auto club: roadside help, travel, insurance",yes,AAA batteries; AAA video-game tier; AAA credit rating,medium
+AB InBev,beverages,"Global brewer (Budweiser, Corona, Michelob)",no,,high
+AIG,finance and insurance,Global insurance and financial services group,no,,high
+AMD,tech and software,"Semiconductor maker (CPUs, GPUs)",no,,high
+AT&T,telecom,US mobile and broadband carrier,no,,high
+AT&T Internet,telecom,AT&T home internet service,no,,high
+Accenture,tech and software,IT consulting and outsourcing services,no,,high
+Ace Hardware,retail and e-commerce,Hardware store cooperative,no,,high
+Acer,tech and software,PC and laptop maker,no,,high
+Acronis,tech and software,Backup and cybersecurity software,no,,high
+Acura,automotive,Honda luxury car brand,no,,high
+Adidas,sportswear,Sportswear and footwear brand,no,,high
+Adobe,tech and software,"Creative and document software (Photoshop, Acrobat)",no,,high
+Advance Auto Parts,retail and e-commerce,Auto parts retailer,no,,high
+Aetna,health and pharma,US health insurer (CVS Health),no,,high
+Ahold Delhaize,retail and e-commerce,Dutch-Belgian grocery retail group,no,,high
+Airbnb,travel and hospitality,Short-term rental and accommodation marketplace,no,,high
+Alamo,travel and hospitality,Car rental brand (Enterprise group),yes,Alamo Texas landmark; Alamo Drafthouse cinemas,high
+Alaska,airlines,Alaska Airlines,yes,US state of Alaska,high
+Albertsons Companies,retail and e-commerce,"US supermarket chain operator (Safeway, Vons)",no,,high
+Aldi,retail and e-commerce,Discount grocery chain,no,,high
+Allegiant,airlines,US budget airline,yes,the word allegiant (loyal),high
+Amazon,retail and e-commerce,Global e-commerce and cloud company,yes,Amazon rainforest; Amazon river,high
+Amazon Prime Video,media and entertainment,Amazon streaming video service,no,,high
+Amazon Shipping,industrial and b2b services,Amazon parcel and logistics service,no,,medium
+American,airlines,American Airlines,yes,nationality adjective; American Eagle (other brand),high
+American Eagle Outfitters,fashion and apparel,US youth apparel retailer,no,,high
+American Family,finance and insurance,American Family Insurance (US),no,,high
+Anydesk,tech and software,Remote desktop software,no,,high
+Aon,finance and insurance,Insurance broker and risk consultancy,no,,high
+Apple,tech and software,Consumer electronics and software maker,yes,the apple fruit,high
+Apple TV+,media and entertainment,Apple streaming service,no,,high
+Applebee's,food and restaurants,US casual dining chain,no,,high
+Arby's,food and restaurants,US fast-food sandwich chain,no,,high
+Asus,tech and software,"PC, laptop and motherboard maker",no,,high
+Audi,automotive,German luxury car maker,no,,high
+Authentic Brands Group,fashion and apparel,Brand licensing company owning fashion brands,no,,medium
+AutoZone,retail and e-commerce,Auto parts retailer,no,,high
+Autodesk,tech and software,Design and engineering software (AutoCAD),no,,high
+Avanza,other,Unclear: Toyota Avanza car or Avanza Bank (Sweden),yes,"Toyota Avanza (car, Indonesia); Avanza Bank (Swedish broker)",low
+Avis,travel and hospitality,Car rental company,no,,high
+BMO,finance and insurance,Bank of Montreal (Canadian bank),no,,high
+BMW,automotive,German premium car maker,no,,high
+BWH Hotels,travel and hospitality,Hotel franchising company (Best Western),no,,high
+Bank of America,finance and insurance,US bank,no,,high
+Barclays,finance and insurance,UK bank,no,,high
+Bass Pro Shops,retail and e-commerce,"Outdoor, hunting and fishing retailer",no,,high
+Bath & Body Works,retail and e-commerce,Body care and fragrance retailer,no,,high
+Bed Bath & Beyond,retail and e-commerce,Home goods retailer,no,,high
+Belk,retail and e-commerce,US department store chain,no,,high
+Best Buy,retail and e-commerce,Electronics retailer,no,,high
+Big Lots,retail and e-commerce,US discount retailer,no,,high
+Blue Cross Blue Shield,health and pharma,US health insurance association,no,,high
+Bluesky,social media and internet,Decentralised social network,yes,"blue sky (weather, colour)",high
+Booking.com,travel and hospitality,Online travel booking platform,no,,high
+Boost Mobile,telecom,US prepaid mobile carrier,yes,the verb boost,high
+Bosch,industrial and b2b services,"German engineering group (auto parts, tools, appliances)",no,,medium
+Breezeline,telecom,US cable internet and TV provider,no,,medium
+Budget,travel and hospitality,Car rental brand,yes,the word budget (finances),high
+Buffalo Wild Wings,food and restaurants,US sports bar and wings chain,no,,high
+Buick,automotive,GM premium car brand,no,,high
+Burger King,food and restaurants,Fast-food burger chain,no,,high
+Burlington,retail and e-commerce,US off-price apparel retailer,yes,Burlington (US city),high
+Cadillac,automotive,GM luxury car brand,no,,high
+Campbell's,consumer goods,Packaged soups and food company,no,,high
+Capgemini,tech and software,IT consulting and services company,no,,high
+Capital One,finance and insurance,US bank and credit card issuer,no,,high
+Centene,health and pharma,US health insurance and Medicaid managed care,no,,high
+CenturyLink,telecom,US telecom (now Lumen),no,,high
+Chase,finance and insurance,JPMorgan Chase bank,yes,the verb chase; chase (pursuit),high
+Chevrolet,automotive,GM car and truck brand,no,,high
+Chewy,retail and e-commerce,Online pet supplies retailer,no,,high
+Chick-fil-A,food and restaurants,US fast-food chicken chain,no,,high
+Chili's,food and restaurants,US casual dining chain,yes,chili (pepper dish),high
+Chipotle,food and restaurants,Mexican fast-casual chain,yes,chipotle (smoked chili pepper),high
+Choice,travel and hospitality,Choice Hotels (hotel franchisor),yes,the word choice,high
+Chrysler,automotive,US car brand (Stellantis),no,,high
+Chubb,finance and insurance,Global insurer,no,,high
+Cigna,health and pharma,US health insurer and benefits company,no,,high
+Citibank,finance and insurance,Citigroup bank,no,,high
+Citizens Bank,finance and insurance,US regional bank,no,,high
+Coca-Cola,beverages,Soft drink maker,no,,high
+Coinbase,finance and insurance,US crypto exchange,no,,high
+Conagra Brands,consumer goods,US packaged food company,no,,high
+Constellation Brands,beverages,"Beer and wine producer (Corona, Modelo)",no,,high
+Consumer Cellular,telecom,US prepaid mobile carrier (AARP),yes,consumer cellular (generic phrase),high
+Converse,sportswear,Sneaker brand owned by Nike,no,,high
+Costco,retail and e-commerce,Membership warehouse retailer,no,,high
+Cox,telecom,US cable internet and TV provider,yes,Cox (surname); cox (rowing),high
+Cracker Barrel,food and restaurants,US restaurant and retail chain,no,,high
+Crackle,media and entertainment,Free streaming service (Sony),yes,crackle (sound),medium
+Cricket Wireless,telecom,US prepaid mobile carrier,yes,the sport cricket; the insect,high
+Culver's,food and restaurants,US fast-food burger chain,no,,high
+DHL,industrial and b2b services,Global logistics and parcel company,no,,high
+DIRECTV,media and entertainment,US satellite TV provider,no,,high
+DIRECTV STREAM,media and entertainment,DirecTV streaming TV service,no,,high
+Dairy Queen,food and restaurants,Soft-serve and fast-food chain,no,,high
+Decathlon,sportswear,French sporting goods retailer and brand,no,,high
+Dell,tech and software,PC and server maker,yes,dell (small valley); given name,high
+Delta,airlines,Delta Air Lines,yes,Greek letter; river delta,high
+Denny's,food and restaurants,US diner chain,yes,given name Denny,high
+Dick's Sporting Goods,retail and e-commerce,US sporting goods retailer,no,,high
+Dillard's,retail and e-commerce,US department store chain,no,,high
+Disney+,media and entertainment,Disney streaming service,no,,high
+Dodge,automotive,US car and truck brand (Stellantis),yes,the verb dodge,high
+Dollar General,retail and e-commerce,US discount store chain,no,,high
+Dollar Tree,retail and e-commerce,US discount store chain,no,,high
+Domino's,food and restaurants,Pizza delivery chain,yes,domino effect; domino game,high
+DoorDash,food and restaurants,Food delivery platform,no,,high
+Dunkin,food and restaurants,Donut and coffee chain (Dunkin'),no,,high
+Dunkin',food and restaurants,Donut and coffee chain,no,,high
+ESPN+,media and entertainment,ESPN sports streaming service,no,,high
+Electrolux,consumer goods,Swedish home appliance maker,no,,high
+Enterprise,travel and hospitality,Enterprise Rent-A-Car,yes,the word enterprise (business),high
+Etsy,retail and e-commerce,Online marketplace for handmade goods,no,,high
+Expedia,travel and hospitality,Online travel agency,no,,high
+Facebook,social media and internet,Social network (Meta),no,,high
+Farm Bureau,finance and insurance,US farm insurance organisation,yes,farm bureau (generic term),medium
+Farmers,finance and insurance,Farmers Insurance (US),yes,farmers (people who farm),high
+FedEx,industrial and b2b services,Parcel and logistics company,no,,high
+Ferrero,consumer goods,"Italian confectionery maker (Nutella, Kinder)",no,,high
+Fifth Third Bank,finance and insurance,US regional bank,no,,high
+First Watch,food and restaurants,US breakfast restaurant chain,yes,a watch (timepiece); first watch (phrase),high
+Five Guys,food and restaurants,US burger chain,no,,high
+Foot Locker,retail and e-commerce,Athletic footwear retailer,no,,high
+Ford,automotive,US car maker,yes,ford (river crossing); Ford (surname),high
+Fred Meyer,retail and e-commerce,US supermarket and department store chain,no,,high
+Freshworks,tech and software,SaaS customer service software,no,,high
+Frontier,airlines,Frontier Airlines (US low-cost carrier),yes,Frontier Communications (telecom); frontier (wilderness),medium
+GMC,automotive,GM truck and SUV brand,no,,high
+Gallagher,finance and insurance,Arthur J. Gallagher insurance broker,yes,Gallagher (surname),high
+GameStop,retail and e-commerce,Video game and electronics retailer,no,,high
+Gap,fashion and apparel,"US apparel retailer (Old Navy, Banana Republic)",yes,gap (space; opening),high
+Geico,finance and insurance,US car insurer (Berkshire Hathaway),no,,high
+General Mills,consumer goods,US packaged food company,no,,high
+Giant Eagle,retail and e-commerce,US supermarket chain,yes,giant eagle (animal),high
+Golden Corral,food and restaurants,US buffet restaurant chain,no,,high
+Google Fi,telecom,Google mobile virtual network service,no,,high
+Groupon,retail and e-commerce,Deals and coupon marketplace,no,,high
+Grubhub,food and restaurants,Food delivery platform,no,,high
+Guardian Life,finance and insurance,US life insurer,yes,guardian (word),high
+H&M,fashion and apparel,Swedish fashion retailer,no,,high
+H-E-B,retail and e-commerce,Texas supermarket chain,no,,high
+HBO Max,media and entertainment,Warner Bros streaming service,no,,high
+HP,tech and software,PC and printer maker,no,,high
+Haier,consumer goods,Chinese home appliance maker,no,,high
+Hanesbrands,fashion and apparel,Underwear and basics apparel maker,no,,high
+Hershey's,consumer goods,US chocolate and snack maker,no,,high
+Hertz,travel and hospitality,Car rental company,no,,high
+Hilton,travel and hospitality,Hotel chain,no,,high
+Hisense,tech and software,Chinese consumer electronics maker (TVs),no,,high
+Hobby Lobby,retail and e-commerce,US craft store chain,no,,high
+HomeGoods,retail and e-commerce,TJX home goods off-price retailer,no,,high
+Honda,automotive,Japanese car and motorcycle maker,no,,high
+Hootsuite,tech and software,Social media management software,no,,high
+HubSpot,tech and software,CRM and marketing software,no,,high
+Hulu,media and entertainment,Streaming service (Disney),no,,high
+Hulu + Live TV,media and entertainment,Hulu live TV bundle,no,,high
+Humana,health and pharma,US health insurer,no,,high
+Huntington Bank,finance and insurance,US regional bank,yes,Huntington (place name),high
+Hy-Vee,retail and e-commerce,US supermarket chain,no,,high
+Hyatt,travel and hospitality,Hotel chain,no,,high
+Hyundai,automotive,Korean car maker,no,,high
+IHG,travel and hospitality,InterContinental Hotels Group,no,,high
+IHOP,food and restaurants,US pancake restaurant chain,no,,high
+Infosys,tech and software,Indian IT services company,no,,high
+Instagram,social media and internet,Photo and video social app (Meta),no,,high
+JCPenney,retail and e-commerce,US department store chain,no,,high
+Jack in the Box,food and restaurants,US fast-food burger chain,yes,jack in the box (toy),high
+Jeep,automotive,Stellantis off-road vehicle brand,no,,high
+Jersey Mike's,food and restaurants,US sandwich chain,no,,high
+JetBlue,airlines,US low-cost airline,no,,high
+Jimmy John's,food and restaurants,US sandwich chain,no,,high
+John Hancock,finance and insurance,US life insurance and investments,yes,given name John; Hancock signature,high
+KFC,food and restaurants,Fried chicken chain,no,,high
+Kaiser Permanente,health and pharma,US health care provider and insurer,yes,Kaiser (emperor title),high
+Kayak,travel and hospitality,Travel search engine,yes,kayak (boat),high
+Kellogg's,consumer goods,Cereal and snack maker,no,,high
+Keurig Dr Pepper,beverages,"Beverage company (coffee pods, soda)",no,,high
+Kia,automotive,Korean car maker,no,,high
+Kinetic by Windstream,telecom,US internet and phone provider,no,,medium
+Kohl's,retail and e-commerce,US department store chain,no,,high
+Kontoor Brands,fashion and apparel,Wrangler and Lee jeans owner,no,,high
+Kraft Heinz,consumer goods,Packaged food company,no,,high
+Kroger,retail and e-commerce,US supermarket chain,no,,high
+LG,tech and software,"Korean electronics maker (phones, TVs, appliances)",no,,high
+Lenovo,tech and software,PC and laptop maker,no,,high
+Levi Strauss,fashion and apparel,Jeans and apparel brand,no,,high
+Lexus,automotive,Toyota luxury car brand,no,,high
+Liberty Mutual,finance and insurance,US insurer,yes,liberty (word),high
+Lincoln Financial,finance and insurance,US life insurance and retirement company,yes,Lincoln (president; car brand),high
+LinkedIn,social media and internet,Professional social network (Microsoft),no,,high
+Little Caesars,food and restaurants,Pizza chain,no,,high
+LongHorn Steakhouse,food and restaurants,US steakhouse chain,no,,high
+Lowe's,retail and e-commerce,US home improvement retailer,no,,high
+Lululemon,sportswear,Athletic apparel brand,no,,high
+Lyft,travel and hospitality,Ride-hailing platform,no,,high
+Macy's,retail and e-commerce,US department store chain,no,,high
+MailerLite,tech and software,Email marketing software,no,,high
+Marriott,travel and hospitality,Hotel chain,no,,high
+Marsh,finance and insurance,Marsh McLennan insurance broker,yes,marsh (wetland),high
+MassMutual,finance and insurance,US life insurer,no,,high
+Mazda,automotive,Japanese car maker,no,,high
+McDonald's,food and restaurants,Fast-food chain,no,,high
+McDonalds,food and restaurants,Fast-food chain (spelling variant of McDonald's),no,,high
+Meijer,retail and e-commerce,US supercenter retailer,no,,high
+Menards,retail and e-commerce,US home improvement retailer,no,,high
+Mercedes-Benz,automotive,German luxury car maker,no,,high
+MetLife,finance and insurance,US insurer,no,,high
+Metro by T-Mobile,telecom,T-Mobile prepaid brand,yes,metro (city transit),high
+Michaels,retail and e-commerce,US craft store chain,yes,given name Michael,high
+Microsoft,tech and software,"Software and cloud company (Windows, Azure, Xbox)",no,,high
+Mint Mobile,telecom,US prepaid mobile carrier (T-Mobile),yes,mint (herb); mint (candy),high
+Mollie,finance and insurance,Dutch payments company,yes,given name Mollie,medium
+Molson Coors,beverages,"Brewer (Coors, Miller, Molson)",no,,high
+Monster Energy,beverages,Energy drink maker,yes,monster (creature),high
+Motorola,tech and software,Phone and communications equipment maker,no,,high
+Mutual of Omaha,finance and insurance,US insurer,no,,high
+National,travel and hospitality,National Car Rental,yes,the word national,high
+Nationwide,finance and insurance,US insurer,yes,nationwide (adjective),high
+Netflix,media and entertainment,Streaming service,no,,high
+New Balance,sportswear,Athletic footwear and apparel brand,no,,high
+New York Life,finance and insurance,US life insurer,yes,New York (city and state),high
+Newegg,retail and e-commerce,Online electronics retailer,no,,high
+Nextdoor,social media and internet,Neighbourhood social network,yes,phrase: next door,high
+Nike,sportswear,Sportswear and footwear brand,no,,high
+Nissan,automotive,Japanese car maker,no,,high
+Nordstrom,retail and e-commerce,US department store chain,no,,high
+Office Depot,retail and e-commerce,Office supplies retailer,no,,high
+Olive Garden,food and restaurants,Italian-American casual dining chain,no,,high
+Optimum,telecom,US cable internet and TV provider (Altice),yes,optimum (the word),medium
+Orbitz,travel and hospitality,Online travel booking site,no,,high
+Outback Steakhouse,food and restaurants,Australian-themed steakhouse chain,no,,high
+PNC Bank,finance and insurance,US bank,no,,high
+PVH,fashion and apparel,Calvin Klein and Tommy Hilfiger owner,no,,high
+Panda Express,food and restaurants,US Chinese-American fast food chain,yes,panda (animal),high
+Panera Bread,food and restaurants,US bakery-cafe chain,no,,high
+Papa Johns,food and restaurants,Pizza chain,no,,high
+Paramount+,media and entertainment,Paramount streaming service,no,,high
+PayPal,finance and insurance,Online payments company,no,,high
+Paysafe,finance and insurance,Payments company,no,,medium
+Peacock,media and entertainment,NBCUniversal streaming service,yes,peacock (bird),high
+PepsiCo,consumer goods,"Snacks and beverages company (Frito-Lay, Pepsi)",no,,high
+Pet Supplies Plus,retail and e-commerce,Pet supplies retailer,no,,high
+PetSmart,retail and e-commerce,Pet supplies retailer,no,,high
+Petco,retail and e-commerce,Pet supplies retailer,no,,high
+Pinterest,social media and internet,Visual discovery social platform,no,,high
+Popeyes,food and restaurants,Fried chicken chain,no,,high
+Priceline,travel and hospitality,Online travel booking site,no,,high
+Progressive,finance and insurance,US car insurer,yes,progressive (word; politics),high
+Prudential,finance and insurance,US insurer and asset manager,yes,prudential (word),high
+Publix,retail and e-commerce,US supermarket chain,no,,high
+Puma,sportswear,Sportswear and footwear brand,yes,puma (animal),high
+Quaker,consumer goods,Quaker Oats cereal and food brand,yes,Quaker (religious group),high
+Raising Cane's,food and restaurants,US chicken fingers chain,no,,high
+Ram,automotive,Ram trucks (Stellantis),yes,ram (animal); RAM (computer memory),high
+Red Lobster,food and restaurants,US seafood restaurant chain,no,,high
+Red Robin,food and restaurants,US burger chain,yes,red robin (bird),high
+Reddit,social media and internet,Online forum platform,no,,high
+Regions Bank,finance and insurance,US regional bank,yes,regions (geographic areas),high
+Salesforce,tech and software,CRM software company,no,,high
+Sam's Club,retail and e-commerce,Membership warehouse retailer (Walmart),no,,high
+Samsung,tech and software,"Electronics maker (phones, TVs, chips)",no,,high
+Save A Lot,retail and e-commerce,US discount grocery chain,no,,high
+Semrush,tech and software,SEO and marketing software,no,,high
+Sephora,retail and e-commerce,Beauty retailer (LVMH),no,,high
+ShopRite,retail and e-commerce,US supermarket chain,no,,high
+Signet Jewelers,retail and e-commerce,"Jewelry retailer (Kay, Zales)",no,,high
+Skechers,sportswear,Footwear brand,no,,high
+Sling TV,media and entertainment,Live TV streaming service (DISH),yes,sling (weapon; to throw),high
+Snapchat,social media and internet,Messaging and social app (Snap Inc.),no,,high
+Sonic Drive-In,food and restaurants,US drive-in fast-food chain,yes,Sonic the Hedgehog; sonic (sound),high
+Sony,tech and software,"Electronics and entertainment group (PlayStation, TVs)",no,,high
+Southwest,airlines,Southwest Airlines,yes,"southwest (compass direction, US region)",high
+Sparklight,telecom,US cable internet provider (Cable One),no,,medium
+Spectrum,telecom,Charter Spectrum cable internet and TV,yes,spectrum (light; radio frequencies),high
+Spectrum Mobile,telecom,Spectrum mobile service,yes,spectrum (light; radio frequencies),high
+Spirit,airlines,Spirit Airlines,yes,spirit (word),high
+Staples,retail and e-commerce,Office supplies retailer,yes,staples (fasteners),high
+Starbucks,food and restaurants,Coffee chain,no,,high
+Starlink,telecom,SpaceX satellite internet service,no,,high
+State Farm,finance and insurance,US insurer,yes,state farm (generic term),high
+Straight Talk,telecom,US prepaid mobile carrier (Walmart-owned),yes,straight talk (phrase),high
+Stripe,tech and software,Online payments platform,yes,stripe (pattern),high
+Subaru,automotive,Japanese car maker,no,,high
+Subway,food and restaurants,Sandwich chain,yes,subway (underground train),high
+T-Mobile,telecom,US mobile carrier,no,,high
+T-Mobile 5G Home Internet,telecom,T-Mobile home internet service,no,,high
+TCL,tech and software,Chinese consumer electronics maker (TVs),no,,high
+TD Bank,finance and insurance,Canadian-US bank,no,,high
+TJ Maxx,retail and e-commerce,Off-price apparel and home retailer,no,,high
+Taco Bell,food and restaurants,Mexican-style fast-food chain,no,,high
+Target,retail and e-commerce,US general merchandise retailer,yes,target (goal; bullseye),high
+TeamViewer,tech and software,Remote access software,no,,high
+Temu,retail and e-commerce,Online marketplace (PDD Holdings),no,,high
+Tesla,automotive,Electric car and energy maker,no,,high
+Texas Roadhouse,food and restaurants,US steakhouse chain,no,,high
+The Cheesecake Factory,food and restaurants,US restaurant chain,no,,high
+The Home Depot,retail and e-commerce,US home improvement retailer,no,,high
+The North Face,fashion and apparel,Outdoor apparel and gear brand (VF),yes,north face (side of a mountain),high
+TikTok,social media and internet,Short-video social platform,no,,high
+Total Wireless,telecom,Verizon prepaid mobile brand,yes,total (word),high
+Toyota,automotive,Japanese car maker,no,,high
+Tracfone,telecom,Prepaid mobile brand (Verizon),no,,high
+Tractor Supply Company,retail and e-commerce,Farm and rural lifestyle retailer,no,,high
+Trader Joe's,retail and e-commerce,US grocery chain,no,,high
+Travelers,finance and insurance,US insurer,yes,travelers (people who travel),high
+Tripadvisor,travel and hospitality,Travel reviews and booking site,no,,high
+Trivago,travel and hospitality,Hotel metasearch site,no,,high
+Truist,finance and insurance,US bank,no,,high
+Truth Social,social media and internet,Social network (Trump Media),yes,truth (word),high
+Twilio,tech and software,Cloud communications API platform,no,,high
+Twitch,media and entertainment,Live video streaming platform (Amazon),yes,twitch (sudden movement),high
+Tyson,consumer goods,US meat and poultry producer,yes,given name Tyson,high
+U.S. Bank,finance and insurance,US bank,no,,high
+U.S. Cellular,telecom,US regional mobile carrier,no,,high
+U.S. Postal Service,industrial and b2b services,US national postal service,no,,high
+UPS,industrial and b2b services,Parcel and logistics company,no,,high
+USAA,finance and insurance,US insurer and bank for military families,no,,high
+Uber,travel and hospitality,Ride-hailing and delivery platform,no,,high
+Uber Eats,food and restaurants,Food delivery platform (Uber),no,,high
+Ulta Beauty,retail and e-commerce,Beauty retailer,no,,high
+United,airlines,United Airlines,yes,the word united; United Nations,high
+UnitedHealthcare,health and pharma,US health insurer (UnitedHealth Group),no,,high
+VF,fashion and apparel,"VF Corp (The North Face, Vans, Timberland)",no,,high
+Verizon,telecom,US mobile and broadband carrier,no,,high
+Verizon 5G Home Internet,telecom,Verizon home internet service,no,,high
+Vizio,tech and software,US TV maker (Walmart-owned),no,,high
+Volkswagen,automotive,German car maker,no,,high
+Walgreens,retail and e-commerce,US pharmacy chain,no,,high
+Walmart,retail and e-commerce,US general retailer,no,,high
+Wayfair,retail and e-commerce,Online furniture retailer,no,,high
+Wegmans,retail and e-commerce,US supermarket chain,no,,high
+Wells Fargo,finance and insurance,US bank,no,,high
+Wendy's,food and restaurants,Fast-food burger chain,yes,given name Wendy,high
+Whirlpool,consumer goods,Home appliance maker,no,,high
+Whole Foods,retail and e-commerce,Organic grocery chain (Amazon),no,,high
+Wingstop,food and restaurants,Chicken wings chain,no,,high
+Wyndham,travel and hospitality,Hotel franchising company,no,,high
+X,social media and internet,Social network (formerly Twitter),yes,the letter X; generic symbol,high
+Xfinity,telecom,Comcast cable internet and TV,no,,high
+Xfinity Mobile,telecom,Comcast mobile service,no,,high
+Xtream,other,Unknown: possibly an ISP or streaming brand,no,,low
+YouTube,social media and internet,Video sharing platform (Google),no,,high
+YouTube Premium,media and entertainment,Ad-free YouTube subscription,no,,high
+YouTube TV,media and entertainment,Live TV streaming service,no,,high
+eBay,retail and e-commerce,Online marketplace,no,,high
+eToro,finance and insurance,Online brokerage and crypto trading platform,no,,high
