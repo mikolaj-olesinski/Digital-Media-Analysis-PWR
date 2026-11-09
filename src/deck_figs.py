@@ -1,6 +1,7 @@
 """Two simple figures for the Polish slide deck (no new experiment, numbers read from data/processed).
 - deck_author_pl.png: final model vs + author history (shrunk mean of earlier posts), posts with an earlier post (E70-E75).
 - deck_tails_pl.png: signed error of the final CatBoost (results_preds.csv) by quintile of true views, per platform.
+- deck_calib_pl.png: coverage of the 90% interval, raw quantiles vs CQR (cqr_numbers.json, E118).
 - deck_reread_pl.png: transfer error with export labels vs views and reactions re-read at the same moment (E210-E213).
     .venv/bin/python src/deck_figs.py"""
 import json
@@ -72,6 +73,23 @@ def tails():
     fig.savefig(ROOT / "figures" / "deck_tails_pl.png", dpi=200, bbox_inches="tight"); plt.close(fig)
 
 
+def calib():
+    d = json.loads((P / "cqr_numbers.json").read_text()); pl = ["tiktok", "youtube", "twitter"]
+    nm = {"tiktok": "TikTok", "youtube": "YouTube", "twitter": "X"}
+    fig, ax = plt.subplots(figsize=(7.2, 3.6)); x = np.arange(3); w = .36
+    for off, k, c, lab in ((-w / 2, "raw", BEFORE, "surowy przedział modelu"), (w / 2, "cqr", AFTER, "po kalibracji (CQR)")):
+        v = [100 * d[p][k]["coverage"] for p in pl]; ax.bar(x + off, v, w, color=c, label=lab)
+        for xi, vi in zip(x + off, v): ax.text(xi, (vi + 1) if vi < 85 else 92.2, f"{vi:.0f}%", ha="center", fontsize=10.5)
+    ax.axhline(90, color="#c4573a", lw=1.5, ls="--"); ax.set_xlim(-.6, 2.95); ax.text(2.93, 90.8, "cel 90%", color="#c4573a", fontsize=9.5, ha="right")
+    ax.set_xticks(x); ax.set_xticklabels([f"{nm[p]}\n÷{10 ** (d[p]['cqr']['median_width'] / 2):.1f} … ×{10 ** (d[p]['cqr']['median_width'] / 2):.1f}".replace(".", ",") for p in pl], fontsize=10)
+    ax.set_ylim(50, 97); ax.set_ylabel("ile prawdziwych wyników\nwpada w przedział", fontsize=9.5, color=INK)
+    ax.set_title("Przedział 90%: po kalibracji naprawdę obejmuje 9 na 10 postów", fontsize=11.5, loc="left", pad=26)
+    ax.legend(frameon=False, fontsize=9.5, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2)
+    for s_ in ("top", "right"): ax.spines[s_].set_visible(False)
+    ax.tick_params(colors=INK); ax.grid(axis="y", color="#e6e5e1", lw=.8); ax.set_axisbelow(True)
+    fig.savefig(ROOT / "figures" / "deck_calib_pl.png", dpi=200, bbox_inches="tight"); plt.close(fig)
+
+
 if __name__ == "__main__":
-    tails()
+    tails(); calib()
     main()

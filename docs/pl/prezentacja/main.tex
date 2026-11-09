@@ -378,26 +378,26 @@ Metoda (typowy błąd) & Facebook & Instagram \\
 \end{frame}
 
 % slices
-\begin{frame}{Inne spojrzenie na wynik: bez skrajnych postów i jako klasyfikacja}
+\begin{frame}{Ile reakcji trzeba, żeby oszacować? I czy klasyfikacja działa?}
 \begin{columns}[T]
 \column{.52\textwidth}
 \centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.0}
-{\small Typowy błąd (\x{}), ta sama platforma}\\[3pt]
+{\small Typowy błąd (\x{}) wg liczby reakcji}\\[3pt]
 \begin{tabular}{lccc}
 \toprule
  & TikTok & YouTube & X \\
 \midrule
-wszystkie posty & \xb{1,87} & \xb{2,90} & \xb{3,03} \\
-\midrule \multicolumn{4}{l}{\textit{pomijamy wg prawdziwych wyświetleń (nieznane w praktyce)}} \\
-bez 20\% najmniejszych & \x{1,82} & \x{2,70} & \x{2,75} \\
-bez 20\% największych & \x{1,78} & \x{2,73} & \x{2,71} \\
-tylko środek (60\%) & \x{1,69} & \x{2,43} & \x{2,29} \\
-\midrule \multicolumn{4}{l}{\textit{pomijamy wg oszacowania modelu (da się zrobić)}} \\
-bez 20\% najmniejszych & \x{1,81} & \x{2,75} & \x{2,99} \\
-bez 20\% największych & \x{1,85} & \x{3,10} & \x{3,00} \\
-tylko środek (60\%) & \x{1,77} & \x{2,95} & \x{2,93} \\
+0 reakcji & \x{3,23} {\tiny\color{mut}3\%} & \x{4,59} {\tiny\color{mut}27\%} & \x{3,19} {\tiny\color{mut}54\%} \\
+1--5 reakcji & \x{2,01} {\tiny\color{mut}13\%} & \x{2,91} {\tiny\color{mut}19\%} & \x{2,96} {\tiny\color{mut}36\%} \\
+6--100 reakcji & \x{1,75} {\tiny\color{mut}53\%} & \x{2,45} {\tiny\color{mut}32\%} & \x{2,57} {\tiny\color{mut}9\%} \\
+ponad 100 reakcji & \x{1,92} {\tiny\color{mut}30\%} & \x{2,08} {\tiny\color{mut}22\%} & \x{2,51} {\tiny\color{mut}1\%} \\
+\midrule
+wszystkie posty & \x{1,87} & \x{2,90} & \x{3,03} \\
+bez postów z 0 reakcji & \x{1,84} {\tiny\color{mut}97\%} & \x{2,44} {\tiny\color{mut}73\%} & \x{2,86} {\tiny\color{mut}46\%} \\
+bez postów z $\le$5 reakcjami & \xb{1,81} {\tiny\color{mut}83\%} & \xb{2,29} {\tiny\color{mut}54\%} & \xb{2,56} {\tiny\color{mut}10\%} \\
 \bottomrule
-\end{tabular}
+\end{tabular}\\[2pt]
+{\tiny\color{mut} szare: udział postów; reakcje = lajki + komentarze + udostępnienia}
 \column{.46\textwidth}
 \centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.0}
 {\small Klasyfikacja: $<$1k / 1--10k / $>$10k}\\[3pt]
@@ -415,7 +415,7 @@ czy to mały post (dół 20\%) & 0,93 & 0,92 & 0,79 \\
 \end{tabular}
 \end{columns}
 \vspace{6pt}
-\sub{Bez skrajnych postów błąd spada (X \x{3,03} $\to$ \x{2,29}), ale tylko gdy wiemy, które są skrajne. Po oszacowaniu modelu prawie nic to nie daje. Klasyfikacja działa na TikToku i YouTube; na X 95\% postów ma $<$1 tys., więc ,,trafność'' 95\% to zgadywanie. Model dobrze odróżnia duże posty od reszty (AUC 0,84--0,97), ale nie podaje ich dokładnej liczby.}
+\sub{Mało reakcji = za mało danych: posty z 0 reakcji mają błąd \x{3}--\x{4,6}. Bez postów z $\le$5 reakcjami błąd spada (YouTube \x{2,90} $\to$ \x{2,29}, X \x{3,03} $\to$ \x{2,56}), ale na X zostaje tylko 10\% postów; dużo reakcji nie szkodzi. Klasyfikacja działa na TT i YT; na X 95\% postów ma $<$1k, więc 95\% to zgadywanie.}
 \end{frame}
 
 % 11b
@@ -446,26 +446,17 @@ Przedział 90\% obejmuje 87--91\% postów na tej samej platformie.
 \end{frame}
 
 % calib
-\begin{frame}{Kalibracja}
-\begin{columns}[T]
-\column{.57\textwidth}
-\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
-\begin{tabular}{>{\raggedright}p{2.6cm}>{\raggedright\arraybackslash}p{3.9cm}}
-\toprule
-Co & Wynik \\
-\midrule
-CQR 90\% (TT / YT / X) & pokrycie 0,889 / 0,902 / 0,891; szerokość 1,14 / 1,71 / 2,07 log$_{10}$; surowe kwantyle tylko 74\% \\
-routing wg wzorca braków & pokrycie 0,884--0,900 (pełny model z brakami: 0,46 / 0,56 / 0,83) \\
-izotoniczna / shift per kwantyl & bez poprawy; bias w decylach $\pm$0,11 \\
-CQR poza platformą (25\% postów celu) & pokrycie ok. 0,91, szerokie pasma \\
-FB: górny kwartyl & pokrycie 0,782 \\
-sumy marek (1 liczba) & \x{1,7} / \x{2,0} / \x{2,1}; X 80\%: 79,3\% \\
-\bottomrule
-\end{tabular}
-\column{.43\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=.55\textheight,keepaspectratio]{fig/calibration_curve_pl.png}\\
-{\scriptsize Kalibracja na postach celu: shift już z 5--10 postów, intercept + nachylenie z 25--50.}
+\begin{frame}{Kalibracja: czy przedział ,,90\%'' naprawdę trafia w 90\%?}
+\begin{columns}[c]
+\column{.62\textwidth}
+\includegraphics[width=\textwidth,height=.78\textheight,keepaspectratio]{fig/deck_calib_pl.png}
+\column{.36\textwidth}\small
+\begin{itemize}\setlength\itemsep{5pt}
+\item Surowy przedział modelu jest za wąski: trafia tylko w 3 na 4 posty.
+\item Po kalibracji (CQR) trafia w 9 na 10, na każdej platformie.
+\item Cena: przedział jest szeroki, na X od $\div$11 do \x{11}.
+\item Sumy marek: po jednej korekcie błąd \x{1,7} / \x{2,0} / \x{2,1}.
+\end{itemize}
 \end{columns}
 \end{frame}
 

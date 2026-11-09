@@ -1,6 +1,32 @@
 {
  "tiktok": {
   "posts": 2491,
+  "by reactions": {
+   "0": {
+    "factor": 3.23,
+    "share of posts": 0.034
+   },
+   "1-5": {
+    "factor": 2.01,
+    "share of posts": 0.133
+   },
+   "6-100": {
+    "factor": 1.75,
+    "share of posts": 0.527
+   },
+   ">100": {
+    "factor": 1.92,
+    "share of posts": 0.305
+   },
+   "without <= 5 (kept)": {
+    "factor": 1.81,
+    "share of posts": 0.833
+   },
+   "without 0 (kept)": {
+    "factor": 1.84,
+    "share of posts": 0.966
+   }
+  },
   "cut by true views (not known in use)": {
    "all": 1.87,
    "without smallest 20%": 1.82,
@@ -30,6 +56,32 @@
  },
  "twitter": {
   "posts": 1803,
+  "by reactions": {
+   "0": {
+    "factor": 3.19,
+    "share of posts": 0.54
+   },
+   "1-5": {
+    "factor": 2.96,
+    "share of posts": 0.356
+   },
+   "6-100": {
+    "factor": 2.57,
+    "share of posts": 0.093
+   },
+   ">100": {
+    "factor": 2.51,
+    "share of posts": 0.011
+   },
+   "without <= 5 (kept)": {
+    "factor": 2.56,
+    "share of posts": 0.104
+   },
+   "without 0 (kept)": {
+    "factor": 2.86,
+    "share of posts": 0.46
+   }
+  },
   "cut by true views (not known in use)": {
    "all": 3.03,
    "without smallest 20%": 2.75,
@@ -59,6 +111,32 @@
  },
  "youtube": {
   "posts": 2441,
+  "by reactions": {
+   "0": {
+    "factor": 4.59,
+    "share of posts": 0.272
+   },
+   "1-5": {
+    "factor": 2.91,
+    "share of posts": 0.192
+   },
+   "6-100": {
+    "factor": 2.45,
+    "share of posts": 0.317
+   },
+   ">100": {
+    "factor": 2.08,
+    "share of posts": 0.218
+   },
+   "without <= 5 (kept)": {
+    "factor": 2.29,
+    "share of posts": 0.535
+   },
+   "without 0 (kept)": {
+    "factor": 2.44,
+    "share of posts": 0.728
+   }
+  },
   "cut by true views (not known in use)": {
    "all": 2.9,
    "without smallest 20%": 2.7,
