@@ -856,5 +856,284 @@
   "paths": [
    "notebooks/models/29_accounts_clusters.ipynb"
   ]
+ },
+ {
+  "id": "E70",
+  "date": "2026-11-05",
+  "question": "Author history in depth, and at posting time",
+  "setup": "Corrections from the author's earlier posts (mean, last post, shrunk sum); same on the posting-time model",
+  "result": "Shrunk sum best: +0.116 / +0.149 / +0.102 with reactions, +0.169 / +0.141 / +0.148 at posting time, all CIs above zero; one earlier post gives most of it",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E71",
+  "date": "2026-11-05",
+  "question": "Can the author's level be predicted without history?",
+  "setup": "CatBoost on account traits (followers, kind, language, zero-reaction share) → author's mean over-performance",
+  "result": "Spearman -0.05 / -0.03 / -0.12 against split-half 0.70 / 0.71 / 0.68: hidden, only history reveals it",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E72",
+  "date": "2026-11-05",
+  "question": "Variance components of the error",
+  "setup": "Pairwise intraclass correlation of the final model's error: same author, same brand (other authors)",
+  "result": "Author 0.74 / 0.63 / 0.12 (X dominated by prolific authors), brand 0.06 / 0.03 / 0.08",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E73",
+  "date": "2026-11-05",
+  "question": "Brand totals",
+  "setup": "Error of a brand's summed views (≥ 5 posts), calibrated on other folds; Brand24 reach on X",
+  "result": "Total MAE 0.227 / 0.311 / 0.317 vs per post 0.273 / 0.456 / 0.466; Spearman 0.93 / 0.86 / 0.82; Brand24 reach on X 1.017 (×10 too high)",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E74",
+  "date": "2026-11-05",
+  "question": "Anomalies ×10 above or below the prediction",
+  "setup": "Traits of posts with error ≥ 1 in log10; flag from the author's history",
+  "result": "×10 above (1-6%): more promo (TikTok), copies, brand accounts, repeat authors; ×10 below: zero reactions, spam; history raises P(×10 above) 6-15×",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E75",
+  "date": "2026-11-05",
+  "question": "Views per like implied by the final model",
+  "setup": "Median 10^prediction / likes and elasticity by follower × like tier",
+  "result": "TikTok 50 → 11 as likes grow; YouTube 17-47 (more for > 1M); X 25-112 vs Brand24's 700; doubling reactions ×1.3-2.3 views",
+  "type": "small",
+  "where": "`30_author_more`",
+  "paths": [
+   "notebooks/models/30_author_more.ipynb"
+  ]
+ },
+ {
+  "id": "E76",
+  "date": "2026-11-05",
+  "question": "Where the remaining error sits",
+  "setup": "Share of error by reply, link, zero reactions, author activity, follower tier; traits as columns",
+  "result": "Error spread over all posts; 10 most active X authors 5% of error; zero-reaction posts worst; traits +0.001 / +0.006 / +0.011 (YouTube, X CIs above zero)",
+  "type": "small",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
+ },
+ {
+  "id": "E77",
+  "date": "2026-11-05",
+  "question": "How many earlier author posts are needed",
+  "setup": "Shrunk sum of the last k earlier posts, k = 1-10",
+  "result": "k = 1: +0.10 / +0.14 / +0.07 (X CI crosses zero); YouTube k = 2-3 about +0.17; too few posts for k ≥ 5",
+  "type": "small",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
+ },
+ {
+  "id": "E78",
+  "date": "2026-11-05",
+  "question": "Author level without views",
+  "setup": "Reactions on the author's other posts in the sample as columns",
+  "result": "No gain: -0.002 / 0.000 / 0.000; on posts with other posts -0.047 / +0.016 / -0.002",
+  "type": "none",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
+ },
+ {
+  "id": "E79",
+  "date": "2026-11-05",
+  "question": "Live forecast plus author history",
+  "setup": "E40 forecast + shrunk author residuals",
+  "result": "Only 31 YouTube pairs; +0.005 (CI crosses zero); inconclusive",
+  "type": "none",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
+ },
+ {
+  "id": "E80",
+  "date": "2026-11-05",
+  "question": "Intervals for brand totals",
+  "setup": "Brand-level quantiles vs summed independent post errors",
+  "result": "Brand-level 80% interval calibrated (0.79-0.80), ×2.2 / ×3.0 / ×3.3; independent errors not calibrated",
+  "type": "small",
+  "where": "`31_author_next`",
+  "paths": [
+   "notebooks/models/31_author_next.ipynb"
+  ]
+ },
+ {
+  "id": "E81",
+  "date": "2026-11-05",
+  "question": "FB / IG next to platforms with views",
+  "setup": "Reaction structure; adversarial AUC target vs source",
+  "result": "IG closest to X / YouTube (AUC 0.65), not TikTok (0.85); FB far from all (0.81-0.87, with followers 0.89-0.98)",
+  "type": "finding",
+  "where": "`32_fbig_more`",
+  "paths": [
+   "notebooks/models/32_fbig_more.ipynb"
+  ]
+ },
+ {
+  "id": "E82",
+  "date": "2026-11-05",
+  "question": "Pre-registered FB / IG estimates",
+  "setup": "Transfer models on the 312 hand-check posts before any view is seen; scoring ready",
+  "result": "FB about 200-250 views, IG 35-95; Brand24 reach ×15-20 above ours on FB, below on IG; awaiting hand check",
+  "type": "pending",
+  "where": "`32_fbig_more`, `fbig_preregistered.csv`",
+  "paths": [
+   "notebooks/models/32_fbig_more.ipynb",
+   "data/processed/fbig_preregistered.csv"
+  ]
+ },
+ {
+  "id": "E83",
+  "date": "2026-11-05",
+  "question": "Residual atlas",
+  "setup": "Over-performance by country, hour, sentiment, type, text style",
+  "result": "Promo +0.10 / +0.06; US -0.12 / -0.09; X capitals +0.17, short text -0.15; YouTube 12-17 UTC +0.10, 18-23 -0.10",
+  "type": "finding",
+  "where": "`32_fbig_more`",
+  "paths": [
+   "notebooks/models/32_fbig_more.ipynb"
+  ]
+ },
+ {
+  "id": "E84",
+  "date": "2026-11-05",
+  "question": "Country, local time, holidays, industry as columns",
+  "setup": "One-hot country, local hour / weekend / holiday, E69 community, type label",
+  "result": "Country +0.005 TikTok only; type label +0.004-0.005; local time and industry 0 or worse",
+  "type": "none",
+  "where": "`33_context_more`",
+  "paths": [
+   "notebooks/models/33_context_more.ipynb"
+  ]
+ },
+ {
+  "id": "E85",
+  "date": "2026-11-05",
+  "question": "Where promo over-performs",
+  "setup": "Promo − organic over-performance by follower, reaction tier, country, industry",
+  "result": "Only with reactions or mid-sized accounts: TikTok 10k-100k +0.18, YouTube 11+ reactions +0.13-0.20, X 1k-100k +0.20; tiny accounts / no reactions negative, so the average cancels",
+  "type": "finding",
+  "where": "`33_context_more`",
+  "paths": [
+   "notebooks/models/33_context_more.ipynb"
+  ]
+ },
+ {
+  "id": "E86",
+  "date": "2026-11-05",
+  "question": "Brand popularity on Wikipedia",
+  "setup": "Monthly English Wikipedia pageviews of the brand (293 hand-checked brands, only brand names sent) as columns",
+  "result": "Spearman with brand mean views 0.05-0.18; columns 0.000 / -0.010 / -0.010 (YouTube, X CIs below zero)",
+  "type": "none",
+  "where": "`33_context_more`, `brand_wikipedia.csv`",
+  "paths": [
+   "notebooks/models/33_context_more.ipynb",
+   "data/processed/brand_wikipedia.csv"
+  ]
+ },
+ {
+  "id": "E87",
+  "date": "2026-11-05",
+  "question": "Mapping reaction scales between platforms",
+  "setup": "Leave one platform out; z-score, quantile matching, ratios of reactions; + shift on n posts",
+  "result": "Raw inputs best: 0.31 / 0.60 / 0.64; quantile / z-score 0.61-1.43; with 25-50 calibration posts mapped CatBoost +0.03 on X only",
+  "type": "finding",
+  "where": "`34_platform_map`",
+  "paths": [
+   "notebooks/models/34_platform_map.ipynb"
+  ]
+ },
+ {
+  "id": "E88",
+  "date": "2026-11-05",
+  "question": "Adapting the out-of-platform model to the target's reaction structure",
+  "setup": "Importance weights, per-source mixture, views per like, raw + structure; no target views",
+  "result": "Only X gains: weighted ridge +0.023, CatBoost +0.032; TikTok worse (-0.07 to -0.17); YouTube ±0.04; FB / IG estimates pre-registered",
+  "type": "small",
+  "where": "`35_platform_adapt`, `fbig_preregistered_v2.csv`",
+  "paths": [
+   "notebooks/models/35_platform_adapt.ipynb",
+   "data/processed/fbig_preregistered_v2.csv"
+  ]
+ },
+ {
+  "id": "E89",
+  "date": "2026-11-05",
+  "question": "Few-shot recalibration with k target posts",
+  "setup": "Median / shrunk (EB) shift, slope shrunk to 1, biased ridge; few-shot conformal",
+  "result": "k = 5: EB shift 0.315 / 0.626 / 0.588 vs median 0.347 / 0.679 / 0.621; from k = 25 slope or biased ridge best on X (0.525-0.550); conformal covers 0.87-0.92 from k = 10",
+  "type": "small",
+  "where": "`36_transfer_lit`",
+  "paths": [
+   "notebooks/models/36_transfer_lit.ipynb"
+  ]
+ },
+ {
+  "id": "E90",
+  "date": "2026-11-05",
+  "question": "Anchor regression, group DRO, stabilised weights",
+  "setup": "No target labels",
+  "result": "None beats ridge everywhere (±0.01); group DRO 0.721 on YouTube; flattened weights lose the X gain",
+  "type": "none",
+  "where": "`36_transfer_lit`",
+  "paths": [
+   "notebooks/models/36_transfer_lit.ipynb"
+  ]
+ },
+ {
+  "id": "E91",
+  "date": "2026-11-05",
+  "question": "Input subset by source-to-source transfer",
+  "setup": "63 subsets, choose on the two sources",
+  "result": "Fails on TikTok (0.497 vs 0.312); likes + comments stays the safe choice",
+  "type": "none",
+  "where": "`36_transfer_lit`",
+  "paths": [
+   "notebooks/models/36_transfer_lit.ipynb"
+  ]
+ },
+ {
+  "id": "E92",
+  "date": "2026-11-05",
+  "question": "Brand effect carried over from other platforms",
+  "setup": "Shrunk brand residual from source platforms",
+  "result": "Hurts: -0.065 to -0.007",
+  "type": "none",
+  "where": "`36_transfer_lit`",
+  "paths": [
+   "notebooks/models/36_transfer_lit.ipynb"
+  ]
  }
 ]

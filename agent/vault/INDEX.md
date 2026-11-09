@@ -74,3 +74,26 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E67 | small | Topic clusters of all posts | [E67](E67.md) |
 | E68 | small | Author over-performance persists | [E68](E68.md) |
 | E69 | small | Brand communities and cold start | [E69](E69.md) |
+| E70 | small | Author history in depth, and at posting time | [E70](E70.md) |
+| E71 | small | Can the author's level be predicted without history? | [E71](E71.md) |
+| E72 | small | Variance components of the error | [E72](E72.md) |
+| E73 | small | Brand totals | [E73](E73.md) |
+| E74 | small | Anomalies ×10 above or below the prediction | [E74](E74.md) |
+| E75 | small | Views per like implied by the final model | [E75](E75.md) |
+| E76 | small | Where the remaining error sits | [E76](E76.md) |
+| E77 | small | How many earlier author posts are needed | [E77](E77.md) |
+| E78 | none | Author level without views | [E78](E78.md) |
+| E79 | none | Live forecast plus author history | [E79](E79.md) |
+| E80 | small | Intervals for brand totals | [E80](E80.md) |
+| E81 | finding | FB / IG next to platforms with views | [E81](E81.md) |
+| E82 | pending | Pre-registered FB / IG estimates | [E82](E82.md) |
+| E83 | finding | Residual atlas | [E83](E83.md) |
+| E84 | none | Country, local time, holidays, industry as columns | [E84](E84.md) |
+| E85 | finding | Where promo over-performs | [E85](E85.md) |
+| E86 | none | Brand popularity on Wikipedia | [E86](E86.md) |
+| E87 | finding | Mapping reaction scales between platforms | [E87](E87.md) |
+| E88 | small | Adapting the out-of-platform model to the target's reaction structure | [E88](E88.md) |
+| E89 | small | Few-shot recalibration with k target posts | [E89](E89.md) |
+| E90 | none | Anchor regression, group DRO, stabilised weights | [E90](E90.md) |
+| E91 | none | Input subset by source-to-source transfer | [E91](E91.md) |
+| E92 | none | Brand effect carried over from other platforms | [E92](E92.md) |
