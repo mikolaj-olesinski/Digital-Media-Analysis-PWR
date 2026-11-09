@@ -2059,5 +2059,233 @@
   "paths": [
    "src/brand_prior.py"
   ]
+ },
+ {
+  "id": "E170",
+  "date": "2026-11-06",
+  "question": "Brand news attention on Wikipedia at post time",
+  "setup": "Daily pageviews of 293 brand articles; post day / 7-day mean / peak vs 60-day baseline as columns; final CatBoost + FB transfer",
+  "result": "Gain -0.000 / -0.011 / -0.007 (TikTok / YouTube / X); FB 0.385 -> 0.384",
+  "type": "none",
+  "where": "`src/external_brand.py`",
+  "paths": [
+   "src/external_brand.py"
+  ]
+ },
+ {
+  "id": "E171",
+  "date": "2026-11-06",
+  "question": "Company facts from Wikidata",
+  "setup": "Employees, revenue (USD), brand age at post as columns; final CatBoost + FB transfer",
+  "result": "Gain -0.002 / -0.007 / -0.003; FB 0.385 -> 0.388; external brand data closed",
+  "type": "none",
+  "where": "`src/external_brand.py`",
+  "paths": [
+   "src/external_brand.py"
+  ]
+ },
+ {
+  "id": "E172",
+  "date": "2026-11-06",
+  "question": "Brand momentum, past-only",
+  "setup": "Brand's earlier views per reaction (30 days / all past, check before the post) as columns; brand CV + temporal",
+  "result": "Brand CV -0.000 / -0.008 / -0.005; temporal -0.023 / -0.066 / -0.026; E169 stands",
+  "type": "none",
+  "where": "`src/time_momentum.py`",
+  "paths": [
+   "src/time_momentum.py"
+  ]
+ },
+ {
+  "id": "E173",
+  "date": "2026-11-06",
+  "question": "Brand buzz in the Brand24 stream",
+  "setup": "Brand mentions in the 7 days before the post (all platforms) and ratio to its 90-day rate",
+  "result": "-0.002 / -0.002 / -0.008; FB 0.385 -> 0.399",
+  "type": "none",
+  "where": "`src/time_momentum.py`",
+  "paths": [
+   "src/time_momentum.py"
+  ]
+ },
+ {
+  "id": "E174",
+  "date": "2026-11-06",
+  "question": "Platform time",
+  "setup": "Platform's views per reaction over the previous 7 / 30 days and its Wikipedia attention",
+  "result": "-0.001 / -0.010 / -0.007; temporal worse",
+  "type": "none",
+  "where": "`src/time_momentum.py`",
+  "paths": [
+   "src/time_momentum.py"
+  ]
+ },
+ {
+  "id": "E175",
+  "date": "2026-11-06",
+  "question": "New text cues",
+  "setup": "Giveaway, call to action, disclosure, @mentions, URLs, questions, brands named, YouTube title cues",
+  "result": "+0.002 / +0.000 / **+0.009** (X CI +0.002 to +0.016); temporal X +0.001 (CI includes 0)",
+  "type": "small",
+  "where": "`src/time_momentum.py`",
+  "paths": [
+   "src/time_momentum.py"
+  ]
+ },
+ {
+  "id": "E176",
+  "date": "2026-11-06",
+  "question": "Estimator for whatever fields arrive, with calibrated confidence",
+  "setup": "Four input patterns, each with CatBoost point, CQR 50/90 and P(within x2); router vs full model fed missing reactions",
+  "result": "Per-pattern 90% coverage 0.884-0.900; without router 0.46 / 0.56 / 0.83; P(x2) calibrated per pattern, no per-post ranking",
+  "type": "finding",
+  "where": "`src/fallback_estimator.py`",
+  "paths": [
+   "src/fallback_estimator.py"
+  ]
+ },
+ {
+  "id": "E177",
+  "date": "2026-11-06",
+  "question": "Facebook on Brand24's own likes / comments",
+  "setup": "X + YouTube ridge fed Brand24 counts vs fresh counts (402 posts)",
+  "result": "0.831 (x6.8) vs 0.385; shift on 25 posts 0.681; reach rule 1.119",
+  "type": "finding",
+  "where": "`src/fallback_estimator.py`",
+  "paths": [
+   "src/fallback_estimator.py"
+  ]
+ },
+ {
+  "id": "E178",
+  "date": "2026-11-06",
+  "question": "FB result on few brands",
+  "setup": "Leave-one-brand-out, without top 3 brands",
+  "result": "20 brands; LOBO 0.363-0.414; without top 3 0.461; typical brand ~0.44",
+  "type": "small",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E179",
+  "date": "2026-11-06",
+  "question": "Check age in the noise ceiling; 30-day target",
+  "setup": "E56 pairs + age matching; 30-day target",
+  "result": "Bound unchanged with age (0.243 / 0.386 / 0.331); 30-day target <= 0.007; ceiling stands",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E180",
+  "date": "2026-11-06",
+  "question": "Losses for totals",
+  "setup": "MAE / RMSE / tail-weighted / quantile 0.7; brand and brand-month totals",
+  "result": "No loss fixes totals (best -0.016 YouTube RMSE); brands off >x2 29 / 37 / 47%; rule on X 96%",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E181",
+  "date": "2026-11-06",
+  "question": "X missing views, inverse-probability weights",
+  "setup": "p(observed) classifier, weighted model and MAE",
+  "result": "Honest X MAE 0.494 (vs 0.469); weighting no gain; missing-view posts ~x1.8 smaller",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E182",
+  "date": "2026-11-06",
+  "question": "Error by language and sentiment",
+  "setup": "Subgroup MAE and bias with brand CI",
+  "result": "FB non-English 0.540, bias +0.35 (x2.2 under); YouTube positive +0.17",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E183",
+  "date": "2026-11-06",
+  "question": "Creator score stability",
+  "setup": "Author residual, first vs second half",
+  "result": "YouTube 23 authors Spearman 0.81; TikTok / X too few repeat authors",
+  "type": "small",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E184",
+  "date": "2026-11-06",
+  "question": "Anomalies vs promo / spam",
+  "setup": "Top / bottom 5% residual vs labels",
+  "result": "TikTok: over-performers promo 51% (34%), under-performers spam 26% (13%); none on YouTube / X",
+  "type": "small",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E185",
+  "date": "2026-11-06",
+  "question": "Early virality alert from the first check",
+  "setup": "Top 5% / 1% precision and recall, E40 pairs",
+  "result": "Top 5% precision 0.82 / 0.86 / 0.71 vs reactions only 0.71 / 0.64 / 0.35",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E186",
+  "date": "2026-11-06",
+  "question": "Monthly brand ranking within an industry",
+  "setup": "Kendall of brand-month totals, industry x month",
+  "result": "Model 0.73 / 0.70 / 0.60; rule on X 0.63",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E187",
+  "date": "2026-11-06",
+  "question": "Negative posts",
+  "setup": "Sentiment bias",
+  "result": "No bias on negative posts (+0.02 / -0.04 / +0.06)",
+  "type": "finding",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
+ },
+ {
+  "id": "E188",
+  "date": "2026-11-06",
+  "question": "Earned media value",
+  "setup": "Brand totals x CPM 5 USD",
+  "result": "X: model 47% of brands within +-50%, rule 2%",
+  "type": "small",
+  "where": "`src/critical_review.py`",
+  "paths": [
+   "src/critical_review.py"
+  ]
  }
 ]

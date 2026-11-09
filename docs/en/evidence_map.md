@@ -27,6 +27,11 @@ validations; **likely** = one validation, consistent with the rest; **open** = n
 | 20 | The visible distribution differs by platform: follower elasticity 0.044 / 0.303 / 0.164 (TT/YT/X), reaction elasticity 0.82 / 0.66 / 1.06; 43% / 5% / 14% of posts beat the follower count | likely | E167 |
 | 21 | A simple reverse-engineered Brand24 rule reproduces 97% of IG, 62% of X and 49% of FB rows; on TikTok/YouTube reach is the view count | likely | E168 |
 | 22 | Brand history does not substitute for a missing author history: temporal split, brand prior -0.005 (TikTok), -0.035 (YouTube), +0.006 (X, CI includes 0); 35-52% of test posts have a known brand | likely | E169 |
+| 23 | The noise ceiling is not a check-age artefact: with age matched the bound is unchanged; a 30-day target changes MAE <= 0.007 | likely | E179 |
+| 24 | The FB transfer rests on 20 brands; without the 3 largest it is 0.46; non-English FB posts are ~x2.2 underestimated; on Brand24's own FB counts it is 0.83 | likely | E177, E178, E182 |
+| 25 | The honest X error over the whole stream (incl. posts without views) is ~0.49 | likely | E181 |
+| 26 | An early view read is the alerting signal: top-5% precision 0.82 / 0.86 / 0.71 vs 0.71 / 0.64 / 0.35 from reactions | likely | E185 |
+| 27 | Routing by available fields keeps 90% bands at 0.88-0.90; the full model with missing reactions covers 0.46-0.83 | likely | E176 |
 
 ## Unknown / open
 
