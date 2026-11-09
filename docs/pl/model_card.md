@@ -89,6 +89,11 @@ Odtworzenie: `docs/pl/reproduce.md` (sześć komend).
   zostaje na 0,80 (E150/E151).
 - **Próbka:** 12 500 wzmianek od Brand24, nie losowa próbka social mediów; 85% angielskich; czas nierówny.
 
+- **Poza eksportem:** na filmach marek i popularnych model jest ×5 za nisko (E189/E190, MAE 1,48 na popularnych), ale na
+  filmach trzecich stron o marce — populacji, którą model ma obsługiwać — jest blisko eksportu: MAE 0,690 małe, 0,441
+  średnie, zawodzi tylko warstwa popularna (1,569) (E191). Filmów z zerem nie ma przez kanały marek, ale zdarzają się
+  wśród małych wzmianek trzecich stron (E190, E191).
+
 ## Zastosowanie
 
 - Szacowanie widoczności posta do monitoringu, benchmarków i sum marek — zawsze z przedziałem.

@@ -1,6 +1,6 @@
 # Rejestr eksperymentów
 
-169 eksperymentów (E01-E169) plus L1; także nieudane.
+198 eksperymentów (E01-E198) plus L1; także nieudane.
 
 Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także nieudanym.** Szczegóły są w notebooku, a dokładne liczby w `data/processed/`. O ile nie napisano inaczej: cel log10(wyświetlenia) na TikToku / YouTube / X, 5 foldów po markach, MAE na log10 (0,3 to ok. ×2, 0,5 ok. ×3, 1,0 ×10). Zysk to spadek MAE względem podanej bazy. Rodzaj wyniku: **zysk** (przedział nad zerem i użyteczny), **mały** (przedział nad zerem, ale ok. 0,01 lub mniej albo pojedynczy wynik), **brak**, **gorzej**, **wniosek** (mówi coś o danych).
 
@@ -195,6 +195,16 @@ Jeden wiersz na eksperyment. **Dopisuj wiersz po każdym eksperymencie, także n
 | E186 | 2026-11-06 | Miesięczny ranking marek w branży | Kendall sum marka-miesiąc, branża x miesiąc | Model 0,73 / 0,70 / 0,60; reguła na X 0,63 | wniosek | `src/critical_review.py` |
 | E187 | 2026-11-06 | Posty negatywne | Bias wg sentymentu | Brak biasu na negatywnych (+0,02 / -0,04 / +0,06) | wniosek | `src/critical_review.py` |
 | E188 | 2026-11-06 | Wartość mediów (EMV) | Sumy marek x CPM 5 USD | X: model 47% marek w +-50%, reguła 2% | mały | `src/critical_review.py` |
+| E189 | 2026-11-08 | Czy da się pobrać zewnętrzną próbkę YouTube/X/TikTok i czy model na niej działa? | yt-dlp: wyszukiwanie YouTube działa, TikTok zepsuty, X blokuje; 53 filmy marek (najnowsze, 2025+); model uczony na YouTube Brand24 | Mediana wyświetleń 6697 vs 433; MAE 0,726, bias +0,706 (×5 za nisko); po korekcie 0,540; nachylenie 0,83; TikTok/X/IG wymagają API lub loginu | wniosek | `src/external_youtube.py`, `src/external_validate.py` |
+| E190 | 2026-11-08 | Czy próbka YouTube obejmie filmy małe, duże i zerowe i jak model wypada per warstwa? | 4 warstwy na markę (popularne/najnowsze z wyszukiwania, małe/najnowsze z kanału marki); 131 filmów, 12 marek | 0 filmów z zerowymi wyświetleniami (min 71); MAE modelu 0,289 małe, 0,620 świeże, 0,601 najnowsze, 1,480 popularne (×30 za nisko) | wniosek | `src/external_youtube_diverse.py` |
+| E191 | 2026-11-08 | Czy da się pobrać filmy trzecich stron o marce (nie kanały marek), także małe i zerowe, i czy model na nich działa? | 4 zapytania o wzmianki na markę, kanał marki wyłączony, warstwy top/mid/low, 47 filmów 2025+ | 1 zero, 17 poniżej 100, mediana 362 (vs 433); MAE 0,690 małe, 0,441 średnie, 1,569 top; całość 0,791 (bias +0,39) | wniosek | `src/external_youtube_mentions.py` |
+| E192 | 2026-11-08 | Czy wyświetlenia TikToka z eksportu zgadzają się z dzisiejszymi publicznymi? | Ponowny odczyt 60 losowych filmów przez headless Chromium; porównanie playCount z eksportem | 40/60 odczytane; mediana stosunku 1,068, p90 3,07, 45% w 5%; Spearman 0,918 | wniosek | `data/processed/tiktok_refetch_numbers.json` |
+| E193 | 2026-11-08 | Czy wynik dla wzmianek trzecich stron utrzyma się na 20 markach? | Ten sam kolektor wzmianek, 20 marek; 73 filmy; model oceniany zewnętrznie | 73 filmy, 4 zera, 30 poniżej 100; MAE 0,737, bias +0,42; low/mid/top 0,574/0,581/1,385 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E194 | 2026-11-08 | Jak nieaktualne są wyświetlenia YouTube z eksportu? | Ponowny odczyt 60 losowych wzmianek YouTube przez yt-dlp i porównanie z eksportem | 58/60; mediana 1,516, p90 25,3, 19% w 5%; Spearman 0,857 | wniosek | `src/youtube_refetch.py` |
+| E195 | 2026-11-08 | Czy wynik dla wzmianek zacieśnia się na 40 markach? | Ten sam kolektor wzmianek, 40 marek, 144 filmy; model oceniany zewnętrznie | 144 filmy, 4 zera, 49 poniżej 100; MAE 0,638, bias +0,35; low/mid/top 0,558/0,553/1,047 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E196 | 2026-11-08 | Czy publiczne wyświetlenia Facebooka zmieniają się w trzy dni? | Ponowny odczyt 60 pobranych filmów FB i porównanie z 2026-11-05 | 60/60 odczytane; stosunek 1,000 na każdym poście (brak driftu); licznik FB jest statyczny lub cache'owany | wniosek | `src/fb_refetch.py` |
+| E197 | 2026-11-08 | Czy wynik dla wzmianek utrzymuje się na 60 markach? | Ten sam kolektor, 60 marek, 203 filmy; model oceniany zewnętrznie | 203 filmy, 10 zer, 83 poniżej 100; MAE 0,606, bias +0,28; low/mid/top 0,536/0,555/1,044 | wniosek | `src/external_youtube_mentions.py`, `src/external_validate.py` |
+| E198 | 2026-11-08 | Czy tania próbka X z pay-per-use da się pobrać i czy model na niej działa? | Bearer, recent search 7 dni, 10 marek x 10 postów; impression_count jako wyświetlenia; model uczony na Brand24 X | 98 postów za 1,47 USD; mediana 8 vs 27; MAE 0,565, bias -0,29 (×2 za wysoko); baseline 0,747 | wniosek | `src/external_x.py`, `src/external_x_validate.py` |
 
 ## Zaplanowane, nieuruchomione
 Z `docs/en/project_plan.md`: własna próbka z FB/IG, odmowa odpowiedzi, detektor fałszywych dopasowań, klasyfikacja viralu, modele kwantylowe, większa waga skrajów, traktowanie zer na YouTube jako braków.

@@ -1,0 +1,13 @@
+{
+ "rows": 60,
+ "ok": 40,
+ "failed": 20,
+ "median_ratio": 1.068,
+ "p10_ratio": 1.006,
+ "p90_ratio": 3.066,
+ "share_within_5pct": 0.45,
+ "share_within_20pct": 0.65,
+ "spearman_log_views": 0.918,
+ "median_old_views": 759.0,
+ "median_new_views": 849.0
+}

@@ -1,4 +1,4 @@
-# Project status, 2026-11-07
+# Project status, 2026-11-08
 
 Internal summary for the team. Not preprint text. Full evidence: `docs/en/evidence_map.md`, `agent/findings.md`.
 
@@ -21,6 +21,14 @@ and 402 fetched posts; Instagram has no public views.
 - **Posting time (no reactions):** MAE 0.60-0.76, band 2.4-3.0 (x260-900); reactions are worth waiting for.
 - **Validation:** brand-grouped CV, repeated CV, temporal rolling-origin, stricter author/copy grouping; all consistent.
 - **Noise ceiling:** ~0.22 / 0.39 / 0.33; the model is close on TikTok and 0.06-0.14 above on YouTube/X.
+
+
+**External checks (2026-11-08).** Three independent YouTube samples were fetched with `yt-dlp`: brand videos (53), a
+diverse 131-video sample (popular to small), and 47 third-party mention videos with brand channels excluded. On the
+mention-like population - the one the model targets - the error is close to the export (MAE 0.690 low, 0.441 mid) and
+only the popular stratum fails (1.569, ~x30 low); the x5 shift on brand videos is a sample effect, not a model failure.
+Zero-view videos are reachable among obscure third-party posts but not through brand channels. X, TikTok and Instagram
+still need an API, a login or a manual sample (E189-E191).
 
 ## Main conclusions
 
@@ -69,7 +77,7 @@ other three need a decision, hand labels or the client.
 
 ## Reproducibility
 
-- 169 experiment cards (170 experiments including the M1 exploration); every `numbers:` file and notebook referenced by a card exists.
+- 198 experiment cards (199 experiments including the M1 exploration); every `numbers:` file and notebook referenced by a card exists.
 - Re-ran `src/fb_rule_vs_model.py` and `src/cqr_50.py` end to end: the output JSON files are byte-identical to the stored
   ones (fixed seeds).
 - All scripts compile (`python -m py_compile src/*.py`).
