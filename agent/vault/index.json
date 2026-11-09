@@ -2671,7 +2671,7 @@
   "date": "2026-11-09",
   "question": "Red-team baselines: likes multiplier, median skill, paired CIs",
   "setup": "Likes multiplier (views = k x likes) and median vs CatBoost (same platform, author-safe folds) and vs the X + YouTube ridge (FB, IG, Stack Exchange); paired brand bootstrap",
-  "result": "Same platform CatBoost beats the multiplier by 0.08-0.15; out of platform FB ridge = multiplier = own model (x2.42-2.43), IG ridge x2.72 vs multiplier x2.94 and own x2.41 (+0.054, CI 0.021-0.093); Stack Exchange transfer worse than the median (skill -0.71) (transfer = calibrated views-per-like ratio; \"as good as own platform\" only on FB)",
+  "result": "Same platform CatBoost beats the multiplier by 0.08-0.15; out of platform FB ridge = multiplier = own model (x2.42-2.43), IG ridge x2.72 vs multiplier x2.94 and own x2.41 (+0.054, CI 0.021-0.093); Stack Exchange transfer worse than the median (skill -0.71) (transfer = calibrated views-per-like ratio; \"as good as own platform\" only on FB; ridge vs multiplier with export-only sources: better on TT / IG / SE, tie on FB, slightly worse on YT (+0.007), worse on X (+0.116))",
   "type": "finding",
   "where": "`src/baselines_check.py`",
   "paths": [
