@@ -77,7 +77,7 @@ Trained on & TikTok & YouTube & X & Facebook & Instagram \\
     if SE:
         sep = "," if LANG == "pl" else "."
         tab = (r"\begin{tabular}{l|ccccc|c}" + "\n" + r"\toprule" + "\n" + ("Trening na" if LANG == "pl" else "Trained on")
-               + r" & TikTok & YouTube & X & Facebook & Instagram & Stack Ex. \\" + "\n" + r"\midrule" + "\n"
+               + r" & TikTok & YouTube & X & Facebook & Instagram & Stack Exchange \\" + "\n" + r"\midrule" + "\n"
                + (r"\textit{ridge, ta sama platforma} & " if LANG == "pl" else r"\textit{ridge, same platform} & ")
                + " & ".join(cell(own[b]["factor"]) for b in P) + " & " + cell(sx["own platform (brand CV)"]["factor"]) + r" \\ \midrule" + "\n"
                + "\n".join(rows) + "\n" + r"\bottomrule" + "\n" + r"\end{tabular}" + "\n")

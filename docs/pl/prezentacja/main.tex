@@ -4,6 +4,7 @@
 \usepackage[polish]{babel}
 \usepackage{booktabs,multirow,graphicx}
 \usepackage{array}
+\usepackage{appendixnumberbeamer}
 \usepackage[table]{xcolor}
 \renewcommand{\x}[1]{$\times$#1}
 \newcommand{\xb}[1]{\textbf{$\boldsymbol{\times}$#1}}
@@ -36,7 +37,7 @@
 \begin{block}{Problem}
 \parbox[t][3.1cm][t]{.92\linewidth}{\raggedright
 TikTok, YouTube, X: wyświetlenia są w eksporcie.\\[6pt]
-Facebook, Instagram: \alert{nie widać ich}; Brand24 daje tylko ,,zasięg'' z reguły.}
+Facebook, Instagram: \alert{nie widać ich}; Brand24 daje tylko ,,zasięg'' z reguły (porównanie na końcu).}
 \end{block}
 \column{.45\textwidth}
 \begin{block}{Pytanie szczegółowe}
@@ -46,8 +47,316 @@ Czy model, który \alert{nigdy nie widział} wyświetleń z FB i IG, oszacuje je
 \end{columns}
 \end{frame}
 
-% 2a
-\begin{frame}{Eksport Brand24: co jest w danych i czego brakuje}
+% 2
+\begin{frame}{Dane: 348 marek, 5 platform}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrlrrr}
+\toprule
+Platforma & Skrót & Marki & Autorzy & Źródło wyśw. & Posty z wyśw. & Mediana wyśw. & Wyśw./lajk \\
+\midrule
+TikTok    & TT & 266 & 2\,411 & eksport Brand24 & 2\,491 & 729    & 25 \\
+YouTube   & YT & 273 & 2\,041 & eksport Brand24 & 2\,441 & 433    & 26 \\
+X         & X  & 252 & 1\,658 & eksport Brand24 & 1\,803 & 27     & 22 \\
+\midrule
+Facebook  & FB & 20  & $\geq$182 & \alert{nasz odczyt}, filmy & 402 & 1\,413 & 35 \\
+Instagram & IG & 11  & 541       & \alert{nasz odczyt}, rolki & 642 & 504    & 53 \\
+\bottomrule
+\end{tabular}
+\vspace{6pt}
+
+{\small Eksport: 12\,500 wzmianek, 2\,500 na platformę. Do tego Stack Exchange: 538 pytań z publicznego API, 48 marek, tylko test na innej platformie.}
+\sub{\footnotesize FB i IG: wyświetlenia odczytane przez nas, \textbf{tylko do oceny}; zwykłe posty nie mają licznika. IG: właściciel znany dla 627 z 642 rolek. Pełna tabela braków w eksporcie: zapas.}
+\end{frame}
+
+% 3
+\begin{frame}{Dane dodane przez nas i protokół}
+\scriptsize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.0}\centering
+\begin{tabular}{l>{\raggedright\arraybackslash}p{.24\textwidth}>{\raggedright\arraybackslash}p{.3\textwidth}>{\raggedright\arraybackslash}p{.2\textwidth}}
+\toprule
+Źródło & Co & Ile & Do czego \\
+\midrule
+Facebook & wyświetlenia filmów & 402 z 470 (68 usuniętych) & ocena poza platformą \\
+Instagram & wyświetlenia rolek & 642 z 976 (261 usuniętych, 19 bez licznika, 54 z ukrytymi lajkami) & ocena poza platformą \\
+X, YouTube, TikTok & ponowny odczyt wyśw. i reakcji & 2\,013 / 1\,376 / 426 postów & prawdziwe etykiety \\
+Stack Exchange & pytania z publicznego API & 538 pytań, 48 marek & test na innej platformie \\
+Instagram & właściciele rolek & 627 rolek (541 autorów) & autorzy w walidacji \\
+\bottomrule
+\end{tabular}
+\vspace{6pt}
+\begin{block}{Jak zbieraliśmy i dzieliliśmy dane}
+\footnotesize
+\begin{itemize}\setlength\itemsep{1pt}
+\item FB/IG: wyświetlenia i reakcje odczytane \alert{razem, w tej samej chwili} (nasz ponowny odczyt)
+\item historia autora: tylko \alert{wcześniejsze} posty tego autora
+\item zestaw treningowy X + YT ustalony \alert{z góry} z podobieństwa reakcji, nie z wyników FB/IG
+\end{itemize}
+\end{block}
+\sub{Eksport Brand24 jest nieaktualny w poziomie, stabilny w rankingu; ponowne odczyty to punkt odniesienia. Dane wyprowadzone i próbowane: zapas.}
+\end{frame}
+
+% 4
+\begin{frame}{Metoda}
+\begin{columns}[T]
+\column{.31\textwidth}
+\begin{block}{Ta sama platforma}
+TikTok, YouTube, X\\[2pt]
+\textbf{CatBoost} na 8 polach:\\
+{\scriptsize\texttt{log(1+obserwujący)}, \texttt{log(1+lajki)}, \texttt{log(1+komentarze)}, \texttt{log(1+udostępnienia)} + 4 flagi ,,pole puste'' (obserwujący, lajki, komentarze, udostępnienia)}\\[2pt]
+test na \alert{markach i autorach}, których model nie widział
+\end{block}
+\column{.31\textwidth}
+\begin{block}{Poza platformą}
+Facebook, Instagram\\[2pt]
+\textbf{ridge} na 2 polach:\\
+{\scriptsize\texttt{log(1+lajki)}, \texttt{log(1+komentarze)} (jedyne, które ma każda platforma)}\\[2pt]
+uczony \alert{tylko na X + YouTube}\\[2pt]
+{\tiny Inne metody (MLP, CatBoost, augmentacje) nie pobiły ridge (zapas)}
+\end{block}
+\column{.31\textwidth}
+\begin{block}{Dane zewnętrzne}
+nasz odczyt wyświetleń FB/IG, \alert{nigdy w treningu}\\[2pt]
+inna platforma: Stack Exchange
+\end{block}
+\end{columns}
+\vspace{4pt}
+\centering\small
+Cel: $\log_{10}$(wyświetlenia). Nie używamy tekstu, etykiet AI, kraju ani czasu (nie poprawiały wyniku).
+\end{frame}
+
+% 5
+\begin{frame}{Jak czytać wyniki}
+\begin{columns}[T]
+\column{.52\textwidth}
+\begin{block}{Typowy błąd $\times10^{\text{MAE}}$}
+\small
+MAE = średnia $|\log_{10}(\text{oszacowanie})-\log_{10}(\text{prawda})|$.\\[3pt]
+Przykład: \alert{\x{2}} znaczy, że post z 1\,000 wyświetleń jest zwykle oszacowany gdzieś między 500 a 2\,000.
+\end{block}
+\begin{block}{W granicach \x{2}}
+\small
+Udział postów, dla których oszacowanie jest w zakresie 2 razy w górę lub w dół od prawdy.
+\end{block}
+\column{.44\textwidth}
+\begin{block}{Zbiór testowy}
+\small
+Marki i autorzy, których model \alert{nie widział} w treningu.
+\end{block}
+\begin{block}{Dwa proste odniesienia}
+\small
+\textbf{stała mediana}: ten sam szacunek dla każdego posta;\\
+\textbf{mnożnik lajków}: wyświetlenia $= k\times$ lajki.
+\end{block}
+\end{columns}
+\end{frame}
+
+% 6
+\begin{frame}{Wyniki: ta sama platforma}
+\centering\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccc}
+\toprule
+ & \textbf{CatBoost} (MAE) & W granicach \x{2} & Stała mediana & Mnożnik lajków \\
+\midrule
+TikTok  & \xb{1,87} (0,273) & 67\% & \x{4,60} & \x{2,23} \\
+YouTube & \xb{2,90} (0,462) & 43\% & \x{8,77} & \x{4,06} \\
+X       & \xb{3,03} (0,482) & 40\% & \x{4,63} & \x{3,63} \\
+\bottomrule
+\end{tabular}
+\vspace{10pt}
+\sub{Walidacja po markach i autorach, 8 pól. Test na markach i autorach, których model nie widział.\\
+CatBoost lepszy od mnożnika lajków o 0,075--0,147 MAE; przedziały ufności wykluczają zero.}
+\vspace{6pt}
+\begin{block}{Dlaczego nie stos wszystkich modeli (\x{1,82} / \x{2,66} / \x{2,76})?}
+\footnotesize
+Zysk to tylko \x{1,03}--\x{1,07}; trzeba utrzymywać kilkanaście modeli (TabPFN jest ok. 150$\times$ wolniejszy); przedziały i przenoszenie opieramy na jednym modelu. Tabela modeli (walidacja tylko po markach, 8 pól, stąd liczby nieco niższe): zapas.
+\end{block}
+\end{frame}
+
+% 7
+\begin{frame}{Wyniki: poza platformą (Facebook, Instagram)}
+\centering\scriptsize\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lccccc}
+\toprule
+ & \textbf{Ridge X+YT} (MAE) & Przedział ufn. & W gr. \x{2} & Mediana X+YT & Mnożnik lajków \\
+\midrule
+Facebook (402 filmy, 20 marek) & \xb{2,43} (0,385) & \x{2,08}--\x{2,99} & 53\% & \x{19,87} & \x{2,42} \\
+Instagram (642 rolki, 11 marek) & \xb{2,72} (0,435) & \x{2,48}--\x{3,03} & 40\% & \x{8,69}  & \x{2,94} \\
+\bottomrule
+\end{tabular}
+\vspace{6pt}
+\sub{Ridge uczony tylko na X + YouTube, 0 postów z FB/IG w treningu. Przedział: bootstrap po markach (95\%), dla typowego błędu. \alert{Mało marek, więc wynik kruchy.}\\
+\textbf{Co się przenosi:} stosunek wyświetleń do reakcji. Na FB ridge (\x{2,43}) $\approx$ prosty mnożnik lajków (\x{2,42}), różnica nieistotna. Ridge pomaga na TikToku, IG i Stack Exchange, nie na FB.\\
+Ridge uczony na samej platformie: FB \x{2,42}, IG \x{2,41}. IG: 72\% rolek niedoszacowanych.\\[2pt]
+{\scriptsize Zestaw X + YT ustaliliśmy z góry z podobieństwa reakcji (IG podobny do X i YT, nie do TT), nie z wyników FB/IG. Z TikTokiem (TT + YT + X): FB \x{2,49}, IG \x{2,69}; TikTok zostaje też jako dodatkowy test (\x{2,05}).}}
+\end{frame}
+
+% 8
+\begin{frame}{Oszacowane a prawdziwe wyświetlenia}
+\centering
+\includegraphics[width=\textwidth,height=.66\textheight,keepaspectratio]{fig/preprint_main_pl.png}
+\sub{Co widać: jedna kropka to jeden post; oś pozioma to prawdziwe wyświetlenia, pionowa oszacowane (skala log); szary pas = w granicach \x{2}, liczba = typowy błąd.}
+\end{frame}
+
+% 9
+\begin{frame}{Czy to więcej niż mnożnik lajków?}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llcccc}
+\toprule
+Cel & Trening na & Regresja & Mnożnik lajków & Różnica MAE [95\% CI] & Mediana źródła \\
+\midrule
+TikTok & X + YT & \xb{2,05} & \x{2,22} & $-$0,034 [$-$0,038; $-$0,029] & \x{11,0} \\
+YouTube & TT + X & \x{4,09} & \xb{4,02} & +0,007 [0,002; 0,011] & \x{9,0} \\
+X & TT + YT & \x{4,47} & \xb{3,42} & +0,116 [0,094; 0,137] & \x{21,8} \\
+Facebook & X + YT & \x{2,43} & \x{2,42} & +0,002 [$-$0,017; 0,022] & \x{19,9} \\
+Instagram & X + YT & \xb{2,72} & \x{2,94} & $-$0,034 [$-$0,047; $-$0,020] & \x{8,7} \\
+Stack Exchange & X + YT & \x{3,14} & \x{5,33} & $-$0,229 [$-$0,240; $-$0,207] & \xb{2,1} \\
+\bottomrule
+\end{tabular}
+\vspace{8pt}
+\sub{Ridge na 2 polach (lajki, komentarze), walidacja po markach; trening tylko na platformach z eksportu, nigdy na FB/IG. Różnica MAE: regresja minus mnożnik (ujemna = regresja lepsza).\\
+Regresja lepsza na TikToku, IG i Stack Exchange, bez różnicy na FB, gorsza na YouTube (nieznacznie) i X (62\% postów bez lajka). Stack Exchange: gorzej niż mediana przy treningu z X; z samego YouTube \x{1,87}.\\
+Wybór platform treningowych (siatka 5 platform): zapas; mediana po 15 zestawach bez celu: FB \x{2,58}, IG \x{2,65}, więc nie zależy od wyboru X + YT.}
+\end{frame}
+
+% 10
+\begin{frame}{Od czego zależy błąd: czas i historia autora}
+\begin{columns}[T]
+\column{.5\textwidth}\centering
+\includegraphics[width=\textwidth,height=.52\textheight,keepaspectratio]{fig/deck_reread_pl.png}\\[2pt]
+{\scriptsize Co widać: typowy błąd (oś pionowa) bez i z odczytem wyświetleń i reakcji w tej samej chwili; to ten sam model, zmienia się tylko moment odczytu.}
+\column{.5\textwidth}\centering
+\includegraphics[width=\textwidth,height=.52\textheight,keepaspectratio]{fig/deck_author_pl.png}\\[2pt]
+{\scriptsize Co widać: typowy błąd bez i z historią autora (tylko jego wcześniejsze posty z wyświetleniami), TT, YT, X; w nawiasie liczba postów z historią.}
+\end{columns}
+\vspace{4pt}
+\sub{Trening na wcześniejszych miesiącach i test na późniejszych daje ten sam błąd co walidacja po markach: brak dryfu w czasie. Liczy się, by wyświetlenia i reakcje były odczytane razem. Autorzy mają stały poziom wyświetleń, którego nie widać z reakcji; w danych historię ma tylko 3--16\% postów.}
+\end{frame}
+
+% 11
+\begin{frame}{Od czego zależy błąd: liczba reakcji i wielkość posta}
+\begin{columns}[T]
+\column{.54\textwidth}
+\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.0}
+{\small Typowy błąd (\x{}) wg liczby reakcji (TT, YT, X)}\\[3pt]
+\begin{tabular}{lccc}
+\toprule
+ & TT & YT & X \\
+\midrule
+0 reakcji & \x{3,23} {\tiny\color{mut}3\%} & \x{4,59} {\tiny\color{mut}27\%} & \x{3,19} {\tiny\color{mut}54\%} \\
+1--5 reakcji & \x{2,01} {\tiny\color{mut}13\%} & \x{2,91} {\tiny\color{mut}19\%} & \x{2,96} {\tiny\color{mut}36\%} \\
+6--100 reakcji & \x{1,75} {\tiny\color{mut}53\%} & \x{2,45} {\tiny\color{mut}32\%} & \x{2,57} {\tiny\color{mut}9\%} \\
+ponad 100 reakcji & \x{1,92} {\tiny\color{mut}30\%} & \x{2,08} {\tiny\color{mut}22\%} & \x{2,51} {\tiny\color{mut}1\%} \\
+\midrule
+wszystkie posty & \x{1,87} & \x{2,90} & \x{3,03} \\
+bez postów z 0 reakcji & \x{1,84} {\tiny\color{mut}97\%} & \x{2,44} {\tiny\color{mut}73\%} & \x{2,86} {\tiny\color{mut}46\%} \\
+bez postów z $\le$5 reakcjami & \xb{1,81} {\tiny\color{mut}83\%} & \xb{2,29} {\tiny\color{mut}54\%} & \xb{2,56} {\tiny\color{mut}10\%} \\
+\bottomrule
+\end{tabular}\\[2pt]
+{\tiny\color{mut} szare: udział postów; reakcje = lajki + komentarze + udostępnienia}
+\column{.44\textwidth}\centering
+\includegraphics[width=\textwidth,height=.5\textheight,keepaspectratio]{fig/deck_tails_pl.png}\\[2pt]
+{\scriptsize Co widać: średni błąd ze znakiem w piątkach postów (oś pozioma: od 20\% najmniejszych do 20\% największych); model zawyża małe i zaniża duże.}
+\end{columns}
+\vspace{4pt}
+\sub{Mało reakcji = za mało danych: posty z 0 reakcji mają błąd \x{3}--\x{4,6}; na X 70\% postów bez lajka. Bez postów z $\le$5 reakcjami błąd spada, ale na X zostaje tylko 10\% postów. Próby naprawy skrajności i klasyfikacja: zapas.}
+\end{frame}
+
+% 12
+\begin{frame}{Walidacja i kalibracja: dlaczego ufamy wynikom}
+\begin{columns}[T]
+\column{.5\textwidth}
+\scriptsize
+\begin{itemize}\setlength\itemsep{2pt}
+\item \textbf{Podział:} foldy łączą posty tej samej marki, autora lub identycznego tekstu; test na \alert{nieznanej marce i autorze}
+\item \textbf{Przedziały ufności:} bootstrap po markach; sparowany dla różnic modeli
+\item \textbf{Odniesienia:} zawsze mediana i mnożnik lajków
+\item \textbf{Spoza treningu:} nasze odczyty FB/IG; leave-platform-out: każdą z 5 platform ukrywamy po kolei
+\item \textbf{Test w czasie:} MAE TikTok 0,270, YouTube 0,450, X 0,473, blisko walidacji po markach
+\item \textbf{Kalibracja:} surowy przedział 90\% trafia w 3 z 4 posty; po CQR w 9 z 10 (87--91\%), kosztem szerokości: na X od $\div$11 do \x{11}
+\item Sumy marek: po jednej korekcie błąd \x{1,7} / \x{2,0} / \x{2,1}
+\end{itemize}
+\column{.48\textwidth}\centering
+\includegraphics[width=\textwidth,height=.62\textheight,keepaspectratio]{fig/deck_calib_pl.png}\\[2pt]
+{\scriptsize Co widać: jaki procent prawdziwych wyświetleń wpada w przedział 90\% (oś pionowa), przed i po kalibracji, TT, YT, X; pod nazwą szerokość przedziału.}
+\end{columns}
+\end{frame}
+
+% 13
+\begin{frame}{Zastosowania i porównanie z kolumną zasięgu (X)}
+\centering
+\includegraphics[width=\textwidth,height=.36\textheight,keepaspectratio]{fig/preprint_side_pl.png}\\[0pt]
+{\tiny Co widać: trzy zastosowania na TT, YT, X: precyzja alertu o wybiciu (5\% postów), zgodność rankingu marek (Kendall), udział marek w $\pm$50\% wartości medialnej.}\\[2pt]
+\includegraphics[width=\textwidth,height=.27\textheight,keepaspectratio]{fig/final_compare_pl.png}\\[0pt]
+{\tiny Co widać: te same 1\,803 posty z X; po lewej typowy błąd (skala log), po prawej udział w granicach \x{2}. Zasięg to inna miara niż wyświetlenia: pokazujemy, jak daleko od nich jest liczba, którą klient dostaje dziś.}
+\end{frame}
+
+% 14
+\begin{frame}{Co dalej: czego nie zrobiliśmy}
+\begin{columns}[T]
+\column{.5\textwidth}
+\begin{block}{Dane}
+\footnotesize
+\begin{itemize}\setlength\itemsep{2pt}
+\item więcej marek na FB i IG (teraz 20 i 11)
+\item usunięte posty (IG 27\%, FB 14\%) mogą przekrzywiać ocenę
+\item zwykłe posty FB/IG, nie tylko filmy i rolki
+\item inne platformy (Reddit, LinkedIn)
+\end{itemize}
+\end{block}
+\begin{block}{Etykiety i zastosowanie}
+\footnotesize
+\begin{itemize}\setlength\itemsep{2pt}
+\item ludzka weryfikacja etykiet AI: zgodność modeli $\kappa$ 0,71--0,79, brak ludzkiego wzorca
+\item praktyczny przykład sumy marki na FB/IG
+\end{itemize}
+\end{block}
+\column{.46\textwidth}
+\begin{block}{Nowy wynik: obserwujący IG}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lcc}
+\toprule
+ & lajki + koment. & + obserwujący \\
+\midrule
+ridge na samym IG & \x{2,40} & \x{2,23} \\
+transfer X+YT $\to$ IG & \x{2,72} & \x{4,58} \\
+\bottomrule
+\end{tabular}\\[4pt]
+Obserwujący pomagają na samym IG, ale psują przenoszenie z X + YT.
+\end{block}
+\end{columns}
+\end{frame}
+
+% 15
+\begin{frame}{Ograniczenia i wnioski}
+\begin{columns}[T]
+\column{.42\textwidth}
+\begin{block}{Ograniczenia}
+\small
+\begin{itemize}
+\item mało marek: FB 20, IG 11, wynik kruchy
+\item wiek odczytu: eksport 23 dni, nasz odczyt FB/IG 310--334 dni
+\item tylko dostępne filmy i rolki
+\item X: regresja gorsza od stałego mnożnika lajków
+\item korelacja, nie przyczynowość
+\end{itemize}
+\end{block}
+\column{.54\textwidth}
+\begin{block}{Wnioski}
+\small
+\begin{enumerate}
+\item Ridge na lajkach i komentarzach, uczony tylko na X i YouTube, szacuje FB z błędem \alert{\x{2,43}}, IG \alert{\x{2,72}}; mediana myli się \x{9}--\x{20}
+\item Przenosi się \alert{stosunek wyświetleń do reakcji}; prosty mnożnik lajków jest na FB prawie tak samo dobry (\x{2,42}); ridge pomaga na TikToku, IG i Stack Exchange
+\item Reakcje muszą być odczytane razem z wyświetleniami
+\item Stack Exchange: gorzej niż mediana przy treningu z X; z samego YouTube \x{1,87}
+\end{enumerate}
+\end{block}
+\end{columns}
+\end{frame}
+
+\appendix
+
+\begin{frame}{Zapas: braki w eksporcie Brand24}
 \footnotesize
 12\,500 wzmianek, 2\,500 na platformę, 19 kolumn (tabela: 18 poza \texttt{platform}). \textbf{Puste wartości} w każdej kolumnie, udział na platformie; pomarańczowe: braki $\geq$ 25\%. \texttt{b24\_estimated\_reach} to ,,zasięg'' Brand24.
 \vspace{4pt}
@@ -92,48 +401,7 @@ kolumna & TikTok & YouTube & X & Facebook & Instagram \\
 \sub{\scriptsize \texttt{likes} = 0: lajk wpisany jako zero (na X często brak, a nie prawdziwe zero).}
 \end{frame}
 
-% 2
-\begin{frame}{Dane: 348 marek, 5 platform}
-\centering\footnotesize
-\setlength{\tabcolsep}{2pt}
-\begin{tabular}{lrrlrrr}
-\toprule
-Platforma & Marki & Autorzy & Źródło wyśw. & Posty z wyśw. & Mediana & Wyśw./lajk \\
-\midrule
-TikTok    & 266 & 2\,411 & eksport & 2\,491 & 729    & 25 \\
-YouTube   & 273 & 2\,041 & eksport & 2\,441 & 433    & 26 \\
-X         & 252 & 1\,658 & eksport & 1\,803 & 27     & 22 \\
-\midrule
-Facebook  & 20  & $\geq$182 & \alert{nasz odczyt}, filmy & 402 & 1\,413 & 35 \\
-Instagram & 11  & 541       & \alert{nasz odczyt}, rolki & 642 & 504    & 53 \\
-\bottomrule
-\end{tabular}
-\vspace{2pt}
-\sub{\footnotesize FB i IG: wyświetlenia odczytane przez nas, \textbf{tylko do oceny}; zwykłe posty nie mają licznika. IG: właściciel znany dla 627 z 642 rolek.}
-\end{frame}
-
-% 2b
-\begin{frame}{Jakie dane dodaliśmy sami: pozyskane}
-\footnotesize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.05}\centering
-\begin{tabular}{l>{\raggedright\arraybackslash}p{.24\textwidth}>{\raggedright\arraybackslash}p{.3\textwidth}>{\raggedright\arraybackslash}p{.2\textwidth}}
-\toprule
-Źródło & Co & Ile & Do czego \\
-\midrule
-Facebook & wyświetlenia filmów & 402 z 470 (68 usuniętych) & ocena poza platformą \\
-Instagram & wyświetlenia rolek & 642 z 976 (261 usuniętych, 19 bez licznika, 54 z ukrytymi lajkami) & ocena poza platformą \\
-X & ponowny odczyt wyśw. i reakcji & 2\,013 postów & prawdziwe etykiety \\
-YouTube & ponowny odczyt wyśw. i reakcji & 1\,376 postów & prawdziwe etykiety \\
-TikTok & ponowny odczyt wyśw. i reakcji & 426 postów & prawdziwe etykiety \\
-Stack Exchange & pytania z publicznego API, 48 marek & 538 pytań & test na innej platformie \\
-Instagram & właściciele rolek & 627 rolek (541 autorów) & autorzy w walidacji \\
-\bottomrule
-\end{tabular}
-\vspace{6pt}
-\sub{Eksport Brand24 jest nieaktualny w poziomie, stabilny w rankingu; ponowne odczyty to punkt odniesienia.}
-\end{frame}
-
-% 2c
-\begin{frame}{Jakie dane dodaliśmy sami: wyprowadzone i próbowane}
+\begin{frame}{Zapas: dane wyprowadzone i próbowane}
 \small
 \begin{columns}[T]
 \column{.48\textwidth}
@@ -161,115 +429,20 @@ Instagram & właściciele rolek & 627 rolek (541 autorów) & autorzy w walidacji
 Żadne dodatkowe źródło nie poprawia błędu o więcej niż \alert{\x{1,04}}.
 \end{frame}
 
-% 3
-\begin{frame}{Metoda}
-\begin{columns}[T]
-\column{.31\textwidth}
-\begin{block}{Ta sama platforma}
-TikTok, YouTube, X\\[2pt]
-\textbf{CatBoost} na 8 polach:\\
-{\scriptsize\texttt{log(1+obserwujący)}, \texttt{log(1+lajki)}, \texttt{log(1+komentarze)}, \texttt{log(1+udostępnienia)} + 4 flagi ,,pole puste'' (obserwujący, lajki, komentarze, udostępnienia)}\\[2pt]
-test na \alert{markach i autorach}, których model nie widział
-\end{block}
-\column{.31\textwidth}
-\begin{block}{Poza platformą}
-Facebook, Instagram\\[2pt]
-\textbf{ridge} na 2 polach:\\
-{\scriptsize\texttt{log(1+lajki)}, \texttt{log(1+komentarze)} (jedyne, które ma każda platforma)}\\[2pt]
-uczony \alert{tylko na X + YouTube}\\[2pt]
-{\tiny Inne metody (MLP, CatBoost, augmentacje, mapowanie skal, wagi, anchor, group DRO) nie pobiły ridge (slajd ,,poza platformą'')}
-\end{block}
-\column{.31\textwidth}
-\begin{block}{Dane zewnętrzne}
-nasz odczyt wyświetleń FB/IG, \alert{nigdy w treningu}\\[2pt]
-inna platforma: Stack Exchange
-\end{block}
-\end{columns}
-\vspace{0pt}
-\centering\small
-Cel: $\log_{10}$(wyświetlenia). Nie używamy tekstu, etykiet AI, kraju ani czasu (nie poprawiały wyniku).\\
-Błąd: \alert{typowy błąd $10^{\text{MAE}}$} (MAE na $\log_{10}$ wyświetleń); {\footnotesize \x{2} = oszacowanie zwykle 2 razy za duże albo za małe}
-\end{frame}
-
-% 4 ------------------------------------------------------------
-\begin{frame}{Wyniki: ta sama platforma}
-\centering\small\setlength{\tabcolsep}{3pt}
-\begin{tabular}{lccccc}
-\toprule
- & \textbf{CatBoost} (MAE) & W granicach \x{2} & Stała mediana & Mnożnik lajków & Zasięg Brand24 \\
-\midrule
-TikTok  & \xb{1,87} (0,273) & 67\% & \x{4,60} & \x{2,23} & = wyświetlenia \\
-YouTube & \xb{2,90} (0,462) & 43\% & \x{8,77} & \x{4,06} & = wyświetlenia \\
-X       & \xb{3,03} (0,482) & 40\% & \x{4,63} & \x{3,63} & \x{11,47} \\
-\bottomrule
-\end{tabular}
-\vspace{12pt}
-\sub{Test na markach i autorach, których model nie widział.\\
-CatBoost lepszy od mnożnika lajków o 0,075--0,147 MAE; przedziały ufności wykluczają zero.\\
-{\footnotesize Zasięg Brand24: kolumna zasięgu z eksportu porównana z prawdziwymi wyświetleniami na tych samych postach.}}
-\end{frame}
-
-% 5 ------------------------------------------------------------
-\begin{frame}{Wyniki: poza platformą}
-\centering\small\setlength{\tabcolsep}{2pt}
-\begin{tabular}{lccccc}
-\toprule
- & \textbf{Ridge X+YT} (MAE) & W granicach \x{2} & Mediana X+YT & Ridge na celu & Zasięg Brand24 \\
-\midrule
-Facebook  & \xb{2,43} (0,385) & 53\% & \x{19,87} & \x{2,42} & \x{13,14} \\
-Instagram & \xb{2,72} (0,435) & 40\% & \x{8,69}  & \x{2,41} & \x{26,44} \\
-\bottomrule
-\end{tabular}
-\vspace{12pt}
-\sub{Model uczony tylko na X + YouTube, 0 postów z FB/IG w treningu.\\
-FB: tyle samo co ridge uczony na samym FB. IG: nieco gorzej; 72\% rolek niedoszacowanych.\\
-{\footnotesize Zasięg Brand24: kolumna zasięgu z eksportu porównana\\z prawdziwymi wyświetleniami na tych samych postach.}\\[3pt]
-{\scriptsize Zestaw X + YouTube ustaliliśmy z góry: reakcje na IG są podobne do X i YouTube,\\a nie do TikToka. Z TikTokiem (TT + YT + X): FB \x{2,49}, IG \x{2,69}, czyli prawie bez zmian;\\TikTok zostaje też jako dodatkowy test (\x{2,05}).}}
-\end{frame}
-
-% 6 ------------------------------------------------------------
-\begin{frame}{Oszacowane a prawdziwe wyświetlenia}
+\begin{frame}{Zapas: czego model potrzebuje}
 \centering
-\includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{fig/preprint_main_pl.png}
+\includegraphics[width=\textwidth,height=.72\textheight,keepaspectratio]{fig/preprint_needs_pl.png}
+\sub{Co widać: typowy błąd (oś pionowa) przy różnych zestawach pól; A: FB i IG (model z X + YT), B: TT, YT, X, gdy brakuje pól. Kluczowe: lajki odczytane w tej samej chwili co wyświetlenia. Same komentarze: \x{6,3}--\x{7,4}.}
 \end{frame}
 
-% 7 ------------------------------------------------------------
-\begin{frame}{Czy to więcej niż mnożnik lajków?}
-\centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{llcccc}
-\toprule
-Cel & Źródło & Regresja & Mnożnik lajków & Różnica MAE [95\% CI] & Mediana źródła \\
-\midrule
-TikTok & X + YT & \xb{2,05} & \x{2,22} & $-$0,034 [$-$0,038; $-$0,029] & \x{11,0} \\
-YouTube & TT + X & \x{4,09} & \xb{4,02} & +0,007 [0,002; 0,011] & \x{9,0} \\
-X & TT + YT & \x{4,47} & \xb{3,42} & +0,116 [0,094; 0,137] & \x{21,8} \\
-Facebook & X + YT & \x{2,43} & \x{2,42} & +0,002 [$-$0,017; 0,022] & \x{19,9} \\
-Instagram & X + YT & \xb{2,72} & \x{2,94} & $-$0,034 [$-$0,047; $-$0,020] & \x{8,7} \\
-Stack Exchange & X + YT & \x{3,14} & \x{5,33} & $-$0,229 [$-$0,240; $-$0,207] & \xb{2,1} \\
-\bottomrule
-\end{tabular}
-\vspace{10pt}
-\sub{Trening tylko na platformach z eksportu (TT, YT, X), nigdy na FB/IG. Regresja lepsza na 3 celach, bez różnicy na FB, gorsza na YouTube (nieznacznie) i X (62\% postów bez lajka).}
-\end{frame}
-
-% 8 ------------------------------------------------------------
-\begin{frame}{Czy wynik zależy od wyboru platform treningowych?}
-\centering\footnotesize
-\scriptsize\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{0.72}
-\input{combos_tabular}
-\sub{Typowy błąd (\x{}); szare = trening. Mediana po 15 zestawach bez celu: FB \x{2,58}, IG \x{2,65}, czyli nie zależy od wyboru X + YT.\\ \scriptsize Stack Exchange (538 pytań) nigdy nie jest w treningu: najlepszy z samego YouTube \x{1,87}, własny ridge SE \x{1,77}; każdy zestaw z X daje \x{3}--\x{5}.}
-\end{frame}
-
-% 10 ------------------------------------------------------------
-\begin{frame}{Czego model potrzebuje}
+\begin{frame}{Zapas: dodatkowe dane, ile zmieniły błąd}
 \centering
-\includegraphics[width=\textwidth,height=.78\textheight,keepaspectratio]{fig/preprint_needs_pl.png}
-\sub{Kluczowe: lajki odczytane w tej samej chwili co wyświetlenia. Same komentarze: \x{6,3}--\x{7,4}.}
+\includegraphics[width=\textwidth,height=.68\textheight,keepaspectratio]{fig/preprint_methods_pl.png}
+\sub{Co widać: jeden punkt to zmiana błędu po dodaniu źródła (oś pozioma, w prawo = lepiej) dla TT, YT, X; żadne źródło nie daje więcej niż \x{1,04}.}
 \end{frame}
 
-% 11
-\begin{frame}{Co testowaliśmy: ta sama platforma}
-\centering\tiny\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{0.85}
+\begin{frame}{Zapas: modele na tej samej platformie (TikTok, YouTube, X)}
+\centering\tiny\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{0.74}
 \begin{tabular}{lccc}
 \toprule
 Model (ta sama platforma, typowy błąd) & TikTok & YouTube & X \\
@@ -302,11 +475,17 @@ Model (ta sama platforma, typowy błąd) & TikTok & YouTube & X \\
 \bottomrule
 \end{tabular}
 \vspace{2pt}
-\sub{\scriptsize Ponad 20 dodatkowych źródeł (tekst, etykiety AI, grafy, Wikipedia) poprawia błąd najwyżej \x{1,04}.}
+\sub{\tiny Walidacja tylko po markach, 8 pól, strojenie zagnieżdżone; dlatego liczby nieco niższe niż w wynikach głównych (po markach i autorach). Stos nie jest modelem końcowym: zysk \x{1,03}--\x{1,07}, kilkanaście modeli, TabPFN ok. 150$\times$ wolniejszy.}
 \end{frame}
 
-% 11-oop
-\begin{frame}{Co testowaliśmy: poza platformą (FB, IG)}
+\begin{frame}{Zapas: siatka platform treningowych (ridge na 2 polach)}
+\centering\footnotesize
+\scriptsize\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{0.72}
+\input{combos_tabular}
+\sub{Ridge na 2 polach (lajki, komentarze), walidacja po markach (nie po markach i autorach). Typowy błąd (\x{}); szare = trening. Mediana po 15 zestawach bez celu: FB \x{2,58}, IG \x{2,65}, czyli nie zależy od wyboru X + YT.\\ \scriptsize Stack Exchange (538 pytań) nigdy nie jest w treningu: najlepszy z samego YouTube \x{1,87}, własny ridge SE \x{1,77}; każdy zestaw z X daje \x{3}--\x{5}.}
+\end{frame}
+
+\begin{frame}{Zapas: modele poza platformą (Facebook, Instagram)}
 \centering\scriptsize\setlength{\tabcolsep}{6pt}\renewcommand{\arraystretch}{0.8}
 \begin{tabular}{lcc}
 \toprule
@@ -334,71 +513,12 @@ Metoda (typowy błąd) & Facebook & Instagram \\
 \bottomrule
 \end{tabular}
 \vspace{2pt}
-\sub{Trening tylko na eksporcie X + YouTube, nigdy na FB/IG. Złożone modele i augmentacja nie dają wyraźnej poprawy względem prostej regresji na 2 polach (lajki, komentarze).}
+\sub{Wszystkie modele: 2 pola (lajki, komentarze), trening tylko na X + YouTube, nigdy na FB/IG. Złożone modele i augmentacja nie dają wyraźnej poprawy względem prostej regresji; mnożnik lajków jest na FB prawie tak samo dobry.}
 \end{frame}
 
-
-% 11a
-\begin{frame}{Dodatkowe dane: ile zmieniły błąd}
-\centering
-\includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{fig/preprint_methods_pl.png}
-\end{frame}
-
-% time
-\begin{frame}{Dane w czasie: ważne, kiedy odczytano wyświetlenia}
-\centering
-\includegraphics[width=\textwidth,height=.68\textheight,keepaspectratio]{fig/deck_reread_pl.png}
-\sub{Trening na wcześniejszych miesiącach i test na późniejszych daje ten sam błąd co walidacja po markach: brak dryfu w czasie. Liczy się, żeby wyświetlenia i reakcje były odczytane razem.}
-\end{frame}
-
-% author
-\begin{frame}{Historia autora: gdy ją znamy, błąd wyraźnie spada}
-\centering
-\includegraphics[width=\textwidth,height=.68\textheight,keepaspectratio]{fig/deck_author_pl.png}
-\sub{Autorzy mają stały poziom wyświetleń, którego nie widać z reakcji. Wystarczy jeden wcześniejszy post z wyświetleniami. Ale w danych taką historię ma tylko 3--16\% postów.}
-\end{frame}
-
-% errors
-\begin{frame}{Gdzie są błędy: małe i duże posty}
-\begin{columns}[c]
-\column{.6\textwidth}
-\includegraphics[width=\textwidth,height=.8\textheight,keepaspectratio]{fig/deck_tails_pl.png}
-\column{.4\textwidth}
-\begin{block}{Jak próbowaliśmy to naprawić}\scriptsize
-\begin{itemize}\setlength\itemsep{2pt}
-\item \textbf{cel ,,wyświetlenia na lajk''} $\to$ prawie bez zmian
-\item \textbf{większa waga skrajnych postów} $\to$ bez zmian
-\item \textbf{inne funkcje błędu} (RMSE, kwantyl) $\to$ duże posty nadal zaniżone
-\item \textbf{osobny model dla postów bez reakcji} $\to$ bez zysku
-\item \textbf{korekta wyniku po fakcie} $\to$ bez poprawy
-\end{itemize}
-\end{block}
-{\scriptsize Najgorzej na X i YouTube: przy kilku reakcjach (X: 70\% postów bez lajka) model nie odróżni małego posta od dużego i daje wynik ze środka.}
-\end{columns}
-\end{frame}
-
-% slices
-\begin{frame}{Ile reakcji trzeba, żeby oszacować? I czy klasyfikacja działa?}
+\begin{frame}{Zapas: klasyfikacja i próby naprawy skrajnych postów}
 \begin{columns}[T]
-\column{.52\textwidth}
-\centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.0}
-{\small Typowy błąd (\x{}) wg liczby reakcji}\\[3pt]
-\begin{tabular}{lccc}
-\toprule
- & TikTok & YouTube & X \\
-\midrule
-0 reakcji & \x{3,23} {\tiny\color{mut}3\%} & \x{4,59} {\tiny\color{mut}27\%} & \x{3,19} {\tiny\color{mut}54\%} \\
-1--5 reakcji & \x{2,01} {\tiny\color{mut}13\%} & \x{2,91} {\tiny\color{mut}19\%} & \x{2,96} {\tiny\color{mut}36\%} \\
-6--100 reakcji & \x{1,75} {\tiny\color{mut}53\%} & \x{2,45} {\tiny\color{mut}32\%} & \x{2,57} {\tiny\color{mut}9\%} \\
-ponad 100 reakcji & \x{1,92} {\tiny\color{mut}30\%} & \x{2,08} {\tiny\color{mut}22\%} & \x{2,51} {\tiny\color{mut}1\%} \\
-\midrule
-wszystkie posty & \x{1,87} & \x{2,90} & \x{3,03} \\
-bez postów z 0 reakcji & \x{1,84} {\tiny\color{mut}97\%} & \x{2,44} {\tiny\color{mut}73\%} & \x{2,86} {\tiny\color{mut}46\%} \\
-bez postów z $\le$5 reakcjami & \xb{1,81} {\tiny\color{mut}83\%} & \xb{2,29} {\tiny\color{mut}54\%} & \xb{2,56} {\tiny\color{mut}10\%} \\
-\bottomrule
-\end{tabular}\\[2pt]
-{\tiny\color{mut} szare: udział postów; reakcje = lajki + komentarze + udostępnienia}
-\column{.46\textwidth}
+\column{.5\textwidth}
 \centering\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.0}
 {\small Klasyfikacja: $<$1k / 1--10k / $>$10k}\\[3pt]
 \begin{tabular}{lccc}
@@ -412,84 +532,17 @@ trafność zrównoważona & 77\% & 72\% & 43\% \\
 czy to duży post (top 20\%) & 0,97 & 0,92 & 0,84 \\
 czy to mały post (dół 20\%) & 0,93 & 0,92 & 0,79 \\
 \bottomrule
-\end{tabular}
-\end{columns}
-\vspace{6pt}
-\sub{Mało reakcji = za mało danych: posty z 0 reakcji mają błąd \x{3}--\x{4,6}. Bez postów z $\le$5 reakcjami błąd spada (YouTube \x{2,90} $\to$ \x{2,29}, X \x{3,03} $\to$ \x{2,56}), ale na X zostaje tylko 10\% postów; dużo reakcji nie szkodzi. Klasyfikacja działa na TT i YT; na X 95\% postów ma $<$1k, więc 95\% to zgadywanie.}
-\end{frame}
-
-% 11b
-\begin{frame}{Walidacja: dlaczego ufamy wynikom}
-\small
-\begin{columns}[T]
-\column{.48\textwidth}
-\begin{block}{Podział danych}
-Foldy łączą posty tej samej marki, tego samego autora lub identycznego tekstu: każdy test na \alert{nieznanej marce i autorze}.
-\end{block}
-\begin{block}{Przedziały ufności}
-Bootstrap po markach; sparowany bootstrap dla różnic między modelami.
-\end{block}
-\begin{block}{Zawsze proste odniesienia}
-Mediana i stały mnożnik lajków.
-\end{block}
-\column{.48\textwidth}
-\begin{block}{Dane spoza treningu}
-Nasze odczyty FB/IG, nigdy nieużyte w uczeniu. Leave-platform-out: każdą z 5 platform ukrywamy po kolei.
-\end{block}
-\begin{block}{Test w czasie}
-Trening na wcześniejszych miesiącach, test na późniejszym: MAE TikTok 0,270, YouTube 0,450, X 0,473, blisko walidacji po markach.
-\end{block}
-\begin{block}{Kalibracja}
-Przedział 90\% obejmuje 87--91\% postów na tej samej platformie.
-\end{block}
-\end{columns}
-\end{frame}
-
-% calib
-\begin{frame}{Kalibracja: czy przedział ,,90\%'' naprawdę trafia w 90\%?}
-\begin{columns}[c]
-\column{.62\textwidth}
-\includegraphics[width=\textwidth,height=.78\textheight,keepaspectratio]{fig/deck_calib_pl.png}
-\column{.36\textwidth}\small
-\begin{itemize}\setlength\itemsep{5pt}
-\item Surowy przedział modelu jest za wąski: trafia tylko w 3 na 4 posty.
-\item Po kalibracji (CQR) trafia w 9 na 10, na każdej platformie.
-\item Cena: przedział jest szeroki, na X od $\div$11 do \x{11}.
-\item Sumy marek: po jednej korekcie błąd \x{1,7} / \x{2,0} / \x{2,1}.
+\end{tabular}\\[4pt]
+{\scriptsize Klasyfikacja działa na TT i YT; na X 95\% postów ma $<$1k, więc 95\% to zgadywanie.}
+\column{.46\textwidth}
+\begin{block}{Jak próbowaliśmy poprawić duże i małe posty}\scriptsize
+\begin{itemize}\setlength\itemsep{2pt}
+\item \textbf{cel ,,wyświetlenia na lajk''} $\to$ prawie bez zmian
+\item \textbf{większa waga skrajnych postów} $\to$ bez zmian
+\item \textbf{inne funkcje błędu} (RMSE, kwantyl) $\to$ duże posty nadal zaniżone
+\item \textbf{osobny model dla postów bez reakcji} $\to$ bez zysku
+\item \textbf{korekta wyniku po fakcie} $\to$ bez poprawy
 \end{itemize}
-\end{columns}
-\end{frame}
-
-% 12 ------------------------------------------------------------
-\begin{frame}{Zastosowania i porównanie z kolumną zasięgu (X)}
-\centering
-\includegraphics[width=\textwidth,height=.44\textheight,keepaspectratio]{fig/preprint_side_pl.png}\\[2pt]
-\includegraphics[width=\textwidth,height=.30\textheight,keepaspectratio]{fig/final_compare_pl.png}
-\sub{\scriptsize Zasięg to inna miara niż wyświetlenia: pokazujemy, jak daleko od wyświetleń jest liczba, którą klient dostaje dziś.}
-\end{frame}
-
-% 14
-\begin{frame}{Ograniczenia i wnioski}
-\begin{columns}[T]
-\column{.48\textwidth}
-\begin{block}{Ograniczenia}
-\small
-\begin{itemize}
-\item mało marek: FB 20, IG 11
-\item wiek odczytu: eksport 23 dni, nasz odczyt FB/IG 310--334 dni
-\item tylko dostępne filmy i rolki
-\item X: regresja gorsza od stałego mnożnika lajków
-\item korelacja, nie przyczynowość
-\end{itemize}
-\end{block}
-\column{.48\textwidth}
-\begin{block}{Wnioski}
-\small
-\begin{enumerate}
-\item Tak: ridge na lajkach i komentarzach, uczony tylko na X i YouTube, szacuje FB z błędem \alert{\x{2,43}}, IG \alert{\x{2,72}}; mediana myli się \x{9}--\x{20}
-\item Przenosi się \alert{stosunek wyświetleń do lajków}; reakcje muszą być odczytane razem z wyświetleniami
-\item Nie wszędzie: X gorszy od mnożnika, Stack Exchange tylko kolejność
-\end{enumerate}
 \end{block}
 \end{columns}
 \end{frame}
