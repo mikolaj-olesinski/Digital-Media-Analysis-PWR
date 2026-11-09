@@ -1,0 +1,503 @@
+{
+ "tiktok": {
+  "posts": 2491,
+  "all": 1.87,
+  "all within x2": 0.665,
+  "AUC 'error > x2'": {
+   "error model": 0.541,
+   "within-x2 classifier": 0.554,
+   "reactions rule": 0.487
+  },
+  "Spearman predicted vs true |error|": 0.08,
+  "risk-coverage": {
+   "error model": {
+    "50%": {
+     "kept": 1.78,
+     "rest": 1.97,
+     "kept within x2": 0.689
+    },
+    "60%": {
+     "kept": 1.78,
+     "rest": 2.02,
+     "kept within x2": 0.689
+    },
+    "70%": {
+     "kept": 1.8,
+     "rest": 2.06,
+     "kept within x2": 0.685
+    },
+    "80%": {
+     "kept": 1.83,
+     "rest": 2.05,
+     "kept within x2": 0.677
+    },
+    "90%": {
+     "kept": 1.84,
+     "rest": 2.25,
+     "kept within x2": 0.675
+    },
+    "100%": {
+     "kept": 1.87,
+     "rest": null,
+     "kept within x2": 0.665
+    }
+   },
+   "within-x2 classifier": {
+    "50%": {
+     "kept": 1.78,
+     "rest": 1.97,
+     "kept within x2": 0.7
+    },
+    "60%": {
+     "kept": 1.79,
+     "rest": 2.0,
+     "kept within x2": 0.693
+    },
+    "70%": {
+     "kept": 1.79,
+     "rest": 2.07,
+     "kept within x2": 0.686
+    },
+    "80%": {
+     "kept": 1.82,
+     "rest": 2.12,
+     "kept within x2": 0.683
+    },
+    "90%": {
+     "kept": 1.84,
+     "rest": 2.2,
+     "kept within x2": 0.676
+    },
+    "100%": {
+     "kept": 1.87,
+     "rest": null,
+     "kept within x2": 0.665
+    }
+   },
+   "reactions rule": {
+    "50%": {
+     "kept": 1.87,
+     "rest": 1.87,
+     "kept within x2": 0.648
+    },
+    "60%": {
+     "kept": 1.84,
+     "rest": 1.93,
+     "kept within x2": 0.661
+    },
+    "70%": {
+     "kept": 1.82,
+     "rest": 1.99,
+     "kept within x2": 0.669
+    },
+    "80%": {
+     "kept": 1.81,
+     "rest": 2.14,
+     "kept within x2": 0.671
+    },
+    "90%": {
+     "kept": 1.81,
+     "rest": 2.51,
+     "kept within x2": 0.676
+    },
+    "100%": {
+     "kept": 1.87,
+     "rest": null,
+     "kept within x2": 0.665
+    }
+   },
+   "oracle (true error)": {
+    "50%": {
+     "kept": 1.23,
+     "rest": 2.84,
+     "kept within x2": 1.0
+    },
+    "60%": {
+     "kept": 1.3,
+     "rest": 3.24,
+     "kept within x2": 1.0
+    },
+    "70%": {
+     "kept": 1.38,
+     "rest": 3.83,
+     "kept within x2": 0.95
+    },
+    "80%": {
+     "kept": 1.47,
+     "rest": 4.92,
+     "kept within x2": 0.831
+    },
+    "90%": {
+     "kept": 1.6,
+     "rest": 7.69,
+     "kept within x2": 0.739
+    },
+    "100%": {
+     "kept": 1.87,
+     "rest": null,
+     "kept within x2": 0.665
+    }
+   }
+  },
+  "classifier thresholds": {
+   "P >= 0.5": {
+    "share of posts": 0.927,
+    "actual within x2": 0.673,
+    "factor kept": 1.85,
+    "factor rest": 2.23
+   },
+   "P >= 0.6": {
+    "share of posts": 0.77,
+    "actual within x2": 0.683,
+    "factor kept": 1.8,
+    "factor rest": 2.13
+   },
+   "P >= 0.7": {
+    "share of posts": 0.452,
+    "actual within x2": 0.71,
+    "factor kept": 1.74,
+    "factor rest": 1.99
+   },
+   "P >= 0.8": {
+    "share of posts": 0.084,
+    "actual within x2": 0.702,
+    "factor kept": 1.77,
+    "factor rest": 1.88
+   }
+  }
+ },
+ "youtube": {
+  "posts": 2441,
+  "all": 2.9,
+  "all within x2": 0.432,
+  "AUC 'error > x2'": {
+   "error model": 0.62,
+   "within-x2 classifier": 0.627,
+   "reactions rule": 0.648
+  },
+  "Spearman predicted vs true |error|": 0.292,
+  "risk-coverage": {
+   "error model": {
+    "50%": {
+     "kept": 2.28,
+     "rest": 3.68,
+     "kept within x2": 0.522
+    },
+    "60%": {
+     "kept": 2.33,
+     "rest": 4.03,
+     "kept within x2": 0.504
+    },
+    "70%": {
+     "kept": 2.46,
+     "rest": 4.27,
+     "kept within x2": 0.484
+    },
+    "80%": {
+     "kept": 2.62,
+     "rest": 4.32,
+     "kept within x2": 0.468
+    },
+    "90%": {
+     "kept": 2.77,
+     "rest": 4.41,
+     "kept within x2": 0.447
+    },
+    "100%": {
+     "kept": 2.9,
+     "rest": null,
+     "kept within x2": 0.432
+    }
+   },
+   "within-x2 classifier": {
+    "50%": {
+     "kept": 2.35,
+     "rest": 3.58,
+     "kept within x2": 0.52
+    },
+    "60%": {
+     "kept": 2.42,
+     "rest": 3.8,
+     "kept within x2": 0.503
+    },
+    "70%": {
+     "kept": 2.52,
+     "rest": 4.02,
+     "kept within x2": 0.489
+    },
+    "80%": {
+     "kept": 2.63,
+     "rest": 4.3,
+     "kept within x2": 0.467
+    },
+    "90%": {
+     "kept": 2.75,
+     "rest": 4.61,
+     "kept within x2": 0.452
+    },
+    "100%": {
+     "kept": 2.9,
+     "rest": null,
+     "kept within x2": 0.432
+    }
+   },
+   "reactions rule": {
+    "50%": {
+     "kept": 2.26,
+     "rest": 3.72,
+     "kept within x2": 0.545
+    },
+    "60%": {
+     "kept": 2.31,
+     "rest": 4.07,
+     "kept within x2": 0.523
+    },
+    "70%": {
+     "kept": 2.4,
+     "rest": 4.5,
+     "kept within x2": 0.499
+    },
+    "80%": {
+     "kept": 2.59,
+     "rest": 4.57,
+     "kept within x2": 0.472
+    },
+    "90%": {
+     "kept": 2.76,
+     "rest": 4.49,
+     "kept within x2": 0.452
+    },
+    "100%": {
+     "kept": 2.9,
+     "rest": null,
+     "kept within x2": 0.432
+    }
+   },
+   "oracle (true error)": {
+    "50%": {
+     "kept": 1.49,
+     "rest": 5.65,
+     "kept within x2": 0.865
+    },
+    "60%": {
+     "kept": 1.62,
+     "rest": 6.95,
+     "kept within x2": 0.72
+    },
+    "70%": {
+     "kept": 1.78,
+     "rest": 9.07,
+     "kept within x2": 0.617
+    },
+    "80%": {
+     "kept": 1.98,
+     "rest": 13.3,
+     "kept within x2": 0.54
+    },
+    "90%": {
+     "kept": 2.27,
+     "rest": 26.18,
+     "kept within x2": 0.48
+    },
+    "100%": {
+     "kept": 2.9,
+     "rest": null,
+     "kept within x2": 0.432
+    }
+   }
+  },
+  "classifier thresholds": {
+   "P >= 0.5": {
+    "share of posts": 0.336,
+    "actual within x2": 0.569,
+    "factor kept": 2.16,
+    "factor rest": 3.37
+   },
+   "P >= 0.6": {
+    "share of posts": 0.189,
+    "actual within x2": 0.592,
+    "factor kept": 2.03,
+    "factor rest": 3.15
+   },
+   "P >= 0.7": {
+    "share of posts": 0.068,
+    "actual within x2": 0.581,
+    "factor kept": 2.07,
+    "factor rest": 2.97
+   },
+   "P >= 0.8": {
+    "share of posts": 0.018,
+    "actual within x2": 0.556,
+    "factor kept": 2.22,
+    "factor rest": 2.91
+   }
+  }
+ },
+ "twitter": {
+  "posts": 1803,
+  "all": 3.03,
+  "all within x2": 0.397,
+  "AUC 'error > x2'": {
+   "error model": 0.527,
+   "within-x2 classifier": 0.536,
+   "reactions rule": 0.525
+  },
+  "Spearman predicted vs true |error|": 0.075,
+  "risk-coverage": {
+   "error model": {
+    "50%": {
+     "kept": 2.82,
+     "rest": 3.26,
+     "kept within x2": 0.412
+    },
+    "60%": {
+     "kept": 2.9,
+     "rest": 3.25,
+     "kept within x2": 0.401
+    },
+    "70%": {
+     "kept": 2.92,
+     "rest": 3.3,
+     "kept within x2": 0.4
+    },
+    "80%": {
+     "kept": 2.92,
+     "rest": 3.55,
+     "kept within x2": 0.403
+    },
+    "90%": {
+     "kept": 2.93,
+     "rest": 4.14,
+     "kept within x2": 0.403
+    },
+    "100%": {
+     "kept": 3.03,
+     "rest": null,
+     "kept within x2": 0.397
+    }
+   },
+   "within-x2 classifier": {
+    "50%": {
+     "kept": 2.86,
+     "rest": 3.22,
+     "kept within x2": 0.418
+    },
+    "60%": {
+     "kept": 2.92,
+     "rest": 3.21,
+     "kept within x2": 0.413
+    },
+    "70%": {
+     "kept": 2.94,
+     "rest": 3.26,
+     "kept within x2": 0.408
+    },
+    "80%": {
+     "kept": 2.96,
+     "rest": 3.35,
+     "kept within x2": 0.405
+    },
+    "90%": {
+     "kept": 2.98,
+     "rest": 3.53,
+     "kept within x2": 0.404
+    },
+    "100%": {
+     "kept": 3.03,
+     "rest": null,
+     "kept within x2": 0.397
+    }
+   },
+   "reactions rule": {
+    "50%": {
+     "kept": 2.83,
+     "rest": 3.25,
+     "kept within x2": 0.425
+    },
+    "60%": {
+     "kept": 2.93,
+     "rest": 3.19,
+     "kept within x2": 0.409
+    },
+    "70%": {
+     "kept": 2.95,
+     "rest": 3.24,
+     "kept within x2": 0.403
+    },
+    "80%": {
+     "kept": 2.99,
+     "rest": 3.19,
+     "kept within x2": 0.397
+    },
+    "90%": {
+     "kept": 2.97,
+     "rest": 3.61,
+     "kept within x2": 0.4
+    },
+    "100%": {
+     "kept": 3.03,
+     "rest": null,
+     "kept within x2": 0.397
+    }
+   },
+   "oracle (true error)": {
+    "50%": {
+     "kept": 1.53,
+     "rest": 6.03,
+     "kept within x2": 0.793
+    },
+    "60%": {
+     "kept": 1.68,
+     "rest": 7.34,
+     "kept within x2": 0.661
+    },
+    "70%": {
+     "kept": 1.87,
+     "rest": 9.38,
+     "kept within x2": 0.567
+    },
+    "80%": {
+     "kept": 2.1,
+     "rest": 13.13,
+     "kept within x2": 0.496
+    },
+    "90%": {
+     "kept": 2.43,
+     "rest": 22.75,
+     "kept within x2": 0.441
+    },
+    "100%": {
+     "kept": 3.03,
+     "rest": null,
+     "kept within x2": 0.397
+    }
+   }
+  },
+  "classifier thresholds": {
+   "P >= 0.5": {
+    "share of posts": 0.151,
+    "actual within x2": 0.471,
+    "factor kept": 2.63,
+    "factor rest": 3.11
+   },
+   "P >= 0.6": {
+    "share of posts": 0.047,
+    "actual within x2": 0.536,
+    "factor kept": 2.5,
+    "factor rest": 3.06
+   },
+   "P >= 0.7": {
+    "share of posts": 0.016,
+    "actual within x2": 0.69,
+    "factor kept": 2.0,
+    "factor rest": 3.05
+   },
+   "P >= 0.8": {
+    "share of posts": 0.004,
+    "actual within x2": 0.625,
+    "factor kept": 2.53,
+    "factor rest": 3.04
+   }
+  }
+ }
+}
