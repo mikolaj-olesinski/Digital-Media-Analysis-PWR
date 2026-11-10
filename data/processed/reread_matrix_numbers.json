@@ -1,0 +1,48 @@
+{
+ "in platform": {
+  "export": {
+   "tiktok": {
+    "factor": 1.99,
+    "posts": 2491
+   },
+   "youtube": {
+    "factor": 4.15,
+    "posts": 2441
+   },
+   "twitter": {
+    "factor": 3.3,
+    "posts": 1803
+   }
+  },
+  "re-read": {
+   "tiktok": {
+    "factor": 2.06,
+    "posts": 426
+   },
+   "youtube": {
+    "factor": 2.1,
+    "posts": 1376
+   },
+   "twitter": {
+    "factor": 2.96,
+    "posts": 2013
+   }
+  }
+ },
+ "out of platform": {
+  "export": {
+   "tiktok": 2.05,
+   "youtube": 4.09,
+   "twitter": 4.47,
+   "facebook": 2.43,
+   "instagram": 2.72
+  },
+  "re-read": {
+   "tiktok": 2.29,
+   "youtube": 2.14,
+   "twitter": 3.01,
+   "facebook": 2.44,
+   "instagram": 2.41
+  }
+ }
+}

@@ -1,0 +1,307 @@
+{
+ "tiktok": {
+  "OLS (no penalty)": {
+   "factor": 2.05,
+   "MAE": 0.313,
+   "vs ridge": {
+    "diff": 0.0,
+    "CI": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "ridge (published, alpha 1)": {
+   "factor": 2.05,
+   "MAE": 0.313
+  },
+  "lasso (alpha 0.01)": {
+   "factor": 2.04,
+   "MAE": 0.31,
+   "vs ridge": {
+    "diff": -0.002,
+    "CI": [
+     -0.003,
+     -0.002
+    ]
+   }
+  },
+  "elastic net (alpha 0.01, l1 0.5)": {
+   "factor": 2.04,
+   "MAE": 0.311,
+   "vs ridge": {
+    "diff": -0.002,
+    "CI": [
+     -0.003,
+     -0.001
+    ]
+   }
+  },
+  "Huber (robust loss)": {
+   "factor": 2.13,
+   "MAE": 0.328,
+   "vs ridge": {
+    "diff": 0.016,
+    "CI": [
+     0.013,
+     0.018
+    ]
+   }
+  },
+  "median regression (quantile 0.5)": {
+   "factor": 2.14,
+   "MAE": 0.33,
+   "vs ridge": {
+    "diff": 0.017,
+    "CI": [
+     0.014,
+     0.021
+    ]
+   }
+  }
+ },
+ "youtube": {
+  "OLS (no penalty)": {
+   "factor": 4.09,
+   "MAE": 0.612,
+   "vs ridge": {
+    "diff": 0.0,
+    "CI": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "ridge (published, alpha 1)": {
+   "factor": 4.09,
+   "MAE": 0.612
+  },
+  "lasso (alpha 0.01)": {
+   "factor": 4.06,
+   "MAE": 0.608,
+   "vs ridge": {
+    "diff": -0.003,
+    "CI": [
+     -0.005,
+     -0.002
+    ]
+   }
+  },
+  "elastic net (alpha 0.01, l1 0.5)": {
+   "factor": 4.06,
+   "MAE": 0.609,
+   "vs ridge": {
+    "diff": -0.003,
+    "CI": [
+     -0.004,
+     -0.002
+    ]
+   }
+  },
+  "Huber (robust loss)": {
+   "factor": 4.08,
+   "MAE": 0.611,
+   "vs ridge": {
+    "diff": -0.001,
+    "CI": [
+     -0.002,
+     -0.0
+    ]
+   }
+  },
+  "median regression (quantile 0.5)": {
+   "factor": 4.07,
+   "MAE": 0.61,
+   "vs ridge": {
+    "diff": -0.002,
+    "CI": [
+     -0.003,
+     -0.0
+    ]
+   }
+  }
+ },
+ "twitter": {
+  "OLS (no penalty)": {
+   "factor": 4.47,
+   "MAE": 0.65,
+   "vs ridge": {
+    "diff": -0.0,
+    "CI": [
+     -0.0,
+     -0.0
+    ]
+   }
+  },
+  "ridge (published, alpha 1)": {
+   "factor": 4.47,
+   "MAE": 0.65
+  },
+  "lasso (alpha 0.01)": {
+   "factor": 4.52,
+   "MAE": 0.655,
+   "vs ridge": {
+    "diff": 0.005,
+    "CI": [
+     0.005,
+     0.006
+    ]
+   }
+  },
+  "elastic net (alpha 0.01, l1 0.5)": {
+   "factor": 4.53,
+   "MAE": 0.656,
+   "vs ridge": {
+    "diff": 0.006,
+    "CI": [
+     0.005,
+     0.006
+    ]
+   }
+  },
+  "Huber (robust loss)": {
+   "factor": 3.98,
+   "MAE": 0.6,
+   "vs ridge": {
+    "diff": -0.05,
+    "CI": [
+     -0.056,
+     -0.044
+    ]
+   }
+  },
+  "median regression (quantile 0.5)": {
+   "factor": 3.96,
+   "MAE": 0.598,
+   "vs ridge": {
+    "diff": -0.052,
+    "CI": [
+     -0.058,
+     -0.046
+    ]
+   }
+  }
+ },
+ "facebook": {
+  "OLS (no penalty)": {
+   "factor": 2.43,
+   "MAE": 0.385,
+   "vs ridge": {
+    "diff": -0.0,
+    "CI": [
+     -0.0,
+     -0.0
+    ]
+   }
+  },
+  "ridge (published, alpha 1)": {
+   "factor": 2.43,
+   "MAE": 0.385
+  },
+  "lasso (alpha 0.01)": {
+   "factor": 2.45,
+   "MAE": 0.39,
+   "vs ridge": {
+    "diff": 0.004,
+    "CI": [
+     0.002,
+     0.007
+    ]
+   }
+  },
+  "elastic net (alpha 0.01, l1 0.5)": {
+   "factor": 2.45,
+   "MAE": 0.389,
+   "vs ridge": {
+    "diff": 0.004,
+    "CI": [
+     0.001,
+     0.007
+    ]
+   }
+  },
+  "Huber (robust loss)": {
+   "factor": 2.47,
+   "MAE": 0.392,
+   "vs ridge": {
+    "diff": 0.006,
+    "CI": [
+     -0.011,
+     0.025
+    ]
+   }
+  },
+  "median regression (quantile 0.5)": {
+   "factor": 2.5,
+   "MAE": 0.398,
+   "vs ridge": {
+    "diff": 0.013,
+    "CI": [
+     -0.008,
+     0.034
+    ]
+   }
+  }
+ },
+ "instagram": {
+  "OLS (no penalty)": {
+   "factor": 2.72,
+   "MAE": 0.435,
+   "vs ridge": {
+    "diff": -0.0,
+    "CI": [
+     -0.0,
+     -0.0
+    ]
+   }
+  },
+  "ridge (published, alpha 1)": {
+   "factor": 2.72,
+   "MAE": 0.435
+  },
+  "lasso (alpha 0.01)": {
+   "factor": 2.73,
+   "MAE": 0.436,
+   "vs ridge": {
+    "diff": 0.001,
+    "CI": [
+     0.0,
+     0.002
+    ]
+   }
+  },
+  "elastic net (alpha 0.01, l1 0.5)": {
+   "factor": 2.74,
+   "MAE": 0.438,
+   "vs ridge": {
+    "diff": 0.003,
+    "CI": [
+     0.002,
+     0.005
+    ]
+   }
+  },
+  "Huber (robust loss)": {
+   "factor": 2.85,
+   "MAE": 0.456,
+   "vs ridge": {
+    "diff": 0.021,
+    "CI": [
+     0.012,
+     0.029
+    ]
+   }
+  },
+  "median regression (quantile 0.5)": {
+   "factor": 2.93,
+   "MAE": 0.467,
+   "vs ridge": {
+    "diff": 0.033,
+    "CI": [
+     0.022,
+     0.043
+    ]
+   }
+  }
+ }
+}

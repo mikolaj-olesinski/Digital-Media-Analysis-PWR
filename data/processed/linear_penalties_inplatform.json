@@ -1,0 +1,44 @@
+{
+ "tiktok": {
+  "ridge": {
+   "tuned factor": 1.89,
+   "tuned MAE": 0.277
+  },
+  "lasso": {
+   "tuned factor": 1.89,
+   "tuned MAE": 0.278
+  },
+  "elastic net": {
+   "tuned factor": 1.89,
+   "tuned MAE": 0.277
+  }
+ },
+ "youtube": {
+  "ridge": {
+   "tuned factor": 3.51,
+   "tuned MAE": 0.545
+  },
+  "lasso": {
+   "tuned factor": 3.5,
+   "tuned MAE": 0.544
+  },
+  "elastic net": {
+   "tuned factor": 3.5,
+   "tuned MAE": 0.544
+  }
+ },
+ "twitter": {
+  "ridge": {
+   "tuned factor": 3.07,
+   "tuned MAE": 0.487
+  },
+  "lasso": {
+   "tuned factor": 3.07,
+   "tuned MAE": 0.487
+  },
+  "elastic net": {
+   "tuned factor": 3.07,
+   "tuned MAE": 0.487
+  }
+ }
+}
