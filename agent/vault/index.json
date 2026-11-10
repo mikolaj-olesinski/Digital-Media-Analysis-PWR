@@ -2788,6 +2788,18 @@
   ]
  },
  {
+  "id": "E239",
+  "date": "2026-11-10",
+  "question": "Text analysis per platform",
+  "setup": "Length, language, hashtags, links, emoji, duplicates, AI type and sentiment labels, distinctive words, median views by type; 5 platforms x 2,500",
+  "result": "FB 85% / IG 59% promo, X 68% organic; hashtags IG 96% vs X 20%; links YT 51%; X negative 22%; FB almost no emoji (data artefact?)",
+  "type": "finding",
+  "where": "`src/text_eda.py`",
+  "paths": [
+   "src/text_eda.py"
+  ]
+ },
+ {
   "id": "E233",
   "date": "2026-11-09",
   "question": "Are the export X views or our read wrong, and are YouTube zero likes real?",

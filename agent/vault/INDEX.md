@@ -234,6 +234,7 @@ One card per experiment. Generated index; do not edit by hand (run `python src/a
 | E235 | finding | Spikes of small accounts | [E235](E235.md) |
 | E236 | finding | Other linear models than ridge | [E236](E236.md) |
 | E238 | finding | Ridge in and out of platform, export vs re-read | [E238](E238.md) |
+| E239 | finding | Text analysis per platform | [E239](E239.md) |
 | E233 | finding | Are the export X views or our read wrong, and are YouTube zero likes real? | [E233](E233.md) |
 | E223 | finding | Do our FB / IG post owners have the same account on YouTube or X? | [E223](E223.md) |
 | E224 | finding | Is a mention really about its brand? | [E224](E224.md) |
