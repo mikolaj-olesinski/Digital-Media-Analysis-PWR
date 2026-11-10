@@ -1,0 +1,245 @@
+{
+ "tiktok": {
+  "posts": 2500,
+  "share with text": 1.0,
+  "median chars": 163,
+  "p90 chars": 907,
+  "median words": 22,
+  "language": {
+   "en": 0.94,
+   "es": 0.022,
+   "vi": 0.006,
+   "it": 0.005
+  },
+  "share with hashtag": 0.888,
+  "hashtags per post (median among those with)": 5,
+  "share with @mention": 0.283,
+  "share with link": 0.041,
+  "share with emoji": 0.227,
+  "share with question mark": 0.136,
+  "exact duplicate texts": 0.012,
+  "type": {
+   "organic": 0.472,
+   "promo": 0.34,
+   "spam": 0.133,
+   "unclear": 0.055
+  },
+  "sentiment (AI label)": {
+   "neutral": 0.524,
+   "positive": 0.432,
+   "negative": 0.043
+  },
+  "median views by type": {
+   "organic": 782,
+   "promo": 721,
+   "spam": 603,
+   "unclear": 508
+  },
+  "distinctive words (English)": [
+   "creatorsearchinsights",
+   "foryoupage",
+   "fyp",
+   "foryou",
+   "worldcup",
+   "bedroom",
+   "klein",
+   "skincare",
+   "viral",
+   "huntington",
+   "dunkin",
+   "appliances"
+  ]
+ },
+ "youtube": {
+  "posts": 2500,
+  "share with text": 1.0,
+  "median chars": 752,
+  "p90 chars": 3238,
+  "median words": 97,
+  "language": {
+   "en": 0.968,
+   "pl": 0.012,
+   "fr": 0.004,
+   "es": 0.003
+  },
+  "share with hashtag": 0.556,
+  "hashtags per post (median among those with)": 4,
+  "share with @mention": 0.28,
+  "share with link": 0.51,
+  "share with emoji": 0.236,
+  "share with question mark": 0.361,
+  "exact duplicate texts": 0.011,
+  "type": {
+   "promo": 0.423,
+   "organic": 0.301,
+   "spam": 0.153,
+   "unclear": 0.123
+  },
+  "sentiment (AI label)": {
+   "neutral": 0.818,
+   "positive": 0.169,
+   "negative": 0.013
+  },
+  "median views by type": {
+   "organic": 402,
+   "promo": 607,
+   "spam": 388,
+   "unclear": 141
+  },
+  "distinctive words (English)": [
+   "playlists",
+   "microphone",
+   "subscribe",
+   "motherboard",
+   "timestamps",
+   "patreon",
+   "playlist",
+   "mic",
+   "rgb",
+   "affiliate",
+   "vlogs",
+   "opinions"
+  ]
+ },
+ "twitter": {
+  "posts": 2500,
+  "share with text": 1.0,
+  "median chars": 211,
+  "p90 chars": 377,
+  "median words": 29,
+  "language": {
+   "en": 0.975,
+   "fr": 0.007,
+   "es": 0.005,
+   "pl": 0.005
+  },
+  "share with hashtag": 0.196,
+  "hashtags per post (median among those with)": 2,
+  "share with @mention": 0.528,
+  "share with link": 0.402,
+  "share with emoji": 0.096,
+  "share with question mark": 0.156,
+  "exact duplicate texts": 0.017,
+  "type": {
+   "organic": 0.675,
+   "promo": 0.185,
+   "spam": 0.131,
+   "unclear": 0.009
+  },
+  "sentiment (AI label)": {
+   "neutral": 0.612,
+   "negative": 0.222,
+   "positive": 0.167
+  },
+  "median views by type": {
+   "organic": 26,
+   "promo": 48,
+   "spam": 29,
+   "unclear": 20
+  },
+  "distinctive words (English)": [
+   "wts",
+   "publix",
+   "shit",
+   "pringles",
+   "ace",
+   "hbo",
+   "papa",
+   "locker",
+   "philadelphia",
+   "xfinity",
+   "johns",
+   "outback"
+  ]
+ },
+ "facebook": {
+  "posts": 2500,
+  "share with text": 1.0,
+  "median chars": 526,
+  "p90 chars": 1627,
+  "median words": 77,
+  "language": {
+   "en": 0.713,
+   "pl": 0.132,
+   "es": 0.045,
+   "fr": 0.022
+  },
+  "share with hashtag": 0.468,
+  "hashtags per post (median among those with)": 5,
+  "share with @mention": 0.103,
+  "share with link": 0.339,
+  "share with emoji": 0.002,
+  "share with question mark": 0.263,
+  "exact duplicate texts": 0.058,
+  "type": {
+   "promo": 0.847,
+   "spam": 0.071,
+   "organic": 0.067,
+   "unclear": 0.014
+  },
+  "sentiment (AI label)": {
+   "neutral": 0.485,
+   "positive": 0.477,
+   "negative": 0.038
+  },
+  "distinctive words (English)": [
+   "smx",
+   "supercross",
+   "acronis",
+   "yamaha",
+   "monsterenergy",
+   "nations",
+   "monster",
+   "twilio",
+   "infosys",
+   "cyber",
+   "excellence",
+   "coinbase"
+  ]
+ },
+ "instagram": {
+  "posts": 2500,
+  "share with text": 1.0,
+  "median chars": 549,
+  "p90 chars": 1417,
+  "median words": 76,
+  "language": {
+   "en": 0.643,
+   "sv": 0.108,
+   "pl": 0.092,
+   "es": 0.038
+  },
+  "share with hashtag": 0.959,
+  "hashtags per post (median among those with)": 10,
+  "share with @mention": 0.03,
+  "share with link": 0.106,
+  "share with emoji": 0.098,
+  "share with question mark": 0.271,
+  "exact duplicate texts": 0.054,
+  "type": {
+   "promo": 0.586,
+   "organic": 0.223,
+   "spam": 0.174,
+   "unclear": 0.017
+  },
+  "sentiment (AI label)": {
+   "neutral": 0.627,
+   "positive": 0.358,
+   "negative": 0.015
+  },
+  "distinctive words (English)": [
+   "kondisi",
+   "adidasoriginals",
+   "emailmarketing",
+   "prada",
+   "thenorthface",
+   "onlinebusiness",
+   "paymentgateway",
+   "digitalmarketing",
+   "sprout",
+   "yeezy",
+   "socialmediamarketing",
+   "ecommerce"
+  ]
+ }
+}
