@@ -2764,6 +2764,30 @@
   ]
  },
  {
+  "id": "E236",
+  "date": "2026-11-10",
+  "question": "Other linear models than ridge",
+  "setup": "OLS, lasso, elastic net, Huber and median regression on likes + comments; leave one export platform out and FB / IG from X + YT; paired brand-bootstrap vs ridge",
+  "result": "Penalty irrelevant (OLS = ridge, lasso / elastic net within 0.006); Huber / median help only on X (x4.47 to x3.96-3.98, -0.05) and hurt TikTok / Instagram (+0.02-0.03)",
+  "type": "finding",
+  "where": "`src/linear_penalties.py`",
+  "paths": [
+   "src/linear_penalties.py"
+  ]
+ },
+ {
+  "id": "E238",
+  "date": "2026-11-10",
+  "question": "Ridge in and out of platform, export vs re-read",
+  "setup": "One grid: ridge on likes + comments in platform (brand CV) and out of platform, export labels and same-moment re-read labels",
+  "result": "Re-read: out of platform x2.14 / x3.01 vs in platform x2.10 / x2.96 (YT / X); export gap on X (x4.47 vs x3.30) mostly stale views; TikTok exception (426 posts)",
+  "type": "finding",
+  "where": "`src/reread_matrix.py`",
+  "paths": [
+   "src/reread_matrix.py"
+  ]
+ },
+ {
   "id": "E233",
   "date": "2026-11-09",
   "question": "Are the export X views or our read wrong, and are YouTube zero likes real?",
